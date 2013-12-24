@@ -1,0 +1,9 @@
+grammar de.lynorics.eclipse.jangaroo.AS3 with org.eclipse.xtext.common.Terminals
+
+generate aS3 "http://www.lynorics.de/eclipse/jangaroo/AS3"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';

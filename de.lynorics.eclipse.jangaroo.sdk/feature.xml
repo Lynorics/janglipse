@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="de.lynorics.eclipse.jangaroo.sdk"
+	label="AS3 SDK Feature "
+	version="1.0.0.qualifier">
+	<plugin
+			id="de.lynorics.eclipse.jangaroo"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+	<plugin
+			id="de.lynorics.eclipse.jangaroo.ui"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+</feature>
