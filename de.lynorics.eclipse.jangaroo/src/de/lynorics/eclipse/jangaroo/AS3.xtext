@@ -1,3 +1,9 @@
+/*
+ * Copyright 2013
+ *
+ * Licensed under the Eclipse Public License version 1.0, available at
+ * http://opensource.org/licenses/eclipse-1.0.txt
+ */
 grammar de.lynorics.eclipse.jangaroo.AS3 with org.eclipse.xtext.common.Terminals
 
 generate aS3 "http://www.lynorics.de/eclipse/jangaroo/AS3"
