@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.lynorics.eclipse.jangaroo/src-gen" editDirectory="/de.lynorics.eclipse.jangaroo.edit/src"
+    editorDirectory="/de.lynorics.eclipse.jangaroo.editor/src" modelPluginID="de.lynorics.eclipse.jangaroo"
+    forceOverwrite="true" modelName="AS3" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="de.lynorics.eclipse.jangaroo.edit"
+    editorPluginID="de.lynorics.eclipse.jangaroo.editor" runtimeVersion="2.9">
+  <genPackages prefix="AS3" basePackage="de.lynorics.eclipse.jangaroo" disposableProviderFactory="true"
+      fileExtensions="as" ecorePackage="AS3.ecore#/">
+    <genClasses ecoreClass="AS3.ecore#//Model"/>
+    <genClasses ecoreClass="AS3.ecore#//PackageDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//PackageDeclaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//PackageDeclaration/elemnts"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//ActionScript">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//ActionScript/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//ActionScript/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//Import">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Import/importURI"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//Type"/>
+    <genClasses ecoreClass="AS3.ecore#//Property"/>
+    <genClasses ecoreClass="AS3.ecore#//Class">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Class/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/superClass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/properties"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//Function">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Function/name"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//Variables">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Variables/Name"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//UNIT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//UNIT/String"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//_String">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//_String/String"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//_int">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//_int/int"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//number">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//number/double"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

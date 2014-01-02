@@ -4,12 +4,52 @@
  * Licensed under the Eclipse Public License version 1.0, available at
  * http://opensource.org/licenses/eclipse-1.0.txt
  */
-grammar de.lynorics.eclipse.jangaroo.AS3 with org.eclipse.xtext.common.Terminals
+grammar de.lynorics.eclipse.jangaroo.AS3 with de.lynorics.eclipse.jangaroo.AS3Terminals
 
 generate aS3 "http://www.lynorics.de/eclipse/jangaroo/AS3"
 
 Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
+  PackageDeclaration | ActionScript;
+
+PackageDeclaration:
+  PACKAGE name=QualifiedName LCURLY
+    elemnts+=ActionScript
+  RCURLY;
+
+ActionScript:
+  (imports+=ImportDefinition)*
+  elements+=Type+;
+  
+ImportDefinition :
+  IMPORT importURI=PackageDeclaration SEMI;
+
+Type:
+  (Visibility)?
+  ClassDefinition | FunctionDefinition | Variables;
+
+Property:
+  (Visibility)?
+  Variables | FunctionDefinition;
+
+ClassDefinition :
+  CLASS name=ID (EXTENDS superClass=[ClassDefinition])? LCURLY
+    properties+=Property*
+  RCURLY;
+  
+FunctionDefinition:
+  FUNCTION name=ID LBRACK RBRACK  LCURLY RCURLY;
+  
+Variables:
+  VAR _String | VAR _int | VAR NumberDefinition;
+  
+_String:
+  Name=ID COLON  STRING (EQUAL String=''?)? SEMI;
+  
+_int:
+  Name=ID COLON INT (EQUAL int='0')?  SEMI;
+  
+NumberDefinition:
+  Name=ID COLON Number (EQUAL double='0')? SEMI;
+
+QualifiedName:
+  ID (DOT ID)*;
