@@ -32,112 +32,355 @@ public interface AS3Factory extends EFactory
   Model createModel();
 
   /**
-   * Returns a new object of class '<em>Package Declaration</em>'.
+   * Returns a new object of class '<em>anon Function Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Package Declaration</em>'.
+   * @return a new object of class '<em>anon Function Expr</em>'.
    * @generated
    */
-  PackageDeclaration createPackageDeclaration();
+  anonFunctionExpr createanonFunctionExpr();
 
   /**
-   * Returns a new object of class '<em>Action Script</em>'.
+   * Returns a new object of class '<em>annotation Fields</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Action Script</em>'.
+   * @return a new object of class '<em>annotation Fields</em>'.
    * @generated
    */
-  ActionScript createActionScript();
+  annotationFields createannotationFields();
 
   /**
-   * Returns a new object of class '<em>Import</em>'.
+   * Returns a new object of class '<em>annotation Field</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Import</em>'.
+   * @return a new object of class '<em>annotation Field</em>'.
    * @generated
    */
-  Import createImport();
+  annotationField createannotationField();
 
   /**
-   * Returns a new object of class '<em>Type</em>'.
+   * Returns a new object of class '<em>arguments</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type</em>'.
+   * @return a new object of class '<em>arguments</em>'.
    * @generated
    */
-  Type createType();
+  arguments createarguments();
 
   /**
-   * Returns a new object of class '<em>Property</em>'.
+   * Returns a new object of class '<em>array Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Property</em>'.
+   * @return a new object of class '<em>array Literal</em>'.
    * @generated
    */
-  Property createProperty();
+  arrayLiteral createarrayLiteral();
 
   /**
-   * Returns a new object of class '<em>Class</em>'.
+   * Returns a new object of class '<em>block</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Class</em>'.
+   * @return a new object of class '<em>block</em>'.
    * @generated
    */
-  Class createClass();
+  block createblock();
 
   /**
-   * Returns a new object of class '<em>Function</em>'.
+   * Returns a new object of class '<em>catches</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Function</em>'.
+   * @return a new object of class '<em>catches</em>'.
    * @generated
    */
-  Function createFunction();
+  catches createcatches();
 
   /**
-   * Returns a new object of class '<em>Variables</em>'.
+   * Returns a new object of class '<em>class Body</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variables</em>'.
+   * @return a new object of class '<em>class Body</em>'.
    * @generated
    */
-  Variables createVariables();
+  classBody createclassBody();
 
   /**
-   * Returns a new object of class '<em>UNIT</em>'.
+   * Returns a new object of class '<em>class Declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>UNIT</em>'.
+   * @return a new object of class '<em>class Declaration</em>'.
    * @generated
    */
-  UNIT createUNIT();
+  classDeclaration createclassDeclaration();
 
   /**
-   * Returns a new object of class '<em>String</em>'.
+   * Returns a new object of class '<em>comma Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>String</em>'.
+   * @return a new object of class '<em>comma Expr</em>'.
    * @generated
    */
-  _String create_String();
+  commaExpr createcommaExpr();
 
   /**
-   * Returns a new object of class '<em>int</em>'.
+   * Returns a new object of class '<em>compilation Unit</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>int</em>'.
+   * @return a new object of class '<em>compilation Unit</em>'.
    * @generated
    */
-  _int create_int();
+  compilationUnit createcompilationUnit();
 
   /**
-   * Returns a new object of class '<em>number</em>'.
+   * Returns a new object of class '<em>compilation Unit Declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>number</em>'.
+   * @return a new object of class '<em>compilation Unit Declaration</em>'.
    * @generated
    */
-  number createnumber();
+  compilationUnitDeclaration createcompilationUnitDeclaration();
+
+  /**
+   * Returns a new object of class '<em>directives</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>directives</em>'.
+   * @generated
+   */
+  directives createdirectives();
+
+  /**
+   * Returns a new object of class '<em>directive</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>directive</em>'.
+   * @generated
+   */
+  directive createdirective();
+
+  /**
+   * Returns a new object of class '<em>expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>expr</em>'.
+   * @generated
+   */
+  expr createexpr();
+
+  /**
+   * Returns a new object of class '<em>expr Or Object Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>expr Or Object Literal</em>'.
+   * @generated
+   */
+  exprOrObjectLiteral createexprOrObjectLiteral();
+
+  /**
+   * Returns a new object of class '<em>field Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>field Declaration</em>'.
+   * @generated
+   */
+  fieldDeclaration createfieldDeclaration();
+
+  /**
+   * Returns a new object of class '<em>identifier Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>identifier Declaration</em>'.
+   * @generated
+   */
+  identifierDeclaration createidentifierDeclaration();
+
+  /**
+   * Returns a new object of class '<em>labelable Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>labelable Statement</em>'.
+   * @generated
+   */
+  labelableStatement createlabelableStatement();
+
+  /**
+   * Returns a new object of class '<em>lvalue</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>lvalue</em>'.
+   * @generated
+   */
+  lvalue createlvalue();
+
+  /**
+   * Returns a new object of class '<em>member Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>member Declaration</em>'.
+   * @generated
+   */
+  memberDeclaration creatememberDeclaration();
+
+  /**
+   * Returns a new object of class '<em>method Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>method Declaration</em>'.
+   * @generated
+   */
+  methodDeclaration createmethodDeclaration();
+
+  /**
+   * Returns a new object of class '<em>modifiers</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>modifiers</em>'.
+   * @generated
+   */
+  modifiers createmodifiers();
+
+  /**
+   * Returns a new object of class '<em>named Function Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>named Function Expr</em>'.
+   * @generated
+   */
+  namedFunctionExpr createnamedFunctionExpr();
+
+  /**
+   * Returns a new object of class '<em>namespaced Identifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>namespaced Identifier</em>'.
+   * @generated
+   */
+  namespacedIdentifier createnamespacedIdentifier();
+
+  /**
+   * Returns a new object of class '<em>object Field</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>object Field</em>'.
+   * @generated
+   */
+  objectField createobjectField();
+
+  /**
+   * Returns a new object of class '<em>object Fields</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>object Fields</em>'.
+   * @generated
+   */
+  objectFields createobjectFields();
+
+  /**
+   * Returns a new object of class '<em>object Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>object Literal</em>'.
+   * @generated
+   */
+  objectLiteral createobjectLiteral();
+
+  /**
+   * Returns a new object of class '<em>opt Body</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>opt Body</em>'.
+   * @generated
+   */
+  optBody createoptBody();
+
+  /**
+   * Returns a new object of class '<em>package Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>package Declaration</em>'.
+   * @generated
+   */
+  packageDeclaration createpackageDeclaration();
+
+  /**
+   * Returns a new object of class '<em>parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>parameter</em>'.
+   * @generated
+   */
+  parameter createparameter();
+
+  /**
+   * Returns a new object of class '<em>parameters</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>parameters</em>'.
+   * @generated
+   */
+  parameters createparameters();
+
+  /**
+   * Returns a new object of class '<em>parenthesized Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>parenthesized Expr</em>'.
+   * @generated
+   */
+  parenthesizedExpr createparenthesizedExpr();
+
+  /**
+   * Returns a new object of class '<em>statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>statement</em>'.
+   * @generated
+   */
+  statement createstatement();
+
+  /**
+   * Returns a new object of class '<em>statements</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>statements</em>'.
+   * @generated
+   */
+  statements createstatements();
+
+  /**
+   * Returns a new object of class '<em>statement In Switch</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>statement In Switch</em>'.
+   * @generated
+   */
+  statementInSwitch createstatementInSwitch();
+
+  /**
+   * Returns a new object of class '<em>static Initializer</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>static Initializer</em>'.
+   * @generated
+   */
+  staticInitializer createstaticInitializer();
+
+  /**
+   * Returns a new object of class '<em>type List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>type List</em>'.
+   * @generated
+   */
+  typeList createtypeList();
+
+  /**
+   * Returns a new object of class '<em>variable Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>variable Declaration</em>'.
+   * @generated
+   */
+  variableDeclaration createvariableDeclaration();
 
   /**
    * Returns the package supported by this factory.

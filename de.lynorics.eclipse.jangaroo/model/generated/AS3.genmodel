@@ -8,41 +8,169 @@
   <genPackages prefix="AS3" basePackage="de.lynorics.eclipse.jangaroo" disposableProviderFactory="true"
       fileExtensions="as" ecorePackage="AS3.ecore#/">
     <genClasses ecoreClass="AS3.ecore#//Model"/>
-    <genClasses ecoreClass="AS3.ecore#//PackageDeclaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//PackageDeclaration/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//PackageDeclaration/elemnts"/>
+    <genClasses ecoreClass="AS3.ecore#//anonFunctionExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//anonFunctionExpr/params"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//anonFunctionExpr/relation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//anonFunctionExpr/command"/>
     </genClasses>
-    <genClasses ecoreClass="AS3.ecore#//ActionScript">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//ActionScript/imports"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//ActionScript/elements"/>
+    <genClasses ecoreClass="AS3.ecore#//annotationFields">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//annotationFields/fields"/>
     </genClasses>
-    <genClasses ecoreClass="AS3.ecore#//Import">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Import/importURI"/>
+    <genClasses ecoreClass="AS3.ecore#//annotationField"/>
+    <genClasses ecoreClass="AS3.ecore#//arguments">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//arguments/elements"/>
     </genClasses>
-    <genClasses ecoreClass="AS3.ecore#//Type"/>
-    <genClasses ecoreClass="AS3.ecore#//Property"/>
-    <genClasses ecoreClass="AS3.ecore#//Class">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Class/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/superClass"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/properties"/>
+    <genClasses ecoreClass="AS3.ecore#//arrayLiteral"/>
+    <genClasses ecoreClass="AS3.ecore#//block"/>
+    <genClasses ecoreClass="AS3.ecore#//catches">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//catches/params"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//catches/command"/>
     </genClasses>
-    <genClasses ecoreClass="AS3.ecore#//Function">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Function/name"/>
+    <genClasses ecoreClass="AS3.ecore#//classBody">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//classBody/elements"/>
     </genClasses>
-    <genClasses ecoreClass="AS3.ecore#//Variables">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Variables/Name"/>
+    <genClasses ecoreClass="AS3.ecore#//classDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//classDeclaration/classModifiers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//classDeclaration/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//classDeclaration/superType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//classDeclaration/types"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//classDeclaration/command"/>
     </genClasses>
-    <genClasses ecoreClass="AS3.ecore#//UNIT">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//UNIT/String"/>
+    <genClasses ecoreClass="AS3.ecore#//commaExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//commaExpr/elements"/>
     </genClasses>
-    <genClasses ecoreClass="AS3.ecore#//_String">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//_String/String"/>
+    <genClasses ecoreClass="AS3.ecore#//compilationUnit">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//compilationUnit/package"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//compilationUnit/directive"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//compilationUnit/unit"/>
     </genClasses>
-    <genClasses ecoreClass="AS3.ecore#//_int">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//_int/int"/>
+    <genClasses ecoreClass="AS3.ecore#//compilationUnitDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//compilationUnitDeclaration/class"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//compilationUnitDeclaration/member"/>
     </genClasses>
-    <genClasses ecoreClass="AS3.ecore#//number">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//number/double"/>
+    <genClasses ecoreClass="AS3.ecore#//directives">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//directives/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//directive">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//directive/importedNamespace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//directive/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//directive/fields"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//directive/useasid"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//expr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//expr/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//expr/deleteexpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//expr/typeexpr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//expr/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//expr/isleftepxr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//expr/isrightexpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//expr/prefixexpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//expr/postfixexpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//expr/infixexprleft"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//expr/infixexprright"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//expr/args"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//expr/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//expr/then"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//expr/else"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//exprOrObjectLiteral"/>
+    <genClasses ecoreClass="AS3.ecore#//fieldDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//fieldDeclaration/mod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//fieldDeclaration/var"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//fieldDeclaration/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//identifierDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//identifierDeclaration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//identifierDeclaration/relation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//identifierDeclaration/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//labelableStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//labelableStatement/ifcondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//labelableStatement/ifthen"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//labelableStatement/ifelse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//labelableStatement/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//labelableStatement/elements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//labelableStatement/command"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//labelableStatement/forinit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//labelableStatement/iterator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//labelableStatement/nameForin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//labelableStatement/forinexpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//labelableStatement/forcommand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//labelableStatement/nameForeachh"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//labelableStatement/relation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//labelableStatement/foreachexpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//labelableStatement/foreachcommand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//labelableStatement/catch"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//labelableStatement/finally"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//labelableStatement/function"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//lvalue">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//lvalue/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//lvalue/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//lvalue/list"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//memberDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//memberDeclaration/field"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//memberDeclaration/method"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//methodDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//methodDeclaration/methodmodifiers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//methodDeclaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//methodDeclaration/params"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//methodDeclaration/optbody"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//modifiers">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//modifiers/static"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//modifiers/final"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//modifiers/abstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//modifiers/override"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//modifiers/internal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//modifiers/public"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//modifiers/private"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//modifiers/protected"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//namedFunctionExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//namedFunctionExpr/params"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//namedFunctionExpr/relation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//namedFunctionExpr/command"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//namespacedIdentifier"/>
+    <genClasses ecoreClass="AS3.ecore#//objectField"/>
+    <genClasses ecoreClass="AS3.ecore#//objectFields">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//objectFields/fields"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//objectLiteral"/>
+    <genClasses ecoreClass="AS3.ecore#//optBody"/>
+    <genClasses ecoreClass="AS3.ecore#//packageDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//packageDeclaration/name"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//parameter/name"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//parameters">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//parameters/elements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//parameters/name"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//parenthesizedExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//parenthesizedExpr/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//statement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//statement/expr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//statement/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//statement/statement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//statement/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//statement/argument"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//statements">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//statements/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//statementInSwitch"/>
+    <genClasses ecoreClass="AS3.ecore#//staticInitializer"/>
+    <genClasses ecoreClass="AS3.ecore#//typeList">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//typeList/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//variableDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//variableDeclaration/elements"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
