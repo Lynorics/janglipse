@@ -8,522 +8,215 @@ grammar de.lynorics.eclipse.jangaroo.AS3 with org.eclipse.xtext.common.Terminals
 
 generate aS3 "http://www.lynorics.de/eclipse/jangaroo/AS3"
 
-Model:
-  compilationUnit;
+Model hidden(WS, ML_COMMENT, SL_COMMENT):
+  Package
+  |
+  imports+=Import*
+  classes+=Class*;
 
-//anonFunctionExpr :
-//    FUNCTION LPAREN parameters RPAREN [typeRelation] block;
-anonFunctionExpr :
-    FUNCTION LPAREN params=parameters RPAREN relation=typeRelation? command=block;
+Package:
+  'package' name=QualifiedName '{' 
+  imports+=Import*
+  classes+=(Class|Interface)*
+  '}';
 
-//annotationFields :
-//    [annotationField {COMMA annotationField}];
-annotationFields :
-    (fields+=annotationField
-    (COMMA fields+=annotationField)*)?;
+Import:
+    'import' importedNamespace = QualifiedNameWithWildcard ';'
+;
 
-annotationField :
-    (ID EQUAL) expr;
+QualifiedNameWithWildcard:
+    QualifiedName '.*'?
+;
 
-//arguments :
-//    [exprOrObjectLiteral {COMMA exprOrObjectLiteral}];
-arguments :
-    (elements+=exprOrObjectLiteral
-    (COMMA elements+=exprOrObjectLiteral)*)?;
+QualifiedName:
+  ID ('.' ID)*
+;
 
-arrayLiteral :
-    LBRACK arguments RBRACK;
+Interface returns Class:
+   access=AccessLevel? 'interface' name=ID
+   ('extends' superclass=[Class|QualifiedName])?
+   '{' members += Member* '}'
+;
+Class:
+   access=AccessLevel? 'static'? 'class' name=ID
+   ('extends' superclass=[Class|QualifiedName])?
+   ('implements' types+=[Class|QualifiedName] (',' types+=[Class|QualifiedName])*)?
+   '{' members += Member* '}'
+   ;
 
-block :
-    LCURLY statements RCURLY;
+Member: 
+    var=VariableDeclaration 
+  | meth=Method
+;
 
-//catches :
-//    {'catch' LPAREN parameter RPAREN block};
-catches :
-  (CATCH LPAREN params+=parameter RPAREN command+=block)*;
+Method:
+  access=AccessLevel? 'static'? 'function' ('get'|'set')? name=ID
+    '(' (params+=Parameter (',' params+=Parameter)*)? ')' 
+    (':' type=[Class|QualifiedName])?
+    body=MethodBody
+;
 
-//classBody :
-//    LCURLY {directive | memberDeclaration | staticInitializer} RCURLY;
-classBody :
-    LCURLY
-    elements+= (directive | memberDeclaration | staticInitializer)*
-    RCURLY;
+enum AccessLevel:
+  PRIVATE='private' | PUBLIC='public' | PROTECTED='protected';
 
-//classDeclaration :
-//    modifiers 'class' ID
-//    ['extends' type] ['implements' type {COMMA type}]
-//    classBody;
-classDeclaration :
-    classModifiers=modifiers CLASS name=ID
-    (EXTENDS superType=[classDeclaration | type])? (IMPLEMENTS types+=type (COMMA types+=type)*)?
-    command=classBody;
+MethodBody: 
+  {MethodBody} '{' statements += Statement* '}';
 
-//commaExpr :
-//    expr {COMMA expr};
-commaExpr :
-    elements+=expr
-    (COMMA elements+=expr)*;
+Statement:
+  VariableDeclaration |
+  Return |
+  Expression ';' |
+  IfStatement |
+  SwitchStatement |
+  TryStatement |
+  WhileStatement |
+  DoWhileStatement |
+  ForStatement |
+  NewStatement |
+  objectLiteral
+;
 
-compilationUnit hidden(WS, ML_COMMENT, SL_COMMENT):
-    package=packageDeclaration
-    LCURLY directive=directives unit=compilationUnitDeclaration RCURLY;
+NewStatement:
+	{New} 'new' type=[Class|QualifiedName]
+	('(' param=Parameters ')')?
+;
 
-compilationUnitDeclaration :
-    class=classDeclaration
-  | member=memberDeclaration;
-
-constOrVar :
-    CONST
-  | VAR;
-
-//directives :
-//    {directive};
-directives :
-    elements+=(directive)*;
-
-//directive :
-//    'import' type [DOT '*']
-//  | LBRACK ID [LPAREN annotationFields RPAREN] RBRACK
-//  | 'use' ID type
-//  | SEMI;
-directive :
-    IMPORT importedNamespace=type (DOT STAR)?
-  | LBRACK id=ID (LPAREN fields=annotationFields RPAREN)? RBRACK
-  | USE useasid=ID importedNamespace=type
-  | SEMI;
-
-//expr :
-//    INT_LITERAL
-//  | FLOAT_LITERAL
-//  | STRING_LITERAL
-//  | REGEXP_LITERAL
-//  | 'true'
-//  | 'false'
-//  | 'null'
-//  | arrayLiteral
-//  | lvalue
-//  | anonFunctionExpr
-//  | 'this'
-//  | parenthesizedExpr
-//  | 'new' type [LPAREN arguments RPAREN]
-//  | 'delete' expr
-//  | expr 'as' type
-//  | expr 'is' expr
-//  | PREFIX_OPERATOR expr
-//  | expr POSTFIX_OPERATOR
-//  | expr INFIX_OPERATOR expr
-//  | expr LPAREN arguments RPAREN
-//  | expr '?' exprOrObjectLiteral COLON exprOrObjectLiteral;
-expr :
-  expr=terminalExpr
-  | lvalue
-  | DELETE deleteexpr=terminalExpr
-  | typeexpr=terminalExpr AS type=type 
-  | isleftepxr=terminalExpr IS isrightexpr=terminalExpr 
-  | PREFIX_OPERATOR prefixexpr=terminalExpr
-  | postfixexpr=terminalExpr POSTFIX_OPERATOR
-  | infixexprleft=terminalExpr INFIX_OPERATOR infixexprright=expr
-  | terminalExpr LPAREN args=arguments RPAREN
-  | condition=terminalExpr QUESTION then=exprOrObjectLiteral COLON else=exprOrObjectLiteral;
-
-INFIX_OPERATOR:
-  PLUS | MINUS | STAR | DIV;
-
-POSTFIX_OPERATOR:
-  DEC|INC;
-
-PREFIX_OPERATOR:
-  POSTFIX_OPERATOR;
-
-terminalExpr returns expr:
-    INT
-  | DOUBLE
-  | STRING
-  | REGEXP
-  | TRUE
-  | FALSE
-  | NULL
-  | arrayLiteral
-  | anonFunctionExpr
-  | 'this'
-  | parenthesizedExpr
-  | NEW type (LPAREN arguments RPAREN)?;
-
-exprOrObjectLiteral :
-    expr
-  | objectLiteral
-  | namedFunctionExpr;
-
-//fieldDeclaration :
-//    modifiers constOrVar identifierDeclaration
-//    {COMMA identifierDeclaration };
-fieldDeclaration :
-    mod=modifiers var=constOrVar
+ForStatement:
+  'for' '(' forinit=commaExpr? ';'
+    condition=commaExpr? ';' iterator=commaExpr? ')' command=StatementsBlock
+  | 'for' '(' 'var'
     elements+=identifierDeclaration
-    (COMMA elements+=identifierDeclaration)*;
+    (',' elements+=identifierDeclaration)* ';' 
+    condition=commaExpr? ';' iterator=commaExpr? ')' command=StatementsBlock
+  | 'for' 'each'? '(' nameForin=ID 'in' forinexpr=Expression ')' forcommand=StatementsBlock
+  | 'for' 'each'? '(' 'var' nameForeachh=ID relation=typeRelation?
+    'in' foreachexpr=Expression ')' foreachcommand=StatementsBlock
+;
 
-//identifierDeclaration :
-//    ID [typeRelation] [EQUAL exprOrObjectLiteral]
 identifierDeclaration :
-    name=ID relation=typeRelation? (EQUAL expr=exprOrObjectLiteral)?;
+    name=ID relation=typeRelation? ('=' expr=exprOrObjectLiteral)?;
 
-//labelableStatement :
-//    'if' parenthesizedExpr statement 'else' statement
-//  | 'if' parenthesizedExpr statement
-//  | 'switch' parenthesizedExpr LCURLY {statementInSwitch} RCURLY
-//  | 'while' parenthesizedExpr statement
-//  | 'do' statement 'while' parenthesizedExpr SEMI
-//  | 'for' LPAREN [commaExpr] SEMI
-//    [commaExpr] SEMI [commaExpr] RPAREN statement
-//  | 'for' LPAREN 'var' identifierDeclaration {COMMA identifierDeclaration} SEMI 
-//    [commaExpr] SEMI [commaExpr] RPAREN statement
-//  | 'for' ['each'] LPAREN ID 'in' expr RPAREN statement
-//  | 'for' ['each'] LPAREN 'var' ID [typeRelation]
-//    'in' expr RPAREN statement
-//  | 'try' block catches
-//  | 'try' block [catches] 'finally' block
-//  | namedFunctionExpr
-//  | block;
-labelableStatement :
-  IF LPAREN ifcondition=parenthesizedExpr RPAREN 
-    ifthen=statement 
-    (=>ELSE ifelse=statement)?
-  | SWITCH condition=parenthesizedExpr LCURLY elements+=statementInSwitch* RCURLY
-  | WHILE condition=parenthesizedExpr command=statement
-  | DO statement WHILE condition=parenthesizedExpr SEMI
-  | FOR LPAREN forinit=commaExpr? SEMI
-    condition=commaExpr? SEMI iterator=commaExpr? RPAREN command=statement
-  | FOR LPAREN VAR
-    elements+=identifierDeclaration
-    (COMMA elements+=identifierDeclaration)* SEMI 
-    condition=commaExpr? SEMI iterator=commaExpr? RPAREN command=statement
-  | FOR EACH? LPAREN nameForin=ID IN forinexpr=expr RPAREN forcommand=statement
-  | FOR EACH? LPAREN VAR nameForeachh=ID relation=typeRelation?
-    IN foreachexpr=expr RPAREN foreachcommand=statement
-  | TRY command=block catch=catches? FINALLY finally=block
-  | function=namedFunctionExpr
-  | command=block;
+commaExpr :
+    elements+=Expression
+    (',' elements+=Expression)*;
+    
+DoWhileStatement:
+  {While} 'do'
+  whileBlock=StatementsBlock
+  'while'
+  cond=parenthesizedExpr ';'
+;
 
-lvalue :
-    namespacedIdentifier
-  | (expression=terminalExpr DOT identifier=namespacedIdentifier)
-  | (expression=terminalExpr LBRACK list=commaExpr RBRACK)
-  | ('super' DOT namespacedIdentifier);
+WhileStatement:
+	{While} 'while' cond=parenthesizedExpr
+	whileBlock=StatementsBlock
+;
 
-memberDeclaration :
-    (field=fieldDeclaration SEMI)
-  | method=methodDeclaration;
-
-//methodDeclaration :
-//    modifiers FUNCTION ['get' | 'set'] ID
-//    LPAREN parameters RPAREN [typeRelation] optBody;
-methodDeclaration :
-    methodmodifiers=modifiers FUNCTION (GET | SET)? name=ID
-    LPAREN params=parameters RPAREN typeRelation? optbody=optBody;
-
-//modifiers :
-//   {modifier};
-modifiers :
-  static?=STATIC?
-  & final?=FINAL?
-  & abstract?=ABSTRACT?
-  & override?=OVERRIDE?
-  & internal?=INTERNAL?
-  & public?=PUBLIC?
-  & private?=PRIVATE?
-  & protected?=PROTECTED?;
-
-//namedFunctionExpr :
-//    FUNCTION ID LPAREN parameters RPAREN [typeRelation]
-//    block;
-namedFunctionExpr :
-    FUNCTION name=ID LPAREN params=parameters RPAREN relation=typeRelation?
-    command=block;
-
-//namespacedIdentifier :
-//    [modifier '::'] ID;
-namespacedIdentifier :
-    (modifiers DBL_COLON)? name=ID;
-
-//objectField :
-//    ID COLON exprOrObjectLiteral
-//  | STRING_LITERAL COLON exprOrObjectLiteral
-//  | INT_LITERAL COLON exprOrObjectLiteral;
-objectField :
-    ID COLON exprOrObjectLiteral
-  | STRING COLON exprOrObjectLiteral
-  | INT COLON exprOrObjectLiteral;
-
-//objectFields :
-//    [objectField {COMMA objectField}];
-objectFields :
-    (fields+=objectField
-    (COMMA fields+=objectField)*)?;
-
-objectLiteral :
-    LCURLY objectFields RCURLY;
-
-optBody :
-    block
-  | SEMI;
-
-//packageDeclaration :
-//    'package' [qualifiedIde];
-packageDeclaration :
-    PACKAGE name=qualifiedIde?;
-
-//parameter :
-//    ['const'] ID [typeRelation] [EQUAL exprOrObjectLiteral];
-parameter :
-    CONST? name=ID typeRelation? (EQUAL exprOrObjectLiteral)?;
-
-//parameters :
-//    [parameter {COMMA parameter}]
-//  | [parameter {COMMA parameter} COMMA] ID [typeRelation];
-parameters :
-  (elements+=parameter
-  (COMMA elements+=parameter)*)?
-  | 
-  (elements+=parameter
-  (COMMA elements+=parameter)* COMMA)?
-  name=ID typeRelation?;
+SwitchStatement:
+	{Switch} 'switch' cond=parenthesizedExpr
+	'{' cases+=statementInSwitch* '}'
+;
 
 parenthesizedExpr :
-    LPAREN expression=exprOrObjectLiteral RPAREN;
-
-//qualifiedIde :
-//    ID {DOT ID};
-qualifiedIde :
-    ID (DOT ID)*;
-
-//statement :
-//    SEMI
-//  | commaExpr SEMI
-//  | ID COLON labelableStatement
-//  | variableDeclaration SEMI
-//  | 'break' [ID] SEMI
-//  | 'continue' [ID] SEMI
-//  | 'return' [exprOrObjectLiteral] SEMI
-//  | 'throw' commaExpr SEMI
-//  | 'super' LPAREN arguments RPAREN
-//  | labelableStatement;
-statement :
-    SEMI
-  | (expr=commaExpr SEMI)
-  | (name=ID COLON statement=labelableStatement)
-  | (variables=variableDeclaration SEMI)
-  | (BREAK name=ID? SEMI)
-  | (CONTINUE name=ID? SEMI)
-  | (RETURN expr=exprOrObjectLiteral? SEMI)
-  | (THROW expr=commaExpr SEMI)
-  | ('super' LPAREN argument=arguments RPAREN)
-  | statement=labelableStatement;
-
-//statements : {statement};
-statements :
-  elements+=statement*;
-
+    '(' expression=exprOrObjectLiteral ')';
+    
 statementInSwitch :
-    statement
-  | CASE expr COLON
-  | DEFAULT COLON;
-staticInitializer :
-    block;
+   Statement
+  | 'case' Expression ':'
+  | 'default' ':';
 
-type :
-    qualifiedIde
-  | STAR
-  | VOID;
+Return:
+  'return' expression=Expression ';'
+;
 
-//typeList :
-//    type {COMMA typeList};
-typeList :
-    elements+=type
-    (COMMA elements+=type)*;
+VariableDeclaration:
+  'var' name=ID ':' type=[Class|QualifiedName] ('=' expression=Expression)? ';'
+;
+
+IfStatement:
+  'if' '(' expression=Expression ')' thenBlock=IfBlock
+  (=>'else' elseBlock=IfBlock)?
+;
+
+TryStatement:
+  'try' '{' statements += Statement+ '}'
+  ('catch' '(' params+=Parameter')')?
+  ('finally' finallyBlock=StatementsBlock)?
+;
+
+IfBlock:
+  statements += Statement
+  | StatementsBlock
+;
+
+StatementsBlock:
+	'{' statements += Statement* '}'
+;
+
+Block:
+  MethodBody | IfBlock
+;
+
+Parameter :
+    'const'? name=ID rel=typeRelation? ('=' lit=exprOrObjectLiteral)?;
+
+Parameters :
+  (elements+=Parameter
+  (',' elements+=Parameter)*)?
+  | 
+  (elements+=Parameter
+  (',' elements+=Parameter)* ',')?
+  name=ID rel=typeRelation?;
 
 typeRelation :
-    COLON type;
-
-//variableDeclaration :
-//    constOrVar identifierDeclaration
-//    {COMMA identifierDeclaration};
-variableDeclaration :
-    constOrVar
-    elements+=identifierDeclaration
-    (COMMA elements+=identifierDeclaration)*;
-
-terminal DOUBLE:
-    INT DOT INT;
+    ':' type=[Class|QualifiedName];
     
-REGEXP:
-  STRING;
-  
+objectLiteral :
+    '{' objectFields '}';
 
-terminal PACKAGE   : 'package';
-terminal PUBLIC    : 'public';
-terminal PRIVATE   : 'private';
-terminal PROTECTED : 'protected';
-terminal INTERNAL  : 'internal';
-terminal OVERRIDE  : 'override';
-terminal FUNCTION  : 'function';
-terminal EXTENDS   : 'extends';
-terminal IMPLEMENTS  : 'implements';
-terminal VAR   : 'var';
-terminal STATIC    : 'static';
-terminal IF    : 'if';
-terminal IMPORT    : 'import';
-terminal FOR   : 'for';
-terminal EACH    : 'each';
-terminal IN    : 'in';
-terminal WHILE   : 'while';
-terminal DO    : 'do';
-terminal SWITCH    : 'switch';
-terminal CASE    : 'case';
-terminal DEFAULT   : 'default';
-terminal ELSE    : 'else';
-terminal CONST   : 'const';
-terminal CLASS   : 'class';
-terminal INTERFACE : 'interface';
-terminal TRUE    : 'true';
-terminal FALSE   : 'false';
-terminal DYNAMIC   : 'dynamic';
-terminal USE   : 'use';
-terminal XML   : 'xml';
-terminal NAMESPACE : 'namespace';
-terminal IS    : 'is';
-terminal AS    : 'as';
-terminal GET   : 'get';
-terminal SET   : 'set';
-terminal WITH    : 'with';
-terminal RETURN    : 'return';
-terminal CONTINUE  : 'continue';
-terminal BREAK   : 'break';
-terminal NULL    : 'null';
-terminal NEW   : 'new';
-terminal INSTANCEOF  : 'instanceof';
-terminal DELETE    : 'delete';
-terminal VOID    : 'void';
-terminal TYPEOF    : 'typeof';
-terminal TRY   : 'try';
-terminal CATCH   : 'catch';
-terminal FINALLY   : 'finally';
-terminal UNDEFINED : 'undefined';
-terminal THROW   : 'throw';
-terminal FINAL   : 'final';
-terminal ABSTRACT   : 'abstract';
+objectFields :
+    fields+=objectField
+    (',' fields+=objectField)*;
 
-equalityOperator
-  : STRICT_EQUAL | STRICT_NOT_EQUAL | NOT_EQUAL | EQUAL
+objectField :
+    ID ':' exprOrObjectLiteral
+  | STRING ':' exprOrObjectLiteral
+  | INT ':' exprOrObjectLiteral;
+
+exprOrObjectLiteral :
+    Expression
+  | objectLiteral
   ;
 
-shiftOperator
-  : SL | SR | BSR
-  ;
+Symbol:
+  VariableDeclaration | Parameter
+;
 
-additiveOperator
-  : PLUS | MINUS
-  ;
+Expression:
+  Assignment
+;
 
-assignmentOperator
-  : ASSIGN
-  | STAR_ASSIGN
-  | DIV_ASSIGN
-  | MOD_ASSIGN
-  | PLUS_ASSIGN
-  | MINUS_ASSIGN
-  | SL_ASSIGN
-  | SR_ASSIGN
-  | BSR_ASSIGN
-  | BAND_ASSIGN
-  | BXOR_ASSIGN
-  | BOR_ASSIGN
-  | LAND_ASSIGN
-  | LOR_ASSIGN
-  ;
+Assignment returns Expression:
+  SelectionExpression 
+  ({Assignment.left=current} '=' right=Expression)?
+;
 
-// OPERATORS
-terminal QUESTION    : '?' ;
-terminal LPAREN      : '(' ;
-terminal RPAREN      : ')' ;
-terminal LBRACK      : '[' ;
-terminal RBRACK      : ']' ;
-terminal LCURLY      : '{' ;
-terminal RCURLY      : '}' ;
-terminal COLON     : ':' ;
-terminal DBL_COLON   : '::'  ;
-terminal COMMA     : ',' ;
-terminal ASSIGN      : '=' ;
-terminal EQUAL     : '=='  ;
-terminal STRICT_EQUAL    : '===' ;
-terminal LNOT      : '!' ;
-terminal BNOT      : '~' ;
-terminal NOT_EQUAL   : '!='  ;
-terminal STRICT_NOT_EQUAL  : '!==' ;
-terminal DIV     : '/' ;
-terminal DIV_ASSIGN    : '/='  ;
-terminal PLUS      : '+' ;
-terminal PLUS_ASSIGN   : '+='  ;
-terminal INC     : '++'  ;
-terminal MINUS     : '-' ;
-terminal MINUS_ASSIGN    : '-='  ;
-terminal DEC     : '--'  ;
-terminal STAR      : '*' ;
-terminal STAR_ASSIGN   : '*='  ;
-terminal MOD     : '%' ;
-terminal MOD_ASSIGN    : '%='  ;
-terminal SR      : '>>'  ;
-terminal SR_ASSIGN   : '>>=' ;
-terminal BSR     : '>>>' ;
-terminal BSR_ASSIGN    : '>>>='  ;
-terminal GE      : '>='  ;
-terminal GT      : '>' ;
-terminal SL      : '<<'  ;
-terminal SL_ASSIGN   : '<<=' ;
-terminal LE      : '<='  ;
-terminal LT      : '<' ;
-terminal BXOR      : '^' ;
-terminal BXOR_ASSIGN   : '^='  ;
-terminal BOR     : '|' ;
-terminal BOR_ASSIGN    : '|='  ;
-terminal LOR     : '||'  ;
-terminal BAND      : '&' ;
-terminal BAND_ASSIGN   : '&='  ;
-terminal LAND      : '&&'  ;
-terminal LAND_ASSIGN   : '&&=' ;
-terminal LOR_ASSIGN    : '||=' ;
-terminal E4X_ATTRI   : '@' ; 
-terminal SEMI      : ';' ;
+SelectionExpression returns Expression:
+  TerminalExpression 
+  (
+    {MemberSelection.receiver=current} '.' 
+    member=[Member]
+    (methodinvocation?='(' 
+      (args+=Expression (',' args+=Expression)*)? ')' )?
+  )*
+;
 
-terminal DOT   : '.' ;
-terminal E4X_DESC  : '..'  ;
-terminal REST    : '...' ;
-
-// might be better to filter this out as a preprocessing step
-terminal INCLUDE_DIRECTIVE
-  : '#include'
-  ;
-
-xmlLiteral
-  : // We have to have the LT in the outer grammar for lookahead
-    // in AS3Parser to be able to predict that the xmlLiteral rule
-    // should be used.
-    LT
-  ;
-  
-regexpLiteral
-  : DIV
-  ;
-  
-relationalOperator
-  : IN
-  | LT | GT | LE | GE | IS | AS | INSTANCEOF
-  ;
-  
-logicalAndOperator
-  : LAND | 'and'
-  ;
-
-logicalOrOperator
-  : LOR | 'or'
-  ;
-  
+TerminalExpression returns Expression:
+   {StringConstant} value=STRING |
+   {IntConstant} value=INT |
+   {BoolConstant} value = ('true' | 'false') |
+   {This} 'this' |
+   {Super} 'super' |
+   {Null} 'null' |
+   {SymbolRef} symbol=[Symbol] |
+   '(' Expression ')'; 

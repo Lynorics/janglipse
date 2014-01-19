@@ -2,9 +2,55 @@
  */
 package de.lynorics.eclipse.jangaroo.aS3.impl;
 
-import de.lynorics.eclipse.jangaroo.aS3.*;
+import de.lynorics.eclipse.jangaroo.aS3.AS3Factory;
+import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
+import de.lynorics.eclipse.jangaroo.aS3.AccessLevel;
+import de.lynorics.eclipse.jangaroo.aS3.Assignment;
+import de.lynorics.eclipse.jangaroo.aS3.Block;
+import de.lynorics.eclipse.jangaroo.aS3.BoolConstant;
+import de.lynorics.eclipse.jangaroo.aS3.DoWhileStatement;
+import de.lynorics.eclipse.jangaroo.aS3.Expression;
+import de.lynorics.eclipse.jangaroo.aS3.ForStatement;
+import de.lynorics.eclipse.jangaroo.aS3.IfBlock;
+import de.lynorics.eclipse.jangaroo.aS3.IfStatement;
+import de.lynorics.eclipse.jangaroo.aS3.Import;
+import de.lynorics.eclipse.jangaroo.aS3.IntConstant;
+import de.lynorics.eclipse.jangaroo.aS3.Member;
+import de.lynorics.eclipse.jangaroo.aS3.MemberSelection;
+import de.lynorics.eclipse.jangaroo.aS3.Method;
+import de.lynorics.eclipse.jangaroo.aS3.MethodBody;
+import de.lynorics.eclipse.jangaroo.aS3.Model;
+import de.lynorics.eclipse.jangaroo.aS3.New;
+import de.lynorics.eclipse.jangaroo.aS3.NewStatement;
+import de.lynorics.eclipse.jangaroo.aS3.Null;
+import de.lynorics.eclipse.jangaroo.aS3.Parameter;
+import de.lynorics.eclipse.jangaroo.aS3.Parameters;
+import de.lynorics.eclipse.jangaroo.aS3.Return;
+import de.lynorics.eclipse.jangaroo.aS3.Statement;
+import de.lynorics.eclipse.jangaroo.aS3.StatementsBlock;
+import de.lynorics.eclipse.jangaroo.aS3.StringConstant;
+import de.lynorics.eclipse.jangaroo.aS3.Super;
+import de.lynorics.eclipse.jangaroo.aS3.Switch;
+import de.lynorics.eclipse.jangaroo.aS3.SwitchStatement;
+import de.lynorics.eclipse.jangaroo.aS3.Symbol;
+import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
+import de.lynorics.eclipse.jangaroo.aS3.This;
+import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
+import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
+import de.lynorics.eclipse.jangaroo.aS3.While;
+import de.lynorics.eclipse.jangaroo.aS3.WhileStatement;
+import de.lynorics.eclipse.jangaroo.aS3.commaExpr;
+import de.lynorics.eclipse.jangaroo.aS3.exprOrObjectLiteral;
+import de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration;
+import de.lynorics.eclipse.jangaroo.aS3.objectField;
+import de.lynorics.eclipse.jangaroo.aS3.objectFields;
+import de.lynorics.eclipse.jangaroo.aS3.objectLiteral;
+import de.lynorics.eclipse.jangaroo.aS3.parenthesizedExpr;
+import de.lynorics.eclipse.jangaroo.aS3.statementInSwitch;
+import de.lynorics.eclipse.jangaroo.aS3.typeRelation;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -65,47 +111,86 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
     switch (eClass.getClassifierID())
     {
       case AS3Package.MODEL: return createModel();
-      case AS3Package.ANON_FUNCTION_EXPR: return createanonFunctionExpr();
-      case AS3Package.ANNOTATION_FIELDS: return createannotationFields();
-      case AS3Package.ANNOTATION_FIELD: return createannotationField();
-      case AS3Package.ARGUMENTS: return createarguments();
-      case AS3Package.ARRAY_LITERAL: return createarrayLiteral();
-      case AS3Package.BLOCK: return createblock();
-      case AS3Package.CATCHES: return createcatches();
-      case AS3Package.CLASS_BODY: return createclassBody();
-      case AS3Package.CLASS_DECLARATION: return createclassDeclaration();
-      case AS3Package.COMMA_EXPR: return createcommaExpr();
-      case AS3Package.COMPILATION_UNIT: return createcompilationUnit();
-      case AS3Package.COMPILATION_UNIT_DECLARATION: return createcompilationUnitDeclaration();
-      case AS3Package.DIRECTIVES: return createdirectives();
-      case AS3Package.DIRECTIVE: return createdirective();
-      case AS3Package.EXPR: return createexpr();
-      case AS3Package.EXPR_OR_OBJECT_LITERAL: return createexprOrObjectLiteral();
-      case AS3Package.FIELD_DECLARATION: return createfieldDeclaration();
+      case AS3Package.PACKAGE: return createPackage();
+      case AS3Package.IMPORT: return createImport();
+      case AS3Package.CLASS: return createClass();
+      case AS3Package.MEMBER: return createMember();
+      case AS3Package.METHOD: return createMethod();
+      case AS3Package.METHOD_BODY: return createMethodBody();
+      case AS3Package.STATEMENT: return createStatement();
+      case AS3Package.NEW_STATEMENT: return createNewStatement();
+      case AS3Package.FOR_STATEMENT: return createForStatement();
       case AS3Package.IDENTIFIER_DECLARATION: return createidentifierDeclaration();
-      case AS3Package.LABELABLE_STATEMENT: return createlabelableStatement();
-      case AS3Package.LVALUE: return createlvalue();
-      case AS3Package.MEMBER_DECLARATION: return creatememberDeclaration();
-      case AS3Package.METHOD_DECLARATION: return createmethodDeclaration();
-      case AS3Package.MODIFIERS: return createmodifiers();
-      case AS3Package.NAMED_FUNCTION_EXPR: return createnamedFunctionExpr();
-      case AS3Package.NAMESPACED_IDENTIFIER: return createnamespacedIdentifier();
-      case AS3Package.OBJECT_FIELD: return createobjectField();
-      case AS3Package.OBJECT_FIELDS: return createobjectFields();
-      case AS3Package.OBJECT_LITERAL: return createobjectLiteral();
-      case AS3Package.OPT_BODY: return createoptBody();
-      case AS3Package.PACKAGE_DECLARATION: return createpackageDeclaration();
-      case AS3Package.PARAMETER: return createparameter();
-      case AS3Package.PARAMETERS: return createparameters();
+      case AS3Package.COMMA_EXPR: return createcommaExpr();
+      case AS3Package.DO_WHILE_STATEMENT: return createDoWhileStatement();
+      case AS3Package.WHILE_STATEMENT: return createWhileStatement();
+      case AS3Package.SWITCH_STATEMENT: return createSwitchStatement();
       case AS3Package.PARENTHESIZED_EXPR: return createparenthesizedExpr();
-      case AS3Package.STATEMENT: return createstatement();
-      case AS3Package.STATEMENTS: return createstatements();
       case AS3Package.STATEMENT_IN_SWITCH: return createstatementInSwitch();
-      case AS3Package.STATIC_INITIALIZER: return createstaticInitializer();
-      case AS3Package.TYPE_LIST: return createtypeList();
-      case AS3Package.VARIABLE_DECLARATION: return createvariableDeclaration();
+      case AS3Package.RETURN: return createReturn();
+      case AS3Package.VARIABLE_DECLARATION: return createVariableDeclaration();
+      case AS3Package.IF_STATEMENT: return createIfStatement();
+      case AS3Package.TRY_STATEMENT: return createTryStatement();
+      case AS3Package.IF_BLOCK: return createIfBlock();
+      case AS3Package.STATEMENTS_BLOCK: return createStatementsBlock();
+      case AS3Package.BLOCK: return createBlock();
+      case AS3Package.PARAMETER: return createParameter();
+      case AS3Package.PARAMETERS: return createParameters();
+      case AS3Package.TYPE_RELATION: return createtypeRelation();
+      case AS3Package.OBJECT_LITERAL: return createobjectLiteral();
+      case AS3Package.OBJECT_FIELDS: return createobjectFields();
+      case AS3Package.OBJECT_FIELD: return createobjectField();
+      case AS3Package.EXPR_OR_OBJECT_LITERAL: return createexprOrObjectLiteral();
+      case AS3Package.SYMBOL: return createSymbol();
+      case AS3Package.EXPRESSION: return createExpression();
+      case AS3Package.NEW: return createNew();
+      case AS3Package.WHILE: return createWhile();
+      case AS3Package.SWITCH: return createSwitch();
+      case AS3Package.ASSIGNMENT: return createAssignment();
+      case AS3Package.MEMBER_SELECTION: return createMemberSelection();
+      case AS3Package.STRING_CONSTANT: return createStringConstant();
+      case AS3Package.INT_CONSTANT: return createIntConstant();
+      case AS3Package.BOOL_CONSTANT: return createBoolConstant();
+      case AS3Package.THIS: return createThis();
+      case AS3Package.SUPER: return createSuper();
+      case AS3Package.NULL: return createNull();
+      case AS3Package.SYMBOL_REF: return createSymbolRef();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object createFromString(EDataType eDataType, String initialValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case AS3Package.ACCESS_LEVEL:
+        return createAccessLevelFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String convertToString(EDataType eDataType, Object instanceValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case AS3Package.ACCESS_LEVEL:
+        return convertAccessLevelToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
   }
 
@@ -125,10 +210,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public anonFunctionExpr createanonFunctionExpr()
+  public de.lynorics.eclipse.jangaroo.aS3.Package createPackage()
   {
-    anonFunctionExprImpl anonFunctionExpr = new anonFunctionExprImpl();
-    return anonFunctionExpr;
+    PackageImpl package_ = new PackageImpl();
+    return package_;
   }
 
   /**
@@ -136,10 +221,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public annotationFields createannotationFields()
+  public Import createImport()
   {
-    annotationFieldsImpl annotationFields = new annotationFieldsImpl();
-    return annotationFields;
+    ImportImpl import_ = new ImportImpl();
+    return import_;
   }
 
   /**
@@ -147,10 +232,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public annotationField createannotationField()
+  public de.lynorics.eclipse.jangaroo.aS3.Class createClass()
   {
-    annotationFieldImpl annotationField = new annotationFieldImpl();
-    return annotationField;
+    ClassImpl class_ = new ClassImpl();
+    return class_;
   }
 
   /**
@@ -158,10 +243,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public arguments createarguments()
+  public Member createMember()
   {
-    argumentsImpl arguments = new argumentsImpl();
-    return arguments;
+    MemberImpl member = new MemberImpl();
+    return member;
   }
 
   /**
@@ -169,10 +254,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public arrayLiteral createarrayLiteral()
+  public Method createMethod()
   {
-    arrayLiteralImpl arrayLiteral = new arrayLiteralImpl();
-    return arrayLiteral;
+    MethodImpl method = new MethodImpl();
+    return method;
   }
 
   /**
@@ -180,10 +265,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public block createblock()
+  public MethodBody createMethodBody()
   {
-    blockImpl block = new blockImpl();
-    return block;
+    MethodBodyImpl methodBody = new MethodBodyImpl();
+    return methodBody;
   }
 
   /**
@@ -191,10 +276,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public catches createcatches()
+  public Statement createStatement()
   {
-    catchesImpl catches = new catchesImpl();
-    return catches;
+    StatementImpl statement = new StatementImpl();
+    return statement;
   }
 
   /**
@@ -202,10 +287,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public classBody createclassBody()
+  public NewStatement createNewStatement()
   {
-    classBodyImpl classBody = new classBodyImpl();
-    return classBody;
+    NewStatementImpl newStatement = new NewStatementImpl();
+    return newStatement;
   }
 
   /**
@@ -213,98 +298,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public classDeclaration createclassDeclaration()
+  public ForStatement createForStatement()
   {
-    classDeclarationImpl classDeclaration = new classDeclarationImpl();
-    return classDeclaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public commaExpr createcommaExpr()
-  {
-    commaExprImpl commaExpr = new commaExprImpl();
-    return commaExpr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public compilationUnit createcompilationUnit()
-  {
-    compilationUnitImpl compilationUnit = new compilationUnitImpl();
-    return compilationUnit;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public compilationUnitDeclaration createcompilationUnitDeclaration()
-  {
-    compilationUnitDeclarationImpl compilationUnitDeclaration = new compilationUnitDeclarationImpl();
-    return compilationUnitDeclaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public directives createdirectives()
-  {
-    directivesImpl directives = new directivesImpl();
-    return directives;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public directive createdirective()
-  {
-    directiveImpl directive = new directiveImpl();
-    return directive;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public expr createexpr()
-  {
-    exprImpl expr = new exprImpl();
-    return expr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public exprOrObjectLiteral createexprOrObjectLiteral()
-  {
-    exprOrObjectLiteralImpl exprOrObjectLiteral = new exprOrObjectLiteralImpl();
-    return exprOrObjectLiteral;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public fieldDeclaration createfieldDeclaration()
-  {
-    fieldDeclarationImpl fieldDeclaration = new fieldDeclarationImpl();
-    return fieldDeclaration;
+    ForStatementImpl forStatement = new ForStatementImpl();
+    return forStatement;
   }
 
   /**
@@ -323,10 +320,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public labelableStatement createlabelableStatement()
+  public commaExpr createcommaExpr()
   {
-    labelableStatementImpl labelableStatement = new labelableStatementImpl();
-    return labelableStatement;
+    commaExprImpl commaExpr = new commaExprImpl();
+    return commaExpr;
   }
 
   /**
@@ -334,10 +331,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public lvalue createlvalue()
+  public DoWhileStatement createDoWhileStatement()
   {
-    lvalueImpl lvalue = new lvalueImpl();
-    return lvalue;
+    DoWhileStatementImpl doWhileStatement = new DoWhileStatementImpl();
+    return doWhileStatement;
   }
 
   /**
@@ -345,10 +342,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public memberDeclaration creatememberDeclaration()
+  public WhileStatement createWhileStatement()
   {
-    memberDeclarationImpl memberDeclaration = new memberDeclarationImpl();
-    return memberDeclaration;
+    WhileStatementImpl whileStatement = new WhileStatementImpl();
+    return whileStatement;
   }
 
   /**
@@ -356,120 +353,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public methodDeclaration createmethodDeclaration()
+  public SwitchStatement createSwitchStatement()
   {
-    methodDeclarationImpl methodDeclaration = new methodDeclarationImpl();
-    return methodDeclaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public modifiers createmodifiers()
-  {
-    modifiersImpl modifiers = new modifiersImpl();
-    return modifiers;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public namedFunctionExpr createnamedFunctionExpr()
-  {
-    namedFunctionExprImpl namedFunctionExpr = new namedFunctionExprImpl();
-    return namedFunctionExpr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public namespacedIdentifier createnamespacedIdentifier()
-  {
-    namespacedIdentifierImpl namespacedIdentifier = new namespacedIdentifierImpl();
-    return namespacedIdentifier;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public objectField createobjectField()
-  {
-    objectFieldImpl objectField = new objectFieldImpl();
-    return objectField;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public objectFields createobjectFields()
-  {
-    objectFieldsImpl objectFields = new objectFieldsImpl();
-    return objectFields;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public objectLiteral createobjectLiteral()
-  {
-    objectLiteralImpl objectLiteral = new objectLiteralImpl();
-    return objectLiteral;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public optBody createoptBody()
-  {
-    optBodyImpl optBody = new optBodyImpl();
-    return optBody;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public packageDeclaration createpackageDeclaration()
-  {
-    packageDeclarationImpl packageDeclaration = new packageDeclarationImpl();
-    return packageDeclaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public parameter createparameter()
-  {
-    parameterImpl parameter = new parameterImpl();
-    return parameter;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public parameters createparameters()
-  {
-    parametersImpl parameters = new parametersImpl();
-    return parameters;
+    SwitchStatementImpl switchStatement = new SwitchStatementImpl();
+    return switchStatement;
   }
 
   /**
@@ -488,28 +375,6 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public statement createstatement()
-  {
-    statementImpl statement = new statementImpl();
-    return statement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public statements createstatements()
-  {
-    statementsImpl statements = new statementsImpl();
-    return statements;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public statementInSwitch createstatementInSwitch()
   {
     statementInSwitchImpl statementInSwitch = new statementInSwitchImpl();
@@ -521,10 +386,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public staticInitializer createstaticInitializer()
+  public Return createReturn()
   {
-    staticInitializerImpl staticInitializer = new staticInitializerImpl();
-    return staticInitializer;
+    ReturnImpl return_ = new ReturnImpl();
+    return return_;
   }
 
   /**
@@ -532,21 +397,318 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public typeList createtypeList()
+  public VariableDeclaration createVariableDeclaration()
   {
-    typeListImpl typeList = new typeListImpl();
-    return typeList;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public variableDeclaration createvariableDeclaration()
-  {
-    variableDeclarationImpl variableDeclaration = new variableDeclarationImpl();
+    VariableDeclarationImpl variableDeclaration = new VariableDeclarationImpl();
     return variableDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IfStatement createIfStatement()
+  {
+    IfStatementImpl ifStatement = new IfStatementImpl();
+    return ifStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TryStatement createTryStatement()
+  {
+    TryStatementImpl tryStatement = new TryStatementImpl();
+    return tryStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IfBlock createIfBlock()
+  {
+    IfBlockImpl ifBlock = new IfBlockImpl();
+    return ifBlock;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StatementsBlock createStatementsBlock()
+  {
+    StatementsBlockImpl statementsBlock = new StatementsBlockImpl();
+    return statementsBlock;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Block createBlock()
+  {
+    BlockImpl block = new BlockImpl();
+    return block;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Parameter createParameter()
+  {
+    ParameterImpl parameter = new ParameterImpl();
+    return parameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Parameters createParameters()
+  {
+    ParametersImpl parameters = new ParametersImpl();
+    return parameters;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public typeRelation createtypeRelation()
+  {
+    typeRelationImpl typeRelation = new typeRelationImpl();
+    return typeRelation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public objectLiteral createobjectLiteral()
+  {
+    objectLiteralImpl objectLiteral = new objectLiteralImpl();
+    return objectLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public objectFields createobjectFields()
+  {
+    objectFieldsImpl objectFields = new objectFieldsImpl();
+    return objectFields;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public objectField createobjectField()
+  {
+    objectFieldImpl objectField = new objectFieldImpl();
+    return objectField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public exprOrObjectLiteral createexprOrObjectLiteral()
+  {
+    exprOrObjectLiteralImpl exprOrObjectLiteral = new exprOrObjectLiteralImpl();
+    return exprOrObjectLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Symbol createSymbol()
+  {
+    SymbolImpl symbol = new SymbolImpl();
+    return symbol;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression createExpression()
+  {
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public New createNew()
+  {
+    NewImpl new_ = new NewImpl();
+    return new_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public While createWhile()
+  {
+    WhileImpl while_ = new WhileImpl();
+    return while_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Switch createSwitch()
+  {
+    SwitchImpl switch_ = new SwitchImpl();
+    return switch_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Assignment createAssignment()
+  {
+    AssignmentImpl assignment = new AssignmentImpl();
+    return assignment;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MemberSelection createMemberSelection()
+  {
+    MemberSelectionImpl memberSelection = new MemberSelectionImpl();
+    return memberSelection;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StringConstant createStringConstant()
+  {
+    StringConstantImpl stringConstant = new StringConstantImpl();
+    return stringConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IntConstant createIntConstant()
+  {
+    IntConstantImpl intConstant = new IntConstantImpl();
+    return intConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BoolConstant createBoolConstant()
+  {
+    BoolConstantImpl boolConstant = new BoolConstantImpl();
+    return boolConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public This createThis()
+  {
+    ThisImpl this_ = new ThisImpl();
+    return this_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Super createSuper()
+  {
+    SuperImpl super_ = new SuperImpl();
+    return super_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Null createNull()
+  {
+    NullImpl null_ = new NullImpl();
+    return null_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SymbolRef createSymbolRef()
+  {
+    SymbolRefImpl symbolRef = new SymbolRefImpl();
+    return symbolRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AccessLevel createAccessLevelFromString(EDataType eDataType, String initialValue)
+  {
+    AccessLevel result = AccessLevel.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertAccessLevelToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

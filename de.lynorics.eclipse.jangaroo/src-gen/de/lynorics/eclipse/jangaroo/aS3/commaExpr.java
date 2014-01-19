@@ -26,7 +26,7 @@ public interface commaExpr extends EObject
 {
   /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-   * The list contents are of type {@link de.lynorics.eclipse.jangaroo.aS3.expr}.
+   * The list contents are of type {@link de.lynorics.eclipse.jangaroo.aS3.Expression}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
@@ -38,6 +38,6 @@ public interface commaExpr extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<expr> getElements();
+  EList<Expression> getElements();
 
 } // commaExpr

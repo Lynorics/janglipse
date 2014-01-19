@@ -13,6 +13,6 @@ package de.lynorics.eclipse.jangaroo.aS3;
  * @model
  * @generated
  */
-public interface objectLiteral extends exprOrObjectLiteral
+public interface objectLiteral extends Statement, exprOrObjectLiteral
 {
 } // objectLiteral

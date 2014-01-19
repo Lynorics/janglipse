@@ -13,6 +13,6 @@ package de.lynorics.eclipse.jangaroo.aS3;
  * @model
  * @generated
  */
-public interface exprOrObjectLiteral extends objectField, parameter
+public interface exprOrObjectLiteral extends objectField
 {
 } // exprOrObjectLiteral

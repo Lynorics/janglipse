@@ -3,36 +3,37 @@ package de.lynorics.eclipse.jangaroo.serializer;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
-import de.lynorics.eclipse.jangaroo.aS3.annotationFields;
-import de.lynorics.eclipse.jangaroo.aS3.anonFunctionExpr;
-import de.lynorics.eclipse.jangaroo.aS3.arguments;
-import de.lynorics.eclipse.jangaroo.aS3.catches;
-import de.lynorics.eclipse.jangaroo.aS3.classBody;
-import de.lynorics.eclipse.jangaroo.aS3.classDeclaration;
+import de.lynorics.eclipse.jangaroo.aS3.Assignment;
+import de.lynorics.eclipse.jangaroo.aS3.BoolConstant;
+import de.lynorics.eclipse.jangaroo.aS3.ForStatement;
+import de.lynorics.eclipse.jangaroo.aS3.IfBlock;
+import de.lynorics.eclipse.jangaroo.aS3.IfStatement;
+import de.lynorics.eclipse.jangaroo.aS3.Import;
+import de.lynorics.eclipse.jangaroo.aS3.IntConstant;
+import de.lynorics.eclipse.jangaroo.aS3.Member;
+import de.lynorics.eclipse.jangaroo.aS3.MemberSelection;
+import de.lynorics.eclipse.jangaroo.aS3.Method;
+import de.lynorics.eclipse.jangaroo.aS3.MethodBody;
+import de.lynorics.eclipse.jangaroo.aS3.Model;
+import de.lynorics.eclipse.jangaroo.aS3.New;
+import de.lynorics.eclipse.jangaroo.aS3.Null;
+import de.lynorics.eclipse.jangaroo.aS3.Parameter;
+import de.lynorics.eclipse.jangaroo.aS3.Parameters;
+import de.lynorics.eclipse.jangaroo.aS3.Return;
+import de.lynorics.eclipse.jangaroo.aS3.StatementsBlock;
+import de.lynorics.eclipse.jangaroo.aS3.StringConstant;
+import de.lynorics.eclipse.jangaroo.aS3.Super;
+import de.lynorics.eclipse.jangaroo.aS3.Switch;
+import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
+import de.lynorics.eclipse.jangaroo.aS3.This;
+import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
+import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
+import de.lynorics.eclipse.jangaroo.aS3.While;
 import de.lynorics.eclipse.jangaroo.aS3.commaExpr;
-import de.lynorics.eclipse.jangaroo.aS3.compilationUnit;
-import de.lynorics.eclipse.jangaroo.aS3.compilationUnitDeclaration;
-import de.lynorics.eclipse.jangaroo.aS3.directive;
-import de.lynorics.eclipse.jangaroo.aS3.directives;
-import de.lynorics.eclipse.jangaroo.aS3.expr;
-import de.lynorics.eclipse.jangaroo.aS3.fieldDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration;
-import de.lynorics.eclipse.jangaroo.aS3.labelableStatement;
-import de.lynorics.eclipse.jangaroo.aS3.lvalue;
-import de.lynorics.eclipse.jangaroo.aS3.memberDeclaration;
-import de.lynorics.eclipse.jangaroo.aS3.methodDeclaration;
-import de.lynorics.eclipse.jangaroo.aS3.modifiers;
-import de.lynorics.eclipse.jangaroo.aS3.namedFunctionExpr;
-import de.lynorics.eclipse.jangaroo.aS3.namespacedIdentifier;
 import de.lynorics.eclipse.jangaroo.aS3.objectFields;
-import de.lynorics.eclipse.jangaroo.aS3.packageDeclaration;
-import de.lynorics.eclipse.jangaroo.aS3.parameter;
-import de.lynorics.eclipse.jangaroo.aS3.parameters;
 import de.lynorics.eclipse.jangaroo.aS3.parenthesizedExpr;
-import de.lynorics.eclipse.jangaroo.aS3.statement;
-import de.lynorics.eclipse.jangaroo.aS3.statements;
-import de.lynorics.eclipse.jangaroo.aS3.typeList;
-import de.lynorics.eclipse.jangaroo.aS3.variableDeclaration;
+import de.lynorics.eclipse.jangaroo.aS3.typeRelation;
 import de.lynorics.eclipse.jangaroo.services.AS3GrammarAccess;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
@@ -54,66 +55,286 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == AS3Package.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case AS3Package.ANNOTATION_FIELDS:
-				if(context == grammarAccess.getAnnotationFieldsRule()) {
-					sequence_annotationFields(context, (annotationFields) semanticObject); 
-					return; 
-				}
-				else break;
-			case AS3Package.ANON_FUNCTION_EXPR:
-				if(context == grammarAccess.getAnonFunctionExprRule() ||
-				   context == grammarAccess.getTerminalExprRule()) {
-					sequence_anonFunctionExpr(context, (anonFunctionExpr) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getAnnotationFieldRule() ||
-				   context == grammarAccess.getExprRule() ||
+			case AS3Package.ASSIGNMENT:
+				if(context == grammarAccess.getAssignmentRule() ||
+				   context == grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0() ||
+				   context == grammarAccess.getExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionAccess().getMemberSelectionReceiverAction_1_0() ||
+				   context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getTerminalExpressionRule() ||
 				   context == grammarAccess.getExprOrObjectLiteralRule() ||
 				   context == grammarAccess.getObjectFieldRule() ||
 				   context == grammarAccess.getStatementInSwitchRule()) {
-					sequence_anonFunctionExpr_expr(context, (anonFunctionExpr) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getParameterRule()) {
-					sequence_anonFunctionExpr_expr_parameter(context, (anonFunctionExpr) semanticObject); 
+					sequence_Assignment(context, (Assignment) semanticObject); 
 					return; 
 				}
 				else break;
-			case AS3Package.ARGUMENTS:
-				if(context == grammarAccess.getArgumentsRule() ||
-				   context == grammarAccess.getArrayLiteralRule() ||
-				   context == grammarAccess.getTerminalExprRule()) {
-					sequence_arguments(context, (arguments) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getAnnotationFieldRule() ||
-				   context == grammarAccess.getExprRule() ||
+			case AS3Package.BOOL_CONSTANT:
+				if(context == grammarAccess.getAssignmentRule() ||
+				   context == grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0() ||
+				   context == grammarAccess.getExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionAccess().getMemberSelectionReceiverAction_1_0() ||
+				   context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getTerminalExpressionRule() ||
 				   context == grammarAccess.getExprOrObjectLiteralRule() ||
 				   context == grammarAccess.getObjectFieldRule() ||
 				   context == grammarAccess.getStatementInSwitchRule()) {
-					sequence_arguments_expr(context, (arguments) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getParameterRule()) {
-					sequence_arguments_expr_parameter(context, (arguments) semanticObject); 
+					sequence_TerminalExpression(context, (BoolConstant) semanticObject); 
 					return; 
 				}
 				else break;
-			case AS3Package.CATCHES:
-				if(context == grammarAccess.getCatchesRule()) {
-					sequence_catches(context, (catches) semanticObject); 
+			case AS3Package.CLASS:
+				if(context == grammarAccess.getClassRule()) {
+					sequence_Class(context, (de.lynorics.eclipse.jangaroo.aS3.Class) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getInterfaceRule()) {
+					sequence_Interface(context, (de.lynorics.eclipse.jangaroo.aS3.Class) semanticObject); 
 					return; 
 				}
 				else break;
-			case AS3Package.CLASS_BODY:
-				if(context == grammarAccess.getClassBodyRule()) {
-					sequence_classBody(context, (classBody) semanticObject); 
+			case AS3Package.FOR_STATEMENT:
+				if(context == grammarAccess.getForStatementRule() ||
+				   context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getStatementInSwitchRule()) {
+					sequence_ForStatement(context, (ForStatement) semanticObject); 
 					return; 
 				}
 				else break;
-			case AS3Package.CLASS_DECLARATION:
-				if(context == grammarAccess.getClassDeclarationRule()) {
-					sequence_classDeclaration(context, (classDeclaration) semanticObject); 
+			case AS3Package.IF_BLOCK:
+				if(context == grammarAccess.getBlockRule() ||
+				   context == grammarAccess.getIfBlockRule()) {
+					sequence_IfBlock(context, (IfBlock) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.IF_STATEMENT:
+				if(context == grammarAccess.getIfStatementRule() ||
+				   context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getStatementInSwitchRule()) {
+					sequence_IfStatement(context, (IfStatement) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.IMPORT:
+				if(context == grammarAccess.getImportRule()) {
+					sequence_Import(context, (Import) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.INT_CONSTANT:
+				if(context == grammarAccess.getAssignmentRule() ||
+				   context == grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0() ||
+				   context == grammarAccess.getExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionAccess().getMemberSelectionReceiverAction_1_0() ||
+				   context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getTerminalExpressionRule() ||
+				   context == grammarAccess.getExprOrObjectLiteralRule() ||
+				   context == grammarAccess.getObjectFieldRule() ||
+				   context == grammarAccess.getStatementInSwitchRule()) {
+					sequence_TerminalExpression(context, (IntConstant) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.MEMBER:
+				if(context == grammarAccess.getMemberRule()) {
+					sequence_Member(context, (Member) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.MEMBER_SELECTION:
+				if(context == grammarAccess.getAssignmentRule() ||
+				   context == grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0() ||
+				   context == grammarAccess.getExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionAccess().getMemberSelectionReceiverAction_1_0() ||
+				   context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getTerminalExpressionRule() ||
+				   context == grammarAccess.getExprOrObjectLiteralRule() ||
+				   context == grammarAccess.getObjectFieldRule() ||
+				   context == grammarAccess.getStatementInSwitchRule()) {
+					sequence_SelectionExpression(context, (MemberSelection) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.METHOD:
+				if(context == grammarAccess.getMethodRule()) {
+					sequence_Method(context, (Method) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.METHOD_BODY:
+				if(context == grammarAccess.getBlockRule() ||
+				   context == grammarAccess.getMethodBodyRule()) {
+					sequence_MethodBody(context, (MethodBody) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.MODEL:
+				if(context == grammarAccess.getModelRule()) {
+					sequence_Model(context, (Model) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.NEW:
+				if(context == grammarAccess.getNewStatementRule() ||
+				   context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getStatementInSwitchRule()) {
+					sequence_NewStatement(context, (New) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.NULL:
+				if(context == grammarAccess.getAssignmentRule() ||
+				   context == grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0() ||
+				   context == grammarAccess.getExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionAccess().getMemberSelectionReceiverAction_1_0() ||
+				   context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getTerminalExpressionRule() ||
+				   context == grammarAccess.getExprOrObjectLiteralRule() ||
+				   context == grammarAccess.getObjectFieldRule() ||
+				   context == grammarAccess.getStatementInSwitchRule()) {
+					sequence_TerminalExpression(context, (Null) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.PACKAGE:
+				if(context == grammarAccess.getModelRule() ||
+				   context == grammarAccess.getPackageRule()) {
+					sequence_Package(context, (de.lynorics.eclipse.jangaroo.aS3.Package) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.PARAMETER:
+				if(context == grammarAccess.getParameterRule() ||
+				   context == grammarAccess.getSymbolRule()) {
+					sequence_Parameter(context, (Parameter) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.PARAMETERS:
+				if(context == grammarAccess.getParametersRule()) {
+					sequence_Parameters(context, (Parameters) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.RETURN:
+				if(context == grammarAccess.getReturnRule() ||
+				   context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getStatementInSwitchRule()) {
+					sequence_Return(context, (Return) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.STATEMENTS_BLOCK:
+				if(context == grammarAccess.getBlockRule() ||
+				   context == grammarAccess.getIfBlockRule() ||
+				   context == grammarAccess.getStatementsBlockRule()) {
+					sequence_StatementsBlock(context, (StatementsBlock) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.STRING_CONSTANT:
+				if(context == grammarAccess.getAssignmentRule() ||
+				   context == grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0() ||
+				   context == grammarAccess.getExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionAccess().getMemberSelectionReceiverAction_1_0() ||
+				   context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getTerminalExpressionRule() ||
+				   context == grammarAccess.getExprOrObjectLiteralRule() ||
+				   context == grammarAccess.getObjectFieldRule() ||
+				   context == grammarAccess.getStatementInSwitchRule()) {
+					sequence_TerminalExpression(context, (StringConstant) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.SUPER:
+				if(context == grammarAccess.getAssignmentRule() ||
+				   context == grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0() ||
+				   context == grammarAccess.getExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionAccess().getMemberSelectionReceiverAction_1_0() ||
+				   context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getTerminalExpressionRule() ||
+				   context == grammarAccess.getExprOrObjectLiteralRule() ||
+				   context == grammarAccess.getObjectFieldRule() ||
+				   context == grammarAccess.getStatementInSwitchRule()) {
+					sequence_TerminalExpression(context, (Super) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.SWITCH:
+				if(context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getSwitchStatementRule() ||
+				   context == grammarAccess.getStatementInSwitchRule()) {
+					sequence_SwitchStatement(context, (Switch) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.SYMBOL_REF:
+				if(context == grammarAccess.getAssignmentRule() ||
+				   context == grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0() ||
+				   context == grammarAccess.getExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionAccess().getMemberSelectionReceiverAction_1_0() ||
+				   context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getTerminalExpressionRule() ||
+				   context == grammarAccess.getExprOrObjectLiteralRule() ||
+				   context == grammarAccess.getObjectFieldRule() ||
+				   context == grammarAccess.getStatementInSwitchRule()) {
+					sequence_TerminalExpression(context, (SymbolRef) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.THIS:
+				if(context == grammarAccess.getAssignmentRule() ||
+				   context == grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0() ||
+				   context == grammarAccess.getExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionAccess().getMemberSelectionReceiverAction_1_0() ||
+				   context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getTerminalExpressionRule() ||
+				   context == grammarAccess.getExprOrObjectLiteralRule() ||
+				   context == grammarAccess.getObjectFieldRule() ||
+				   context == grammarAccess.getStatementInSwitchRule()) {
+					sequence_TerminalExpression(context, (This) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.TRY_STATEMENT:
+				if(context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getTryStatementRule() ||
+				   context == grammarAccess.getStatementInSwitchRule()) {
+					sequence_TryStatement(context, (TryStatement) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.VARIABLE_DECLARATION:
+				if(context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getSymbolRule() ||
+				   context == grammarAccess.getVariableDeclarationRule() ||
+				   context == grammarAccess.getStatementInSwitchRule()) {
+					sequence_VariableDeclaration(context, (VariableDeclaration) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.WHILE:
+				if(context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getStatementInSwitchRule()) {
+					sequence_DoWhileStatement_Statement_WhileStatement(context, (While) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getDoWhileStatementRule()) {
+					sequence_DoWhileStatement(context, (While) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getWhileStatementRule()) {
+					sequence_WhileStatement(context, (While) semanticObject); 
 					return; 
 				}
 				else break;
@@ -123,217 +344,32 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case AS3Package.COMPILATION_UNIT:
-				if(context == grammarAccess.getModelRule() ||
-				   context == grammarAccess.getCompilationUnitRule()) {
-					sequence_compilationUnit(context, (compilationUnit) semanticObject); 
-					return; 
-				}
-				else break;
-			case AS3Package.COMPILATION_UNIT_DECLARATION:
-				if(context == grammarAccess.getCompilationUnitDeclarationRule()) {
-					sequence_compilationUnitDeclaration(context, (compilationUnitDeclaration) semanticObject); 
-					return; 
-				}
-				else break;
-			case AS3Package.DIRECTIVE:
-				if(context == grammarAccess.getDirectiveRule()) {
-					sequence_directive(context, (directive) semanticObject); 
-					return; 
-				}
-				else break;
-			case AS3Package.DIRECTIVES:
-				if(context == grammarAccess.getDirectivesRule()) {
-					sequence_directives(context, (directives) semanticObject); 
-					return; 
-				}
-				else break;
-			case AS3Package.EXPR:
-				if(context == grammarAccess.getAnnotationFieldRule() ||
-				   context == grammarAccess.getExprRule() ||
-				   context == grammarAccess.getExprOrObjectLiteralRule() ||
-				   context == grammarAccess.getObjectFieldRule() ||
-				   context == grammarAccess.getStatementInSwitchRule()) {
-					sequence_expr(context, (expr) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getParameterRule()) {
-					sequence_expr_parameter(context, (expr) semanticObject); 
-					return; 
-				}
-				else break;
-			case AS3Package.FIELD_DECLARATION:
-				if(context == grammarAccess.getFieldDeclarationRule()) {
-					sequence_fieldDeclaration(context, (fieldDeclaration) semanticObject); 
-					return; 
-				}
-				else break;
 			case AS3Package.IDENTIFIER_DECLARATION:
 				if(context == grammarAccess.getIdentifierDeclarationRule()) {
 					sequence_identifierDeclaration(context, (identifierDeclaration) semanticObject); 
 					return; 
 				}
 				else break;
-			case AS3Package.LABELABLE_STATEMENT:
-				if(context == grammarAccess.getLabelableStatementRule()) {
-					sequence_labelableStatement(context, (labelableStatement) semanticObject); 
-					return; 
-				}
-				else break;
-			case AS3Package.LVALUE:
-				if(context == grammarAccess.getAnnotationFieldRule() ||
-				   context == grammarAccess.getExprRule() ||
-				   context == grammarAccess.getExprOrObjectLiteralRule() ||
-				   context == grammarAccess.getLvalueRule() ||
-				   context == grammarAccess.getObjectFieldRule() ||
-				   context == grammarAccess.getStatementInSwitchRule()) {
-					sequence_lvalue(context, (lvalue) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getParameterRule()) {
-					sequence_lvalue_parameter(context, (lvalue) semanticObject); 
-					return; 
-				}
-				else break;
-			case AS3Package.MEMBER_DECLARATION:
-				if(context == grammarAccess.getMemberDeclarationRule()) {
-					sequence_memberDeclaration(context, (memberDeclaration) semanticObject); 
-					return; 
-				}
-				else break;
-			case AS3Package.METHOD_DECLARATION:
-				if(context == grammarAccess.getMethodDeclarationRule()) {
-					sequence_methodDeclaration(context, (methodDeclaration) semanticObject); 
-					return; 
-				}
-				else break;
-			case AS3Package.MODIFIERS:
-				if(context == grammarAccess.getModifiersRule()) {
-					sequence_modifiers(context, (modifiers) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getAnnotationFieldRule() ||
-				   context == grammarAccess.getExprRule() ||
-				   context == grammarAccess.getExprOrObjectLiteralRule() ||
-				   context == grammarAccess.getLvalueRule() ||
-				   context == grammarAccess.getNamespacedIdentifierRule() ||
-				   context == grammarAccess.getObjectFieldRule() ||
-				   context == grammarAccess.getStatementInSwitchRule()) {
-					sequence_modifiers_namespacedIdentifier(context, (modifiers) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getParameterRule()) {
-					sequence_modifiers_namespacedIdentifier_parameter(context, (modifiers) semanticObject); 
-					return; 
-				}
-				else break;
-			case AS3Package.NAMED_FUNCTION_EXPR:
-				if(context == grammarAccess.getExprOrObjectLiteralRule() ||
-				   context == grammarAccess.getNamedFunctionExprRule() ||
-				   context == grammarAccess.getObjectFieldRule()) {
-					sequence_namedFunctionExpr(context, (namedFunctionExpr) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getParameterRule()) {
-					sequence_namedFunctionExpr_parameter(context, (namedFunctionExpr) semanticObject); 
-					return; 
-				}
-				else break;
-			case AS3Package.NAMESPACED_IDENTIFIER:
-				if(context == grammarAccess.getAnnotationFieldRule() ||
-				   context == grammarAccess.getExprRule() ||
-				   context == grammarAccess.getExprOrObjectLiteralRule() ||
-				   context == grammarAccess.getLvalueRule() ||
-				   context == grammarAccess.getNamespacedIdentifierRule() ||
-				   context == grammarAccess.getObjectFieldRule() ||
-				   context == grammarAccess.getStatementInSwitchRule()) {
-					sequence_namespacedIdentifier(context, (namespacedIdentifier) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getParameterRule()) {
-					sequence_namespacedIdentifier_parameter(context, (namespacedIdentifier) semanticObject); 
-					return; 
-				}
-				else break;
 			case AS3Package.OBJECT_FIELDS:
-				if(context == grammarAccess.getExprOrObjectLiteralRule() ||
+				if(context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getExprOrObjectLiteralRule() ||
 				   context == grammarAccess.getObjectFieldRule() ||
 				   context == grammarAccess.getObjectFieldsRule() ||
-				   context == grammarAccess.getObjectLiteralRule()) {
+				   context == grammarAccess.getObjectLiteralRule() ||
+				   context == grammarAccess.getStatementInSwitchRule()) {
 					sequence_objectFields(context, (objectFields) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getParameterRule()) {
-					sequence_objectFields_parameter(context, (objectFields) semanticObject); 
-					return; 
-				}
-				else break;
-			case AS3Package.PACKAGE_DECLARATION:
-				if(context == grammarAccess.getPackageDeclarationRule()) {
-					sequence_packageDeclaration(context, (packageDeclaration) semanticObject); 
-					return; 
-				}
-				else break;
-			case AS3Package.PARAMETER:
-				if(context == grammarAccess.getParameterRule()) {
-					sequence_parameter(context, (parameter) semanticObject); 
-					return; 
-				}
-				else break;
-			case AS3Package.PARAMETERS:
-				if(context == grammarAccess.getParametersRule()) {
-					sequence_parameters(context, (parameters) semanticObject); 
 					return; 
 				}
 				else break;
 			case AS3Package.PARENTHESIZED_EXPR:
-				if(context == grammarAccess.getParameterRule()) {
-					sequence_expr_parameter_parenthesizedExpr(context, (parenthesizedExpr) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getAnnotationFieldRule() ||
-				   context == grammarAccess.getExprRule() ||
-				   context == grammarAccess.getExprOrObjectLiteralRule() ||
-				   context == grammarAccess.getObjectFieldRule() ||
-				   context == grammarAccess.getStatementInSwitchRule()) {
-					sequence_expr_parenthesizedExpr(context, (parenthesizedExpr) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getParenthesizedExprRule() ||
-				   context == grammarAccess.getTerminalExprRule()) {
+				if(context == grammarAccess.getParenthesizedExprRule()) {
 					sequence_parenthesizedExpr(context, (parenthesizedExpr) semanticObject); 
 					return; 
 				}
 				else break;
-			case AS3Package.STATEMENT:
-				if(context == grammarAccess.getLabelableStatementRule()) {
-					sequence_labelableStatement_statement(context, (statement) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getStatementRule() ||
-				   context == grammarAccess.getStatementInSwitchRule()) {
-					sequence_statement(context, (statement) semanticObject); 
-					return; 
-				}
-				else break;
-			case AS3Package.STATEMENTS:
-				if(context == grammarAccess.getBlockRule() ||
-				   context == grammarAccess.getOptBodyRule() ||
-				   context == grammarAccess.getStatementsRule() ||
-				   context == grammarAccess.getStaticInitializerRule()) {
-					sequence_statements(context, (statements) semanticObject); 
-					return; 
-				}
-				else break;
-			case AS3Package.TYPE_LIST:
-				if(context == grammarAccess.getTypeListRule()) {
-					sequence_typeList(context, (typeList) semanticObject); 
-					return; 
-				}
-				else break;
-			case AS3Package.VARIABLE_DECLARATION:
-				if(context == grammarAccess.getVariableDeclarationRule()) {
-					sequence_variableDeclaration(context, (variableDeclaration) semanticObject); 
+			case AS3Package.TYPE_RELATION:
+				if(context == grammarAccess.getTypeRelationRule()) {
+					sequence_typeRelation(context, (typeRelation) semanticObject); 
 					return; 
 				}
 				else break;
@@ -343,214 +379,358 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (fields+=annotationField fields+=annotationField*)?
+	 *     (left=Assignment_Assignment_1_0 right=Expression)
 	 */
-	protected void sequence_annotationFields(EObject context, annotationFields semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (params=parameters relation=typeRelation? command=block)
-	 */
-	protected void sequence_anonFunctionExpr(EObject context, anonFunctionExpr semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (params=parameters relation=typeRelation? command=block args=arguments)
-	 */
-	protected void sequence_anonFunctionExpr_expr(EObject context, anonFunctionExpr semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID params=parameters relation=typeRelation? command=block args=arguments)
-	 */
-	protected void sequence_anonFunctionExpr_expr_parameter(EObject context, anonFunctionExpr semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (elements+=exprOrObjectLiteral elements+=exprOrObjectLiteral*)?
-	 */
-	protected void sequence_arguments(EObject context, arguments semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (elements+=exprOrObjectLiteral elements+=exprOrObjectLiteral* args=arguments)
-	 */
-	protected void sequence_arguments_expr(EObject context, arguments semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID elements+=exprOrObjectLiteral elements+=exprOrObjectLiteral* args=arguments)
-	 */
-	protected void sequence_arguments_expr_parameter(EObject context, arguments semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (params+=parameter command+=block)*
-	 */
-	protected void sequence_catches(EObject context, catches semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (elements+=directive | elements+=memberDeclaration | elements+=staticInitializer)*
-	 */
-	protected void sequence_classBody(EObject context, classBody semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (classModifiers=modifiers name=ID superType=[classDeclaration|type]? (types+=type types+=type*)? command=classBody)
-	 */
-	protected void sequence_classDeclaration(EObject context, classDeclaration semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (elements+=expr elements+=expr*)
-	 */
-	protected void sequence_commaExpr(EObject context, commaExpr semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (class=classDeclaration | member=memberDeclaration)
-	 */
-	protected void sequence_compilationUnitDeclaration(EObject context, compilationUnitDeclaration semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (package=packageDeclaration directive=directives unit=compilationUnitDeclaration)
-	 */
-	protected void sequence_compilationUnit(EObject context, compilationUnit semanticObject) {
+	protected void sequence_Assignment(EObject context, Assignment semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.COMPILATION_UNIT__PACKAGE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.COMPILATION_UNIT__PACKAGE));
-			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.COMPILATION_UNIT__DIRECTIVE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.COMPILATION_UNIT__DIRECTIVE));
-			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.COMPILATION_UNIT__UNIT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.COMPILATION_UNIT__UNIT));
+			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.ASSIGNMENT__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.ASSIGNMENT__LEFT));
+			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.ASSIGNMENT__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.ASSIGNMENT__RIGHT));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getCompilationUnitAccess().getPackagePackageDeclarationParserRuleCall_0_0(), semanticObject.getPackage());
-		feeder.accept(grammarAccess.getCompilationUnitAccess().getDirectiveDirectivesParserRuleCall_2_0(), semanticObject.getDirective());
-		feeder.accept(grammarAccess.getCompilationUnitAccess().getUnitCompilationUnitDeclarationParserRuleCall_3_0(), semanticObject.getUnit());
+		feeder.accept(grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getAssignmentAccess().getRightExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (importedNamespace=type | (id=ID fields=annotationFields?) | (useasid=ID importedNamespace=type))?
+	 *     (access=AccessLevel? name=ID superclass=[Class|QualifiedName]? (types+=[Class|QualifiedName] types+=[Class|QualifiedName]*)? members+=Member*)
 	 */
-	protected void sequence_directive(EObject context, directive semanticObject) {
+	protected void sequence_Class(EObject context, de.lynorics.eclipse.jangaroo.aS3.Class semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     elements+=directive*
+	 *     ((cond=parenthesizedExpr whileBlock=StatementsBlock) | (whileBlock=StatementsBlock cond=parenthesizedExpr))
 	 */
-	protected void sequence_directives(EObject context, directives semanticObject) {
+	protected void sequence_DoWhileStatement_Statement_WhileStatement(EObject context, While semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (whileBlock=StatementsBlock cond=parenthesizedExpr)
+	 */
+	protected void sequence_DoWhileStatement(EObject context, While semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.WHILE__WHILE_BLOCK) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.WHILE__WHILE_BLOCK));
+			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.WHILE__COND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.WHILE__COND));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getDoWhileStatementAccess().getWhileBlockStatementsBlockParserRuleCall_2_0(), semanticObject.getWhileBlock());
+		feeder.accept(grammarAccess.getDoWhileStatementAccess().getCondParenthesizedExprParserRuleCall_4_0(), semanticObject.getCond());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
 	 *     (
-	 *         expr=terminalExpr | 
-	 *         deleteexpr=terminalExpr | 
-	 *         (typeexpr=terminalExpr type=type) | 
-	 *         (isleftepxr=terminalExpr isrightexpr=terminalExpr) | 
-	 *         prefixexpr=terminalExpr | 
-	 *         postfixexpr=terminalExpr | 
-	 *         (infixexprleft=terminalExpr infixexprright=expr) | 
-	 *         (condition=terminalExpr then=exprOrObjectLiteral else=exprOrObjectLiteral)
+	 *         (forinit=commaExpr? condition=commaExpr? iterator=commaExpr? command=StatementsBlock) | 
+	 *         (elements+=identifierDeclaration elements+=identifierDeclaration* condition=commaExpr? iterator=commaExpr? command=StatementsBlock) | 
+	 *         (nameForin=ID forinexpr=Expression forcommand=StatementsBlock) | 
+	 *         (nameForeachh=ID relation=typeRelation? foreachexpr=Expression foreachcommand=StatementsBlock)
 	 *     )
 	 */
-	protected void sequence_expr(EObject context, expr semanticObject) {
+	protected void sequence_ForStatement(EObject context, ForStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         (
-	 *             expr=terminalExpr | 
-	 *             deleteexpr=terminalExpr | 
-	 *             (typeexpr=terminalExpr type=type) | 
-	 *             (isleftepxr=terminalExpr isrightexpr=terminalExpr) | 
-	 *             prefixexpr=terminalExpr | 
-	 *             postfixexpr=terminalExpr | 
-	 *             (infixexprleft=terminalExpr infixexprright=expr) | 
-	 *             (condition=terminalExpr then=exprOrObjectLiteral else=exprOrObjectLiteral)
-	 *         )
-	 *     )
+	 *     statements+=Statement
 	 */
-	protected void sequence_expr_parameter(EObject context, expr semanticObject) {
+	protected void sequence_IfBlock(EObject context, IfBlock semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (name=ID expression=exprOrObjectLiteral args=arguments)
+	 *     (expression=Expression thenBlock=IfBlock elseBlock=IfBlock?)
 	 */
-	protected void sequence_expr_parameter_parenthesizedExpr(EObject context, parenthesizedExpr semanticObject) {
+	protected void sequence_IfStatement(EObject context, IfStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (expression=exprOrObjectLiteral args=arguments)
+	 *     importedNamespace=QualifiedNameWithWildcard
 	 */
-	protected void sequence_expr_parenthesizedExpr(EObject context, parenthesizedExpr semanticObject) {
+	protected void sequence_Import(EObject context, Import semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.IMPORT__IMPORTED_NAMESPACE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.IMPORT__IMPORTED_NAMESPACE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getImportAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0(), semanticObject.getImportedNamespace());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (access=AccessLevel? name=ID superclass=[Class|QualifiedName]? members+=Member*)
+	 */
+	protected void sequence_Interface(EObject context, de.lynorics.eclipse.jangaroo.aS3.Class semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (mod=modifiers var=constOrVar elements+=identifierDeclaration elements+=identifierDeclaration*)
+	 *     (var=VariableDeclaration | meth=Method)
 	 */
-	protected void sequence_fieldDeclaration(EObject context, fieldDeclaration semanticObject) {
+	protected void sequence_Member(EObject context, Member semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (statements+=Statement*)
+	 */
+	protected void sequence_MethodBody(EObject context, MethodBody semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (access=AccessLevel? name=ID (params+=Parameter params+=Parameter*)? type=[Class|QualifiedName]? body=MethodBody)
+	 */
+	protected void sequence_Method(EObject context, Method semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (imports+=Import* classes+=Class*)
+	 */
+	protected void sequence_Model(EObject context, Model semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (type=[Class|QualifiedName] param=Parameters?)
+	 */
+	protected void sequence_NewStatement(EObject context, New semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=QualifiedName imports+=Import* (classes+=Class | classes+=Interface)*)
+	 */
+	protected void sequence_Package(EObject context, de.lynorics.eclipse.jangaroo.aS3.Package semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID rel=typeRelation? lit=exprOrObjectLiteral?)
+	 */
+	protected void sequence_Parameter(EObject context, Parameter semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ((elements+=Parameter elements+=Parameter*)? | ((elements+=Parameter elements+=Parameter*)? name=ID rel=typeRelation?))
+	 */
+	protected void sequence_Parameters(EObject context, Parameters semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     expression=Expression
+	 */
+	protected void sequence_Return(EObject context, Return semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.RETURN__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.RETURN__EXPRESSION));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getReturnAccess().getExpressionExpressionParserRuleCall_1_0(), semanticObject.getExpression());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (receiver=SelectionExpression_MemberSelection_1_0 member=[Member|ID] (methodinvocation?='(' (args+=Expression args+=Expression*)?)?)
+	 */
+	protected void sequence_SelectionExpression(EObject context, MemberSelection semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     statements+=Statement+
+	 */
+	protected void sequence_StatementsBlock(EObject context, StatementsBlock semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (cond=parenthesizedExpr cases+=statementInSwitch*)
+	 */
+	protected void sequence_SwitchStatement(EObject context, Switch semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (value='true' | value='false')
+	 */
+	protected void sequence_TerminalExpression(EObject context, BoolConstant semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     value=INT
+	 */
+	protected void sequence_TerminalExpression(EObject context, IntConstant semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.INT_CONSTANT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.INT_CONSTANT__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getTerminalExpressionAccess().getValueINTTerminalRuleCall_1_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     {Null}
+	 */
+	protected void sequence_TerminalExpression(EObject context, Null semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     value=STRING
+	 */
+	protected void sequence_TerminalExpression(EObject context, StringConstant semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.STRING_CONSTANT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.STRING_CONSTANT__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getTerminalExpressionAccess().getValueSTRINGTerminalRuleCall_0_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     {Super}
+	 */
+	protected void sequence_TerminalExpression(EObject context, Super semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     symbol=[Symbol|ID]
+	 */
+	protected void sequence_TerminalExpression(EObject context, SymbolRef semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.SYMBOL_REF__SYMBOL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.SYMBOL_REF__SYMBOL));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getTerminalExpressionAccess().getSymbolSymbolIDTerminalRuleCall_6_1_0_1(), semanticObject.getSymbol());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     {This}
+	 */
+	protected void sequence_TerminalExpression(EObject context, This semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (statements+=Statement+ params+=Parameter? finallyBlock=StatementsBlock?)
+	 */
+	protected void sequence_TryStatement(EObject context, TryStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID type=[Class|QualifiedName] expression=Expression?)
+	 */
+	protected void sequence_VariableDeclaration(EObject context, VariableDeclaration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (cond=parenthesizedExpr whileBlock=StatementsBlock)
+	 */
+	protected void sequence_WhileStatement(EObject context, While semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.WHILE__WHILE_BLOCK) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.WHILE__WHILE_BLOCK));
+			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.WHILE__COND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.WHILE__COND));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getWhileStatementAccess().getCondParenthesizedExprParserRuleCall_2_0(), semanticObject.getCond());
+		feeder.accept(grammarAccess.getWhileStatementAccess().getWhileBlockStatementsBlockParserRuleCall_3_0(), semanticObject.getWhileBlock());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (elements+=Expression elements+=Expression*)
+	 */
+	protected void sequence_commaExpr(EObject context, commaExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -566,193 +746,6 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         (ifcondition=parenthesizedExpr ifthen=statement ifelse=statement?) | 
-	 *         (condition=parenthesizedExpr elements+=statementInSwitch*) | 
-	 *         (condition=parenthesizedExpr command=statement) | 
-	 *         (forinit=commaExpr? condition=commaExpr? iterator=commaExpr? command=statement) | 
-	 *         (elements+=identifierDeclaration elements+=identifierDeclaration* condition=commaExpr? iterator=commaExpr? command=statement) | 
-	 *         (nameForin=ID forinexpr=expr forcommand=statement) | 
-	 *         (nameForeachh=ID relation=typeRelation? foreachexpr=expr foreachcommand=statement) | 
-	 *         (command=block catch=catches? finally=block) | 
-	 *         function=namedFunctionExpr | 
-	 *         command=block
-	 *     )
-	 */
-	protected void sequence_labelableStatement(EObject context, labelableStatement semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (
-	 *         (
-	 *             expr=commaExpr | 
-	 *             (name=ID statement=labelableStatement) | 
-	 *             variables=variableDeclaration | 
-	 *             name=ID? | 
-	 *             name=ID? | 
-	 *             expr=exprOrObjectLiteral? | 
-	 *             expr=commaExpr | 
-	 *             argument=arguments | 
-	 *             statement=labelableStatement
-	 *         ) 
-	 *         condition=parenthesizedExpr
-	 *     )
-	 */
-	protected void sequence_labelableStatement_statement(EObject context, statement semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     ((expression=terminalExpr identifier=namespacedIdentifier) | (expression=terminalExpr list=commaExpr))
-	 */
-	protected void sequence_lvalue(EObject context, lvalue semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID ((expression=terminalExpr identifier=namespacedIdentifier) | (expression=terminalExpr list=commaExpr)))
-	 */
-	protected void sequence_lvalue_parameter(EObject context, lvalue semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (field=fieldDeclaration | method=methodDeclaration)
-	 */
-	protected void sequence_memberDeclaration(EObject context, memberDeclaration semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (methodmodifiers=modifiers name=ID params=parameters optbody=optBody)
-	 */
-	protected void sequence_methodDeclaration(EObject context, methodDeclaration semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.METHOD_DECLARATION__METHODMODIFIERS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.METHOD_DECLARATION__METHODMODIFIERS));
-			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.METHOD_DECLARATION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.METHOD_DECLARATION__NAME));
-			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.METHOD_DECLARATION__PARAMS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.METHOD_DECLARATION__PARAMS));
-			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.METHOD_DECLARATION__OPTBODY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.METHOD_DECLARATION__OPTBODY));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getMethodDeclarationAccess().getMethodmodifiersModifiersParserRuleCall_0_0(), semanticObject.getMethodmodifiers());
-		feeder.accept(grammarAccess.getMethodDeclarationAccess().getNameIDTerminalRuleCall_3_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getMethodDeclarationAccess().getParamsParametersParserRuleCall_5_0(), semanticObject.getParams());
-		feeder.accept(grammarAccess.getMethodDeclarationAccess().getOptbodyOptBodyParserRuleCall_8_0(), semanticObject.getOptbody());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (
-	 *         static?=STATIC? 
-	 *         final?=FINAL? 
-	 *         abstract?=ABSTRACT? 
-	 *         override?=OVERRIDE? 
-	 *         internal?=INTERNAL? 
-	 *         public?=PUBLIC? 
-	 *         private?=PRIVATE? 
-	 *         protected?=PROTECTED?
-	 *     )
-	 */
-	protected void sequence_modifiers(EObject context, modifiers semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (
-	 *         static?=STATIC? 
-	 *         final?=FINAL? 
-	 *         abstract?=ABSTRACT? 
-	 *         override?=OVERRIDE? 
-	 *         internal?=INTERNAL? 
-	 *         public?=PUBLIC? 
-	 *         private?=PRIVATE? 
-	 *         protected?=PROTECTED? 
-	 *         name=ID
-	 *     )
-	 */
-	protected void sequence_modifiers_namespacedIdentifier(EObject context, modifiers semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         static?=STATIC? 
-	 *         final?=FINAL? 
-	 *         abstract?=ABSTRACT? 
-	 *         override?=OVERRIDE? 
-	 *         internal?=INTERNAL? 
-	 *         public?=PUBLIC? 
-	 *         private?=PRIVATE? 
-	 *         protected?=PROTECTED? 
-	 *         name=ID
-	 *     )
-	 */
-	protected void sequence_modifiers_namespacedIdentifier_parameter(EObject context, modifiers semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID params=parameters relation=typeRelation? command=block)
-	 */
-	protected void sequence_namedFunctionExpr(EObject context, namedFunctionExpr semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID name=ID params=parameters relation=typeRelation? command=block)
-	 */
-	protected void sequence_namedFunctionExpr_parameter(EObject context, namedFunctionExpr semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_namespacedIdentifier(EObject context, namespacedIdentifier semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID name=ID)
-	 */
-	protected void sequence_namespacedIdentifier_parameter(EObject context, namespacedIdentifier semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (fields+=objectField fields+=objectField*)
 	 */
 	protected void sequence_objectFields(EObject context, objectFields semanticObject) {
@@ -762,98 +755,32 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID fields+=objectField fields+=objectField*)
+	 *     expression=exprOrObjectLiteral
 	 */
-	protected void sequence_objectFields_parameter(EObject context, objectFields semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     name=qualifiedIde?
-	 */
-	protected void sequence_packageDeclaration(EObject context, packageDeclaration semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_parameter(EObject context, parameter semanticObject) {
+	protected void sequence_parenthesizedExpr(EObject context, parenthesizedExpr semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.PARAMETER__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.PARAMETER__NAME));
+			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.PARENTHESIZED_EXPR__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.PARENTHESIZED_EXPR__EXPRESSION));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getParenthesizedExprAccess().getExpressionExprOrObjectLiteralParserRuleCall_1_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     ((elements+=parameter elements+=parameter*)? | ((elements+=parameter elements+=parameter*)? name=ID))
+	 *     type=[Class|QualifiedName]
 	 */
-	protected void sequence_parameters(EObject context, parameters semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     expression=exprOrObjectLiteral
-	 */
-	protected void sequence_parenthesizedExpr(EObject context, parenthesizedExpr semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (
-	 *         expr=commaExpr | 
-	 *         (name=ID statement=labelableStatement) | 
-	 *         variables=variableDeclaration | 
-	 *         name=ID? | 
-	 *         name=ID? | 
-	 *         expr=exprOrObjectLiteral? | 
-	 *         expr=commaExpr | 
-	 *         argument=arguments | 
-	 *         statement=labelableStatement
-	 *     )?
-	 */
-	protected void sequence_statement(EObject context, statement semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     elements+=statement+
-	 */
-	protected void sequence_statements(EObject context, statements semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (elements+=type elements+=type*)
-	 */
-	protected void sequence_typeList(EObject context, typeList semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (elements+=identifierDeclaration elements+=identifierDeclaration*)
-	 */
-	protected void sequence_variableDeclaration(EObject context, variableDeclaration semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_typeRelation(EObject context, typeRelation semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.TYPE_RELATION__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.TYPE_RELATION__TYPE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getTypeRelationAccess().getTypeClassQualifiedNameParserRuleCall_1_0_1(), semanticObject.getType());
+		feeder.finish();
 	}
 }

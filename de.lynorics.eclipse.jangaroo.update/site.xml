@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description name="Jangaroo for Eclipse" url="www.lynorics.de/eclipse/">
+      
+   </description>
+   <feature url="features/de.lynorics.eclipse.jangaroo.sdk_1.0.0.201401192340.jar" id="de.lynorics.eclipse.jangaroo.sdk" version="1.0.0.201401192340"/>
+</site>

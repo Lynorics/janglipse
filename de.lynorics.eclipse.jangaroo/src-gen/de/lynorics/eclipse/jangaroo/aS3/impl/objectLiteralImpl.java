@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class objectLiteralImpl extends exprOrObjectLiteralImpl implements objectLiteral
+public class objectLiteralImpl extends StatementImpl implements objectLiteral
 {
   /**
    * <!-- begin-user-doc -->

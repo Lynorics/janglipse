@@ -4,6 +4,7 @@ package de.lynorics.eclipse.jangaroo.aS3;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -67,196 +68,59 @@ public interface AS3Package extends EPackage
   int MODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Imports</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__IMPORTS = 0;
+
+  /**
+   * The feature id for the '<em><b>Classes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__CLASSES = 1;
+
+  /**
    * The number of structural features of the '<em>Model</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 0;
+  int MODEL_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.annotationFieldImpl <em>annotation Field</em>}' class.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.PackageImpl <em>Package</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.annotationFieldImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getannotationField()
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.PackageImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getPackage()
    * @generated
    */
-  int ANNOTATION_FIELD = 3;
+  int PACKAGE = 1;
 
   /**
-   * The number of structural features of the '<em>annotation Field</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANNOTATION_FIELD_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.exprImpl <em>expr</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.exprImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getexpr()
-   * @generated
-   */
-  int EXPR = 15;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Imports</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR__NAME = ANNOTATION_FIELD_FEATURE_COUNT + 0;
+  int PACKAGE__IMPORTS = MODEL__IMPORTS;
 
   /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * The feature id for the '<em><b>Classes</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR__EXPR = ANNOTATION_FIELD_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Deleteexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__DELETEEXPR = ANNOTATION_FIELD_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Typeexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__TYPEEXPR = ANNOTATION_FIELD_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__TYPE = ANNOTATION_FIELD_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Isleftepxr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__ISLEFTEPXR = ANNOTATION_FIELD_FEATURE_COUNT + 5;
-
-  /**
-   * The feature id for the '<em><b>Isrightexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__ISRIGHTEXPR = ANNOTATION_FIELD_FEATURE_COUNT + 6;
-
-  /**
-   * The feature id for the '<em><b>Prefixexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__PREFIXEXPR = ANNOTATION_FIELD_FEATURE_COUNT + 7;
-
-  /**
-   * The feature id for the '<em><b>Postfixexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__POSTFIXEXPR = ANNOTATION_FIELD_FEATURE_COUNT + 8;
-
-  /**
-   * The feature id for the '<em><b>Infixexprleft</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__INFIXEXPRLEFT = ANNOTATION_FIELD_FEATURE_COUNT + 9;
-
-  /**
-   * The feature id for the '<em><b>Infixexprright</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__INFIXEXPRRIGHT = ANNOTATION_FIELD_FEATURE_COUNT + 10;
-
-  /**
-   * The feature id for the '<em><b>Args</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__ARGS = ANNOTATION_FIELD_FEATURE_COUNT + 11;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__CONDITION = ANNOTATION_FIELD_FEATURE_COUNT + 12;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__THEN = ANNOTATION_FIELD_FEATURE_COUNT + 13;
-
-  /**
-   * The feature id for the '<em><b>Else</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__ELSE = ANNOTATION_FIELD_FEATURE_COUNT + 14;
-
-  /**
-   * The number of structural features of the '<em>expr</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR_FEATURE_COUNT = ANNOTATION_FIELD_FEATURE_COUNT + 15;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.anonFunctionExprImpl <em>anon Function Expr</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.anonFunctionExprImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getanonFunctionExpr()
-   * @generated
-   */
-  int ANON_FUNCTION_EXPR = 1;
+  int PACKAGE__CLASSES = MODEL__CLASSES;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -265,830 +129,26 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int ANON_FUNCTION_EXPR__NAME = EXPR__NAME;
+  int PACKAGE__NAME = MODEL_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * The number of structural features of the '<em>Package</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ANON_FUNCTION_EXPR__EXPR = EXPR__EXPR;
+  int PACKAGE_FEATURE_COUNT = MODEL_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Deleteexpr</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ImportImpl <em>Import</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.ImportImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getImport()
    * @generated
-   * @ordered
-   */
-  int ANON_FUNCTION_EXPR__DELETEEXPR = EXPR__DELETEEXPR;
-
-  /**
-   * The feature id for the '<em><b>Typeexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANON_FUNCTION_EXPR__TYPEEXPR = EXPR__TYPEEXPR;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANON_FUNCTION_EXPR__TYPE = EXPR__TYPE;
-
-  /**
-   * The feature id for the '<em><b>Isleftepxr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANON_FUNCTION_EXPR__ISLEFTEPXR = EXPR__ISLEFTEPXR;
-
-  /**
-   * The feature id for the '<em><b>Isrightexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANON_FUNCTION_EXPR__ISRIGHTEXPR = EXPR__ISRIGHTEXPR;
-
-  /**
-   * The feature id for the '<em><b>Prefixexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANON_FUNCTION_EXPR__PREFIXEXPR = EXPR__PREFIXEXPR;
-
-  /**
-   * The feature id for the '<em><b>Postfixexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANON_FUNCTION_EXPR__POSTFIXEXPR = EXPR__POSTFIXEXPR;
-
-  /**
-   * The feature id for the '<em><b>Infixexprleft</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANON_FUNCTION_EXPR__INFIXEXPRLEFT = EXPR__INFIXEXPRLEFT;
-
-  /**
-   * The feature id for the '<em><b>Infixexprright</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANON_FUNCTION_EXPR__INFIXEXPRRIGHT = EXPR__INFIXEXPRRIGHT;
-
-  /**
-   * The feature id for the '<em><b>Args</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANON_FUNCTION_EXPR__ARGS = EXPR__ARGS;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANON_FUNCTION_EXPR__CONDITION = EXPR__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANON_FUNCTION_EXPR__THEN = EXPR__THEN;
-
-  /**
-   * The feature id for the '<em><b>Else</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANON_FUNCTION_EXPR__ELSE = EXPR__ELSE;
-
-  /**
-   * The feature id for the '<em><b>Params</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANON_FUNCTION_EXPR__PARAMS = EXPR_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Relation</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANON_FUNCTION_EXPR__RELATION = EXPR_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Command</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANON_FUNCTION_EXPR__COMMAND = EXPR_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>anon Function Expr</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANON_FUNCTION_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.annotationFieldsImpl <em>annotation Fields</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.annotationFieldsImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getannotationFields()
-   * @generated
-   */
-  int ANNOTATION_FIELDS = 2;
-
-  /**
-   * The feature id for the '<em><b>Fields</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANNOTATION_FIELDS__FIELDS = 0;
-
-  /**
-   * The number of structural features of the '<em>annotation Fields</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANNOTATION_FIELDS_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.arrayLiteralImpl <em>array Literal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.arrayLiteralImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getarrayLiteral()
-   * @generated
-   */
-  int ARRAY_LITERAL = 5;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_LITERAL__NAME = EXPR__NAME;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_LITERAL__EXPR = EXPR__EXPR;
-
-  /**
-   * The feature id for the '<em><b>Deleteexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_LITERAL__DELETEEXPR = EXPR__DELETEEXPR;
-
-  /**
-   * The feature id for the '<em><b>Typeexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_LITERAL__TYPEEXPR = EXPR__TYPEEXPR;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_LITERAL__TYPE = EXPR__TYPE;
-
-  /**
-   * The feature id for the '<em><b>Isleftepxr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_LITERAL__ISLEFTEPXR = EXPR__ISLEFTEPXR;
-
-  /**
-   * The feature id for the '<em><b>Isrightexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_LITERAL__ISRIGHTEXPR = EXPR__ISRIGHTEXPR;
-
-  /**
-   * The feature id for the '<em><b>Prefixexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_LITERAL__PREFIXEXPR = EXPR__PREFIXEXPR;
-
-  /**
-   * The feature id for the '<em><b>Postfixexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_LITERAL__POSTFIXEXPR = EXPR__POSTFIXEXPR;
-
-  /**
-   * The feature id for the '<em><b>Infixexprleft</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_LITERAL__INFIXEXPRLEFT = EXPR__INFIXEXPRLEFT;
-
-  /**
-   * The feature id for the '<em><b>Infixexprright</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_LITERAL__INFIXEXPRRIGHT = EXPR__INFIXEXPRRIGHT;
-
-  /**
-   * The feature id for the '<em><b>Args</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_LITERAL__ARGS = EXPR__ARGS;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_LITERAL__CONDITION = EXPR__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_LITERAL__THEN = EXPR__THEN;
-
-  /**
-   * The feature id for the '<em><b>Else</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_LITERAL__ELSE = EXPR__ELSE;
-
-  /**
-   * The number of structural features of the '<em>array Literal</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_LITERAL_FEATURE_COUNT = EXPR_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.argumentsImpl <em>arguments</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.argumentsImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getarguments()
-   * @generated
-   */
-  int ARGUMENTS = 4;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARGUMENTS__NAME = ARRAY_LITERAL__NAME;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARGUMENTS__EXPR = ARRAY_LITERAL__EXPR;
-
-  /**
-   * The feature id for the '<em><b>Deleteexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARGUMENTS__DELETEEXPR = ARRAY_LITERAL__DELETEEXPR;
-
-  /**
-   * The feature id for the '<em><b>Typeexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARGUMENTS__TYPEEXPR = ARRAY_LITERAL__TYPEEXPR;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARGUMENTS__TYPE = ARRAY_LITERAL__TYPE;
-
-  /**
-   * The feature id for the '<em><b>Isleftepxr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARGUMENTS__ISLEFTEPXR = ARRAY_LITERAL__ISLEFTEPXR;
-
-  /**
-   * The feature id for the '<em><b>Isrightexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARGUMENTS__ISRIGHTEXPR = ARRAY_LITERAL__ISRIGHTEXPR;
-
-  /**
-   * The feature id for the '<em><b>Prefixexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARGUMENTS__PREFIXEXPR = ARRAY_LITERAL__PREFIXEXPR;
-
-  /**
-   * The feature id for the '<em><b>Postfixexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARGUMENTS__POSTFIXEXPR = ARRAY_LITERAL__POSTFIXEXPR;
-
-  /**
-   * The feature id for the '<em><b>Infixexprleft</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARGUMENTS__INFIXEXPRLEFT = ARRAY_LITERAL__INFIXEXPRLEFT;
-
-  /**
-   * The feature id for the '<em><b>Infixexprright</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARGUMENTS__INFIXEXPRRIGHT = ARRAY_LITERAL__INFIXEXPRRIGHT;
-
-  /**
-   * The feature id for the '<em><b>Args</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARGUMENTS__ARGS = ARRAY_LITERAL__ARGS;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARGUMENTS__CONDITION = ARRAY_LITERAL__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARGUMENTS__THEN = ARRAY_LITERAL__THEN;
-
-  /**
-   * The feature id for the '<em><b>Else</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARGUMENTS__ELSE = ARRAY_LITERAL__ELSE;
-
-  /**
-   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARGUMENTS__ELEMENTS = ARRAY_LITERAL_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>arguments</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARGUMENTS_FEATURE_COUNT = ARRAY_LITERAL_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.optBodyImpl <em>opt Body</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.optBodyImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getoptBody()
-   * @generated
-   */
-  int OPT_BODY = 29;
-
-  /**
-   * The number of structural features of the '<em>opt Body</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPT_BODY_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.blockImpl <em>block</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.blockImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getblock()
-   * @generated
-   */
-  int BLOCK = 6;
-
-  /**
-   * The number of structural features of the '<em>block</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BLOCK_FEATURE_COUNT = OPT_BODY_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.catchesImpl <em>catches</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.catchesImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getcatches()
-   * @generated
-   */
-  int CATCHES = 7;
-
-  /**
-   * The feature id for the '<em><b>Params</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CATCHES__PARAMS = 0;
-
-  /**
-   * The feature id for the '<em><b>Command</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CATCHES__COMMAND = 1;
-
-  /**
-   * The number of structural features of the '<em>catches</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CATCHES_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.classBodyImpl <em>class Body</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.classBodyImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getclassBody()
-   * @generated
-   */
-  int CLASS_BODY = 8;
-
-  /**
-   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLASS_BODY__ELEMENTS = 0;
-
-  /**
-   * The number of structural features of the '<em>class Body</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLASS_BODY_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.classDeclarationImpl <em>class Declaration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.classDeclarationImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getclassDeclaration()
-   * @generated
-   */
-  int CLASS_DECLARATION = 9;
-
-  /**
-   * The feature id for the '<em><b>Class Modifiers</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLASS_DECLARATION__CLASS_MODIFIERS = 0;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLASS_DECLARATION__NAME = 1;
-
-  /**
-   * The feature id for the '<em><b>Super Type</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLASS_DECLARATION__SUPER_TYPE = 2;
-
-  /**
-   * The feature id for the '<em><b>Types</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLASS_DECLARATION__TYPES = 3;
-
-  /**
-   * The feature id for the '<em><b>Command</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLASS_DECLARATION__COMMAND = 4;
-
-  /**
-   * The number of structural features of the '<em>class Declaration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLASS_DECLARATION_FEATURE_COUNT = 5;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.commaExprImpl <em>comma Expr</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.commaExprImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getcommaExpr()
-   * @generated
-   */
-  int COMMA_EXPR = 10;
-
-  /**
-   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMMA_EXPR__ELEMENTS = 0;
-
-  /**
-   * The number of structural features of the '<em>comma Expr</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMMA_EXPR_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.compilationUnitImpl <em>compilation Unit</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.compilationUnitImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getcompilationUnit()
-   * @generated
-   */
-  int COMPILATION_UNIT = 11;
-
-  /**
-   * The feature id for the '<em><b>Package</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPILATION_UNIT__PACKAGE = MODEL_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Directive</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPILATION_UNIT__DIRECTIVE = MODEL_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Unit</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPILATION_UNIT__UNIT = MODEL_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>compilation Unit</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPILATION_UNIT_FEATURE_COUNT = MODEL_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.compilationUnitDeclarationImpl <em>compilation Unit Declaration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.compilationUnitDeclarationImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getcompilationUnitDeclaration()
-   * @generated
-   */
-  int COMPILATION_UNIT_DECLARATION = 12;
-
-  /**
-   * The feature id for the '<em><b>Class</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPILATION_UNIT_DECLARATION__CLASS = 0;
-
-  /**
-   * The feature id for the '<em><b>Member</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPILATION_UNIT_DECLARATION__MEMBER = 1;
-
-  /**
-   * The number of structural features of the '<em>compilation Unit Declaration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPILATION_UNIT_DECLARATION_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.directivesImpl <em>directives</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.directivesImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getdirectives()
-   * @generated
-   */
-  int DIRECTIVES = 13;
-
-  /**
-   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIRECTIVES__ELEMENTS = 0;
-
-  /**
-   * The number of structural features of the '<em>directives</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIRECTIVES_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.directiveImpl <em>directive</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.directiveImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getdirective()
-   * @generated
    */
-  int DIRECTIVE = 14;
+  int IMPORT = 2;
 
   /**
    * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
@@ -1097,72 +157,35 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int DIRECTIVE__IMPORTED_NAMESPACE = 0;
+  int IMPORT__IMPORTED_NAMESPACE = 0;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * The number of structural features of the '<em>Import</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DIRECTIVE__ID = 1;
+  int IMPORT_FEATURE_COUNT = 1;
 
   /**
-   * The feature id for the '<em><b>Fields</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ClassImpl <em>Class</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.ClassImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getClass_()
+   * @generated
+   */
+  int CLASS = 3;
+
+  /**
+   * The feature id for the '<em><b>Access</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DIRECTIVE__FIELDS = 2;
-
-  /**
-   * The feature id for the '<em><b>Useasid</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIRECTIVE__USEASID = 3;
-
-  /**
-   * The number of structural features of the '<em>directive</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIRECTIVE_FEATURE_COUNT = 4;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.objectFieldImpl <em>object Field</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.objectFieldImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getobjectField()
-   * @generated
-   */
-  int OBJECT_FIELD = 26;
-
-  /**
-   * The number of structural features of the '<em>object Field</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OBJECT_FIELD_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.exprOrObjectLiteralImpl <em>expr Or Object Literal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.exprOrObjectLiteralImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getexprOrObjectLiteral()
-   * @generated
-   */
-  int EXPR_OR_OBJECT_LITERAL = 16;
+  int CLASS__ACCESS = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1171,44 +194,303 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int EXPR_OR_OBJECT_LITERAL__NAME = OBJECT_FIELD_FEATURE_COUNT + 0;
+  int CLASS__NAME = 1;
 
   /**
-   * The number of structural features of the '<em>expr Or Object Literal</em>' class.
+   * The feature id for the '<em><b>Superclass</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR_OR_OBJECT_LITERAL_FEATURE_COUNT = OBJECT_FIELD_FEATURE_COUNT + 1;
+  int CLASS__SUPERCLASS = 2;
 
   /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.fieldDeclarationImpl <em>field Declaration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.fieldDeclarationImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getfieldDeclaration()
-   * @generated
-   */
-  int FIELD_DECLARATION = 17;
-
-  /**
-   * The feature id for the '<em><b>Mod</b></em>' containment reference.
+   * The feature id for the '<em><b>Members</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD_DECLARATION__MOD = 0;
+  int CLASS__MEMBERS = 3;
 
   /**
-   * The feature id for the '<em><b>Var</b></em>' attribute.
+   * The feature id for the '<em><b>Types</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD_DECLARATION__VAR = 1;
+  int CLASS__TYPES = 4;
+
+  /**
+   * The number of structural features of the '<em>Class</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS_FEATURE_COUNT = 5;
+
+  /**
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.MemberImpl <em>Member</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.MemberImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getMember()
+   * @generated
+   */
+  int MEMBER = 4;
+
+  /**
+   * The feature id for the '<em><b>Var</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEMBER__VAR = 0;
+
+  /**
+   * The feature id for the '<em><b>Meth</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEMBER__METH = 1;
+
+  /**
+   * The number of structural features of the '<em>Member</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEMBER_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.MethodImpl <em>Method</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.MethodImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getMethod()
+   * @generated
+   */
+  int METHOD = 5;
+
+  /**
+   * The feature id for the '<em><b>Access</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD__ACCESS = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Params</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD__PARAMS = 2;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD__TYPE = 3;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD__BODY = 4;
+
+  /**
+   * The number of structural features of the '<em>Method</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_FEATURE_COUNT = 5;
+
+  /**
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.BlockImpl <em>Block</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.BlockImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getBlock()
+   * @generated
+   */
+  int BLOCK = 23;
+
+  /**
+   * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLOCK__STATEMENTS = 0;
+
+  /**
+   * The number of structural features of the '<em>Block</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLOCK_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.MethodBodyImpl <em>Method Body</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.MethodBodyImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getMethodBody()
+   * @generated
+   */
+  int METHOD_BODY = 6;
+
+  /**
+   * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_BODY__STATEMENTS = BLOCK__STATEMENTS;
+
+  /**
+   * The number of structural features of the '<em>Method Body</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_BODY_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.statementInSwitchImpl <em>statement In Switch</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.statementInSwitchImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getstatementInSwitch()
+   * @generated
+   */
+  int STATEMENT_IN_SWITCH = 16;
+
+  /**
+   * The number of structural features of the '<em>statement In Switch</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_IN_SWITCH_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.StatementImpl <em>Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.StatementImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getStatement()
+   * @generated
+   */
+  int STATEMENT = 7;
+
+  /**
+   * The number of structural features of the '<em>Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_FEATURE_COUNT = STATEMENT_IN_SWITCH_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.NewStatementImpl <em>New Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.NewStatementImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getNewStatement()
+   * @generated
+   */
+  int NEW_STATEMENT = 8;
+
+  /**
+   * The number of structural features of the '<em>New Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEW_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ForStatementImpl <em>For Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.ForStatementImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getForStatement()
+   * @generated
+   */
+  int FOR_STATEMENT = 9;
+
+  /**
+   * The feature id for the '<em><b>Forinit</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_STATEMENT__FORINIT = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_STATEMENT__CONDITION = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Iterator</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_STATEMENT__ITERATOR = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Command</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_STATEMENT__COMMAND = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -1217,16 +499,79 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_DECLARATION__ELEMENTS = 2;
+  int FOR_STATEMENT__ELEMENTS = STATEMENT_FEATURE_COUNT + 4;
 
   /**
-   * The number of structural features of the '<em>field Declaration</em>' class.
+   * The feature id for the '<em><b>Name Forin</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD_DECLARATION_FEATURE_COUNT = 3;
+  int FOR_STATEMENT__NAME_FORIN = STATEMENT_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Forinexpr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_STATEMENT__FORINEXPR = STATEMENT_FEATURE_COUNT + 6;
+
+  /**
+   * The feature id for the '<em><b>Forcommand</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_STATEMENT__FORCOMMAND = STATEMENT_FEATURE_COUNT + 7;
+
+  /**
+   * The feature id for the '<em><b>Name Foreachh</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_STATEMENT__NAME_FOREACHH = STATEMENT_FEATURE_COUNT + 8;
+
+  /**
+   * The feature id for the '<em><b>Relation</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_STATEMENT__RELATION = STATEMENT_FEATURE_COUNT + 9;
+
+  /**
+   * The feature id for the '<em><b>Foreachexpr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_STATEMENT__FOREACHEXPR = STATEMENT_FEATURE_COUNT + 10;
+
+  /**
+   * The feature id for the '<em><b>Foreachcommand</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_STATEMENT__FOREACHCOMMAND = STATEMENT_FEATURE_COUNT + 11;
+
+  /**
+   * The number of structural features of the '<em>For Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 12;
 
   /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.identifierDeclarationImpl <em>identifier Declaration</em>}' class.
@@ -1236,7 +581,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getidentifierDeclaration()
    * @generated
    */
-  int IDENTIFIER_DECLARATION = 18;
+  int IDENTIFIER_DECLARATION = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1248,7 +593,7 @@ public interface AS3Package extends EPackage
   int IDENTIFIER_DECLARATION__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Relation</b></em>' attribute.
+   * The feature id for the '<em><b>Relation</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1275,50 +620,14 @@ public interface AS3Package extends EPackage
   int IDENTIFIER_DECLARATION_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.labelableStatementImpl <em>labelable Statement</em>}' class.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.commaExprImpl <em>comma Expr</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.labelableStatementImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getlabelableStatement()
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.commaExprImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getcommaExpr()
    * @generated
    */
-  int LABELABLE_STATEMENT = 19;
-
-  /**
-   * The feature id for the '<em><b>Ifcondition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABELABLE_STATEMENT__IFCONDITION = 0;
-
-  /**
-   * The feature id for the '<em><b>Ifthen</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABELABLE_STATEMENT__IFTHEN = 1;
-
-  /**
-   * The feature id for the '<em><b>Ifelse</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABELABLE_STATEMENT__IFELSE = 2;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABELABLE_STATEMENT__CONDITION = 3;
+  int COMMA_EXPR = 11;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -1327,278 +636,83 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int LABELABLE_STATEMENT__ELEMENTS = 4;
+  int COMMA_EXPR__ELEMENTS = 0;
 
   /**
-   * The feature id for the '<em><b>Command</b></em>' containment reference.
+   * The number of structural features of the '<em>comma Expr</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LABELABLE_STATEMENT__COMMAND = 5;
+  int COMMA_EXPR_FEATURE_COUNT = 1;
 
   /**
-   * The feature id for the '<em><b>Forinit</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.DoWhileStatementImpl <em>Do While Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.DoWhileStatementImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getDoWhileStatement()
+   * @generated
+   */
+  int DO_WHILE_STATEMENT = 12;
+
+  /**
+   * The number of structural features of the '<em>Do While Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LABELABLE_STATEMENT__FORINIT = 6;
+  int DO_WHILE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Iterator</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.WhileStatementImpl <em>While Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.WhileStatementImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getWhileStatement()
+   * @generated
+   */
+  int WHILE_STATEMENT = 13;
+
+  /**
+   * The number of structural features of the '<em>While Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LABELABLE_STATEMENT__ITERATOR = 7;
+  int WHILE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Name Forin</b></em>' attribute.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.SwitchStatementImpl <em>Switch Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.SwitchStatementImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getSwitchStatement()
+   * @generated
+   */
+  int SWITCH_STATEMENT = 14;
+
+  /**
+   * The number of structural features of the '<em>Switch Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LABELABLE_STATEMENT__NAME_FORIN = 8;
+  int SWITCH_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Forinexpr</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.parenthesizedExprImpl <em>parenthesized Expr</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABELABLE_STATEMENT__FORINEXPR = 9;
-
-  /**
-   * The feature id for the '<em><b>Forcommand</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABELABLE_STATEMENT__FORCOMMAND = 10;
-
-  /**
-   * The feature id for the '<em><b>Name Foreachh</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABELABLE_STATEMENT__NAME_FOREACHH = 11;
-
-  /**
-   * The feature id for the '<em><b>Relation</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABELABLE_STATEMENT__RELATION = 12;
-
-  /**
-   * The feature id for the '<em><b>Foreachexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABELABLE_STATEMENT__FOREACHEXPR = 13;
-
-  /**
-   * The feature id for the '<em><b>Foreachcommand</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABELABLE_STATEMENT__FOREACHCOMMAND = 14;
-
-  /**
-   * The feature id for the '<em><b>Catch</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABELABLE_STATEMENT__CATCH = 15;
-
-  /**
-   * The feature id for the '<em><b>Finally</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABELABLE_STATEMENT__FINALLY = 16;
-
-  /**
-   * The feature id for the '<em><b>Function</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABELABLE_STATEMENT__FUNCTION = 17;
-
-  /**
-   * The number of structural features of the '<em>labelable Statement</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABELABLE_STATEMENT_FEATURE_COUNT = 18;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.lvalueImpl <em>lvalue</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.lvalueImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getlvalue()
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.parenthesizedExprImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getparenthesizedExpr()
    * @generated
    */
-  int LVALUE = 20;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LVALUE__NAME = EXPR__NAME;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LVALUE__EXPR = EXPR__EXPR;
-
-  /**
-   * The feature id for the '<em><b>Deleteexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LVALUE__DELETEEXPR = EXPR__DELETEEXPR;
-
-  /**
-   * The feature id for the '<em><b>Typeexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LVALUE__TYPEEXPR = EXPR__TYPEEXPR;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LVALUE__TYPE = EXPR__TYPE;
-
-  /**
-   * The feature id for the '<em><b>Isleftepxr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LVALUE__ISLEFTEPXR = EXPR__ISLEFTEPXR;
-
-  /**
-   * The feature id for the '<em><b>Isrightexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LVALUE__ISRIGHTEXPR = EXPR__ISRIGHTEXPR;
-
-  /**
-   * The feature id for the '<em><b>Prefixexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LVALUE__PREFIXEXPR = EXPR__PREFIXEXPR;
-
-  /**
-   * The feature id for the '<em><b>Postfixexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LVALUE__POSTFIXEXPR = EXPR__POSTFIXEXPR;
-
-  /**
-   * The feature id for the '<em><b>Infixexprleft</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LVALUE__INFIXEXPRLEFT = EXPR__INFIXEXPRLEFT;
-
-  /**
-   * The feature id for the '<em><b>Infixexprright</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LVALUE__INFIXEXPRRIGHT = EXPR__INFIXEXPRRIGHT;
-
-  /**
-   * The feature id for the '<em><b>Args</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LVALUE__ARGS = EXPR__ARGS;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LVALUE__CONDITION = EXPR__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LVALUE__THEN = EXPR__THEN;
-
-  /**
-   * The feature id for the '<em><b>Else</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LVALUE__ELSE = EXPR__ELSE;
+  int PARENTHESIZED_EXPR = 15;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1607,271 +721,26 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int LVALUE__EXPRESSION = EXPR_FEATURE_COUNT + 0;
+  int PARENTHESIZED_EXPR__EXPRESSION = 0;
 
   /**
-   * The feature id for the '<em><b>Identifier</b></em>' containment reference.
+   * The number of structural features of the '<em>parenthesized Expr</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LVALUE__IDENTIFIER = EXPR_FEATURE_COUNT + 1;
+  int PARENTHESIZED_EXPR_FEATURE_COUNT = 1;
 
   /**
-   * The feature id for the '<em><b>List</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ReturnImpl <em>Return</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LVALUE__LIST = EXPR_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>lvalue</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LVALUE_FEATURE_COUNT = EXPR_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.memberDeclarationImpl <em>member Declaration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.memberDeclarationImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getmemberDeclaration()
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.ReturnImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getReturn()
    * @generated
    */
-  int MEMBER_DECLARATION = 21;
-
-  /**
-   * The feature id for the '<em><b>Field</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MEMBER_DECLARATION__FIELD = 0;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MEMBER_DECLARATION__METHOD = 1;
-
-  /**
-   * The number of structural features of the '<em>member Declaration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MEMBER_DECLARATION_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.methodDeclarationImpl <em>method Declaration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.methodDeclarationImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getmethodDeclaration()
-   * @generated
-   */
-  int METHOD_DECLARATION = 22;
-
-  /**
-   * The feature id for the '<em><b>Methodmodifiers</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_DECLARATION__METHODMODIFIERS = 0;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_DECLARATION__NAME = 1;
-
-  /**
-   * The feature id for the '<em><b>Params</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_DECLARATION__PARAMS = 2;
-
-  /**
-   * The feature id for the '<em><b>Optbody</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_DECLARATION__OPTBODY = 3;
-
-  /**
-   * The number of structural features of the '<em>method Declaration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_DECLARATION_FEATURE_COUNT = 4;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.namespacedIdentifierImpl <em>namespaced Identifier</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.namespacedIdentifierImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getnamespacedIdentifier()
-   * @generated
-   */
-  int NAMESPACED_IDENTIFIER = 25;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMESPACED_IDENTIFIER__NAME = LVALUE__NAME;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMESPACED_IDENTIFIER__EXPR = LVALUE__EXPR;
-
-  /**
-   * The feature id for the '<em><b>Deleteexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMESPACED_IDENTIFIER__DELETEEXPR = LVALUE__DELETEEXPR;
-
-  /**
-   * The feature id for the '<em><b>Typeexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMESPACED_IDENTIFIER__TYPEEXPR = LVALUE__TYPEEXPR;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMESPACED_IDENTIFIER__TYPE = LVALUE__TYPE;
-
-  /**
-   * The feature id for the '<em><b>Isleftepxr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMESPACED_IDENTIFIER__ISLEFTEPXR = LVALUE__ISLEFTEPXR;
-
-  /**
-   * The feature id for the '<em><b>Isrightexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMESPACED_IDENTIFIER__ISRIGHTEXPR = LVALUE__ISRIGHTEXPR;
-
-  /**
-   * The feature id for the '<em><b>Prefixexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMESPACED_IDENTIFIER__PREFIXEXPR = LVALUE__PREFIXEXPR;
-
-  /**
-   * The feature id for the '<em><b>Postfixexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMESPACED_IDENTIFIER__POSTFIXEXPR = LVALUE__POSTFIXEXPR;
-
-  /**
-   * The feature id for the '<em><b>Infixexprleft</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMESPACED_IDENTIFIER__INFIXEXPRLEFT = LVALUE__INFIXEXPRLEFT;
-
-  /**
-   * The feature id for the '<em><b>Infixexprright</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMESPACED_IDENTIFIER__INFIXEXPRRIGHT = LVALUE__INFIXEXPRRIGHT;
-
-  /**
-   * The feature id for the '<em><b>Args</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMESPACED_IDENTIFIER__ARGS = LVALUE__ARGS;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMESPACED_IDENTIFIER__CONDITION = LVALUE__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMESPACED_IDENTIFIER__THEN = LVALUE__THEN;
-
-  /**
-   * The feature id for the '<em><b>Else</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMESPACED_IDENTIFIER__ELSE = LVALUE__ELSE;
+  int RETURN = 17;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1880,44 +749,26 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int NAMESPACED_IDENTIFIER__EXPRESSION = LVALUE__EXPRESSION;
+  int RETURN__EXPRESSION = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Identifier</b></em>' containment reference.
+   * The number of structural features of the '<em>Return</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NAMESPACED_IDENTIFIER__IDENTIFIER = LVALUE__IDENTIFIER;
+  int RETURN_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>List</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl <em>Variable Declaration</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMESPACED_IDENTIFIER__LIST = LVALUE__LIST;
-
-  /**
-   * The number of structural features of the '<em>namespaced Identifier</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMESPACED_IDENTIFIER_FEATURE_COUNT = LVALUE_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.modifiersImpl <em>modifiers</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.modifiersImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getmodifiers()
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getVariableDeclaration()
    * @generated
    */
-  int MODIFIERS = 23;
+  int VARIABLE_DECLARATION = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1926,133 +777,16 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int MODIFIERS__NAME = NAMESPACED_IDENTIFIER__NAME;
+  int VARIABLE_DECLARATION__NAME = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * The feature id for the '<em><b>Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODIFIERS__EXPR = NAMESPACED_IDENTIFIER__EXPR;
-
-  /**
-   * The feature id for the '<em><b>Deleteexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIERS__DELETEEXPR = NAMESPACED_IDENTIFIER__DELETEEXPR;
-
-  /**
-   * The feature id for the '<em><b>Typeexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIERS__TYPEEXPR = NAMESPACED_IDENTIFIER__TYPEEXPR;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIERS__TYPE = NAMESPACED_IDENTIFIER__TYPE;
-
-  /**
-   * The feature id for the '<em><b>Isleftepxr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIERS__ISLEFTEPXR = NAMESPACED_IDENTIFIER__ISLEFTEPXR;
-
-  /**
-   * The feature id for the '<em><b>Isrightexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIERS__ISRIGHTEXPR = NAMESPACED_IDENTIFIER__ISRIGHTEXPR;
-
-  /**
-   * The feature id for the '<em><b>Prefixexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIERS__PREFIXEXPR = NAMESPACED_IDENTIFIER__PREFIXEXPR;
-
-  /**
-   * The feature id for the '<em><b>Postfixexpr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIERS__POSTFIXEXPR = NAMESPACED_IDENTIFIER__POSTFIXEXPR;
-
-  /**
-   * The feature id for the '<em><b>Infixexprleft</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIERS__INFIXEXPRLEFT = NAMESPACED_IDENTIFIER__INFIXEXPRLEFT;
-
-  /**
-   * The feature id for the '<em><b>Infixexprright</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIERS__INFIXEXPRRIGHT = NAMESPACED_IDENTIFIER__INFIXEXPRRIGHT;
-
-  /**
-   * The feature id for the '<em><b>Args</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIERS__ARGS = NAMESPACED_IDENTIFIER__ARGS;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIERS__CONDITION = NAMESPACED_IDENTIFIER__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIERS__THEN = NAMESPACED_IDENTIFIER__THEN;
-
-  /**
-   * The feature id for the '<em><b>Else</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIERS__ELSE = NAMESPACED_IDENTIFIER__ELSE;
+  int VARIABLE_DECLARATION__TYPE = STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -2061,116 +795,174 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int MODIFIERS__EXPRESSION = NAMESPACED_IDENTIFIER__EXPRESSION;
+  int VARIABLE_DECLARATION__EXPRESSION = STATEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Identifier</b></em>' containment reference.
+   * The number of structural features of the '<em>Variable Declaration</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODIFIERS__IDENTIFIER = NAMESPACED_IDENTIFIER__IDENTIFIER;
+  int VARIABLE_DECLARATION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>List</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.IfStatementImpl <em>If Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.IfStatementImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getIfStatement()
+   * @generated
+   */
+  int IF_STATEMENT = 19;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODIFIERS__LIST = NAMESPACED_IDENTIFIER__LIST;
+  int IF_STATEMENT__EXPRESSION = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Static</b></em>' attribute.
+   * The feature id for the '<em><b>Then Block</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODIFIERS__STATIC = NAMESPACED_IDENTIFIER_FEATURE_COUNT + 0;
+  int IF_STATEMENT__THEN_BLOCK = STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Final</b></em>' attribute.
+   * The feature id for the '<em><b>Else Block</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODIFIERS__FINAL = NAMESPACED_IDENTIFIER_FEATURE_COUNT + 1;
+  int IF_STATEMENT__ELSE_BLOCK = STATEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Abstract</b></em>' attribute.
+   * The number of structural features of the '<em>If Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODIFIERS__ABSTRACT = NAMESPACED_IDENTIFIER_FEATURE_COUNT + 2;
+  int IF_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Override</b></em>' attribute.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.TryStatementImpl <em>Try Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.TryStatementImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getTryStatement()
+   * @generated
+   */
+  int TRY_STATEMENT = 20;
+
+  /**
+   * The feature id for the '<em><b>Statements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODIFIERS__OVERRIDE = NAMESPACED_IDENTIFIER_FEATURE_COUNT + 3;
+  int TRY_STATEMENT__STATEMENTS = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Internal</b></em>' attribute.
+   * The feature id for the '<em><b>Params</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODIFIERS__INTERNAL = NAMESPACED_IDENTIFIER_FEATURE_COUNT + 4;
+  int TRY_STATEMENT__PARAMS = STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Public</b></em>' attribute.
+   * The feature id for the '<em><b>Finally Block</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODIFIERS__PUBLIC = NAMESPACED_IDENTIFIER_FEATURE_COUNT + 5;
+  int TRY_STATEMENT__FINALLY_BLOCK = STATEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Private</b></em>' attribute.
+   * The number of structural features of the '<em>Try Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODIFIERS__PRIVATE = NAMESPACED_IDENTIFIER_FEATURE_COUNT + 6;
+  int TRY_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Protected</b></em>' attribute.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.IfBlockImpl <em>If Block</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.IfBlockImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getIfBlock()
+   * @generated
+   */
+  int IF_BLOCK = 21;
+
+  /**
+   * The feature id for the '<em><b>Statements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODIFIERS__PROTECTED = NAMESPACED_IDENTIFIER_FEATURE_COUNT + 7;
+  int IF_BLOCK__STATEMENTS = BLOCK__STATEMENTS;
 
   /**
-   * The number of structural features of the '<em>modifiers</em>' class.
+   * The number of structural features of the '<em>If Block</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODIFIERS_FEATURE_COUNT = NAMESPACED_IDENTIFIER_FEATURE_COUNT + 8;
+  int IF_BLOCK_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.namedFunctionExprImpl <em>named Function Expr</em>}' class.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.StatementsBlockImpl <em>Statements Block</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.namedFunctionExprImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getnamedFunctionExpr()
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.StatementsBlockImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getStatementsBlock()
    * @generated
    */
-  int NAMED_FUNCTION_EXPR = 24;
+  int STATEMENTS_BLOCK = 22;
+
+  /**
+   * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENTS_BLOCK__STATEMENTS = IF_BLOCK__STATEMENTS;
+
+  /**
+   * The number of structural features of the '<em>Statements Block</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENTS_BLOCK_FEATURE_COUNT = IF_BLOCK_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.SymbolImpl <em>Symbol</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.SymbolImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getSymbol()
+   * @generated
+   */
+  int SYMBOL = 31;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2179,53 +971,26 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int NAMED_FUNCTION_EXPR__NAME = EXPR_OR_OBJECT_LITERAL__NAME;
+  int SYMBOL__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Params</b></em>' containment reference.
+   * The number of structural features of the '<em>Symbol</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NAMED_FUNCTION_EXPR__PARAMS = EXPR_OR_OBJECT_LITERAL_FEATURE_COUNT + 0;
+  int SYMBOL_FEATURE_COUNT = 1;
 
   /**
-   * The feature id for the '<em><b>Relation</b></em>' attribute.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ParameterImpl <em>Parameter</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMED_FUNCTION_EXPR__RELATION = EXPR_OR_OBJECT_LITERAL_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Command</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMED_FUNCTION_EXPR__COMMAND = EXPR_OR_OBJECT_LITERAL_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>named Function Expr</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NAMED_FUNCTION_EXPR_FEATURE_COUNT = EXPR_OR_OBJECT_LITERAL_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.objectLiteralImpl <em>object Literal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.objectLiteralImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getobjectLiteral()
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.ParameterImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getParameter()
    * @generated
    */
-  int OBJECT_LITERAL = 28;
+  int PARAMETER = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2234,119 +999,44 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int OBJECT_LITERAL__NAME = EXPR_OR_OBJECT_LITERAL__NAME;
+  int PARAMETER__NAME = SYMBOL__NAME;
 
   /**
-   * The number of structural features of the '<em>object Literal</em>' class.
+   * The feature id for the '<em><b>Rel</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OBJECT_LITERAL_FEATURE_COUNT = EXPR_OR_OBJECT_LITERAL_FEATURE_COUNT + 0;
+  int PARAMETER__REL = SYMBOL_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.objectFieldsImpl <em>object Fields</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.objectFieldsImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getobjectFields()
-   * @generated
-   */
-  int OBJECT_FIELDS = 27;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Lit</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OBJECT_FIELDS__NAME = OBJECT_LITERAL__NAME;
+  int PARAMETER__LIT = SYMBOL_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+   * The number of structural features of the '<em>Parameter</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OBJECT_FIELDS__FIELDS = OBJECT_LITERAL_FEATURE_COUNT + 0;
+  int PARAMETER_FEATURE_COUNT = SYMBOL_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>object Fields</em>' class.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ParametersImpl <em>Parameters</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OBJECT_FIELDS_FEATURE_COUNT = OBJECT_LITERAL_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.packageDeclarationImpl <em>package Declaration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.packageDeclarationImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getpackageDeclaration()
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.ParametersImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getParameters()
    * @generated
    */
-  int PACKAGE_DECLARATION = 30;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PACKAGE_DECLARATION__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>package Declaration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PACKAGE_DECLARATION_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.parameterImpl <em>parameter</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.parameterImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getparameter()
-   * @generated
-   */
-  int PARAMETER = 31;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>parameter</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.parametersImpl <em>parameters</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.parametersImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getparameters()
-   * @generated
-   */
-  int PARAMETERS = 32;
+  int PARAMETERS = 25;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -2367,524 +1057,536 @@ public interface AS3Package extends EPackage
   int PARAMETERS__NAME = 1;
 
   /**
-   * The number of structural features of the '<em>parameters</em>' class.
+   * The feature id for the '<em><b>Rel</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETERS_FEATURE_COUNT = 2;
+  int PARAMETERS__REL = 2;
 
   /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.parenthesizedExprImpl <em>parenthesized Expr</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.parenthesizedExprImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getparenthesizedExpr()
-   * @generated
-   */
-  int PARENTHESIZED_EXPR = 33;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The number of structural features of the '<em>Parameters</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARENTHESIZED_EXPR__NAME = EXPR__NAME;
+  int PARAMETERS_FEATURE_COUNT = 3;
 
   /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.typeRelationImpl <em>type Relation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.typeRelationImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#gettypeRelation()
+   * @generated
+   */
+  int TYPE_RELATION = 26;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARENTHESIZED_EXPR__EXPR = EXPR__EXPR;
+  int TYPE_RELATION__TYPE = 0;
 
   /**
-   * The feature id for the '<em><b>Deleteexpr</b></em>' containment reference.
+   * The number of structural features of the '<em>type Relation</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARENTHESIZED_EXPR__DELETEEXPR = EXPR__DELETEEXPR;
+  int TYPE_RELATION_FEATURE_COUNT = 1;
 
   /**
-   * The feature id for the '<em><b>Typeexpr</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.objectLiteralImpl <em>object Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.objectLiteralImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getobjectLiteral()
+   * @generated
+   */
+  int OBJECT_LITERAL = 27;
+
+  /**
+   * The number of structural features of the '<em>object Literal</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARENTHESIZED_EXPR__TYPEEXPR = EXPR__TYPEEXPR;
+  int OBJECT_LITERAL_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.objectFieldsImpl <em>object Fields</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.objectFieldsImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getobjectFields()
+   * @generated
+   */
+  int OBJECT_FIELDS = 28;
+
+  /**
+   * The feature id for the '<em><b>Fields</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARENTHESIZED_EXPR__TYPE = EXPR__TYPE;
+  int OBJECT_FIELDS__FIELDS = OBJECT_LITERAL_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Isleftepxr</b></em>' containment reference.
+   * The number of structural features of the '<em>object Fields</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARENTHESIZED_EXPR__ISLEFTEPXR = EXPR__ISLEFTEPXR;
+  int OBJECT_FIELDS_FEATURE_COUNT = OBJECT_LITERAL_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Isrightexpr</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.objectFieldImpl <em>object Field</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.objectFieldImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getobjectField()
+   * @generated
+   */
+  int OBJECT_FIELD = 29;
+
+  /**
+   * The number of structural features of the '<em>object Field</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARENTHESIZED_EXPR__ISRIGHTEXPR = EXPR__ISRIGHTEXPR;
+  int OBJECT_FIELD_FEATURE_COUNT = 0;
 
   /**
-   * The feature id for the '<em><b>Prefixexpr</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.exprOrObjectLiteralImpl <em>expr Or Object Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.exprOrObjectLiteralImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getexprOrObjectLiteral()
+   * @generated
+   */
+  int EXPR_OR_OBJECT_LITERAL = 30;
+
+  /**
+   * The number of structural features of the '<em>expr Or Object Literal</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARENTHESIZED_EXPR__PREFIXEXPR = EXPR__PREFIXEXPR;
+  int EXPR_OR_OBJECT_LITERAL_FEATURE_COUNT = OBJECT_FIELD_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Postfixexpr</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ExpressionImpl <em>Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.ExpressionImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getExpression()
+   * @generated
+   */
+  int EXPRESSION = 32;
+
+  /**
+   * The number of structural features of the '<em>Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARENTHESIZED_EXPR__POSTFIXEXPR = EXPR__POSTFIXEXPR;
+  int EXPRESSION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Infixexprleft</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.NewImpl <em>New</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.NewImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getNew()
+   * @generated
+   */
+  int NEW = 33;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARENTHESIZED_EXPR__INFIXEXPRLEFT = EXPR__INFIXEXPRLEFT;
+  int NEW__TYPE = NEW_STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Infixexprright</b></em>' containment reference.
+   * The feature id for the '<em><b>Param</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARENTHESIZED_EXPR__INFIXEXPRRIGHT = EXPR__INFIXEXPRRIGHT;
+  int NEW__PARAM = NEW_STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Args</b></em>' containment reference.
+   * The number of structural features of the '<em>New</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARENTHESIZED_EXPR__ARGS = EXPR__ARGS;
+  int NEW_FEATURE_COUNT = NEW_STATEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.WhileImpl <em>While</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.WhileImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getWhile()
+   * @generated
+   */
+  int WHILE = 34;
+
+  /**
+   * The feature id for the '<em><b>While Block</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARENTHESIZED_EXPR__CONDITION = EXPR__CONDITION;
+  int WHILE__WHILE_BLOCK = DO_WHILE_STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference.
+   * The feature id for the '<em><b>Cond</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARENTHESIZED_EXPR__THEN = EXPR__THEN;
+  int WHILE__COND = DO_WHILE_STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Else</b></em>' containment reference.
+   * The number of structural features of the '<em>While</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARENTHESIZED_EXPR__ELSE = EXPR__ELSE;
+  int WHILE_FEATURE_COUNT = DO_WHILE_STATEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.SwitchImpl <em>Switch</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.SwitchImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getSwitch()
+   * @generated
+   */
+  int SWITCH = 35;
+
+  /**
+   * The feature id for the '<em><b>Cond</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARENTHESIZED_EXPR__EXPRESSION = EXPR_FEATURE_COUNT + 0;
+  int SWITCH__COND = SWITCH_STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>parenthesized Expr</em>' class.
+   * The feature id for the '<em><b>Cases</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARENTHESIZED_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 1;
+  int SWITCH__CASES = SWITCH_STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.statementImpl <em>statement</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.statementImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getstatement()
-   * @generated
-   */
-  int STATEMENT = 34;
-
-  /**
-   * The feature id for the '<em><b>Ifcondition</b></em>' containment reference.
+   * The number of structural features of the '<em>Switch</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__IFCONDITION = LABELABLE_STATEMENT__IFCONDITION;
+  int SWITCH_FEATURE_COUNT = SWITCH_STATEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Ifthen</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.AssignmentImpl <em>Assignment</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AssignmentImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getAssignment()
+   * @generated
+   */
+  int ASSIGNMENT = 36;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__IFTHEN = LABELABLE_STATEMENT__IFTHEN;
+  int ASSIGNMENT__LEFT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Ifelse</b></em>' containment reference.
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__IFELSE = LABELABLE_STATEMENT__IFELSE;
+  int ASSIGNMENT__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * The number of structural features of the '<em>Assignment</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__CONDITION = LABELABLE_STATEMENT__CONDITION;
+  int ASSIGNMENT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.MemberSelectionImpl <em>Member Selection</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.MemberSelectionImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getMemberSelection()
+   * @generated
+   */
+  int MEMBER_SELECTION = 37;
+
+  /**
+   * The feature id for the '<em><b>Receiver</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__ELEMENTS = LABELABLE_STATEMENT__ELEMENTS;
+  int MEMBER_SELECTION__RECEIVER = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Command</b></em>' containment reference.
+   * The feature id for the '<em><b>Member</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__COMMAND = LABELABLE_STATEMENT__COMMAND;
+  int MEMBER_SELECTION__MEMBER = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Forinit</b></em>' containment reference.
+   * The feature id for the '<em><b>Methodinvocation</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__FORINIT = LABELABLE_STATEMENT__FORINIT;
+  int MEMBER_SELECTION__METHODINVOCATION = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Iterator</b></em>' containment reference.
+   * The feature id for the '<em><b>Args</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__ITERATOR = LABELABLE_STATEMENT__ITERATOR;
+  int MEMBER_SELECTION__ARGS = EXPRESSION_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Name Forin</b></em>' attribute.
+   * The number of structural features of the '<em>Member Selection</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__NAME_FORIN = LABELABLE_STATEMENT__NAME_FORIN;
+  int MEMBER_SELECTION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 4;
 
   /**
-   * The feature id for the '<em><b>Forinexpr</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.StringConstantImpl <em>String Constant</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.StringConstantImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getStringConstant()
+   * @generated
+   */
+  int STRING_CONSTANT = 38;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__FORINEXPR = LABELABLE_STATEMENT__FORINEXPR;
+  int STRING_CONSTANT__VALUE = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Forcommand</b></em>' containment reference.
+   * The number of structural features of the '<em>String Constant</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__FORCOMMAND = LABELABLE_STATEMENT__FORCOMMAND;
+  int STRING_CONSTANT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Name Foreachh</b></em>' attribute.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.IntConstantImpl <em>Int Constant</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.IntConstantImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getIntConstant()
+   * @generated
+   */
+  int INT_CONSTANT = 39;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__NAME_FOREACHH = LABELABLE_STATEMENT__NAME_FOREACHH;
+  int INT_CONSTANT__VALUE = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Relation</b></em>' attribute.
+   * The number of structural features of the '<em>Int Constant</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__RELATION = LABELABLE_STATEMENT__RELATION;
+  int INT_CONSTANT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Foreachexpr</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.BoolConstantImpl <em>Bool Constant</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.BoolConstantImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getBoolConstant()
+   * @generated
+   */
+  int BOOL_CONSTANT = 40;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__FOREACHEXPR = LABELABLE_STATEMENT__FOREACHEXPR;
+  int BOOL_CONSTANT__VALUE = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Foreachcommand</b></em>' containment reference.
+   * The number of structural features of the '<em>Bool Constant</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__FOREACHCOMMAND = LABELABLE_STATEMENT__FOREACHCOMMAND;
+  int BOOL_CONSTANT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Catch</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ThisImpl <em>This</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.ThisImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getThis()
+   * @generated
+   */
+  int THIS = 41;
+
+  /**
+   * The number of structural features of the '<em>This</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__CATCH = LABELABLE_STATEMENT__CATCH;
+  int THIS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Finally</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.SuperImpl <em>Super</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.SuperImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getSuper()
+   * @generated
+   */
+  int SUPER = 42;
+
+  /**
+   * The number of structural features of the '<em>Super</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__FINALLY = LABELABLE_STATEMENT__FINALLY;
+  int SUPER_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Function</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.NullImpl <em>Null</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.NullImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getNull()
+   * @generated
+   */
+  int NULL = 43;
+
+  /**
+   * The number of structural features of the '<em>Null</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__FUNCTION = LABELABLE_STATEMENT__FUNCTION;
+  int NULL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.SymbolRefImpl <em>Symbol Ref</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.SymbolRefImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getSymbolRef()
+   * @generated
+   */
+  int SYMBOL_REF = 44;
+
+  /**
+   * The feature id for the '<em><b>Symbol</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__EXPR = LABELABLE_STATEMENT_FEATURE_COUNT + 0;
+  int SYMBOL_REF__SYMBOL = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The number of structural features of the '<em>Symbol Ref</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__NAME = LABELABLE_STATEMENT_FEATURE_COUNT + 1;
+  int SYMBOL_REF_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Statement</b></em>' containment reference.
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.AccessLevel <em>Access Level</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT__STATEMENT = LABELABLE_STATEMENT_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Variables</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT__VARIABLES = LABELABLE_STATEMENT_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Argument</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT__ARGUMENT = LABELABLE_STATEMENT_FEATURE_COUNT + 4;
-
-  /**
-   * The number of structural features of the '<em>statement</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_FEATURE_COUNT = LABELABLE_STATEMENT_FEATURE_COUNT + 5;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.statementsImpl <em>statements</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.statementsImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getstatements()
+   * @see de.lynorics.eclipse.jangaroo.aS3.AccessLevel
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getAccessLevel()
    * @generated
    */
-  int STATEMENTS = 35;
-
-  /**
-   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENTS__ELEMENTS = BLOCK_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>statements</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENTS_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.statementInSwitchImpl <em>statement In Switch</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.statementInSwitchImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getstatementInSwitch()
-   * @generated
-   */
-  int STATEMENT_IN_SWITCH = 36;
-
-  /**
-   * The number of structural features of the '<em>statement In Switch</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_IN_SWITCH_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.staticInitializerImpl <em>static Initializer</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.staticInitializerImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getstaticInitializer()
-   * @generated
-   */
-  int STATIC_INITIALIZER = 37;
-
-  /**
-   * The number of structural features of the '<em>static Initializer</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATIC_INITIALIZER_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.typeListImpl <em>type List</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.typeListImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#gettypeList()
-   * @generated
-   */
-  int TYPE_LIST = 38;
-
-  /**
-   * The feature id for the '<em><b>Elements</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_LIST__ELEMENTS = 0;
-
-  /**
-   * The number of structural features of the '<em>type List</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_LIST_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.variableDeclarationImpl <em>variable Declaration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.variableDeclarationImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getvariableDeclaration()
-   * @generated
-   */
-  int VARIABLE_DECLARATION = 39;
-
-  /**
-   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_DECLARATION__ELEMENTS = 0;
-
-  /**
-   * The number of structural features of the '<em>variable Declaration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_DECLARATION_FEATURE_COUNT = 1;
+  int ACCESS_LEVEL = 45;
 
 
   /**
@@ -2898,625 +1600,402 @@ public interface AS3Package extends EPackage
   EClass getModel();
 
   /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.anonFunctionExpr <em>anon Function Expr</em>}'.
+   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.Model#getImports <em>Imports</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>anon Function Expr</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.anonFunctionExpr
+   * @return the meta object for the containment reference list '<em>Imports</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Model#getImports()
+   * @see #getModel()
    * @generated
    */
-  EClass getanonFunctionExpr();
+  EReference getModel_Imports();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.anonFunctionExpr#getParams <em>Params</em>}'.
+   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.Model#getClasses <em>Classes</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Params</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.anonFunctionExpr#getParams()
-   * @see #getanonFunctionExpr()
+   * @return the meta object for the containment reference list '<em>Classes</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Model#getClasses()
+   * @see #getModel()
    * @generated
    */
-  EReference getanonFunctionExpr_Params();
+  EReference getModel_Classes();
 
   /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.anonFunctionExpr#getRelation <em>Relation</em>}'.
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.Package <em>Package</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Relation</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.anonFunctionExpr#getRelation()
-   * @see #getanonFunctionExpr()
+   * @return the meta object for class '<em>Package</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Package
    * @generated
    */
-  EAttribute getanonFunctionExpr_Relation();
+  EClass getPackage();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.anonFunctionExpr#getCommand <em>Command</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Command</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.anonFunctionExpr#getCommand()
-   * @see #getanonFunctionExpr()
-   * @generated
-   */
-  EReference getanonFunctionExpr_Command();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.annotationFields <em>annotation Fields</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>annotation Fields</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.annotationFields
-   * @generated
-   */
-  EClass getannotationFields();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.annotationFields#getFields <em>Fields</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Fields</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.annotationFields#getFields()
-   * @see #getannotationFields()
-   * @generated
-   */
-  EReference getannotationFields_Fields();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.annotationField <em>annotation Field</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>annotation Field</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.annotationField
-   * @generated
-   */
-  EClass getannotationField();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.arguments <em>arguments</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>arguments</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.arguments
-   * @generated
-   */
-  EClass getarguments();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.arguments#getElements <em>Elements</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Elements</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.arguments#getElements()
-   * @see #getarguments()
-   * @generated
-   */
-  EReference getarguments_Elements();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.arrayLiteral <em>array Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>array Literal</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.arrayLiteral
-   * @generated
-   */
-  EClass getarrayLiteral();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.block <em>block</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>block</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.block
-   * @generated
-   */
-  EClass getblock();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.catches <em>catches</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>catches</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.catches
-   * @generated
-   */
-  EClass getcatches();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.catches#getParams <em>Params</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Params</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.catches#getParams()
-   * @see #getcatches()
-   * @generated
-   */
-  EReference getcatches_Params();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.catches#getCommand <em>Command</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Command</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.catches#getCommand()
-   * @see #getcatches()
-   * @generated
-   */
-  EReference getcatches_Command();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.classBody <em>class Body</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>class Body</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.classBody
-   * @generated
-   */
-  EClass getclassBody();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.classBody#getElements <em>Elements</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Elements</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.classBody#getElements()
-   * @see #getclassBody()
-   * @generated
-   */
-  EReference getclassBody_Elements();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.classDeclaration <em>class Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>class Declaration</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.classDeclaration
-   * @generated
-   */
-  EClass getclassDeclaration();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.classDeclaration#getClassModifiers <em>Class Modifiers</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Class Modifiers</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.classDeclaration#getClassModifiers()
-   * @see #getclassDeclaration()
-   * @generated
-   */
-  EReference getclassDeclaration_ClassModifiers();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.classDeclaration#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.Package#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.classDeclaration#getName()
-   * @see #getclassDeclaration()
+   * @see de.lynorics.eclipse.jangaroo.aS3.Package#getName()
+   * @see #getPackage()
    * @generated
    */
-  EAttribute getclassDeclaration_Name();
+  EAttribute getPackage_Name();
 
   /**
-   * Returns the meta object for the reference '{@link de.lynorics.eclipse.jangaroo.aS3.classDeclaration#getSuperType <em>Super Type</em>}'.
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.Import <em>Import</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Super Type</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.classDeclaration#getSuperType()
-   * @see #getclassDeclaration()
+   * @return the meta object for class '<em>Import</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Import
    * @generated
    */
-  EReference getclassDeclaration_SuperType();
+  EClass getImport();
 
   /**
-   * Returns the meta object for the attribute list '{@link de.lynorics.eclipse.jangaroo.aS3.classDeclaration#getTypes <em>Types</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Types</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.classDeclaration#getTypes()
-   * @see #getclassDeclaration()
-   * @generated
-   */
-  EAttribute getclassDeclaration_Types();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.classDeclaration#getCommand <em>Command</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Command</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.classDeclaration#getCommand()
-   * @see #getclassDeclaration()
-   * @generated
-   */
-  EReference getclassDeclaration_Command();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.commaExpr <em>comma Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>comma Expr</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.commaExpr
-   * @generated
-   */
-  EClass getcommaExpr();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.commaExpr#getElements <em>Elements</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Elements</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.commaExpr#getElements()
-   * @see #getcommaExpr()
-   * @generated
-   */
-  EReference getcommaExpr_Elements();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.compilationUnit <em>compilation Unit</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>compilation Unit</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.compilationUnit
-   * @generated
-   */
-  EClass getcompilationUnit();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.compilationUnit#getPackage <em>Package</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Package</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.compilationUnit#getPackage()
-   * @see #getcompilationUnit()
-   * @generated
-   */
-  EReference getcompilationUnit_Package();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.compilationUnit#getDirective <em>Directive</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Directive</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.compilationUnit#getDirective()
-   * @see #getcompilationUnit()
-   * @generated
-   */
-  EReference getcompilationUnit_Directive();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.compilationUnit#getUnit <em>Unit</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Unit</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.compilationUnit#getUnit()
-   * @see #getcompilationUnit()
-   * @generated
-   */
-  EReference getcompilationUnit_Unit();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.compilationUnitDeclaration <em>compilation Unit Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>compilation Unit Declaration</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.compilationUnitDeclaration
-   * @generated
-   */
-  EClass getcompilationUnitDeclaration();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.compilationUnitDeclaration#getClass_ <em>Class</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Class</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.compilationUnitDeclaration#getClass_()
-   * @see #getcompilationUnitDeclaration()
-   * @generated
-   */
-  EReference getcompilationUnitDeclaration_Class();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.compilationUnitDeclaration#getMember <em>Member</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Member</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.compilationUnitDeclaration#getMember()
-   * @see #getcompilationUnitDeclaration()
-   * @generated
-   */
-  EReference getcompilationUnitDeclaration_Member();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.directives <em>directives</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>directives</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.directives
-   * @generated
-   */
-  EClass getdirectives();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.directives#getElements <em>Elements</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Elements</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.directives#getElements()
-   * @see #getdirectives()
-   * @generated
-   */
-  EReference getdirectives_Elements();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.directive <em>directive</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>directive</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.directive
-   * @generated
-   */
-  EClass getdirective();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.directive#getImportedNamespace <em>Imported Namespace</em>}'.
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.Import#getImportedNamespace <em>Imported Namespace</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Imported Namespace</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.directive#getImportedNamespace()
-   * @see #getdirective()
+   * @see de.lynorics.eclipse.jangaroo.aS3.Import#getImportedNamespace()
+   * @see #getImport()
    * @generated
    */
-  EAttribute getdirective_ImportedNamespace();
+  EAttribute getImport_ImportedNamespace();
 
   /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.directive#getId <em>Id</em>}'.
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.Class <em>Class</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.directive#getId()
-   * @see #getdirective()
+   * @return the meta object for class '<em>Class</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Class
    * @generated
    */
-  EAttribute getdirective_Id();
+  EClass getClass_();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.directive#getFields <em>Fields</em>}'.
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.Class#getAccess <em>Access</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Fields</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.directive#getFields()
-   * @see #getdirective()
+   * @return the meta object for the attribute '<em>Access</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Class#getAccess()
+   * @see #getClass_()
    * @generated
    */
-  EReference getdirective_Fields();
+  EAttribute getClass_Access();
 
   /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.directive#getUseasid <em>Useasid</em>}'.
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.Class#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Useasid</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.directive#getUseasid()
-   * @see #getdirective()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Class#getName()
+   * @see #getClass_()
    * @generated
    */
-  EAttribute getdirective_Useasid();
+  EAttribute getClass_Name();
 
   /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.expr <em>expr</em>}'.
+   * Returns the meta object for the reference '{@link de.lynorics.eclipse.jangaroo.aS3.Class#getSuperclass <em>Superclass</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>expr</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.expr
+   * @return the meta object for the reference '<em>Superclass</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Class#getSuperclass()
+   * @see #getClass_()
    * @generated
    */
-  EClass getexpr();
+  EReference getClass_Superclass();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.expr#getExpr <em>Expr</em>}'.
+   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.Class#getMembers <em>Members</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expr</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.expr#getExpr()
-   * @see #getexpr()
+   * @return the meta object for the containment reference list '<em>Members</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Class#getMembers()
+   * @see #getClass_()
    * @generated
    */
-  EReference getexpr_Expr();
+  EReference getClass_Members();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.expr#getDeleteexpr <em>Deleteexpr</em>}'.
+   * Returns the meta object for the reference list '{@link de.lynorics.eclipse.jangaroo.aS3.Class#getTypes <em>Types</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Deleteexpr</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.expr#getDeleteexpr()
-   * @see #getexpr()
+   * @return the meta object for the reference list '<em>Types</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Class#getTypes()
+   * @see #getClass_()
    * @generated
    */
-  EReference getexpr_Deleteexpr();
+  EReference getClass_Types();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.expr#getTypeexpr <em>Typeexpr</em>}'.
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.Member <em>Member</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Typeexpr</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.expr#getTypeexpr()
-   * @see #getexpr()
+   * @return the meta object for class '<em>Member</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Member
    * @generated
    */
-  EReference getexpr_Typeexpr();
+  EClass getMember();
 
   /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.expr#getType <em>Type</em>}'.
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.Member#getVar <em>Var</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.expr#getType()
-   * @see #getexpr()
+   * @return the meta object for the containment reference '<em>Var</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Member#getVar()
+   * @see #getMember()
    * @generated
    */
-  EAttribute getexpr_Type();
+  EReference getMember_Var();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.expr#getIsleftepxr <em>Isleftepxr</em>}'.
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.Member#getMeth <em>Meth</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Isleftepxr</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.expr#getIsleftepxr()
-   * @see #getexpr()
+   * @return the meta object for the containment reference '<em>Meth</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Member#getMeth()
+   * @see #getMember()
    * @generated
    */
-  EReference getexpr_Isleftepxr();
+  EReference getMember_Meth();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.expr#getIsrightexpr <em>Isrightexpr</em>}'.
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.Method <em>Method</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Isrightexpr</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.expr#getIsrightexpr()
-   * @see #getexpr()
+   * @return the meta object for class '<em>Method</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Method
    * @generated
    */
-  EReference getexpr_Isrightexpr();
+  EClass getMethod();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.expr#getPrefixexpr <em>Prefixexpr</em>}'.
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getAccess <em>Access</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Prefixexpr</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.expr#getPrefixexpr()
-   * @see #getexpr()
+   * @return the meta object for the attribute '<em>Access</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Method#getAccess()
+   * @see #getMethod()
    * @generated
    */
-  EReference getexpr_Prefixexpr();
+  EAttribute getMethod_Access();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.expr#getPostfixexpr <em>Postfixexpr</em>}'.
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Postfixexpr</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.expr#getPostfixexpr()
-   * @see #getexpr()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Method#getName()
+   * @see #getMethod()
    * @generated
    */
-  EReference getexpr_Postfixexpr();
+  EAttribute getMethod_Name();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.expr#getInfixexprleft <em>Infixexprleft</em>}'.
+   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getParams <em>Params</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Infixexprleft</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.expr#getInfixexprleft()
-   * @see #getexpr()
+   * @return the meta object for the containment reference list '<em>Params</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Method#getParams()
+   * @see #getMethod()
    * @generated
    */
-  EReference getexpr_Infixexprleft();
+  EReference getMethod_Params();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.expr#getInfixexprright <em>Infixexprright</em>}'.
+   * Returns the meta object for the reference '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Infixexprright</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.expr#getInfixexprright()
-   * @see #getexpr()
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Method#getType()
+   * @see #getMethod()
    * @generated
    */
-  EReference getexpr_Infixexprright();
+  EReference getMethod_Type();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.expr#getArgs <em>Args</em>}'.
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getBody <em>Body</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Args</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.expr#getArgs()
-   * @see #getexpr()
+   * @return the meta object for the containment reference '<em>Body</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Method#getBody()
+   * @see #getMethod()
    * @generated
    */
-  EReference getexpr_Args();
+  EReference getMethod_Body();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.expr#getCondition <em>Condition</em>}'.
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.MethodBody <em>Method Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Method Body</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.MethodBody
+   * @generated
+   */
+  EClass getMethodBody();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.Statement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Statement</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Statement
+   * @generated
+   */
+  EClass getStatement();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.NewStatement <em>New Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>New Statement</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.NewStatement
+   * @generated
+   */
+  EClass getNewStatement();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement <em>For Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>For Statement</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.ForStatement
+   * @generated
+   */
+  EClass getForStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getForinit <em>Forinit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Forinit</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.ForStatement#getForinit()
+   * @see #getForStatement()
+   * @generated
+   */
+  EReference getForStatement_Forinit();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getCondition <em>Condition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Condition</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.expr#getCondition()
-   * @see #getexpr()
+   * @see de.lynorics.eclipse.jangaroo.aS3.ForStatement#getCondition()
+   * @see #getForStatement()
    * @generated
    */
-  EReference getexpr_Condition();
+  EReference getForStatement_Condition();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.expr#getThen <em>Then</em>}'.
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getIterator <em>Iterator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Then</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.expr#getThen()
-   * @see #getexpr()
+   * @return the meta object for the containment reference '<em>Iterator</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.ForStatement#getIterator()
+   * @see #getForStatement()
    * @generated
    */
-  EReference getexpr_Then();
+  EReference getForStatement_Iterator();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.expr#getElse <em>Else</em>}'.
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getCommand <em>Command</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Else</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.expr#getElse()
-   * @see #getexpr()
+   * @return the meta object for the containment reference '<em>Command</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.ForStatement#getCommand()
+   * @see #getForStatement()
    * @generated
    */
-  EReference getexpr_Else();
+  EReference getForStatement_Command();
 
   /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.exprOrObjectLiteral <em>expr Or Object Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>expr Or Object Literal</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.exprOrObjectLiteral
-   * @generated
-   */
-  EClass getexprOrObjectLiteral();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.fieldDeclaration <em>field Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>field Declaration</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.fieldDeclaration
-   * @generated
-   */
-  EClass getfieldDeclaration();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.fieldDeclaration#getMod <em>Mod</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Mod</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.fieldDeclaration#getMod()
-   * @see #getfieldDeclaration()
-   * @generated
-   */
-  EReference getfieldDeclaration_Mod();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.fieldDeclaration#getVar <em>Var</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Var</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.fieldDeclaration#getVar()
-   * @see #getfieldDeclaration()
-   * @generated
-   */
-  EAttribute getfieldDeclaration_Var();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.fieldDeclaration#getElements <em>Elements</em>}'.
+   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getElements <em>Elements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Elements</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.fieldDeclaration#getElements()
-   * @see #getfieldDeclaration()
+   * @see de.lynorics.eclipse.jangaroo.aS3.ForStatement#getElements()
+   * @see #getForStatement()
    * @generated
    */
-  EReference getfieldDeclaration_Elements();
+  EReference getForStatement_Elements();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getNameForin <em>Name Forin</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name Forin</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.ForStatement#getNameForin()
+   * @see #getForStatement()
+   * @generated
+   */
+  EAttribute getForStatement_NameForin();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getForinexpr <em>Forinexpr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Forinexpr</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.ForStatement#getForinexpr()
+   * @see #getForStatement()
+   * @generated
+   */
+  EReference getForStatement_Forinexpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getForcommand <em>Forcommand</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Forcommand</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.ForStatement#getForcommand()
+   * @see #getForStatement()
+   * @generated
+   */
+  EReference getForStatement_Forcommand();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getNameForeachh <em>Name Foreachh</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name Foreachh</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.ForStatement#getNameForeachh()
+   * @see #getForStatement()
+   * @generated
+   */
+  EAttribute getForStatement_NameForeachh();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getRelation <em>Relation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Relation</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.ForStatement#getRelation()
+   * @see #getForStatement()
+   * @generated
+   */
+  EReference getForStatement_Relation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getForeachexpr <em>Foreachexpr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Foreachexpr</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.ForStatement#getForeachexpr()
+   * @see #getForStatement()
+   * @generated
+   */
+  EReference getForStatement_Foreachexpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getForeachcommand <em>Foreachcommand</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Foreachcommand</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.ForStatement#getForeachcommand()
+   * @see #getForStatement()
+   * @generated
+   */
+  EReference getForStatement_Foreachcommand();
 
   /**
    * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration <em>identifier Declaration</em>}'.
@@ -3540,15 +2019,15 @@ public interface AS3Package extends EPackage
   EAttribute getidentifierDeclaration_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration#getRelation <em>Relation</em>}'.
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration#getRelation <em>Relation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Relation</em>'.
+   * @return the meta object for the containment reference '<em>Relation</em>'.
    * @see de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration#getRelation()
    * @see #getidentifierDeclaration()
    * @generated
    */
-  EAttribute getidentifierDeclaration_Relation();
+  EReference getidentifierDeclaration_Relation();
 
   /**
    * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration#getExpr <em>Expr</em>}'.
@@ -3562,617 +2041,55 @@ public interface AS3Package extends EPackage
   EReference getidentifierDeclaration_Expr();
 
   /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.labelableStatement <em>labelable Statement</em>}'.
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.commaExpr <em>comma Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>labelable Statement</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.labelableStatement
+   * @return the meta object for class '<em>comma Expr</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.commaExpr
    * @generated
    */
-  EClass getlabelableStatement();
+  EClass getcommaExpr();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getIfcondition <em>Ifcondition</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Ifcondition</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getIfcondition()
-   * @see #getlabelableStatement()
-   * @generated
-   */
-  EReference getlabelableStatement_Ifcondition();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getIfthen <em>Ifthen</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Ifthen</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getIfthen()
-   * @see #getlabelableStatement()
-   * @generated
-   */
-  EReference getlabelableStatement_Ifthen();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getIfelse <em>Ifelse</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Ifelse</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getIfelse()
-   * @see #getlabelableStatement()
-   * @generated
-   */
-  EReference getlabelableStatement_Ifelse();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getCondition <em>Condition</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Condition</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getCondition()
-   * @see #getlabelableStatement()
-   * @generated
-   */
-  EReference getlabelableStatement_Condition();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getElements <em>Elements</em>}'.
+   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.commaExpr#getElements <em>Elements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Elements</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getElements()
-   * @see #getlabelableStatement()
+   * @see de.lynorics.eclipse.jangaroo.aS3.commaExpr#getElements()
+   * @see #getcommaExpr()
    * @generated
    */
-  EReference getlabelableStatement_Elements();
+  EReference getcommaExpr_Elements();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getCommand <em>Command</em>}'.
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.DoWhileStatement <em>Do While Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Command</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getCommand()
-   * @see #getlabelableStatement()
+   * @return the meta object for class '<em>Do While Statement</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.DoWhileStatement
    * @generated
    */
-  EReference getlabelableStatement_Command();
+  EClass getDoWhileStatement();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getForinit <em>Forinit</em>}'.
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.WhileStatement <em>While Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Forinit</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getForinit()
-   * @see #getlabelableStatement()
+   * @return the meta object for class '<em>While Statement</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.WhileStatement
    * @generated
    */
-  EReference getlabelableStatement_Forinit();
+  EClass getWhileStatement();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getIterator <em>Iterator</em>}'.
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.SwitchStatement <em>Switch Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Iterator</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getIterator()
-   * @see #getlabelableStatement()
+   * @return the meta object for class '<em>Switch Statement</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.SwitchStatement
    * @generated
    */
-  EReference getlabelableStatement_Iterator();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getNameForin <em>Name Forin</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name Forin</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getNameForin()
-   * @see #getlabelableStatement()
-   * @generated
-   */
-  EAttribute getlabelableStatement_NameForin();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getForinexpr <em>Forinexpr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Forinexpr</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getForinexpr()
-   * @see #getlabelableStatement()
-   * @generated
-   */
-  EReference getlabelableStatement_Forinexpr();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getForcommand <em>Forcommand</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Forcommand</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getForcommand()
-   * @see #getlabelableStatement()
-   * @generated
-   */
-  EReference getlabelableStatement_Forcommand();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getNameForeachh <em>Name Foreachh</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name Foreachh</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getNameForeachh()
-   * @see #getlabelableStatement()
-   * @generated
-   */
-  EAttribute getlabelableStatement_NameForeachh();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getRelation <em>Relation</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Relation</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getRelation()
-   * @see #getlabelableStatement()
-   * @generated
-   */
-  EAttribute getlabelableStatement_Relation();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getForeachexpr <em>Foreachexpr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Foreachexpr</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getForeachexpr()
-   * @see #getlabelableStatement()
-   * @generated
-   */
-  EReference getlabelableStatement_Foreachexpr();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getForeachcommand <em>Foreachcommand</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Foreachcommand</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getForeachcommand()
-   * @see #getlabelableStatement()
-   * @generated
-   */
-  EReference getlabelableStatement_Foreachcommand();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getCatch <em>Catch</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Catch</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getCatch()
-   * @see #getlabelableStatement()
-   * @generated
-   */
-  EReference getlabelableStatement_Catch();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getFinally <em>Finally</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Finally</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getFinally()
-   * @see #getlabelableStatement()
-   * @generated
-   */
-  EReference getlabelableStatement_Finally();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getFunction <em>Function</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Function</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.labelableStatement#getFunction()
-   * @see #getlabelableStatement()
-   * @generated
-   */
-  EReference getlabelableStatement_Function();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.lvalue <em>lvalue</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>lvalue</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.lvalue
-   * @generated
-   */
-  EClass getlvalue();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.lvalue#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.lvalue#getExpression()
-   * @see #getlvalue()
-   * @generated
-   */
-  EReference getlvalue_Expression();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.lvalue#getIdentifier <em>Identifier</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Identifier</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.lvalue#getIdentifier()
-   * @see #getlvalue()
-   * @generated
-   */
-  EReference getlvalue_Identifier();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.lvalue#getList <em>List</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>List</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.lvalue#getList()
-   * @see #getlvalue()
-   * @generated
-   */
-  EReference getlvalue_List();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.memberDeclaration <em>member Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>member Declaration</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.memberDeclaration
-   * @generated
-   */
-  EClass getmemberDeclaration();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.memberDeclaration#getField <em>Field</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Field</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.memberDeclaration#getField()
-   * @see #getmemberDeclaration()
-   * @generated
-   */
-  EReference getmemberDeclaration_Field();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.memberDeclaration#getMethod <em>Method</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Method</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.memberDeclaration#getMethod()
-   * @see #getmemberDeclaration()
-   * @generated
-   */
-  EReference getmemberDeclaration_Method();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.methodDeclaration <em>method Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>method Declaration</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.methodDeclaration
-   * @generated
-   */
-  EClass getmethodDeclaration();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.methodDeclaration#getMethodmodifiers <em>Methodmodifiers</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Methodmodifiers</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.methodDeclaration#getMethodmodifiers()
-   * @see #getmethodDeclaration()
-   * @generated
-   */
-  EReference getmethodDeclaration_Methodmodifiers();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.methodDeclaration#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.methodDeclaration#getName()
-   * @see #getmethodDeclaration()
-   * @generated
-   */
-  EAttribute getmethodDeclaration_Name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.methodDeclaration#getParams <em>Params</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Params</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.methodDeclaration#getParams()
-   * @see #getmethodDeclaration()
-   * @generated
-   */
-  EReference getmethodDeclaration_Params();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.methodDeclaration#getOptbody <em>Optbody</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Optbody</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.methodDeclaration#getOptbody()
-   * @see #getmethodDeclaration()
-   * @generated
-   */
-  EReference getmethodDeclaration_Optbody();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.modifiers <em>modifiers</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>modifiers</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.modifiers
-   * @generated
-   */
-  EClass getmodifiers();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.modifiers#isStatic <em>Static</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Static</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.modifiers#isStatic()
-   * @see #getmodifiers()
-   * @generated
-   */
-  EAttribute getmodifiers_Static();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.modifiers#isFinal <em>Final</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Final</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.modifiers#isFinal()
-   * @see #getmodifiers()
-   * @generated
-   */
-  EAttribute getmodifiers_Final();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.modifiers#isAbstract <em>Abstract</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Abstract</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.modifiers#isAbstract()
-   * @see #getmodifiers()
-   * @generated
-   */
-  EAttribute getmodifiers_Abstract();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.modifiers#isOverride <em>Override</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Override</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.modifiers#isOverride()
-   * @see #getmodifiers()
-   * @generated
-   */
-  EAttribute getmodifiers_Override();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.modifiers#isInternal <em>Internal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Internal</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.modifiers#isInternal()
-   * @see #getmodifiers()
-   * @generated
-   */
-  EAttribute getmodifiers_Internal();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.modifiers#isPublic <em>Public</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Public</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.modifiers#isPublic()
-   * @see #getmodifiers()
-   * @generated
-   */
-  EAttribute getmodifiers_Public();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.modifiers#isPrivate <em>Private</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Private</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.modifiers#isPrivate()
-   * @see #getmodifiers()
-   * @generated
-   */
-  EAttribute getmodifiers_Private();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.modifiers#isProtected <em>Protected</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Protected</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.modifiers#isProtected()
-   * @see #getmodifiers()
-   * @generated
-   */
-  EAttribute getmodifiers_Protected();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.namedFunctionExpr <em>named Function Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>named Function Expr</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.namedFunctionExpr
-   * @generated
-   */
-  EClass getnamedFunctionExpr();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.namedFunctionExpr#getParams <em>Params</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Params</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.namedFunctionExpr#getParams()
-   * @see #getnamedFunctionExpr()
-   * @generated
-   */
-  EReference getnamedFunctionExpr_Params();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.namedFunctionExpr#getRelation <em>Relation</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Relation</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.namedFunctionExpr#getRelation()
-   * @see #getnamedFunctionExpr()
-   * @generated
-   */
-  EAttribute getnamedFunctionExpr_Relation();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.namedFunctionExpr#getCommand <em>Command</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Command</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.namedFunctionExpr#getCommand()
-   * @see #getnamedFunctionExpr()
-   * @generated
-   */
-  EReference getnamedFunctionExpr_Command();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.namespacedIdentifier <em>namespaced Identifier</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>namespaced Identifier</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.namespacedIdentifier
-   * @generated
-   */
-  EClass getnamespacedIdentifier();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.objectField <em>object Field</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>object Field</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.objectField
-   * @generated
-   */
-  EClass getobjectField();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.objectFields <em>object Fields</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>object Fields</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.objectFields
-   * @generated
-   */
-  EClass getobjectFields();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.objectFields#getFields <em>Fields</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Fields</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.objectFields#getFields()
-   * @see #getobjectFields()
-   * @generated
-   */
-  EReference getobjectFields_Fields();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.objectLiteral <em>object Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>object Literal</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.objectLiteral
-   * @generated
-   */
-  EClass getobjectLiteral();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.optBody <em>opt Body</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>opt Body</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.optBody
-   * @generated
-   */
-  EClass getoptBody();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.packageDeclaration <em>package Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>package Declaration</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.packageDeclaration
-   * @generated
-   */
-  EClass getpackageDeclaration();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.packageDeclaration#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.packageDeclaration#getName()
-   * @see #getpackageDeclaration()
-   * @generated
-   */
-  EAttribute getpackageDeclaration_Name();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.parameter <em>parameter</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>parameter</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.parameter
-   * @generated
-   */
-  EClass getparameter();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.parameter#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.parameter#getName()
-   * @see #getparameter()
-   * @generated
-   */
-  EAttribute getparameter_Name();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.parameters <em>parameters</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>parameters</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.parameters
-   * @generated
-   */
-  EClass getparameters();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.parameters#getElements <em>Elements</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Elements</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.parameters#getElements()
-   * @see #getparameters()
-   * @generated
-   */
-  EReference getparameters_Elements();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.parameters#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.parameters#getName()
-   * @see #getparameters()
-   * @generated
-   */
-  EAttribute getparameters_Name();
+  EClass getSwitchStatement();
 
   /**
    * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.parenthesizedExpr <em>parenthesized Expr</em>}'.
@@ -4196,92 +2113,6 @@ public interface AS3Package extends EPackage
   EReference getparenthesizedExpr_Expression();
 
   /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.statement <em>statement</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>statement</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.statement
-   * @generated
-   */
-  EClass getstatement();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.statement#getExpr <em>Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expr</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.statement#getExpr()
-   * @see #getstatement()
-   * @generated
-   */
-  EReference getstatement_Expr();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.statement#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.statement#getName()
-   * @see #getstatement()
-   * @generated
-   */
-  EAttribute getstatement_Name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.statement#getStatement <em>Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Statement</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.statement#getStatement()
-   * @see #getstatement()
-   * @generated
-   */
-  EReference getstatement_Statement();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.statement#getVariables <em>Variables</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Variables</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.statement#getVariables()
-   * @see #getstatement()
-   * @generated
-   */
-  EReference getstatement_Variables();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.statement#getArgument <em>Argument</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Argument</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.statement#getArgument()
-   * @see #getstatement()
-   * @generated
-   */
-  EReference getstatement_Argument();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.statements <em>statements</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>statements</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.statements
-   * @generated
-   */
-  EClass getstatements();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.statements#getElements <em>Elements</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Elements</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.statements#getElements()
-   * @see #getstatements()
-   * @generated
-   */
-  EReference getstatements_Elements();
-
-  /**
    * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.statementInSwitch <em>statement In Switch</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4292,56 +2123,668 @@ public interface AS3Package extends EPackage
   EClass getstatementInSwitch();
 
   /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.staticInitializer <em>static Initializer</em>}'.
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.Return <em>Return</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>static Initializer</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.staticInitializer
+   * @return the meta object for class '<em>Return</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Return
    * @generated
    */
-  EClass getstaticInitializer();
+  EClass getReturn();
 
   /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.typeList <em>type List</em>}'.
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.Return#getExpression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>type List</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.typeList
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Return#getExpression()
+   * @see #getReturn()
    * @generated
    */
-  EClass gettypeList();
+  EReference getReturn_Expression();
 
   /**
-   * Returns the meta object for the attribute list '{@link de.lynorics.eclipse.jangaroo.aS3.typeList#getElements <em>Elements</em>}'.
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration <em>Variable Declaration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Elements</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.typeList#getElements()
-   * @see #gettypeList()
+   * @return the meta object for class '<em>Variable Declaration</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration
    * @generated
    */
-  EAttribute gettypeList_Elements();
+  EClass getVariableDeclaration();
 
   /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.variableDeclaration <em>variable Declaration</em>}'.
+   * Returns the meta object for the reference '{@link de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>variable Declaration</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.variableDeclaration
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration#getType()
+   * @see #getVariableDeclaration()
    * @generated
    */
-  EClass getvariableDeclaration();
+  EReference getVariableDeclaration_Type();
 
   /**
-   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.variableDeclaration#getElements <em>Elements</em>}'.
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration#getExpression()
+   * @see #getVariableDeclaration()
+   * @generated
+   */
+  EReference getVariableDeclaration_Expression();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.IfStatement <em>If Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>If Statement</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.IfStatement
+   * @generated
+   */
+  EClass getIfStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.IfStatement#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.IfStatement#getExpression()
+   * @see #getIfStatement()
+   * @generated
+   */
+  EReference getIfStatement_Expression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.IfStatement#getThenBlock <em>Then Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Then Block</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.IfStatement#getThenBlock()
+   * @see #getIfStatement()
+   * @generated
+   */
+  EReference getIfStatement_ThenBlock();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.IfStatement#getElseBlock <em>Else Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Else Block</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.IfStatement#getElseBlock()
+   * @see #getIfStatement()
+   * @generated
+   */
+  EReference getIfStatement_ElseBlock();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.TryStatement <em>Try Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Try Statement</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.TryStatement
+   * @generated
+   */
+  EClass getTryStatement();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.TryStatement#getStatements <em>Statements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Statements</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.TryStatement#getStatements()
+   * @see #getTryStatement()
+   * @generated
+   */
+  EReference getTryStatement_Statements();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.TryStatement#getParams <em>Params</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Params</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.TryStatement#getParams()
+   * @see #getTryStatement()
+   * @generated
+   */
+  EReference getTryStatement_Params();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.TryStatement#getFinallyBlock <em>Finally Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Finally Block</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.TryStatement#getFinallyBlock()
+   * @see #getTryStatement()
+   * @generated
+   */
+  EReference getTryStatement_FinallyBlock();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.IfBlock <em>If Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>If Block</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.IfBlock
+   * @generated
+   */
+  EClass getIfBlock();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.StatementsBlock <em>Statements Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Statements Block</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.StatementsBlock
+   * @generated
+   */
+  EClass getStatementsBlock();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.Block <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Block</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Block
+   * @generated
+   */
+  EClass getBlock();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.Block#getStatements <em>Statements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Statements</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Block#getStatements()
+   * @see #getBlock()
+   * @generated
+   */
+  EReference getBlock_Statements();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.Parameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parameter</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Parameter
+   * @generated
+   */
+  EClass getParameter();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.Parameter#getRel <em>Rel</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Rel</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Parameter#getRel()
+   * @see #getParameter()
+   * @generated
+   */
+  EReference getParameter_Rel();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.Parameter#getLit <em>Lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Lit</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Parameter#getLit()
+   * @see #getParameter()
+   * @generated
+   */
+  EReference getParameter_Lit();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.Parameters <em>Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parameters</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Parameters
+   * @generated
+   */
+  EClass getParameters();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.Parameters#getElements <em>Elements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Elements</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.variableDeclaration#getElements()
-   * @see #getvariableDeclaration()
+   * @see de.lynorics.eclipse.jangaroo.aS3.Parameters#getElements()
+   * @see #getParameters()
    * @generated
    */
-  EReference getvariableDeclaration_Elements();
+  EReference getParameters_Elements();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.Parameters#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Parameters#getName()
+   * @see #getParameters()
+   * @generated
+   */
+  EAttribute getParameters_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.Parameters#getRel <em>Rel</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Rel</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Parameters#getRel()
+   * @see #getParameters()
+   * @generated
+   */
+  EReference getParameters_Rel();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.typeRelation <em>type Relation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>type Relation</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.typeRelation
+   * @generated
+   */
+  EClass gettypeRelation();
+
+  /**
+   * Returns the meta object for the reference '{@link de.lynorics.eclipse.jangaroo.aS3.typeRelation#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.typeRelation#getType()
+   * @see #gettypeRelation()
+   * @generated
+   */
+  EReference gettypeRelation_Type();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.objectLiteral <em>object Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>object Literal</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.objectLiteral
+   * @generated
+   */
+  EClass getobjectLiteral();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.objectFields <em>object Fields</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>object Fields</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.objectFields
+   * @generated
+   */
+  EClass getobjectFields();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.objectFields#getFields <em>Fields</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Fields</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.objectFields#getFields()
+   * @see #getobjectFields()
+   * @generated
+   */
+  EReference getobjectFields_Fields();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.objectField <em>object Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>object Field</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.objectField
+   * @generated
+   */
+  EClass getobjectField();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.exprOrObjectLiteral <em>expr Or Object Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>expr Or Object Literal</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.exprOrObjectLiteral
+   * @generated
+   */
+  EClass getexprOrObjectLiteral();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.Symbol <em>Symbol</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Symbol</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Symbol
+   * @generated
+   */
+  EClass getSymbol();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.Symbol#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Symbol#getName()
+   * @see #getSymbol()
+   * @generated
+   */
+  EAttribute getSymbol_Name();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expression</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Expression
+   * @generated
+   */
+  EClass getExpression();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.New <em>New</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>New</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.New
+   * @generated
+   */
+  EClass getNew();
+
+  /**
+   * Returns the meta object for the reference '{@link de.lynorics.eclipse.jangaroo.aS3.New#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.New#getType()
+   * @see #getNew()
+   * @generated
+   */
+  EReference getNew_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.New#getParam <em>Param</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Param</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.New#getParam()
+   * @see #getNew()
+   * @generated
+   */
+  EReference getNew_Param();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.While <em>While</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>While</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.While
+   * @generated
+   */
+  EClass getWhile();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.While#getWhileBlock <em>While Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>While Block</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.While#getWhileBlock()
+   * @see #getWhile()
+   * @generated
+   */
+  EReference getWhile_WhileBlock();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.While#getCond <em>Cond</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Cond</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.While#getCond()
+   * @see #getWhile()
+   * @generated
+   */
+  EReference getWhile_Cond();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.Switch <em>Switch</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Switch</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Switch
+   * @generated
+   */
+  EClass getSwitch();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.Switch#getCond <em>Cond</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Cond</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Switch#getCond()
+   * @see #getSwitch()
+   * @generated
+   */
+  EReference getSwitch_Cond();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.Switch#getCases <em>Cases</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Cases</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Switch#getCases()
+   * @see #getSwitch()
+   * @generated
+   */
+  EReference getSwitch_Cases();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.Assignment <em>Assignment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Assignment</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Assignment
+   * @generated
+   */
+  EClass getAssignment();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.Assignment#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Assignment#getLeft()
+   * @see #getAssignment()
+   * @generated
+   */
+  EReference getAssignment_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.Assignment#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Assignment#getRight()
+   * @see #getAssignment()
+   * @generated
+   */
+  EReference getAssignment_Right();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.MemberSelection <em>Member Selection</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Member Selection</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.MemberSelection
+   * @generated
+   */
+  EClass getMemberSelection();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.MemberSelection#getReceiver <em>Receiver</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Receiver</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.MemberSelection#getReceiver()
+   * @see #getMemberSelection()
+   * @generated
+   */
+  EReference getMemberSelection_Receiver();
+
+  /**
+   * Returns the meta object for the reference '{@link de.lynorics.eclipse.jangaroo.aS3.MemberSelection#getMember <em>Member</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Member</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.MemberSelection#getMember()
+   * @see #getMemberSelection()
+   * @generated
+   */
+  EReference getMemberSelection_Member();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.MemberSelection#isMethodinvocation <em>Methodinvocation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Methodinvocation</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.MemberSelection#isMethodinvocation()
+   * @see #getMemberSelection()
+   * @generated
+   */
+  EAttribute getMemberSelection_Methodinvocation();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.MemberSelection#getArgs <em>Args</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Args</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.MemberSelection#getArgs()
+   * @see #getMemberSelection()
+   * @generated
+   */
+  EReference getMemberSelection_Args();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.StringConstant <em>String Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>String Constant</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.StringConstant
+   * @generated
+   */
+  EClass getStringConstant();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.StringConstant#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.StringConstant#getValue()
+   * @see #getStringConstant()
+   * @generated
+   */
+  EAttribute getStringConstant_Value();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.IntConstant <em>Int Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Int Constant</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.IntConstant
+   * @generated
+   */
+  EClass getIntConstant();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.IntConstant#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.IntConstant#getValue()
+   * @see #getIntConstant()
+   * @generated
+   */
+  EAttribute getIntConstant_Value();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.BoolConstant <em>Bool Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Bool Constant</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.BoolConstant
+   * @generated
+   */
+  EClass getBoolConstant();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.BoolConstant#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.BoolConstant#getValue()
+   * @see #getBoolConstant()
+   * @generated
+   */
+  EAttribute getBoolConstant_Value();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.This <em>This</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>This</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.This
+   * @generated
+   */
+  EClass getThis();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.Super <em>Super</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Super</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Super
+   * @generated
+   */
+  EClass getSuper();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.Null <em>Null</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Null</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Null
+   * @generated
+   */
+  EClass getNull();
+
+  /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.SymbolRef <em>Symbol Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Symbol Ref</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.SymbolRef
+   * @generated
+   */
+  EClass getSymbolRef();
+
+  /**
+   * Returns the meta object for the reference '{@link de.lynorics.eclipse.jangaroo.aS3.SymbolRef#getSymbol <em>Symbol</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Symbol</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.SymbolRef#getSymbol()
+   * @see #getSymbolRef()
+   * @generated
+   */
+  EReference getSymbolRef_Symbol();
+
+  /**
+   * Returns the meta object for enum '{@link de.lynorics.eclipse.jangaroo.aS3.AccessLevel <em>Access Level</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Access Level</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.AccessLevel
+   * @generated
+   */
+  EEnum getAccessLevel();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -4377,166 +2820,30 @@ public interface AS3Package extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.anonFunctionExprImpl <em>anon Function Expr</em>}' class.
+     * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.anonFunctionExprImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getanonFunctionExpr()
      * @generated
      */
-    EClass ANON_FUNCTION_EXPR = eINSTANCE.getanonFunctionExpr();
+    EReference MODEL__IMPORTS = eINSTANCE.getModel_Imports();
 
     /**
-     * The meta object literal for the '<em><b>Params</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Classes</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ANON_FUNCTION_EXPR__PARAMS = eINSTANCE.getanonFunctionExpr_Params();
+    EReference MODEL__CLASSES = eINSTANCE.getModel_Classes();
 
     /**
-     * The meta object literal for the '<em><b>Relation</b></em>' attribute feature.
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.PackageImpl <em>Package</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.PackageImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getPackage()
      * @generated
      */
-    EAttribute ANON_FUNCTION_EXPR__RELATION = eINSTANCE.getanonFunctionExpr_Relation();
-
-    /**
-     * The meta object literal for the '<em><b>Command</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ANON_FUNCTION_EXPR__COMMAND = eINSTANCE.getanonFunctionExpr_Command();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.annotationFieldsImpl <em>annotation Fields</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.annotationFieldsImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getannotationFields()
-     * @generated
-     */
-    EClass ANNOTATION_FIELDS = eINSTANCE.getannotationFields();
-
-    /**
-     * The meta object literal for the '<em><b>Fields</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ANNOTATION_FIELDS__FIELDS = eINSTANCE.getannotationFields_Fields();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.annotationFieldImpl <em>annotation Field</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.annotationFieldImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getannotationField()
-     * @generated
-     */
-    EClass ANNOTATION_FIELD = eINSTANCE.getannotationField();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.argumentsImpl <em>arguments</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.argumentsImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getarguments()
-     * @generated
-     */
-    EClass ARGUMENTS = eINSTANCE.getarguments();
-
-    /**
-     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ARGUMENTS__ELEMENTS = eINSTANCE.getarguments_Elements();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.arrayLiteralImpl <em>array Literal</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.arrayLiteralImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getarrayLiteral()
-     * @generated
-     */
-    EClass ARRAY_LITERAL = eINSTANCE.getarrayLiteral();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.blockImpl <em>block</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.blockImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getblock()
-     * @generated
-     */
-    EClass BLOCK = eINSTANCE.getblock();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.catchesImpl <em>catches</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.catchesImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getcatches()
-     * @generated
-     */
-    EClass CATCHES = eINSTANCE.getcatches();
-
-    /**
-     * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CATCHES__PARAMS = eINSTANCE.getcatches_Params();
-
-    /**
-     * The meta object literal for the '<em><b>Command</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CATCHES__COMMAND = eINSTANCE.getcatches_Command();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.classBodyImpl <em>class Body</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.classBodyImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getclassBody()
-     * @generated
-     */
-    EClass CLASS_BODY = eINSTANCE.getclassBody();
-
-    /**
-     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CLASS_BODY__ELEMENTS = eINSTANCE.getclassBody_Elements();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.classDeclarationImpl <em>class Declaration</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.classDeclarationImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getclassDeclaration()
-     * @generated
-     */
-    EClass CLASS_DECLARATION = eINSTANCE.getclassDeclaration();
-
-    /**
-     * The meta object literal for the '<em><b>Class Modifiers</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CLASS_DECLARATION__CLASS_MODIFIERS = eINSTANCE.getclassDeclaration_ClassModifiers();
+    EClass PACKAGE = eINSTANCE.getPackage();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -4544,137 +2851,17 @@ public interface AS3Package extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CLASS_DECLARATION__NAME = eINSTANCE.getclassDeclaration_Name();
+    EAttribute PACKAGE__NAME = eINSTANCE.getPackage_Name();
 
     /**
-     * The meta object literal for the '<em><b>Super Type</b></em>' reference feature.
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ImportImpl <em>Import</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.ImportImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getImport()
      * @generated
      */
-    EReference CLASS_DECLARATION__SUPER_TYPE = eINSTANCE.getclassDeclaration_SuperType();
-
-    /**
-     * The meta object literal for the '<em><b>Types</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CLASS_DECLARATION__TYPES = eINSTANCE.getclassDeclaration_Types();
-
-    /**
-     * The meta object literal for the '<em><b>Command</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CLASS_DECLARATION__COMMAND = eINSTANCE.getclassDeclaration_Command();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.commaExprImpl <em>comma Expr</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.commaExprImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getcommaExpr()
-     * @generated
-     */
-    EClass COMMA_EXPR = eINSTANCE.getcommaExpr();
-
-    /**
-     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COMMA_EXPR__ELEMENTS = eINSTANCE.getcommaExpr_Elements();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.compilationUnitImpl <em>compilation Unit</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.compilationUnitImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getcompilationUnit()
-     * @generated
-     */
-    EClass COMPILATION_UNIT = eINSTANCE.getcompilationUnit();
-
-    /**
-     * The meta object literal for the '<em><b>Package</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COMPILATION_UNIT__PACKAGE = eINSTANCE.getcompilationUnit_Package();
-
-    /**
-     * The meta object literal for the '<em><b>Directive</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COMPILATION_UNIT__DIRECTIVE = eINSTANCE.getcompilationUnit_Directive();
-
-    /**
-     * The meta object literal for the '<em><b>Unit</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COMPILATION_UNIT__UNIT = eINSTANCE.getcompilationUnit_Unit();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.compilationUnitDeclarationImpl <em>compilation Unit Declaration</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.compilationUnitDeclarationImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getcompilationUnitDeclaration()
-     * @generated
-     */
-    EClass COMPILATION_UNIT_DECLARATION = eINSTANCE.getcompilationUnitDeclaration();
-
-    /**
-     * The meta object literal for the '<em><b>Class</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COMPILATION_UNIT_DECLARATION__CLASS = eINSTANCE.getcompilationUnitDeclaration_Class();
-
-    /**
-     * The meta object literal for the '<em><b>Member</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COMPILATION_UNIT_DECLARATION__MEMBER = eINSTANCE.getcompilationUnitDeclaration_Member();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.directivesImpl <em>directives</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.directivesImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getdirectives()
-     * @generated
-     */
-    EClass DIRECTIVES = eINSTANCE.getdirectives();
-
-    /**
-     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DIRECTIVES__ELEMENTS = eINSTANCE.getdirectives_Elements();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.directiveImpl <em>directive</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.directiveImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getdirective()
-     * @generated
-     */
-    EClass DIRECTIVE = eINSTANCE.getdirective();
+    EClass IMPORT = eINSTANCE.getImport();
 
     /**
      * The meta object literal for the '<em><b>Imported Namespace</b></em>' attribute feature.
@@ -4682,129 +2869,181 @@ public interface AS3Package extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DIRECTIVE__IMPORTED_NAMESPACE = eINSTANCE.getdirective_ImportedNamespace();
+    EAttribute IMPORT__IMPORTED_NAMESPACE = eINSTANCE.getImport_ImportedNamespace();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ClassImpl <em>Class</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.ClassImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getClass_()
+     * @generated
+     */
+    EClass CLASS = eINSTANCE.getClass_();
+
+    /**
+     * The meta object literal for the '<em><b>Access</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DIRECTIVE__ID = eINSTANCE.getdirective_Id();
+    EAttribute CLASS__ACCESS = eINSTANCE.getClass_Access();
 
     /**
-     * The meta object literal for the '<em><b>Fields</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DIRECTIVE__FIELDS = eINSTANCE.getdirective_Fields();
+    EAttribute CLASS__NAME = eINSTANCE.getClass_Name();
 
     /**
-     * The meta object literal for the '<em><b>Useasid</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Superclass</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DIRECTIVE__USEASID = eINSTANCE.getdirective_Useasid();
+    EReference CLASS__SUPERCLASS = eINSTANCE.getClass_Superclass();
 
     /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.exprImpl <em>expr</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.exprImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getexpr()
-     * @generated
-     */
-    EClass EXPR = eINSTANCE.getexpr();
-
-    /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Members</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPR__EXPR = eINSTANCE.getexpr_Expr();
+    EReference CLASS__MEMBERS = eINSTANCE.getClass_Members();
 
     /**
-     * The meta object literal for the '<em><b>Deleteexpr</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Types</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPR__DELETEEXPR = eINSTANCE.getexpr_Deleteexpr();
+    EReference CLASS__TYPES = eINSTANCE.getClass_Types();
 
     /**
-     * The meta object literal for the '<em><b>Typeexpr</b></em>' containment reference feature.
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.MemberImpl <em>Member</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.MemberImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getMember()
+     * @generated
+     */
+    EClass MEMBER = eINSTANCE.getMember();
+
+    /**
+     * The meta object literal for the '<em><b>Var</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPR__TYPEEXPR = eINSTANCE.getexpr_Typeexpr();
+    EReference MEMBER__VAR = eINSTANCE.getMember_Var();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Meth</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXPR__TYPE = eINSTANCE.getexpr_Type();
+    EReference MEMBER__METH = eINSTANCE.getMember_Meth();
 
     /**
-     * The meta object literal for the '<em><b>Isleftepxr</b></em>' containment reference feature.
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.MethodImpl <em>Method</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.MethodImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getMethod()
+     * @generated
+     */
+    EClass METHOD = eINSTANCE.getMethod();
+
+    /**
+     * The meta object literal for the '<em><b>Access</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPR__ISLEFTEPXR = eINSTANCE.getexpr_Isleftepxr();
+    EAttribute METHOD__ACCESS = eINSTANCE.getMethod_Access();
 
     /**
-     * The meta object literal for the '<em><b>Isrightexpr</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPR__ISRIGHTEXPR = eINSTANCE.getexpr_Isrightexpr();
+    EAttribute METHOD__NAME = eINSTANCE.getMethod_Name();
 
     /**
-     * The meta object literal for the '<em><b>Prefixexpr</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPR__PREFIXEXPR = eINSTANCE.getexpr_Prefixexpr();
+    EReference METHOD__PARAMS = eINSTANCE.getMethod_Params();
 
     /**
-     * The meta object literal for the '<em><b>Postfixexpr</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPR__POSTFIXEXPR = eINSTANCE.getexpr_Postfixexpr();
+    EReference METHOD__TYPE = eINSTANCE.getMethod_Type();
 
     /**
-     * The meta object literal for the '<em><b>Infixexprleft</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPR__INFIXEXPRLEFT = eINSTANCE.getexpr_Infixexprleft();
+    EReference METHOD__BODY = eINSTANCE.getMethod_Body();
 
     /**
-     * The meta object literal for the '<em><b>Infixexprright</b></em>' containment reference feature.
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.MethodBodyImpl <em>Method Body</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.MethodBodyImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getMethodBody()
+     * @generated
+     */
+    EClass METHOD_BODY = eINSTANCE.getMethodBody();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.StatementImpl <em>Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.StatementImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getStatement()
+     * @generated
+     */
+    EClass STATEMENT = eINSTANCE.getStatement();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.NewStatementImpl <em>New Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.NewStatementImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getNewStatement()
+     * @generated
+     */
+    EClass NEW_STATEMENT = eINSTANCE.getNewStatement();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ForStatementImpl <em>For Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.ForStatementImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getForStatement()
+     * @generated
+     */
+    EClass FOR_STATEMENT = eINSTANCE.getForStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Forinit</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPR__INFIXEXPRRIGHT = eINSTANCE.getexpr_Infixexprright();
-
-    /**
-     * The meta object literal for the '<em><b>Args</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPR__ARGS = eINSTANCE.getexpr_Args();
+    EReference FOR_STATEMENT__FORINIT = eINSTANCE.getForStatement_Forinit();
 
     /**
      * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
@@ -4812,59 +3051,23 @@ public interface AS3Package extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPR__CONDITION = eINSTANCE.getexpr_Condition();
+    EReference FOR_STATEMENT__CONDITION = eINSTANCE.getForStatement_Condition();
 
     /**
-     * The meta object literal for the '<em><b>Then</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Iterator</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPR__THEN = eINSTANCE.getexpr_Then();
+    EReference FOR_STATEMENT__ITERATOR = eINSTANCE.getForStatement_Iterator();
 
     /**
-     * The meta object literal for the '<em><b>Else</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Command</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPR__ELSE = eINSTANCE.getexpr_Else();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.exprOrObjectLiteralImpl <em>expr Or Object Literal</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.exprOrObjectLiteralImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getexprOrObjectLiteral()
-     * @generated
-     */
-    EClass EXPR_OR_OBJECT_LITERAL = eINSTANCE.getexprOrObjectLiteral();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.fieldDeclarationImpl <em>field Declaration</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.fieldDeclarationImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getfieldDeclaration()
-     * @generated
-     */
-    EClass FIELD_DECLARATION = eINSTANCE.getfieldDeclaration();
-
-    /**
-     * The meta object literal for the '<em><b>Mod</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FIELD_DECLARATION__MOD = eINSTANCE.getfieldDeclaration_Mod();
-
-    /**
-     * The meta object literal for the '<em><b>Var</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FIELD_DECLARATION__VAR = eINSTANCE.getfieldDeclaration_Var();
+    EReference FOR_STATEMENT__COMMAND = eINSTANCE.getForStatement_Command();
 
     /**
      * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
@@ -4872,7 +3075,63 @@ public interface AS3Package extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FIELD_DECLARATION__ELEMENTS = eINSTANCE.getfieldDeclaration_Elements();
+    EReference FOR_STATEMENT__ELEMENTS = eINSTANCE.getForStatement_Elements();
+
+    /**
+     * The meta object literal for the '<em><b>Name Forin</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FOR_STATEMENT__NAME_FORIN = eINSTANCE.getForStatement_NameForin();
+
+    /**
+     * The meta object literal for the '<em><b>Forinexpr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOR_STATEMENT__FORINEXPR = eINSTANCE.getForStatement_Forinexpr();
+
+    /**
+     * The meta object literal for the '<em><b>Forcommand</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOR_STATEMENT__FORCOMMAND = eINSTANCE.getForStatement_Forcommand();
+
+    /**
+     * The meta object literal for the '<em><b>Name Foreachh</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FOR_STATEMENT__NAME_FOREACHH = eINSTANCE.getForStatement_NameForeachh();
+
+    /**
+     * The meta object literal for the '<em><b>Relation</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOR_STATEMENT__RELATION = eINSTANCE.getForStatement_Relation();
+
+    /**
+     * The meta object literal for the '<em><b>Foreachexpr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOR_STATEMENT__FOREACHEXPR = eINSTANCE.getForStatement_Foreachexpr();
+
+    /**
+     * The meta object literal for the '<em><b>Foreachcommand</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOR_STATEMENT__FOREACHCOMMAND = eINSTANCE.getForStatement_Foreachcommand();
 
     /**
      * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.identifierDeclarationImpl <em>identifier Declaration</em>}' class.
@@ -4893,12 +3152,12 @@ public interface AS3Package extends EPackage
     EAttribute IDENTIFIER_DECLARATION__NAME = eINSTANCE.getidentifierDeclaration_Name();
 
     /**
-     * The meta object literal for the '<em><b>Relation</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Relation</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute IDENTIFIER_DECLARATION__RELATION = eINSTANCE.getidentifierDeclaration_Relation();
+    EReference IDENTIFIER_DECLARATION__RELATION = eINSTANCE.getidentifierDeclaration_Relation();
 
     /**
      * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
@@ -4909,46 +3168,14 @@ public interface AS3Package extends EPackage
     EReference IDENTIFIER_DECLARATION__EXPR = eINSTANCE.getidentifierDeclaration_Expr();
 
     /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.labelableStatementImpl <em>labelable Statement</em>}' class.
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.commaExprImpl <em>comma Expr</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.labelableStatementImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getlabelableStatement()
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.commaExprImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getcommaExpr()
      * @generated
      */
-    EClass LABELABLE_STATEMENT = eINSTANCE.getlabelableStatement();
-
-    /**
-     * The meta object literal for the '<em><b>Ifcondition</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LABELABLE_STATEMENT__IFCONDITION = eINSTANCE.getlabelableStatement_Ifcondition();
-
-    /**
-     * The meta object literal for the '<em><b>Ifthen</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LABELABLE_STATEMENT__IFTHEN = eINSTANCE.getlabelableStatement_Ifthen();
-
-    /**
-     * The meta object literal for the '<em><b>Ifelse</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LABELABLE_STATEMENT__IFELSE = eINSTANCE.getlabelableStatement_Ifelse();
-
-    /**
-     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LABELABLE_STATEMENT__CONDITION = eINSTANCE.getlabelableStatement_Condition();
+    EClass COMMA_EXPR = eINSTANCE.getcommaExpr();
 
     /**
      * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
@@ -4956,441 +3183,37 @@ public interface AS3Package extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LABELABLE_STATEMENT__ELEMENTS = eINSTANCE.getlabelableStatement_Elements();
+    EReference COMMA_EXPR__ELEMENTS = eINSTANCE.getcommaExpr_Elements();
 
     /**
-     * The meta object literal for the '<em><b>Command</b></em>' containment reference feature.
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.DoWhileStatementImpl <em>Do While Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.DoWhileStatementImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getDoWhileStatement()
      * @generated
      */
-    EReference LABELABLE_STATEMENT__COMMAND = eINSTANCE.getlabelableStatement_Command();
+    EClass DO_WHILE_STATEMENT = eINSTANCE.getDoWhileStatement();
 
     /**
-     * The meta object literal for the '<em><b>Forinit</b></em>' containment reference feature.
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.WhileStatementImpl <em>While Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.WhileStatementImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getWhileStatement()
      * @generated
      */
-    EReference LABELABLE_STATEMENT__FORINIT = eINSTANCE.getlabelableStatement_Forinit();
+    EClass WHILE_STATEMENT = eINSTANCE.getWhileStatement();
 
     /**
-     * The meta object literal for the '<em><b>Iterator</b></em>' containment reference feature.
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.SwitchStatementImpl <em>Switch Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.SwitchStatementImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getSwitchStatement()
      * @generated
      */
-    EReference LABELABLE_STATEMENT__ITERATOR = eINSTANCE.getlabelableStatement_Iterator();
-
-    /**
-     * The meta object literal for the '<em><b>Name Forin</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute LABELABLE_STATEMENT__NAME_FORIN = eINSTANCE.getlabelableStatement_NameForin();
-
-    /**
-     * The meta object literal for the '<em><b>Forinexpr</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LABELABLE_STATEMENT__FORINEXPR = eINSTANCE.getlabelableStatement_Forinexpr();
-
-    /**
-     * The meta object literal for the '<em><b>Forcommand</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LABELABLE_STATEMENT__FORCOMMAND = eINSTANCE.getlabelableStatement_Forcommand();
-
-    /**
-     * The meta object literal for the '<em><b>Name Foreachh</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute LABELABLE_STATEMENT__NAME_FOREACHH = eINSTANCE.getlabelableStatement_NameForeachh();
-
-    /**
-     * The meta object literal for the '<em><b>Relation</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute LABELABLE_STATEMENT__RELATION = eINSTANCE.getlabelableStatement_Relation();
-
-    /**
-     * The meta object literal for the '<em><b>Foreachexpr</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LABELABLE_STATEMENT__FOREACHEXPR = eINSTANCE.getlabelableStatement_Foreachexpr();
-
-    /**
-     * The meta object literal for the '<em><b>Foreachcommand</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LABELABLE_STATEMENT__FOREACHCOMMAND = eINSTANCE.getlabelableStatement_Foreachcommand();
-
-    /**
-     * The meta object literal for the '<em><b>Catch</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LABELABLE_STATEMENT__CATCH = eINSTANCE.getlabelableStatement_Catch();
-
-    /**
-     * The meta object literal for the '<em><b>Finally</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LABELABLE_STATEMENT__FINALLY = eINSTANCE.getlabelableStatement_Finally();
-
-    /**
-     * The meta object literal for the '<em><b>Function</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LABELABLE_STATEMENT__FUNCTION = eINSTANCE.getlabelableStatement_Function();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.lvalueImpl <em>lvalue</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.lvalueImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getlvalue()
-     * @generated
-     */
-    EClass LVALUE = eINSTANCE.getlvalue();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LVALUE__EXPRESSION = eINSTANCE.getlvalue_Expression();
-
-    /**
-     * The meta object literal for the '<em><b>Identifier</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LVALUE__IDENTIFIER = eINSTANCE.getlvalue_Identifier();
-
-    /**
-     * The meta object literal for the '<em><b>List</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LVALUE__LIST = eINSTANCE.getlvalue_List();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.memberDeclarationImpl <em>member Declaration</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.memberDeclarationImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getmemberDeclaration()
-     * @generated
-     */
-    EClass MEMBER_DECLARATION = eINSTANCE.getmemberDeclaration();
-
-    /**
-     * The meta object literal for the '<em><b>Field</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MEMBER_DECLARATION__FIELD = eINSTANCE.getmemberDeclaration_Field();
-
-    /**
-     * The meta object literal for the '<em><b>Method</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MEMBER_DECLARATION__METHOD = eINSTANCE.getmemberDeclaration_Method();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.methodDeclarationImpl <em>method Declaration</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.methodDeclarationImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getmethodDeclaration()
-     * @generated
-     */
-    EClass METHOD_DECLARATION = eINSTANCE.getmethodDeclaration();
-
-    /**
-     * The meta object literal for the '<em><b>Methodmodifiers</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference METHOD_DECLARATION__METHODMODIFIERS = eINSTANCE.getmethodDeclaration_Methodmodifiers();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute METHOD_DECLARATION__NAME = eINSTANCE.getmethodDeclaration_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Params</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference METHOD_DECLARATION__PARAMS = eINSTANCE.getmethodDeclaration_Params();
-
-    /**
-     * The meta object literal for the '<em><b>Optbody</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference METHOD_DECLARATION__OPTBODY = eINSTANCE.getmethodDeclaration_Optbody();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.modifiersImpl <em>modifiers</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.modifiersImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getmodifiers()
-     * @generated
-     */
-    EClass MODIFIERS = eINSTANCE.getmodifiers();
-
-    /**
-     * The meta object literal for the '<em><b>Static</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MODIFIERS__STATIC = eINSTANCE.getmodifiers_Static();
-
-    /**
-     * The meta object literal for the '<em><b>Final</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MODIFIERS__FINAL = eINSTANCE.getmodifiers_Final();
-
-    /**
-     * The meta object literal for the '<em><b>Abstract</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MODIFIERS__ABSTRACT = eINSTANCE.getmodifiers_Abstract();
-
-    /**
-     * The meta object literal for the '<em><b>Override</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MODIFIERS__OVERRIDE = eINSTANCE.getmodifiers_Override();
-
-    /**
-     * The meta object literal for the '<em><b>Internal</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MODIFIERS__INTERNAL = eINSTANCE.getmodifiers_Internal();
-
-    /**
-     * The meta object literal for the '<em><b>Public</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MODIFIERS__PUBLIC = eINSTANCE.getmodifiers_Public();
-
-    /**
-     * The meta object literal for the '<em><b>Private</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MODIFIERS__PRIVATE = eINSTANCE.getmodifiers_Private();
-
-    /**
-     * The meta object literal for the '<em><b>Protected</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MODIFIERS__PROTECTED = eINSTANCE.getmodifiers_Protected();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.namedFunctionExprImpl <em>named Function Expr</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.namedFunctionExprImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getnamedFunctionExpr()
-     * @generated
-     */
-    EClass NAMED_FUNCTION_EXPR = eINSTANCE.getnamedFunctionExpr();
-
-    /**
-     * The meta object literal for the '<em><b>Params</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference NAMED_FUNCTION_EXPR__PARAMS = eINSTANCE.getnamedFunctionExpr_Params();
-
-    /**
-     * The meta object literal for the '<em><b>Relation</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute NAMED_FUNCTION_EXPR__RELATION = eINSTANCE.getnamedFunctionExpr_Relation();
-
-    /**
-     * The meta object literal for the '<em><b>Command</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference NAMED_FUNCTION_EXPR__COMMAND = eINSTANCE.getnamedFunctionExpr_Command();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.namespacedIdentifierImpl <em>namespaced Identifier</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.namespacedIdentifierImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getnamespacedIdentifier()
-     * @generated
-     */
-    EClass NAMESPACED_IDENTIFIER = eINSTANCE.getnamespacedIdentifier();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.objectFieldImpl <em>object Field</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.objectFieldImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getobjectField()
-     * @generated
-     */
-    EClass OBJECT_FIELD = eINSTANCE.getobjectField();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.objectFieldsImpl <em>object Fields</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.objectFieldsImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getobjectFields()
-     * @generated
-     */
-    EClass OBJECT_FIELDS = eINSTANCE.getobjectFields();
-
-    /**
-     * The meta object literal for the '<em><b>Fields</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference OBJECT_FIELDS__FIELDS = eINSTANCE.getobjectFields_Fields();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.objectLiteralImpl <em>object Literal</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.objectLiteralImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getobjectLiteral()
-     * @generated
-     */
-    EClass OBJECT_LITERAL = eINSTANCE.getobjectLiteral();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.optBodyImpl <em>opt Body</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.optBodyImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getoptBody()
-     * @generated
-     */
-    EClass OPT_BODY = eINSTANCE.getoptBody();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.packageDeclarationImpl <em>package Declaration</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.packageDeclarationImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getpackageDeclaration()
-     * @generated
-     */
-    EClass PACKAGE_DECLARATION = eINSTANCE.getpackageDeclaration();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PACKAGE_DECLARATION__NAME = eINSTANCE.getpackageDeclaration_Name();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.parameterImpl <em>parameter</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.parameterImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getparameter()
-     * @generated
-     */
-    EClass PARAMETER = eINSTANCE.getparameter();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PARAMETER__NAME = eINSTANCE.getparameter_Name();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.parametersImpl <em>parameters</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.parametersImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getparameters()
-     * @generated
-     */
-    EClass PARAMETERS = eINSTANCE.getparameters();
-
-    /**
-     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PARAMETERS__ELEMENTS = eINSTANCE.getparameters_Elements();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PARAMETERS__NAME = eINSTANCE.getparameters_Name();
+    EClass SWITCH_STATEMENT = eINSTANCE.getSwitchStatement();
 
     /**
      * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.parenthesizedExprImpl <em>parenthesized Expr</em>}' class.
@@ -5411,74 +3234,6 @@ public interface AS3Package extends EPackage
     EReference PARENTHESIZED_EXPR__EXPRESSION = eINSTANCE.getparenthesizedExpr_Expression();
 
     /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.statementImpl <em>statement</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.statementImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getstatement()
-     * @generated
-     */
-    EClass STATEMENT = eINSTANCE.getstatement();
-
-    /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference STATEMENT__EXPR = eINSTANCE.getstatement_Expr();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute STATEMENT__NAME = eINSTANCE.getstatement_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Statement</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference STATEMENT__STATEMENT = eINSTANCE.getstatement_Statement();
-
-    /**
-     * The meta object literal for the '<em><b>Variables</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference STATEMENT__VARIABLES = eINSTANCE.getstatement_Variables();
-
-    /**
-     * The meta object literal for the '<em><b>Argument</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference STATEMENT__ARGUMENT = eINSTANCE.getstatement_Argument();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.statementsImpl <em>statements</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.statementsImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getstatements()
-     * @generated
-     */
-    EClass STATEMENTS = eINSTANCE.getstatements();
-
-    /**
-     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference STATEMENTS__ELEMENTS = eINSTANCE.getstatements_Elements();
-
-    /**
      * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.statementInSwitchImpl <em>statement In Switch</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5489,42 +3244,190 @@ public interface AS3Package extends EPackage
     EClass STATEMENT_IN_SWITCH = eINSTANCE.getstatementInSwitch();
 
     /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.staticInitializerImpl <em>static Initializer</em>}' class.
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ReturnImpl <em>Return</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.staticInitializerImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getstaticInitializer()
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.ReturnImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getReturn()
      * @generated
      */
-    EClass STATIC_INITIALIZER = eINSTANCE.getstaticInitializer();
+    EClass RETURN = eINSTANCE.getReturn();
 
     /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.typeListImpl <em>type List</em>}' class.
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.typeListImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#gettypeList()
      * @generated
      */
-    EClass TYPE_LIST = eINSTANCE.gettypeList();
+    EReference RETURN__EXPRESSION = eINSTANCE.getReturn_Expression();
 
     /**
-     * The meta object literal for the '<em><b>Elements</b></em>' attribute list feature.
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl <em>Variable Declaration</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getVariableDeclaration()
      * @generated
      */
-    EAttribute TYPE_LIST__ELEMENTS = eINSTANCE.gettypeList_Elements();
+    EClass VARIABLE_DECLARATION = eINSTANCE.getVariableDeclaration();
 
     /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.variableDeclarationImpl <em>variable Declaration</em>}' class.
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.variableDeclarationImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getvariableDeclaration()
      * @generated
      */
-    EClass VARIABLE_DECLARATION = eINSTANCE.getvariableDeclaration();
+    EReference VARIABLE_DECLARATION__TYPE = eINSTANCE.getVariableDeclaration_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VARIABLE_DECLARATION__EXPRESSION = eINSTANCE.getVariableDeclaration_Expression();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.IfStatementImpl <em>If Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.IfStatementImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getIfStatement()
+     * @generated
+     */
+    EClass IF_STATEMENT = eINSTANCE.getIfStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_STATEMENT__EXPRESSION = eINSTANCE.getIfStatement_Expression();
+
+    /**
+     * The meta object literal for the '<em><b>Then Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_STATEMENT__THEN_BLOCK = eINSTANCE.getIfStatement_ThenBlock();
+
+    /**
+     * The meta object literal for the '<em><b>Else Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_STATEMENT__ELSE_BLOCK = eINSTANCE.getIfStatement_ElseBlock();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.TryStatementImpl <em>Try Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.TryStatementImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getTryStatement()
+     * @generated
+     */
+    EClass TRY_STATEMENT = eINSTANCE.getTryStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRY_STATEMENT__STATEMENTS = eINSTANCE.getTryStatement_Statements();
+
+    /**
+     * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRY_STATEMENT__PARAMS = eINSTANCE.getTryStatement_Params();
+
+    /**
+     * The meta object literal for the '<em><b>Finally Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRY_STATEMENT__FINALLY_BLOCK = eINSTANCE.getTryStatement_FinallyBlock();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.IfBlockImpl <em>If Block</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.IfBlockImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getIfBlock()
+     * @generated
+     */
+    EClass IF_BLOCK = eINSTANCE.getIfBlock();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.StatementsBlockImpl <em>Statements Block</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.StatementsBlockImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getStatementsBlock()
+     * @generated
+     */
+    EClass STATEMENTS_BLOCK = eINSTANCE.getStatementsBlock();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.BlockImpl <em>Block</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.BlockImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getBlock()
+     * @generated
+     */
+    EClass BLOCK = eINSTANCE.getBlock();
+
+    /**
+     * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BLOCK__STATEMENTS = eINSTANCE.getBlock_Statements();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ParameterImpl <em>Parameter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.ParameterImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getParameter()
+     * @generated
+     */
+    EClass PARAMETER = eINSTANCE.getParameter();
+
+    /**
+     * The meta object literal for the '<em><b>Rel</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARAMETER__REL = eINSTANCE.getParameter_Rel();
+
+    /**
+     * The meta object literal for the '<em><b>Lit</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARAMETER__LIT = eINSTANCE.getParameter_Lit();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ParametersImpl <em>Parameters</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.ParametersImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getParameters()
+     * @generated
+     */
+    EClass PARAMETERS = eINSTANCE.getParameters();
 
     /**
      * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
@@ -5532,7 +3435,375 @@ public interface AS3Package extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference VARIABLE_DECLARATION__ELEMENTS = eINSTANCE.getvariableDeclaration_Elements();
+    EReference PARAMETERS__ELEMENTS = eINSTANCE.getParameters_Elements();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PARAMETERS__NAME = eINSTANCE.getParameters_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Rel</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARAMETERS__REL = eINSTANCE.getParameters_Rel();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.typeRelationImpl <em>type Relation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.typeRelationImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#gettypeRelation()
+     * @generated
+     */
+    EClass TYPE_RELATION = eINSTANCE.gettypeRelation();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_RELATION__TYPE = eINSTANCE.gettypeRelation_Type();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.objectLiteralImpl <em>object Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.objectLiteralImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getobjectLiteral()
+     * @generated
+     */
+    EClass OBJECT_LITERAL = eINSTANCE.getobjectLiteral();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.objectFieldsImpl <em>object Fields</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.objectFieldsImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getobjectFields()
+     * @generated
+     */
+    EClass OBJECT_FIELDS = eINSTANCE.getobjectFields();
+
+    /**
+     * The meta object literal for the '<em><b>Fields</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OBJECT_FIELDS__FIELDS = eINSTANCE.getobjectFields_Fields();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.objectFieldImpl <em>object Field</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.objectFieldImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getobjectField()
+     * @generated
+     */
+    EClass OBJECT_FIELD = eINSTANCE.getobjectField();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.exprOrObjectLiteralImpl <em>expr Or Object Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.exprOrObjectLiteralImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getexprOrObjectLiteral()
+     * @generated
+     */
+    EClass EXPR_OR_OBJECT_LITERAL = eINSTANCE.getexprOrObjectLiteral();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.SymbolImpl <em>Symbol</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.SymbolImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getSymbol()
+     * @generated
+     */
+    EClass SYMBOL = eINSTANCE.getSymbol();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SYMBOL__NAME = eINSTANCE.getSymbol_Name();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ExpressionImpl <em>Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.ExpressionImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getExpression()
+     * @generated
+     */
+    EClass EXPRESSION = eINSTANCE.getExpression();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.NewImpl <em>New</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.NewImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getNew()
+     * @generated
+     */
+    EClass NEW = eINSTANCE.getNew();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NEW__TYPE = eINSTANCE.getNew_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Param</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NEW__PARAM = eINSTANCE.getNew_Param();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.WhileImpl <em>While</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.WhileImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getWhile()
+     * @generated
+     */
+    EClass WHILE = eINSTANCE.getWhile();
+
+    /**
+     * The meta object literal for the '<em><b>While Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WHILE__WHILE_BLOCK = eINSTANCE.getWhile_WhileBlock();
+
+    /**
+     * The meta object literal for the '<em><b>Cond</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WHILE__COND = eINSTANCE.getWhile_Cond();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.SwitchImpl <em>Switch</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.SwitchImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getSwitch()
+     * @generated
+     */
+    EClass SWITCH = eINSTANCE.getSwitch();
+
+    /**
+     * The meta object literal for the '<em><b>Cond</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SWITCH__COND = eINSTANCE.getSwitch_Cond();
+
+    /**
+     * The meta object literal for the '<em><b>Cases</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SWITCH__CASES = eINSTANCE.getSwitch_Cases();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.AssignmentImpl <em>Assignment</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AssignmentImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getAssignment()
+     * @generated
+     */
+    EClass ASSIGNMENT = eINSTANCE.getAssignment();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ASSIGNMENT__LEFT = eINSTANCE.getAssignment_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ASSIGNMENT__RIGHT = eINSTANCE.getAssignment_Right();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.MemberSelectionImpl <em>Member Selection</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.MemberSelectionImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getMemberSelection()
+     * @generated
+     */
+    EClass MEMBER_SELECTION = eINSTANCE.getMemberSelection();
+
+    /**
+     * The meta object literal for the '<em><b>Receiver</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MEMBER_SELECTION__RECEIVER = eINSTANCE.getMemberSelection_Receiver();
+
+    /**
+     * The meta object literal for the '<em><b>Member</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MEMBER_SELECTION__MEMBER = eINSTANCE.getMemberSelection_Member();
+
+    /**
+     * The meta object literal for the '<em><b>Methodinvocation</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MEMBER_SELECTION__METHODINVOCATION = eINSTANCE.getMemberSelection_Methodinvocation();
+
+    /**
+     * The meta object literal for the '<em><b>Args</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MEMBER_SELECTION__ARGS = eINSTANCE.getMemberSelection_Args();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.StringConstantImpl <em>String Constant</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.StringConstantImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getStringConstant()
+     * @generated
+     */
+    EClass STRING_CONSTANT = eINSTANCE.getStringConstant();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRING_CONSTANT__VALUE = eINSTANCE.getStringConstant_Value();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.IntConstantImpl <em>Int Constant</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.IntConstantImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getIntConstant()
+     * @generated
+     */
+    EClass INT_CONSTANT = eINSTANCE.getIntConstant();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INT_CONSTANT__VALUE = eINSTANCE.getIntConstant_Value();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.BoolConstantImpl <em>Bool Constant</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.BoolConstantImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getBoolConstant()
+     * @generated
+     */
+    EClass BOOL_CONSTANT = eINSTANCE.getBoolConstant();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BOOL_CONSTANT__VALUE = eINSTANCE.getBoolConstant_Value();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ThisImpl <em>This</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.ThisImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getThis()
+     * @generated
+     */
+    EClass THIS = eINSTANCE.getThis();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.SuperImpl <em>Super</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.SuperImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getSuper()
+     * @generated
+     */
+    EClass SUPER = eINSTANCE.getSuper();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.NullImpl <em>Null</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.NullImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getNull()
+     * @generated
+     */
+    EClass NULL = eINSTANCE.getNull();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.SymbolRefImpl <em>Symbol Ref</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.SymbolRefImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getSymbolRef()
+     * @generated
+     */
+    EClass SYMBOL_REF = eINSTANCE.getSymbolRef();
+
+    /**
+     * The meta object literal for the '<em><b>Symbol</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SYMBOL_REF__SYMBOL = eINSTANCE.getSymbolRef_Symbol();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.AccessLevel <em>Access Level</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.AccessLevel
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getAccessLevel()
+     * @generated
+     */
+    EEnum ACCESS_LEVEL = eINSTANCE.getAccessLevel();
 
   }
 

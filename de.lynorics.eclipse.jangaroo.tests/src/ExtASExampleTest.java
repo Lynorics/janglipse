@@ -31,7 +31,7 @@ public class ExtASExampleTest extends XtextTest
     @Test
     public void example1()
     {
-    	// TODO
+    	this.testFile("HelloWorld1.as");
     }
 
 }

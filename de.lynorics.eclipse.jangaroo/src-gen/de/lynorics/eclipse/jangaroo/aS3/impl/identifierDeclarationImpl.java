@@ -5,6 +5,7 @@ package de.lynorics.eclipse.jangaroo.aS3.impl;
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
 import de.lynorics.eclipse.jangaroo.aS3.exprOrObjectLiteral;
 import de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration;
+import de.lynorics.eclipse.jangaroo.aS3.typeRelation;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -53,24 +54,14 @@ public class identifierDeclarationImpl extends MinimalEObjectImpl.Container impl
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getRelation() <em>Relation</em>}' attribute.
+   * The cached value of the '{@link #getRelation() <em>Relation</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getRelation()
    * @generated
    * @ordered
    */
-  protected static final String RELATION_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getRelation() <em>Relation</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRelation()
-   * @generated
-   * @ordered
-   */
-  protected String relation = RELATION_EDEFAULT;
+  protected typeRelation relation;
 
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -131,7 +122,7 @@ public class identifierDeclarationImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getRelation()
+  public typeRelation getRelation()
   {
     return relation;
   }
@@ -141,12 +132,37 @@ public class identifierDeclarationImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRelation(String newRelation)
+  public NotificationChain basicSetRelation(typeRelation newRelation, NotificationChain msgs)
   {
-    String oldRelation = relation;
+    typeRelation oldRelation = relation;
     relation = newRelation;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.IDENTIFIER_DECLARATION__RELATION, oldRelation, relation));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.IDENTIFIER_DECLARATION__RELATION, oldRelation, newRelation);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRelation(typeRelation newRelation)
+  {
+    if (newRelation != relation)
+    {
+      NotificationChain msgs = null;
+      if (relation != null)
+        msgs = ((InternalEObject)relation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.IDENTIFIER_DECLARATION__RELATION, null, msgs);
+      if (newRelation != null)
+        msgs = ((InternalEObject)newRelation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.IDENTIFIER_DECLARATION__RELATION, null, msgs);
+      msgs = basicSetRelation(newRelation, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.IDENTIFIER_DECLARATION__RELATION, newRelation, newRelation));
   }
 
   /**
@@ -207,6 +223,8 @@ public class identifierDeclarationImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
+      case AS3Package.IDENTIFIER_DECLARATION__RELATION:
+        return basicSetRelation(null, msgs);
       case AS3Package.IDENTIFIER_DECLARATION__EXPR:
         return basicSetExpr(null, msgs);
     }
@@ -247,7 +265,7 @@ public class identifierDeclarationImpl extends MinimalEObjectImpl.Container impl
         setName((String)newValue);
         return;
       case AS3Package.IDENTIFIER_DECLARATION__RELATION:
-        setRelation((String)newValue);
+        setRelation((typeRelation)newValue);
         return;
       case AS3Package.IDENTIFIER_DECLARATION__EXPR:
         setExpr((exprOrObjectLiteral)newValue);
@@ -270,7 +288,7 @@ public class identifierDeclarationImpl extends MinimalEObjectImpl.Container impl
         setName(NAME_EDEFAULT);
         return;
       case AS3Package.IDENTIFIER_DECLARATION__RELATION:
-        setRelation(RELATION_EDEFAULT);
+        setRelation((typeRelation)null);
         return;
       case AS3Package.IDENTIFIER_DECLARATION__EXPR:
         setExpr((exprOrObjectLiteral)null);
@@ -292,7 +310,7 @@ public class identifierDeclarationImpl extends MinimalEObjectImpl.Container impl
       case AS3Package.IDENTIFIER_DECLARATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AS3Package.IDENTIFIER_DECLARATION__RELATION:
-        return RELATION_EDEFAULT == null ? relation != null : !RELATION_EDEFAULT.equals(relation);
+        return relation != null;
       case AS3Package.IDENTIFIER_DECLARATION__EXPR:
         return expr != null;
     }
@@ -312,8 +330,6 @@ public class identifierDeclarationImpl extends MinimalEObjectImpl.Container impl
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", relation: ");
-    result.append(relation);
     result.append(')');
     return result.toString();
   }

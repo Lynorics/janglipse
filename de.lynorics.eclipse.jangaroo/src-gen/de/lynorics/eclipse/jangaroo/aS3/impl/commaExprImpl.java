@@ -3,8 +3,8 @@
 package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
+import de.lynorics.eclipse.jangaroo.aS3.Expression;
 import de.lynorics.eclipse.jangaroo.aS3.commaExpr;
-import de.lynorics.eclipse.jangaroo.aS3.expr;
 
 import java.util.Collection;
 
@@ -43,7 +43,7 @@ public class commaExprImpl extends MinimalEObjectImpl.Container implements comma
    * @generated
    * @ordered
    */
-  protected EList<expr> elements;
+  protected EList<Expression> elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -71,11 +71,11 @@ public class commaExprImpl extends MinimalEObjectImpl.Container implements comma
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<expr> getElements()
+  public EList<Expression> getElements()
   {
     if (elements == null)
     {
-      elements = new EObjectContainmentEList<expr>(expr.class, this, AS3Package.COMMA_EXPR__ELEMENTS);
+      elements = new EObjectContainmentEList<Expression>(Expression.class, this, AS3Package.COMMA_EXPR__ELEMENTS);
     }
     return elements;
   }
@@ -125,7 +125,7 @@ public class commaExprImpl extends MinimalEObjectImpl.Container implements comma
     {
       case AS3Package.COMMA_EXPR__ELEMENTS:
         getElements().clear();
-        getElements().addAll((Collection<? extends expr>)newValue);
+        getElements().addAll((Collection<? extends Expression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
