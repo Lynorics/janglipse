@@ -13,6 +13,8 @@ import com.google.inject.Inject
 import de.lynorics.eclipse.jangaroo.aS3.Import
 import de.lynorics.eclipse.jangaroo.aS3.Method
 import de.lynorics.eclipse.jangaroo.aS3.Interface
+import java.lang.reflect.AnnotatedElement
+import org.eclipse.emf.ecore.EObject
 
 /**
  * Provides labels for a EObjects.
@@ -35,12 +37,16 @@ class AS3LabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelPro
 //	def image(Greeting ele) {
 //		'Greeting.gif'
 //	}
-
+/*
+    def text(EObject ele) {
+      return ele.class.name + ": " + super.text(ele);
+    }
+*/
     def image(de.lynorics.eclipse.jangaroo.aS3.Class clas) {
       return "outline-class.gif";
     }
 
-    def image(Package pack) {
+    def image(de.lynorics.eclipse.jangaroo.aS3.Package pack) {
       return "outline-package.gif";
     }
 

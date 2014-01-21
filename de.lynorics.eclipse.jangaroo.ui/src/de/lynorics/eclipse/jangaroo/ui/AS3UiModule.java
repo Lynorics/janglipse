@@ -10,6 +10,12 @@
 package de.lynorics.eclipse.jangaroo.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.ui.editor.outline.actions.IOutlineContribution;
+
+import com.google.inject.Binder;
+import com.google.inject.name.Names;
+
+import de.lynorics.eclipse.jangaroo.ui.outline.FilterImportsOperationsContribution;
 
 /**
  * Use this class to register components to be used within the IDE.
@@ -18,4 +24,12 @@ public class AS3UiModule extends de.lynorics.eclipse.jangaroo.ui.AbstractAS3UiMo
 	public AS3UiModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
+	
+	public void configureFilterOperationsContribution(Binder binder) {
+		  binder
+		    .bind(IOutlineContribution.class).annotatedWith(
+		      Names.named("FilterImportsOperationsContribution"))
+		    .to(FilterImportsOperationsContribution.class);
+		}
+
 }
