@@ -10,6 +10,9 @@
 package de.lynorics.eclipse.jangaroo.ui.labeling
 
 import com.google.inject.Inject
+import de.lynorics.eclipse.jangaroo.aS3.Import
+import de.lynorics.eclipse.jangaroo.aS3.Method
+import de.lynorics.eclipse.jangaroo.aS3.Interface
 
 /**
  * Provides labels for a EObjects.
@@ -32,4 +35,25 @@ class AS3LabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelPro
 //	def image(Greeting ele) {
 //		'Greeting.gif'
 //	}
+
+    def image(de.lynorics.eclipse.jangaroo.aS3.Class clas) {
+      return "outline-class.gif";
+    }
+
+    def image(Package pack) {
+      return "outline-package.gif";
+    }
+
+    def image(Interface inter) {
+      return "outline-interface.gif";
+    }
+
+    def image(Import imp) {
+      return "outline-import.gif";
+    }
+
+    def image(Method meth) {
+      return "outline-function-public.gif";
+    }
+
 }
