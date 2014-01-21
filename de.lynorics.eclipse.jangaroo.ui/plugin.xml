@@ -11,7 +11,8 @@
             default="true"
             extensions="as"
             id="de.lynorics.eclipse.jangaroo.AS3"
-            name="AS3 Editor">
+            name="AS3 Editor"
+            icon="icons/jooley-16x16.png">
         </editor>
     </extension>
     <extension
