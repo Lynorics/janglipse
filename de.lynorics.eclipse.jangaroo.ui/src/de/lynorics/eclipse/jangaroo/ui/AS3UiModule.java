@@ -16,6 +16,7 @@ import com.google.inject.Binder;
 import com.google.inject.name.Names;
 
 import de.lynorics.eclipse.jangaroo.ui.outline.FilterImportsOperationsContribution;
+import de.lynorics.eclipse.jangaroo.ui.outline.FilterUsesOperationsContribution;
 
 /**
  * Use this class to register components to be used within the IDE.
@@ -30,6 +31,10 @@ public class AS3UiModule extends de.lynorics.eclipse.jangaroo.ui.AbstractAS3UiMo
 		    .bind(IOutlineContribution.class).annotatedWith(
 		      Names.named("FilterImportsOperationsContribution"))
 		    .to(FilterImportsOperationsContribution.class);
+		  binder
+		    .bind(IOutlineContribution.class).annotatedWith(
+		      Names.named("FilterUsesOperationsContribution"))
+		    .to(FilterUsesOperationsContribution.class);
 		}
 
 }

@@ -17,11 +17,11 @@ import com.google.inject.Inject;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
 
-public class FilterImportsOperationsContribution 
+public class FilterUsesOperationsContribution 
     extends AbstractFilterOutlineContribution {
  
   public static final String PREFERENCE_KEY = 
-    "ui.outline.filterOperations.imports";
+    "ui.outline.filterOperations.uses";
  
   @Inject
   private PluginImageHelper imageHelper;
@@ -30,7 +30,7 @@ public class FilterImportsOperationsContribution
   protected boolean apply(IOutlineNode node) {
     return !(node instanceof EObjectNode)
         || !((EObjectNode) node).getEClass()
-          .equals(AS3Package.Literals.IMPORTS);
+          .equals(AS3Package.Literals.USES);
   }
  
   @Override
@@ -40,15 +40,15 @@ public class FilterImportsOperationsContribution
  
   @Override
   protected void configureAction(Action action) {
-    action.setText("Hide imports");
-    action.setDescription("Hide imports");
-    action.setToolTipText("Hide imports");
+    action.setText("Hide uses");
+    action.setDescription("Hide uses");
+    action.setToolTipText("Hide uses");
     action.setImageDescriptor(getImageDescriptor());
   }
  
   protected ImageDescriptor getImageDescriptor() {
     return ImageDescriptor.createFromImage(
-      imageHelper.getImage("outline-imports-filter.gif"));
+      imageHelper.getImage("outline-uses-filter.gif"));
   }
 
 }

@@ -15,6 +15,8 @@ import de.lynorics.eclipse.jangaroo.aS3.Method
 import de.lynorics.eclipse.jangaroo.aS3.Interface
 import java.lang.reflect.AnnotatedElement
 import org.eclipse.emf.ecore.EObject
+import de.lynorics.eclipse.jangaroo.aS3.Uses
+import de.lynorics.eclipse.jangaroo.aS3.Imports
 
 /**
  * Provides labels for a EObjects.
@@ -54,12 +56,28 @@ class AS3LabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelPro
       return "outline-interface.gif";
     }
 
+    def text(Imports imp) {
+      return 'import declarations';  
+    }
+    
+    def image(Imports imp) {
+      return "outline-imports.gif";
+    }
+
     def image(Import imp) {
       return "outline-import.gif";
     }
 
     def image(Method meth) {
       return "outline-function-public.gif";
+    }
+
+    def text(Uses uses) {
+      return 'use declarations';  
+    }
+    
+    def image(Uses uses) {
+      return "outline-uses.gif";
     }
 
 }

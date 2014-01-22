@@ -7,6 +7,11 @@
 package de.lynorics.eclipse.jangaroo.ui.labeling;
 
 import com.google.inject.Inject;
+import de.lynorics.eclipse.jangaroo.aS3.Import;
+import de.lynorics.eclipse.jangaroo.aS3.Imports;
+import de.lynorics.eclipse.jangaroo.aS3.Interface;
+import de.lynorics.eclipse.jangaroo.aS3.Method;
+import de.lynorics.eclipse.jangaroo.aS3.Uses;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 
@@ -20,5 +25,46 @@ public class AS3LabelProvider extends DefaultEObjectLabelProvider {
   @Inject
   public AS3LabelProvider(final AdapterFactoryLabelProvider delegate) {
     super(delegate);
+  }
+  
+  /**
+   * def text(EObject ele) {
+   * return ele.class.name + ": " + super.text(ele);
+   * }
+   */
+  public String image(final de.lynorics.eclipse.jangaroo.aS3.Class clas) {
+    return "outline-class.gif";
+  }
+  
+  public String image(final de.lynorics.eclipse.jangaroo.aS3.Package pack) {
+    return "outline-package.gif";
+  }
+  
+  public String image(final Interface inter) {
+    return "outline-interface.gif";
+  }
+  
+  public String text(final Imports imp) {
+    return "import declarations";
+  }
+  
+  public String image(final Imports imp) {
+    return "outline-imports.gif";
+  }
+  
+  public String image(final Import imp) {
+    return "outline-import.gif";
+  }
+  
+  public String image(final Method meth) {
+    return "outline-function-public.gif";
+  }
+  
+  public String text(final Uses uses) {
+    return "use declarations";
+  }
+  
+  public String image(final Uses uses) {
+    return "outline-uses.gif";
   }
 }

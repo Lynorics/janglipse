@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: de.lynorics.eclipse.jangaroo.ui
-Bundle-Vendor: My Company
+Bundle-Vendor: Lynorics
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: de.lynorics.eclipse.jangaroo.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
@@ -18,7 +18,7 @@ Require-Bundle: de.lynorics.eclipse.jangaroo;visibility:=reexport,
  org.eclipse.compare
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.lynorics.eclipse.jangaroo.ui.quickfix,
  de.lynorics.eclipse.jangaroo.ui.contentassist,
  de.lynorics.eclipse.jangaroo.ui.contentassist.antlr,
