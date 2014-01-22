@@ -269,4 +269,13 @@ public class AS3BasicTest extends XtextTest
         testParserRule("var a: D = a();","VariableDeclaration");	
     }
     
+    @Test
+    public void varDeclarationsModifiers()
+    {
+        testParserRule("public var i: int;","VariableDeclaration");	
+        testParserRule("private var i: int;","VariableDeclaration");	
+        testParserRule("public static var i: int;","VariableDeclaration");	
+
+    }
+    
 }

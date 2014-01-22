@@ -34,4 +34,34 @@ public class ExtASExampleTest extends XtextTest
     	this.testFile("HelloWorld1.as");
     }
 
+    @Test
+    public void example2()
+    {
+    	this.testFile("HelloWorld2.as");
+    }
+
+    @Test
+    public void example4()
+    {
+    	this.testFile("HelloWorld4.as");
+    }
+
+    @Test
+    public void example5()
+    {
+    	this.testFile("HelloWorld5.as");
+    }
+
+    @Test
+    public void quickstartHelloWorld()
+    {
+    	this.testFile("QuickstartHelloWorld.as");
+    }
+
+    @Test
+    public void quickStartMain()
+    {
+    	this.testFile("QuickstartName.as");
+    }
+
 }
