@@ -2,25 +2,57 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="aS3" nsURI="http://www.lynorics.de/eclipse/jangaroo/AS3" nsPrefix="aS3">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
-        eType="#//Import" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imp" eType="#//Imports"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="classes" upperBound="-1"
-        eType="#//Class" containment="true"/>
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//Model">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="directives" upperBound="-1"
+        eType="#//directive" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Imports">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="#//Import" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Import">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="directive">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annonFields" eType="#//annotationFields"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Uses" eSuperTypes="#//directive">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="annotationFields">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anoonFields" upperBound="-1"
+        eType="#//annotationField" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annonFields" upperBound="-1"
+        eType="#//annotationField" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="annotationField">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Interface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="access" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superclass" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
+        eType="#//Member" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Class">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="access" eType="#//AccessLevel"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="superclass" eType="#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superclass" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="types" unique="false" upperBound="-1"
+        eType="#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
         eType="#//Member" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="types" unique="false" upperBound="-1"
-        eType="#//Class"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Member">
     <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="#//VariableDeclaration"
@@ -33,7 +65,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
         eType="#//Parameter" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//MethodBody"
         containment="true"/>
   </eClassifiers>
@@ -41,6 +73,7 @@
     <eLiterals name="PRIVATE" literal="private"/>
     <eLiterals name="PUBLIC" value="1" literal="public"/>
     <eLiterals name="PROTECTED" value="2" literal="protected"/>
+    <eLiterals name="INTERNAL" value="3" literal="internal"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MethodBody" eSuperTypes="#//Block"/>
   <eClassifiers xsi:type="ecore:EClass" name="Statement" eSuperTypes="#//statementInSwitch"/>
@@ -93,7 +126,8 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration" eSuperTypes="#//Statement #//Symbol">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="access" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
@@ -133,7 +167,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="typeRelation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="objectLiteral" eSuperTypes="#//Statement #//exprOrObjectLiteral"/>
   <eClassifiers xsi:type="ecore:EClass" name="objectFields" eSuperTypes="#//objectLiteral">
@@ -146,8 +180,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//Statement #//exprOrObjectLiteral"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="New" eSuperTypes="#//NewStatement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="param" eType="#//Parameters"
         containment="true"/>
   </eClassifiers>

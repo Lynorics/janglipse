@@ -12,7 +12,9 @@ import de.lynorics.eclipse.jangaroo.aS3.ForStatement;
 import de.lynorics.eclipse.jangaroo.aS3.IfBlock;
 import de.lynorics.eclipse.jangaroo.aS3.IfStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Import;
+import de.lynorics.eclipse.jangaroo.aS3.Imports;
 import de.lynorics.eclipse.jangaroo.aS3.IntConstant;
+import de.lynorics.eclipse.jangaroo.aS3.Interface;
 import de.lynorics.eclipse.jangaroo.aS3.Member;
 import de.lynorics.eclipse.jangaroo.aS3.MemberSelection;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
@@ -33,10 +35,15 @@ import de.lynorics.eclipse.jangaroo.aS3.Symbol;
 import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
+import de.lynorics.eclipse.jangaroo.aS3.Type;
+import de.lynorics.eclipse.jangaroo.aS3.Uses;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.While;
 import de.lynorics.eclipse.jangaroo.aS3.WhileStatement;
+import de.lynorics.eclipse.jangaroo.aS3.annotationField;
+import de.lynorics.eclipse.jangaroo.aS3.annotationFields;
 import de.lynorics.eclipse.jangaroo.aS3.commaExpr;
+import de.lynorics.eclipse.jangaroo.aS3.directive;
 import de.lynorics.eclipse.jangaroo.aS3.exprOrObjectLiteral;
 import de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.objectField;
@@ -129,10 +136,53 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AS3Package.IMPORTS:
+      {
+        Imports imports = (Imports)theEObject;
+        T result = caseImports(imports);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AS3Package.IMPORT:
       {
         Import import_ = (Import)theEObject;
         T result = caseImport(import_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.DIRECTIVE:
+      {
+        directive directive = (directive)theEObject;
+        T result = casedirective(directive);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.USES:
+      {
+        Uses uses = (Uses)theEObject;
+        T result = caseUses(uses);
+        if (result == null) result = casedirective(uses);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.ANNOTATION_FIELDS:
+      {
+        annotationFields annotationFields = (annotationFields)theEObject;
+        T result = caseannotationFields(annotationFields);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.ANNOTATION_FIELD:
+      {
+        annotationField annotationField = (annotationField)theEObject;
+        T result = caseannotationField(annotationField);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.INTERFACE:
+      {
+        Interface interface_ = (Interface)theEObject;
+        T result = caseInterface(interface_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -385,6 +435,13 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AS3Package.TYPE:
+      {
+        Type type = (Type)theEObject;
+        T result = caseType(type);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AS3Package.NEW:
       {
         New new_ = (New)theEObject;
@@ -561,6 +618,22 @@ public class AS3Switch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Imports</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Imports</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseImports(Imports object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Import</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -572,6 +645,86 @@ public class AS3Switch<T> extends Switch<T>
    * @generated
    */
   public T caseImport(Import object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>directive</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>directive</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casedirective(directive object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Uses</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Uses</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUses(Uses object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>annotation Fields</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>annotation Fields</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseannotationFields(annotationFields object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>annotation Field</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>annotation Field</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseannotationField(annotationField object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Interface</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Interface</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInterface(Interface object)
   {
     return null;
   }
@@ -1052,6 +1205,22 @@ public class AS3Switch<T> extends Switch<T>
    * @generated
    */
   public T caseExpression(Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseType(Type object)
   {
     return null;
   }

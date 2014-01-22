@@ -14,7 +14,9 @@ import de.lynorics.eclipse.jangaroo.aS3.ForStatement;
 import de.lynorics.eclipse.jangaroo.aS3.IfBlock;
 import de.lynorics.eclipse.jangaroo.aS3.IfStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Import;
+import de.lynorics.eclipse.jangaroo.aS3.Imports;
 import de.lynorics.eclipse.jangaroo.aS3.IntConstant;
+import de.lynorics.eclipse.jangaroo.aS3.Interface;
 import de.lynorics.eclipse.jangaroo.aS3.Member;
 import de.lynorics.eclipse.jangaroo.aS3.MemberSelection;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
@@ -36,10 +38,15 @@ import de.lynorics.eclipse.jangaroo.aS3.Symbol;
 import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
+import de.lynorics.eclipse.jangaroo.aS3.Type;
+import de.lynorics.eclipse.jangaroo.aS3.Uses;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.While;
 import de.lynorics.eclipse.jangaroo.aS3.WhileStatement;
+import de.lynorics.eclipse.jangaroo.aS3.annotationField;
+import de.lynorics.eclipse.jangaroo.aS3.annotationFields;
 import de.lynorics.eclipse.jangaroo.aS3.commaExpr;
+import de.lynorics.eclipse.jangaroo.aS3.directive;
 import de.lynorics.eclipse.jangaroo.aS3.exprOrObjectLiteral;
 import de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.objectField;
@@ -84,7 +91,49 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass importsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass importEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass directiveEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass usesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass annotationFieldsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass annotationFieldEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass interfaceEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -301,6 +350,13 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass typeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass newEClass = null;
 
   /**
@@ -465,7 +521,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Imports()
+  public EReference getModel_Imp()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
@@ -505,6 +561,36 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getPackage_Directives()
+  {
+    return (EReference)packageEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getImports()
+  {
+    return importsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getImports_Imports()
+  {
+    return (EReference)importsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getImport()
   {
     return importEClass;
@@ -518,6 +604,166 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
   public EAttribute getImport_ImportedNamespace()
   {
     return (EAttribute)importEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getdirective()
+  {
+    return directiveEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getdirective_Name()
+  {
+    return (EAttribute)directiveEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getdirective_AnnonFields()
+  {
+    return (EReference)directiveEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUses()
+  {
+    return usesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUses_Type()
+  {
+    return (EAttribute)usesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getannotationFields()
+  {
+    return annotationFieldsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getannotationFields_AnoonFields()
+  {
+    return (EReference)annotationFieldsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getannotationFields_AnnonFields()
+  {
+    return (EReference)annotationFieldsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getannotationField()
+  {
+    return annotationFieldEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getannotationField_Name()
+  {
+    return (EAttribute)annotationFieldEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getannotationField_Expr()
+  {
+    return (EReference)annotationFieldEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getInterface()
+  {
+    return interfaceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getInterface_Access()
+  {
+    return (EAttribute)interfaceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getInterface_Name()
+  {
+    return (EAttribute)interfaceEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInterface_Superclass()
+  {
+    return (EReference)interfaceEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInterface_Members()
+  {
+    return (EReference)interfaceEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -565,7 +811,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getClass_Members()
+  public EReference getClass_Types()
   {
     return (EReference)classEClass.getEStructuralFeatures().get(3);
   }
@@ -575,7 +821,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getClass_Types()
+  public EReference getClass_Members()
   {
     return (EReference)classEClass.getEStructuralFeatures().get(4);
   }
@@ -985,9 +1231,19 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getVariableDeclaration_Access()
+  {
+    return (EAttribute)variableDeclarationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getVariableDeclaration_Type()
   {
-    return (EReference)variableDeclarationEClass.getEStructuralFeatures().get(0);
+    return (EReference)variableDeclarationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -997,7 +1253,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    */
   public EReference getVariableDeclaration_Expression()
   {
-    return (EReference)variableDeclarationEClass.getEStructuralFeatures().get(1);
+    return (EReference)variableDeclarationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1288,6 +1544,26 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
   public EClass getExpression()
   {
     return expressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getType()
+  {
+    return typeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getType_Qual()
+  {
+    return (EAttribute)typeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1611,21 +1887,46 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__IMPORTS);
+    createEReference(modelEClass, MODEL__IMP);
     createEReference(modelEClass, MODEL__CLASSES);
 
     packageEClass = createEClass(PACKAGE);
     createEAttribute(packageEClass, PACKAGE__NAME);
+    createEReference(packageEClass, PACKAGE__DIRECTIVES);
+
+    importsEClass = createEClass(IMPORTS);
+    createEReference(importsEClass, IMPORTS__IMPORTS);
 
     importEClass = createEClass(IMPORT);
     createEAttribute(importEClass, IMPORT__IMPORTED_NAMESPACE);
+
+    directiveEClass = createEClass(DIRECTIVE);
+    createEAttribute(directiveEClass, DIRECTIVE__NAME);
+    createEReference(directiveEClass, DIRECTIVE__ANNON_FIELDS);
+
+    usesEClass = createEClass(USES);
+    createEAttribute(usesEClass, USES__TYPE);
+
+    annotationFieldsEClass = createEClass(ANNOTATION_FIELDS);
+    createEReference(annotationFieldsEClass, ANNOTATION_FIELDS__ANOON_FIELDS);
+    createEReference(annotationFieldsEClass, ANNOTATION_FIELDS__ANNON_FIELDS);
+
+    annotationFieldEClass = createEClass(ANNOTATION_FIELD);
+    createEAttribute(annotationFieldEClass, ANNOTATION_FIELD__NAME);
+    createEReference(annotationFieldEClass, ANNOTATION_FIELD__EXPR);
+
+    interfaceEClass = createEClass(INTERFACE);
+    createEAttribute(interfaceEClass, INTERFACE__ACCESS);
+    createEAttribute(interfaceEClass, INTERFACE__NAME);
+    createEReference(interfaceEClass, INTERFACE__SUPERCLASS);
+    createEReference(interfaceEClass, INTERFACE__MEMBERS);
 
     classEClass = createEClass(CLASS);
     createEAttribute(classEClass, CLASS__ACCESS);
     createEAttribute(classEClass, CLASS__NAME);
     createEReference(classEClass, CLASS__SUPERCLASS);
-    createEReference(classEClass, CLASS__MEMBERS);
     createEReference(classEClass, CLASS__TYPES);
+    createEReference(classEClass, CLASS__MEMBERS);
 
     memberEClass = createEClass(MEMBER);
     createEReference(memberEClass, MEMBER__VAR);
@@ -1681,6 +1982,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     createEReference(returnEClass, RETURN__EXPRESSION);
 
     variableDeclarationEClass = createEClass(VARIABLE_DECLARATION);
+    createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__ACCESS);
     createEReference(variableDeclarationEClass, VARIABLE_DECLARATION__TYPE);
     createEReference(variableDeclarationEClass, VARIABLE_DECLARATION__EXPRESSION);
 
@@ -1726,6 +2028,9 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     createEAttribute(symbolEClass, SYMBOL__NAME);
 
     expressionEClass = createEClass(EXPRESSION);
+
+    typeEClass = createEClass(TYPE);
+    createEAttribute(typeEClass, TYPE__QUAL);
 
     newEClass = createEClass(NEW);
     createEReference(newEClass, NEW__TYPE);
@@ -1801,6 +2106,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
 
     // Add supertypes to classes
     packageEClass.getESuperTypes().add(this.getModel());
+    usesEClass.getESuperTypes().add(this.getdirective());
     methodBodyEClass.getESuperTypes().add(this.getBlock());
     statementEClass.getESuperTypes().add(this.getstatementInSwitch());
     newStatementEClass.getESuperTypes().add(this.getStatement());
@@ -1838,21 +2144,46 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Imports(), this.getImport(), null, "imports", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModel_Classes(), this.getClass_(), null, "classes", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Imp(), this.getImports(), null, "imp", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Classes(), ecorePackage.getEObject(), null, "classes", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(packageEClass, de.lynorics.eclipse.jangaroo.aS3.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, de.lynorics.eclipse.jangaroo.aS3.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackage_Directives(), this.getdirective(), null, "directives", null, 0, -1, de.lynorics.eclipse.jangaroo.aS3.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(importsEClass, Imports.class, "Imports", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getImports_Imports(), this.getImport(), null, "imports", null, 0, -1, Imports.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(directiveEClass, directive.class, "directive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getdirective_Name(), ecorePackage.getEString(), "name", null, 0, 1, directive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getdirective_AnnonFields(), this.getannotationFields(), null, "annonFields", null, 0, 1, directive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(usesEClass, Uses.class, "Uses", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUses_Type(), ecorePackage.getEString(), "type", null, 0, 1, Uses.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(annotationFieldsEClass, annotationFields.class, "annotationFields", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getannotationFields_AnoonFields(), this.getannotationField(), null, "anoonFields", null, 0, -1, annotationFields.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getannotationFields_AnnonFields(), this.getannotationField(), null, "annonFields", null, 0, -1, annotationFields.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(annotationFieldEClass, annotationField.class, "annotationField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getannotationField_Name(), ecorePackage.getEString(), "name", null, 0, 1, annotationField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getannotationField_Expr(), this.getExpression(), null, "expr", null, 0, 1, annotationField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(interfaceEClass, Interface.class, "Interface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getInterface_Access(), this.getAccessLevel(), "access", null, 0, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInterface_Name(), ecorePackage.getEString(), "name", null, 0, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInterface_Superclass(), this.getType(), null, "superclass", null, 0, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInterface_Members(), this.getMember(), null, "members", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(classEClass, de.lynorics.eclipse.jangaroo.aS3.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getClass_Access(), this.getAccessLevel(), "access", null, 0, 1, de.lynorics.eclipse.jangaroo.aS3.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getClass_Name(), ecorePackage.getEString(), "name", null, 0, 1, de.lynorics.eclipse.jangaroo.aS3.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getClass_Superclass(), this.getClass_(), null, "superclass", null, 0, 1, de.lynorics.eclipse.jangaroo.aS3.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClass_Superclass(), this.getType(), null, "superclass", null, 0, 1, de.lynorics.eclipse.jangaroo.aS3.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClass_Types(), this.getType(), null, "types", null, 0, -1, de.lynorics.eclipse.jangaroo.aS3.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClass_Members(), this.getMember(), null, "members", null, 0, -1, de.lynorics.eclipse.jangaroo.aS3.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getClass_Types(), this.getClass_(), null, "types", null, 0, -1, de.lynorics.eclipse.jangaroo.aS3.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(memberEClass, Member.class, "Member", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMember_Var(), this.getVariableDeclaration(), null, "var", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1862,7 +2193,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     initEAttribute(getMethod_Access(), this.getAccessLevel(), "access", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMethod_Name(), ecorePackage.getEString(), "name", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMethod_Params(), this.getParameter(), null, "params", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMethod_Type(), this.getClass_(), null, "type", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethod_Type(), this.getType(), null, "type", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMethod_Body(), this.getMethodBody(), null, "body", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(methodBodyEClass, MethodBody.class, "MethodBody", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1908,7 +2239,8 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     initEReference(getReturn_Expression(), this.getExpression(), null, "expression", null, 0, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(variableDeclarationEClass, VariableDeclaration.class, "VariableDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getVariableDeclaration_Type(), this.getClass_(), null, "type", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVariableDeclaration_Access(), this.getAccessLevel(), "access", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVariableDeclaration_Type(), this.getType(), null, "type", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getVariableDeclaration_Expression(), this.getExpression(), null, "expression", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ifStatementEClass, IfStatement.class, "IfStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1938,7 +2270,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     initEReference(getParameters_Rel(), this.gettypeRelation(), null, "rel", null, 0, 1, Parameters.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeRelationEClass, typeRelation.class, "typeRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(gettypeRelation_Type(), this.getClass_(), null, "type", null, 0, 1, typeRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(gettypeRelation_Type(), this.getType(), null, "type", null, 0, 1, typeRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(objectLiteralEClass, objectLiteral.class, "objectLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1954,8 +2286,11 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getType_Qual(), ecorePackage.getEString(), "qual", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(newEClass, New.class, "New", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getNew_Type(), this.getClass_(), null, "type", null, 0, 1, New.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNew_Type(), this.getType(), null, "type", null, 0, 1, New.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNew_Param(), this.getParameters(), null, "param", null, 0, 1, New.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(whileEClass, While.class, "While", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1999,6 +2334,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     addEEnumLiteral(accessLevelEEnum, AccessLevel.PRIVATE);
     addEEnumLiteral(accessLevelEEnum, AccessLevel.PUBLIC);
     addEEnumLiteral(accessLevelEEnum, AccessLevel.PROTECTED);
+    addEEnumLiteral(accessLevelEEnum, AccessLevel.INTERNAL);
 
     // Create resource
     createResource(eNS_URI);

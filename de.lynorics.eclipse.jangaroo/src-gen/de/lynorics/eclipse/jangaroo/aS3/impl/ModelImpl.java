@@ -3,18 +3,21 @@
 package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
-import de.lynorics.eclipse.jangaroo.aS3.Import;
+import de.lynorics.eclipse.jangaroo.aS3.Imports;
 import de.lynorics.eclipse.jangaroo.aS3.Model;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -27,7 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ModelImpl#getImports <em>Imports</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ModelImpl#getImp <em>Imp</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ModelImpl#getClasses <em>Classes</em>}</li>
  * </ul>
  * </p>
@@ -37,14 +40,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
+   * The cached value of the '{@link #getImp() <em>Imp</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getImports()
+   * @see #getImp()
    * @generated
    * @ordered
    */
-  protected EList<Import> imports;
+  protected Imports imp;
 
   /**
    * The cached value of the '{@link #getClasses() <em>Classes</em>}' containment reference list.
@@ -54,7 +57,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    * @ordered
    */
-  protected EList<de.lynorics.eclipse.jangaroo.aS3.Class> classes;
+  protected EList<EObject> classes;
 
   /**
    * <!-- begin-user-doc -->
@@ -82,13 +85,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Import> getImports()
+  public Imports getImp()
   {
-    if (imports == null)
-    {
-      imports = new EObjectContainmentEList<Import>(Import.class, this, AS3Package.MODEL__IMPORTS);
-    }
-    return imports;
+    return imp;
   }
 
   /**
@@ -96,11 +95,49 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<de.lynorics.eclipse.jangaroo.aS3.Class> getClasses()
+  public NotificationChain basicSetImp(Imports newImp, NotificationChain msgs)
+  {
+    Imports oldImp = imp;
+    imp = newImp;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.MODEL__IMP, oldImp, newImp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setImp(Imports newImp)
+  {
+    if (newImp != imp)
+    {
+      NotificationChain msgs = null;
+      if (imp != null)
+        msgs = ((InternalEObject)imp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.MODEL__IMP, null, msgs);
+      if (newImp != null)
+        msgs = ((InternalEObject)newImp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.MODEL__IMP, null, msgs);
+      msgs = basicSetImp(newImp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.MODEL__IMP, newImp, newImp));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<EObject> getClasses()
   {
     if (classes == null)
     {
-      classes = new EObjectContainmentEList<de.lynorics.eclipse.jangaroo.aS3.Class>(de.lynorics.eclipse.jangaroo.aS3.Class.class, this, AS3Package.MODEL__CLASSES);
+      classes = new EObjectContainmentEList<EObject>(EObject.class, this, AS3Package.MODEL__CLASSES);
     }
     return classes;
   }
@@ -115,8 +152,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case AS3Package.MODEL__IMPORTS:
-        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
+      case AS3Package.MODEL__IMP:
+        return basicSetImp(null, msgs);
       case AS3Package.MODEL__CLASSES:
         return ((InternalEList<?>)getClasses()).basicRemove(otherEnd, msgs);
     }
@@ -133,8 +170,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case AS3Package.MODEL__IMPORTS:
-        return getImports();
+      case AS3Package.MODEL__IMP:
+        return getImp();
       case AS3Package.MODEL__CLASSES:
         return getClasses();
     }
@@ -152,13 +189,12 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case AS3Package.MODEL__IMPORTS:
-        getImports().clear();
-        getImports().addAll((Collection<? extends Import>)newValue);
+      case AS3Package.MODEL__IMP:
+        setImp((Imports)newValue);
         return;
       case AS3Package.MODEL__CLASSES:
         getClasses().clear();
-        getClasses().addAll((Collection<? extends de.lynorics.eclipse.jangaroo.aS3.Class>)newValue);
+        getClasses().addAll((Collection<? extends EObject>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -174,8 +210,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case AS3Package.MODEL__IMPORTS:
-        getImports().clear();
+      case AS3Package.MODEL__IMP:
+        setImp((Imports)null);
         return;
       case AS3Package.MODEL__CLASSES:
         getClasses().clear();
@@ -194,8 +230,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case AS3Package.MODEL__IMPORTS:
-        return imports != null && !imports.isEmpty();
+      case AS3Package.MODEL__IMP:
+        return imp != null;
       case AS3Package.MODEL__CLASSES:
         return classes != null && !classes.isEmpty();
     }

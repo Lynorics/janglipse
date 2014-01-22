@@ -11,23 +11,49 @@
       <genEnumLiterals ecoreEnumLiteral="AS3.ecore#//AccessLevel/PRIVATE"/>
       <genEnumLiterals ecoreEnumLiteral="AS3.ecore#//AccessLevel/PUBLIC"/>
       <genEnumLiterals ecoreEnumLiteral="AS3.ecore#//AccessLevel/PROTECTED"/>
+      <genEnumLiterals ecoreEnumLiteral="AS3.ecore#//AccessLevel/INTERNAL"/>
     </genEnums>
     <genClasses ecoreClass="AS3.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Model/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Model/imp"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Model/classes"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//Package">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Package/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Package/directives"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//Imports">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Imports/imports"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//Import">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Import/importedNamespace"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//directive">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//directive/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//directive/annonFields"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//Uses">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Uses/type"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//annotationFields">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//annotationFields/anoonFields"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//annotationFields/annonFields"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//annotationField">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//annotationField/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//annotationField/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//Interface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Interface/access"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Interface/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//Interface/superclass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Interface/members"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//Class">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Class/access"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Class/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/superclass"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/members"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/types"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/members"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//Member">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Member/var"/>
@@ -76,6 +102,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Return/expression"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//VariableDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//VariableDeclaration/access"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//VariableDeclaration/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//VariableDeclaration/expression"/>
     </genClasses>
@@ -116,6 +143,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Symbol/name"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//Expression"/>
+    <genClasses ecoreClass="AS3.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Type/qual"/>
+    </genClasses>
     <genClasses ecoreClass="AS3.ecore#//New">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//New/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//New/param"/>

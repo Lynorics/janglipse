@@ -14,7 +14,9 @@ import de.lynorics.eclipse.jangaroo.aS3.ForStatement;
 import de.lynorics.eclipse.jangaroo.aS3.IfBlock;
 import de.lynorics.eclipse.jangaroo.aS3.IfStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Import;
+import de.lynorics.eclipse.jangaroo.aS3.Imports;
 import de.lynorics.eclipse.jangaroo.aS3.IntConstant;
+import de.lynorics.eclipse.jangaroo.aS3.Interface;
 import de.lynorics.eclipse.jangaroo.aS3.Member;
 import de.lynorics.eclipse.jangaroo.aS3.MemberSelection;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
@@ -36,10 +38,15 @@ import de.lynorics.eclipse.jangaroo.aS3.Symbol;
 import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
+import de.lynorics.eclipse.jangaroo.aS3.Type;
+import de.lynorics.eclipse.jangaroo.aS3.Uses;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.While;
 import de.lynorics.eclipse.jangaroo.aS3.WhileStatement;
+import de.lynorics.eclipse.jangaroo.aS3.annotationField;
+import de.lynorics.eclipse.jangaroo.aS3.annotationFields;
 import de.lynorics.eclipse.jangaroo.aS3.commaExpr;
+import de.lynorics.eclipse.jangaroo.aS3.directive;
 import de.lynorics.eclipse.jangaroo.aS3.exprOrObjectLiteral;
 import de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.objectField;
@@ -112,7 +119,13 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
     {
       case AS3Package.MODEL: return createModel();
       case AS3Package.PACKAGE: return createPackage();
+      case AS3Package.IMPORTS: return createImports();
       case AS3Package.IMPORT: return createImport();
+      case AS3Package.DIRECTIVE: return createdirective();
+      case AS3Package.USES: return createUses();
+      case AS3Package.ANNOTATION_FIELDS: return createannotationFields();
+      case AS3Package.ANNOTATION_FIELD: return createannotationField();
+      case AS3Package.INTERFACE: return createInterface();
       case AS3Package.CLASS: return createClass();
       case AS3Package.MEMBER: return createMember();
       case AS3Package.METHOD: return createMethod();
@@ -143,6 +156,7 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.EXPR_OR_OBJECT_LITERAL: return createexprOrObjectLiteral();
       case AS3Package.SYMBOL: return createSymbol();
       case AS3Package.EXPRESSION: return createExpression();
+      case AS3Package.TYPE: return createType();
       case AS3Package.NEW: return createNew();
       case AS3Package.WHILE: return createWhile();
       case AS3Package.SWITCH: return createSwitch();
@@ -221,10 +235,76 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Imports createImports()
+  {
+    ImportsImpl imports = new ImportsImpl();
+    return imports;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Import createImport()
   {
     ImportImpl import_ = new ImportImpl();
     return import_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public directive createdirective()
+  {
+    directiveImpl directive = new directiveImpl();
+    return directive;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Uses createUses()
+  {
+    UsesImpl uses = new UsesImpl();
+    return uses;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public annotationFields createannotationFields()
+  {
+    annotationFieldsImpl annotationFields = new annotationFieldsImpl();
+    return annotationFields;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public annotationField createannotationField()
+  {
+    annotationFieldImpl annotationField = new annotationFieldImpl();
+    return annotationField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Interface createInterface()
+  {
+    InterfaceImpl interface_ = new InterfaceImpl();
+    return interface_;
   }
 
   /**
@@ -555,6 +635,17 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
   {
     ExpressionImpl expression = new ExpressionImpl();
     return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Type createType()
+  {
+    TypeImpl type = new TypeImpl();
+    return type;
   }
 
   /**

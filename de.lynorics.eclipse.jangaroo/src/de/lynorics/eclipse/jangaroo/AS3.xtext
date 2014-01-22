@@ -11,18 +11,37 @@ generate aS3 "http://www.lynorics.de/eclipse/jangaroo/AS3"
 Model hidden(WS, ML_COMMENT, SL_COMMENT):
   Package
   |
-  imports+=Import*
+  imp=Imports
   classes+=Class*;
 
 Package:
   'package' name=QualifiedName '{' 
-  imports+=Import*
+  imp=Imports
+  directives+=directive*
   classes+=(Class|Interface)*
   '}';
 
+Imports: {Imports}
+  imports+=Import*
+;
 Import:
     'import' importedNamespace = QualifiedNameWithWildcard ';'
 ;
+
+directive: {directive}
+    "[" name=ID ("(" annonFields=annotationFields ")")? "]"
+  | Uses
+  | ";";
+
+Uses:
+	"use" name=ID (type=QualifiedName|'*'|'void')
+  ;
+  
+annotationFields :
+    anoonFields+=annotationField ("," annonFields+=annotationField)*;
+
+annotationField :
+    name=ID "=" expr=Expression;
 
 QualifiedNameWithWildcard:
     QualifiedName '.*'?
@@ -32,15 +51,15 @@ QualifiedName:
   ID ('.' ID)*
 ;
 
-Interface returns Class:
+Interface:
    access=AccessLevel? 'interface' name=ID
-   ('extends' superclass=[Class|QualifiedName])?
+   ('extends' superclass=[Type])?
    '{' members += Member* '}'
 ;
 Class:
    access=AccessLevel? 'static'? 'class' name=ID
-   ('extends' superclass=[Class|QualifiedName])?
-   ('implements' types+=[Class|QualifiedName] (',' types+=[Class|QualifiedName])*)?
+   ('extends' superclass=[Type])?
+   ('implements' types+=[Type] (',' types+=[Type])*)?
    '{' members += Member* '}'
    ;
 
@@ -50,14 +69,14 @@ Member:
 ;
 
 Method:
-  access=AccessLevel? 'static'? 'function' ('get'|'set')? name=ID
-    '(' (params+=Parameter (',' params+=Parameter)*)? ')' 
-    (':' type=[Class|QualifiedName])?
-    body=MethodBody
+  'override'? access=AccessLevel? 'static'? 'function' ('get'|'set')? name=ID
+  '(' (params+=Parameter (',' params+=Parameter)*)? ')' 
+  (':' type=[Type])?
+  body=MethodBody
 ;
 
 enum AccessLevel:
-  PRIVATE='private' | PUBLIC='public' | PROTECTED='protected';
+  PRIVATE='private' | PUBLIC='public' | PROTECTED='protected' | INTERNAL='internal' ;
 
 MethodBody: 
   {MethodBody} '{' statements += Statement* '}';
@@ -77,7 +96,7 @@ Statement:
 ;
 
 NewStatement:
-	{New} 'new' type=[Class|QualifiedName]
+	{New} 'new' type=[Type]
 	('(' param=Parameters ')')?
 ;
 
@@ -130,7 +149,7 @@ Return:
 ;
 
 VariableDeclaration:
-  'var' name=ID ':' type=[Class|QualifiedName] ('=' expression=Expression)? ';'
+  access=AccessLevel? 'static'? 'var' name=ID ':' type=[Type] ('=' expression=Expression)? ';'
 ;
 
 IfStatement:
@@ -169,7 +188,7 @@ Parameters :
   name=ID rel=typeRelation?;
 
 typeRelation :
-    ':' type=[Class|QualifiedName];
+    ':' type=[Type];
     
 objectLiteral :
     '{' objectFields '}';
@@ -210,6 +229,11 @@ SelectionExpression returns Expression:
       (args+=Expression (',' args+=Expression)*)? ')' )?
   )*
 ;
+
+Type: {Type}
+    //class=Class
+   qual=QualifiedName
+  ;
 
 TerminalExpression returns Expression:
    {StringConstant} value=STRING |

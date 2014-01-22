@@ -12,7 +12,9 @@ import de.lynorics.eclipse.jangaroo.aS3.ForStatement;
 import de.lynorics.eclipse.jangaroo.aS3.IfBlock;
 import de.lynorics.eclipse.jangaroo.aS3.IfStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Import;
+import de.lynorics.eclipse.jangaroo.aS3.Imports;
 import de.lynorics.eclipse.jangaroo.aS3.IntConstant;
+import de.lynorics.eclipse.jangaroo.aS3.Interface;
 import de.lynorics.eclipse.jangaroo.aS3.Member;
 import de.lynorics.eclipse.jangaroo.aS3.MemberSelection;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
@@ -34,10 +36,15 @@ import de.lynorics.eclipse.jangaroo.aS3.Symbol;
 import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
+import de.lynorics.eclipse.jangaroo.aS3.Type;
+import de.lynorics.eclipse.jangaroo.aS3.Uses;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.While;
 import de.lynorics.eclipse.jangaroo.aS3.WhileStatement;
+import de.lynorics.eclipse.jangaroo.aS3.annotationField;
+import de.lynorics.eclipse.jangaroo.aS3.annotationFields;
 import de.lynorics.eclipse.jangaroo.aS3.commaExpr;
+import de.lynorics.eclipse.jangaroo.aS3.directive;
 import de.lynorics.eclipse.jangaroo.aS3.exprOrObjectLiteral;
 import de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.objectField;
@@ -128,9 +135,39 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
         return createPackageAdapter();
       }
       @Override
+      public Adapter caseImports(Imports object)
+      {
+        return createImportsAdapter();
+      }
+      @Override
       public Adapter caseImport(Import object)
       {
         return createImportAdapter();
+      }
+      @Override
+      public Adapter casedirective(directive object)
+      {
+        return createdirectiveAdapter();
+      }
+      @Override
+      public Adapter caseUses(Uses object)
+      {
+        return createUsesAdapter();
+      }
+      @Override
+      public Adapter caseannotationFields(annotationFields object)
+      {
+        return createannotationFieldsAdapter();
+      }
+      @Override
+      public Adapter caseannotationField(annotationField object)
+      {
+        return createannotationFieldAdapter();
+      }
+      @Override
+      public Adapter caseInterface(Interface object)
+      {
+        return createInterfaceAdapter();
       }
       @Override
       public Adapter caseClass(de.lynorics.eclipse.jangaroo.aS3.Class object)
@@ -283,6 +320,11 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
         return createExpressionAdapter();
       }
       @Override
+      public Adapter caseType(Type object)
+      {
+        return createTypeAdapter();
+      }
+      @Override
       public Adapter caseNew(New object)
       {
         return createNewAdapter();
@@ -395,6 +437,21 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Imports <em>Imports</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Imports
+   * @generated
+   */
+  public Adapter createImportsAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Import <em>Import</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -405,6 +462,81 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createImportAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.directive <em>directive</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.directive
+   * @generated
+   */
+  public Adapter createdirectiveAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Uses <em>Uses</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Uses
+   * @generated
+   */
+  public Adapter createUsesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.annotationFields <em>annotation Fields</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.annotationFields
+   * @generated
+   */
+  public Adapter createannotationFieldsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.annotationField <em>annotation Field</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.annotationField
+   * @generated
+   */
+  public Adapter createannotationFieldAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Interface <em>Interface</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Interface
+   * @generated
+   */
+  public Adapter createInterfaceAdapter()
   {
     return null;
   }
@@ -855,6 +987,21 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Type <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Type
+   * @generated
+   */
+  public Adapter createTypeAdapter()
   {
     return null;
   }

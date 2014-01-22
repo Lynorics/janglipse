@@ -41,6 +41,15 @@ public interface AS3Factory extends EFactory
   Package createPackage();
 
   /**
+   * Returns a new object of class '<em>Imports</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Imports</em>'.
+   * @generated
+   */
+  Imports createImports();
+
+  /**
    * Returns a new object of class '<em>Import</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -48,6 +57,51 @@ public interface AS3Factory extends EFactory
    * @generated
    */
   Import createImport();
+
+  /**
+   * Returns a new object of class '<em>directive</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>directive</em>'.
+   * @generated
+   */
+  directive createdirective();
+
+  /**
+   * Returns a new object of class '<em>Uses</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Uses</em>'.
+   * @generated
+   */
+  Uses createUses();
+
+  /**
+   * Returns a new object of class '<em>annotation Fields</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>annotation Fields</em>'.
+   * @generated
+   */
+  annotationFields createannotationFields();
+
+  /**
+   * Returns a new object of class '<em>annotation Field</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>annotation Field</em>'.
+   * @generated
+   */
+  annotationField createannotationField();
+
+  /**
+   * Returns a new object of class '<em>Interface</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Interface</em>'.
+   * @generated
+   */
+  Interface createInterface();
 
   /**
    * Returns a new object of class '<em>Class</em>'.
@@ -318,6 +372,15 @@ public interface AS3Factory extends EFactory
    * @generated
    */
   Expression createExpression();
+
+  /**
+   * Returns a new object of class '<em>Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type</em>'.
+   * @generated
+   */
+  Type createType();
 
   /**
    * Returns a new object of class '<em>New</em>'.
