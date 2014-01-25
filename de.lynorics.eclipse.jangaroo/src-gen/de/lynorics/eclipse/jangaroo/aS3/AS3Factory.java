@@ -482,6 +482,15 @@ public interface AS3Factory extends EFactory
   Null createNull();
 
   /**
+   * Returns a new object of class '<em>Void</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Void</em>'.
+   * @generated
+   */
+  Void createVoid();
+
+  /**
    * Returns a new object of class '<em>Symbol Ref</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

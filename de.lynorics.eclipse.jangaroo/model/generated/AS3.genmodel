@@ -51,7 +51,7 @@
     <genClasses ecoreClass="AS3.ecore#//Class">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Class/access"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Class/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/superclass"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/superType"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/types"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/members"/>
     </genClasses>
@@ -180,6 +180,7 @@
     <genClasses ecoreClass="AS3.ecore#//This"/>
     <genClasses ecoreClass="AS3.ecore#//Super"/>
     <genClasses ecoreClass="AS3.ecore#//Null"/>
+    <genClasses ecoreClass="AS3.ecore#//Void"/>
     <genClasses ecoreClass="AS3.ecore#//SymbolRef">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//SymbolRef/symbol"/>
     </genClasses>

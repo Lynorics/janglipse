@@ -168,6 +168,7 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.THIS: return createThis();
       case AS3Package.SUPER: return createSuper();
       case AS3Package.NULL: return createNull();
+      case AS3Package.VOID: return createVoid();
       case AS3Package.SYMBOL_REF: return createSymbolRef();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -767,6 +768,17 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
   {
     NullImpl null_ = new NullImpl();
     return null_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public de.lynorics.eclipse.jangaroo.aS3.Void createVoid()
+  {
+    VoidImpl void_ = new VoidImpl();
+    return void_;
   }
 
   /**

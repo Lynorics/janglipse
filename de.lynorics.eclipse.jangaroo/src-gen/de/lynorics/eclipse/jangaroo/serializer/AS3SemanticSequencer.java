@@ -351,6 +351,21 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
+			case AS3Package.VOID:
+				if(context == grammarAccess.getAssignmentRule() ||
+				   context == grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0() ||
+				   context == grammarAccess.getExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionAccess().getMemberSelectionReceiverAction_1_0() ||
+				   context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getTerminalExpressionRule() ||
+				   context == grammarAccess.getExprOrObjectLiteralRule() ||
+				   context == grammarAccess.getObjectFieldRule() ||
+				   context == grammarAccess.getStatementInSwitchRule()) {
+					sequence_TerminalExpression(context, (de.lynorics.eclipse.jangaroo.aS3.Void) semanticObject); 
+					return; 
+				}
+				else break;
 			case AS3Package.WHILE:
 				if(context == grammarAccess.getStatementRule() ||
 				   context == grammarAccess.getStatementInSwitchRule()) {
@@ -444,7 +459,7 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (access=AccessLevel? name=ID superclass=[Type|ID]? (types+=[Type|ID] types+=[Type|ID]*)? members+=Member*)
+	 *     (access=AccessLevel? name=ID superType=[Class|ID]? (types+=[Interface|ID] types+=[Interface|ID]*)? members+=Member*)
 	 */
 	protected void sequence_Class(EObject context, de.lynorics.eclipse.jangaroo.aS3.Class semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -730,7 +745,7 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getTerminalExpressionAccess().getSymbolSymbolIDTerminalRuleCall_6_1_0_1(), semanticObject.getSymbol());
+		feeder.accept(grammarAccess.getTerminalExpressionAccess().getSymbolSymbolIDTerminalRuleCall_7_1_0_1(), semanticObject.getSymbol());
 		feeder.finish();
 	}
 	
@@ -740,6 +755,15 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     {This}
 	 */
 	protected void sequence_TerminalExpression(EObject context, This semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     {Void}
+	 */
+	protected void sequence_TerminalExpression(EObject context, de.lynorics.eclipse.jangaroo.aS3.Void semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

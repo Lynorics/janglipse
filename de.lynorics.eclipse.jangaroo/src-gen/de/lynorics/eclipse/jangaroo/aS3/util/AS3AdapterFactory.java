@@ -380,6 +380,11 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
         return createNullAdapter();
       }
       @Override
+      public Adapter caseVoid(de.lynorics.eclipse.jangaroo.aS3.Void object)
+      {
+        return createVoidAdapter();
+      }
+      @Override
       public Adapter caseSymbolRef(SymbolRef object)
       {
         return createSymbolRefAdapter();
@@ -1167,6 +1172,21 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNullAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Void <em>Void</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Void
+   * @generated
+   */
+  public Adapter createVoidAdapter()
   {
     return null;
   }

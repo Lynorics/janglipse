@@ -58,8 +58,8 @@ Interface:
 ;
 Class:
    access=AccessLevel? 'static'? 'class' name=ID
-   ('extends' superclass=[Type])?
-   ('implements' types+=[Type] (',' types+=[Type])*)?
+   ('extends' superType=[Class])?
+   ('implements' types+=[Interface] (',' types+=[Interface])*)?
    '{' members += Member* '}'
    ;
 
@@ -69,7 +69,7 @@ Member:
 ;
 
 Method:
-  'override'? access=AccessLevel? 'static'? 'function' ('get'|'set')? name=ID
+  'override'? access=AccessLevel? 'native'? 'static'? 'function' ('get'|'set')? name=ID
   '(' (params+=Parameter (',' params+=Parameter)*)? ')' 
   (':' type=[Type])?
   body=MethodBody
@@ -242,5 +242,6 @@ TerminalExpression returns Expression:
    {This} 'this' |
    {Super} 'super' |
    {Null} 'null' |
+   {Void} 'void' |
    {SymbolRef} symbol=[Symbol] |
    '(' Expression ')'; 

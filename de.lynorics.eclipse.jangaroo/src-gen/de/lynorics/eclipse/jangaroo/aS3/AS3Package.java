@@ -446,13 +446,13 @@ public interface AS3Package extends EPackage
   int CLASS__NAME = 1;
 
   /**
-   * The feature id for the '<em><b>Superclass</b></em>' reference.
+   * The feature id for the '<em><b>Super Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLASS__SUPERCLASS = 2;
+  int CLASS__SUPER_TYPE = 2;
 
   /**
    * The feature id for the '<em><b>Types</b></em>' reference list.
@@ -1837,6 +1837,25 @@ public interface AS3Package extends EPackage
   int NULL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.VoidImpl <em>Void</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.VoidImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getVoid()
+   * @generated
+   */
+  int VOID = 51;
+
+  /**
+   * The number of structural features of the '<em>Void</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VOID_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.SymbolRefImpl <em>Symbol Ref</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1844,7 +1863,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getSymbolRef()
    * @generated
    */
-  int SYMBOL_REF = 51;
+  int SYMBOL_REF = 52;
 
   /**
    * The feature id for the '<em><b>Symbol</b></em>' reference.
@@ -1872,7 +1891,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getAccessLevel()
    * @generated
    */
-  int ACCESS_LEVEL = 52;
+  int ACCESS_LEVEL = 53;
 
 
   /**
@@ -2185,15 +2204,15 @@ public interface AS3Package extends EPackage
   EAttribute getClass_Name();
 
   /**
-   * Returns the meta object for the reference '{@link de.lynorics.eclipse.jangaroo.aS3.Class#getSuperclass <em>Superclass</em>}'.
+   * Returns the meta object for the reference '{@link de.lynorics.eclipse.jangaroo.aS3.Class#getSuperType <em>Super Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Superclass</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Class#getSuperclass()
+   * @return the meta object for the reference '<em>Super Type</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Class#getSuperType()
    * @see #getClass_()
    * @generated
    */
-  EReference getClass_Superclass();
+  EReference getClass_SuperType();
 
   /**
    * Returns the meta object for the reference list '{@link de.lynorics.eclipse.jangaroo.aS3.Class#getTypes <em>Types</em>}'.
@@ -3277,6 +3296,16 @@ public interface AS3Package extends EPackage
   EClass getNull();
 
   /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.Void <em>Void</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Void</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Void
+   * @generated
+   */
+  EClass getVoid();
+
+  /**
    * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.SymbolRef <em>Symbol Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3583,12 +3612,12 @@ public interface AS3Package extends EPackage
     EAttribute CLASS__NAME = eINSTANCE.getClass_Name();
 
     /**
-     * The meta object literal for the '<em><b>Superclass</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Super Type</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CLASS__SUPERCLASS = eINSTANCE.getClass_Superclass();
+    EReference CLASS__SUPER_TYPE = eINSTANCE.getClass_SuperType();
 
     /**
      * The meta object literal for the '<em><b>Types</b></em>' reference list feature.
@@ -4487,6 +4516,16 @@ public interface AS3Package extends EPackage
      * @generated
      */
     EClass NULL = eINSTANCE.getNull();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.VoidImpl <em>Void</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.VoidImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getVoid()
+     * @generated
+     */
+    EClass VOID = eINSTANCE.getVoid();
 
     /**
      * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.SymbolRefImpl <em>Symbol Ref</em>}' class.

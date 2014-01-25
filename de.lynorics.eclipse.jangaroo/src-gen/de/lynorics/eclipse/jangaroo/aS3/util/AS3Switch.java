@@ -569,6 +569,18 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AS3Package.VOID:
+      {
+        de.lynorics.eclipse.jangaroo.aS3.Void void_ = (de.lynorics.eclipse.jangaroo.aS3.Void)theEObject;
+        T result = caseVoid(void_);
+        if (result == null) result = caseExpression(void_);
+        if (result == null) result = caseStatement(void_);
+        if (result == null) result = caseexprOrObjectLiteral(void_);
+        if (result == null) result = casestatementInSwitch(void_);
+        if (result == null) result = caseobjectField(void_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AS3Package.SYMBOL_REF:
       {
         SymbolRef symbolRef = (SymbolRef)theEObject;
@@ -1397,6 +1409,22 @@ public class AS3Switch<T> extends Switch<T>
    * @generated
    */
   public T caseNull(Null object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Void</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Void</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVoid(de.lynorics.eclipse.jangaroo.aS3.Void object)
   {
     return null;
   }
