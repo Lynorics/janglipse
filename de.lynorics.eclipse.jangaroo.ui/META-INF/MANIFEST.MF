@@ -19,8 +19,9 @@ Require-Bundle: de.lynorics.eclipse.jangaroo;visibility:=reexport,
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: de.lynorics.eclipse.jangaroo.ui.quickfix,
+Export-Package: de.lynorics.eclipse.jangaroo.ui,
  de.lynorics.eclipse.jangaroo.ui.contentassist,
  de.lynorics.eclipse.jangaroo.ui.contentassist.antlr,
- de.lynorics.eclipse.jangaroo.ui.internal
+ de.lynorics.eclipse.jangaroo.ui.internal,
+ de.lynorics.eclipse.jangaroo.ui.quickfix
 Bundle-Activator: de.lynorics.eclipse.jangaroo.ui.internal.AS3Activator

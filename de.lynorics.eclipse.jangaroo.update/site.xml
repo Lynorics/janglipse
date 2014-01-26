@@ -3,7 +3,7 @@
    <description name="Jangaroo for Eclipse" url="www.lynorics.de/eclipse/">
       Jangaroo for Eclipse
    </description>
-   <feature url="features/de.lynorics.eclipse.jangaroo.sdk_1.0.0.201401210009.jar" id="de.lynorics.eclipse.jangaroo.sdk" version="1.0.0.201401210009">
+   <feature url="features/de.lynorics.eclipse.jangaroo.sdk_1.0.0.201401260103.jar" id="de.lynorics.eclipse.jangaroo.sdk" version="1.0.0.201401260103">
       <category name="Lynorics"/>
    </feature>
    <category-def name="Lynorics" label="Lynorics"/>

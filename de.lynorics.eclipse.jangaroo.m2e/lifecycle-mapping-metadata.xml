@@ -1,0 +1,20 @@
+<lifecycleMappingMetadata>
+  <pluginExecutions>
+    <pluginExecution>
+      <pluginExecutionFilter>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-maven-plugin</artifactId>
+        <versionRange>[0.9,)</versionRange>
+        <goals>
+          <goal>compile</goal>
+          <goal>testCompile</goal>
+        </goals>
+      </pluginExecutionFilter>
+      <action>
+           <configurator>
+             <id>de.lynorics.eclipse.jangaroo.m2e.jangarooConfigurator</id>
+           </configurator>
+         </action>
+    </pluginExecution>
+  </pluginExecutions>
+</lifecycleMappingMetadata>

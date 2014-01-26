@@ -139,7 +139,7 @@ public class AS3Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_8(), "rule__TerminalExpression__Group_8__0");
 					put(grammarAccess.getModelAccess().getImpAssignment_1_0(), "rule__Model__ImpAssignment_1_0");
 					put(grammarAccess.getModelAccess().getClassesAssignment_1_1(), "rule__Model__ClassesAssignment_1_1");
-					put(grammarAccess.getPackageAccess().getNameAssignment_1(), "rule__Package__NameAssignment_1");
+					put(grammarAccess.getPackageAccess().getPackageAssignment_1(), "rule__Package__PackageAssignment_1");
 					put(grammarAccess.getPackageAccess().getImpAssignment_3(), "rule__Package__ImpAssignment_3");
 					put(grammarAccess.getPackageAccess().getDirectivesAssignment_4(), "rule__Package__DirectivesAssignment_4");
 					put(grammarAccess.getPackageAccess().getClassesAssignment_5(), "rule__Package__ClassesAssignment_5");

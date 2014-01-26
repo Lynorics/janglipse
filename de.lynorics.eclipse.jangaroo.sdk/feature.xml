@@ -27,6 +27,9 @@
       <import plugin="org.eclipse.xtext.common.types.ui"/>
       <import plugin="org.eclipse.xtext.ui.codetemplates.ui"/>
       <import plugin="org.eclipse.compare"/>
+      <import plugin="org.eclipse.core.resources" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.equinox.registry" version="3.4.0" match="greaterOrEqual"/>
+      <import plugin="de.lynorics.eclipse.jangaroo.ui" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
@@ -38,6 +41,13 @@
 
    <plugin
          id="de.lynorics.eclipse.jangaroo.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.lynorics.eclipse.jangaroo.m2e"
          download-size="0"
          install-size="0"
          version="0.0.0"

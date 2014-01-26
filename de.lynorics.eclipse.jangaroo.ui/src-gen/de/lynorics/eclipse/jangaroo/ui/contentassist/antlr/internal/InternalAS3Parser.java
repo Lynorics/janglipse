@@ -6740,26 +6740,26 @@ public class InternalAS3Parser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Package__Group__1__Impl"
-    // ../de.lynorics.eclipse.jangaroo.ui/src-gen/de/lynorics/eclipse/jangaroo/ui/contentassist/antlr/internal/InternalAS3.g:1892:1: rule__Package__Group__1__Impl : ( ( rule__Package__NameAssignment_1 ) ) ;
+    // ../de.lynorics.eclipse.jangaroo.ui/src-gen/de/lynorics/eclipse/jangaroo/ui/contentassist/antlr/internal/InternalAS3.g:1892:1: rule__Package__Group__1__Impl : ( ( rule__Package__PackageAssignment_1 ) ) ;
     public final void rule__Package__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../de.lynorics.eclipse.jangaroo.ui/src-gen/de/lynorics/eclipse/jangaroo/ui/contentassist/antlr/internal/InternalAS3.g:1896:1: ( ( ( rule__Package__NameAssignment_1 ) ) )
-            // ../de.lynorics.eclipse.jangaroo.ui/src-gen/de/lynorics/eclipse/jangaroo/ui/contentassist/antlr/internal/InternalAS3.g:1897:1: ( ( rule__Package__NameAssignment_1 ) )
+            // ../de.lynorics.eclipse.jangaroo.ui/src-gen/de/lynorics/eclipse/jangaroo/ui/contentassist/antlr/internal/InternalAS3.g:1896:1: ( ( ( rule__Package__PackageAssignment_1 ) ) )
+            // ../de.lynorics.eclipse.jangaroo.ui/src-gen/de/lynorics/eclipse/jangaroo/ui/contentassist/antlr/internal/InternalAS3.g:1897:1: ( ( rule__Package__PackageAssignment_1 ) )
             {
-            // ../de.lynorics.eclipse.jangaroo.ui/src-gen/de/lynorics/eclipse/jangaroo/ui/contentassist/antlr/internal/InternalAS3.g:1897:1: ( ( rule__Package__NameAssignment_1 ) )
-            // ../de.lynorics.eclipse.jangaroo.ui/src-gen/de/lynorics/eclipse/jangaroo/ui/contentassist/antlr/internal/InternalAS3.g:1898:1: ( rule__Package__NameAssignment_1 )
+            // ../de.lynorics.eclipse.jangaroo.ui/src-gen/de/lynorics/eclipse/jangaroo/ui/contentassist/antlr/internal/InternalAS3.g:1897:1: ( ( rule__Package__PackageAssignment_1 ) )
+            // ../de.lynorics.eclipse.jangaroo.ui/src-gen/de/lynorics/eclipse/jangaroo/ui/contentassist/antlr/internal/InternalAS3.g:1898:1: ( rule__Package__PackageAssignment_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getPackageAccess().getNameAssignment_1()); 
+               before(grammarAccess.getPackageAccess().getPackageAssignment_1()); 
             }
-            // ../de.lynorics.eclipse.jangaroo.ui/src-gen/de/lynorics/eclipse/jangaroo/ui/contentassist/antlr/internal/InternalAS3.g:1899:1: ( rule__Package__NameAssignment_1 )
-            // ../de.lynorics.eclipse.jangaroo.ui/src-gen/de/lynorics/eclipse/jangaroo/ui/contentassist/antlr/internal/InternalAS3.g:1899:2: rule__Package__NameAssignment_1
+            // ../de.lynorics.eclipse.jangaroo.ui/src-gen/de/lynorics/eclipse/jangaroo/ui/contentassist/antlr/internal/InternalAS3.g:1899:1: ( rule__Package__PackageAssignment_1 )
+            // ../de.lynorics.eclipse.jangaroo.ui/src-gen/de/lynorics/eclipse/jangaroo/ui/contentassist/antlr/internal/InternalAS3.g:1899:2: rule__Package__PackageAssignment_1
             {
-            pushFollow(FOLLOW_rule__Package__NameAssignment_1_in_rule__Package__Group__1__Impl4117);
-            rule__Package__NameAssignment_1();
+            pushFollow(FOLLOW_rule__Package__PackageAssignment_1_in_rule__Package__Group__1__Impl4117);
+            rule__Package__PackageAssignment_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -6767,7 +6767,7 @@ public class InternalAS3Parser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getPackageAccess().getNameAssignment_1()); 
+               after(grammarAccess.getPackageAccess().getPackageAssignment_1()); 
             }
 
             }
@@ -30165,9 +30165,9 @@ public class InternalAS3Parser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Model__ClassesAssignment_1_1"
 
 
-    // $ANTLR start "rule__Package__NameAssignment_1"
-    // ../de.lynorics.eclipse.jangaroo.ui/src-gen/de/lynorics/eclipse/jangaroo/ui/contentassist/antlr/internal/InternalAS3.g:10574:1: rule__Package__NameAssignment_1 : ( ruleQualifiedName ) ;
-    public final void rule__Package__NameAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Package__PackageAssignment_1"
+    // ../de.lynorics.eclipse.jangaroo.ui/src-gen/de/lynorics/eclipse/jangaroo/ui/contentassist/antlr/internal/InternalAS3.g:10574:1: rule__Package__PackageAssignment_1 : ( ruleQualifiedName ) ;
+    public final void rule__Package__PackageAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -30179,15 +30179,15 @@ public class InternalAS3Parser extends AbstractInternalContentAssistParser {
             // ../de.lynorics.eclipse.jangaroo.ui/src-gen/de/lynorics/eclipse/jangaroo/ui/contentassist/antlr/internal/InternalAS3.g:10580:1: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getPackageAccess().getNameQualifiedNameParserRuleCall_1_0()); 
+               before(grammarAccess.getPackageAccess().getPackageQualifiedNameParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__Package__NameAssignment_121177);
+            pushFollow(FOLLOW_ruleQualifiedName_in_rule__Package__PackageAssignment_121177);
             ruleQualifiedName();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getPackageAccess().getNameQualifiedNameParserRuleCall_1_0()); 
+               after(grammarAccess.getPackageAccess().getPackageQualifiedNameParserRuleCall_1_0()); 
             }
 
             }
@@ -30207,7 +30207,7 @@ public class InternalAS3Parser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Package__NameAssignment_1"
+    // $ANTLR end "rule__Package__PackageAssignment_1"
 
 
     // $ANTLR start "rule__Package__ImpAssignment_3"
@@ -35059,7 +35059,7 @@ public class InternalAS3Parser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_22_in_rule__Package__Group__0__Impl4056 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Package__Group__1__Impl_in_rule__Package__Group__14087 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_rule__Package__Group__2_in_rule__Package__Group__14090 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Package__NameAssignment_1_in_rule__Package__Group__1__Impl4117 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Package__PackageAssignment_1_in_rule__Package__Group__1__Impl4117 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Package__Group__2__Impl_in_rule__Package__Group__24147 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_rule__Package__Group__3_in_rule__Package__Group__24150 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_23_in_rule__Package__Group__2__Impl4178 = new BitSet(new long[]{0x0000000000000002L});
@@ -35782,7 +35782,7 @@ public class InternalAS3Parser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_29_in_rule__TerminalExpression__Group_8__2__Impl21073 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleImports_in_rule__Model__ImpAssignment_1_021115 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleClass_in_rule__Model__ClassesAssignment_1_121146 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__Package__NameAssignment_121177 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__Package__PackageAssignment_121177 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleImports_in_rule__Package__ImpAssignment_321208 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruledirective_in_rule__Package__DirectivesAssignment_421239 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Package__ClassesAlternatives_5_0_in_rule__Package__ClassesAssignment_521270 = new BitSet(new long[]{0x0000000000000002L});
