@@ -97,7 +97,7 @@ Statement:
 
 NewStatement:
 	{New} 'new' type=[Type]
-	('(' param=Parameters ')')?
+	('(' param=Parameters? ')')?
 ;
 
 ForStatement:
@@ -244,4 +244,53 @@ TerminalExpression returns Expression:
    {Null} 'null' |
    {Void} 'void' |
    {SymbolRef} symbol=[Symbol] |
+   {TerminalOp} TerminalOperator |
    '(' Expression ')'; 
+
+TerminalOperator:
+    '='
+  | '*='
+  | '/='
+  | '%='
+  | '+='
+  | '-='
+  | '<<='
+  | '>>='
+  | '>>>='
+  | '&='
+  | '^='
+  | '|='
+  | '?:'
+  | '||'
+  | '&&'
+  | '|'
+  | '^'
+  | '&'
+  | '=='
+  | '!='
+  | '==='
+  | '!=='
+  | '<'
+  | '>'
+  | '<='
+  | '>='
+  | 'as'
+  | 'in'
+  | 'instanceof'
+  | 'is'
+  | '<<'
+  | '>>'
+  | '>>>'
+  | '+'
+  | '-'
+  | '*'
+  | '/'
+  | '%'
+  | '++'
+  | '--'
+  | '!'
+  | '~'
+  | 'typeof'
+  | '.'
+  | '::'
+;

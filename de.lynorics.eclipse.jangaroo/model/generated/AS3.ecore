@@ -230,4 +230,5 @@
   <eClassifiers xsi:type="ecore:EClass" name="SymbolRef" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="symbol" eType="#//Symbol"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TerminalOp" eSuperTypes="#//Expression"/>
 </ecore:EPackage>

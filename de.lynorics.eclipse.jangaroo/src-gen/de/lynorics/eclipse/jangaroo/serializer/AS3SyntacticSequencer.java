@@ -26,9 +26,10 @@ public class AS3SyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Method_OverrideKeyword_0_q;
 	protected AbstractElementAlias match_Method_StaticKeyword_3_q;
 	protected AbstractElementAlias match_Method___GetKeyword_5_0_or_SetKeyword_5_1__q;
+	protected AbstractElementAlias match_NewStatement___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q;
 	protected AbstractElementAlias match_Parameter_ConstKeyword_0_q;
-	protected AbstractElementAlias match_TerminalExpression_LeftParenthesisKeyword_8_0_a;
-	protected AbstractElementAlias match_TerminalExpression_LeftParenthesisKeyword_8_0_p;
+	protected AbstractElementAlias match_TerminalExpression_LeftParenthesisKeyword_9_0_a;
+	protected AbstractElementAlias match_TerminalExpression_LeftParenthesisKeyword_9_0_p;
 	protected AbstractElementAlias match_Uses_AsteriskKeyword_2_1_or_VoidKeyword_2_2;
 	protected AbstractElementAlias match_VariableDeclaration_StaticKeyword_1_q;
 	protected AbstractElementAlias match_objectField___IDTerminalRuleCall_0_0_ColonKeyword_0_1___or___INTTerminalRuleCall_2_0_ColonKeyword_2_1___or___STRINGTerminalRuleCall_1_0_ColonKeyword_1_1__;
@@ -44,9 +45,10 @@ public class AS3SyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Method_OverrideKeyword_0_q = new TokenAlias(false, true, grammarAccess.getMethodAccess().getOverrideKeyword_0());
 		match_Method_StaticKeyword_3_q = new TokenAlias(false, true, grammarAccess.getMethodAccess().getStaticKeyword_3());
 		match_Method___GetKeyword_5_0_or_SetKeyword_5_1__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getMethodAccess().getGetKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getMethodAccess().getSetKeyword_5_1()));
+		match_NewStatement___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getNewStatementAccess().getLeftParenthesisKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getNewStatementAccess().getRightParenthesisKeyword_3_2()));
 		match_Parameter_ConstKeyword_0_q = new TokenAlias(false, true, grammarAccess.getParameterAccess().getConstKeyword_0());
-		match_TerminalExpression_LeftParenthesisKeyword_8_0_a = new TokenAlias(true, true, grammarAccess.getTerminalExpressionAccess().getLeftParenthesisKeyword_8_0());
-		match_TerminalExpression_LeftParenthesisKeyword_8_0_p = new TokenAlias(true, false, grammarAccess.getTerminalExpressionAccess().getLeftParenthesisKeyword_8_0());
+		match_TerminalExpression_LeftParenthesisKeyword_9_0_a = new TokenAlias(true, true, grammarAccess.getTerminalExpressionAccess().getLeftParenthesisKeyword_9_0());
+		match_TerminalExpression_LeftParenthesisKeyword_9_0_p = new TokenAlias(true, false, grammarAccess.getTerminalExpressionAccess().getLeftParenthesisKeyword_9_0());
 		match_Uses_AsteriskKeyword_2_1_or_VoidKeyword_2_2 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getUsesAccess().getAsteriskKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getUsesAccess().getVoidKeyword_2_2()));
 		match_VariableDeclaration_StaticKeyword_1_q = new TokenAlias(false, true, grammarAccess.getVariableDeclarationAccess().getStaticKeyword_1());
 		match_objectField___IDTerminalRuleCall_0_0_ColonKeyword_0_1___or___INTTerminalRuleCall_2_0_ColonKeyword_2_1___or___STRINGTerminalRuleCall_1_0_ColonKeyword_1_1__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getObjectFieldAccess().getIDTerminalRuleCall_0_0()), new TokenAlias(false, false, grammarAccess.getObjectFieldAccess().getColonKeyword_0_1())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getObjectFieldAccess().getINTTerminalRuleCall_2_0()), new TokenAlias(false, false, grammarAccess.getObjectFieldAccess().getColonKeyword_2_1())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getObjectFieldAccess().getSTRINGTerminalRuleCall_1_0()), new TokenAlias(false, false, grammarAccess.getObjectFieldAccess().getColonKeyword_1_1())));
@@ -61,6 +63,8 @@ public class AS3SyntacticSequencer extends AbstractSyntacticSequencer {
 			return getINTToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSTRINGRule())
 			return getSTRINGToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getTerminalOperatorRule())
+			return getTerminalOperatorToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -94,6 +98,61 @@ public class AS3SyntacticSequencer extends AbstractSyntacticSequencer {
 		return "\"\"";
 	}
 	
+	/**
+	 * TerminalOperator:
+	 *     '='
+	 *   | '*='
+	 *   | '/='
+	 *   | '%='
+	 *   | '+='
+	 *   | '-='
+	 *   | '<<='
+	 *   | '>>='
+	 *   | '>>>='
+	 *   | '&='
+	 *   | '^='
+	 *   | '|='
+	 *   | '?:'
+	 *   | '||'
+	 *   | '&&'
+	 *   | '|'
+	 *   | '^'
+	 *   | '&'
+	 *   | '=='
+	 *   | '!='
+	 *   | '==='
+	 *   | '!=='
+	 *   | '<'
+	 *   | '>'
+	 *   | '<='
+	 *   | '>='
+	 *   | 'as'
+	 *   | 'in'
+	 *   | 'instanceof'
+	 *   | 'is'
+	 *   | '<<'
+	 *   | '>>'
+	 *   | '>>>'
+	 *   | '+'
+	 *   | '-'
+	 *   | '*'
+	 *   | '/'
+	 *   | '%'
+	 *   | '++'
+	 *   | '--'
+	 *   | '!'
+	 *   | '~'
+	 *   | 'typeof'
+	 *   | '.'
+	 *   | '::'
+	 * ;
+	 */
+	protected String getTerminalOperatorToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "=";
+	}
+	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
 		if (transition.getAmbiguousSyntaxes().isEmpty()) return;
@@ -114,12 +173,14 @@ public class AS3SyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Method_StaticKeyword_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Method___GetKeyword_5_0_or_SetKeyword_5_1__q.equals(syntax))
 				emit_Method___GetKeyword_5_0_or_SetKeyword_5_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_NewStatement___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q.equals(syntax))
+				emit_NewStatement___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Parameter_ConstKeyword_0_q.equals(syntax))
 				emit_Parameter_ConstKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_TerminalExpression_LeftParenthesisKeyword_8_0_a.equals(syntax))
-				emit_TerminalExpression_LeftParenthesisKeyword_8_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_TerminalExpression_LeftParenthesisKeyword_8_0_p.equals(syntax))
-				emit_TerminalExpression_LeftParenthesisKeyword_8_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_TerminalExpression_LeftParenthesisKeyword_9_0_a.equals(syntax))
+				emit_TerminalExpression_LeftParenthesisKeyword_9_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_TerminalExpression_LeftParenthesisKeyword_9_0_p.equals(syntax))
+				emit_TerminalExpression_LeftParenthesisKeyword_9_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Uses_AsteriskKeyword_2_1_or_VoidKeyword_2_2.equals(syntax))
 				emit_Uses_AsteriskKeyword_2_1_or_VoidKeyword_2_2(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_VariableDeclaration_StaticKeyword_1_q.equals(syntax))
@@ -182,9 +243,17 @@ public class AS3SyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     ('set' | 'get')?
+	 *     ('get' | 'set')?
 	 */
 	protected void emit_Method___GetKeyword_5_0_or_SetKeyword_5_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     ('(' ')')?
+	 */
+	protected void emit_NewStatement___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -200,7 +269,7 @@ public class AS3SyntacticSequencer extends AbstractSyntacticSequencer {
 	 * Syntax:
 	 *     '('*
 	 */
-	protected void emit_TerminalExpression_LeftParenthesisKeyword_8_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_TerminalExpression_LeftParenthesisKeyword_9_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -208,7 +277,7 @@ public class AS3SyntacticSequencer extends AbstractSyntacticSequencer {
 	 * Syntax:
 	 *     '('+
 	 */
-	protected void emit_TerminalExpression_LeftParenthesisKeyword_8_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_TerminalExpression_LeftParenthesisKeyword_9_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -230,7 +299,7 @@ public class AS3SyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     (STRING ':') | (INT ':') | (ID ':')
+	 *     (INT ':') | (ID ':') | (STRING ':')
 	 */
 	protected void emit_objectField___IDTerminalRuleCall_0_0_ColonKeyword_0_1___or___INTTerminalRuleCall_2_0_ColonKeyword_2_1___or___STRINGTerminalRuleCall_1_0_ColonKeyword_1_1__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

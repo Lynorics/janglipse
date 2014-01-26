@@ -839,10 +839,10 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
 		
 		//NewStatement:
-		//	{New} "new" type=[Type] ("(" param=Parameters ")")?;
+		//	{New} "new" type=[Type] ("(" param=Parameters? ")")?;
 		public ParserRule getRule() { return rule; }
 
-		//{New} "new" type=[Type] ("(" param=Parameters ")")?
+		//{New} "new" type=[Type] ("(" param=Parameters? ")")?
 		public Group getGroup() { return cGroup; }
 
 		//{New}
@@ -860,13 +860,13 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getTypeTypeIDTerminalRuleCall_2_0_1() { return cTypeTypeIDTerminalRuleCall_2_0_1; }
 
-		//("(" param=Parameters ")")?
+		//("(" param=Parameters? ")")?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_3_0() { return cLeftParenthesisKeyword_3_0; }
 
-		//param=Parameters
+		//param=Parameters?
 		public Assignment getParamAssignment_3_1() { return cParamAssignment_3_1; }
 
 		//Parameters
@@ -2241,17 +2241,22 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cSymbolSymbolCrossReference_7_1_0 = (CrossReference)cSymbolAssignment_7_1.eContents().get(0);
 		private final RuleCall cSymbolSymbolIDTerminalRuleCall_7_1_0_1 = (RuleCall)cSymbolSymbolCrossReference_7_1_0.eContents().get(1);
 		private final Group cGroup_8 = (Group)cAlternatives.eContents().get(8);
-		private final Keyword cLeftParenthesisKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final RuleCall cExpressionParserRuleCall_8_1 = (RuleCall)cGroup_8.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_8_2 = (Keyword)cGroup_8.eContents().get(2);
+		private final Action cTerminalOpAction_8_0 = (Action)cGroup_8.eContents().get(0);
+		private final RuleCall cTerminalOperatorParserRuleCall_8_1 = (RuleCall)cGroup_8.eContents().get(1);
+		private final Group cGroup_9 = (Group)cAlternatives.eContents().get(9);
+		private final Keyword cLeftParenthesisKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final RuleCall cExpressionParserRuleCall_9_1 = (RuleCall)cGroup_9.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_9_2 = (Keyword)cGroup_9.eContents().get(2);
 		
 		//TerminalExpression returns Expression:
 		//	{StringConstant} value=STRING | {IntConstant} value=INT | {BoolConstant} value=("true" | "false") | {This} "this" |
-		//	{Super} "super" | {Null} "null" | {Void} "void" | {SymbolRef} symbol=[Symbol] | "(" Expression ")";
+		//	{Super} "super" | {Null} "null" | {Void} "void" | {SymbolRef} symbol=[Symbol] | {TerminalOp} TerminalOperator | "("
+		//	Expression ")";
 		public ParserRule getRule() { return rule; }
 
 		//{StringConstant} value=STRING | {IntConstant} value=INT | {BoolConstant} value=("true" | "false") | {This} "this" |
-		//{Super} "super" | {Null} "null" | {Void} "void" | {SymbolRef} symbol=[Symbol] | "(" Expression ")"
+		//{Super} "super" | {Null} "null" | {Void} "void" | {SymbolRef} symbol=[Symbol] | {TerminalOp} TerminalOperator | "("
+		//Expression ")"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//{StringConstant} value=STRING
@@ -2347,17 +2352,222 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getSymbolSymbolIDTerminalRuleCall_7_1_0_1() { return cSymbolSymbolIDTerminalRuleCall_7_1_0_1; }
 
-		//"(" Expression ")"
+		//{TerminalOp} TerminalOperator
 		public Group getGroup_8() { return cGroup_8; }
 
+		//{TerminalOp}
+		public Action getTerminalOpAction_8_0() { return cTerminalOpAction_8_0; }
+
+		//TerminalOperator
+		public RuleCall getTerminalOperatorParserRuleCall_8_1() { return cTerminalOperatorParserRuleCall_8_1; }
+
+		//"(" Expression ")"
+		public Group getGroup_9() { return cGroup_9; }
+
 		//"("
-		public Keyword getLeftParenthesisKeyword_8_0() { return cLeftParenthesisKeyword_8_0; }
+		public Keyword getLeftParenthesisKeyword_9_0() { return cLeftParenthesisKeyword_9_0; }
 
 		//Expression
-		public RuleCall getExpressionParserRuleCall_8_1() { return cExpressionParserRuleCall_8_1; }
+		public RuleCall getExpressionParserRuleCall_9_1() { return cExpressionParserRuleCall_9_1; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_8_2() { return cRightParenthesisKeyword_8_2; }
+		public Keyword getRightParenthesisKeyword_9_2() { return cRightParenthesisKeyword_9_2; }
+	}
+
+	public class TerminalOperatorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TerminalOperator");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cEqualsSignKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cAsteriskEqualsSignKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cSolidusEqualsSignKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cPercentSignEqualsSignKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cPlusSignEqualsSignKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cHyphenMinusEqualsSignKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cLessThanSignLessThanSignEqualsSignKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cGreaterThanSignGreaterThanSignEqualsSignKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
+		private final Keyword cGreaterThanSignGreaterThanSignGreaterThanSignEqualsSignKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
+		private final Keyword cAmpersandEqualsSignKeyword_9 = (Keyword)cAlternatives.eContents().get(9);
+		private final Keyword cCircumflexAccentEqualsSignKeyword_10 = (Keyword)cAlternatives.eContents().get(10);
+		private final Keyword cVerticalLineEqualsSignKeyword_11 = (Keyword)cAlternatives.eContents().get(11);
+		private final Keyword cQuestionMarkColonKeyword_12 = (Keyword)cAlternatives.eContents().get(12);
+		private final Keyword cVerticalLineVerticalLineKeyword_13 = (Keyword)cAlternatives.eContents().get(13);
+		private final Keyword cAmpersandAmpersandKeyword_14 = (Keyword)cAlternatives.eContents().get(14);
+		private final Keyword cVerticalLineKeyword_15 = (Keyword)cAlternatives.eContents().get(15);
+		private final Keyword cCircumflexAccentKeyword_16 = (Keyword)cAlternatives.eContents().get(16);
+		private final Keyword cAmpersandKeyword_17 = (Keyword)cAlternatives.eContents().get(17);
+		private final Keyword cEqualsSignEqualsSignKeyword_18 = (Keyword)cAlternatives.eContents().get(18);
+		private final Keyword cExclamationMarkEqualsSignKeyword_19 = (Keyword)cAlternatives.eContents().get(19);
+		private final Keyword cEqualsSignEqualsSignEqualsSignKeyword_20 = (Keyword)cAlternatives.eContents().get(20);
+		private final Keyword cExclamationMarkEqualsSignEqualsSignKeyword_21 = (Keyword)cAlternatives.eContents().get(21);
+		private final Keyword cLessThanSignKeyword_22 = (Keyword)cAlternatives.eContents().get(22);
+		private final Keyword cGreaterThanSignKeyword_23 = (Keyword)cAlternatives.eContents().get(23);
+		private final Keyword cLessThanSignEqualsSignKeyword_24 = (Keyword)cAlternatives.eContents().get(24);
+		private final Keyword cGreaterThanSignEqualsSignKeyword_25 = (Keyword)cAlternatives.eContents().get(25);
+		private final Keyword cAsKeyword_26 = (Keyword)cAlternatives.eContents().get(26);
+		private final Keyword cInKeyword_27 = (Keyword)cAlternatives.eContents().get(27);
+		private final Keyword cInstanceofKeyword_28 = (Keyword)cAlternatives.eContents().get(28);
+		private final Keyword cIsKeyword_29 = (Keyword)cAlternatives.eContents().get(29);
+		private final Keyword cLessThanSignLessThanSignKeyword_30 = (Keyword)cAlternatives.eContents().get(30);
+		private final Keyword cGreaterThanSignGreaterThanSignKeyword_31 = (Keyword)cAlternatives.eContents().get(31);
+		private final Keyword cGreaterThanSignGreaterThanSignGreaterThanSignKeyword_32 = (Keyword)cAlternatives.eContents().get(32);
+		private final Keyword cPlusSignKeyword_33 = (Keyword)cAlternatives.eContents().get(33);
+		private final Keyword cHyphenMinusKeyword_34 = (Keyword)cAlternatives.eContents().get(34);
+		private final Keyword cAsteriskKeyword_35 = (Keyword)cAlternatives.eContents().get(35);
+		private final Keyword cSolidusKeyword_36 = (Keyword)cAlternatives.eContents().get(36);
+		private final Keyword cPercentSignKeyword_37 = (Keyword)cAlternatives.eContents().get(37);
+		private final Keyword cPlusSignPlusSignKeyword_38 = (Keyword)cAlternatives.eContents().get(38);
+		private final Keyword cHyphenMinusHyphenMinusKeyword_39 = (Keyword)cAlternatives.eContents().get(39);
+		private final Keyword cExclamationMarkKeyword_40 = (Keyword)cAlternatives.eContents().get(40);
+		private final Keyword cTildeKeyword_41 = (Keyword)cAlternatives.eContents().get(41);
+		private final Keyword cTypeofKeyword_42 = (Keyword)cAlternatives.eContents().get(42);
+		private final Keyword cFullStopKeyword_43 = (Keyword)cAlternatives.eContents().get(43);
+		private final Keyword cColonColonKeyword_44 = (Keyword)cAlternatives.eContents().get(44);
+		
+		//TerminalOperator:
+		//	"=" | "*=" | "/=" | "%=" | "+=" | "-=" | "<<=" | ">>=" | ">>>=" | "&=" | "^=" | "|=" | "?:" | "||" | "&&" | "|" | "^"
+		//	| "&" | "==" | "!=" | "===" | "!==" | "<" | ">" | "<=" | ">=" | "as" | "in" | "instanceof" | "is" | "<<" | ">>" |
+		//	">>>" | "+" | "-" | "*" | "/" | "%" | "++" | "--" | "!" | "~" | "typeof" | "." | "::";
+		public ParserRule getRule() { return rule; }
+
+		//"=" | "*=" | "/=" | "%=" | "+=" | "-=" | "<<=" | ">>=" | ">>>=" | "&=" | "^=" | "|=" | "?:" | "||" | "&&" | "|" | "^" |
+		//"&" | "==" | "!=" | "===" | "!==" | "<" | ">" | "<=" | ">=" | "as" | "in" | "instanceof" | "is" | "<<" | ">>" | ">>>" |
+		//"+" | "-" | "*" | "/" | "%" | "++" | "--" | "!" | "~" | "typeof" | "." | "::"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_0() { return cEqualsSignKeyword_0; }
+
+		//"*="
+		public Keyword getAsteriskEqualsSignKeyword_1() { return cAsteriskEqualsSignKeyword_1; }
+
+		//"/="
+		public Keyword getSolidusEqualsSignKeyword_2() { return cSolidusEqualsSignKeyword_2; }
+
+		//"%="
+		public Keyword getPercentSignEqualsSignKeyword_3() { return cPercentSignEqualsSignKeyword_3; }
+
+		//"+="
+		public Keyword getPlusSignEqualsSignKeyword_4() { return cPlusSignEqualsSignKeyword_4; }
+
+		//"-="
+		public Keyword getHyphenMinusEqualsSignKeyword_5() { return cHyphenMinusEqualsSignKeyword_5; }
+
+		//"<<="
+		public Keyword getLessThanSignLessThanSignEqualsSignKeyword_6() { return cLessThanSignLessThanSignEqualsSignKeyword_6; }
+
+		//">>="
+		public Keyword getGreaterThanSignGreaterThanSignEqualsSignKeyword_7() { return cGreaterThanSignGreaterThanSignEqualsSignKeyword_7; }
+
+		//">>>="
+		public Keyword getGreaterThanSignGreaterThanSignGreaterThanSignEqualsSignKeyword_8() { return cGreaterThanSignGreaterThanSignGreaterThanSignEqualsSignKeyword_8; }
+
+		//"&="
+		public Keyword getAmpersandEqualsSignKeyword_9() { return cAmpersandEqualsSignKeyword_9; }
+
+		//"^="
+		public Keyword getCircumflexAccentEqualsSignKeyword_10() { return cCircumflexAccentEqualsSignKeyword_10; }
+
+		//"|="
+		public Keyword getVerticalLineEqualsSignKeyword_11() { return cVerticalLineEqualsSignKeyword_11; }
+
+		//"?:"
+		public Keyword getQuestionMarkColonKeyword_12() { return cQuestionMarkColonKeyword_12; }
+
+		//"||"
+		public Keyword getVerticalLineVerticalLineKeyword_13() { return cVerticalLineVerticalLineKeyword_13; }
+
+		//"&&"
+		public Keyword getAmpersandAmpersandKeyword_14() { return cAmpersandAmpersandKeyword_14; }
+
+		//"|"
+		public Keyword getVerticalLineKeyword_15() { return cVerticalLineKeyword_15; }
+
+		//"^"
+		public Keyword getCircumflexAccentKeyword_16() { return cCircumflexAccentKeyword_16; }
+
+		//"&"
+		public Keyword getAmpersandKeyword_17() { return cAmpersandKeyword_17; }
+
+		//"=="
+		public Keyword getEqualsSignEqualsSignKeyword_18() { return cEqualsSignEqualsSignKeyword_18; }
+
+		//"!="
+		public Keyword getExclamationMarkEqualsSignKeyword_19() { return cExclamationMarkEqualsSignKeyword_19; }
+
+		//"==="
+		public Keyword getEqualsSignEqualsSignEqualsSignKeyword_20() { return cEqualsSignEqualsSignEqualsSignKeyword_20; }
+
+		//"!=="
+		public Keyword getExclamationMarkEqualsSignEqualsSignKeyword_21() { return cExclamationMarkEqualsSignEqualsSignKeyword_21; }
+
+		//"<"
+		public Keyword getLessThanSignKeyword_22() { return cLessThanSignKeyword_22; }
+
+		//">"
+		public Keyword getGreaterThanSignKeyword_23() { return cGreaterThanSignKeyword_23; }
+
+		//"<="
+		public Keyword getLessThanSignEqualsSignKeyword_24() { return cLessThanSignEqualsSignKeyword_24; }
+
+		//">="
+		public Keyword getGreaterThanSignEqualsSignKeyword_25() { return cGreaterThanSignEqualsSignKeyword_25; }
+
+		//"as"
+		public Keyword getAsKeyword_26() { return cAsKeyword_26; }
+
+		//"in"
+		public Keyword getInKeyword_27() { return cInKeyword_27; }
+
+		//"instanceof"
+		public Keyword getInstanceofKeyword_28() { return cInstanceofKeyword_28; }
+
+		//"is"
+		public Keyword getIsKeyword_29() { return cIsKeyword_29; }
+
+		//"<<"
+		public Keyword getLessThanSignLessThanSignKeyword_30() { return cLessThanSignLessThanSignKeyword_30; }
+
+		//">>"
+		public Keyword getGreaterThanSignGreaterThanSignKeyword_31() { return cGreaterThanSignGreaterThanSignKeyword_31; }
+
+		//">>>"
+		public Keyword getGreaterThanSignGreaterThanSignGreaterThanSignKeyword_32() { return cGreaterThanSignGreaterThanSignGreaterThanSignKeyword_32; }
+
+		//"+"
+		public Keyword getPlusSignKeyword_33() { return cPlusSignKeyword_33; }
+
+		//"-"
+		public Keyword getHyphenMinusKeyword_34() { return cHyphenMinusKeyword_34; }
+
+		//"*"
+		public Keyword getAsteriskKeyword_35() { return cAsteriskKeyword_35; }
+
+		//"/"
+		public Keyword getSolidusKeyword_36() { return cSolidusKeyword_36; }
+
+		//"%"
+		public Keyword getPercentSignKeyword_37() { return cPercentSignKeyword_37; }
+
+		//"++"
+		public Keyword getPlusSignPlusSignKeyword_38() { return cPlusSignPlusSignKeyword_38; }
+
+		//"--"
+		public Keyword getHyphenMinusHyphenMinusKeyword_39() { return cHyphenMinusHyphenMinusKeyword_39; }
+
+		//"!"
+		public Keyword getExclamationMarkKeyword_40() { return cExclamationMarkKeyword_40; }
+
+		//"~"
+		public Keyword getTildeKeyword_41() { return cTildeKeyword_41; }
+
+		//"typeof"
+		public Keyword getTypeofKeyword_42() { return cTypeofKeyword_42; }
+
+		//"."
+		public Keyword getFullStopKeyword_43() { return cFullStopKeyword_43; }
+
+		//"::"
+		public Keyword getColonColonKeyword_44() { return cColonColonKeyword_44; }
 	}
 	
 	
@@ -2451,6 +2661,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	private SelectionExpressionElements pSelectionExpression;
 	private TypeElements pType;
 	private TerminalExpressionElements pTerminalExpression;
+	private TerminalOperatorElements pTerminalOperator;
 	
 	private final Grammar grammar;
 
@@ -2664,7 +2875,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//NewStatement:
-	//	{New} "new" type=[Type] ("(" param=Parameters ")")?;
+	//	{New} "new" type=[Type] ("(" param=Parameters? ")")?;
 	public NewStatementElements getNewStatementAccess() {
 		return (pNewStatement != null) ? pNewStatement : (pNewStatement = new NewStatementElements());
 	}
@@ -2952,13 +3163,26 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 
 	//TerminalExpression returns Expression:
 	//	{StringConstant} value=STRING | {IntConstant} value=INT | {BoolConstant} value=("true" | "false") | {This} "this" |
-	//	{Super} "super" | {Null} "null" | {Void} "void" | {SymbolRef} symbol=[Symbol] | "(" Expression ")";
+	//	{Super} "super" | {Null} "null" | {Void} "void" | {SymbolRef} symbol=[Symbol] | {TerminalOp} TerminalOperator | "("
+	//	Expression ")";
 	public TerminalExpressionElements getTerminalExpressionAccess() {
 		return (pTerminalExpression != null) ? pTerminalExpression : (pTerminalExpression = new TerminalExpressionElements());
 	}
 	
 	public ParserRule getTerminalExpressionRule() {
 		return getTerminalExpressionAccess().getRule();
+	}
+
+	//TerminalOperator:
+	//	"=" | "*=" | "/=" | "%=" | "+=" | "-=" | "<<=" | ">>=" | ">>>=" | "&=" | "^=" | "|=" | "?:" | "||" | "&&" | "|" | "^"
+	//	| "&" | "==" | "!=" | "===" | "!==" | "<" | ">" | "<=" | ">=" | "as" | "in" | "instanceof" | "is" | "<<" | ">>" |
+	//	">>>" | "+" | "-" | "*" | "/" | "%" | "++" | "--" | "!" | "~" | "typeof" | "." | "::";
+	public TerminalOperatorElements getTerminalOperatorAccess() {
+		return (pTerminalOperator != null) ? pTerminalOperator : (pTerminalOperator = new TerminalOperatorElements());
+	}
+	
+	public ParserRule getTerminalOperatorRule() {
+		return getTerminalOperatorAccess().getRule();
 	}
 
 	//terminal ID:

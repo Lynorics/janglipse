@@ -21,13 +21,45 @@ import de.lynorics.eclipse.jangaroo.validation.AS3Validator
  */
 class AS3QuickfixProvider extends org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider {
 
-	@Fix(AS3Validator::CLASS_SHOULD_START_WITH_CAPITAL_LETTER)
-	def capitalizeName(Issue issue, IssueResolutionAcceptor acceptor) {
-		acceptor.accept(issue, 'Capitalize name', 'Capitalize the name.', 'upcase.png') [
-			context |
-			val xtextDocument = context.xtextDocument
-			val firstLetter = xtextDocument.get(issue.offset, 1)
-			xtextDocument.replace(issue.offset, 1, firstLetter.toUpperCase)
-		]
-	}
+  @Fix(AS3Validator::CLASS_SHOULD_START_WITH_CAPITAL_LETTER)
+  def capitalizeClass(Issue issue, IssueResolutionAcceptor acceptor) {
+    acceptor.accept(issue, 'Capitalize name', 'Capitalize the name.', 'upcase.png') [
+      context |
+      val xtextDocument = context.xtextDocument
+      val firstLetter = xtextDocument.get(issue.offset, 1)
+      xtextDocument.replace(issue.offset, 1, firstLetter.toUpperCase)
+    ]
+  }
+
+  @Fix(AS3Validator::INTERFACE_SHOULD_START_WITH_CAPITAL_LETTER)
+  def capitalizeInterface(Issue issue, IssueResolutionAcceptor acceptor) {
+    acceptor.accept(issue, 'Capitalize name', 'Capitalize the name.', 'upcase.png') [
+      context |
+      val xtextDocument = context.xtextDocument
+      val firstLetter = xtextDocument.get(issue.offset, 1)
+      xtextDocument.replace(issue.offset, 1, firstLetter.toUpperCase)
+    ]
+  }
+
+  @Fix(AS3Validator::METHOD_SHOULD_START_WITH_LOWERCASE)
+  def lowercaseMethod(Issue issue, IssueResolutionAcceptor acceptor) {
+    acceptor.accept(issue, 'Lowercase name', 'Lowercase the name.', 'upcase.png') [
+      context |
+      val xtextDocument = context.xtextDocument
+      val firstLetter = xtextDocument.get(issue.offset, 1)
+      xtextDocument.replace(issue.offset, 1, firstLetter.toLowerCase)
+    ]
+  }
+
+// TODO handle every part of the package name
+  @Fix(AS3Validator::PACKAGE_SHOULD_START_WITH_LOWERCASE)
+  def lowercasePackage(Issue issue, IssueResolutionAcceptor acceptor) {
+    acceptor.accept(issue, 'Lowercase name', 'Lowercase the name.', 'upcase.png') [
+      context |
+      val xtextDocument = context.xtextDocument
+      val firstLetter = xtextDocument.get(issue.offset, 1)
+      xtextDocument.replace(issue.offset, 1, firstLetter.toLowerCase)
+    ]
+  }
+
 }

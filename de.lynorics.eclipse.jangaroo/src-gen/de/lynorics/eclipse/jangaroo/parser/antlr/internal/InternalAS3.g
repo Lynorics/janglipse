@@ -1512,7 +1512,7 @@ ruleNewStatement returns [EObject current=null]
 	    }
 
 )
-)	otherlv_5=')' 
+)?	otherlv_5=')' 
     {
     	newLeafNode(otherlv_5, grammarAccess.getNewStatementAccess().getRightParenthesisKeyword_3_2());
     }
@@ -3768,28 +3768,384 @@ ruleTerminalExpression returns [EObject current=null]
 
 )
 ))
-    |(	otherlv_16='(' 
+    |((
+	{ 
+	  /* */ 
+	}
     {
-    	newLeafNode(otherlv_16, grammarAccess.getTerminalExpressionAccess().getLeftParenthesisKeyword_8_0());
+        $current = forceCreateModelElement(
+            grammarAccess.getTerminalExpressionAccess().getTerminalOpAction_8_0(),
+            $current);
+    }
+)
+	{ 
+	  /* */ 
+	}
+    { 
+        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getTerminalOperatorParserRuleCall_8_1()); 
+    }
+ruleTerminalOperator
+    { 
+        afterParserOrEnumRuleCall();
+    }
+)
+    |(	otherlv_18='(' 
+    {
+    	newLeafNode(otherlv_18, grammarAccess.getTerminalExpressionAccess().getLeftParenthesisKeyword_9_0());
     }
 
 	{ 
 	  /* */ 
 	}
     { 
-        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getExpressionParserRuleCall_8_1()); 
+        newCompositeNode(grammarAccess.getTerminalExpressionAccess().getExpressionParserRuleCall_9_1()); 
     }
-    this_Expression_17=ruleExpression
+    this_Expression_19=ruleExpression
     { 
-        $current = $this_Expression_17.current; 
+        $current = $this_Expression_19.current; 
         afterParserOrEnumRuleCall();
     }
-	otherlv_18=')' 
+	otherlv_20=')' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getTerminalExpressionAccess().getRightParenthesisKeyword_8_2());
+    	newLeafNode(otherlv_20, grammarAccess.getTerminalExpressionAccess().getRightParenthesisKeyword_9_2());
     }
 ))
 ;
+
+
+
+
+
+// Entry rule entryRuleTerminalOperator
+entryRuleTerminalOperator returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getTerminalOperatorRule()); } 
+	 iv_ruleTerminalOperator=ruleTerminalOperator 
+	 { $current=$iv_ruleTerminalOperator.current.getText(); }  
+	 EOF 
+;
+
+// Rule TerminalOperator
+ruleTerminalOperator returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+	kw='=' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getEqualsSignKeyword_0()); 
+    }
+
+    |
+	kw='*=' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getAsteriskEqualsSignKeyword_1()); 
+    }
+
+    |
+	kw='/=' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getSolidusEqualsSignKeyword_2()); 
+    }
+
+    |
+	kw='%=' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getPercentSignEqualsSignKeyword_3()); 
+    }
+
+    |
+	kw='+=' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getPlusSignEqualsSignKeyword_4()); 
+    }
+
+    |
+	kw='-=' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getHyphenMinusEqualsSignKeyword_5()); 
+    }
+
+    |
+	kw='<<=' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getLessThanSignLessThanSignEqualsSignKeyword_6()); 
+    }
+
+    |
+	kw='>>=' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getGreaterThanSignGreaterThanSignEqualsSignKeyword_7()); 
+    }
+
+    |
+	kw='>>>=' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getGreaterThanSignGreaterThanSignGreaterThanSignEqualsSignKeyword_8()); 
+    }
+
+    |
+	kw='&=' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getAmpersandEqualsSignKeyword_9()); 
+    }
+
+    |
+	kw='^=' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getCircumflexAccentEqualsSignKeyword_10()); 
+    }
+
+    |
+	kw='|=' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getVerticalLineEqualsSignKeyword_11()); 
+    }
+
+    |
+	kw='?:' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getQuestionMarkColonKeyword_12()); 
+    }
+
+    |
+	kw='||' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getVerticalLineVerticalLineKeyword_13()); 
+    }
+
+    |
+	kw='&&' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getAmpersandAmpersandKeyword_14()); 
+    }
+
+    |
+	kw='|' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getVerticalLineKeyword_15()); 
+    }
+
+    |
+	kw='^' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getCircumflexAccentKeyword_16()); 
+    }
+
+    |
+	kw='&' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getAmpersandKeyword_17()); 
+    }
+
+    |
+	kw='==' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getEqualsSignEqualsSignKeyword_18()); 
+    }
+
+    |
+	kw='!=' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getExclamationMarkEqualsSignKeyword_19()); 
+    }
+
+    |
+	kw='===' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getEqualsSignEqualsSignEqualsSignKeyword_20()); 
+    }
+
+    |
+	kw='!==' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getExclamationMarkEqualsSignEqualsSignKeyword_21()); 
+    }
+
+    |
+	kw='<' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getLessThanSignKeyword_22()); 
+    }
+
+    |
+	kw='>' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getGreaterThanSignKeyword_23()); 
+    }
+
+    |
+	kw='<=' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getLessThanSignEqualsSignKeyword_24()); 
+    }
+
+    |
+	kw='>=' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getGreaterThanSignEqualsSignKeyword_25()); 
+    }
+
+    |
+	kw='as' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getAsKeyword_26()); 
+    }
+
+    |
+	kw='in' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getInKeyword_27()); 
+    }
+
+    |
+	kw='instanceof' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getInstanceofKeyword_28()); 
+    }
+
+    |
+	kw='is' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getIsKeyword_29()); 
+    }
+
+    |
+	kw='<<' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getLessThanSignLessThanSignKeyword_30()); 
+    }
+
+    |
+	kw='>>' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getGreaterThanSignGreaterThanSignKeyword_31()); 
+    }
+
+    |
+	kw='>>>' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getGreaterThanSignGreaterThanSignGreaterThanSignKeyword_32()); 
+    }
+
+    |
+	kw='+' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getPlusSignKeyword_33()); 
+    }
+
+    |
+	kw='-' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getHyphenMinusKeyword_34()); 
+    }
+
+    |
+	kw='*' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getAsteriskKeyword_35()); 
+    }
+
+    |
+	kw='/' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getSolidusKeyword_36()); 
+    }
+
+    |
+	kw='%' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getPercentSignKeyword_37()); 
+    }
+
+    |
+	kw='++' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getPlusSignPlusSignKeyword_38()); 
+    }
+
+    |
+	kw='--' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getHyphenMinusHyphenMinusKeyword_39()); 
+    }
+
+    |
+	kw='!' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getExclamationMarkKeyword_40()); 
+    }
+
+    |
+	kw='~' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getTildeKeyword_41()); 
+    }
+
+    |
+	kw='typeof' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getTypeofKeyword_42()); 
+    }
+
+    |
+	kw='.' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getFullStopKeyword_43()); 
+    }
+
+    |
+	kw='::' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getColonColonKeyword_44()); 
+    }
+)
+    ;
 
 
 

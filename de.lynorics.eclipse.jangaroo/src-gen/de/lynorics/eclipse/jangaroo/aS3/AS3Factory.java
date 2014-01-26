@@ -500,6 +500,15 @@ public interface AS3Factory extends EFactory
   SymbolRef createSymbolRef();
 
   /**
+   * Returns a new object of class '<em>Terminal Op</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Terminal Op</em>'.
+   * @generated
+   */
+  TerminalOp createTerminalOp();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

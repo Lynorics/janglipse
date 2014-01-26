@@ -23,7 +23,7 @@ import org.eclipse.xtext.validation.Issue;
 @SuppressWarnings("all")
 public class AS3QuickfixProvider extends DefaultQuickfixProvider {
   @Fix(AS3Validator.CLASS_SHOULD_START_WITH_CAPITAL_LETTER)
-  public void capitalizeName(final Issue issue, final IssueResolutionAcceptor acceptor) {
+  public void capitalizeClass(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = new IModification() {
       public void apply(final IModificationContext context) throws Exception {
         final IXtextDocument xtextDocument = context.getXtextDocument();
@@ -35,5 +35,50 @@ public class AS3QuickfixProvider extends DefaultQuickfixProvider {
       }
     };
     acceptor.accept(issue, "Capitalize name", "Capitalize the name.", "upcase.png", _function);
+  }
+  
+  @Fix(AS3Validator.INTERFACE_SHOULD_START_WITH_CAPITAL_LETTER)
+  public void capitalizeInterface(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IModification _function = new IModification() {
+      public void apply(final IModificationContext context) throws Exception {
+        final IXtextDocument xtextDocument = context.getXtextDocument();
+        Integer _offset = issue.getOffset();
+        final String firstLetter = xtextDocument.get((_offset).intValue(), 1);
+        Integer _offset_1 = issue.getOffset();
+        String _upperCase = firstLetter.toUpperCase();
+        xtextDocument.replace((_offset_1).intValue(), 1, _upperCase);
+      }
+    };
+    acceptor.accept(issue, "Capitalize name", "Capitalize the name.", "upcase.png", _function);
+  }
+  
+  @Fix(AS3Validator.METHOD_SHOULD_START_WITH_LOWERCASE)
+  public void lowercaseMethod(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IModification _function = new IModification() {
+      public void apply(final IModificationContext context) throws Exception {
+        final IXtextDocument xtextDocument = context.getXtextDocument();
+        Integer _offset = issue.getOffset();
+        final String firstLetter = xtextDocument.get((_offset).intValue(), 1);
+        Integer _offset_1 = issue.getOffset();
+        String _lowerCase = firstLetter.toLowerCase();
+        xtextDocument.replace((_offset_1).intValue(), 1, _lowerCase);
+      }
+    };
+    acceptor.accept(issue, "Lowercase name", "Lowercase the name.", "upcase.png", _function);
+  }
+  
+  @Fix(AS3Validator.PACKAGE_SHOULD_START_WITH_LOWERCASE)
+  public void lowercasePackage(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IModification _function = new IModification() {
+      public void apply(final IModificationContext context) throws Exception {
+        final IXtextDocument xtextDocument = context.getXtextDocument();
+        Integer _offset = issue.getOffset();
+        final String firstLetter = xtextDocument.get((_offset).intValue(), 1);
+        Integer _offset_1 = issue.getOffset();
+        String _lowerCase = firstLetter.toLowerCase();
+        xtextDocument.replace((_offset_1).intValue(), 1, _lowerCase);
+      }
+    };
+    acceptor.accept(issue, "Lowercase name", "Lowercase the name.", "upcase.png", _function);
   }
 }

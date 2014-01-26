@@ -34,6 +34,7 @@ import de.lynorics.eclipse.jangaroo.aS3.Switch;
 import de.lynorics.eclipse.jangaroo.aS3.SwitchStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Symbol;
 import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
+import de.lynorics.eclipse.jangaroo.aS3.TerminalOp;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Type;
@@ -388,6 +389,11 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
       public Adapter caseSymbolRef(SymbolRef object)
       {
         return createSymbolRefAdapter();
+      }
+      @Override
+      public Adapter caseTerminalOp(TerminalOp object)
+      {
+        return createTerminalOpAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -1202,6 +1208,21 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSymbolRefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.TerminalOp <em>Terminal Op</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.TerminalOp
+   * @generated
+   */
+  public Adapter createTerminalOpAdapter()
   {
     return null;
   }

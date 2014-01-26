@@ -33,6 +33,7 @@ import de.lynorics.eclipse.jangaroo.aS3.Super;
 import de.lynorics.eclipse.jangaroo.aS3.SwitchStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Symbol;
 import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
+import de.lynorics.eclipse.jangaroo.aS3.TerminalOp;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Type;
@@ -590,6 +591,18 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = caseexprOrObjectLiteral(symbolRef);
         if (result == null) result = casestatementInSwitch(symbolRef);
         if (result == null) result = caseobjectField(symbolRef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.TERMINAL_OP:
+      {
+        TerminalOp terminalOp = (TerminalOp)theEObject;
+        T result = caseTerminalOp(terminalOp);
+        if (result == null) result = caseExpression(terminalOp);
+        if (result == null) result = caseStatement(terminalOp);
+        if (result == null) result = caseexprOrObjectLiteral(terminalOp);
+        if (result == null) result = casestatementInSwitch(terminalOp);
+        if (result == null) result = caseobjectField(terminalOp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1441,6 +1454,22 @@ public class AS3Switch<T> extends Switch<T>
    * @generated
    */
   public T caseSymbolRef(SymbolRef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Terminal Op</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Terminal Op</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTerminalOp(TerminalOp object)
   {
     return null;
   }

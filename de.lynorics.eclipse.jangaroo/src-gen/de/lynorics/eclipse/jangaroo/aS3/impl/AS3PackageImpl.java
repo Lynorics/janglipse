@@ -36,6 +36,7 @@ import de.lynorics.eclipse.jangaroo.aS3.Switch;
 import de.lynorics.eclipse.jangaroo.aS3.SwitchStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Symbol;
 import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
+import de.lynorics.eclipse.jangaroo.aS3.TerminalOp;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Type;
@@ -442,6 +443,13 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * @generated
    */
   private EClass symbolRefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass terminalOpEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1868,6 +1876,16 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getTerminalOp()
+  {
+    return terminalOpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getAccessLevel()
   {
     return accessLevelEEnum;
@@ -2091,6 +2109,8 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     symbolRefEClass = createEClass(SYMBOL_REF);
     createEReference(symbolRefEClass, SYMBOL_REF__SYMBOL);
 
+    terminalOpEClass = createEClass(TERMINAL_OP);
+
     // Create enums
     accessLevelEEnum = createEEnum(ACCESS_LEVEL);
   }
@@ -2161,6 +2181,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     nullEClass.getESuperTypes().add(this.getExpression());
     voidEClass.getESuperTypes().add(this.getExpression());
     symbolRefEClass.getESuperTypes().add(this.getExpression());
+    terminalOpEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2350,6 +2371,8 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
 
     initEClass(symbolRefEClass, SymbolRef.class, "SymbolRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSymbolRef_Symbol(), this.getSymbol(), null, "symbol", null, 0, 1, SymbolRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(terminalOpEClass, TerminalOp.class, "TerminalOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Initialize enums and add enum literals
     initEEnum(accessLevelEEnum, AccessLevel.class, "AccessLevel");

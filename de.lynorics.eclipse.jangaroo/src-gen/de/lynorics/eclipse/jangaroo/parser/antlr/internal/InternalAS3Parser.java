@@ -23,14 +23,12 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalAS3Parser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'package'", "'{'", "'}'", "'import'", "';'", "'['", "'('", "')'", "']'", "'use'", "'*'", "'void'", "','", "'='", "'.*'", "'.'", "'interface'", "'extends'", "'static'", "'class'", "'implements'", "'override'", "'native'", "'function'", "'get'", "'set'", "':'", "'new'", "'for'", "'var'", "'each'", "'in'", "'do'", "'while'", "'switch'", "'case'", "'default'", "'return'", "'if'", "'else'", "'try'", "'catch'", "'finally'", "'const'", "'true'", "'false'", "'this'", "'super'", "'null'", "'private'", "'public'", "'protected'", "'internal'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'package'", "'{'", "'}'", "'import'", "';'", "'['", "'('", "')'", "']'", "'use'", "'*'", "'void'", "','", "'='", "'.*'", "'.'", "'interface'", "'extends'", "'static'", "'class'", "'implements'", "'override'", "'native'", "'function'", "'get'", "'set'", "':'", "'new'", "'for'", "'var'", "'each'", "'in'", "'do'", "'while'", "'switch'", "'case'", "'default'", "'return'", "'if'", "'else'", "'try'", "'catch'", "'finally'", "'const'", "'true'", "'false'", "'this'", "'super'", "'null'", "'*='", "'/='", "'%='", "'+='", "'-='", "'<<='", "'>>='", "'>>>='", "'&='", "'^='", "'|='", "'?:'", "'||'", "'&&'", "'|'", "'^'", "'&'", "'=='", "'!='", "'==='", "'!=='", "'<'", "'>'", "'<='", "'>='", "'as'", "'instanceof'", "'is'", "'<<'", "'>>'", "'>>>'", "'+'", "'-'", "'/'", "'%'", "'++'", "'--'", "'!'", "'~'", "'typeof'", "'::'", "'private'", "'public'", "'protected'", "'internal'"
     };
     public static final int RULE_ID=4;
     public static final int T__29=29;
     public static final int T__28=28;
-    public static final int T__62=62;
     public static final int T__27=27;
-    public static final int T__63=63;
     public static final int T__26=26;
     public static final int T__25=25;
     public static final int T__24=24;
@@ -39,27 +37,69 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
     public static final int RULE_ANY_OTHER=10;
     public static final int T__21=21;
     public static final int T__20=20;
-    public static final int T__61=61;
-    public static final int T__60=60;
     public static final int EOF=-1;
-    public static final int T__55=55;
-    public static final int T__56=56;
+    public static final int T__93=93;
     public static final int T__19=19;
-    public static final int T__57=57;
-    public static final int T__58=58;
-    public static final int T__51=51;
+    public static final int T__94=94;
+    public static final int T__91=91;
+    public static final int T__92=92;
     public static final int T__16=16;
-    public static final int T__52=52;
     public static final int T__15=15;
-    public static final int T__53=53;
+    public static final int T__90=90;
     public static final int T__18=18;
-    public static final int T__54=54;
     public static final int T__17=17;
     public static final int T__12=12;
     public static final int T__11=11;
     public static final int T__14=14;
     public static final int T__13=13;
+    public static final int T__99=99;
+    public static final int T__98=98;
+    public static final int T__97=97;
+    public static final int T__96=96;
+    public static final int T__95=95;
+    public static final int T__80=80;
+    public static final int T__81=81;
+    public static final int T__82=82;
+    public static final int T__83=83;
+    public static final int T__85=85;
+    public static final int T__84=84;
+    public static final int T__87=87;
+    public static final int T__86=86;
+    public static final int T__89=89;
+    public static final int T__88=88;
+    public static final int RULE_ML_COMMENT=7;
+    public static final int RULE_STRING=5;
+    public static final int T__71=71;
+    public static final int T__72=72;
+    public static final int T__70=70;
+    public static final int T__76=76;
+    public static final int T__75=75;
+    public static final int T__74=74;
+    public static final int T__73=73;
+    public static final int T__79=79;
+    public static final int T__78=78;
+    public static final int T__77=77;
+    public static final int T__68=68;
+    public static final int T__69=69;
+    public static final int T__66=66;
+    public static final int T__67=67;
+    public static final int T__64=64;
+    public static final int T__65=65;
+    public static final int T__62=62;
+    public static final int T__63=63;
+    public static final int T__61=61;
+    public static final int T__60=60;
+    public static final int T__55=55;
+    public static final int T__56=56;
+    public static final int T__57=57;
+    public static final int T__58=58;
+    public static final int T__51=51;
+    public static final int T__52=52;
+    public static final int T__53=53;
+    public static final int T__54=54;
+    public static final int T__103=103;
     public static final int T__59=59;
+    public static final int T__104=104;
     public static final int RULE_INT=6;
     public static final int T__50=50;
     public static final int T__42=42;
@@ -72,11 +112,12 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
     public static final int T__45=45;
     public static final int T__48=48;
     public static final int T__49=49;
+    public static final int T__102=102;
+    public static final int T__101=101;
+    public static final int T__100=100;
     public static final int RULE_SL_COMMENT=8;
-    public static final int RULE_ML_COMMENT=7;
     public static final int T__30=30;
     public static final int T__31=31;
-    public static final int RULE_STRING=5;
     public static final int T__32=32;
     public static final int T__33=33;
     public static final int T__34=34;
@@ -202,7 +243,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( (LA2_0==11) ) {
                 alt2=1;
             }
-            else if ( (LA2_0==EOF||(LA2_0>=13 && LA2_0<=16)||LA2_0==20||LA2_0==27||(LA2_0>=29 && LA2_0<=30)||(LA2_0>=60 && LA2_0<=63)) ) {
+            else if ( (LA2_0==EOF||(LA2_0>=13 && LA2_0<=16)||LA2_0==20||LA2_0==27||(LA2_0>=29 && LA2_0<=30)||(LA2_0>=101 && LA2_0<=104)) ) {
                 alt2=2;
             }
             else {
@@ -287,7 +328,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                         int alt1=2;
                         int LA1_0 = input.LA(1);
 
-                        if ( ((LA1_0>=29 && LA1_0<=30)||(LA1_0>=60 && LA1_0<=63)) ) {
+                        if ( ((LA1_0>=29 && LA1_0<=30)||(LA1_0>=101 && LA1_0<=104)) ) {
                             alt1=1;
                         }
 
@@ -574,7 +615,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( (LA5_0==27||(LA5_0>=29 && LA5_0<=30)||(LA5_0>=60 && LA5_0<=63)) ) {
+                if ( (LA5_0==27||(LA5_0>=29 && LA5_0<=30)||(LA5_0>=101 && LA5_0<=104)) ) {
                     alt5=1;
                 }
 
@@ -589,7 +630,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:231:1: (lv_classes_5_1= ruleClass | lv_classes_5_2= ruleInterface )
             	    int alt4=2;
             	    switch ( input.LA(1) ) {
-            	    case 60:
+            	    case 101:
             	        {
             	        int LA4_1 = input.LA(2);
 
@@ -608,7 +649,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	        }
             	        }
             	        break;
-            	    case 61:
+            	    case 102:
             	        {
             	        int LA4_2 = input.LA(2);
 
@@ -627,7 +668,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	        }
             	        }
             	        break;
-            	    case 62:
+            	    case 103:
             	        {
             	        int LA4_3 = input.LA(2);
 
@@ -646,7 +687,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	        }
             	        }
             	        break;
-            	    case 63:
+            	    case 104:
             	        {
             	        int LA4_4 = input.LA(2);
 
@@ -2224,7 +2265,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             int alt13=2;
             int LA13_0 = input.LA(1);
 
-            if ( ((LA13_0>=60 && LA13_0<=63)) ) {
+            if ( ((LA13_0>=101 && LA13_0<=104)) ) {
                 alt13=1;
             }
             switch (alt13) {
@@ -2367,7 +2408,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                 int alt15=2;
                 int LA15_0 = input.LA(1);
 
-                if ( (LA15_0==29||(LA15_0>=32 && LA15_0<=34)||LA15_0==40||(LA15_0>=60 && LA15_0<=63)) ) {
+                if ( (LA15_0==29||(LA15_0>=32 && LA15_0<=34)||LA15_0==40||(LA15_0>=101 && LA15_0<=104)) ) {
                     alt15=1;
                 }
 
@@ -2516,7 +2557,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             int alt16=2;
             int LA16_0 = input.LA(1);
 
-            if ( ((LA16_0>=60 && LA16_0<=63)) ) {
+            if ( ((LA16_0>=101 && LA16_0<=104)) ) {
                 alt16=1;
             }
             switch (alt16) {
@@ -2795,7 +2836,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                 int alt21=2;
                 int LA21_0 = input.LA(1);
 
-                if ( (LA21_0==29||(LA21_0>=32 && LA21_0<=34)||LA21_0==40||(LA21_0>=60 && LA21_0<=63)) ) {
+                if ( (LA21_0==29||(LA21_0>=32 && LA21_0<=34)||LA21_0==40||(LA21_0>=101 && LA21_0<=104)) ) {
                     alt21=1;
                 }
 
@@ -2929,9 +2970,15 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1015:1: ( ( (lv_var_0_0= ruleVariableDeclaration ) ) | ( (lv_meth_1_0= ruleMethod ) ) )
             int alt22=2;
             switch ( input.LA(1) ) {
-            case 60:
+            case 101:
                 {
                 switch ( input.LA(2) ) {
+                case 33:
+                case 34:
+                    {
+                    alt22=2;
+                    }
+                    break;
                 case 29:
                     {
                     int LA22_5 = input.LA(3);
@@ -2954,12 +3001,6 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                 case 40:
                     {
                     alt22=1;
-                    }
-                    break;
-                case 33:
-                case 34:
-                    {
-                    alt22=2;
                     }
                     break;
                 default:
@@ -2972,15 +3013,9 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
                 }
                 break;
-            case 61:
+            case 102:
                 {
                 switch ( input.LA(2) ) {
-                case 33:
-                case 34:
-                    {
-                    alt22=2;
-                    }
-                    break;
                 case 29:
                     {
                     int LA22_5 = input.LA(3);
@@ -3003,6 +3038,12 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                 case 40:
                     {
                     alt22=1;
+                    }
+                    break;
+                case 33:
+                case 34:
+                    {
+                    alt22=2;
                     }
                     break;
                 default:
@@ -3015,9 +3056,15 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
                 }
                 break;
-            case 62:
+            case 103:
                 {
                 switch ( input.LA(2) ) {
+                case 33:
+                case 34:
+                    {
+                    alt22=2;
+                    }
+                    break;
                 case 29:
                     {
                     int LA22_5 = input.LA(3);
@@ -3042,12 +3089,6 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     alt22=1;
                     }
                     break;
-                case 33:
-                case 34:
-                    {
-                    alt22=2;
-                    }
-                    break;
                 default:
                     if (state.backtracking>0) {state.failed=true; return current;}
                     NoViableAltException nvae =
@@ -3058,7 +3099,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
                 }
                 break;
-            case 63:
+            case 104:
                 {
                 switch ( input.LA(2) ) {
                 case 33:
@@ -3347,7 +3388,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             int alt24=2;
             int LA24_0 = input.LA(1);
 
-            if ( ((LA24_0>=60 && LA24_0<=63)) ) {
+            if ( ((LA24_0>=101 && LA24_0<=104)) ) {
                 alt24=1;
             }
             switch (alt24) {
@@ -3837,7 +3878,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                 int alt31=2;
                 int LA31_0 = input.LA(1);
 
-                if ( ((LA31_0>=RULE_ID && LA31_0<=RULE_INT)||LA31_0==12||LA31_0==17||LA31_0==22||LA31_0==29||(LA31_0>=38 && LA31_0<=40)||(LA31_0>=43 && LA31_0<=45)||(LA31_0>=48 && LA31_0<=49)||LA31_0==51||(LA31_0>=55 && LA31_0<=63)) ) {
+                if ( ((LA31_0>=RULE_ID && LA31_0<=RULE_INT)||LA31_0==12||LA31_0==17||(LA31_0>=21 && LA31_0<=22)||LA31_0==24||LA31_0==26||LA31_0==29||(LA31_0>=38 && LA31_0<=40)||(LA31_0>=42 && LA31_0<=45)||(LA31_0>=48 && LA31_0<=49)||LA31_0==51||(LA31_0>=55 && LA31_0<=104)) ) {
                     alt31=1;
                 }
 
@@ -3992,10 +4033,10 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             switch ( input.LA(1) ) {
             case 29:
             case 40:
-            case 60:
-            case 61:
-            case 62:
-            case 63:
+            case 101:
+            case 102:
+            case 103:
+            case 104:
                 {
                 alt32=1;
                 }
@@ -4009,12 +4050,57 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             case RULE_STRING:
             case RULE_INT:
             case 17:
+            case 21:
             case 22:
+            case 24:
+            case 26:
+            case 42:
             case 55:
             case 56:
             case 57:
             case 58:
             case 59:
+            case 60:
+            case 61:
+            case 62:
+            case 63:
+            case 64:
+            case 65:
+            case 66:
+            case 67:
+            case 68:
+            case 69:
+            case 70:
+            case 71:
+            case 72:
+            case 73:
+            case 74:
+            case 75:
+            case 76:
+            case 77:
+            case 78:
+            case 79:
+            case 80:
+            case 81:
+            case 82:
+            case 83:
+            case 84:
+            case 85:
+            case 86:
+            case 87:
+            case 88:
+            case 89:
+            case 90:
+            case 91:
+            case 92:
+            case 93:
+            case 94:
+            case 95:
+            case 96:
+            case 97:
+            case 98:
+            case 99:
+            case 100:
                 {
                 alt32=3;
                 }
@@ -4440,7 +4526,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNewStatement"
-    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1460:1: ruleNewStatement returns [EObject current=null] : ( () otherlv_1= 'new' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '(' ( (lv_param_4_0= ruleParameters ) ) otherlv_5= ')' )? ) ;
+    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1460:1: ruleNewStatement returns [EObject current=null] : ( () otherlv_1= 'new' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '(' ( (lv_param_4_0= ruleParameters ) )? otherlv_5= ')' )? ) ;
     public final EObject ruleNewStatement() throws RecognitionException {
         EObject current = null;
 
@@ -4454,11 +4540,11 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1463:28: ( ( () otherlv_1= 'new' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '(' ( (lv_param_4_0= ruleParameters ) ) otherlv_5= ')' )? ) )
-            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1464:1: ( () otherlv_1= 'new' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '(' ( (lv_param_4_0= ruleParameters ) ) otherlv_5= ')' )? )
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1463:28: ( ( () otherlv_1= 'new' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '(' ( (lv_param_4_0= ruleParameters ) )? otherlv_5= ')' )? ) )
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1464:1: ( () otherlv_1= 'new' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '(' ( (lv_param_4_0= ruleParameters ) )? otherlv_5= ')' )? )
             {
-            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1464:1: ( () otherlv_1= 'new' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '(' ( (lv_param_4_0= ruleParameters ) ) otherlv_5= ')' )? )
-            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1464:2: () otherlv_1= 'new' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '(' ( (lv_param_4_0= ruleParameters ) ) otherlv_5= ')' )?
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1464:1: ( () otherlv_1= 'new' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '(' ( (lv_param_4_0= ruleParameters ) )? otherlv_5= ')' )? )
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1464:2: () otherlv_1= 'new' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '(' ( (lv_param_4_0= ruleParameters ) )? otherlv_5= ')' )?
             {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1464:2: ()
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1465:2: 
@@ -4514,12 +4600,12 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1493:2: (otherlv_3= '(' ( (lv_param_4_0= ruleParameters ) ) otherlv_5= ')' )?
-            int alt33=2;
-            alt33 = dfa33.predict(input);
-            switch (alt33) {
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1493:2: (otherlv_3= '(' ( (lv_param_4_0= ruleParameters ) )? otherlv_5= ')' )?
+            int alt34=2;
+            alt34 = dfa34.predict(input);
+            switch (alt34) {
                 case 1 :
-                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1493:4: otherlv_3= '(' ( (lv_param_4_0= ruleParameters ) ) otherlv_5= ')'
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1493:4: otherlv_3= '(' ( (lv_param_4_0= ruleParameters ) )? otherlv_5= ')'
                     {
                     otherlv_3=(Token)match(input,17,FOLLOW_17_in_ruleNewStatement3196); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -4527,42 +4613,60 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                           	newLeafNode(otherlv_3, grammarAccess.getNewStatementAccess().getLeftParenthesisKeyword_3_0());
                           
                     }
-                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1497:1: ( (lv_param_4_0= ruleParameters ) )
-                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1498:1: (lv_param_4_0= ruleParameters )
-                    {
-                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1498:1: (lv_param_4_0= ruleParameters )
-                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1499:3: lv_param_4_0= ruleParameters
-                    {
-                    if ( state.backtracking==0 ) {
-                       
-                      	        newCompositeNode(grammarAccess.getNewStatementAccess().getParamParametersParserRuleCall_3_1_0()); 
-                      	    
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1497:1: ( (lv_param_4_0= ruleParameters ) )?
+                    int alt33=2;
+                    int LA33_0 = input.LA(1);
+
+                    if ( (LA33_0==RULE_ID||LA33_0==54) ) {
+                        alt33=1;
                     }
-                    pushFollow(FOLLOW_ruleParameters_in_ruleNewStatement3217);
-                    lv_param_4_0=ruleParameters();
+                    else if ( (LA33_0==18) ) {
+                        int LA33_2 = input.LA(2);
 
-                    state._fsp--;
-                    if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
+                        if ( (synpred45_InternalAS3()) ) {
+                            alt33=1;
+                        }
+                    }
+                    switch (alt33) {
+                        case 1 :
+                            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1498:1: (lv_param_4_0= ruleParameters )
+                            {
+                            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1498:1: (lv_param_4_0= ruleParameters )
+                            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1499:3: lv_param_4_0= ruleParameters
+                            {
+                            if ( state.backtracking==0 ) {
+                               
+                              	        newCompositeNode(grammarAccess.getNewStatementAccess().getParamParametersParserRuleCall_3_1_0()); 
+                              	    
+                            }
+                            pushFollow(FOLLOW_ruleParameters_in_ruleNewStatement3217);
+                            lv_param_4_0=ruleParameters();
 
-                      	        if (current==null) {
-                      	            current = createModelElementForParent(grammarAccess.getNewStatementRule());
-                      	        }
-                             		set(
-                             			current, 
-                             			"param",
-                              		lv_param_4_0, 
-                              		"Parameters");
-                      	        afterParserOrEnumRuleCall();
-                      	    
+                            state._fsp--;
+                            if (state.failed) return current;
+                            if ( state.backtracking==0 ) {
+
+                              	        if (current==null) {
+                              	            current = createModelElementForParent(grammarAccess.getNewStatementRule());
+                              	        }
+                                     		set(
+                                     			current, 
+                                     			"param",
+                                      		lv_param_4_0, 
+                                      		"Parameters");
+                              	        afterParserOrEnumRuleCall();
+                              	    
+                            }
+
+                            }
+
+
+                            }
+                            break;
+
                     }
 
-                    }
-
-
-                    }
-
-                    otherlv_5=(Token)match(input,18,FOLLOW_18_in_ruleNewStatement3229); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,18,FOLLOW_18_in_ruleNewStatement3230); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_5, grammarAccess.getNewStatementAccess().getRightParenthesisKeyword_3_2());
@@ -4611,7 +4715,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getForStatementRule()); 
             }
-            pushFollow(FOLLOW_ruleForStatement_in_entryRuleForStatement3267);
+            pushFollow(FOLLOW_ruleForStatement_in_entryRuleForStatement3268);
             iv_ruleForStatement=ruleForStatement();
 
             state._fsp--;
@@ -4619,7 +4723,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleForStatement; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleForStatement3277); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleForStatement3278); if (state.failed) return current;
 
             }
 
@@ -4702,35 +4806,35 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1540:1: ( (otherlv_0= 'for' otherlv_1= '(' ( (lv_forinit_2_0= rulecommaExpr ) )? otherlv_3= ';' ( (lv_condition_4_0= rulecommaExpr ) )? otherlv_5= ';' ( (lv_iterator_6_0= rulecommaExpr ) )? otherlv_7= ')' ( (lv_command_8_0= ruleStatementsBlock ) ) ) | (otherlv_9= 'for' otherlv_10= '(' otherlv_11= 'var' ( (lv_elements_12_0= ruleidentifierDeclaration ) ) (otherlv_13= ',' ( (lv_elements_14_0= ruleidentifierDeclaration ) ) )* otherlv_15= ';' ( (lv_condition_16_0= rulecommaExpr ) )? otherlv_17= ';' ( (lv_iterator_18_0= rulecommaExpr ) )? otherlv_19= ')' ( (lv_command_20_0= ruleStatementsBlock ) ) ) | (otherlv_21= 'for' (otherlv_22= 'each' )? otherlv_23= '(' ( (lv_nameForin_24_0= RULE_ID ) ) otherlv_25= 'in' ( (lv_forinexpr_26_0= ruleExpression ) ) otherlv_27= ')' ( (lv_forcommand_28_0= ruleStatementsBlock ) ) ) | (otherlv_29= 'for' (otherlv_30= 'each' )? otherlv_31= '(' otherlv_32= 'var' ( (lv_nameForeachh_33_0= RULE_ID ) ) ( (lv_relation_34_0= ruletypeRelation ) )? otherlv_35= 'in' ( (lv_foreachexpr_36_0= ruleExpression ) ) otherlv_37= ')' ( (lv_foreachcommand_38_0= ruleStatementsBlock ) ) ) )
             {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1540:1: ( (otherlv_0= 'for' otherlv_1= '(' ( (lv_forinit_2_0= rulecommaExpr ) )? otherlv_3= ';' ( (lv_condition_4_0= rulecommaExpr ) )? otherlv_5= ';' ( (lv_iterator_6_0= rulecommaExpr ) )? otherlv_7= ')' ( (lv_command_8_0= ruleStatementsBlock ) ) ) | (otherlv_9= 'for' otherlv_10= '(' otherlv_11= 'var' ( (lv_elements_12_0= ruleidentifierDeclaration ) ) (otherlv_13= ',' ( (lv_elements_14_0= ruleidentifierDeclaration ) ) )* otherlv_15= ';' ( (lv_condition_16_0= rulecommaExpr ) )? otherlv_17= ';' ( (lv_iterator_18_0= rulecommaExpr ) )? otherlv_19= ')' ( (lv_command_20_0= ruleStatementsBlock ) ) ) | (otherlv_21= 'for' (otherlv_22= 'each' )? otherlv_23= '(' ( (lv_nameForin_24_0= RULE_ID ) ) otherlv_25= 'in' ( (lv_forinexpr_26_0= ruleExpression ) ) otherlv_27= ')' ( (lv_forcommand_28_0= ruleStatementsBlock ) ) ) | (otherlv_29= 'for' (otherlv_30= 'each' )? otherlv_31= '(' otherlv_32= 'var' ( (lv_nameForeachh_33_0= RULE_ID ) ) ( (lv_relation_34_0= ruletypeRelation ) )? otherlv_35= 'in' ( (lv_foreachexpr_36_0= ruleExpression ) ) otherlv_37= ')' ( (lv_foreachcommand_38_0= ruleStatementsBlock ) ) ) )
-            int alt43=4;
-            alt43 = dfa43.predict(input);
-            switch (alt43) {
+            int alt44=4;
+            alt44 = dfa44.predict(input);
+            switch (alt44) {
                 case 1 :
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1540:2: (otherlv_0= 'for' otherlv_1= '(' ( (lv_forinit_2_0= rulecommaExpr ) )? otherlv_3= ';' ( (lv_condition_4_0= rulecommaExpr ) )? otherlv_5= ';' ( (lv_iterator_6_0= rulecommaExpr ) )? otherlv_7= ')' ( (lv_command_8_0= ruleStatementsBlock ) ) )
                     {
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1540:2: (otherlv_0= 'for' otherlv_1= '(' ( (lv_forinit_2_0= rulecommaExpr ) )? otherlv_3= ';' ( (lv_condition_4_0= rulecommaExpr ) )? otherlv_5= ';' ( (lv_iterator_6_0= rulecommaExpr ) )? otherlv_7= ')' ( (lv_command_8_0= ruleStatementsBlock ) ) )
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1540:4: otherlv_0= 'for' otherlv_1= '(' ( (lv_forinit_2_0= rulecommaExpr ) )? otherlv_3= ';' ( (lv_condition_4_0= rulecommaExpr ) )? otherlv_5= ';' ( (lv_iterator_6_0= rulecommaExpr ) )? otherlv_7= ')' ( (lv_command_8_0= ruleStatementsBlock ) )
                     {
-                    otherlv_0=(Token)match(input,39,FOLLOW_39_in_ruleForStatement3315); if (state.failed) return current;
+                    otherlv_0=(Token)match(input,39,FOLLOW_39_in_ruleForStatement3316); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_0, grammarAccess.getForStatementAccess().getForKeyword_0_0());
                           
                     }
-                    otherlv_1=(Token)match(input,17,FOLLOW_17_in_ruleForStatement3327); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,17,FOLLOW_17_in_ruleForStatement3328); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getForStatementAccess().getLeftParenthesisKeyword_0_1());
                           
                     }
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1548:1: ( (lv_forinit_2_0= rulecommaExpr ) )?
-                    int alt34=2;
-                    int LA34_0 = input.LA(1);
+                    int alt35=2;
+                    int LA35_0 = input.LA(1);
 
-                    if ( ((LA34_0>=RULE_ID && LA34_0<=RULE_INT)||LA34_0==17||LA34_0==22||(LA34_0>=55 && LA34_0<=59)) ) {
-                        alt34=1;
+                    if ( ((LA35_0>=RULE_ID && LA35_0<=RULE_INT)||LA35_0==17||(LA35_0>=21 && LA35_0<=22)||LA35_0==24||LA35_0==26||LA35_0==42||(LA35_0>=55 && LA35_0<=100)) ) {
+                        alt35=1;
                     }
-                    switch (alt34) {
+                    switch (alt35) {
                         case 1 :
                             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1549:1: (lv_forinit_2_0= rulecommaExpr )
                             {
@@ -4742,7 +4846,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                               	        newCompositeNode(grammarAccess.getForStatementAccess().getForinitCommaExprParserRuleCall_0_2_0()); 
                               	    
                             }
-                            pushFollow(FOLLOW_rulecommaExpr_in_ruleForStatement3348);
+                            pushFollow(FOLLOW_rulecommaExpr_in_ruleForStatement3349);
                             lv_forinit_2_0=rulecommaExpr();
 
                             state._fsp--;
@@ -4769,20 +4873,20 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_3=(Token)match(input,15,FOLLOW_15_in_ruleForStatement3361); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,15,FOLLOW_15_in_ruleForStatement3362); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_3, grammarAccess.getForStatementAccess().getSemicolonKeyword_0_3());
                           
                     }
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1570:1: ( (lv_condition_4_0= rulecommaExpr ) )?
-                    int alt35=2;
-                    int LA35_0 = input.LA(1);
+                    int alt36=2;
+                    int LA36_0 = input.LA(1);
 
-                    if ( ((LA35_0>=RULE_ID && LA35_0<=RULE_INT)||LA35_0==17||LA35_0==22||(LA35_0>=55 && LA35_0<=59)) ) {
-                        alt35=1;
+                    if ( ((LA36_0>=RULE_ID && LA36_0<=RULE_INT)||LA36_0==17||(LA36_0>=21 && LA36_0<=22)||LA36_0==24||LA36_0==26||LA36_0==42||(LA36_0>=55 && LA36_0<=100)) ) {
+                        alt36=1;
                     }
-                    switch (alt35) {
+                    switch (alt36) {
                         case 1 :
                             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1571:1: (lv_condition_4_0= rulecommaExpr )
                             {
@@ -4794,7 +4898,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                               	        newCompositeNode(grammarAccess.getForStatementAccess().getConditionCommaExprParserRuleCall_0_4_0()); 
                               	    
                             }
-                            pushFollow(FOLLOW_rulecommaExpr_in_ruleForStatement3382);
+                            pushFollow(FOLLOW_rulecommaExpr_in_ruleForStatement3383);
                             lv_condition_4_0=rulecommaExpr();
 
                             state._fsp--;
@@ -4821,20 +4925,20 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleForStatement3395); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleForStatement3396); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_5, grammarAccess.getForStatementAccess().getSemicolonKeyword_0_5());
                           
                     }
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1592:1: ( (lv_iterator_6_0= rulecommaExpr ) )?
-                    int alt36=2;
-                    int LA36_0 = input.LA(1);
+                    int alt37=2;
+                    int LA37_0 = input.LA(1);
 
-                    if ( ((LA36_0>=RULE_ID && LA36_0<=RULE_INT)||LA36_0==17||LA36_0==22||(LA36_0>=55 && LA36_0<=59)) ) {
-                        alt36=1;
+                    if ( ((LA37_0>=RULE_ID && LA37_0<=RULE_INT)||LA37_0==17||(LA37_0>=21 && LA37_0<=22)||LA37_0==24||LA37_0==26||LA37_0==42||(LA37_0>=55 && LA37_0<=100)) ) {
+                        alt37=1;
                     }
-                    switch (alt36) {
+                    switch (alt37) {
                         case 1 :
                             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1593:1: (lv_iterator_6_0= rulecommaExpr )
                             {
@@ -4846,7 +4950,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                               	        newCompositeNode(grammarAccess.getForStatementAccess().getIteratorCommaExprParserRuleCall_0_6_0()); 
                               	    
                             }
-                            pushFollow(FOLLOW_rulecommaExpr_in_ruleForStatement3416);
+                            pushFollow(FOLLOW_rulecommaExpr_in_ruleForStatement3417);
                             lv_iterator_6_0=rulecommaExpr();
 
                             state._fsp--;
@@ -4873,7 +4977,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_7=(Token)match(input,18,FOLLOW_18_in_ruleForStatement3429); if (state.failed) return current;
+                    otherlv_7=(Token)match(input,18,FOLLOW_18_in_ruleForStatement3430); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_7, grammarAccess.getForStatementAccess().getRightParenthesisKeyword_0_7());
@@ -4890,7 +4994,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getForStatementAccess().getCommandStatementsBlockParserRuleCall_0_8_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleStatementsBlock_in_ruleForStatement3450);
+                    pushFollow(FOLLOW_ruleStatementsBlock_in_ruleForStatement3451);
                     lv_command_8_0=ruleStatementsBlock();
 
                     state._fsp--;
@@ -4926,19 +5030,19 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1633:6: (otherlv_9= 'for' otherlv_10= '(' otherlv_11= 'var' ( (lv_elements_12_0= ruleidentifierDeclaration ) ) (otherlv_13= ',' ( (lv_elements_14_0= ruleidentifierDeclaration ) ) )* otherlv_15= ';' ( (lv_condition_16_0= rulecommaExpr ) )? otherlv_17= ';' ( (lv_iterator_18_0= rulecommaExpr ) )? otherlv_19= ')' ( (lv_command_20_0= ruleStatementsBlock ) ) )
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1633:8: otherlv_9= 'for' otherlv_10= '(' otherlv_11= 'var' ( (lv_elements_12_0= ruleidentifierDeclaration ) ) (otherlv_13= ',' ( (lv_elements_14_0= ruleidentifierDeclaration ) ) )* otherlv_15= ';' ( (lv_condition_16_0= rulecommaExpr ) )? otherlv_17= ';' ( (lv_iterator_18_0= rulecommaExpr ) )? otherlv_19= ')' ( (lv_command_20_0= ruleStatementsBlock ) )
                     {
-                    otherlv_9=(Token)match(input,39,FOLLOW_39_in_ruleForStatement3470); if (state.failed) return current;
+                    otherlv_9=(Token)match(input,39,FOLLOW_39_in_ruleForStatement3471); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_9, grammarAccess.getForStatementAccess().getForKeyword_1_0());
                           
                     }
-                    otherlv_10=(Token)match(input,17,FOLLOW_17_in_ruleForStatement3482); if (state.failed) return current;
+                    otherlv_10=(Token)match(input,17,FOLLOW_17_in_ruleForStatement3483); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_10, grammarAccess.getForStatementAccess().getLeftParenthesisKeyword_1_1());
                           
                     }
-                    otherlv_11=(Token)match(input,40,FOLLOW_40_in_ruleForStatement3494); if (state.failed) return current;
+                    otherlv_11=(Token)match(input,40,FOLLOW_40_in_ruleForStatement3495); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_11, grammarAccess.getForStatementAccess().getVarKeyword_1_2());
@@ -4955,7 +5059,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getForStatementAccess().getElementsIdentifierDeclarationParserRuleCall_1_3_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleidentifierDeclaration_in_ruleForStatement3515);
+                    pushFollow(FOLLOW_ruleidentifierDeclaration_in_ruleForStatement3516);
                     lv_elements_12_0=ruleidentifierDeclaration();
 
                     state._fsp--;
@@ -4980,21 +5084,21 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     }
 
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1663:2: (otherlv_13= ',' ( (lv_elements_14_0= ruleidentifierDeclaration ) ) )*
-                    loop37:
+                    loop38:
                     do {
-                        int alt37=2;
-                        int LA37_0 = input.LA(1);
+                        int alt38=2;
+                        int LA38_0 = input.LA(1);
 
-                        if ( (LA37_0==23) ) {
-                            alt37=1;
+                        if ( (LA38_0==23) ) {
+                            alt38=1;
                         }
 
 
-                        switch (alt37) {
+                        switch (alt38) {
                     	case 1 :
                     	    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1663:4: otherlv_13= ',' ( (lv_elements_14_0= ruleidentifierDeclaration ) )
                     	    {
-                    	    otherlv_13=(Token)match(input,23,FOLLOW_23_in_ruleForStatement3528); if (state.failed) return current;
+                    	    otherlv_13=(Token)match(input,23,FOLLOW_23_in_ruleForStatement3529); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	          	newLeafNode(otherlv_13, grammarAccess.getForStatementAccess().getCommaKeyword_1_4_0());
@@ -5011,7 +5115,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     	      	        newCompositeNode(grammarAccess.getForStatementAccess().getElementsIdentifierDeclarationParserRuleCall_1_4_1_0()); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_ruleidentifierDeclaration_in_ruleForStatement3549);
+                    	    pushFollow(FOLLOW_ruleidentifierDeclaration_in_ruleForStatement3550);
                     	    lv_elements_14_0=ruleidentifierDeclaration();
 
                     	    state._fsp--;
@@ -5040,24 +5144,24 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop37;
+                    	    break loop38;
                         }
                     } while (true);
 
-                    otherlv_15=(Token)match(input,15,FOLLOW_15_in_ruleForStatement3563); if (state.failed) return current;
+                    otherlv_15=(Token)match(input,15,FOLLOW_15_in_ruleForStatement3564); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_15, grammarAccess.getForStatementAccess().getSemicolonKeyword_1_5());
                           
                     }
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1689:1: ( (lv_condition_16_0= rulecommaExpr ) )?
-                    int alt38=2;
-                    int LA38_0 = input.LA(1);
+                    int alt39=2;
+                    int LA39_0 = input.LA(1);
 
-                    if ( ((LA38_0>=RULE_ID && LA38_0<=RULE_INT)||LA38_0==17||LA38_0==22||(LA38_0>=55 && LA38_0<=59)) ) {
-                        alt38=1;
+                    if ( ((LA39_0>=RULE_ID && LA39_0<=RULE_INT)||LA39_0==17||(LA39_0>=21 && LA39_0<=22)||LA39_0==24||LA39_0==26||LA39_0==42||(LA39_0>=55 && LA39_0<=100)) ) {
+                        alt39=1;
                     }
-                    switch (alt38) {
+                    switch (alt39) {
                         case 1 :
                             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1690:1: (lv_condition_16_0= rulecommaExpr )
                             {
@@ -5069,7 +5173,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                               	        newCompositeNode(grammarAccess.getForStatementAccess().getConditionCommaExprParserRuleCall_1_6_0()); 
                               	    
                             }
-                            pushFollow(FOLLOW_rulecommaExpr_in_ruleForStatement3584);
+                            pushFollow(FOLLOW_rulecommaExpr_in_ruleForStatement3585);
                             lv_condition_16_0=rulecommaExpr();
 
                             state._fsp--;
@@ -5096,20 +5200,20 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_17=(Token)match(input,15,FOLLOW_15_in_ruleForStatement3597); if (state.failed) return current;
+                    otherlv_17=(Token)match(input,15,FOLLOW_15_in_ruleForStatement3598); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_17, grammarAccess.getForStatementAccess().getSemicolonKeyword_1_7());
                           
                     }
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1711:1: ( (lv_iterator_18_0= rulecommaExpr ) )?
-                    int alt39=2;
-                    int LA39_0 = input.LA(1);
+                    int alt40=2;
+                    int LA40_0 = input.LA(1);
 
-                    if ( ((LA39_0>=RULE_ID && LA39_0<=RULE_INT)||LA39_0==17||LA39_0==22||(LA39_0>=55 && LA39_0<=59)) ) {
-                        alt39=1;
+                    if ( ((LA40_0>=RULE_ID && LA40_0<=RULE_INT)||LA40_0==17||(LA40_0>=21 && LA40_0<=22)||LA40_0==24||LA40_0==26||LA40_0==42||(LA40_0>=55 && LA40_0<=100)) ) {
+                        alt40=1;
                     }
-                    switch (alt39) {
+                    switch (alt40) {
                         case 1 :
                             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1712:1: (lv_iterator_18_0= rulecommaExpr )
                             {
@@ -5121,7 +5225,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                               	        newCompositeNode(grammarAccess.getForStatementAccess().getIteratorCommaExprParserRuleCall_1_8_0()); 
                               	    
                             }
-                            pushFollow(FOLLOW_rulecommaExpr_in_ruleForStatement3618);
+                            pushFollow(FOLLOW_rulecommaExpr_in_ruleForStatement3619);
                             lv_iterator_18_0=rulecommaExpr();
 
                             state._fsp--;
@@ -5148,7 +5252,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_19=(Token)match(input,18,FOLLOW_18_in_ruleForStatement3631); if (state.failed) return current;
+                    otherlv_19=(Token)match(input,18,FOLLOW_18_in_ruleForStatement3632); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_19, grammarAccess.getForStatementAccess().getRightParenthesisKeyword_1_9());
@@ -5165,7 +5269,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getForStatementAccess().getCommandStatementsBlockParserRuleCall_1_10_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleStatementsBlock_in_ruleForStatement3652);
+                    pushFollow(FOLLOW_ruleStatementsBlock_in_ruleForStatement3653);
                     lv_command_20_0=ruleStatementsBlock();
 
                     state._fsp--;
@@ -5201,24 +5305,24 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1752:6: (otherlv_21= 'for' (otherlv_22= 'each' )? otherlv_23= '(' ( (lv_nameForin_24_0= RULE_ID ) ) otherlv_25= 'in' ( (lv_forinexpr_26_0= ruleExpression ) ) otherlv_27= ')' ( (lv_forcommand_28_0= ruleStatementsBlock ) ) )
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1752:8: otherlv_21= 'for' (otherlv_22= 'each' )? otherlv_23= '(' ( (lv_nameForin_24_0= RULE_ID ) ) otherlv_25= 'in' ( (lv_forinexpr_26_0= ruleExpression ) ) otherlv_27= ')' ( (lv_forcommand_28_0= ruleStatementsBlock ) )
                     {
-                    otherlv_21=(Token)match(input,39,FOLLOW_39_in_ruleForStatement3672); if (state.failed) return current;
+                    otherlv_21=(Token)match(input,39,FOLLOW_39_in_ruleForStatement3673); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_21, grammarAccess.getForStatementAccess().getForKeyword_2_0());
                           
                     }
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1756:1: (otherlv_22= 'each' )?
-                    int alt40=2;
-                    int LA40_0 = input.LA(1);
+                    int alt41=2;
+                    int LA41_0 = input.LA(1);
 
-                    if ( (LA40_0==41) ) {
-                        alt40=1;
+                    if ( (LA41_0==41) ) {
+                        alt41=1;
                     }
-                    switch (alt40) {
+                    switch (alt41) {
                         case 1 :
                             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1756:3: otherlv_22= 'each'
                             {
-                            otherlv_22=(Token)match(input,41,FOLLOW_41_in_ruleForStatement3685); if (state.failed) return current;
+                            otherlv_22=(Token)match(input,41,FOLLOW_41_in_ruleForStatement3686); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                   	newLeafNode(otherlv_22, grammarAccess.getForStatementAccess().getEachKeyword_2_1());
@@ -5230,7 +5334,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_23=(Token)match(input,17,FOLLOW_17_in_ruleForStatement3699); if (state.failed) return current;
+                    otherlv_23=(Token)match(input,17,FOLLOW_17_in_ruleForStatement3700); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_23, grammarAccess.getForStatementAccess().getLeftParenthesisKeyword_2_2());
@@ -5242,7 +5346,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1765:1: (lv_nameForin_24_0= RULE_ID )
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1766:3: lv_nameForin_24_0= RULE_ID
                     {
-                    lv_nameForin_24_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleForStatement3716); if (state.failed) return current;
+                    lv_nameForin_24_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleForStatement3717); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			newLeafNode(lv_nameForin_24_0, grammarAccess.getForStatementAccess().getNameForinIDTerminalRuleCall_2_3_0()); 
@@ -5266,7 +5370,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_25=(Token)match(input,42,FOLLOW_42_in_ruleForStatement3733); if (state.failed) return current;
+                    otherlv_25=(Token)match(input,42,FOLLOW_42_in_ruleForStatement3734); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_25, grammarAccess.getForStatementAccess().getInKeyword_2_4());
@@ -5283,7 +5387,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getForStatementAccess().getForinexprExpressionParserRuleCall_2_5_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleForStatement3754);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleForStatement3755);
                     lv_forinexpr_26_0=ruleExpression();
 
                     state._fsp--;
@@ -5307,7 +5411,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_27=(Token)match(input,18,FOLLOW_18_in_ruleForStatement3766); if (state.failed) return current;
+                    otherlv_27=(Token)match(input,18,FOLLOW_18_in_ruleForStatement3767); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_27, grammarAccess.getForStatementAccess().getRightParenthesisKeyword_2_6());
@@ -5324,7 +5428,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getForStatementAccess().getForcommandStatementsBlockParserRuleCall_2_7_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleStatementsBlock_in_ruleForStatement3787);
+                    pushFollow(FOLLOW_ruleStatementsBlock_in_ruleForStatement3788);
                     lv_forcommand_28_0=ruleStatementsBlock();
 
                     state._fsp--;
@@ -5360,24 +5464,24 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1827:6: (otherlv_29= 'for' (otherlv_30= 'each' )? otherlv_31= '(' otherlv_32= 'var' ( (lv_nameForeachh_33_0= RULE_ID ) ) ( (lv_relation_34_0= ruletypeRelation ) )? otherlv_35= 'in' ( (lv_foreachexpr_36_0= ruleExpression ) ) otherlv_37= ')' ( (lv_foreachcommand_38_0= ruleStatementsBlock ) ) )
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1827:8: otherlv_29= 'for' (otherlv_30= 'each' )? otherlv_31= '(' otherlv_32= 'var' ( (lv_nameForeachh_33_0= RULE_ID ) ) ( (lv_relation_34_0= ruletypeRelation ) )? otherlv_35= 'in' ( (lv_foreachexpr_36_0= ruleExpression ) ) otherlv_37= ')' ( (lv_foreachcommand_38_0= ruleStatementsBlock ) )
                     {
-                    otherlv_29=(Token)match(input,39,FOLLOW_39_in_ruleForStatement3807); if (state.failed) return current;
+                    otherlv_29=(Token)match(input,39,FOLLOW_39_in_ruleForStatement3808); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_29, grammarAccess.getForStatementAccess().getForKeyword_3_0());
                           
                     }
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1831:1: (otherlv_30= 'each' )?
-                    int alt41=2;
-                    int LA41_0 = input.LA(1);
+                    int alt42=2;
+                    int LA42_0 = input.LA(1);
 
-                    if ( (LA41_0==41) ) {
-                        alt41=1;
+                    if ( (LA42_0==41) ) {
+                        alt42=1;
                     }
-                    switch (alt41) {
+                    switch (alt42) {
                         case 1 :
                             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1831:3: otherlv_30= 'each'
                             {
-                            otherlv_30=(Token)match(input,41,FOLLOW_41_in_ruleForStatement3820); if (state.failed) return current;
+                            otherlv_30=(Token)match(input,41,FOLLOW_41_in_ruleForStatement3821); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                   	newLeafNode(otherlv_30, grammarAccess.getForStatementAccess().getEachKeyword_3_1());
@@ -5389,13 +5493,13 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_31=(Token)match(input,17,FOLLOW_17_in_ruleForStatement3834); if (state.failed) return current;
+                    otherlv_31=(Token)match(input,17,FOLLOW_17_in_ruleForStatement3835); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_31, grammarAccess.getForStatementAccess().getLeftParenthesisKeyword_3_2());
                           
                     }
-                    otherlv_32=(Token)match(input,40,FOLLOW_40_in_ruleForStatement3846); if (state.failed) return current;
+                    otherlv_32=(Token)match(input,40,FOLLOW_40_in_ruleForStatement3847); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_32, grammarAccess.getForStatementAccess().getVarKeyword_3_3());
@@ -5407,7 +5511,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1844:1: (lv_nameForeachh_33_0= RULE_ID )
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1845:3: lv_nameForeachh_33_0= RULE_ID
                     {
-                    lv_nameForeachh_33_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleForStatement3863); if (state.failed) return current;
+                    lv_nameForeachh_33_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleForStatement3864); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			newLeafNode(lv_nameForeachh_33_0, grammarAccess.getForStatementAccess().getNameForeachhIDTerminalRuleCall_3_4_0()); 
@@ -5432,13 +5536,13 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     }
 
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1861:2: ( (lv_relation_34_0= ruletypeRelation ) )?
-                    int alt42=2;
-                    int LA42_0 = input.LA(1);
+                    int alt43=2;
+                    int LA43_0 = input.LA(1);
 
-                    if ( (LA42_0==37) ) {
-                        alt42=1;
+                    if ( (LA43_0==37) ) {
+                        alt43=1;
                     }
-                    switch (alt42) {
+                    switch (alt43) {
                         case 1 :
                             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1862:1: (lv_relation_34_0= ruletypeRelation )
                             {
@@ -5450,7 +5554,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                               	        newCompositeNode(grammarAccess.getForStatementAccess().getRelationTypeRelationParserRuleCall_3_5_0()); 
                               	    
                             }
-                            pushFollow(FOLLOW_ruletypeRelation_in_ruleForStatement3889);
+                            pushFollow(FOLLOW_ruletypeRelation_in_ruleForStatement3890);
                             lv_relation_34_0=ruletypeRelation();
 
                             state._fsp--;
@@ -5477,7 +5581,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_35=(Token)match(input,42,FOLLOW_42_in_ruleForStatement3902); if (state.failed) return current;
+                    otherlv_35=(Token)match(input,42,FOLLOW_42_in_ruleForStatement3903); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_35, grammarAccess.getForStatementAccess().getInKeyword_3_6());
@@ -5494,7 +5598,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getForStatementAccess().getForeachexprExpressionParserRuleCall_3_7_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleForStatement3923);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleForStatement3924);
                     lv_foreachexpr_36_0=ruleExpression();
 
                     state._fsp--;
@@ -5518,7 +5622,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_37=(Token)match(input,18,FOLLOW_18_in_ruleForStatement3935); if (state.failed) return current;
+                    otherlv_37=(Token)match(input,18,FOLLOW_18_in_ruleForStatement3936); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_37, grammarAccess.getForStatementAccess().getRightParenthesisKeyword_3_8());
@@ -5535,7 +5639,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getForStatementAccess().getForeachcommandStatementsBlockParserRuleCall_3_9_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleStatementsBlock_in_ruleForStatement3956);
+                    pushFollow(FOLLOW_ruleStatementsBlock_in_ruleForStatement3957);
                     lv_foreachcommand_38_0=ruleStatementsBlock();
 
                     state._fsp--;
@@ -5602,7 +5706,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getIdentifierDeclarationRule()); 
             }
-            pushFollow(FOLLOW_ruleidentifierDeclaration_in_entryRuleidentifierDeclaration3993);
+            pushFollow(FOLLOW_ruleidentifierDeclaration_in_entryRuleidentifierDeclaration3994);
             iv_ruleidentifierDeclaration=ruleidentifierDeclaration();
 
             state._fsp--;
@@ -5610,7 +5714,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleidentifierDeclaration; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleidentifierDeclaration4003); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleidentifierDeclaration4004); if (state.failed) return current;
 
             }
 
@@ -5654,7 +5758,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1945:1: (lv_name_0_0= RULE_ID )
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1946:3: lv_name_0_0= RULE_ID
             {
-            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleidentifierDeclaration4045); if (state.failed) return current;
+            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleidentifierDeclaration4046); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_name_0_0, grammarAccess.getIdentifierDeclarationAccess().getNameIDTerminalRuleCall_0_0()); 
@@ -5679,13 +5783,13 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             }
 
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1962:2: ( (lv_relation_1_0= ruletypeRelation ) )?
-            int alt44=2;
-            int LA44_0 = input.LA(1);
+            int alt45=2;
+            int LA45_0 = input.LA(1);
 
-            if ( (LA44_0==37) ) {
-                alt44=1;
+            if ( (LA45_0==37) ) {
+                alt45=1;
             }
-            switch (alt44) {
+            switch (alt45) {
                 case 1 :
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1963:1: (lv_relation_1_0= ruletypeRelation )
                     {
@@ -5697,7 +5801,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getIdentifierDeclarationAccess().getRelationTypeRelationParserRuleCall_1_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruletypeRelation_in_ruleidentifierDeclaration4071);
+                    pushFollow(FOLLOW_ruletypeRelation_in_ruleidentifierDeclaration4072);
                     lv_relation_1_0=ruletypeRelation();
 
                     state._fsp--;
@@ -5725,17 +5829,17 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             }
 
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1980:3: (otherlv_2= '=' ( (lv_expr_3_0= ruleexprOrObjectLiteral ) ) )?
-            int alt45=2;
-            int LA45_0 = input.LA(1);
+            int alt46=2;
+            int LA46_0 = input.LA(1);
 
-            if ( (LA45_0==24) ) {
-                alt45=1;
+            if ( (LA46_0==24) ) {
+                alt46=1;
             }
-            switch (alt45) {
+            switch (alt46) {
                 case 1 :
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1980:5: otherlv_2= '=' ( (lv_expr_3_0= ruleexprOrObjectLiteral ) )
                     {
-                    otherlv_2=(Token)match(input,24,FOLLOW_24_in_ruleidentifierDeclaration4085); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,24,FOLLOW_24_in_ruleidentifierDeclaration4086); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getIdentifierDeclarationAccess().getEqualsSignKeyword_2_0());
@@ -5752,7 +5856,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getIdentifierDeclarationAccess().getExprExprOrObjectLiteralParserRuleCall_2_1_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleexprOrObjectLiteral_in_ruleidentifierDeclaration4106);
+                    pushFollow(FOLLOW_ruleexprOrObjectLiteral_in_ruleidentifierDeclaration4107);
                     lv_expr_3_0=ruleexprOrObjectLiteral();
 
                     state._fsp--;
@@ -5819,7 +5923,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getCommaExprRule()); 
             }
-            pushFollow(FOLLOW_rulecommaExpr_in_entryRulecommaExpr4144);
+            pushFollow(FOLLOW_rulecommaExpr_in_entryRulecommaExpr4145);
             iv_rulecommaExpr=rulecommaExpr();
 
             state._fsp--;
@@ -5827,7 +5931,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_rulecommaExpr; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRulecommaExpr4154); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRulecommaExpr4155); if (state.failed) return current;
 
             }
 
@@ -5875,7 +5979,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getCommaExprAccess().getElementsExpressionParserRuleCall_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleExpression_in_rulecommaExpr4200);
+            pushFollow(FOLLOW_ruleExpression_in_rulecommaExpr4201);
             lv_elements_0_0=ruleExpression();
 
             state._fsp--;
@@ -5900,21 +6004,21 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             }
 
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2041:2: (otherlv_1= ',' ( (lv_elements_2_0= ruleExpression ) ) )*
-            loop46:
+            loop47:
             do {
-                int alt46=2;
-                int LA46_0 = input.LA(1);
+                int alt47=2;
+                int LA47_0 = input.LA(1);
 
-                if ( (LA46_0==23) ) {
-                    alt46=1;
+                if ( (LA47_0==23) ) {
+                    alt47=1;
                 }
 
 
-                switch (alt46) {
+                switch (alt47) {
             	case 1 :
             	    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2041:4: otherlv_1= ',' ( (lv_elements_2_0= ruleExpression ) )
             	    {
-            	    otherlv_1=(Token)match(input,23,FOLLOW_23_in_rulecommaExpr4213); if (state.failed) return current;
+            	    otherlv_1=(Token)match(input,23,FOLLOW_23_in_rulecommaExpr4214); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_1, grammarAccess.getCommaExprAccess().getCommaKeyword_1_0());
@@ -5931,7 +6035,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getCommaExprAccess().getElementsExpressionParserRuleCall_1_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleExpression_in_rulecommaExpr4234);
+            	    pushFollow(FOLLOW_ruleExpression_in_rulecommaExpr4235);
             	    lv_elements_2_0=ruleExpression();
 
             	    state._fsp--;
@@ -5960,7 +6064,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop46;
+            	    break loop47;
                 }
             } while (true);
 
@@ -6001,7 +6105,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDoWhileStatementRule()); 
             }
-            pushFollow(FOLLOW_ruleDoWhileStatement_in_entryRuleDoWhileStatement4272);
+            pushFollow(FOLLOW_ruleDoWhileStatement_in_entryRuleDoWhileStatement4273);
             iv_ruleDoWhileStatement=ruleDoWhileStatement();
 
             state._fsp--;
@@ -6009,7 +6113,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleDoWhileStatement; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDoWhileStatement4282); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDoWhileStatement4283); if (state.failed) return current;
 
             }
 
@@ -6066,7 +6170,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,43,FOLLOW_43_in_ruleDoWhileStatement4331); if (state.failed) return current;
+            otherlv_1=(Token)match(input,43,FOLLOW_43_in_ruleDoWhileStatement4332); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getDoWhileStatementAccess().getDoKeyword_1());
@@ -6083,7 +6187,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getDoWhileStatementAccess().getWhileBlockStatementsBlockParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleStatementsBlock_in_ruleDoWhileStatement4352);
+            pushFollow(FOLLOW_ruleStatementsBlock_in_ruleDoWhileStatement4353);
             lv_whileBlock_2_0=ruleStatementsBlock();
 
             state._fsp--;
@@ -6107,7 +6211,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,44,FOLLOW_44_in_ruleDoWhileStatement4364); if (state.failed) return current;
+            otherlv_3=(Token)match(input,44,FOLLOW_44_in_ruleDoWhileStatement4365); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getDoWhileStatementAccess().getWhileKeyword_3());
@@ -6124,7 +6228,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getDoWhileStatementAccess().getCondParenthesizedExprParserRuleCall_4_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleparenthesizedExpr_in_ruleDoWhileStatement4385);
+            pushFollow(FOLLOW_ruleparenthesizedExpr_in_ruleDoWhileStatement4386);
             lv_cond_4_0=ruleparenthesizedExpr();
 
             state._fsp--;
@@ -6148,7 +6252,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleDoWhileStatement4397); if (state.failed) return current;
+            otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleDoWhileStatement4398); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getDoWhileStatementAccess().getSemicolonKeyword_5());
@@ -6191,7 +6295,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getWhileStatementRule()); 
             }
-            pushFollow(FOLLOW_ruleWhileStatement_in_entryRuleWhileStatement4433);
+            pushFollow(FOLLOW_ruleWhileStatement_in_entryRuleWhileStatement4434);
             iv_ruleWhileStatement=ruleWhileStatement();
 
             state._fsp--;
@@ -6199,7 +6303,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleWhileStatement; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleWhileStatement4443); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleWhileStatement4444); if (state.failed) return current;
 
             }
 
@@ -6254,7 +6358,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,44,FOLLOW_44_in_ruleWhileStatement4492); if (state.failed) return current;
+            otherlv_1=(Token)match(input,44,FOLLOW_44_in_ruleWhileStatement4493); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getWhileStatementAccess().getWhileKeyword_1());
@@ -6271,7 +6375,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getWhileStatementAccess().getCondParenthesizedExprParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleparenthesizedExpr_in_ruleWhileStatement4513);
+            pushFollow(FOLLOW_ruleparenthesizedExpr_in_ruleWhileStatement4514);
             lv_cond_2_0=ruleparenthesizedExpr();
 
             state._fsp--;
@@ -6306,7 +6410,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getWhileStatementAccess().getWhileBlockStatementsBlockParserRuleCall_3_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleStatementsBlock_in_ruleWhileStatement4534);
+            pushFollow(FOLLOW_ruleStatementsBlock_in_ruleWhileStatement4535);
             lv_whileBlock_3_0=ruleStatementsBlock();
 
             state._fsp--;
@@ -6367,7 +6471,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSwitchStatementRule()); 
             }
-            pushFollow(FOLLOW_ruleSwitchStatement_in_entryRuleSwitchStatement4570);
+            pushFollow(FOLLOW_ruleSwitchStatement_in_entryRuleSwitchStatement4571);
             iv_ruleSwitchStatement=ruleSwitchStatement();
 
             state._fsp--;
@@ -6375,7 +6479,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleSwitchStatement; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSwitchStatement4580); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSwitchStatement4581); if (state.failed) return current;
 
             }
 
@@ -6432,7 +6536,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,45,FOLLOW_45_in_ruleSwitchStatement4629); if (state.failed) return current;
+            otherlv_1=(Token)match(input,45,FOLLOW_45_in_ruleSwitchStatement4630); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getSwitchStatementAccess().getSwitchKeyword_1());
@@ -6449,7 +6553,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getSwitchStatementAccess().getCondParenthesizedExprParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleparenthesizedExpr_in_ruleSwitchStatement4650);
+            pushFollow(FOLLOW_ruleparenthesizedExpr_in_ruleSwitchStatement4651);
             lv_cond_2_0=ruleparenthesizedExpr();
 
             state._fsp--;
@@ -6473,24 +6577,24 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,12,FOLLOW_12_in_ruleSwitchStatement4662); if (state.failed) return current;
+            otherlv_3=(Token)match(input,12,FOLLOW_12_in_ruleSwitchStatement4663); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getSwitchStatementAccess().getLeftCurlyBracketKeyword_3());
                   
             }
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2267:1: ( (lv_cases_4_0= rulestatementInSwitch ) )*
-            loop47:
+            loop48:
             do {
-                int alt47=2;
-                int LA47_0 = input.LA(1);
+                int alt48=2;
+                int LA48_0 = input.LA(1);
 
-                if ( ((LA47_0>=RULE_ID && LA47_0<=RULE_INT)||LA47_0==12||LA47_0==17||LA47_0==22||LA47_0==29||(LA47_0>=38 && LA47_0<=40)||(LA47_0>=43 && LA47_0<=49)||LA47_0==51||(LA47_0>=55 && LA47_0<=63)) ) {
-                    alt47=1;
+                if ( ((LA48_0>=RULE_ID && LA48_0<=RULE_INT)||LA48_0==12||LA48_0==17||(LA48_0>=21 && LA48_0<=22)||LA48_0==24||LA48_0==26||LA48_0==29||(LA48_0>=38 && LA48_0<=40)||(LA48_0>=42 && LA48_0<=49)||LA48_0==51||(LA48_0>=55 && LA48_0<=104)) ) {
+                    alt48=1;
                 }
 
 
-                switch (alt47) {
+                switch (alt48) {
             	case 1 :
             	    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2268:1: (lv_cases_4_0= rulestatementInSwitch )
             	    {
@@ -6502,7 +6606,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getSwitchStatementAccess().getCasesStatementInSwitchParserRuleCall_4_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_rulestatementInSwitch_in_ruleSwitchStatement4683);
+            	    pushFollow(FOLLOW_rulestatementInSwitch_in_ruleSwitchStatement4684);
             	    lv_cases_4_0=rulestatementInSwitch();
 
             	    state._fsp--;
@@ -6528,11 +6632,11 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop47;
+            	    break loop48;
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,13,FOLLOW_13_in_ruleSwitchStatement4696); if (state.failed) return current;
+            otherlv_5=(Token)match(input,13,FOLLOW_13_in_ruleSwitchStatement4697); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getSwitchStatementAccess().getRightCurlyBracketKeyword_5());
@@ -6575,7 +6679,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getParenthesizedExprRule()); 
             }
-            pushFollow(FOLLOW_ruleparenthesizedExpr_in_entryRuleparenthesizedExpr4732);
+            pushFollow(FOLLOW_ruleparenthesizedExpr_in_entryRuleparenthesizedExpr4733);
             iv_ruleparenthesizedExpr=ruleparenthesizedExpr();
 
             state._fsp--;
@@ -6583,7 +6687,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleparenthesizedExpr; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleparenthesizedExpr4742); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleparenthesizedExpr4743); if (state.failed) return current;
 
             }
 
@@ -6619,7 +6723,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2310:1: (otherlv_0= '(' ( (lv_expression_1_0= ruleexprOrObjectLiteral ) ) otherlv_2= ')' )
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2310:3: otherlv_0= '(' ( (lv_expression_1_0= ruleexprOrObjectLiteral ) ) otherlv_2= ')'
             {
-            otherlv_0=(Token)match(input,17,FOLLOW_17_in_ruleparenthesizedExpr4779); if (state.failed) return current;
+            otherlv_0=(Token)match(input,17,FOLLOW_17_in_ruleparenthesizedExpr4780); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getParenthesizedExprAccess().getLeftParenthesisKeyword_0());
@@ -6636,7 +6740,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getParenthesizedExprAccess().getExpressionExprOrObjectLiteralParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleexprOrObjectLiteral_in_ruleparenthesizedExpr4800);
+            pushFollow(FOLLOW_ruleexprOrObjectLiteral_in_ruleparenthesizedExpr4801);
             lv_expression_1_0=ruleexprOrObjectLiteral();
 
             state._fsp--;
@@ -6660,7 +6764,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,18,FOLLOW_18_in_ruleparenthesizedExpr4812); if (state.failed) return current;
+            otherlv_2=(Token)match(input,18,FOLLOW_18_in_ruleparenthesizedExpr4813); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getParenthesizedExprAccess().getRightParenthesisKeyword_2());
@@ -6703,7 +6807,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getStatementInSwitchRule()); 
             }
-            pushFollow(FOLLOW_rulestatementInSwitch_in_entryRulestatementInSwitch4848);
+            pushFollow(FOLLOW_rulestatementInSwitch_in_entryRulestatementInSwitch4849);
             iv_rulestatementInSwitch=rulestatementInSwitch();
 
             state._fsp--;
@@ -6711,7 +6815,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_rulestatementInSwitch; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRulestatementInSwitch4858); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRulestatementInSwitch4859); if (state.failed) return current;
 
             }
 
@@ -6749,18 +6853,22 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2357:1: (this_Statement_0= ruleStatement | (otherlv_1= 'case' this_Expression_2= ruleExpression otherlv_3= ':' ) | (otherlv_4= 'default' otherlv_5= ':' ) )
             {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2357:1: (this_Statement_0= ruleStatement | (otherlv_1= 'case' this_Expression_2= ruleExpression otherlv_3= ':' ) | (otherlv_4= 'default' otherlv_5= ':' ) )
-            int alt48=3;
+            int alt49=3;
             switch ( input.LA(1) ) {
             case RULE_ID:
             case RULE_STRING:
             case RULE_INT:
             case 12:
             case 17:
+            case 21:
             case 22:
+            case 24:
+            case 26:
             case 29:
             case 38:
             case 39:
             case 40:
+            case 42:
             case 43:
             case 44:
             case 45:
@@ -6776,29 +6884,70 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             case 61:
             case 62:
             case 63:
+            case 64:
+            case 65:
+            case 66:
+            case 67:
+            case 68:
+            case 69:
+            case 70:
+            case 71:
+            case 72:
+            case 73:
+            case 74:
+            case 75:
+            case 76:
+            case 77:
+            case 78:
+            case 79:
+            case 80:
+            case 81:
+            case 82:
+            case 83:
+            case 84:
+            case 85:
+            case 86:
+            case 87:
+            case 88:
+            case 89:
+            case 90:
+            case 91:
+            case 92:
+            case 93:
+            case 94:
+            case 95:
+            case 96:
+            case 97:
+            case 98:
+            case 99:
+            case 100:
+            case 101:
+            case 102:
+            case 103:
+            case 104:
                 {
-                alt48=1;
+                alt49=1;
                 }
                 break;
             case 46:
                 {
-                alt48=2;
+                alt49=2;
                 }
                 break;
             case 47:
                 {
-                alt48=3;
+                alt49=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 48, 0, input);
+                    new NoViableAltException("", 49, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt48) {
+            switch (alt49) {
                 case 1 :
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2358:2: this_Statement_0= ruleStatement
                     {
@@ -6812,7 +6961,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getStatementInSwitchAccess().getStatementParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleStatement_in_rulestatementInSwitch4908);
+                    pushFollow(FOLLOW_ruleStatement_in_rulestatementInSwitch4909);
                     this_Statement_0=ruleStatement();
 
                     state._fsp--;
@@ -6832,7 +6981,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2370:6: (otherlv_1= 'case' this_Expression_2= ruleExpression otherlv_3= ':' )
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2370:8: otherlv_1= 'case' this_Expression_2= ruleExpression otherlv_3= ':'
                     {
-                    otherlv_1=(Token)match(input,46,FOLLOW_46_in_rulestatementInSwitch4926); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,46,FOLLOW_46_in_rulestatementInSwitch4927); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getStatementInSwitchAccess().getCaseKeyword_1_0());
@@ -6848,7 +6997,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getStatementInSwitchAccess().getExpressionParserRuleCall_1_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_rulestatementInSwitch4951);
+                    pushFollow(FOLLOW_ruleExpression_in_rulestatementInSwitch4952);
                     this_Expression_2=ruleExpression();
 
                     state._fsp--;
@@ -6859,7 +7008,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                               afterParserOrEnumRuleCall();
                           
                     }
-                    otherlv_3=(Token)match(input,37,FOLLOW_37_in_rulestatementInSwitch4962); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,37,FOLLOW_37_in_rulestatementInSwitch4963); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_3, grammarAccess.getStatementInSwitchAccess().getColonKeyword_1_2());
@@ -6877,13 +7026,13 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2391:6: (otherlv_4= 'default' otherlv_5= ':' )
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2391:8: otherlv_4= 'default' otherlv_5= ':'
                     {
-                    otherlv_4=(Token)match(input,47,FOLLOW_47_in_rulestatementInSwitch4982); if (state.failed) return current;
+                    otherlv_4=(Token)match(input,47,FOLLOW_47_in_rulestatementInSwitch4983); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_4, grammarAccess.getStatementInSwitchAccess().getDefaultKeyword_2_0());
                           
                     }
-                    otherlv_5=(Token)match(input,37,FOLLOW_37_in_rulestatementInSwitch4994); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,37,FOLLOW_37_in_rulestatementInSwitch4995); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_5, grammarAccess.getStatementInSwitchAccess().getColonKeyword_2_1());
@@ -6932,7 +7081,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getReturnRule()); 
             }
-            pushFollow(FOLLOW_ruleReturn_in_entryRuleReturn5031);
+            pushFollow(FOLLOW_ruleReturn_in_entryRuleReturn5032);
             iv_ruleReturn=ruleReturn();
 
             state._fsp--;
@@ -6940,7 +7089,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleReturn; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleReturn5041); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleReturn5042); if (state.failed) return current;
 
             }
 
@@ -6976,7 +7125,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2420:1: (otherlv_0= 'return' ( (lv_expression_1_0= ruleExpression ) ) otherlv_2= ';' )
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2420:3: otherlv_0= 'return' ( (lv_expression_1_0= ruleExpression ) ) otherlv_2= ';'
             {
-            otherlv_0=(Token)match(input,48,FOLLOW_48_in_ruleReturn5078); if (state.failed) return current;
+            otherlv_0=(Token)match(input,48,FOLLOW_48_in_ruleReturn5079); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getReturnAccess().getReturnKeyword_0());
@@ -6993,7 +7142,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getReturnAccess().getExpressionExpressionParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleExpression_in_ruleReturn5099);
+            pushFollow(FOLLOW_ruleExpression_in_ruleReturn5100);
             lv_expression_1_0=ruleExpression();
 
             state._fsp--;
@@ -7017,7 +7166,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,15,FOLLOW_15_in_ruleReturn5111); if (state.failed) return current;
+            otherlv_2=(Token)match(input,15,FOLLOW_15_in_ruleReturn5112); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getReturnAccess().getSemicolonKeyword_2());
@@ -7060,7 +7209,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getVariableDeclarationRule()); 
             }
-            pushFollow(FOLLOW_ruleVariableDeclaration_in_entryRuleVariableDeclaration5147);
+            pushFollow(FOLLOW_ruleVariableDeclaration_in_entryRuleVariableDeclaration5148);
             iv_ruleVariableDeclaration=ruleVariableDeclaration();
 
             state._fsp--;
@@ -7068,7 +7217,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleVariableDeclaration; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleVariableDeclaration5157); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleVariableDeclaration5158); if (state.failed) return current;
 
             }
 
@@ -7112,13 +7261,13 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2467:2: ( (lv_access_0_0= ruleAccessLevel ) )? (otherlv_1= 'static' )? otherlv_2= 'var' ( (lv_name_3_0= RULE_ID ) ) otherlv_4= ':' ( (otherlv_5= RULE_ID ) ) (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )? otherlv_8= ';'
             {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2467:2: ( (lv_access_0_0= ruleAccessLevel ) )?
-            int alt49=2;
-            int LA49_0 = input.LA(1);
+            int alt50=2;
+            int LA50_0 = input.LA(1);
 
-            if ( ((LA49_0>=60 && LA49_0<=63)) ) {
-                alt49=1;
+            if ( ((LA50_0>=101 && LA50_0<=104)) ) {
+                alt50=1;
             }
-            switch (alt49) {
+            switch (alt50) {
                 case 1 :
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2468:1: (lv_access_0_0= ruleAccessLevel )
                     {
@@ -7130,7 +7279,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getVariableDeclarationAccess().getAccessAccessLevelEnumRuleCall_0_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleAccessLevel_in_ruleVariableDeclaration5203);
+                    pushFollow(FOLLOW_ruleAccessLevel_in_ruleVariableDeclaration5204);
                     lv_access_0_0=ruleAccessLevel();
 
                     state._fsp--;
@@ -7158,17 +7307,17 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             }
 
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2485:3: (otherlv_1= 'static' )?
-            int alt50=2;
-            int LA50_0 = input.LA(1);
+            int alt51=2;
+            int LA51_0 = input.LA(1);
 
-            if ( (LA50_0==29) ) {
-                alt50=1;
+            if ( (LA51_0==29) ) {
+                alt51=1;
             }
-            switch (alt50) {
+            switch (alt51) {
                 case 1 :
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2485:5: otherlv_1= 'static'
                     {
-                    otherlv_1=(Token)match(input,29,FOLLOW_29_in_ruleVariableDeclaration5217); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,29,FOLLOW_29_in_ruleVariableDeclaration5218); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getVariableDeclarationAccess().getStaticKeyword_1());
@@ -7180,7 +7329,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,40,FOLLOW_40_in_ruleVariableDeclaration5231); if (state.failed) return current;
+            otherlv_2=(Token)match(input,40,FOLLOW_40_in_ruleVariableDeclaration5232); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getVariableDeclarationAccess().getVarKeyword_2());
@@ -7192,7 +7341,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2494:1: (lv_name_3_0= RULE_ID )
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2495:3: lv_name_3_0= RULE_ID
             {
-            lv_name_3_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleVariableDeclaration5248); if (state.failed) return current;
+            lv_name_3_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleVariableDeclaration5249); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_name_3_0, grammarAccess.getVariableDeclarationAccess().getNameIDTerminalRuleCall_3_0()); 
@@ -7216,7 +7365,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,37,FOLLOW_37_in_ruleVariableDeclaration5265); if (state.failed) return current;
+            otherlv_4=(Token)match(input,37,FOLLOW_37_in_ruleVariableDeclaration5266); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getVariableDeclarationAccess().getColonKeyword_4());
@@ -7240,7 +7389,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
               	        }
                       
             }
-            otherlv_5=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleVariableDeclaration5289); if (state.failed) return current;
+            otherlv_5=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleVariableDeclaration5290); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               		newLeafNode(otherlv_5, grammarAccess.getVariableDeclarationAccess().getTypeTypeCrossReference_5_0()); 
@@ -7253,17 +7402,17 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             }
 
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2531:2: (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )?
-            int alt51=2;
-            int LA51_0 = input.LA(1);
+            int alt52=2;
+            int LA52_0 = input.LA(1);
 
-            if ( (LA51_0==24) ) {
-                alt51=1;
+            if ( (LA52_0==24) ) {
+                alt52=1;
             }
-            switch (alt51) {
+            switch (alt52) {
                 case 1 :
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2531:4: otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) )
                     {
-                    otherlv_6=(Token)match(input,24,FOLLOW_24_in_ruleVariableDeclaration5302); if (state.failed) return current;
+                    otherlv_6=(Token)match(input,24,FOLLOW_24_in_ruleVariableDeclaration5303); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_6, grammarAccess.getVariableDeclarationAccess().getEqualsSignKeyword_6_0());
@@ -7280,7 +7429,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getVariableDeclarationAccess().getExpressionExpressionParserRuleCall_6_1_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleVariableDeclaration5323);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleVariableDeclaration5324);
                     lv_expression_7_0=ruleExpression();
 
                     state._fsp--;
@@ -7310,7 +7459,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_8=(Token)match(input,15,FOLLOW_15_in_ruleVariableDeclaration5337); if (state.failed) return current;
+            otherlv_8=(Token)match(input,15,FOLLOW_15_in_ruleVariableDeclaration5338); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_8, grammarAccess.getVariableDeclarationAccess().getSemicolonKeyword_7());
@@ -7353,7 +7502,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getIfStatementRule()); 
             }
-            pushFollow(FOLLOW_ruleIfStatement_in_entryRuleIfStatement5373);
+            pushFollow(FOLLOW_ruleIfStatement_in_entryRuleIfStatement5374);
             iv_ruleIfStatement=ruleIfStatement();
 
             state._fsp--;
@@ -7361,7 +7510,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleIfStatement; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleIfStatement5383); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleIfStatement5384); if (state.failed) return current;
 
             }
 
@@ -7403,13 +7552,13 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2578:1: (otherlv_0= 'if' otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_thenBlock_4_0= ruleIfBlock ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_elseBlock_6_0= ruleIfBlock ) ) )? )
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2578:3: otherlv_0= 'if' otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_thenBlock_4_0= ruleIfBlock ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_elseBlock_6_0= ruleIfBlock ) ) )?
             {
-            otherlv_0=(Token)match(input,49,FOLLOW_49_in_ruleIfStatement5420); if (state.failed) return current;
+            otherlv_0=(Token)match(input,49,FOLLOW_49_in_ruleIfStatement5421); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getIfStatementAccess().getIfKeyword_0());
                   
             }
-            otherlv_1=(Token)match(input,17,FOLLOW_17_in_ruleIfStatement5432); if (state.failed) return current;
+            otherlv_1=(Token)match(input,17,FOLLOW_17_in_ruleIfStatement5433); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getIfStatementAccess().getLeftParenthesisKeyword_1());
@@ -7426,7 +7575,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getIfStatementAccess().getExpressionExpressionParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleExpression_in_ruleIfStatement5453);
+            pushFollow(FOLLOW_ruleExpression_in_ruleIfStatement5454);
             lv_expression_2_0=ruleExpression();
 
             state._fsp--;
@@ -7450,7 +7599,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,18,FOLLOW_18_in_ruleIfStatement5465); if (state.failed) return current;
+            otherlv_3=(Token)match(input,18,FOLLOW_18_in_ruleIfStatement5466); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getIfStatementAccess().getRightParenthesisKeyword_3());
@@ -7467,7 +7616,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getIfStatementAccess().getThenBlockIfBlockParserRuleCall_4_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleIfBlock_in_ruleIfStatement5486);
+            pushFollow(FOLLOW_ruleIfBlock_in_ruleIfStatement5487);
             lv_thenBlock_4_0=ruleIfBlock();
 
             state._fsp--;
@@ -7492,24 +7641,24 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             }
 
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2626:2: ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_elseBlock_6_0= ruleIfBlock ) ) )?
-            int alt52=2;
-            int LA52_0 = input.LA(1);
+            int alt53=2;
+            int LA53_0 = input.LA(1);
 
-            if ( (LA52_0==50) ) {
-                int LA52_1 = input.LA(2);
+            if ( (LA53_0==50) ) {
+                int LA53_1 = input.LA(2);
 
-                if ( (synpred68_InternalAS3()) ) {
-                    alt52=1;
+                if ( (synpred69_InternalAS3()) ) {
+                    alt53=1;
                 }
             }
-            switch (alt52) {
+            switch (alt53) {
                 case 1 :
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2626:3: ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_elseBlock_6_0= ruleIfBlock ) )
                     {
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2626:3: ( ( 'else' )=>otherlv_5= 'else' )
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2626:4: ( 'else' )=>otherlv_5= 'else'
                     {
-                    otherlv_5=(Token)match(input,50,FOLLOW_50_in_ruleIfStatement5507); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,50,FOLLOW_50_in_ruleIfStatement5508); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_5, grammarAccess.getIfStatementAccess().getElseKeyword_5_0());
@@ -7529,7 +7678,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getIfStatementAccess().getElseBlockIfBlockParserRuleCall_5_1_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleIfBlock_in_ruleIfStatement5529);
+                    pushFollow(FOLLOW_ruleIfBlock_in_ruleIfStatement5530);
                     lv_elseBlock_6_0=ruleIfBlock();
 
                     state._fsp--;
@@ -7596,7 +7745,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getTryStatementRule()); 
             }
-            pushFollow(FOLLOW_ruleTryStatement_in_entryRuleTryStatement5567);
+            pushFollow(FOLLOW_ruleTryStatement_in_entryRuleTryStatement5568);
             iv_ruleTryStatement=ruleTryStatement();
 
             state._fsp--;
@@ -7604,7 +7753,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleTryStatement; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTryStatement5577); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTryStatement5578); if (state.failed) return current;
 
             }
 
@@ -7649,31 +7798,31 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2670:1: (otherlv_0= 'try' otherlv_1= '{' ( (lv_statements_2_0= ruleStatement ) )+ otherlv_3= '}' (otherlv_4= 'catch' otherlv_5= '(' ( (lv_params_6_0= ruleParameter ) ) otherlv_7= ')' )? (otherlv_8= 'finally' ( (lv_finallyBlock_9_0= ruleStatementsBlock ) ) )? )
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2670:3: otherlv_0= 'try' otherlv_1= '{' ( (lv_statements_2_0= ruleStatement ) )+ otherlv_3= '}' (otherlv_4= 'catch' otherlv_5= '(' ( (lv_params_6_0= ruleParameter ) ) otherlv_7= ')' )? (otherlv_8= 'finally' ( (lv_finallyBlock_9_0= ruleStatementsBlock ) ) )?
             {
-            otherlv_0=(Token)match(input,51,FOLLOW_51_in_ruleTryStatement5614); if (state.failed) return current;
+            otherlv_0=(Token)match(input,51,FOLLOW_51_in_ruleTryStatement5615); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getTryStatementAccess().getTryKeyword_0());
                   
             }
-            otherlv_1=(Token)match(input,12,FOLLOW_12_in_ruleTryStatement5626); if (state.failed) return current;
+            otherlv_1=(Token)match(input,12,FOLLOW_12_in_ruleTryStatement5627); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getTryStatementAccess().getLeftCurlyBracketKeyword_1());
                   
             }
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2678:1: ( (lv_statements_2_0= ruleStatement ) )+
-            int cnt53=0;
-            loop53:
+            int cnt54=0;
+            loop54:
             do {
-                int alt53=2;
-                int LA53_0 = input.LA(1);
+                int alt54=2;
+                int LA54_0 = input.LA(1);
 
-                if ( ((LA53_0>=RULE_ID && LA53_0<=RULE_INT)||LA53_0==12||LA53_0==17||LA53_0==22||LA53_0==29||(LA53_0>=38 && LA53_0<=40)||(LA53_0>=43 && LA53_0<=45)||(LA53_0>=48 && LA53_0<=49)||LA53_0==51||(LA53_0>=55 && LA53_0<=63)) ) {
-                    alt53=1;
+                if ( ((LA54_0>=RULE_ID && LA54_0<=RULE_INT)||LA54_0==12||LA54_0==17||(LA54_0>=21 && LA54_0<=22)||LA54_0==24||LA54_0==26||LA54_0==29||(LA54_0>=38 && LA54_0<=40)||(LA54_0>=42 && LA54_0<=45)||(LA54_0>=48 && LA54_0<=49)||LA54_0==51||(LA54_0>=55 && LA54_0<=104)) ) {
+                    alt54=1;
                 }
 
 
-                switch (alt53) {
+                switch (alt54) {
             	case 1 :
             	    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2679:1: (lv_statements_2_0= ruleStatement )
             	    {
@@ -7685,7 +7834,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getTryStatementAccess().getStatementsStatementParserRuleCall_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleStatement_in_ruleTryStatement5647);
+            	    pushFollow(FOLLOW_ruleStatement_in_ruleTryStatement5648);
             	    lv_statements_2_0=ruleStatement();
 
             	    state._fsp--;
@@ -7711,39 +7860,39 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt53 >= 1 ) break loop53;
+            	    if ( cnt54 >= 1 ) break loop54;
             	    if (state.backtracking>0) {state.failed=true; return current;}
                         EarlyExitException eee =
-                            new EarlyExitException(53, input);
+                            new EarlyExitException(54, input);
                         throw eee;
                 }
-                cnt53++;
+                cnt54++;
             } while (true);
 
-            otherlv_3=(Token)match(input,13,FOLLOW_13_in_ruleTryStatement5660); if (state.failed) return current;
+            otherlv_3=(Token)match(input,13,FOLLOW_13_in_ruleTryStatement5661); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getTryStatementAccess().getRightCurlyBracketKeyword_3());
                   
             }
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2700:1: (otherlv_4= 'catch' otherlv_5= '(' ( (lv_params_6_0= ruleParameter ) ) otherlv_7= ')' )?
-            int alt54=2;
-            int LA54_0 = input.LA(1);
+            int alt55=2;
+            int LA55_0 = input.LA(1);
 
-            if ( (LA54_0==52) ) {
-                alt54=1;
+            if ( (LA55_0==52) ) {
+                alt55=1;
             }
-            switch (alt54) {
+            switch (alt55) {
                 case 1 :
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2700:3: otherlv_4= 'catch' otherlv_5= '(' ( (lv_params_6_0= ruleParameter ) ) otherlv_7= ')'
                     {
-                    otherlv_4=(Token)match(input,52,FOLLOW_52_in_ruleTryStatement5673); if (state.failed) return current;
+                    otherlv_4=(Token)match(input,52,FOLLOW_52_in_ruleTryStatement5674); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_4, grammarAccess.getTryStatementAccess().getCatchKeyword_4_0());
                           
                     }
-                    otherlv_5=(Token)match(input,17,FOLLOW_17_in_ruleTryStatement5685); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,17,FOLLOW_17_in_ruleTryStatement5686); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_5, grammarAccess.getTryStatementAccess().getLeftParenthesisKeyword_4_1());
@@ -7760,7 +7909,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getTryStatementAccess().getParamsParameterParserRuleCall_4_2_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleParameter_in_ruleTryStatement5706);
+                    pushFollow(FOLLOW_ruleParameter_in_ruleTryStatement5707);
                     lv_params_6_0=ruleParameter();
 
                     state._fsp--;
@@ -7784,7 +7933,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_7=(Token)match(input,18,FOLLOW_18_in_ruleTryStatement5718); if (state.failed) return current;
+                    otherlv_7=(Token)match(input,18,FOLLOW_18_in_ruleTryStatement5719); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_7, grammarAccess.getTryStatementAccess().getRightParenthesisKeyword_4_3());
@@ -7797,17 +7946,17 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             }
 
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2730:3: (otherlv_8= 'finally' ( (lv_finallyBlock_9_0= ruleStatementsBlock ) ) )?
-            int alt55=2;
-            int LA55_0 = input.LA(1);
+            int alt56=2;
+            int LA56_0 = input.LA(1);
 
-            if ( (LA55_0==53) ) {
-                alt55=1;
+            if ( (LA56_0==53) ) {
+                alt56=1;
             }
-            switch (alt55) {
+            switch (alt56) {
                 case 1 :
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2730:5: otherlv_8= 'finally' ( (lv_finallyBlock_9_0= ruleStatementsBlock ) )
                     {
-                    otherlv_8=(Token)match(input,53,FOLLOW_53_in_ruleTryStatement5733); if (state.failed) return current;
+                    otherlv_8=(Token)match(input,53,FOLLOW_53_in_ruleTryStatement5734); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_8, grammarAccess.getTryStatementAccess().getFinallyKeyword_5_0());
@@ -7824,7 +7973,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getTryStatementAccess().getFinallyBlockStatementsBlockParserRuleCall_5_1_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleStatementsBlock_in_ruleTryStatement5754);
+                    pushFollow(FOLLOW_ruleStatementsBlock_in_ruleTryStatement5755);
                     lv_finallyBlock_9_0=ruleStatementsBlock();
 
                     state._fsp--;
@@ -7891,7 +8040,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getIfBlockRule()); 
             }
-            pushFollow(FOLLOW_ruleIfBlock_in_entryRuleIfBlock5792);
+            pushFollow(FOLLOW_ruleIfBlock_in_entryRuleIfBlock5793);
             iv_ruleIfBlock=ruleIfBlock();
 
             state._fsp--;
@@ -7899,7 +8048,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleIfBlock; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleIfBlock5802); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleIfBlock5803); if (state.failed) return current;
 
             }
 
@@ -7933,79 +8082,26 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2773:1: ( ( (lv_statements_0_0= ruleStatement ) ) | this_StatementsBlock_1= ruleStatementsBlock )
             {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2773:1: ( ( (lv_statements_0_0= ruleStatement ) ) | this_StatementsBlock_1= ruleStatementsBlock )
-            int alt56=2;
-            int LA56_0 = input.LA(1);
+            int alt57=2;
+            int LA57_0 = input.LA(1);
 
-            if ( ((LA56_0>=RULE_ID && LA56_0<=RULE_INT)||LA56_0==17||LA56_0==22||LA56_0==29||(LA56_0>=38 && LA56_0<=40)||(LA56_0>=43 && LA56_0<=45)||(LA56_0>=48 && LA56_0<=49)||LA56_0==51||(LA56_0>=55 && LA56_0<=63)) ) {
-                alt56=1;
+            if ( ((LA57_0>=RULE_ID && LA57_0<=RULE_INT)||LA57_0==17||(LA57_0>=21 && LA57_0<=22)||LA57_0==24||LA57_0==26||LA57_0==29||(LA57_0>=38 && LA57_0<=40)||(LA57_0>=42 && LA57_0<=45)||(LA57_0>=48 && LA57_0<=49)||LA57_0==51||(LA57_0>=55 && LA57_0<=104)) ) {
+                alt57=1;
             }
-            else if ( (LA56_0==12) ) {
+            else if ( (LA57_0==12) ) {
                 switch ( input.LA(2) ) {
-                case RULE_ID:
-                    {
-                    int LA56_3 = input.LA(3);
-
-                    if ( (LA56_3==37) ) {
-                        alt56=1;
-                    }
-                    else if ( (LA56_3==15||LA56_3==24||LA56_3==26) ) {
-                        alt56=2;
-                    }
-                    else {
-                        if (state.backtracking>0) {state.failed=true; return current;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 56, 3, input);
-
-                        throw nvae;
-                    }
-                    }
-                    break;
-                case RULE_STRING:
-                    {
-                    int LA56_4 = input.LA(3);
-
-                    if ( (LA56_4==15||LA56_4==24||LA56_4==26) ) {
-                        alt56=2;
-                    }
-                    else if ( (LA56_4==37) ) {
-                        alt56=1;
-                    }
-                    else {
-                        if (state.backtracking>0) {state.failed=true; return current;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 56, 4, input);
-
-                        throw nvae;
-                    }
-                    }
-                    break;
-                case RULE_INT:
-                    {
-                    int LA56_5 = input.LA(3);
-
-                    if ( (LA56_5==15||LA56_5==24||LA56_5==26) ) {
-                        alt56=2;
-                    }
-                    else if ( (LA56_5==37) ) {
-                        alt56=1;
-                    }
-                    else {
-                        if (state.backtracking>0) {state.failed=true; return current;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 56, 5, input);
-
-                        throw nvae;
-                    }
-                    }
-                    break;
                 case 12:
                 case 13:
                 case 17:
+                case 21:
                 case 22:
+                case 24:
+                case 26:
                 case 29:
                 case 38:
                 case 39:
                 case 40:
+                case 42:
                 case 43:
                 case 44:
                 case 45:
@@ -8021,14 +8117,112 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                 case 61:
                 case 62:
                 case 63:
+                case 64:
+                case 65:
+                case 66:
+                case 67:
+                case 68:
+                case 69:
+                case 70:
+                case 71:
+                case 72:
+                case 73:
+                case 74:
+                case 75:
+                case 76:
+                case 77:
+                case 78:
+                case 79:
+                case 80:
+                case 81:
+                case 82:
+                case 83:
+                case 84:
+                case 85:
+                case 86:
+                case 87:
+                case 88:
+                case 89:
+                case 90:
+                case 91:
+                case 92:
+                case 93:
+                case 94:
+                case 95:
+                case 96:
+                case 97:
+                case 98:
+                case 99:
+                case 100:
+                case 101:
+                case 102:
+                case 103:
+                case 104:
                     {
-                    alt56=2;
+                    alt57=2;
+                    }
+                    break;
+                case RULE_STRING:
+                    {
+                    int LA57_4 = input.LA(3);
+
+                    if ( (LA57_4==15||LA57_4==24||LA57_4==26) ) {
+                        alt57=2;
+                    }
+                    else if ( (LA57_4==37) ) {
+                        alt57=1;
+                    }
+                    else {
+                        if (state.backtracking>0) {state.failed=true; return current;}
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 57, 4, input);
+
+                        throw nvae;
+                    }
+                    }
+                    break;
+                case RULE_INT:
+                    {
+                    int LA57_5 = input.LA(3);
+
+                    if ( (LA57_5==15||LA57_5==24||LA57_5==26) ) {
+                        alt57=2;
+                    }
+                    else if ( (LA57_5==37) ) {
+                        alt57=1;
+                    }
+                    else {
+                        if (state.backtracking>0) {state.failed=true; return current;}
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 57, 5, input);
+
+                        throw nvae;
+                    }
+                    }
+                    break;
+                case RULE_ID:
+                    {
+                    int LA57_6 = input.LA(3);
+
+                    if ( (LA57_6==37) ) {
+                        alt57=1;
+                    }
+                    else if ( (LA57_6==15||LA57_6==24||LA57_6==26) ) {
+                        alt57=2;
+                    }
+                    else {
+                        if (state.backtracking>0) {state.failed=true; return current;}
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 57, 6, input);
+
+                        throw nvae;
+                    }
                     }
                     break;
                 default:
                     if (state.backtracking>0) {state.failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("", 56, 2, input);
+                        new NoViableAltException("", 57, 2, input);
 
                     throw nvae;
                 }
@@ -8037,11 +8231,11 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 56, 0, input);
+                    new NoViableAltException("", 57, 0, input);
 
                 throw nvae;
             }
-            switch (alt56) {
+            switch (alt57) {
                 case 1 :
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2773:2: ( (lv_statements_0_0= ruleStatement ) )
                     {
@@ -8056,7 +8250,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getIfBlockAccess().getStatementsStatementParserRuleCall_0_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleStatement_in_ruleIfBlock5848);
+                    pushFollow(FOLLOW_ruleStatement_in_ruleIfBlock5849);
                     lv_statements_0_0=ruleStatement();
 
                     state._fsp--;
@@ -8096,7 +8290,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getIfBlockAccess().getStatementsBlockParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleStatementsBlock_in_ruleIfBlock5879);
+                    pushFollow(FOLLOW_ruleStatementsBlock_in_ruleIfBlock5880);
                     this_StatementsBlock_1=ruleStatementsBlock();
 
                     state._fsp--;
@@ -8147,7 +8341,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getStatementsBlockRule()); 
             }
-            pushFollow(FOLLOW_ruleStatementsBlock_in_entryRuleStatementsBlock5914);
+            pushFollow(FOLLOW_ruleStatementsBlock_in_entryRuleStatementsBlock5915);
             iv_ruleStatementsBlock=ruleStatementsBlock();
 
             state._fsp--;
@@ -8155,7 +8349,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleStatementsBlock; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleStatementsBlock5924); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleStatementsBlock5925); if (state.failed) return current;
 
             }
 
@@ -8191,24 +8385,24 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2825:1: (otherlv_0= '{' ( (lv_statements_1_0= ruleStatement ) )* otherlv_2= '}' )
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2825:3: otherlv_0= '{' ( (lv_statements_1_0= ruleStatement ) )* otherlv_2= '}'
             {
-            otherlv_0=(Token)match(input,12,FOLLOW_12_in_ruleStatementsBlock5961); if (state.failed) return current;
+            otherlv_0=(Token)match(input,12,FOLLOW_12_in_ruleStatementsBlock5962); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getStatementsBlockAccess().getLeftCurlyBracketKeyword_0());
                   
             }
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2829:1: ( (lv_statements_1_0= ruleStatement ) )*
-            loop57:
+            loop58:
             do {
-                int alt57=2;
-                int LA57_0 = input.LA(1);
+                int alt58=2;
+                int LA58_0 = input.LA(1);
 
-                if ( ((LA57_0>=RULE_ID && LA57_0<=RULE_INT)||LA57_0==12||LA57_0==17||LA57_0==22||LA57_0==29||(LA57_0>=38 && LA57_0<=40)||(LA57_0>=43 && LA57_0<=45)||(LA57_0>=48 && LA57_0<=49)||LA57_0==51||(LA57_0>=55 && LA57_0<=63)) ) {
-                    alt57=1;
+                if ( ((LA58_0>=RULE_ID && LA58_0<=RULE_INT)||LA58_0==12||LA58_0==17||(LA58_0>=21 && LA58_0<=22)||LA58_0==24||LA58_0==26||LA58_0==29||(LA58_0>=38 && LA58_0<=40)||(LA58_0>=42 && LA58_0<=45)||(LA58_0>=48 && LA58_0<=49)||LA58_0==51||(LA58_0>=55 && LA58_0<=104)) ) {
+                    alt58=1;
                 }
 
 
-                switch (alt57) {
+                switch (alt58) {
             	case 1 :
             	    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2830:1: (lv_statements_1_0= ruleStatement )
             	    {
@@ -8220,7 +8414,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getStatementsBlockAccess().getStatementsStatementParserRuleCall_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleStatement_in_ruleStatementsBlock5982);
+            	    pushFollow(FOLLOW_ruleStatement_in_ruleStatementsBlock5983);
             	    lv_statements_1_0=ruleStatement();
 
             	    state._fsp--;
@@ -8246,11 +8440,11 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop57;
+            	    break loop58;
                 }
             } while (true);
 
-            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleStatementsBlock5995); if (state.failed) return current;
+            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleStatementsBlock5996); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getStatementsBlockAccess().getRightCurlyBracketKeyword_2());
@@ -8293,7 +8487,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getParameterRule()); 
             }
-            pushFollow(FOLLOW_ruleParameter_in_entryRuleParameter6033);
+            pushFollow(FOLLOW_ruleParameter_in_entryRuleParameter6034);
             iv_ruleParameter=ruleParameter();
 
             state._fsp--;
@@ -8301,7 +8495,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleParameter; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleParameter6043); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleParameter6044); if (state.failed) return current;
 
             }
 
@@ -8341,17 +8535,17 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2874:2: (otherlv_0= 'const' )? ( (lv_name_1_0= RULE_ID ) ) ( (lv_rel_2_0= ruletypeRelation ) )? (otherlv_3= '=' ( (lv_lit_4_0= ruleexprOrObjectLiteral ) ) )?
             {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2874:2: (otherlv_0= 'const' )?
-            int alt58=2;
-            int LA58_0 = input.LA(1);
+            int alt59=2;
+            int LA59_0 = input.LA(1);
 
-            if ( (LA58_0==54) ) {
-                alt58=1;
+            if ( (LA59_0==54) ) {
+                alt59=1;
             }
-            switch (alt58) {
+            switch (alt59) {
                 case 1 :
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2874:4: otherlv_0= 'const'
                     {
-                    otherlv_0=(Token)match(input,54,FOLLOW_54_in_ruleParameter6081); if (state.failed) return current;
+                    otherlv_0=(Token)match(input,54,FOLLOW_54_in_ruleParameter6082); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_0, grammarAccess.getParameterAccess().getConstKeyword_0());
@@ -8369,7 +8563,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2879:1: (lv_name_1_0= RULE_ID )
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2880:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleParameter6100); if (state.failed) return current;
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleParameter6101); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_name_1_0, grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -8394,13 +8588,13 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             }
 
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2896:2: ( (lv_rel_2_0= ruletypeRelation ) )?
-            int alt59=2;
-            int LA59_0 = input.LA(1);
+            int alt60=2;
+            int LA60_0 = input.LA(1);
 
-            if ( (LA59_0==37) ) {
-                alt59=1;
+            if ( (LA60_0==37) ) {
+                alt60=1;
             }
-            switch (alt59) {
+            switch (alt60) {
                 case 1 :
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2897:1: (lv_rel_2_0= ruletypeRelation )
                     {
@@ -8412,7 +8606,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getParameterAccess().getRelTypeRelationParserRuleCall_2_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruletypeRelation_in_ruleParameter6126);
+                    pushFollow(FOLLOW_ruletypeRelation_in_ruleParameter6127);
                     lv_rel_2_0=ruletypeRelation();
 
                     state._fsp--;
@@ -8440,17 +8634,17 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             }
 
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2914:3: (otherlv_3= '=' ( (lv_lit_4_0= ruleexprOrObjectLiteral ) ) )?
-            int alt60=2;
-            int LA60_0 = input.LA(1);
+            int alt61=2;
+            int LA61_0 = input.LA(1);
 
-            if ( (LA60_0==24) ) {
-                alt60=1;
+            if ( (LA61_0==24) ) {
+                alt61=1;
             }
-            switch (alt60) {
+            switch (alt61) {
                 case 1 :
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2914:5: otherlv_3= '=' ( (lv_lit_4_0= ruleexprOrObjectLiteral ) )
                     {
-                    otherlv_3=(Token)match(input,24,FOLLOW_24_in_ruleParameter6140); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,24,FOLLOW_24_in_ruleParameter6141); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_3, grammarAccess.getParameterAccess().getEqualsSignKeyword_3_0());
@@ -8467,7 +8661,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getParameterAccess().getLitExprOrObjectLiteralParserRuleCall_3_1_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleexprOrObjectLiteral_in_ruleParameter6161);
+                    pushFollow(FOLLOW_ruleexprOrObjectLiteral_in_ruleParameter6162);
                     lv_lit_4_0=ruleexprOrObjectLiteral();
 
                     state._fsp--;
@@ -8534,7 +8728,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getParametersRule()); 
             }
-            pushFollow(FOLLOW_ruleParameters_in_entryRuleParameters6199);
+            pushFollow(FOLLOW_ruleParameters_in_entryRuleParameters6200);
             iv_ruleParameters=ruleParameters();
 
             state._fsp--;
@@ -8542,7 +8736,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleParameters; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleParameters6209); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleParameters6210); if (state.failed) return current;
 
             }
 
@@ -8586,22 +8780,22 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2957:1: ( ( ( (lv_elements_0_0= ruleParameter ) ) (otherlv_1= ',' ( (lv_elements_2_0= ruleParameter ) ) )* )? | ( ( ( (lv_elements_3_0= ruleParameter ) ) (otherlv_4= ',' ( (lv_elements_5_0= ruleParameter ) ) )* otherlv_6= ',' )? ( (lv_name_7_0= RULE_ID ) ) ( (lv_rel_8_0= ruletypeRelation ) )? ) )
             {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2957:1: ( ( ( (lv_elements_0_0= ruleParameter ) ) (otherlv_1= ',' ( (lv_elements_2_0= ruleParameter ) ) )* )? | ( ( ( (lv_elements_3_0= ruleParameter ) ) (otherlv_4= ',' ( (lv_elements_5_0= ruleParameter ) ) )* otherlv_6= ',' )? ( (lv_name_7_0= RULE_ID ) ) ( (lv_rel_8_0= ruletypeRelation ) )? ) )
-            int alt66=2;
+            int alt67=2;
             switch ( input.LA(1) ) {
             case 54:
                 {
-                int LA66_1 = input.LA(2);
+                int LA67_1 = input.LA(2);
 
-                if ( (synpred79_InternalAS3()) ) {
-                    alt66=1;
+                if ( (synpred80_InternalAS3()) ) {
+                    alt67=1;
                 }
                 else if ( (true) ) {
-                    alt66=2;
+                    alt67=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("", 66, 1, input);
+                        new NoViableAltException("", 67, 1, input);
 
                     throw nvae;
                 }
@@ -8609,18 +8803,18 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                 break;
             case RULE_ID:
                 {
-                int LA66_2 = input.LA(2);
+                int LA67_2 = input.LA(2);
 
-                if ( (synpred79_InternalAS3()) ) {
-                    alt66=1;
+                if ( (synpred80_InternalAS3()) ) {
+                    alt67=1;
                 }
                 else if ( (true) ) {
-                    alt66=2;
+                    alt67=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("", 66, 2, input);
+                        new NoViableAltException("", 67, 2, input);
 
                     throw nvae;
                 }
@@ -8629,29 +8823,29 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             case EOF:
             case 18:
                 {
-                alt66=1;
+                alt67=1;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 66, 0, input);
+                    new NoViableAltException("", 67, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt66) {
+            switch (alt67) {
                 case 1 :
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2957:2: ( ( (lv_elements_0_0= ruleParameter ) ) (otherlv_1= ',' ( (lv_elements_2_0= ruleParameter ) ) )* )?
                     {
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2957:2: ( ( (lv_elements_0_0= ruleParameter ) ) (otherlv_1= ',' ( (lv_elements_2_0= ruleParameter ) ) )* )?
-                    int alt62=2;
-                    int LA62_0 = input.LA(1);
+                    int alt63=2;
+                    int LA63_0 = input.LA(1);
 
-                    if ( (LA62_0==RULE_ID||LA62_0==54) ) {
-                        alt62=1;
+                    if ( (LA63_0==RULE_ID||LA63_0==54) ) {
+                        alt63=1;
                     }
-                    switch (alt62) {
+                    switch (alt63) {
                         case 1 :
                             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2957:3: ( (lv_elements_0_0= ruleParameter ) ) (otherlv_1= ',' ( (lv_elements_2_0= ruleParameter ) ) )*
                             {
@@ -8666,7 +8860,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                               	        newCompositeNode(grammarAccess.getParametersAccess().getElementsParameterParserRuleCall_0_0_0()); 
                               	    
                             }
-                            pushFollow(FOLLOW_ruleParameter_in_ruleParameters6256);
+                            pushFollow(FOLLOW_ruleParameter_in_ruleParameters6257);
                             lv_elements_0_0=ruleParameter();
 
                             state._fsp--;
@@ -8691,21 +8885,21 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                             }
 
                             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2975:2: (otherlv_1= ',' ( (lv_elements_2_0= ruleParameter ) ) )*
-                            loop61:
+                            loop62:
                             do {
-                                int alt61=2;
-                                int LA61_0 = input.LA(1);
+                                int alt62=2;
+                                int LA62_0 = input.LA(1);
 
-                                if ( (LA61_0==23) ) {
-                                    alt61=1;
+                                if ( (LA62_0==23) ) {
+                                    alt62=1;
                                 }
 
 
-                                switch (alt61) {
+                                switch (alt62) {
                             	case 1 :
                             	    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2975:4: otherlv_1= ',' ( (lv_elements_2_0= ruleParameter ) )
                             	    {
-                            	    otherlv_1=(Token)match(input,23,FOLLOW_23_in_ruleParameters6269); if (state.failed) return current;
+                            	    otherlv_1=(Token)match(input,23,FOLLOW_23_in_ruleParameters6270); if (state.failed) return current;
                             	    if ( state.backtracking==0 ) {
 
                             	          	newLeafNode(otherlv_1, grammarAccess.getParametersAccess().getCommaKeyword_0_1_0());
@@ -8722,7 +8916,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                             	      	        newCompositeNode(grammarAccess.getParametersAccess().getElementsParameterParserRuleCall_0_1_1_0()); 
                             	      	    
                             	    }
-                            	    pushFollow(FOLLOW_ruleParameter_in_ruleParameters6290);
+                            	    pushFollow(FOLLOW_ruleParameter_in_ruleParameters6291);
                             	    lv_elements_2_0=ruleParameter();
 
                             	    state._fsp--;
@@ -8751,7 +8945,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                             	    break;
 
                             	default :
-                            	    break loop61;
+                            	    break loop62;
                                 }
                             } while (true);
 
@@ -8771,31 +8965,31 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2998:7: ( ( (lv_elements_3_0= ruleParameter ) ) (otherlv_4= ',' ( (lv_elements_5_0= ruleParameter ) ) )* otherlv_6= ',' )? ( (lv_name_7_0= RULE_ID ) ) ( (lv_rel_8_0= ruletypeRelation ) )?
                     {
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2998:7: ( ( (lv_elements_3_0= ruleParameter ) ) (otherlv_4= ',' ( (lv_elements_5_0= ruleParameter ) ) )* otherlv_6= ',' )?
-                    int alt64=2;
-                    int LA64_0 = input.LA(1);
+                    int alt65=2;
+                    int LA65_0 = input.LA(1);
 
-                    if ( (LA64_0==54) ) {
-                        alt64=1;
+                    if ( (LA65_0==54) ) {
+                        alt65=1;
                     }
-                    else if ( (LA64_0==RULE_ID) ) {
-                        int LA64_2 = input.LA(2);
+                    else if ( (LA65_0==RULE_ID) ) {
+                        int LA65_2 = input.LA(2);
 
-                        if ( (LA64_2==37) ) {
-                            int LA64_3 = input.LA(3);
+                        if ( (LA65_2==37) ) {
+                            int LA65_3 = input.LA(3);
 
-                            if ( (LA64_3==RULE_ID) ) {
-                                int LA64_5 = input.LA(4);
+                            if ( (LA65_3==RULE_ID) ) {
+                                int LA65_5 = input.LA(4);
 
-                                if ( ((LA64_5>=23 && LA64_5<=24)) ) {
-                                    alt64=1;
+                                if ( ((LA65_5>=23 && LA65_5<=24)) ) {
+                                    alt65=1;
                                 }
                             }
                         }
-                        else if ( ((LA64_2>=23 && LA64_2<=24)) ) {
-                            alt64=1;
+                        else if ( ((LA65_2>=23 && LA65_2<=24)) ) {
+                            alt65=1;
                         }
                     }
-                    switch (alt64) {
+                    switch (alt65) {
                         case 1 :
                             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2998:8: ( (lv_elements_3_0= ruleParameter ) ) (otherlv_4= ',' ( (lv_elements_5_0= ruleParameter ) ) )* otherlv_6= ','
                             {
@@ -8810,7 +9004,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                               	        newCompositeNode(grammarAccess.getParametersAccess().getElementsParameterParserRuleCall_1_0_0_0()); 
                               	    
                             }
-                            pushFollow(FOLLOW_ruleParameter_in_ruleParameters6323);
+                            pushFollow(FOLLOW_ruleParameter_in_ruleParameters6324);
                             lv_elements_3_0=ruleParameter();
 
                             state._fsp--;
@@ -8835,28 +9029,28 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                             }
 
                             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3016:2: (otherlv_4= ',' ( (lv_elements_5_0= ruleParameter ) ) )*
-                            loop63:
+                            loop64:
                             do {
-                                int alt63=2;
-                                int LA63_0 = input.LA(1);
+                                int alt64=2;
+                                int LA64_0 = input.LA(1);
 
-                                if ( (LA63_0==23) ) {
-                                    int LA63_1 = input.LA(2);
+                                if ( (LA64_0==23) ) {
+                                    int LA64_1 = input.LA(2);
 
-                                    if ( (LA63_1==54) ) {
-                                        alt63=1;
+                                    if ( (LA64_1==54) ) {
+                                        alt64=1;
                                     }
-                                    else if ( (LA63_1==RULE_ID) ) {
-                                        int LA63_3 = input.LA(3);
+                                    else if ( (LA64_1==RULE_ID) ) {
+                                        int LA64_3 = input.LA(3);
 
-                                        if ( (LA63_3==37) ) {
-                                            int LA63_4 = input.LA(4);
+                                        if ( (LA64_3==37) ) {
+                                            int LA64_4 = input.LA(4);
 
-                                            if ( (LA63_4==RULE_ID) ) {
-                                                int LA63_6 = input.LA(5);
+                                            if ( (LA64_4==RULE_ID) ) {
+                                                int LA64_6 = input.LA(5);
 
-                                                if ( ((LA63_6>=23 && LA63_6<=24)) ) {
-                                                    alt63=1;
+                                                if ( ((LA64_6>=23 && LA64_6<=24)) ) {
+                                                    alt64=1;
                                                 }
 
 
@@ -8864,8 +9058,8 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
 
                                         }
-                                        else if ( ((LA63_3>=23 && LA63_3<=24)) ) {
-                                            alt63=1;
+                                        else if ( ((LA64_3>=23 && LA64_3<=24)) ) {
+                                            alt64=1;
                                         }
 
 
@@ -8875,11 +9069,11 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                                 }
 
 
-                                switch (alt63) {
+                                switch (alt64) {
                             	case 1 :
                             	    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3016:4: otherlv_4= ',' ( (lv_elements_5_0= ruleParameter ) )
                             	    {
-                            	    otherlv_4=(Token)match(input,23,FOLLOW_23_in_ruleParameters6336); if (state.failed) return current;
+                            	    otherlv_4=(Token)match(input,23,FOLLOW_23_in_ruleParameters6337); if (state.failed) return current;
                             	    if ( state.backtracking==0 ) {
 
                             	          	newLeafNode(otherlv_4, grammarAccess.getParametersAccess().getCommaKeyword_1_0_1_0());
@@ -8896,7 +9090,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                             	      	        newCompositeNode(grammarAccess.getParametersAccess().getElementsParameterParserRuleCall_1_0_1_1_0()); 
                             	      	    
                             	    }
-                            	    pushFollow(FOLLOW_ruleParameter_in_ruleParameters6357);
+                            	    pushFollow(FOLLOW_ruleParameter_in_ruleParameters6358);
                             	    lv_elements_5_0=ruleParameter();
 
                             	    state._fsp--;
@@ -8925,11 +9119,11 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                             	    break;
 
                             	default :
-                            	    break loop63;
+                            	    break loop64;
                                 }
                             } while (true);
 
-                            otherlv_6=(Token)match(input,23,FOLLOW_23_in_ruleParameters6371); if (state.failed) return current;
+                            otherlv_6=(Token)match(input,23,FOLLOW_23_in_ruleParameters6372); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                   	newLeafNode(otherlv_6, grammarAccess.getParametersAccess().getCommaKeyword_1_0_2());
@@ -8947,7 +9141,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3043:1: (lv_name_7_0= RULE_ID )
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3044:3: lv_name_7_0= RULE_ID
                     {
-                    lv_name_7_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleParameters6390); if (state.failed) return current;
+                    lv_name_7_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleParameters6391); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			newLeafNode(lv_name_7_0, grammarAccess.getParametersAccess().getNameIDTerminalRuleCall_1_1_0()); 
@@ -8972,13 +9166,13 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     }
 
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3060:2: ( (lv_rel_8_0= ruletypeRelation ) )?
-                    int alt65=2;
-                    int LA65_0 = input.LA(1);
+                    int alt66=2;
+                    int LA66_0 = input.LA(1);
 
-                    if ( (LA65_0==37) ) {
-                        alt65=1;
+                    if ( (LA66_0==37) ) {
+                        alt66=1;
                     }
-                    switch (alt65) {
+                    switch (alt66) {
                         case 1 :
                             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3061:1: (lv_rel_8_0= ruletypeRelation )
                             {
@@ -8990,7 +9184,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                               	        newCompositeNode(grammarAccess.getParametersAccess().getRelTypeRelationParserRuleCall_1_2_0()); 
                               	    
                             }
-                            pushFollow(FOLLOW_ruletypeRelation_in_ruleParameters6416);
+                            pushFollow(FOLLOW_ruletypeRelation_in_ruleParameters6417);
                             lv_rel_8_0=ruletypeRelation();
 
                             state._fsp--;
@@ -9060,7 +9254,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getTypeRelationRule()); 
             }
-            pushFollow(FOLLOW_ruletypeRelation_in_entryRuletypeRelation6454);
+            pushFollow(FOLLOW_ruletypeRelation_in_entryRuletypeRelation6455);
             iv_ruletypeRelation=ruletypeRelation();
 
             state._fsp--;
@@ -9068,7 +9262,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruletypeRelation; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuletypeRelation6464); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuletypeRelation6465); if (state.failed) return current;
 
             }
 
@@ -9102,7 +9296,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3099:1: (otherlv_0= ':' ( (otherlv_1= RULE_ID ) ) )
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3099:3: otherlv_0= ':' ( (otherlv_1= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,37,FOLLOW_37_in_ruletypeRelation6501); if (state.failed) return current;
+            otherlv_0=(Token)match(input,37,FOLLOW_37_in_ruletypeRelation6502); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getTypeRelationAccess().getColonKeyword_0());
@@ -9126,7 +9320,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
               	        }
                       
             }
-            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruletypeRelation6525); if (state.failed) return current;
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruletypeRelation6526); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               		newLeafNode(otherlv_1, grammarAccess.getTypeRelationAccess().getTypeTypeCrossReference_1_0()); 
@@ -9175,7 +9369,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getObjectLiteralRule()); 
             }
-            pushFollow(FOLLOW_ruleobjectLiteral_in_entryRuleobjectLiteral6561);
+            pushFollow(FOLLOW_ruleobjectLiteral_in_entryRuleobjectLiteral6562);
             iv_ruleobjectLiteral=ruleobjectLiteral();
 
             state._fsp--;
@@ -9183,7 +9377,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleobjectLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleobjectLiteral6571); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleobjectLiteral6572); if (state.failed) return current;
 
             }
 
@@ -9219,7 +9413,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3140:1: (otherlv_0= '{' this_objectFields_1= ruleobjectFields otherlv_2= '}' )
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3140:3: otherlv_0= '{' this_objectFields_1= ruleobjectFields otherlv_2= '}'
             {
-            otherlv_0=(Token)match(input,12,FOLLOW_12_in_ruleobjectLiteral6608); if (state.failed) return current;
+            otherlv_0=(Token)match(input,12,FOLLOW_12_in_ruleobjectLiteral6609); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getObjectLiteralAccess().getLeftCurlyBracketKeyword_0());
@@ -9235,7 +9429,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       newCompositeNode(grammarAccess.getObjectLiteralAccess().getObjectFieldsParserRuleCall_1()); 
                   
             }
-            pushFollow(FOLLOW_ruleobjectFields_in_ruleobjectLiteral6633);
+            pushFollow(FOLLOW_ruleobjectFields_in_ruleobjectLiteral6634);
             this_objectFields_1=ruleobjectFields();
 
             state._fsp--;
@@ -9246,7 +9440,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleobjectLiteral6644); if (state.failed) return current;
+            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleobjectLiteral6645); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getObjectLiteralAccess().getRightCurlyBracketKeyword_2());
@@ -9289,7 +9483,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getObjectFieldsRule()); 
             }
-            pushFollow(FOLLOW_ruleobjectFields_in_entryRuleobjectFields6680);
+            pushFollow(FOLLOW_ruleobjectFields_in_entryRuleobjectFields6681);
             iv_ruleobjectFields=ruleobjectFields();
 
             state._fsp--;
@@ -9297,7 +9491,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleobjectFields; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleobjectFields6690); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleobjectFields6691); if (state.failed) return current;
 
             }
 
@@ -9345,7 +9539,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getObjectFieldsAccess().getFieldsObjectFieldParserRuleCall_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleobjectField_in_ruleobjectFields6736);
+            pushFollow(FOLLOW_ruleobjectField_in_ruleobjectFields6737);
             lv_fields_0_0=ruleobjectField();
 
             state._fsp--;
@@ -9370,21 +9564,21 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             }
 
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3199:2: (otherlv_1= ',' ( (lv_fields_2_0= ruleobjectField ) ) )*
-            loop67:
+            loop68:
             do {
-                int alt67=2;
-                int LA67_0 = input.LA(1);
+                int alt68=2;
+                int LA68_0 = input.LA(1);
 
-                if ( (LA67_0==23) ) {
-                    alt67=1;
+                if ( (LA68_0==23) ) {
+                    alt68=1;
                 }
 
 
-                switch (alt67) {
+                switch (alt68) {
             	case 1 :
             	    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3199:4: otherlv_1= ',' ( (lv_fields_2_0= ruleobjectField ) )
             	    {
-            	    otherlv_1=(Token)match(input,23,FOLLOW_23_in_ruleobjectFields6749); if (state.failed) return current;
+            	    otherlv_1=(Token)match(input,23,FOLLOW_23_in_ruleobjectFields6750); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_1, grammarAccess.getObjectFieldsAccess().getCommaKeyword_1_0());
@@ -9401,7 +9595,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getObjectFieldsAccess().getFieldsObjectFieldParserRuleCall_1_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleobjectField_in_ruleobjectFields6770);
+            	    pushFollow(FOLLOW_ruleobjectField_in_ruleobjectFields6771);
             	    lv_fields_2_0=ruleobjectField();
 
             	    state._fsp--;
@@ -9430,7 +9624,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop67;
+            	    break loop68;
                 }
             } while (true);
 
@@ -9471,7 +9665,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getObjectFieldRule()); 
             }
-            pushFollow(FOLLOW_ruleobjectField_in_entryRuleobjectField6808);
+            pushFollow(FOLLOW_ruleobjectField_in_entryRuleobjectField6809);
             iv_ruleobjectField=ruleobjectField();
 
             state._fsp--;
@@ -9479,7 +9673,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleobjectField; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleobjectField6818); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleobjectField6819); if (state.failed) return current;
 
             }
 
@@ -9521,45 +9715,45 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3242:1: ( (this_ID_0= RULE_ID otherlv_1= ':' this_exprOrObjectLiteral_2= ruleexprOrObjectLiteral ) | (this_STRING_3= RULE_STRING otherlv_4= ':' this_exprOrObjectLiteral_5= ruleexprOrObjectLiteral ) | (this_INT_6= RULE_INT otherlv_7= ':' this_exprOrObjectLiteral_8= ruleexprOrObjectLiteral ) )
             {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3242:1: ( (this_ID_0= RULE_ID otherlv_1= ':' this_exprOrObjectLiteral_2= ruleexprOrObjectLiteral ) | (this_STRING_3= RULE_STRING otherlv_4= ':' this_exprOrObjectLiteral_5= ruleexprOrObjectLiteral ) | (this_INT_6= RULE_INT otherlv_7= ':' this_exprOrObjectLiteral_8= ruleexprOrObjectLiteral ) )
-            int alt68=3;
+            int alt69=3;
             switch ( input.LA(1) ) {
             case RULE_ID:
                 {
-                alt68=1;
+                alt69=1;
                 }
                 break;
             case RULE_STRING:
                 {
-                alt68=2;
+                alt69=2;
                 }
                 break;
             case RULE_INT:
                 {
-                alt68=3;
+                alt69=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 68, 0, input);
+                    new NoViableAltException("", 69, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt68) {
+            switch (alt69) {
                 case 1 :
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3242:2: (this_ID_0= RULE_ID otherlv_1= ':' this_exprOrObjectLiteral_2= ruleexprOrObjectLiteral )
                     {
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3242:2: (this_ID_0= RULE_ID otherlv_1= ':' this_exprOrObjectLiteral_2= ruleexprOrObjectLiteral )
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3242:3: this_ID_0= RULE_ID otherlv_1= ':' this_exprOrObjectLiteral_2= ruleexprOrObjectLiteral
                     {
-                    this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleobjectField6855); if (state.failed) return current;
+                    this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleobjectField6856); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
                        
                           newLeafNode(this_ID_0, grammarAccess.getObjectFieldAccess().getIDTerminalRuleCall_0_0()); 
                           
                     }
-                    otherlv_1=(Token)match(input,37,FOLLOW_37_in_ruleobjectField6866); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,37,FOLLOW_37_in_ruleobjectField6867); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getObjectFieldAccess().getColonKeyword_0_1());
@@ -9575,7 +9769,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getObjectFieldAccess().getExprOrObjectLiteralParserRuleCall_0_2()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleexprOrObjectLiteral_in_ruleobjectField6891);
+                    pushFollow(FOLLOW_ruleexprOrObjectLiteral_in_ruleobjectField6892);
                     this_exprOrObjectLiteral_2=ruleexprOrObjectLiteral();
 
                     state._fsp--;
@@ -9598,13 +9792,13 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3263:6: (this_STRING_3= RULE_STRING otherlv_4= ':' this_exprOrObjectLiteral_5= ruleexprOrObjectLiteral )
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3263:7: this_STRING_3= RULE_STRING otherlv_4= ':' this_exprOrObjectLiteral_5= ruleexprOrObjectLiteral
                     {
-                    this_STRING_3=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleobjectField6909); if (state.failed) return current;
+                    this_STRING_3=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleobjectField6910); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
                        
                           newLeafNode(this_STRING_3, grammarAccess.getObjectFieldAccess().getSTRINGTerminalRuleCall_1_0()); 
                           
                     }
-                    otherlv_4=(Token)match(input,37,FOLLOW_37_in_ruleobjectField6920); if (state.failed) return current;
+                    otherlv_4=(Token)match(input,37,FOLLOW_37_in_ruleobjectField6921); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_4, grammarAccess.getObjectFieldAccess().getColonKeyword_1_1());
@@ -9620,7 +9814,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getObjectFieldAccess().getExprOrObjectLiteralParserRuleCall_1_2()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleexprOrObjectLiteral_in_ruleobjectField6945);
+                    pushFollow(FOLLOW_ruleexprOrObjectLiteral_in_ruleobjectField6946);
                     this_exprOrObjectLiteral_5=ruleexprOrObjectLiteral();
 
                     state._fsp--;
@@ -9643,13 +9837,13 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3284:6: (this_INT_6= RULE_INT otherlv_7= ':' this_exprOrObjectLiteral_8= ruleexprOrObjectLiteral )
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3284:7: this_INT_6= RULE_INT otherlv_7= ':' this_exprOrObjectLiteral_8= ruleexprOrObjectLiteral
                     {
-                    this_INT_6=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleobjectField6963); if (state.failed) return current;
+                    this_INT_6=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleobjectField6964); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
                        
                           newLeafNode(this_INT_6, grammarAccess.getObjectFieldAccess().getINTTerminalRuleCall_2_0()); 
                           
                     }
-                    otherlv_7=(Token)match(input,37,FOLLOW_37_in_ruleobjectField6974); if (state.failed) return current;
+                    otherlv_7=(Token)match(input,37,FOLLOW_37_in_ruleobjectField6975); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_7, grammarAccess.getObjectFieldAccess().getColonKeyword_2_1());
@@ -9665,7 +9859,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getObjectFieldAccess().getExprOrObjectLiteralParserRuleCall_2_2()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleexprOrObjectLiteral_in_ruleobjectField6999);
+                    pushFollow(FOLLOW_ruleexprOrObjectLiteral_in_ruleobjectField7000);
                     this_exprOrObjectLiteral_8=ruleexprOrObjectLiteral();
 
                     state._fsp--;
@@ -9719,7 +9913,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getExprOrObjectLiteralRule()); 
             }
-            pushFollow(FOLLOW_ruleexprOrObjectLiteral_in_entryRuleexprOrObjectLiteral7035);
+            pushFollow(FOLLOW_ruleexprOrObjectLiteral_in_entryRuleexprOrObjectLiteral7036);
             iv_ruleexprOrObjectLiteral=ruleexprOrObjectLiteral();
 
             state._fsp--;
@@ -9727,7 +9921,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleexprOrObjectLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleexprOrObjectLiteral7045); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleexprOrObjectLiteral7046); if (state.failed) return current;
 
             }
 
@@ -9761,23 +9955,23 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3325:1: (this_Expression_0= ruleExpression | this_objectLiteral_1= ruleobjectLiteral )
             {
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3325:1: (this_Expression_0= ruleExpression | this_objectLiteral_1= ruleobjectLiteral )
-            int alt69=2;
-            int LA69_0 = input.LA(1);
+            int alt70=2;
+            int LA70_0 = input.LA(1);
 
-            if ( ((LA69_0>=RULE_ID && LA69_0<=RULE_INT)||LA69_0==17||LA69_0==22||(LA69_0>=55 && LA69_0<=59)) ) {
-                alt69=1;
+            if ( ((LA70_0>=RULE_ID && LA70_0<=RULE_INT)||LA70_0==17||(LA70_0>=21 && LA70_0<=22)||LA70_0==24||LA70_0==26||LA70_0==42||(LA70_0>=55 && LA70_0<=100)) ) {
+                alt70=1;
             }
-            else if ( (LA69_0==12) ) {
-                alt69=2;
+            else if ( (LA70_0==12) ) {
+                alt70=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 69, 0, input);
+                    new NoViableAltException("", 70, 0, input);
 
                 throw nvae;
             }
-            switch (alt69) {
+            switch (alt70) {
                 case 1 :
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3326:2: this_Expression_0= ruleExpression
                     {
@@ -9791,7 +9985,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getExprOrObjectLiteralAccess().getExpressionParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleexprOrObjectLiteral7095);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleexprOrObjectLiteral7096);
                     this_Expression_0=ruleExpression();
 
                     state._fsp--;
@@ -9818,7 +10012,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getExprOrObjectLiteralAccess().getObjectLiteralParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleobjectLiteral_in_ruleexprOrObjectLiteral7125);
+                    pushFollow(FOLLOW_ruleobjectLiteral_in_ruleexprOrObjectLiteral7126);
                     this_objectLiteral_1=ruleobjectLiteral();
 
                     state._fsp--;
@@ -9869,7 +10063,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleExpression_in_entryRuleExpression7162);
+            pushFollow(FOLLOW_ruleExpression_in_entryRuleExpression7163);
             iv_ruleExpression=ruleExpression();
 
             state._fsp--;
@@ -9877,7 +10071,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExpression7172); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExpression7173); if (state.failed) return current;
 
             }
 
@@ -9918,7 +10112,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       newCompositeNode(grammarAccess.getExpressionAccess().getAssignmentParserRuleCall()); 
                   
             }
-            pushFollow(FOLLOW_ruleAssignment_in_ruleExpression7221);
+            pushFollow(FOLLOW_ruleAssignment_in_ruleExpression7222);
             this_Assignment_0=ruleAssignment();
 
             state._fsp--;
@@ -9963,7 +10157,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getAssignmentRule()); 
             }
-            pushFollow(FOLLOW_ruleAssignment_in_entryRuleAssignment7255);
+            pushFollow(FOLLOW_ruleAssignment_in_entryRuleAssignment7256);
             iv_ruleAssignment=ruleAssignment();
 
             state._fsp--;
@@ -9971,7 +10165,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleAssignment; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAssignment7265); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAssignment7266); if (state.failed) return current;
 
             }
 
@@ -10018,7 +10212,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       newCompositeNode(grammarAccess.getAssignmentAccess().getSelectionExpressionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleSelectionExpression_in_ruleAssignment7315);
+            pushFollow(FOLLOW_ruleSelectionExpression_in_ruleAssignment7316);
             this_SelectionExpression_0=ruleSelectionExpression();
 
             state._fsp--;
@@ -10030,13 +10224,13 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                   
             }
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3418:1: ( () otherlv_2= '=' ( (lv_right_3_0= ruleExpression ) ) )?
-            int alt70=2;
-            int LA70_0 = input.LA(1);
+            int alt71=2;
+            int LA71_0 = input.LA(1);
 
-            if ( (LA70_0==24) ) {
-                alt70=1;
+            if ( (LA71_0==24) ) {
+                alt71=1;
             }
-            switch (alt70) {
+            switch (alt71) {
                 case 1 :
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3418:2: () otherlv_2= '=' ( (lv_right_3_0= ruleExpression ) )
                     {
@@ -10058,7 +10252,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_2=(Token)match(input,24,FOLLOW_24_in_ruleAssignment7339); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,24,FOLLOW_24_in_ruleAssignment7340); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getAssignmentAccess().getEqualsSignKeyword_1_1());
@@ -10075,7 +10269,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getAssignmentAccess().getRightExpressionParserRuleCall_1_2_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleAssignment7360);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleAssignment7361);
                     lv_right_3_0=ruleExpression();
 
                     state._fsp--;
@@ -10142,7 +10336,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSelectionExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleSelectionExpression_in_entryRuleSelectionExpression7398);
+            pushFollow(FOLLOW_ruleSelectionExpression_in_entryRuleSelectionExpression7399);
             iv_ruleSelectionExpression=ruleSelectionExpression();
 
             state._fsp--;
@@ -10150,7 +10344,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleSelectionExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSelectionExpression7408); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSelectionExpression7409); if (state.failed) return current;
 
             }
 
@@ -10203,7 +10397,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       newCompositeNode(grammarAccess.getSelectionExpressionAccess().getTerminalExpressionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleTerminalExpression_in_ruleSelectionExpression7458);
+            pushFollow(FOLLOW_ruleTerminalExpression_in_ruleSelectionExpression7459);
             this_TerminalExpression_0=ruleTerminalExpression();
 
             state._fsp--;
@@ -10215,17 +10409,17 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                   
             }
             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3482:1: ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ( ( (lv_methodinvocation_4_0= '(' ) ) ( ( (lv_args_5_0= ruleExpression ) ) (otherlv_6= ',' ( (lv_args_7_0= ruleExpression ) ) )* )? otherlv_8= ')' )? )*
-            loop74:
+            loop75:
             do {
-                int alt74=2;
-                int LA74_0 = input.LA(1);
+                int alt75=2;
+                int LA75_0 = input.LA(1);
 
-                if ( (LA74_0==26) ) {
-                    alt74=1;
+                if ( (LA75_0==26) ) {
+                    alt75=1;
                 }
 
 
-                switch (alt74) {
+                switch (alt75) {
             	case 1 :
             	    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3482:2: () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ( ( (lv_methodinvocation_4_0= '(' ) ) ( ( (lv_args_5_0= ruleExpression ) ) (otherlv_6= ',' ( (lv_args_7_0= ruleExpression ) ) )* )? otherlv_8= ')' )?
             	    {
@@ -10247,7 +10441,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_2=(Token)match(input,26,FOLLOW_26_in_ruleSelectionExpression7482); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,26,FOLLOW_26_in_ruleSelectionExpression7483); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_2, grammarAccess.getSelectionExpressionAccess().getFullStopKeyword_1_1());
@@ -10271,7 +10465,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	      	        }
             	              
             	    }
-            	    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSelectionExpression7506); if (state.failed) return current;
+            	    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSelectionExpression7507); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      		newLeafNode(otherlv_3, grammarAccess.getSelectionExpressionAccess().getMemberMemberCrossReference_1_2_0()); 
@@ -10284,13 +10478,13 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	    }
 
             	    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3511:2: ( ( (lv_methodinvocation_4_0= '(' ) ) ( ( (lv_args_5_0= ruleExpression ) ) (otherlv_6= ',' ( (lv_args_7_0= ruleExpression ) ) )* )? otherlv_8= ')' )?
-            	    int alt73=2;
-            	    int LA73_0 = input.LA(1);
+            	    int alt74=2;
+            	    int LA74_0 = input.LA(1);
 
-            	    if ( (LA73_0==17) ) {
-            	        alt73=1;
+            	    if ( (LA74_0==17) ) {
+            	        alt74=1;
             	    }
-            	    switch (alt73) {
+            	    switch (alt74) {
             	        case 1 :
             	            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3511:3: ( (lv_methodinvocation_4_0= '(' ) ) ( ( (lv_args_5_0= ruleExpression ) ) (otherlv_6= ',' ( (lv_args_7_0= ruleExpression ) ) )* )? otherlv_8= ')'
             	            {
@@ -10300,7 +10494,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3512:1: (lv_methodinvocation_4_0= '(' )
             	            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3513:3: lv_methodinvocation_4_0= '('
             	            {
-            	            lv_methodinvocation_4_0=(Token)match(input,17,FOLLOW_17_in_ruleSelectionExpression7525); if (state.failed) return current;
+            	            lv_methodinvocation_4_0=(Token)match(input,17,FOLLOW_17_in_ruleSelectionExpression7526); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                      newLeafNode(lv_methodinvocation_4_0, grammarAccess.getSelectionExpressionAccess().getMethodinvocationLeftParenthesisKeyword_1_3_0_0());
@@ -10321,13 +10515,13 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	            }
 
             	            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3526:2: ( ( (lv_args_5_0= ruleExpression ) ) (otherlv_6= ',' ( (lv_args_7_0= ruleExpression ) ) )* )?
-            	            int alt72=2;
-            	            int LA72_0 = input.LA(1);
+            	            int alt73=2;
+            	            int LA73_0 = input.LA(1);
 
-            	            if ( ((LA72_0>=RULE_ID && LA72_0<=RULE_INT)||LA72_0==17||LA72_0==22||(LA72_0>=55 && LA72_0<=59)) ) {
-            	                alt72=1;
+            	            if ( ((LA73_0>=RULE_ID && LA73_0<=RULE_INT)||LA73_0==17||(LA73_0>=21 && LA73_0<=22)||LA73_0==24||LA73_0==26||LA73_0==42||(LA73_0>=55 && LA73_0<=100)) ) {
+            	                alt73=1;
             	            }
-            	            switch (alt72) {
+            	            switch (alt73) {
             	                case 1 :
             	                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3526:3: ( (lv_args_5_0= ruleExpression ) ) (otherlv_6= ',' ( (lv_args_7_0= ruleExpression ) ) )*
             	                    {
@@ -10342,7 +10536,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	                      	        newCompositeNode(grammarAccess.getSelectionExpressionAccess().getArgsExpressionParserRuleCall_1_3_1_0_0()); 
             	                      	    
             	                    }
-            	                    pushFollow(FOLLOW_ruleExpression_in_ruleSelectionExpression7560);
+            	                    pushFollow(FOLLOW_ruleExpression_in_ruleSelectionExpression7561);
             	                    lv_args_5_0=ruleExpression();
 
             	                    state._fsp--;
@@ -10367,21 +10561,21 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	                    }
 
             	                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3544:2: (otherlv_6= ',' ( (lv_args_7_0= ruleExpression ) ) )*
-            	                    loop71:
+            	                    loop72:
             	                    do {
-            	                        int alt71=2;
-            	                        int LA71_0 = input.LA(1);
+            	                        int alt72=2;
+            	                        int LA72_0 = input.LA(1);
 
-            	                        if ( (LA71_0==23) ) {
-            	                            alt71=1;
+            	                        if ( (LA72_0==23) ) {
+            	                            alt72=1;
             	                        }
 
 
-            	                        switch (alt71) {
+            	                        switch (alt72) {
             	                    	case 1 :
             	                    	    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3544:4: otherlv_6= ',' ( (lv_args_7_0= ruleExpression ) )
             	                    	    {
-            	                    	    otherlv_6=(Token)match(input,23,FOLLOW_23_in_ruleSelectionExpression7573); if (state.failed) return current;
+            	                    	    otherlv_6=(Token)match(input,23,FOLLOW_23_in_ruleSelectionExpression7574); if (state.failed) return current;
             	                    	    if ( state.backtracking==0 ) {
 
             	                    	          	newLeafNode(otherlv_6, grammarAccess.getSelectionExpressionAccess().getCommaKeyword_1_3_1_1_0());
@@ -10398,7 +10592,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	                    	      	        newCompositeNode(grammarAccess.getSelectionExpressionAccess().getArgsExpressionParserRuleCall_1_3_1_1_1_0()); 
             	                    	      	    
             	                    	    }
-            	                    	    pushFollow(FOLLOW_ruleExpression_in_ruleSelectionExpression7594);
+            	                    	    pushFollow(FOLLOW_ruleExpression_in_ruleSelectionExpression7595);
             	                    	    lv_args_7_0=ruleExpression();
 
             	                    	    state._fsp--;
@@ -10427,7 +10621,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	                    	    break;
 
             	                    	default :
-            	                    	    break loop71;
+            	                    	    break loop72;
             	                        }
             	                    } while (true);
 
@@ -10437,7 +10631,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
             	            }
 
-            	            otherlv_8=(Token)match(input,18,FOLLOW_18_in_ruleSelectionExpression7610); if (state.failed) return current;
+            	            otherlv_8=(Token)match(input,18,FOLLOW_18_in_ruleSelectionExpression7611); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                  	newLeafNode(otherlv_8, grammarAccess.getSelectionExpressionAccess().getRightParenthesisKeyword_1_3_2());
@@ -10454,7 +10648,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop74;
+            	    break loop75;
                 }
             } while (true);
 
@@ -10495,7 +10689,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getTerminalExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleTerminalExpression_in_entryRuleTerminalExpression7652);
+            pushFollow(FOLLOW_ruleTerminalExpression_in_entryRuleTerminalExpression7653);
             iv_ruleTerminalExpression=ruleTerminalExpression();
 
             state._fsp--;
@@ -10503,7 +10697,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleTerminalExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTerminalExpression7662); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTerminalExpression7663); if (state.failed) return current;
 
             }
 
@@ -10521,7 +10715,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTerminalExpression"
-    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3589:1: ruleTerminalExpression returns [EObject current=null] : ( ( () ( (lv_value_1_0= RULE_STRING ) ) ) | ( () ( (lv_value_3_0= RULE_INT ) ) ) | ( () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) ) ) | ( () otherlv_7= 'this' ) | ( () otherlv_9= 'super' ) | ( () otherlv_11= 'null' ) | ( () otherlv_13= 'void' ) | ( () ( (otherlv_15= RULE_ID ) ) ) | (otherlv_16= '(' this_Expression_17= ruleExpression otherlv_18= ')' ) ) ;
+    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3589:1: ruleTerminalExpression returns [EObject current=null] : ( ( () ( (lv_value_1_0= RULE_STRING ) ) ) | ( () ( (lv_value_3_0= RULE_INT ) ) ) | ( () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) ) ) | ( () otherlv_7= 'this' ) | ( () otherlv_9= 'super' ) | ( () otherlv_11= 'null' ) | ( () otherlv_13= 'void' ) | ( () ( (otherlv_15= RULE_ID ) ) ) | ( () ruleTerminalOperator ) | (otherlv_18= '(' this_Expression_19= ruleExpression otherlv_20= ')' ) ) ;
     public final EObject ruleTerminalExpression() throws RecognitionException {
         EObject current = null;
 
@@ -10534,75 +10728,124 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
         Token otherlv_11=null;
         Token otherlv_13=null;
         Token otherlv_15=null;
-        Token otherlv_16=null;
         Token otherlv_18=null;
-        EObject this_Expression_17 = null;
+        Token otherlv_20=null;
+        EObject this_Expression_19 = null;
 
 
          enterRule(); 
             
         try {
-            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3592:28: ( ( ( () ( (lv_value_1_0= RULE_STRING ) ) ) | ( () ( (lv_value_3_0= RULE_INT ) ) ) | ( () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) ) ) | ( () otherlv_7= 'this' ) | ( () otherlv_9= 'super' ) | ( () otherlv_11= 'null' ) | ( () otherlv_13= 'void' ) | ( () ( (otherlv_15= RULE_ID ) ) ) | (otherlv_16= '(' this_Expression_17= ruleExpression otherlv_18= ')' ) ) )
-            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3593:1: ( ( () ( (lv_value_1_0= RULE_STRING ) ) ) | ( () ( (lv_value_3_0= RULE_INT ) ) ) | ( () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) ) ) | ( () otherlv_7= 'this' ) | ( () otherlv_9= 'super' ) | ( () otherlv_11= 'null' ) | ( () otherlv_13= 'void' ) | ( () ( (otherlv_15= RULE_ID ) ) ) | (otherlv_16= '(' this_Expression_17= ruleExpression otherlv_18= ')' ) )
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3592:28: ( ( ( () ( (lv_value_1_0= RULE_STRING ) ) ) | ( () ( (lv_value_3_0= RULE_INT ) ) ) | ( () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) ) ) | ( () otherlv_7= 'this' ) | ( () otherlv_9= 'super' ) | ( () otherlv_11= 'null' ) | ( () otherlv_13= 'void' ) | ( () ( (otherlv_15= RULE_ID ) ) ) | ( () ruleTerminalOperator ) | (otherlv_18= '(' this_Expression_19= ruleExpression otherlv_20= ')' ) ) )
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3593:1: ( ( () ( (lv_value_1_0= RULE_STRING ) ) ) | ( () ( (lv_value_3_0= RULE_INT ) ) ) | ( () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) ) ) | ( () otherlv_7= 'this' ) | ( () otherlv_9= 'super' ) | ( () otherlv_11= 'null' ) | ( () otherlv_13= 'void' ) | ( () ( (otherlv_15= RULE_ID ) ) ) | ( () ruleTerminalOperator ) | (otherlv_18= '(' this_Expression_19= ruleExpression otherlv_20= ')' ) )
             {
-            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3593:1: ( ( () ( (lv_value_1_0= RULE_STRING ) ) ) | ( () ( (lv_value_3_0= RULE_INT ) ) ) | ( () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) ) ) | ( () otherlv_7= 'this' ) | ( () otherlv_9= 'super' ) | ( () otherlv_11= 'null' ) | ( () otherlv_13= 'void' ) | ( () ( (otherlv_15= RULE_ID ) ) ) | (otherlv_16= '(' this_Expression_17= ruleExpression otherlv_18= ')' ) )
-            int alt76=9;
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3593:1: ( ( () ( (lv_value_1_0= RULE_STRING ) ) ) | ( () ( (lv_value_3_0= RULE_INT ) ) ) | ( () ( ( (lv_value_5_1= 'true' | lv_value_5_2= 'false' ) ) ) ) | ( () otherlv_7= 'this' ) | ( () otherlv_9= 'super' ) | ( () otherlv_11= 'null' ) | ( () otherlv_13= 'void' ) | ( () ( (otherlv_15= RULE_ID ) ) ) | ( () ruleTerminalOperator ) | (otherlv_18= '(' this_Expression_19= ruleExpression otherlv_20= ')' ) )
+            int alt77=10;
             switch ( input.LA(1) ) {
             case RULE_STRING:
                 {
-                alt76=1;
+                alt77=1;
                 }
                 break;
             case RULE_INT:
                 {
-                alt76=2;
+                alt77=2;
                 }
                 break;
             case 55:
             case 56:
                 {
-                alt76=3;
+                alt77=3;
                 }
                 break;
             case 57:
                 {
-                alt76=4;
+                alt77=4;
                 }
                 break;
             case 58:
                 {
-                alt76=5;
+                alt77=5;
                 }
                 break;
             case 59:
                 {
-                alt76=6;
+                alt77=6;
                 }
                 break;
             case 22:
                 {
-                alt76=7;
+                alt77=7;
                 }
                 break;
             case RULE_ID:
                 {
-                alt76=8;
+                alt77=8;
+                }
+                break;
+            case 21:
+            case 24:
+            case 26:
+            case 42:
+            case 60:
+            case 61:
+            case 62:
+            case 63:
+            case 64:
+            case 65:
+            case 66:
+            case 67:
+            case 68:
+            case 69:
+            case 70:
+            case 71:
+            case 72:
+            case 73:
+            case 74:
+            case 75:
+            case 76:
+            case 77:
+            case 78:
+            case 79:
+            case 80:
+            case 81:
+            case 82:
+            case 83:
+            case 84:
+            case 85:
+            case 86:
+            case 87:
+            case 88:
+            case 89:
+            case 90:
+            case 91:
+            case 92:
+            case 93:
+            case 94:
+            case 95:
+            case 96:
+            case 97:
+            case 98:
+            case 99:
+            case 100:
+                {
+                alt77=9;
                 }
                 break;
             case 17:
                 {
-                alt76=9;
+                alt77=10;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 76, 0, input);
+                    new NoViableAltException("", 77, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt76) {
+            switch (alt77) {
                 case 1 :
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3593:2: ( () ( (lv_value_1_0= RULE_STRING ) ) )
                     {
@@ -10633,7 +10876,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3603:1: (lv_value_1_0= RULE_STRING )
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3604:3: lv_value_1_0= RULE_STRING
                     {
-                    lv_value_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleTerminalExpression7717); if (state.failed) return current;
+                    lv_value_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleTerminalExpression7718); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			newLeafNode(lv_value_1_0, grammarAccess.getTerminalExpressionAccess().getValueSTRINGTerminalRuleCall_0_1_0()); 
@@ -10693,7 +10936,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3631:1: (lv_value_3_0= RULE_INT )
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3632:3: lv_value_3_0= RULE_INT
                     {
-                    lv_value_3_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleTerminalExpression7759); if (state.failed) return current;
+                    lv_value_3_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleTerminalExpression7760); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       			newLeafNode(lv_value_3_0, grammarAccess.getTerminalExpressionAccess().getValueINTTerminalRuleCall_1_1_0()); 
@@ -10754,27 +10997,27 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3660:1: (lv_value_5_1= 'true' | lv_value_5_2= 'false' )
                     {
                     // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3660:1: (lv_value_5_1= 'true' | lv_value_5_2= 'false' )
-                    int alt75=2;
-                    int LA75_0 = input.LA(1);
+                    int alt76=2;
+                    int LA76_0 = input.LA(1);
 
-                    if ( (LA75_0==55) ) {
-                        alt75=1;
+                    if ( (LA76_0==55) ) {
+                        alt76=1;
                     }
-                    else if ( (LA75_0==56) ) {
-                        alt75=2;
+                    else if ( (LA76_0==56) ) {
+                        alt76=2;
                     }
                     else {
                         if (state.backtracking>0) {state.failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("", 75, 0, input);
+                            new NoViableAltException("", 76, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt75) {
+                    switch (alt76) {
                         case 1 :
                             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3661:3: lv_value_5_1= 'true'
                             {
-                            lv_value_5_1=(Token)match(input,55,FOLLOW_55_in_ruleTerminalExpression7804); if (state.failed) return current;
+                            lv_value_5_1=(Token)match(input,55,FOLLOW_55_in_ruleTerminalExpression7805); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       newLeafNode(lv_value_5_1, grammarAccess.getTerminalExpressionAccess().getValueTrueKeyword_2_1_0_0());
@@ -10794,7 +11037,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                         case 2 :
                             // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3673:8: lv_value_5_2= 'false'
                             {
-                            lv_value_5_2=(Token)match(input,56,FOLLOW_56_in_ruleTerminalExpression7833); if (state.failed) return current;
+                            lv_value_5_2=(Token)match(input,56,FOLLOW_56_in_ruleTerminalExpression7834); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
                                       newLeafNode(lv_value_5_2, grammarAccess.getTerminalExpressionAccess().getValueFalseKeyword_2_1_0_1());
@@ -10850,7 +11093,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_7=(Token)match(input,57,FOLLOW_57_in_ruleTerminalExpression7881); if (state.failed) return current;
+                    otherlv_7=(Token)match(input,57,FOLLOW_57_in_ruleTerminalExpression7882); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_7, grammarAccess.getTerminalExpressionAccess().getThisKeyword_3_1());
@@ -10886,7 +11129,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_9=(Token)match(input,58,FOLLOW_58_in_ruleTerminalExpression7913); if (state.failed) return current;
+                    otherlv_9=(Token)match(input,58,FOLLOW_58_in_ruleTerminalExpression7914); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_9, grammarAccess.getTerminalExpressionAccess().getSuperKeyword_4_1());
@@ -10922,7 +11165,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_11=(Token)match(input,59,FOLLOW_59_in_ruleTerminalExpression7945); if (state.failed) return current;
+                    otherlv_11=(Token)match(input,59,FOLLOW_59_in_ruleTerminalExpression7946); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_11, grammarAccess.getTerminalExpressionAccess().getNullKeyword_5_1());
@@ -10958,7 +11201,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_13=(Token)match(input,22,FOLLOW_22_in_ruleTerminalExpression7977); if (state.failed) return current;
+                    otherlv_13=(Token)match(input,22,FOLLOW_22_in_ruleTerminalExpression7978); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_13, grammarAccess.getTerminalExpressionAccess().getVoidKeyword_6_1());
@@ -11012,7 +11255,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                       	        }
                               
                     }
-                    otherlv_15=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTerminalExpression8021); if (state.failed) return current;
+                    otherlv_15=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTerminalExpression8022); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       		newLeafNode(otherlv_15, grammarAccess.getTerminalExpressionAccess().getSymbolSymbolCrossReference_7_1_0()); 
@@ -11031,15 +11274,65 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3771:6: (otherlv_16= '(' this_Expression_17= ruleExpression otherlv_18= ')' )
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3771:6: ( () ruleTerminalOperator )
                     {
-                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3771:6: (otherlv_16= '(' this_Expression_17= ruleExpression otherlv_18= ')' )
-                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3771:8: otherlv_16= '(' this_Expression_17= ruleExpression otherlv_18= ')'
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3771:6: ( () ruleTerminalOperator )
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3771:7: () ruleTerminalOperator
                     {
-                    otherlv_16=(Token)match(input,17,FOLLOW_17_in_ruleTerminalExpression8041); if (state.failed) return current;
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3771:7: ()
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3772:2: 
+                    {
+                    if ( state.backtracking==0 ) {
+                       
+                      	  /* */ 
+                      	
+                    }
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_16, grammarAccess.getTerminalExpressionAccess().getLeftParenthesisKeyword_8_0());
+                              current = forceCreateModelElement(
+                                  grammarAccess.getTerminalExpressionAccess().getTerminalOpAction_8_0(),
+                                  current);
+                          
+                    }
+
+                    }
+
+                    if ( state.backtracking==0 ) {
+                       
+                      	  /* */ 
+                      	
+                    }
+                    if ( state.backtracking==0 ) {
+                       
+                              newCompositeNode(grammarAccess.getTerminalExpressionAccess().getTerminalOperatorParserRuleCall_8_1()); 
+                          
+                    }
+                    pushFollow(FOLLOW_ruleTerminalOperator_in_ruleTerminalExpression8061);
+                    ruleTerminalOperator();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+                       
+                              afterParserOrEnumRuleCall();
+                          
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 10 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3792:6: (otherlv_18= '(' this_Expression_19= ruleExpression otherlv_20= ')' )
+                    {
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3792:6: (otherlv_18= '(' this_Expression_19= ruleExpression otherlv_20= ')' )
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3792:8: otherlv_18= '(' this_Expression_19= ruleExpression otherlv_20= ')'
+                    {
+                    otherlv_18=(Token)match(input,17,FOLLOW_17_in_ruleTerminalExpression8080); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                          	newLeafNode(otherlv_18, grammarAccess.getTerminalExpressionAccess().getLeftParenthesisKeyword_9_0());
                           
                     }
                     if ( state.backtracking==0 ) {
@@ -11049,24 +11342,24 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     }
                     if ( state.backtracking==0 ) {
                        
-                              newCompositeNode(grammarAccess.getTerminalExpressionAccess().getExpressionParserRuleCall_8_1()); 
+                              newCompositeNode(grammarAccess.getTerminalExpressionAccess().getExpressionParserRuleCall_9_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleTerminalExpression8066);
-                    this_Expression_17=ruleExpression();
+                    pushFollow(FOLLOW_ruleExpression_in_ruleTerminalExpression8105);
+                    this_Expression_19=ruleExpression();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
                        
-                              current = this_Expression_17; 
+                              current = this_Expression_19; 
                               afterParserOrEnumRuleCall();
                           
                     }
-                    otherlv_18=(Token)match(input,18,FOLLOW_18_in_ruleTerminalExpression8077); if (state.failed) return current;
+                    otherlv_20=(Token)match(input,18,FOLLOW_18_in_ruleTerminalExpression8116); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_18, grammarAccess.getTerminalExpressionAccess().getRightParenthesisKeyword_8_2());
+                          	newLeafNode(otherlv_20, grammarAccess.getTerminalExpressionAccess().getRightParenthesisKeyword_9_2());
                           
                     }
 
@@ -11097,8 +11390,905 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleTerminalExpression"
 
 
+    // $ANTLR start "entryRuleTerminalOperator"
+    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3820:1: entryRuleTerminalOperator returns [String current=null] : iv_ruleTerminalOperator= ruleTerminalOperator EOF ;
+    public final String entryRuleTerminalOperator() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleTerminalOperator = null;
+
+
+        try {
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3821:2: (iv_ruleTerminalOperator= ruleTerminalOperator EOF )
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3822:2: iv_ruleTerminalOperator= ruleTerminalOperator EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getTerminalOperatorRule()); 
+            }
+            pushFollow(FOLLOW_ruleTerminalOperator_in_entryRuleTerminalOperator8154);
+            iv_ruleTerminalOperator=ruleTerminalOperator();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleTerminalOperator.getText(); 
+            }
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTerminalOperator8165); if (state.failed) return current;
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleTerminalOperator"
+
+
+    // $ANTLR start "ruleTerminalOperator"
+    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3829:1: ruleTerminalOperator returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '=' | kw= '*=' | kw= '/=' | kw= '%=' | kw= '+=' | kw= '-=' | kw= '<<=' | kw= '>>=' | kw= '>>>=' | kw= '&=' | kw= '^=' | kw= '|=' | kw= '?:' | kw= '||' | kw= '&&' | kw= '|' | kw= '^' | kw= '&' | kw= '==' | kw= '!=' | kw= '===' | kw= '!==' | kw= '<' | kw= '>' | kw= '<=' | kw= '>=' | kw= 'as' | kw= 'in' | kw= 'instanceof' | kw= 'is' | kw= '<<' | kw= '>>' | kw= '>>>' | kw= '+' | kw= '-' | kw= '*' | kw= '/' | kw= '%' | kw= '++' | kw= '--' | kw= '!' | kw= '~' | kw= 'typeof' | kw= '.' | kw= '::' ) ;
+    public final AntlrDatatypeRuleToken ruleTerminalOperator() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+
+         enterRule(); 
+            
+        try {
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3832:28: ( (kw= '=' | kw= '*=' | kw= '/=' | kw= '%=' | kw= '+=' | kw= '-=' | kw= '<<=' | kw= '>>=' | kw= '>>>=' | kw= '&=' | kw= '^=' | kw= '|=' | kw= '?:' | kw= '||' | kw= '&&' | kw= '|' | kw= '^' | kw= '&' | kw= '==' | kw= '!=' | kw= '===' | kw= '!==' | kw= '<' | kw= '>' | kw= '<=' | kw= '>=' | kw= 'as' | kw= 'in' | kw= 'instanceof' | kw= 'is' | kw= '<<' | kw= '>>' | kw= '>>>' | kw= '+' | kw= '-' | kw= '*' | kw= '/' | kw= '%' | kw= '++' | kw= '--' | kw= '!' | kw= '~' | kw= 'typeof' | kw= '.' | kw= '::' ) )
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3833:1: (kw= '=' | kw= '*=' | kw= '/=' | kw= '%=' | kw= '+=' | kw= '-=' | kw= '<<=' | kw= '>>=' | kw= '>>>=' | kw= '&=' | kw= '^=' | kw= '|=' | kw= '?:' | kw= '||' | kw= '&&' | kw= '|' | kw= '^' | kw= '&' | kw= '==' | kw= '!=' | kw= '===' | kw= '!==' | kw= '<' | kw= '>' | kw= '<=' | kw= '>=' | kw= 'as' | kw= 'in' | kw= 'instanceof' | kw= 'is' | kw= '<<' | kw= '>>' | kw= '>>>' | kw= '+' | kw= '-' | kw= '*' | kw= '/' | kw= '%' | kw= '++' | kw= '--' | kw= '!' | kw= '~' | kw= 'typeof' | kw= '.' | kw= '::' )
+            {
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3833:1: (kw= '=' | kw= '*=' | kw= '/=' | kw= '%=' | kw= '+=' | kw= '-=' | kw= '<<=' | kw= '>>=' | kw= '>>>=' | kw= '&=' | kw= '^=' | kw= '|=' | kw= '?:' | kw= '||' | kw= '&&' | kw= '|' | kw= '^' | kw= '&' | kw= '==' | kw= '!=' | kw= '===' | kw= '!==' | kw= '<' | kw= '>' | kw= '<=' | kw= '>=' | kw= 'as' | kw= 'in' | kw= 'instanceof' | kw= 'is' | kw= '<<' | kw= '>>' | kw= '>>>' | kw= '+' | kw= '-' | kw= '*' | kw= '/' | kw= '%' | kw= '++' | kw= '--' | kw= '!' | kw= '~' | kw= 'typeof' | kw= '.' | kw= '::' )
+            int alt78=45;
+            switch ( input.LA(1) ) {
+            case 24:
+                {
+                alt78=1;
+                }
+                break;
+            case 60:
+                {
+                alt78=2;
+                }
+                break;
+            case 61:
+                {
+                alt78=3;
+                }
+                break;
+            case 62:
+                {
+                alt78=4;
+                }
+                break;
+            case 63:
+                {
+                alt78=5;
+                }
+                break;
+            case 64:
+                {
+                alt78=6;
+                }
+                break;
+            case 65:
+                {
+                alt78=7;
+                }
+                break;
+            case 66:
+                {
+                alt78=8;
+                }
+                break;
+            case 67:
+                {
+                alt78=9;
+                }
+                break;
+            case 68:
+                {
+                alt78=10;
+                }
+                break;
+            case 69:
+                {
+                alt78=11;
+                }
+                break;
+            case 70:
+                {
+                alt78=12;
+                }
+                break;
+            case 71:
+                {
+                alt78=13;
+                }
+                break;
+            case 72:
+                {
+                alt78=14;
+                }
+                break;
+            case 73:
+                {
+                alt78=15;
+                }
+                break;
+            case 74:
+                {
+                alt78=16;
+                }
+                break;
+            case 75:
+                {
+                alt78=17;
+                }
+                break;
+            case 76:
+                {
+                alt78=18;
+                }
+                break;
+            case 77:
+                {
+                alt78=19;
+                }
+                break;
+            case 78:
+                {
+                alt78=20;
+                }
+                break;
+            case 79:
+                {
+                alt78=21;
+                }
+                break;
+            case 80:
+                {
+                alt78=22;
+                }
+                break;
+            case 81:
+                {
+                alt78=23;
+                }
+                break;
+            case 82:
+                {
+                alt78=24;
+                }
+                break;
+            case 83:
+                {
+                alt78=25;
+                }
+                break;
+            case 84:
+                {
+                alt78=26;
+                }
+                break;
+            case 85:
+                {
+                alt78=27;
+                }
+                break;
+            case 42:
+                {
+                alt78=28;
+                }
+                break;
+            case 86:
+                {
+                alt78=29;
+                }
+                break;
+            case 87:
+                {
+                alt78=30;
+                }
+                break;
+            case 88:
+                {
+                alt78=31;
+                }
+                break;
+            case 89:
+                {
+                alt78=32;
+                }
+                break;
+            case 90:
+                {
+                alt78=33;
+                }
+                break;
+            case 91:
+                {
+                alt78=34;
+                }
+                break;
+            case 92:
+                {
+                alt78=35;
+                }
+                break;
+            case 21:
+                {
+                alt78=36;
+                }
+                break;
+            case 93:
+                {
+                alt78=37;
+                }
+                break;
+            case 94:
+                {
+                alt78=38;
+                }
+                break;
+            case 95:
+                {
+                alt78=39;
+                }
+                break;
+            case 96:
+                {
+                alt78=40;
+                }
+                break;
+            case 97:
+                {
+                alt78=41;
+                }
+                break;
+            case 98:
+                {
+                alt78=42;
+                }
+                break;
+            case 99:
+                {
+                alt78=43;
+                }
+                break;
+            case 26:
+                {
+                alt78=44;
+                }
+                break;
+            case 100:
+                {
+                alt78=45;
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return current;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 78, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt78) {
+                case 1 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3834:2: kw= '='
+                    {
+                    kw=(Token)match(input,24,FOLLOW_24_in_ruleTerminalOperator8203); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getEqualsSignKeyword_0()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 2 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3841:2: kw= '*='
+                    {
+                    kw=(Token)match(input,60,FOLLOW_60_in_ruleTerminalOperator8222); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getAsteriskEqualsSignKeyword_1()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 3 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3848:2: kw= '/='
+                    {
+                    kw=(Token)match(input,61,FOLLOW_61_in_ruleTerminalOperator8241); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getSolidusEqualsSignKeyword_2()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 4 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3855:2: kw= '%='
+                    {
+                    kw=(Token)match(input,62,FOLLOW_62_in_ruleTerminalOperator8260); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getPercentSignEqualsSignKeyword_3()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 5 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3862:2: kw= '+='
+                    {
+                    kw=(Token)match(input,63,FOLLOW_63_in_ruleTerminalOperator8279); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getPlusSignEqualsSignKeyword_4()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 6 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3869:2: kw= '-='
+                    {
+                    kw=(Token)match(input,64,FOLLOW_64_in_ruleTerminalOperator8298); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getHyphenMinusEqualsSignKeyword_5()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 7 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3876:2: kw= '<<='
+                    {
+                    kw=(Token)match(input,65,FOLLOW_65_in_ruleTerminalOperator8317); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getLessThanSignLessThanSignEqualsSignKeyword_6()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 8 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3883:2: kw= '>>='
+                    {
+                    kw=(Token)match(input,66,FOLLOW_66_in_ruleTerminalOperator8336); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getGreaterThanSignGreaterThanSignEqualsSignKeyword_7()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 9 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3890:2: kw= '>>>='
+                    {
+                    kw=(Token)match(input,67,FOLLOW_67_in_ruleTerminalOperator8355); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getGreaterThanSignGreaterThanSignGreaterThanSignEqualsSignKeyword_8()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 10 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3897:2: kw= '&='
+                    {
+                    kw=(Token)match(input,68,FOLLOW_68_in_ruleTerminalOperator8374); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getAmpersandEqualsSignKeyword_9()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 11 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3904:2: kw= '^='
+                    {
+                    kw=(Token)match(input,69,FOLLOW_69_in_ruleTerminalOperator8393); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getCircumflexAccentEqualsSignKeyword_10()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 12 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3911:2: kw= '|='
+                    {
+                    kw=(Token)match(input,70,FOLLOW_70_in_ruleTerminalOperator8412); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getVerticalLineEqualsSignKeyword_11()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 13 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3918:2: kw= '?:'
+                    {
+                    kw=(Token)match(input,71,FOLLOW_71_in_ruleTerminalOperator8431); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getQuestionMarkColonKeyword_12()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 14 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3925:2: kw= '||'
+                    {
+                    kw=(Token)match(input,72,FOLLOW_72_in_ruleTerminalOperator8450); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getVerticalLineVerticalLineKeyword_13()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 15 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3932:2: kw= '&&'
+                    {
+                    kw=(Token)match(input,73,FOLLOW_73_in_ruleTerminalOperator8469); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getAmpersandAmpersandKeyword_14()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 16 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3939:2: kw= '|'
+                    {
+                    kw=(Token)match(input,74,FOLLOW_74_in_ruleTerminalOperator8488); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getVerticalLineKeyword_15()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 17 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3946:2: kw= '^'
+                    {
+                    kw=(Token)match(input,75,FOLLOW_75_in_ruleTerminalOperator8507); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getCircumflexAccentKeyword_16()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 18 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3953:2: kw= '&'
+                    {
+                    kw=(Token)match(input,76,FOLLOW_76_in_ruleTerminalOperator8526); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getAmpersandKeyword_17()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 19 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3960:2: kw= '=='
+                    {
+                    kw=(Token)match(input,77,FOLLOW_77_in_ruleTerminalOperator8545); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getEqualsSignEqualsSignKeyword_18()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 20 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3967:2: kw= '!='
+                    {
+                    kw=(Token)match(input,78,FOLLOW_78_in_ruleTerminalOperator8564); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getExclamationMarkEqualsSignKeyword_19()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 21 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3974:2: kw= '==='
+                    {
+                    kw=(Token)match(input,79,FOLLOW_79_in_ruleTerminalOperator8583); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getEqualsSignEqualsSignEqualsSignKeyword_20()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 22 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3981:2: kw= '!=='
+                    {
+                    kw=(Token)match(input,80,FOLLOW_80_in_ruleTerminalOperator8602); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getExclamationMarkEqualsSignEqualsSignKeyword_21()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 23 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3988:2: kw= '<'
+                    {
+                    kw=(Token)match(input,81,FOLLOW_81_in_ruleTerminalOperator8621); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getLessThanSignKeyword_22()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 24 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3995:2: kw= '>'
+                    {
+                    kw=(Token)match(input,82,FOLLOW_82_in_ruleTerminalOperator8640); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getGreaterThanSignKeyword_23()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 25 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4002:2: kw= '<='
+                    {
+                    kw=(Token)match(input,83,FOLLOW_83_in_ruleTerminalOperator8659); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getLessThanSignEqualsSignKeyword_24()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 26 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4009:2: kw= '>='
+                    {
+                    kw=(Token)match(input,84,FOLLOW_84_in_ruleTerminalOperator8678); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getGreaterThanSignEqualsSignKeyword_25()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 27 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4016:2: kw= 'as'
+                    {
+                    kw=(Token)match(input,85,FOLLOW_85_in_ruleTerminalOperator8697); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getAsKeyword_26()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 28 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4023:2: kw= 'in'
+                    {
+                    kw=(Token)match(input,42,FOLLOW_42_in_ruleTerminalOperator8716); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getInKeyword_27()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 29 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4030:2: kw= 'instanceof'
+                    {
+                    kw=(Token)match(input,86,FOLLOW_86_in_ruleTerminalOperator8735); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getInstanceofKeyword_28()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 30 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4037:2: kw= 'is'
+                    {
+                    kw=(Token)match(input,87,FOLLOW_87_in_ruleTerminalOperator8754); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getIsKeyword_29()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 31 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4044:2: kw= '<<'
+                    {
+                    kw=(Token)match(input,88,FOLLOW_88_in_ruleTerminalOperator8773); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getLessThanSignLessThanSignKeyword_30()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 32 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4051:2: kw= '>>'
+                    {
+                    kw=(Token)match(input,89,FOLLOW_89_in_ruleTerminalOperator8792); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getGreaterThanSignGreaterThanSignKeyword_31()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 33 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4058:2: kw= '>>>'
+                    {
+                    kw=(Token)match(input,90,FOLLOW_90_in_ruleTerminalOperator8811); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getGreaterThanSignGreaterThanSignGreaterThanSignKeyword_32()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 34 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4065:2: kw= '+'
+                    {
+                    kw=(Token)match(input,91,FOLLOW_91_in_ruleTerminalOperator8830); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getPlusSignKeyword_33()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 35 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4072:2: kw= '-'
+                    {
+                    kw=(Token)match(input,92,FOLLOW_92_in_ruleTerminalOperator8849); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getHyphenMinusKeyword_34()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 36 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4079:2: kw= '*'
+                    {
+                    kw=(Token)match(input,21,FOLLOW_21_in_ruleTerminalOperator8868); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getAsteriskKeyword_35()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 37 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4086:2: kw= '/'
+                    {
+                    kw=(Token)match(input,93,FOLLOW_93_in_ruleTerminalOperator8887); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getSolidusKeyword_36()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 38 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4093:2: kw= '%'
+                    {
+                    kw=(Token)match(input,94,FOLLOW_94_in_ruleTerminalOperator8906); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getPercentSignKeyword_37()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 39 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4100:2: kw= '++'
+                    {
+                    kw=(Token)match(input,95,FOLLOW_95_in_ruleTerminalOperator8925); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getPlusSignPlusSignKeyword_38()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 40 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4107:2: kw= '--'
+                    {
+                    kw=(Token)match(input,96,FOLLOW_96_in_ruleTerminalOperator8944); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getHyphenMinusHyphenMinusKeyword_39()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 41 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4114:2: kw= '!'
+                    {
+                    kw=(Token)match(input,97,FOLLOW_97_in_ruleTerminalOperator8963); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getExclamationMarkKeyword_40()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 42 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4121:2: kw= '~'
+                    {
+                    kw=(Token)match(input,98,FOLLOW_98_in_ruleTerminalOperator8982); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getTildeKeyword_41()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 43 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4128:2: kw= 'typeof'
+                    {
+                    kw=(Token)match(input,99,FOLLOW_99_in_ruleTerminalOperator9001); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getTypeofKeyword_42()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 44 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4135:2: kw= '.'
+                    {
+                    kw=(Token)match(input,26,FOLLOW_26_in_ruleTerminalOperator9020); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getFullStopKeyword_43()); 
+                          
+                    }
+
+                    }
+                    break;
+                case 45 :
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4142:2: kw= '::'
+                    {
+                    kw=(Token)match(input,100,FOLLOW_100_in_ruleTerminalOperator9039); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current.merge(kw);
+                              newLeafNode(kw, grammarAccess.getTerminalOperatorAccess().getColonColonKeyword_44()); 
+                          
+                    }
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+               leaveRule(); 
+            }
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleTerminalOperator"
+
+
     // $ANTLR start "ruleAccessLevel"
-    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3799:1: ruleAccessLevel returns [Enumerator current=null] : ( (enumLiteral_0= 'private' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= 'protected' ) | (enumLiteral_3= 'internal' ) ) ;
+    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4155:1: ruleAccessLevel returns [Enumerator current=null] : ( (enumLiteral_0= 'private' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= 'protected' ) | (enumLiteral_3= 'internal' ) ) ;
     public final Enumerator ruleAccessLevel() throws RecognitionException {
         Enumerator current = null;
 
@@ -11109,48 +12299,48 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3801:28: ( ( (enumLiteral_0= 'private' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= 'protected' ) | (enumLiteral_3= 'internal' ) ) )
-            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3802:1: ( (enumLiteral_0= 'private' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= 'protected' ) | (enumLiteral_3= 'internal' ) )
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4157:28: ( ( (enumLiteral_0= 'private' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= 'protected' ) | (enumLiteral_3= 'internal' ) ) )
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4158:1: ( (enumLiteral_0= 'private' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= 'protected' ) | (enumLiteral_3= 'internal' ) )
             {
-            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3802:1: ( (enumLiteral_0= 'private' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= 'protected' ) | (enumLiteral_3= 'internal' ) )
-            int alt77=4;
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4158:1: ( (enumLiteral_0= 'private' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= 'protected' ) | (enumLiteral_3= 'internal' ) )
+            int alt79=4;
             switch ( input.LA(1) ) {
-            case 60:
+            case 101:
                 {
-                alt77=1;
+                alt79=1;
                 }
                 break;
-            case 61:
+            case 102:
                 {
-                alt77=2;
+                alt79=2;
                 }
                 break;
-            case 62:
+            case 103:
                 {
-                alt77=3;
+                alt79=3;
                 }
                 break;
-            case 63:
+            case 104:
                 {
-                alt77=4;
+                alt79=4;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 77, 0, input);
+                    new NoViableAltException("", 79, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt77) {
+            switch (alt79) {
                 case 1 :
-                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3802:2: (enumLiteral_0= 'private' )
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4158:2: (enumLiteral_0= 'private' )
                     {
-                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3802:2: (enumLiteral_0= 'private' )
-                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3802:4: enumLiteral_0= 'private'
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4158:2: (enumLiteral_0= 'private' )
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4158:4: enumLiteral_0= 'private'
                     {
-                    enumLiteral_0=(Token)match(input,60,FOLLOW_60_in_ruleAccessLevel8128); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,101,FOLLOW_101_in_ruleAccessLevel9093); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getAccessLevelAccess().getPRIVATEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -11164,12 +12354,12 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3808:6: (enumLiteral_1= 'public' )
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4164:6: (enumLiteral_1= 'public' )
                     {
-                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3808:6: (enumLiteral_1= 'public' )
-                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3808:8: enumLiteral_1= 'public'
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4164:6: (enumLiteral_1= 'public' )
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4164:8: enumLiteral_1= 'public'
                     {
-                    enumLiteral_1=(Token)match(input,61,FOLLOW_61_in_ruleAccessLevel8145); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,102,FOLLOW_102_in_ruleAccessLevel9110); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getAccessLevelAccess().getPUBLICEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -11183,12 +12373,12 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3814:6: (enumLiteral_2= 'protected' )
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4170:6: (enumLiteral_2= 'protected' )
                     {
-                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3814:6: (enumLiteral_2= 'protected' )
-                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3814:8: enumLiteral_2= 'protected'
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4170:6: (enumLiteral_2= 'protected' )
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4170:8: enumLiteral_2= 'protected'
                     {
-                    enumLiteral_2=(Token)match(input,62,FOLLOW_62_in_ruleAccessLevel8162); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,103,FOLLOW_103_in_ruleAccessLevel9127); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getAccessLevelAccess().getPROTECTEDEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -11202,12 +12392,12 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3820:6: (enumLiteral_3= 'internal' )
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4176:6: (enumLiteral_3= 'internal' )
                     {
-                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3820:6: (enumLiteral_3= 'internal' )
-                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:3820:8: enumLiteral_3= 'internal'
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4176:6: (enumLiteral_3= 'internal' )
+                    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:4176:8: enumLiteral_3= 'internal'
                     {
-                    enumLiteral_3=(Token)match(input,63,FOLLOW_63_in_ruleAccessLevel8179); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,104,FOLLOW_104_in_ruleAccessLevel9144); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getAccessLevelAccess().getINTERNALEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -11243,16 +12433,10 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred45_InternalAS3
     public final void synpred45_InternalAS3_fragment() throws RecognitionException {   
-        Token otherlv_3=null;
-        Token otherlv_5=null;
         EObject lv_param_4_0 = null;
 
 
-        // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1493:4: (otherlv_3= '(' ( (lv_param_4_0= ruleParameters ) ) otherlv_5= ')' )
-        // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1493:4: otherlv_3= '(' ( (lv_param_4_0= ruleParameters ) ) otherlv_5= ')'
-        {
-        otherlv_3=(Token)match(input,17,FOLLOW_17_in_synpred45_InternalAS33196); if (state.failed) return ;
-        // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1497:1: ( (lv_param_4_0= ruleParameters ) )
+        // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1498:1: ( (lv_param_4_0= ruleParameters ) )
         // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1498:1: (lv_param_4_0= ruleParameters )
         {
         // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1498:1: (lv_param_4_0= ruleParameters )
@@ -11273,15 +12457,68 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
 
         }
-
-        otherlv_5=(Token)match(input,18,FOLLOW_18_in_synpred45_InternalAS33229); if (state.failed) return ;
-
-        }
     }
     // $ANTLR end synpred45_InternalAS3
 
-    // $ANTLR start synpred68_InternalAS3
-    public final void synpred68_InternalAS3_fragment() throws RecognitionException {   
+    // $ANTLR start synpred46_InternalAS3
+    public final void synpred46_InternalAS3_fragment() throws RecognitionException {   
+        Token otherlv_3=null;
+        Token otherlv_5=null;
+        EObject lv_param_4_0 = null;
+
+
+        // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1493:4: (otherlv_3= '(' ( (lv_param_4_0= ruleParameters ) )? otherlv_5= ')' )
+        // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1493:4: otherlv_3= '(' ( (lv_param_4_0= ruleParameters ) )? otherlv_5= ')'
+        {
+        otherlv_3=(Token)match(input,17,FOLLOW_17_in_synpred46_InternalAS33196); if (state.failed) return ;
+        // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1497:1: ( (lv_param_4_0= ruleParameters ) )?
+        int alt84=2;
+        int LA84_0 = input.LA(1);
+
+        if ( (LA84_0==RULE_ID||LA84_0==54) ) {
+            alt84=1;
+        }
+        else if ( (LA84_0==18) ) {
+            int LA84_2 = input.LA(2);
+
+            if ( (synpred45_InternalAS3()) ) {
+                alt84=1;
+            }
+        }
+        switch (alt84) {
+            case 1 :
+                // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1498:1: (lv_param_4_0= ruleParameters )
+                {
+                // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1498:1: (lv_param_4_0= ruleParameters )
+                // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1499:3: lv_param_4_0= ruleParameters
+                {
+                if ( state.backtracking==0 ) {
+                   
+                  	        newCompositeNode(grammarAccess.getNewStatementAccess().getParamParametersParserRuleCall_3_1_0()); 
+                  	    
+                }
+                pushFollow(FOLLOW_ruleParameters_in_synpred46_InternalAS33217);
+                lv_param_4_0=ruleParameters();
+
+                state._fsp--;
+                if (state.failed) return ;
+
+                }
+
+
+                }
+                break;
+
+        }
+
+        otherlv_5=(Token)match(input,18,FOLLOW_18_in_synpred46_InternalAS33230); if (state.failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred46_InternalAS3
+
+    // $ANTLR start synpred69_InternalAS3
+    public final void synpred69_InternalAS3_fragment() throws RecognitionException {   
         Token otherlv_5=null;
         EObject lv_elseBlock_6_0 = null;
 
@@ -11292,7 +12529,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
         // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2626:3: ( ( 'else' )=>otherlv_5= 'else' )
         // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2626:4: ( 'else' )=>otherlv_5= 'else'
         {
-        otherlv_5=(Token)match(input,50,FOLLOW_50_in_synpred68_InternalAS35507); if (state.failed) return ;
+        otherlv_5=(Token)match(input,50,FOLLOW_50_in_synpred69_InternalAS35508); if (state.failed) return ;
 
         }
 
@@ -11307,7 +12544,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
           	        newCompositeNode(grammarAccess.getIfStatementAccess().getElseBlockIfBlockParserRuleCall_5_1_0()); 
           	    
         }
-        pushFollow(FOLLOW_ruleIfBlock_in_synpred68_InternalAS35529);
+        pushFollow(FOLLOW_ruleIfBlock_in_synpred69_InternalAS35530);
         lv_elseBlock_6_0=ruleIfBlock();
 
         state._fsp--;
@@ -11321,10 +12558,10 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
         }
     }
-    // $ANTLR end synpred68_InternalAS3
+    // $ANTLR end synpred69_InternalAS3
 
-    // $ANTLR start synpred79_InternalAS3
-    public final void synpred79_InternalAS3_fragment() throws RecognitionException {   
+    // $ANTLR start synpred80_InternalAS3
+    public final void synpred80_InternalAS3_fragment() throws RecognitionException {   
         Token otherlv_1=null;
         EObject lv_elements_0_0 = null;
 
@@ -11335,13 +12572,13 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
         // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2957:2: ( ( (lv_elements_0_0= ruleParameter ) ) (otherlv_1= ',' ( (lv_elements_2_0= ruleParameter ) ) )* )?
         {
         // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2957:2: ( ( (lv_elements_0_0= ruleParameter ) ) (otherlv_1= ',' ( (lv_elements_2_0= ruleParameter ) ) )* )?
-        int alt91=2;
-        int LA91_0 = input.LA(1);
+        int alt94=2;
+        int LA94_0 = input.LA(1);
 
-        if ( (LA91_0==RULE_ID||LA91_0==54) ) {
-            alt91=1;
+        if ( (LA94_0==RULE_ID||LA94_0==54) ) {
+            alt94=1;
         }
-        switch (alt91) {
+        switch (alt94) {
             case 1 :
                 // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2957:3: ( (lv_elements_0_0= ruleParameter ) ) (otherlv_1= ',' ( (lv_elements_2_0= ruleParameter ) ) )*
                 {
@@ -11356,7 +12593,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                   	        newCompositeNode(grammarAccess.getParametersAccess().getElementsParameterParserRuleCall_0_0_0()); 
                   	    
                 }
-                pushFollow(FOLLOW_ruleParameter_in_synpred79_InternalAS36256);
+                pushFollow(FOLLOW_ruleParameter_in_synpred80_InternalAS36257);
                 lv_elements_0_0=ruleParameter();
 
                 state._fsp--;
@@ -11368,21 +12605,21 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                 }
 
                 // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2975:2: (otherlv_1= ',' ( (lv_elements_2_0= ruleParameter ) ) )*
-                loop90:
+                loop93:
                 do {
-                    int alt90=2;
-                    int LA90_0 = input.LA(1);
+                    int alt93=2;
+                    int LA93_0 = input.LA(1);
 
-                    if ( (LA90_0==23) ) {
-                        alt90=1;
+                    if ( (LA93_0==23) ) {
+                        alt93=1;
                     }
 
 
-                    switch (alt90) {
+                    switch (alt93) {
                 	case 1 :
                 	    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2975:4: otherlv_1= ',' ( (lv_elements_2_0= ruleParameter ) )
                 	    {
-                	    otherlv_1=(Token)match(input,23,FOLLOW_23_in_synpred79_InternalAS36269); if (state.failed) return ;
+                	    otherlv_1=(Token)match(input,23,FOLLOW_23_in_synpred80_InternalAS36270); if (state.failed) return ;
                 	    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2979:1: ( (lv_elements_2_0= ruleParameter ) )
                 	    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:2980:1: (lv_elements_2_0= ruleParameter )
                 	    {
@@ -11394,7 +12631,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                 	      	        newCompositeNode(grammarAccess.getParametersAccess().getElementsParameterParserRuleCall_0_1_1_0()); 
                 	      	    
                 	    }
-                	    pushFollow(FOLLOW_ruleParameter_in_synpred79_InternalAS36290);
+                	    pushFollow(FOLLOW_ruleParameter_in_synpred80_InternalAS36291);
                 	    lv_elements_2_0=ruleParameter();
 
                 	    state._fsp--;
@@ -11410,7 +12647,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                 	    break;
 
                 	default :
-                	    break loop90;
+                	    break loop93;
                     }
                 } while (true);
 
@@ -11423,15 +12660,15 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
         }
     }
-    // $ANTLR end synpred79_InternalAS3
+    // $ANTLR end synpred80_InternalAS3
 
     // Delegated rules
 
-    public final boolean synpred79_InternalAS3() {
+    public final boolean synpred80_InternalAS3() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred79_InternalAS3_fragment(); // can never throw exception
+            synpred80_InternalAS3_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -11441,11 +12678,25 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred68_InternalAS3() {
+    public final boolean synpred46_InternalAS3() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred68_InternalAS3_fragment(); // can never throw exception
+            synpred46_InternalAS3_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred69_InternalAS3() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred69_InternalAS3_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -11471,24 +12722,69 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
     }
 
 
-    protected DFA33 dfa33 = new DFA33(this);
-    protected DFA43 dfa43 = new DFA43(this);
-    static final String DFA33_eotS =
-        "\40\uffff";
-    static final String DFA33_eofS =
-        "\1\2\37\uffff";
-    static final String DFA33_minS =
-        "\1\4\1\0\36\uffff";
-    static final String DFA33_maxS =
-        "\1\77\1\0\36\uffff";
-    static final String DFA33_acceptS =
-        "\2\uffff\1\2\34\uffff\1\1";
-    static final String DFA33_specialS =
-        "\1\uffff\1\0\36\uffff}>";
-    static final String[] DFA33_transitionS = {
-            "\3\2\5\uffff\2\2\3\uffff\1\1\4\uffff\1\2\6\uffff\1\2\10\uffff"+
-            "\3\2\2\uffff\11\2\3\uffff\11\2",
+    protected DFA34 dfa34 = new DFA34(this);
+    protected DFA44 dfa44 = new DFA44(this);
+    static final String DFA34_eotS =
+        "\115\uffff";
+    static final String DFA34_eofS =
+        "\1\2\114\uffff";
+    static final String DFA34_minS =
+        "\1\4\1\0\113\uffff";
+    static final String DFA34_maxS =
+        "\1\150\1\0\113\uffff";
+    static final String DFA34_acceptS =
+        "\2\uffff\1\2\111\uffff\1\1";
+    static final String DFA34_specialS =
+        "\1\uffff\1\0\113\uffff}>";
+    static final String[] DFA34_transitionS = {
+            "\3\2\5\uffff\2\2\3\uffff\1\1\3\uffff\2\2\1\uffff\1\2\1\uffff"+
+            "\1\2\2\uffff\1\2\10\uffff\3\2\1\uffff\12\2\3\uffff\62\2",
             "\1\uffff",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "",
             "",
             "",
@@ -11521,124 +12817,125 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
             ""
     };
 
-    static final short[] DFA33_eot = DFA.unpackEncodedString(DFA33_eotS);
-    static final short[] DFA33_eof = DFA.unpackEncodedString(DFA33_eofS);
-    static final char[] DFA33_min = DFA.unpackEncodedStringToUnsignedChars(DFA33_minS);
-    static final char[] DFA33_max = DFA.unpackEncodedStringToUnsignedChars(DFA33_maxS);
-    static final short[] DFA33_accept = DFA.unpackEncodedString(DFA33_acceptS);
-    static final short[] DFA33_special = DFA.unpackEncodedString(DFA33_specialS);
-    static final short[][] DFA33_transition;
+    static final short[] DFA34_eot = DFA.unpackEncodedString(DFA34_eotS);
+    static final short[] DFA34_eof = DFA.unpackEncodedString(DFA34_eofS);
+    static final char[] DFA34_min = DFA.unpackEncodedStringToUnsignedChars(DFA34_minS);
+    static final char[] DFA34_max = DFA.unpackEncodedStringToUnsignedChars(DFA34_maxS);
+    static final short[] DFA34_accept = DFA.unpackEncodedString(DFA34_acceptS);
+    static final short[] DFA34_special = DFA.unpackEncodedString(DFA34_specialS);
+    static final short[][] DFA34_transition;
 
     static {
-        int numStates = DFA33_transitionS.length;
-        DFA33_transition = new short[numStates][];
+        int numStates = DFA34_transitionS.length;
+        DFA34_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA33_transition[i] = DFA.unpackEncodedString(DFA33_transitionS[i]);
+            DFA34_transition[i] = DFA.unpackEncodedString(DFA34_transitionS[i]);
         }
     }
 
-    class DFA33 extends DFA {
+    class DFA34 extends DFA {
 
-        public DFA33(BaseRecognizer recognizer) {
+        public DFA34(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 33;
-            this.eot = DFA33_eot;
-            this.eof = DFA33_eof;
-            this.min = DFA33_min;
-            this.max = DFA33_max;
-            this.accept = DFA33_accept;
-            this.special = DFA33_special;
-            this.transition = DFA33_transition;
+            this.decisionNumber = 34;
+            this.eot = DFA34_eot;
+            this.eof = DFA34_eof;
+            this.min = DFA34_min;
+            this.max = DFA34_max;
+            this.accept = DFA34_accept;
+            this.special = DFA34_special;
+            this.transition = DFA34_transition;
         }
         public String getDescription() {
-            return "1493:2: (otherlv_3= '(' ( (lv_param_4_0= ruleParameters ) ) otherlv_5= ')' )?";
+            return "1493:2: (otherlv_3= '(' ( (lv_param_4_0= ruleParameters ) )? otherlv_5= ')' )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA33_1 = input.LA(1);
+                        int LA34_1 = input.LA(1);
 
                          
-                        int index33_1 = input.index();
+                        int index34_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred45_InternalAS3()) ) {s = 31;}
+                        if ( (synpred46_InternalAS3()) ) {s = 76;}
 
                         else if ( (true) ) {s = 2;}
 
                          
-                        input.seek(index33_1);
+                        input.seek(index34_1);
                         if ( s>=0 ) return s;
                         break;
             }
             if (state.backtracking>0) {state.failed=true; return -1;}
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 33, _s, input);
+                new NoViableAltException(getDescription(), 34, _s, input);
             error(nvae);
             throw nvae;
         }
     }
-    static final String DFA43_eotS =
+    static final String DFA44_eotS =
         "\16\uffff";
-    static final String DFA43_eofS =
+    static final String DFA44_eofS =
         "\16\uffff";
-    static final String DFA43_minS =
-        "\1\47\2\21\2\4\1\uffff\1\17\1\4\2\uffff\1\17\1\4\1\uffff\1\17";
-    static final String DFA43_maxS =
-        "\1\47\1\51\1\21\1\73\1\50\1\uffff\1\52\1\4\2\uffff\1\52\1\4\1\uffff"+
+    static final String DFA44_minS =
+        "\1\47\1\21\1\4\1\21\1\4\1\17\1\uffff\1\4\1\17\2\uffff\1\4\1\uffff"+
+        "\1\17";
+    static final String DFA44_maxS =
+        "\1\47\1\51\1\144\1\21\1\4\1\52\1\uffff\1\50\1\52\2\uffff\1\4\1\uffff"+
         "\1\52";
-    static final String DFA43_acceptS =
-        "\5\uffff\1\1\2\uffff\1\3\1\4\2\uffff\1\2\1\uffff";
-    static final String DFA43_specialS =
+    static final String DFA44_acceptS =
+        "\6\uffff\1\1\2\uffff\1\3\1\4\1\uffff\1\2\1\uffff";
+    static final String DFA44_specialS =
         "\16\uffff}>";
-    static final String[] DFA43_transitionS = {
+    static final String[] DFA44_transitionS = {
             "\1\1",
-            "\1\3\27\uffff\1\2",
-            "\1\4",
-            "\1\6\2\5\10\uffff\1\5\1\uffff\1\5\4\uffff\1\5\21\uffff\1\7"+
-            "\16\uffff\5\5",
-            "\1\10\43\uffff\1\11",
+            "\1\2\27\uffff\1\3",
+            "\1\5\2\6\10\uffff\1\6\1\uffff\1\6\3\uffff\2\6\1\uffff\1\6\1"+
+            "\uffff\1\6\15\uffff\1\4\1\uffff\1\6\14\uffff\56\6",
+            "\1\7",
+            "\1\10",
+            "\1\6\7\uffff\2\6\1\uffff\1\6\17\uffff\1\11",
             "",
-            "\1\5\7\uffff\2\5\1\uffff\1\5\17\uffff\1\10",
-            "\1\12",
+            "\1\11\43\uffff\1\12",
+            "\1\14\7\uffff\2\14\14\uffff\1\13\4\uffff\1\12",
             "",
             "",
-            "\1\14\7\uffff\2\14\14\uffff\1\13\4\uffff\1\11",
             "\1\15",
             "",
-            "\1\14\7\uffff\2\14\21\uffff\1\11"
+            "\1\14\7\uffff\2\14\21\uffff\1\12"
     };
 
-    static final short[] DFA43_eot = DFA.unpackEncodedString(DFA43_eotS);
-    static final short[] DFA43_eof = DFA.unpackEncodedString(DFA43_eofS);
-    static final char[] DFA43_min = DFA.unpackEncodedStringToUnsignedChars(DFA43_minS);
-    static final char[] DFA43_max = DFA.unpackEncodedStringToUnsignedChars(DFA43_maxS);
-    static final short[] DFA43_accept = DFA.unpackEncodedString(DFA43_acceptS);
-    static final short[] DFA43_special = DFA.unpackEncodedString(DFA43_specialS);
-    static final short[][] DFA43_transition;
+    static final short[] DFA44_eot = DFA.unpackEncodedString(DFA44_eotS);
+    static final short[] DFA44_eof = DFA.unpackEncodedString(DFA44_eofS);
+    static final char[] DFA44_min = DFA.unpackEncodedStringToUnsignedChars(DFA44_minS);
+    static final char[] DFA44_max = DFA.unpackEncodedStringToUnsignedChars(DFA44_maxS);
+    static final short[] DFA44_accept = DFA.unpackEncodedString(DFA44_acceptS);
+    static final short[] DFA44_special = DFA.unpackEncodedString(DFA44_specialS);
+    static final short[][] DFA44_transition;
 
     static {
-        int numStates = DFA43_transitionS.length;
-        DFA43_transition = new short[numStates][];
+        int numStates = DFA44_transitionS.length;
+        DFA44_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA43_transition[i] = DFA.unpackEncodedString(DFA43_transitionS[i]);
+            DFA44_transition[i] = DFA.unpackEncodedString(DFA44_transitionS[i]);
         }
     }
 
-    class DFA43 extends DFA {
+    class DFA44 extends DFA {
 
-        public DFA43(BaseRecognizer recognizer) {
+        public DFA44(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 43;
-            this.eot = DFA43_eot;
-            this.eof = DFA43_eof;
-            this.min = DFA43_min;
-            this.max = DFA43_max;
-            this.accept = DFA43_accept;
-            this.special = DFA43_special;
-            this.transition = DFA43_transition;
+            this.decisionNumber = 44;
+            this.eot = DFA44_eot;
+            this.eof = DFA44_eof;
+            this.min = DFA44_min;
+            this.max = DFA44_max;
+            this.accept = DFA44_accept;
+            this.special = DFA44_special;
+            this.transition = DFA44_transition;
         }
         public String getDescription() {
             return "1540:1: ( (otherlv_0= 'for' otherlv_1= '(' ( (lv_forinit_2_0= rulecommaExpr ) )? otherlv_3= ';' ( (lv_condition_4_0= rulecommaExpr ) )? otherlv_5= ';' ( (lv_iterator_6_0= rulecommaExpr ) )? otherlv_7= ')' ( (lv_command_8_0= ruleStatementsBlock ) ) ) | (otherlv_9= 'for' otherlv_10= '(' otherlv_11= 'var' ( (lv_elements_12_0= ruleidentifierDeclaration ) ) (otherlv_13= ',' ( (lv_elements_14_0= ruleidentifierDeclaration ) ) )* otherlv_15= ';' ( (lv_condition_16_0= rulecommaExpr ) )? otherlv_17= ';' ( (lv_iterator_18_0= rulecommaExpr ) )? otherlv_19= ')' ( (lv_command_20_0= ruleStatementsBlock ) ) ) | (otherlv_21= 'for' (otherlv_22= 'each' )? otherlv_23= '(' ( (lv_nameForin_24_0= RULE_ID ) ) otherlv_25= 'in' ( (lv_forinexpr_26_0= ruleExpression ) ) otherlv_27= ')' ( (lv_forcommand_28_0= ruleStatementsBlock ) ) ) | (otherlv_29= 'for' (otherlv_30= 'each' )? otherlv_31= '(' otherlv_32= 'var' ( (lv_nameForeachh_33_0= RULE_ID ) ) ( (lv_relation_34_0= ruletypeRelation ) )? otherlv_35= 'in' ( (lv_foreachexpr_36_0= ruleExpression ) ) otherlv_37= ')' ( (lv_foreachcommand_38_0= ruleStatementsBlock ) ) ) )";
@@ -11649,17 +12946,17 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleModel_in_entryRuleModel87 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleModel97 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePackage_in_ruleModel151 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImports_in_ruleModel178 = new BitSet(new long[]{0xF000000060000002L});
-    public static final BitSet FOLLOW_ruleClass_in_ruleModel199 = new BitSet(new long[]{0xF000000060000002L});
+    public static final BitSet FOLLOW_ruleImports_in_ruleModel178 = new BitSet(new long[]{0x0000000060000002L,0x000001E000000000L});
+    public static final BitSet FOLLOW_ruleClass_in_ruleModel199 = new BitSet(new long[]{0x0000000060000002L,0x000001E000000000L});
     public static final BitSet FOLLOW_rulePackage_in_entryRulePackage241 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRulePackage251 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_11_in_rulePackage288 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_ruleQualifiedName_in_rulePackage309 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_rulePackage321 = new BitSet(new long[]{0xF00000006811E000L});
-    public static final BitSet FOLLOW_ruleImports_in_rulePackage342 = new BitSet(new long[]{0xF00000006811A000L});
-    public static final BitSet FOLLOW_ruledirective_in_rulePackage363 = new BitSet(new long[]{0xF00000006811A000L});
-    public static final BitSet FOLLOW_ruleClass_in_rulePackage387 = new BitSet(new long[]{0xF000000068002000L});
-    public static final BitSet FOLLOW_ruleInterface_in_rulePackage406 = new BitSet(new long[]{0xF000000068002000L});
+    public static final BitSet FOLLOW_12_in_rulePackage321 = new BitSet(new long[]{0x000000006811E000L,0x000001E000000000L});
+    public static final BitSet FOLLOW_ruleImports_in_rulePackage342 = new BitSet(new long[]{0x000000006811A000L,0x000001E000000000L});
+    public static final BitSet FOLLOW_ruledirective_in_rulePackage363 = new BitSet(new long[]{0x000000006811A000L,0x000001E000000000L});
+    public static final BitSet FOLLOW_ruleClass_in_rulePackage387 = new BitSet(new long[]{0x0000000068002000L,0x000001E000000000L});
+    public static final BitSet FOLLOW_ruleInterface_in_rulePackage406 = new BitSet(new long[]{0x0000000068002000L,0x000001E000000000L});
     public static final BitSet FOLLOW_13_in_rulePackage422 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleImports_in_entryRuleImports458 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleImports468 = new BitSet(new long[]{0x0000000000000002L});
@@ -11694,7 +12991,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleannotationField_in_entryRuleannotationField1198 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleannotationField1208 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleannotationField1250 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_ruleannotationField1267 = new BitSet(new long[]{0x0F80000000420070L});
+    public static final BitSet FOLLOW_24_in_ruleannotationField1267 = new BitSet(new long[]{0xFF80040005620070L,0x0000001FFFFFFFFFL});
     public static final BitSet FOLLOW_ruleExpression_in_ruleannotationField1288 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleQualifiedNameWithWildcard_in_entryRuleQualifiedNameWithWildcard1325 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedNameWithWildcard1336 = new BitSet(new long[]{0x0000000000000002L});
@@ -11712,8 +13009,8 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleInterface1663 = new BitSet(new long[]{0x0000000010001000L});
     public static final BitSet FOLLOW_28_in_ruleInterface1681 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleInterface1705 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleInterface1719 = new BitSet(new long[]{0xF000010720002000L});
-    public static final BitSet FOLLOW_ruleMember_in_ruleInterface1740 = new BitSet(new long[]{0xF000010720002000L});
+    public static final BitSet FOLLOW_12_in_ruleInterface1719 = new BitSet(new long[]{0x0000010720002000L,0x000001E000000000L});
+    public static final BitSet FOLLOW_ruleMember_in_ruleInterface1740 = new BitSet(new long[]{0x0000010720002000L,0x000001E000000000L});
     public static final BitSet FOLLOW_13_in_ruleInterface1753 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleClass_in_entryRuleClass1789 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleClass1799 = new BitSet(new long[]{0x0000000000000002L});
@@ -11727,8 +13024,8 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleClass1971 = new BitSet(new long[]{0x0000000000801000L});
     public static final BitSet FOLLOW_23_in_ruleClass1984 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleClass2008 = new BitSet(new long[]{0x0000000000801000L});
-    public static final BitSet FOLLOW_12_in_ruleClass2024 = new BitSet(new long[]{0xF000010720002000L});
-    public static final BitSet FOLLOW_ruleMember_in_ruleClass2045 = new BitSet(new long[]{0xF000010720002000L});
+    public static final BitSet FOLLOW_12_in_ruleClass2024 = new BitSet(new long[]{0x0000010720002000L,0x000001E000000000L});
+    public static final BitSet FOLLOW_ruleMember_in_ruleClass2045 = new BitSet(new long[]{0x0000010720002000L,0x000001E000000000L});
     public static final BitSet FOLLOW_13_in_ruleClass2058 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMember_in_entryRuleMember2094 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleMember2104 = new BitSet(new long[]{0x0000000000000002L});
@@ -11736,7 +13033,7 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleMethod_in_ruleMember2177 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMethod_in_entryRuleMethod2213 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleMethod2223 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_32_in_ruleMethod2261 = new BitSet(new long[]{0xF000000620000000L});
+    public static final BitSet FOLLOW_32_in_ruleMethod2261 = new BitSet(new long[]{0x0000000620000000L,0x000001E000000000L});
     public static final BitSet FOLLOW_ruleAccessLevel_in_ruleMethod2284 = new BitSet(new long[]{0x0000000620000000L});
     public static final BitSet FOLLOW_33_in_ruleMethod2298 = new BitSet(new long[]{0x0000000420000000L});
     public static final BitSet FOLLOW_29_in_ruleMethod2313 = new BitSet(new long[]{0x0000000400000000L});
@@ -11754,8 +13051,8 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleMethodBody_in_ruleMethod2526 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMethodBody_in_entryRuleMethodBody2562 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleMethodBody2572 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_ruleMethodBody2621 = new BitSet(new long[]{0xFF8B39C020423070L});
-    public static final BitSet FOLLOW_ruleStatement_in_ruleMethodBody2642 = new BitSet(new long[]{0xFF8B39C020423070L});
+    public static final BitSet FOLLOW_12_in_ruleMethodBody2621 = new BitSet(new long[]{0xFF8B3DC025623070L,0x000001FFFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleStatement_in_ruleMethodBody2642 = new BitSet(new long[]{0xFF8B3DC025623070L,0x000001FFFFFFFFFFL});
     public static final BitSet FOLLOW_13_in_ruleMethodBody2655 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleStatement_in_entryRuleStatement2691 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleStatement2701 = new BitSet(new long[]{0x0000000000000002L});
@@ -11777,227 +13074,276 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleNewStatement3183 = new BitSet(new long[]{0x0000000000020002L});
     public static final BitSet FOLLOW_17_in_ruleNewStatement3196 = new BitSet(new long[]{0x0040000000040010L});
     public static final BitSet FOLLOW_ruleParameters_in_ruleNewStatement3217 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleNewStatement3229 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleForStatement_in_entryRuleForStatement3267 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleForStatement3277 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_ruleForStatement3315 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleForStatement3327 = new BitSet(new long[]{0x0F80000000428070L});
-    public static final BitSet FOLLOW_rulecommaExpr_in_ruleForStatement3348 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleForStatement3361 = new BitSet(new long[]{0x0F80000000428070L});
-    public static final BitSet FOLLOW_rulecommaExpr_in_ruleForStatement3382 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleForStatement3395 = new BitSet(new long[]{0x0F80000000460070L});
-    public static final BitSet FOLLOW_rulecommaExpr_in_ruleForStatement3416 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleForStatement3429 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_ruleStatementsBlock_in_ruleForStatement3450 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_ruleForStatement3470 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleForStatement3482 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_ruleForStatement3494 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleidentifierDeclaration_in_ruleForStatement3515 = new BitSet(new long[]{0x0000000000808000L});
-    public static final BitSet FOLLOW_23_in_ruleForStatement3528 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleidentifierDeclaration_in_ruleForStatement3549 = new BitSet(new long[]{0x0000000000808000L});
-    public static final BitSet FOLLOW_15_in_ruleForStatement3563 = new BitSet(new long[]{0x0F80000000428070L});
-    public static final BitSet FOLLOW_rulecommaExpr_in_ruleForStatement3584 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleForStatement3597 = new BitSet(new long[]{0x0F80000000460070L});
-    public static final BitSet FOLLOW_rulecommaExpr_in_ruleForStatement3618 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleForStatement3631 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_ruleStatementsBlock_in_ruleForStatement3652 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_ruleForStatement3672 = new BitSet(new long[]{0x0000020000020000L});
-    public static final BitSet FOLLOW_41_in_ruleForStatement3685 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleForStatement3699 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleForStatement3716 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_42_in_ruleForStatement3733 = new BitSet(new long[]{0x0F80000000420070L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleForStatement3754 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleForStatement3766 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_ruleStatementsBlock_in_ruleForStatement3787 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_ruleForStatement3807 = new BitSet(new long[]{0x0000020000020000L});
-    public static final BitSet FOLLOW_41_in_ruleForStatement3820 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleForStatement3834 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_ruleForStatement3846 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleForStatement3863 = new BitSet(new long[]{0x0000042000000000L});
-    public static final BitSet FOLLOW_ruletypeRelation_in_ruleForStatement3889 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_42_in_ruleForStatement3902 = new BitSet(new long[]{0x0F80000000420070L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleForStatement3923 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleForStatement3935 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_ruleStatementsBlock_in_ruleForStatement3956 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleidentifierDeclaration_in_entryRuleidentifierDeclaration3993 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleidentifierDeclaration4003 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleidentifierDeclaration4045 = new BitSet(new long[]{0x0000002001000002L});
-    public static final BitSet FOLLOW_ruletypeRelation_in_ruleidentifierDeclaration4071 = new BitSet(new long[]{0x0000000001000002L});
-    public static final BitSet FOLLOW_24_in_ruleidentifierDeclaration4085 = new BitSet(new long[]{0xFF8B39C020421070L});
-    public static final BitSet FOLLOW_ruleexprOrObjectLiteral_in_ruleidentifierDeclaration4106 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulecommaExpr_in_entryRulecommaExpr4144 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulecommaExpr4154 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_rulecommaExpr4200 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_23_in_rulecommaExpr4213 = new BitSet(new long[]{0x0F80000000420070L});
-    public static final BitSet FOLLOW_ruleExpression_in_rulecommaExpr4234 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_ruleDoWhileStatement_in_entryRuleDoWhileStatement4272 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDoWhileStatement4282 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_ruleDoWhileStatement4331 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_ruleStatementsBlock_in_ruleDoWhileStatement4352 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_44_in_ruleDoWhileStatement4364 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_ruleparenthesizedExpr_in_ruleDoWhileStatement4385 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleDoWhileStatement4397 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleWhileStatement_in_entryRuleWhileStatement4433 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleWhileStatement4443 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_ruleWhileStatement4492 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_ruleparenthesizedExpr_in_ruleWhileStatement4513 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_ruleStatementsBlock_in_ruleWhileStatement4534 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSwitchStatement_in_entryRuleSwitchStatement4570 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSwitchStatement4580 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleSwitchStatement4629 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_ruleparenthesizedExpr_in_ruleSwitchStatement4650 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleSwitchStatement4662 = new BitSet(new long[]{0xFF8BF9C020423070L});
-    public static final BitSet FOLLOW_rulestatementInSwitch_in_ruleSwitchStatement4683 = new BitSet(new long[]{0xFF8BF9C020423070L});
-    public static final BitSet FOLLOW_13_in_ruleSwitchStatement4696 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleparenthesizedExpr_in_entryRuleparenthesizedExpr4732 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleparenthesizedExpr4742 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_ruleparenthesizedExpr4779 = new BitSet(new long[]{0xFF8B39C020421070L});
-    public static final BitSet FOLLOW_ruleexprOrObjectLiteral_in_ruleparenthesizedExpr4800 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleparenthesizedExpr4812 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulestatementInSwitch_in_entryRulestatementInSwitch4848 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulestatementInSwitch4858 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStatement_in_rulestatementInSwitch4908 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_rulestatementInSwitch4926 = new BitSet(new long[]{0x0F80000000420070L});
-    public static final BitSet FOLLOW_ruleExpression_in_rulestatementInSwitch4951 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_37_in_rulestatementInSwitch4962 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_rulestatementInSwitch4982 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_37_in_rulestatementInSwitch4994 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleReturn_in_entryRuleReturn5031 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleReturn5041 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleReturn5078 = new BitSet(new long[]{0x0F80000000420070L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleReturn5099 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleReturn5111 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVariableDeclaration_in_entryRuleVariableDeclaration5147 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleVariableDeclaration5157 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAccessLevel_in_ruleVariableDeclaration5203 = new BitSet(new long[]{0x0000010020000000L});
-    public static final BitSet FOLLOW_29_in_ruleVariableDeclaration5217 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_ruleVariableDeclaration5231 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleVariableDeclaration5248 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_37_in_ruleVariableDeclaration5265 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleVariableDeclaration5289 = new BitSet(new long[]{0x0000000001008000L});
-    public static final BitSet FOLLOW_24_in_ruleVariableDeclaration5302 = new BitSet(new long[]{0x0F80000000420070L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleVariableDeclaration5323 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleVariableDeclaration5337 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIfStatement_in_entryRuleIfStatement5373 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleIfStatement5383 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleIfStatement5420 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleIfStatement5432 = new BitSet(new long[]{0x0F80000000420070L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleIfStatement5453 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleIfStatement5465 = new BitSet(new long[]{0xFF8B39C020421070L});
-    public static final BitSet FOLLOW_ruleIfBlock_in_ruleIfStatement5486 = new BitSet(new long[]{0x0004000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleIfStatement5507 = new BitSet(new long[]{0xFF8B39C020421070L});
-    public static final BitSet FOLLOW_ruleIfBlock_in_ruleIfStatement5529 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTryStatement_in_entryRuleTryStatement5567 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTryStatement5577 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_ruleTryStatement5614 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleTryStatement5626 = new BitSet(new long[]{0xFF8B39C020421070L});
-    public static final BitSet FOLLOW_ruleStatement_in_ruleTryStatement5647 = new BitSet(new long[]{0xFF8B39C020423070L});
-    public static final BitSet FOLLOW_13_in_ruleTryStatement5660 = new BitSet(new long[]{0x0030000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleTryStatement5673 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleTryStatement5685 = new BitSet(new long[]{0x0040000000000010L});
-    public static final BitSet FOLLOW_ruleParameter_in_ruleTryStatement5706 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleTryStatement5718 = new BitSet(new long[]{0x0020000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleTryStatement5733 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_ruleStatementsBlock_in_ruleTryStatement5754 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIfBlock_in_entryRuleIfBlock5792 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleIfBlock5802 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStatement_in_ruleIfBlock5848 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStatementsBlock_in_ruleIfBlock5879 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStatementsBlock_in_entryRuleStatementsBlock5914 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleStatementsBlock5924 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_ruleStatementsBlock5961 = new BitSet(new long[]{0xFF8B39C020423070L});
-    public static final BitSet FOLLOW_ruleStatement_in_ruleStatementsBlock5982 = new BitSet(new long[]{0xFF8B39C020423070L});
-    public static final BitSet FOLLOW_13_in_ruleStatementsBlock5995 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParameter_in_entryRuleParameter6033 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleParameter6043 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_ruleParameter6081 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleParameter6100 = new BitSet(new long[]{0x0000002001000002L});
-    public static final BitSet FOLLOW_ruletypeRelation_in_ruleParameter6126 = new BitSet(new long[]{0x0000000001000002L});
-    public static final BitSet FOLLOW_24_in_ruleParameter6140 = new BitSet(new long[]{0xFF8B39C020421070L});
-    public static final BitSet FOLLOW_ruleexprOrObjectLiteral_in_ruleParameter6161 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParameters_in_entryRuleParameters6199 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleParameters6209 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParameter_in_ruleParameters6256 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_23_in_ruleParameters6269 = new BitSet(new long[]{0x0040000000000010L});
-    public static final BitSet FOLLOW_ruleParameter_in_ruleParameters6290 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_ruleParameter_in_ruleParameters6323 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_23_in_ruleParameters6336 = new BitSet(new long[]{0x0040000000000010L});
-    public static final BitSet FOLLOW_ruleParameter_in_ruleParameters6357 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_23_in_ruleParameters6371 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleParameters6390 = new BitSet(new long[]{0x0000002000000002L});
-    public static final BitSet FOLLOW_ruletypeRelation_in_ruleParameters6416 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruletypeRelation_in_entryRuletypeRelation6454 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuletypeRelation6464 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_37_in_ruletypeRelation6501 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruletypeRelation6525 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleobjectLiteral_in_entryRuleobjectLiteral6561 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleobjectLiteral6571 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_ruleobjectLiteral6608 = new BitSet(new long[]{0x0000000000000070L});
-    public static final BitSet FOLLOW_ruleobjectFields_in_ruleobjectLiteral6633 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleobjectLiteral6644 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleobjectFields_in_entryRuleobjectFields6680 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleobjectFields6690 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleobjectField_in_ruleobjectFields6736 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_23_in_ruleobjectFields6749 = new BitSet(new long[]{0x0000000000000070L});
-    public static final BitSet FOLLOW_ruleobjectField_in_ruleobjectFields6770 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_ruleobjectField_in_entryRuleobjectField6808 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleobjectField6818 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleobjectField6855 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_37_in_ruleobjectField6866 = new BitSet(new long[]{0xFF8B39C020421070L});
-    public static final BitSet FOLLOW_ruleexprOrObjectLiteral_in_ruleobjectField6891 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleobjectField6909 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_37_in_ruleobjectField6920 = new BitSet(new long[]{0xFF8B39C020421070L});
-    public static final BitSet FOLLOW_ruleexprOrObjectLiteral_in_ruleobjectField6945 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleobjectField6963 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_37_in_ruleobjectField6974 = new BitSet(new long[]{0xFF8B39C020421070L});
-    public static final BitSet FOLLOW_ruleexprOrObjectLiteral_in_ruleobjectField6999 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleexprOrObjectLiteral_in_entryRuleexprOrObjectLiteral7035 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleexprOrObjectLiteral7045 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleexprOrObjectLiteral7095 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleobjectLiteral_in_ruleexprOrObjectLiteral7125 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_entryRuleExpression7162 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExpression7172 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAssignment_in_ruleExpression7221 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAssignment_in_entryRuleAssignment7255 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAssignment7265 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSelectionExpression_in_ruleAssignment7315 = new BitSet(new long[]{0x0000000001000002L});
-    public static final BitSet FOLLOW_24_in_ruleAssignment7339 = new BitSet(new long[]{0x0F80000000420070L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleAssignment7360 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSelectionExpression_in_entryRuleSelectionExpression7398 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSelectionExpression7408 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTerminalExpression_in_ruleSelectionExpression7458 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_26_in_ruleSelectionExpression7482 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSelectionExpression7506 = new BitSet(new long[]{0x0000000004020002L});
-    public static final BitSet FOLLOW_17_in_ruleSelectionExpression7525 = new BitSet(new long[]{0x0F80000000460070L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleSelectionExpression7560 = new BitSet(new long[]{0x0000000000840000L});
-    public static final BitSet FOLLOW_23_in_ruleSelectionExpression7573 = new BitSet(new long[]{0x0F80000000420070L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleSelectionExpression7594 = new BitSet(new long[]{0x0000000000840000L});
-    public static final BitSet FOLLOW_18_in_ruleSelectionExpression7610 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_ruleTerminalExpression_in_entryRuleTerminalExpression7652 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTerminalExpression7662 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleTerminalExpression7717 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleTerminalExpression7759 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_ruleTerminalExpression7804 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_ruleTerminalExpression7833 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_ruleTerminalExpression7881 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_ruleTerminalExpression7913 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_59_in_ruleTerminalExpression7945 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_ruleTerminalExpression7977 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleTerminalExpression8021 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_ruleTerminalExpression8041 = new BitSet(new long[]{0x0F80000000420070L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleTerminalExpression8066 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleTerminalExpression8077 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_60_in_ruleAccessLevel8128 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_61_in_ruleAccessLevel8145 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_ruleAccessLevel8162 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_ruleAccessLevel8179 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_synpred45_InternalAS33196 = new BitSet(new long[]{0x0040000000040010L});
-    public static final BitSet FOLLOW_ruleParameters_in_synpred45_InternalAS33217 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_synpred45_InternalAS33229 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_synpred68_InternalAS35507 = new BitSet(new long[]{0xFF8B39C020421070L});
-    public static final BitSet FOLLOW_ruleIfBlock_in_synpred68_InternalAS35529 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParameter_in_synpred79_InternalAS36256 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_23_in_synpred79_InternalAS36269 = new BitSet(new long[]{0x0040000000000010L});
-    public static final BitSet FOLLOW_ruleParameter_in_synpred79_InternalAS36290 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_18_in_ruleNewStatement3230 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleForStatement_in_entryRuleForStatement3268 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleForStatement3278 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_ruleForStatement3316 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleForStatement3328 = new BitSet(new long[]{0xFF80040005628070L,0x0000001FFFFFFFFFL});
+    public static final BitSet FOLLOW_rulecommaExpr_in_ruleForStatement3349 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleForStatement3362 = new BitSet(new long[]{0xFF80040005628070L,0x0000001FFFFFFFFFL});
+    public static final BitSet FOLLOW_rulecommaExpr_in_ruleForStatement3383 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleForStatement3396 = new BitSet(new long[]{0xFF80040005660070L,0x0000001FFFFFFFFFL});
+    public static final BitSet FOLLOW_rulecommaExpr_in_ruleForStatement3417 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleForStatement3430 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_ruleStatementsBlock_in_ruleForStatement3451 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_ruleForStatement3471 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleForStatement3483 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_ruleForStatement3495 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleidentifierDeclaration_in_ruleForStatement3516 = new BitSet(new long[]{0x0000000000808000L});
+    public static final BitSet FOLLOW_23_in_ruleForStatement3529 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleidentifierDeclaration_in_ruleForStatement3550 = new BitSet(new long[]{0x0000000000808000L});
+    public static final BitSet FOLLOW_15_in_ruleForStatement3564 = new BitSet(new long[]{0xFF80040005628070L,0x0000001FFFFFFFFFL});
+    public static final BitSet FOLLOW_rulecommaExpr_in_ruleForStatement3585 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleForStatement3598 = new BitSet(new long[]{0xFF80040005660070L,0x0000001FFFFFFFFFL});
+    public static final BitSet FOLLOW_rulecommaExpr_in_ruleForStatement3619 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleForStatement3632 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_ruleStatementsBlock_in_ruleForStatement3653 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_ruleForStatement3673 = new BitSet(new long[]{0x0000020000020000L});
+    public static final BitSet FOLLOW_41_in_ruleForStatement3686 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleForStatement3700 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleForStatement3717 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_42_in_ruleForStatement3734 = new BitSet(new long[]{0xFF80040005620070L,0x0000001FFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleForStatement3755 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleForStatement3767 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_ruleStatementsBlock_in_ruleForStatement3788 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_ruleForStatement3808 = new BitSet(new long[]{0x0000020000020000L});
+    public static final BitSet FOLLOW_41_in_ruleForStatement3821 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleForStatement3835 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_ruleForStatement3847 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleForStatement3864 = new BitSet(new long[]{0x0000042000000000L});
+    public static final BitSet FOLLOW_ruletypeRelation_in_ruleForStatement3890 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_42_in_ruleForStatement3903 = new BitSet(new long[]{0xFF80040005620070L,0x0000001FFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleForStatement3924 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleForStatement3936 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_ruleStatementsBlock_in_ruleForStatement3957 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleidentifierDeclaration_in_entryRuleidentifierDeclaration3994 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleidentifierDeclaration4004 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleidentifierDeclaration4046 = new BitSet(new long[]{0x0000002001000002L});
+    public static final BitSet FOLLOW_ruletypeRelation_in_ruleidentifierDeclaration4072 = new BitSet(new long[]{0x0000000001000002L});
+    public static final BitSet FOLLOW_24_in_ruleidentifierDeclaration4086 = new BitSet(new long[]{0xFF8B3DC025621070L,0x000001FFFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleexprOrObjectLiteral_in_ruleidentifierDeclaration4107 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulecommaExpr_in_entryRulecommaExpr4145 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRulecommaExpr4155 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_rulecommaExpr4201 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_23_in_rulecommaExpr4214 = new BitSet(new long[]{0xFF80040005620070L,0x0000001FFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleExpression_in_rulecommaExpr4235 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_ruleDoWhileStatement_in_entryRuleDoWhileStatement4273 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDoWhileStatement4283 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_ruleDoWhileStatement4332 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_ruleStatementsBlock_in_ruleDoWhileStatement4353 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_44_in_ruleDoWhileStatement4365 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_ruleparenthesizedExpr_in_ruleDoWhileStatement4386 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleDoWhileStatement4398 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWhileStatement_in_entryRuleWhileStatement4434 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleWhileStatement4444 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_ruleWhileStatement4493 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_ruleparenthesizedExpr_in_ruleWhileStatement4514 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_ruleStatementsBlock_in_ruleWhileStatement4535 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSwitchStatement_in_entryRuleSwitchStatement4571 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSwitchStatement4581 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_ruleSwitchStatement4630 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_ruleparenthesizedExpr_in_ruleSwitchStatement4651 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleSwitchStatement4663 = new BitSet(new long[]{0xFF8BFDC025623070L,0x000001FFFFFFFFFFL});
+    public static final BitSet FOLLOW_rulestatementInSwitch_in_ruleSwitchStatement4684 = new BitSet(new long[]{0xFF8BFDC025623070L,0x000001FFFFFFFFFFL});
+    public static final BitSet FOLLOW_13_in_ruleSwitchStatement4697 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleparenthesizedExpr_in_entryRuleparenthesizedExpr4733 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleparenthesizedExpr4743 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_ruleparenthesizedExpr4780 = new BitSet(new long[]{0xFF8B3DC025621070L,0x000001FFFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleexprOrObjectLiteral_in_ruleparenthesizedExpr4801 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleparenthesizedExpr4813 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulestatementInSwitch_in_entryRulestatementInSwitch4849 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRulestatementInSwitch4859 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStatement_in_rulestatementInSwitch4909 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_rulestatementInSwitch4927 = new BitSet(new long[]{0xFF80040005620070L,0x0000001FFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleExpression_in_rulestatementInSwitch4952 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_37_in_rulestatementInSwitch4963 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_rulestatementInSwitch4983 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_37_in_rulestatementInSwitch4995 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleReturn_in_entryRuleReturn5032 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleReturn5042 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_ruleReturn5079 = new BitSet(new long[]{0xFF80040005620070L,0x0000001FFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleReturn5100 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleReturn5112 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVariableDeclaration_in_entryRuleVariableDeclaration5148 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleVariableDeclaration5158 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAccessLevel_in_ruleVariableDeclaration5204 = new BitSet(new long[]{0x0000010020000000L});
+    public static final BitSet FOLLOW_29_in_ruleVariableDeclaration5218 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_ruleVariableDeclaration5232 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleVariableDeclaration5249 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_37_in_ruleVariableDeclaration5266 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleVariableDeclaration5290 = new BitSet(new long[]{0x0000000001008000L});
+    public static final BitSet FOLLOW_24_in_ruleVariableDeclaration5303 = new BitSet(new long[]{0xFF80040005620070L,0x0000001FFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleVariableDeclaration5324 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleVariableDeclaration5338 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIfStatement_in_entryRuleIfStatement5374 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleIfStatement5384 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_ruleIfStatement5421 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleIfStatement5433 = new BitSet(new long[]{0xFF80040005620070L,0x0000001FFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleIfStatement5454 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleIfStatement5466 = new BitSet(new long[]{0xFF8B3DC025621070L,0x000001FFFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleIfBlock_in_ruleIfStatement5487 = new BitSet(new long[]{0x0004000000000002L});
+    public static final BitSet FOLLOW_50_in_ruleIfStatement5508 = new BitSet(new long[]{0xFF8B3DC025621070L,0x000001FFFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleIfBlock_in_ruleIfStatement5530 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTryStatement_in_entryRuleTryStatement5568 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTryStatement5578 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_ruleTryStatement5615 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_ruleTryStatement5627 = new BitSet(new long[]{0xFF8B3DC025621070L,0x000001FFFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleStatement_in_ruleTryStatement5648 = new BitSet(new long[]{0xFF8B3DC025623070L,0x000001FFFFFFFFFFL});
+    public static final BitSet FOLLOW_13_in_ruleTryStatement5661 = new BitSet(new long[]{0x0030000000000002L});
+    public static final BitSet FOLLOW_52_in_ruleTryStatement5674 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleTryStatement5686 = new BitSet(new long[]{0x0040000000000010L});
+    public static final BitSet FOLLOW_ruleParameter_in_ruleTryStatement5707 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleTryStatement5719 = new BitSet(new long[]{0x0020000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleTryStatement5734 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_ruleStatementsBlock_in_ruleTryStatement5755 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIfBlock_in_entryRuleIfBlock5793 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleIfBlock5803 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStatement_in_ruleIfBlock5849 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStatementsBlock_in_ruleIfBlock5880 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStatementsBlock_in_entryRuleStatementsBlock5915 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleStatementsBlock5925 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_12_in_ruleStatementsBlock5962 = new BitSet(new long[]{0xFF8B3DC025623070L,0x000001FFFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleStatement_in_ruleStatementsBlock5983 = new BitSet(new long[]{0xFF8B3DC025623070L,0x000001FFFFFFFFFFL});
+    public static final BitSet FOLLOW_13_in_ruleStatementsBlock5996 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParameter_in_entryRuleParameter6034 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleParameter6044 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_ruleParameter6082 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleParameter6101 = new BitSet(new long[]{0x0000002001000002L});
+    public static final BitSet FOLLOW_ruletypeRelation_in_ruleParameter6127 = new BitSet(new long[]{0x0000000001000002L});
+    public static final BitSet FOLLOW_24_in_ruleParameter6141 = new BitSet(new long[]{0xFF8B3DC025621070L,0x000001FFFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleexprOrObjectLiteral_in_ruleParameter6162 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParameters_in_entryRuleParameters6200 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleParameters6210 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParameter_in_ruleParameters6257 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_23_in_ruleParameters6270 = new BitSet(new long[]{0x0040000000000010L});
+    public static final BitSet FOLLOW_ruleParameter_in_ruleParameters6291 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_ruleParameter_in_ruleParameters6324 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_23_in_ruleParameters6337 = new BitSet(new long[]{0x0040000000000010L});
+    public static final BitSet FOLLOW_ruleParameter_in_ruleParameters6358 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_23_in_ruleParameters6372 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleParameters6391 = new BitSet(new long[]{0x0000002000000002L});
+    public static final BitSet FOLLOW_ruletypeRelation_in_ruleParameters6417 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruletypeRelation_in_entryRuletypeRelation6455 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuletypeRelation6465 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_ruletypeRelation6502 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruletypeRelation6526 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleobjectLiteral_in_entryRuleobjectLiteral6562 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleobjectLiteral6572 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_12_in_ruleobjectLiteral6609 = new BitSet(new long[]{0x0000000000000070L});
+    public static final BitSet FOLLOW_ruleobjectFields_in_ruleobjectLiteral6634 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleobjectLiteral6645 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleobjectFields_in_entryRuleobjectFields6681 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleobjectFields6691 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleobjectField_in_ruleobjectFields6737 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_23_in_ruleobjectFields6750 = new BitSet(new long[]{0x0000000000000070L});
+    public static final BitSet FOLLOW_ruleobjectField_in_ruleobjectFields6771 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_ruleobjectField_in_entryRuleobjectField6809 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleobjectField6819 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleobjectField6856 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_37_in_ruleobjectField6867 = new BitSet(new long[]{0xFF8B3DC025621070L,0x000001FFFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleexprOrObjectLiteral_in_ruleobjectField6892 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleobjectField6910 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_37_in_ruleobjectField6921 = new BitSet(new long[]{0xFF8B3DC025621070L,0x000001FFFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleexprOrObjectLiteral_in_ruleobjectField6946 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleobjectField6964 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_37_in_ruleobjectField6975 = new BitSet(new long[]{0xFF8B3DC025621070L,0x000001FFFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleexprOrObjectLiteral_in_ruleobjectField7000 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleexprOrObjectLiteral_in_entryRuleexprOrObjectLiteral7036 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleexprOrObjectLiteral7046 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleexprOrObjectLiteral7096 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleobjectLiteral_in_ruleexprOrObjectLiteral7126 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_entryRuleExpression7163 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExpression7173 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAssignment_in_ruleExpression7222 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAssignment_in_entryRuleAssignment7256 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAssignment7266 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSelectionExpression_in_ruleAssignment7316 = new BitSet(new long[]{0x0000000001000002L});
+    public static final BitSet FOLLOW_24_in_ruleAssignment7340 = new BitSet(new long[]{0xFF80040005620070L,0x0000001FFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleAssignment7361 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSelectionExpression_in_entryRuleSelectionExpression7399 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSelectionExpression7409 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTerminalExpression_in_ruleSelectionExpression7459 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_26_in_ruleSelectionExpression7483 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSelectionExpression7507 = new BitSet(new long[]{0x0000000004020002L});
+    public static final BitSet FOLLOW_17_in_ruleSelectionExpression7526 = new BitSet(new long[]{0xFF80040005660070L,0x0000001FFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleSelectionExpression7561 = new BitSet(new long[]{0x0000000000840000L});
+    public static final BitSet FOLLOW_23_in_ruleSelectionExpression7574 = new BitSet(new long[]{0xFF80040005620070L,0x0000001FFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleSelectionExpression7595 = new BitSet(new long[]{0x0000000000840000L});
+    public static final BitSet FOLLOW_18_in_ruleSelectionExpression7611 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_ruleTerminalExpression_in_entryRuleTerminalExpression7653 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTerminalExpression7663 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleTerminalExpression7718 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleTerminalExpression7760 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_ruleTerminalExpression7805 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_ruleTerminalExpression7834 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_ruleTerminalExpression7882 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_58_in_ruleTerminalExpression7914 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_59_in_ruleTerminalExpression7946 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_ruleTerminalExpression7978 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleTerminalExpression8022 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTerminalOperator_in_ruleTerminalExpression8061 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_ruleTerminalExpression8080 = new BitSet(new long[]{0xFF80040005620070L,0x0000001FFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleTerminalExpression8105 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleTerminalExpression8116 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTerminalOperator_in_entryRuleTerminalOperator8154 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTerminalOperator8165 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_ruleTerminalOperator8203 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_60_in_ruleTerminalOperator8222 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_61_in_ruleTerminalOperator8241 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_62_in_ruleTerminalOperator8260 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_ruleTerminalOperator8279 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_ruleTerminalOperator8298 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleTerminalOperator8317 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_66_in_ruleTerminalOperator8336 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_67_in_ruleTerminalOperator8355 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_68_in_ruleTerminalOperator8374 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_69_in_ruleTerminalOperator8393 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_70_in_ruleTerminalOperator8412 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_71_in_ruleTerminalOperator8431 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_72_in_ruleTerminalOperator8450 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_73_in_ruleTerminalOperator8469 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_74_in_ruleTerminalOperator8488 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_75_in_ruleTerminalOperator8507 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_76_in_ruleTerminalOperator8526 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_77_in_ruleTerminalOperator8545 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_78_in_ruleTerminalOperator8564 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_79_in_ruleTerminalOperator8583 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_80_in_ruleTerminalOperator8602 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_81_in_ruleTerminalOperator8621 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_82_in_ruleTerminalOperator8640 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_83_in_ruleTerminalOperator8659 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_84_in_ruleTerminalOperator8678 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_85_in_ruleTerminalOperator8697 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_42_in_ruleTerminalOperator8716 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_86_in_ruleTerminalOperator8735 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_87_in_ruleTerminalOperator8754 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_88_in_ruleTerminalOperator8773 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_89_in_ruleTerminalOperator8792 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_90_in_ruleTerminalOperator8811 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_91_in_ruleTerminalOperator8830 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_92_in_ruleTerminalOperator8849 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_21_in_ruleTerminalOperator8868 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_93_in_ruleTerminalOperator8887 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_94_in_ruleTerminalOperator8906 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_95_in_ruleTerminalOperator8925 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_96_in_ruleTerminalOperator8944 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_97_in_ruleTerminalOperator8963 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_98_in_ruleTerminalOperator8982 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_99_in_ruleTerminalOperator9001 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_ruleTerminalOperator9020 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_100_in_ruleTerminalOperator9039 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_101_in_ruleAccessLevel9093 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_102_in_ruleAccessLevel9110 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_103_in_ruleAccessLevel9127 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_104_in_ruleAccessLevel9144 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParameters_in_synpred45_InternalAS33217 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_synpred46_InternalAS33196 = new BitSet(new long[]{0x0040000000040010L});
+    public static final BitSet FOLLOW_ruleParameters_in_synpred46_InternalAS33217 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_synpred46_InternalAS33230 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_synpred69_InternalAS35508 = new BitSet(new long[]{0xFF8B3DC025621070L,0x000001FFFFFFFFFFL});
+    public static final BitSet FOLLOW_ruleIfBlock_in_synpred69_InternalAS35530 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParameter_in_synpred80_InternalAS36257 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_23_in_synpred80_InternalAS36270 = new BitSet(new long[]{0x0040000000000010L});
+    public static final BitSet FOLLOW_ruleParameter_in_synpred80_InternalAS36291 = new BitSet(new long[]{0x0000000000800002L});
 
 }

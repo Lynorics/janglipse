@@ -1884,6 +1884,25 @@ public interface AS3Package extends EPackage
   int SYMBOL_REF_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.TerminalOpImpl <em>Terminal Op</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.TerminalOpImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getTerminalOp()
+   * @generated
+   */
+  int TERMINAL_OP = 53;
+
+  /**
+   * The number of structural features of the '<em>Terminal Op</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TERMINAL_OP_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.AccessLevel <em>Access Level</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1891,7 +1910,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getAccessLevel()
    * @generated
    */
-  int ACCESS_LEVEL = 53;
+  int ACCESS_LEVEL = 54;
 
 
   /**
@@ -3327,6 +3346,16 @@ public interface AS3Package extends EPackage
   EReference getSymbolRef_Symbol();
 
   /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.TerminalOp <em>Terminal Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Terminal Op</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.TerminalOp
+   * @generated
+   */
+  EClass getTerminalOp();
+
+  /**
    * Returns the meta object for enum '{@link de.lynorics.eclipse.jangaroo.aS3.AccessLevel <em>Access Level</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4544,6 +4573,16 @@ public interface AS3Package extends EPackage
      * @generated
      */
     EReference SYMBOL_REF__SYMBOL = eINSTANCE.getSymbolRef_Symbol();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.TerminalOpImpl <em>Terminal Op</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.TerminalOpImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getTerminalOp()
+     * @generated
+     */
+    EClass TERMINAL_OP = eINSTANCE.getTerminalOp();
 
     /**
      * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.AccessLevel <em>Access Level</em>}' enum.

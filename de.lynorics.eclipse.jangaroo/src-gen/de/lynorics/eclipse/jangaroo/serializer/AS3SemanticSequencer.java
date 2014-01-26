@@ -27,6 +27,7 @@ import de.lynorics.eclipse.jangaroo.aS3.StringConstant;
 import de.lynorics.eclipse.jangaroo.aS3.Super;
 import de.lynorics.eclipse.jangaroo.aS3.Switch;
 import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
+import de.lynorics.eclipse.jangaroo.aS3.TerminalOp;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Type;
@@ -303,6 +304,21 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				   context == grammarAccess.getObjectFieldRule() ||
 				   context == grammarAccess.getStatementInSwitchRule()) {
 					sequence_TerminalExpression(context, (SymbolRef) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.TERMINAL_OP:
+				if(context == grammarAccess.getAssignmentRule() ||
+				   context == grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0() ||
+				   context == grammarAccess.getExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionRule() ||
+				   context == grammarAccess.getSelectionExpressionAccess().getMemberSelectionReceiverAction_1_0() ||
+				   context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getTerminalExpressionRule() ||
+				   context == grammarAccess.getExprOrObjectLiteralRule() ||
+				   context == grammarAccess.getObjectFieldRule() ||
+				   context == grammarAccess.getStatementInSwitchRule()) {
+					sequence_TerminalExpression(context, (TerminalOp) semanticObject); 
 					return; 
 				}
 				else break;
@@ -747,6 +763,15 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getTerminalExpressionAccess().getSymbolSymbolIDTerminalRuleCall_7_1_0_1(), semanticObject.getSymbol());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     {TerminalOp}
+	 */
+	protected void sequence_TerminalExpression(EObject context, TerminalOp semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

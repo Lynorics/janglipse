@@ -36,6 +36,7 @@ import de.lynorics.eclipse.jangaroo.aS3.Switch;
 import de.lynorics.eclipse.jangaroo.aS3.SwitchStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Symbol;
 import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
+import de.lynorics.eclipse.jangaroo.aS3.TerminalOp;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Type;
@@ -170,6 +171,7 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.NULL: return createNull();
       case AS3Package.VOID: return createVoid();
       case AS3Package.SYMBOL_REF: return createSymbolRef();
+      case AS3Package.TERMINAL_OP: return createTerminalOp();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -790,6 +792,17 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
   {
     SymbolRefImpl symbolRef = new SymbolRefImpl();
     return symbolRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TerminalOp createTerminalOp()
+  {
+    TerminalOpImpl terminalOp = new TerminalOpImpl();
+    return terminalOp;
   }
 
   /**
