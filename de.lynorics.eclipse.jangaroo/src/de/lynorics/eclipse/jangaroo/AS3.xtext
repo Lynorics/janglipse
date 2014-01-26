@@ -15,7 +15,7 @@ Model hidden(WS, ML_COMMENT, SL_COMMENT):
   classes+=Class*;
 
 Package:
-  'package' name=QualifiedName '{' 
+  'package' package=QualifiedName '{' 
   imp=Imports
   directives+=directive*
   classes+=(Class|Interface)*

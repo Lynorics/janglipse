@@ -214,7 +214,7 @@ public class AS3SyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     '*' | 'void'
+	 *     'void' | '*'
 	 */
 	protected void emit_Uses_AsteriskKeyword_2_1_or_VoidKeyword_2_2(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -230,7 +230,7 @@ public class AS3SyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     (ID ':') | (INT ':') | (STRING ':')
+	 *     (STRING ':') | (INT ':') | (ID ':')
 	 */
 	protected void emit_objectField___IDTerminalRuleCall_0_0_ColonKeyword_0_1___or___INTTerminalRuleCall_2_0_ColonKeyword_2_1___or___STRINGTerminalRuleCall_1_0_ColonKeyword_1_1__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

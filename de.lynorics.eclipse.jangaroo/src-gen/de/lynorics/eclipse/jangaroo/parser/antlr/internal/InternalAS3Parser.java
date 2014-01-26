@@ -406,14 +406,14 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePackage"
-    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:163:1: rulePackage returns [EObject current=null] : (otherlv_0= 'package' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( (lv_imp_3_0= ruleImports ) ) ( (lv_directives_4_0= ruledirective ) )* ( ( (lv_classes_5_1= ruleClass | lv_classes_5_2= ruleInterface ) ) )* otherlv_6= '}' ) ;
+    // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:163:1: rulePackage returns [EObject current=null] : (otherlv_0= 'package' ( (lv_package_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( (lv_imp_3_0= ruleImports ) ) ( (lv_directives_4_0= ruledirective ) )* ( ( (lv_classes_5_1= ruleClass | lv_classes_5_2= ruleInterface ) ) )* otherlv_6= '}' ) ;
     public final EObject rulePackage() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token otherlv_2=null;
         Token otherlv_6=null;
-        AntlrDatatypeRuleToken lv_name_1_0 = null;
+        AntlrDatatypeRuleToken lv_package_1_0 = null;
 
         EObject lv_imp_3_0 = null;
 
@@ -427,11 +427,11 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:166:28: ( (otherlv_0= 'package' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( (lv_imp_3_0= ruleImports ) ) ( (lv_directives_4_0= ruledirective ) )* ( ( (lv_classes_5_1= ruleClass | lv_classes_5_2= ruleInterface ) ) )* otherlv_6= '}' ) )
-            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:167:1: (otherlv_0= 'package' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( (lv_imp_3_0= ruleImports ) ) ( (lv_directives_4_0= ruledirective ) )* ( ( (lv_classes_5_1= ruleClass | lv_classes_5_2= ruleInterface ) ) )* otherlv_6= '}' )
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:166:28: ( (otherlv_0= 'package' ( (lv_package_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( (lv_imp_3_0= ruleImports ) ) ( (lv_directives_4_0= ruledirective ) )* ( ( (lv_classes_5_1= ruleClass | lv_classes_5_2= ruleInterface ) ) )* otherlv_6= '}' ) )
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:167:1: (otherlv_0= 'package' ( (lv_package_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( (lv_imp_3_0= ruleImports ) ) ( (lv_directives_4_0= ruledirective ) )* ( ( (lv_classes_5_1= ruleClass | lv_classes_5_2= ruleInterface ) ) )* otherlv_6= '}' )
             {
-            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:167:1: (otherlv_0= 'package' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( (lv_imp_3_0= ruleImports ) ) ( (lv_directives_4_0= ruledirective ) )* ( ( (lv_classes_5_1= ruleClass | lv_classes_5_2= ruleInterface ) ) )* otherlv_6= '}' )
-            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:167:3: otherlv_0= 'package' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( (lv_imp_3_0= ruleImports ) ) ( (lv_directives_4_0= ruledirective ) )* ( ( (lv_classes_5_1= ruleClass | lv_classes_5_2= ruleInterface ) ) )* otherlv_6= '}'
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:167:1: (otherlv_0= 'package' ( (lv_package_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( (lv_imp_3_0= ruleImports ) ) ( (lv_directives_4_0= ruledirective ) )* ( ( (lv_classes_5_1= ruleClass | lv_classes_5_2= ruleInterface ) ) )* otherlv_6= '}' )
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:167:3: otherlv_0= 'package' ( (lv_package_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( (lv_imp_3_0= ruleImports ) ) ( (lv_directives_4_0= ruledirective ) )* ( ( (lv_classes_5_1= ruleClass | lv_classes_5_2= ruleInterface ) ) )* otherlv_6= '}'
             {
             otherlv_0=(Token)match(input,11,FOLLOW_11_in_rulePackage288); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -439,19 +439,19 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_0, grammarAccess.getPackageAccess().getPackageKeyword_0());
                   
             }
-            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:171:1: ( (lv_name_1_0= ruleQualifiedName ) )
-            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:172:1: (lv_name_1_0= ruleQualifiedName )
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:171:1: ( (lv_package_1_0= ruleQualifiedName ) )
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:172:1: (lv_package_1_0= ruleQualifiedName )
             {
-            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:172:1: (lv_name_1_0= ruleQualifiedName )
-            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:173:3: lv_name_1_0= ruleQualifiedName
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:172:1: (lv_package_1_0= ruleQualifiedName )
+            // ../de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:173:3: lv_package_1_0= ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getPackageAccess().getNameQualifiedNameParserRuleCall_1_0()); 
+              	        newCompositeNode(grammarAccess.getPackageAccess().getPackageQualifiedNameParserRuleCall_1_0()); 
               	    
             }
             pushFollow(FOLLOW_ruleQualifiedName_in_rulePackage309);
-            lv_name_1_0=ruleQualifiedName();
+            lv_package_1_0=ruleQualifiedName();
 
             state._fsp--;
             if (state.failed) return current;
@@ -462,8 +462,8 @@ public class InternalAS3Parser extends AbstractInternalAntlrParser {
               	        }
                      		set(
                      			current, 
-                     			"name",
-                      		lv_name_1_0, 
+                     			"package",
+                      		lv_package_1_0, 
                       		"QualifiedName");
               	        afterParserOrEnumRuleCall();
               	    

@@ -22,9 +22,11 @@ import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 public class AS3Validator extends AbstractAS3Validator {
   public final static String CLASS_SHOULD_START_WITH_CAPITAL_LETTER = "classStartsWithCapitalLetter";
   
-  public final static String FIELD_SHOULD_START_WITH_LOWERCASE = "fieldStartsWithCapitalLetter";
+  public final static String FIELD_SHOULD_START_WITH_LOWERCASE = "fieldStartsWithLowercase";
   
   public final static String CYCLE_IN_CLASS_HIERARCHY = "cycleInClassHierarchy";
+  
+  public final static String PACKAGE_SHOULD_START_WITH_LOWERCASE = "fieldStartsWithLowercase";
   
   @Check
   public void checkClassStartsWithCapital(final de.lynorics.eclipse.jangaroo.aS3.Class clas) {
@@ -36,6 +38,22 @@ public class AS3Validator extends AbstractAS3Validator {
       this.warning("Class name should start with a capital", 
         AS3Package.Literals.CLASS__NAME, 
         AS3Validator.CLASS_SHOULD_START_WITH_CAPITAL_LETTER);
+    }
+  }
+  
+  @Check
+  public void checkPackageStartsWithLowercase(final de.lynorics.eclipse.jangaroo.aS3.Package pack) {
+    String _package = pack.getPackage();
+    String[] folders = _package.split(".");
+    for (final String folder : folders) {
+      char _charAt = folder.charAt(0);
+      boolean _isUpperCase = Character.isUpperCase(_charAt);
+      boolean _not = (!_isUpperCase);
+      if (_not) {
+        this.warning("Package name should start with a lowercase", 
+          AS3Package.Literals.CLASS__NAME, 
+          AS3Validator.PACKAGE_SHOULD_START_WITH_LOWERCASE);
+      }
     }
   }
   

@@ -607,7 +607,7 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=QualifiedName imp=Imports directives+=directive* (classes+=Class | classes+=Interface)*)
+	 *     (package=QualifiedName imp=Imports directives+=directive* (classes+=Class | classes+=Interface)*)
 	 */
 	protected void sequence_Package(EObject context, de.lynorics.eclipse.jangaroo.aS3.Package semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -123,13 +123,13 @@ public interface AS3Package extends EPackage
   int PACKAGE__CLASSES = MODEL__CLASSES;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Package</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PACKAGE__NAME = MODEL_FEATURE_COUNT + 0;
+  int PACKAGE__PACKAGE = MODEL_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Directives</b></em>' containment reference list.
@@ -1937,15 +1937,15 @@ public interface AS3Package extends EPackage
   EClass getPackage();
 
   /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.Package#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.Package#getPackage <em>Package</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Package#getName()
+   * @return the meta object for the attribute '<em>Package</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Package#getPackage()
    * @see #getPackage()
    * @generated
    */
-  EAttribute getPackage_Name();
+  EAttribute getPackage_Package();
 
   /**
    * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.Package#getDirectives <em>Directives</em>}'.
@@ -3396,12 +3396,12 @@ public interface AS3Package extends EPackage
     EClass PACKAGE = eINSTANCE.getPackage();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Package</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PACKAGE__NAME = eINSTANCE.getPackage_Name();
+    EAttribute PACKAGE__PACKAGE = eINSTANCE.getPackage_Package();
 
     /**
      * The meta object literal for the '<em><b>Directives</b></em>' containment reference list feature.

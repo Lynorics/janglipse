@@ -58,8 +58,8 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Package");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cPackageKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cPackageAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cPackageQualifiedNameParserRuleCall_1_0 = (RuleCall)cPackageAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cImpAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cImpImportsParserRuleCall_3_0 = (RuleCall)cImpAssignment_3.eContents().get(0);
@@ -72,20 +72,20 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Package:
-		//	"package" name=QualifiedName "{" imp=Imports directives+=directive* classes+=(Class | Interface)* "}";
+		//	"package" package=QualifiedName "{" imp=Imports directives+=directive* classes+=(Class | Interface)* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"package" name=QualifiedName "{" imp=Imports directives+=directive* classes+=(Class | Interface)* "}"
+		//"package" package=QualifiedName "{" imp=Imports directives+=directive* classes+=(Class | Interface)* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"package"
 		public Keyword getPackageKeyword_0() { return cPackageKeyword_0; }
 
-		//name=QualifiedName
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//package=QualifiedName
+		public Assignment getPackageAssignment_1() { return cPackageAssignment_1; }
 
 		//QualifiedName
-		public RuleCall getNameQualifiedNameParserRuleCall_1_0() { return cNameQualifiedNameParserRuleCall_1_0; }
+		public RuleCall getPackageQualifiedNameParserRuleCall_1_0() { return cPackageQualifiedNameParserRuleCall_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -2501,7 +2501,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Package:
-	//	"package" name=QualifiedName "{" imp=Imports directives+=directive* classes+=(Class | Interface)* "}";
+	//	"package" package=QualifiedName "{" imp=Imports directives+=directive* classes+=(Class | Interface)* "}";
 	public PackageElements getPackageAccess() {
 		return (pPackage != null) ? pPackage : (pPackage = new PackageElements());
 	}

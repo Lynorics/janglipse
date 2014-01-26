@@ -6,10 +6,10 @@
  */
 package de.lynorics.eclipse.jangaroo.validation
 
-import org.eclipse.xtext.validation.Check
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package
-import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration
-import org.eclipse.emf.codegen.ecore.genmodel.impl.Literals
+import de.lynorics.eclipse.jangaroo.aS3.Class
+import de.lynorics.eclipse.jangaroo.aS3.Package
+import org.eclipse.xtext.validation.Check
 
 /**
  * Custom validation rules. 
@@ -18,12 +18,13 @@ import org.eclipse.emf.codegen.ecore.genmodel.impl.Literals
  */
 class AS3Validator extends AbstractAS3Validator {
 
-  public static val CLASS_SHOULD_START_WITH_CAPITAL_LETTER = 'classStartsWithCapitalLetter'
-  public static val FIELD_SHOULD_START_WITH_LOWERCASE = 'fieldStartsWithCapitalLetter'
+  public static val CLASS_SHOULD_START_WITH_CAPITAL_LETTER = 'classStartsWithCapitalLetter';
+  public static val FIELD_SHOULD_START_WITH_LOWERCASE = 'fieldStartsWithLowercase';
   public static val CYCLE_IN_CLASS_HIERARCHY = "cycleInClassHierarchy";
+  public static val PACKAGE_SHOULD_START_WITH_LOWERCASE = 'fieldStartsWithLowercase';
 
   @Check
-  def checkClassStartsWithCapital(de.lynorics.eclipse.jangaroo.aS3.Class clas) {
+  def checkClassStartsWithCapital(Class clas) {
     if (!Character.isUpperCase(clas.name.charAt(0))) {
       warning('Class name should start with a capital', 
           AS3Package.Literals.CLASS__NAME,
@@ -31,8 +32,20 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
 
+  @Check
+  def checkPackageStartsWithLowercase(Package pack) {
+    var folders = pack.package.split(".");
+    for(folder: folders) {
+    if (!Character.isUpperCase(folder.charAt(0))) {
+      warning('Package name should start with a lowercase', 
+          AS3Package.Literals.CLASS__NAME,
+          PACKAGE_SHOULD_START_WITH_LOWERCASE)
+    }
+    }
+  }
+
 //  @Check
-//  def checkFeldStartsWithLowercase(VariableDeclaration variable) {
+//  def checkFieldStartsWithLowercase(VariableDeclaration variable) {
 //    if (!Character.isUpperCase(variable.name.charAt(0))) {
 //      warning('Field name should start with a lowercase', 
 //          AS3Package.Literals.VARIABLEDECLARATION__NAME,
@@ -41,11 +54,11 @@ class AS3Validator extends AbstractAS3Validator {
 //  }
 
   @Check
-  def checkNoCycleInClassHierarchie(de.lynorics.eclipse.jangaroo.aS3.Class clas) {
+  def checkNoCycleInClassHierarchie(Class clas) {
     if (clas.superType == null) {
       return
     }
-    val visitedClasses = <de.lynorics.eclipse.jangaroo.aS3.Class>newHashSet();
+    val visitedClasses = <Class>newHashSet();
     visitedClasses.add(clas);
     var current = clas.superType;
     while (current != null) {

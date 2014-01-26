@@ -18,7 +18,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Model/classes"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//Package">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Package/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Package/package"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Package/directives"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//Imports">

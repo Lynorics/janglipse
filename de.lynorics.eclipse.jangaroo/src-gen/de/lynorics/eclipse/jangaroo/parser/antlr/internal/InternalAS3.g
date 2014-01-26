@@ -171,16 +171,16 @@ rulePackage returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPackageAccess().getNameQualifiedNameParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getPackageAccess().getPackageQualifiedNameParserRuleCall_1_0()); 
 	    }
-		lv_name_1_0=ruleQualifiedName		{
+		lv_package_1_0=ruleQualifiedName		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPackageRule());
 	        }
        		set(
        			$current, 
-       			"name",
-        		lv_name_1_0, 
+       			"package",
+        		lv_package_1_0, 
         		"QualifiedName");
 	        afterParserOrEnumRuleCall();
 	    }

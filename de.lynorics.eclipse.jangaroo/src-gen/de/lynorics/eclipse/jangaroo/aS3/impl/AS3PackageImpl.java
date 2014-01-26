@@ -558,7 +558,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPackage_Name()
+  public EAttribute getPackage_Package()
   {
     return (EAttribute)packageEClass.getEStructuralFeatures().get(0);
   }
@@ -1908,7 +1908,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     createEReference(modelEClass, MODEL__CLASSES);
 
     packageEClass = createEClass(PACKAGE);
-    createEAttribute(packageEClass, PACKAGE__NAME);
+    createEAttribute(packageEClass, PACKAGE__PACKAGE);
     createEReference(packageEClass, PACKAGE__DIRECTIVES);
 
     importsEClass = createEClass(IMPORTS);
@@ -2168,7 +2168,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     initEReference(getModel_Classes(), ecorePackage.getEObject(), null, "classes", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(packageEClass, de.lynorics.eclipse.jangaroo.aS3.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, de.lynorics.eclipse.jangaroo.aS3.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPackage_Package(), ecorePackage.getEString(), "package", null, 0, 1, de.lynorics.eclipse.jangaroo.aS3.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackage_Directives(), this.getdirective(), null, "directives", null, 0, -1, de.lynorics.eclipse.jangaroo.aS3.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(importsEClass, Imports.class, "Imports", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
