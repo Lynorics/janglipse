@@ -248,6 +248,15 @@ public interface AS3Factory extends EFactory
   VariableDeclaration createVariableDeclaration();
 
   /**
+   * Returns a new object of class '<em>Var Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Var Type</em>'.
+   * @generated
+   */
+  VarType createVarType();
+
+  /**
    * Returns a new object of class '<em>If Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -374,15 +383,6 @@ public interface AS3Factory extends EFactory
   Expression createExpression();
 
   /**
-   * Returns a new object of class '<em>Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type</em>'.
-   * @generated
-   */
-  Type createType();
-
-  /**
    * Returns a new object of class '<em>New</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -482,13 +482,13 @@ public interface AS3Factory extends EFactory
   Null createNull();
 
   /**
-   * Returns a new object of class '<em>Void</em>'.
+   * Returns a new object of class '<em>Undefined</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Void</em>'.
+   * @return a new object of class '<em>Undefined</em>'.
    * @generated
    */
-  Void createVoid();
+  Undefined createUndefined();
 
   /**
    * Returns a new object of class '<em>Symbol Ref</em>'.

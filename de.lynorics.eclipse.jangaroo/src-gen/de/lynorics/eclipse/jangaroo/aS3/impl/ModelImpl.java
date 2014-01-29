@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ModelImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ModelImpl#getImp <em>Imp</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ModelImpl#getClasses <em>Classes</em>}</li>
  * </ul>
@@ -39,6 +40,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
+  /**
+   * The cached value of the '{@link #getPackage() <em>Package</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPackage()
+   * @generated
+   * @ordered
+   */
+  protected de.lynorics.eclipse.jangaroo.aS3.Package package_;
+
   /**
    * The cached value of the '{@link #getImp() <em>Imp</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -78,6 +89,54 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected EClass eStaticClass()
   {
     return AS3Package.Literals.MODEL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public de.lynorics.eclipse.jangaroo.aS3.Package getPackage()
+  {
+    return package_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPackage(de.lynorics.eclipse.jangaroo.aS3.Package newPackage, NotificationChain msgs)
+  {
+    de.lynorics.eclipse.jangaroo.aS3.Package oldPackage = package_;
+    package_ = newPackage;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.MODEL__PACKAGE, oldPackage, newPackage);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPackage(de.lynorics.eclipse.jangaroo.aS3.Package newPackage)
+  {
+    if (newPackage != package_)
+    {
+      NotificationChain msgs = null;
+      if (package_ != null)
+        msgs = ((InternalEObject)package_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.MODEL__PACKAGE, null, msgs);
+      if (newPackage != null)
+        msgs = ((InternalEObject)newPackage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.MODEL__PACKAGE, null, msgs);
+      msgs = basicSetPackage(newPackage, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.MODEL__PACKAGE, newPackage, newPackage));
   }
 
   /**
@@ -152,6 +211,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case AS3Package.MODEL__PACKAGE:
+        return basicSetPackage(null, msgs);
       case AS3Package.MODEL__IMP:
         return basicSetImp(null, msgs);
       case AS3Package.MODEL__CLASSES:
@@ -170,6 +231,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case AS3Package.MODEL__PACKAGE:
+        return getPackage();
       case AS3Package.MODEL__IMP:
         return getImp();
       case AS3Package.MODEL__CLASSES:
@@ -189,6 +252,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case AS3Package.MODEL__PACKAGE:
+        setPackage((de.lynorics.eclipse.jangaroo.aS3.Package)newValue);
+        return;
       case AS3Package.MODEL__IMP:
         setImp((Imports)newValue);
         return;
@@ -210,6 +276,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case AS3Package.MODEL__PACKAGE:
+        setPackage((de.lynorics.eclipse.jangaroo.aS3.Package)null);
+        return;
       case AS3Package.MODEL__IMP:
         setImp((Imports)null);
         return;
@@ -230,6 +299,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case AS3Package.MODEL__PACKAGE:
+        return package_ != null;
       case AS3Package.MODEL__IMP:
         return imp != null;
       case AS3Package.MODEL__CLASSES:

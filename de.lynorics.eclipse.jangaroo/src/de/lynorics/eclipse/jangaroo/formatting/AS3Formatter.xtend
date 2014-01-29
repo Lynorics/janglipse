@@ -25,7 +25,7 @@ import org.eclipse.xtext.formatting.impl.FormattingConfig
 class AS3Formatter extends AbstractDeclarativeFormatter {
 
 //	@Inject extension AS3GrammarAccess
-	
+	 
 	override protected void configureFormatting(FormattingConfig c) {
 // It's usually a good idea to activate the following three statements.
 // They will add and preserve newlines around comments

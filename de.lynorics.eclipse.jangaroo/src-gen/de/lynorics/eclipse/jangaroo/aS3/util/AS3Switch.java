@@ -36,8 +36,9 @@ import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
 import de.lynorics.eclipse.jangaroo.aS3.TerminalOp;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
-import de.lynorics.eclipse.jangaroo.aS3.Type;
+import de.lynorics.eclipse.jangaroo.aS3.Undefined;
 import de.lynorics.eclipse.jangaroo.aS3.Uses;
+import de.lynorics.eclipse.jangaroo.aS3.VarType;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.While;
 import de.lynorics.eclipse.jangaroo.aS3.WhileStatement;
@@ -133,7 +134,6 @@ public class AS3Switch<T> extends Switch<T>
       {
         de.lynorics.eclipse.jangaroo.aS3.Package package_ = (de.lynorics.eclipse.jangaroo.aS3.Package)theEObject;
         T result = casePackage(package_);
-        if (result == null) result = caseModel(package_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -316,6 +316,13 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AS3Package.VAR_TYPE:
+      {
+        VarType varType = (VarType)theEObject;
+        T result = caseVarType(varType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AS3Package.IF_STATEMENT:
       {
         IfStatement ifStatement = (IfStatement)theEObject;
@@ -433,13 +440,6 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = caseexprOrObjectLiteral(expression);
         if (result == null) result = casestatementInSwitch(expression);
         if (result == null) result = caseobjectField(expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.TYPE:
-      {
-        Type type = (Type)theEObject;
-        T result = caseType(type);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -570,15 +570,15 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.VOID:
+      case AS3Package.UNDEFINED:
       {
-        de.lynorics.eclipse.jangaroo.aS3.Void void_ = (de.lynorics.eclipse.jangaroo.aS3.Void)theEObject;
-        T result = caseVoid(void_);
-        if (result == null) result = caseExpression(void_);
-        if (result == null) result = caseStatement(void_);
-        if (result == null) result = caseexprOrObjectLiteral(void_);
-        if (result == null) result = casestatementInSwitch(void_);
-        if (result == null) result = caseobjectField(void_);
+        Undefined undefined = (Undefined)theEObject;
+        T result = caseUndefined(undefined);
+        if (result == null) result = caseExpression(undefined);
+        if (result == null) result = caseStatement(undefined);
+        if (result == null) result = caseexprOrObjectLiteral(undefined);
+        if (result == null) result = casestatementInSwitch(undefined);
+        if (result == null) result = caseobjectField(undefined);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1011,6 +1011,22 @@ public class AS3Switch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Var Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Var Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVarType(VarType object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>If Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1235,22 +1251,6 @@ public class AS3Switch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseType(Type object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>New</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1427,17 +1427,17 @@ public class AS3Switch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Void</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Undefined</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Void</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Undefined</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseVoid(de.lynorics.eclipse.jangaroo.aS3.Void object)
+  public T caseUndefined(Undefined object)
   {
     return null;
   }

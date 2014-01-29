@@ -1,0 +1,18 @@
+/**
+ */
+package de.lynorics.eclipse.jangaroo.aS3;
+
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Switch Statement</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ *
+ * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getSwitchStatement()
+ * @model
+ * @generated
+ */
+public interface SwitchStatement extends Statement
+{
+} // SwitchStatement

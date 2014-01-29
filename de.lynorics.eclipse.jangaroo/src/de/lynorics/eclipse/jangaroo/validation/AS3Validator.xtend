@@ -11,6 +11,7 @@ import de.lynorics.eclipse.jangaroo.aS3.Class
 import de.lynorics.eclipse.jangaroo.aS3.Package
 import org.eclipse.xtext.validation.Check
 import de.lynorics.eclipse.jangaroo.aS3.Method
+import de.lynorics.eclipse.jangaroo.aS3.Interface
 
 /**
  * Custom validation rules. 
@@ -36,8 +37,8 @@ class AS3Validator extends AbstractAS3Validator {
   }
 
   @Check
-  def checkInterfaceStartsWithCapital(Class clas) {
-    if (!Character.isUpperCase(clas.name.charAt(0))) {
+  def checkInterfaceStartsWithCapital(Interface intf) {
+    if (!Character.isUpperCase(intf.name.charAt(0))) {
       warning('Interface name should start with a capital', 
           AS3Package.Literals.INTERFACE__NAME,
           INTERFACE_SHOULD_START_WITH_CAPITAL_LETTER)
@@ -46,7 +47,7 @@ class AS3Validator extends AbstractAS3Validator {
 
   @Check
   def checkMethodStartsWithLowercase(Method method) {
-    if (!Character.isUpperCase(method.name.charAt(0))) {
+    if (Character.isUpperCase(method.name.charAt(0))) {
       warning('Method name should start with a lowercase', 
           AS3Package.Literals.METHOD__NAME,
           METHOD_SHOULD_START_WITH_LOWERCASE)
@@ -55,11 +56,11 @@ class AS3Validator extends AbstractAS3Validator {
 
   @Check
   def checkPackageStartsWithLowercase(Package pack) {
-    var folders = pack.package.split(".");
+    var folders = pack.name.split(".");
     for(folder: folders) {
       if (Character.isUpperCase(folder.charAt(0))) {
         warning('Package name should start with a lowercase', 
-            AS3Package.Literals.CLASS__NAME,
+            AS3Package.Literals.PACKAGE__NAME,
             PACKAGE_SHOULD_START_WITH_LOWERCASE);
         return;
       }

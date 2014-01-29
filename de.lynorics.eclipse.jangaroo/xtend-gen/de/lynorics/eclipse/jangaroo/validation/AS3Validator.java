@@ -8,6 +8,7 @@ package de.lynorics.eclipse.jangaroo.validation;
 
 import com.google.common.base.Objects;
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
+import de.lynorics.eclipse.jangaroo.aS3.Interface;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
 import de.lynorics.eclipse.jangaroo.validation.AbstractAS3Validator;
 import java.util.HashSet;
@@ -47,8 +48,8 @@ public class AS3Validator extends AbstractAS3Validator {
   }
   
   @Check
-  public void checkInterfaceStartsWithCapital(final de.lynorics.eclipse.jangaroo.aS3.Class clas) {
-    String _name = clas.getName();
+  public void checkInterfaceStartsWithCapital(final Interface intf) {
+    String _name = intf.getName();
     char _charAt = _name.charAt(0);
     boolean _isUpperCase = Character.isUpperCase(_charAt);
     boolean _not = (!_isUpperCase);
@@ -64,8 +65,7 @@ public class AS3Validator extends AbstractAS3Validator {
     String _name = method.getName();
     char _charAt = _name.charAt(0);
     boolean _isUpperCase = Character.isUpperCase(_charAt);
-    boolean _not = (!_isUpperCase);
-    if (_not) {
+    if (_isUpperCase) {
       this.warning("Method name should start with a lowercase", 
         AS3Package.Literals.METHOD__NAME, 
         AS3Validator.METHOD_SHOULD_START_WITH_LOWERCASE);
@@ -74,14 +74,14 @@ public class AS3Validator extends AbstractAS3Validator {
   
   @Check
   public void checkPackageStartsWithLowercase(final de.lynorics.eclipse.jangaroo.aS3.Package pack) {
-    String _package = pack.getPackage();
-    String[] folders = _package.split(".");
+    String _name = pack.getName();
+    String[] folders = _name.split(".");
     for (final String folder : folders) {
       char _charAt = folder.charAt(0);
       boolean _isUpperCase = Character.isUpperCase(_charAt);
       if (_isUpperCase) {
         this.warning("Package name should start with a lowercase", 
-          AS3Package.Literals.CLASS__NAME, 
+          AS3Package.Literals.PACKAGE__NAME, 
           AS3Validator.PACKAGE_SHOULD_START_WITH_LOWERCASE);
         return;
       }

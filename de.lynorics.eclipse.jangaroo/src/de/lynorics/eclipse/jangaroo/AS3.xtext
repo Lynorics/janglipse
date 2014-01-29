@@ -9,13 +9,13 @@ grammar de.lynorics.eclipse.jangaroo.AS3 with org.eclipse.xtext.common.Terminals
 generate aS3 "http://www.lynorics.de/eclipse/jangaroo/AS3"
 
 Model hidden(WS, ML_COMMENT, SL_COMMENT):
-  Package
+  package=Package
   |
   imp=Imports
-  classes+=Class*;
+  classes+=(Class|Interface)*;
 
 Package:
-  'package' package=QualifiedName '{' 
+  'package' name=QualifiedName '{' 
   imp=Imports
   directives+=directive*
   classes+=(Class|Interface)*
@@ -53,13 +53,13 @@ QualifiedName:
 
 Interface:
    access=AccessLevel? 'interface' name=ID
-   ('extends' superclass=[Type])?
+   ('extends' superclass=[Interface|QualifiedName])?
    '{' members += Member* '}'
 ;
 Class:
-   access=AccessLevel? 'static'? 'class' name=ID
-   ('extends' superType=[Class])?
-   ('implements' types+=[Interface] (',' types+=[Interface])*)?
+   access=AccessLevel? 'final'? 'static'? 'dynamic'? 'class' name=ID
+   ('extends' superType=[Class|QualifiedName])?
+   ('implements' types+=[Interface|QualifiedName] (',' types+=[Interface|QualifiedName])*)?
    '{' members += Member* '}'
    ;
 
@@ -71,7 +71,7 @@ Member:
 Method:
   'override'? access=AccessLevel? 'native'? 'static'? 'function' ('get'|'set')? name=ID
   '(' (params+=Parameter (',' params+=Parameter)*)? ')' 
-  (':' type=[Type])?
+  (':' ('void'|type=[Class|QualifiedName]))?
   body=MethodBody
 ;
 
@@ -96,7 +96,7 @@ Statement:
 ;
 
 NewStatement:
-	{New} 'new' type=[Type]
+	{New} 'new' type=[Class|QualifiedName]
 	('(' param=Parameters? ')')?
 ;
 
@@ -149,7 +149,13 @@ Return:
 ;
 
 VariableDeclaration:
-  access=AccessLevel? 'static'? 'var' name=ID ':' type=[Type] ('=' expression=Expression)? ';'
+  access=AccessLevel? 'static'? 'var' name=ID ':' type=VarType ('=' expression=Expression)? ';'
+;
+
+VarType:
+	  'void'
+	| '*'
+	| type=[Class|QualifiedName]
 ;
 
 IfStatement:
@@ -188,7 +194,7 @@ Parameters :
   name=ID rel=typeRelation?;
 
 typeRelation :
-    ':' type=[Type];
+    ':' ('void' | type=[Class|QualifiedName]);
     
 objectLiteral :
     '{' objectFields '}';
@@ -230,11 +236,6 @@ SelectionExpression returns Expression:
   )*
 ;
 
-Type: {Type}
-    //class=Class
-   qual=QualifiedName
-  ;
-
 TerminalExpression returns Expression:
    {StringConstant} value=STRING |
    {IntConstant} value=INT |
@@ -242,7 +243,7 @@ TerminalExpression returns Expression:
    {This} 'this' |
    {Super} 'super' |
    {Null} 'null' |
-   {Void} 'void' |
+   {Undefined} 'undefined' |
    {SymbolRef} symbol=[Symbol] |
    {TerminalOp} TerminalOperator |
    '(' Expression ')'; 
@@ -293,4 +294,6 @@ TerminalOperator:
   | 'typeof'
   | '.'
   | '::'
+  | '?'
+  | ':'
 ;

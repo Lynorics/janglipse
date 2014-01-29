@@ -37,8 +37,9 @@ import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
 import de.lynorics.eclipse.jangaroo.aS3.TerminalOp;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
-import de.lynorics.eclipse.jangaroo.aS3.Type;
+import de.lynorics.eclipse.jangaroo.aS3.Undefined;
 import de.lynorics.eclipse.jangaroo.aS3.Uses;
+import de.lynorics.eclipse.jangaroo.aS3.VarType;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.While;
 import de.lynorics.eclipse.jangaroo.aS3.WhileStatement;
@@ -251,6 +252,11 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
         return createVariableDeclarationAdapter();
       }
       @Override
+      public Adapter caseVarType(VarType object)
+      {
+        return createVarTypeAdapter();
+      }
+      @Override
       public Adapter caseIfStatement(IfStatement object)
       {
         return createIfStatementAdapter();
@@ -321,11 +327,6 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
         return createExpressionAdapter();
       }
       @Override
-      public Adapter caseType(Type object)
-      {
-        return createTypeAdapter();
-      }
-      @Override
       public Adapter caseNew(New object)
       {
         return createNewAdapter();
@@ -381,9 +382,9 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
         return createNullAdapter();
       }
       @Override
-      public Adapter caseVoid(de.lynorics.eclipse.jangaroo.aS3.Void object)
+      public Adapter caseUndefined(Undefined object)
       {
-        return createVoidAdapter();
+        return createUndefinedAdapter();
       }
       @Override
       public Adapter caseSymbolRef(SymbolRef object)
@@ -793,6 +794,21 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.VarType <em>Var Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.VarType
+   * @generated
+   */
+  public Adapter createVarTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.IfStatement <em>If Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1003,21 +1019,6 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Type <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Type
-   * @generated
-   */
-  public Adapter createTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.New <em>New</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1183,16 +1184,16 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Void <em>Void</em>}'.
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Undefined <em>Undefined</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Void
+   * @see de.lynorics.eclipse.jangaroo.aS3.Undefined
    * @generated
    */
-  public Adapter createVoidAdapter()
+  public Adapter createUndefinedAdapter()
   {
     return null;
   }

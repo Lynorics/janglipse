@@ -12,7 +12,7 @@
             extensions="as"
             id="de.lynorics.eclipse.jangaroo.AS3"
             name="Jangaroo AS Editor"
-            icon="icons/jooley-16x16.png">
+            icon="icons/file-joo-16x16.png">
         </editor>
     </extension>
     <extension
@@ -83,7 +83,7 @@
         <page
             class="de.lynorics.eclipse.jangaroo.ui.AS3ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
             id="de.lynorics.eclipse.jangaroo.AS3"
-            name="AS3">
+            name="Jangaroo">
             <keywordReference id="de.lynorics.eclipse.jangaroo.ui.keyword_AS3"/>
         </page>
         <page
@@ -106,7 +106,7 @@
         <page
             class="de.lynorics.eclipse.jangaroo.ui.AS3ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
             id="de.lynorics.eclipse.jangaroo.AS3"
-            name="AS3">
+            name="Jangaroo">
             <keywordReference id="de.lynorics.eclipse.jangaroo.ui.keyword_AS3"/>
             <enabledWhen>
 	            <adapt type="org.eclipse.core.resources.IProject"/>
@@ -118,7 +118,7 @@
         point="org.eclipse.ui.keywords">
         <keyword
             id="de.lynorics.eclipse.jangaroo.ui.keyword_AS3"
-            label="AS3"/>
+            label="Jangaroo"/>
     </extension>
     <extension
          point="org.eclipse.ui.commands">
@@ -228,21 +228,21 @@
 	<!-- marker definitions for de.lynorics.eclipse.jangaroo.AS3 -->
 	<extension
 	        id="as3.check.fast"
-	        name="AS3 Problem"
+	        name="Jangaroo AS Problem"
 	        point="org.eclipse.core.resources.markers">
 	    <super type="org.eclipse.xtext.ui.check.fast"/>
 	    <persistent value="true"/>
 	</extension>
 	<extension
 	        id="as3.check.normal"
-	        name="AS3 Problem"
+	        name="Jangaroo AS Problem"
 	        point="org.eclipse.core.resources.markers">
 	    <super type="org.eclipse.xtext.ui.check.normal"/>
 	    <persistent value="true"/>
 	</extension>
 	<extension
 	        id="as3.check.expensive"
-	        name="AS3 Problem"
+	        name="Jangaroo AS Problem"
 	        point="org.eclipse.core.resources.markers">
 	    <super type="org.eclipse.xtext.ui.check.expensive"/>
 	    <persistent value="true"/>
@@ -384,7 +384,7 @@
   <extension point="org.eclipse.compare.contentMergeViewers">
     <viewer id="de.lynorics.eclipse.jangaroo.AS3.compare.contentMergeViewers"
             class="de.lynorics.eclipse.jangaroo.ui.AS3ExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="as" label="AS3 Compare">
+            extensions="as" label="Jangaroo Compare">
      </viewer>
   </extension>
   <extension point="org.eclipse.ui.editors.documentProviders">

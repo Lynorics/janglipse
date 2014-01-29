@@ -39,8 +39,9 @@ import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
 import de.lynorics.eclipse.jangaroo.aS3.TerminalOp;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
-import de.lynorics.eclipse.jangaroo.aS3.Type;
+import de.lynorics.eclipse.jangaroo.aS3.Undefined;
 import de.lynorics.eclipse.jangaroo.aS3.Uses;
+import de.lynorics.eclipse.jangaroo.aS3.VarType;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.While;
 import de.lynorics.eclipse.jangaroo.aS3.WhileStatement;
@@ -143,6 +144,7 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.STATEMENT_IN_SWITCH: return createstatementInSwitch();
       case AS3Package.RETURN: return createReturn();
       case AS3Package.VARIABLE_DECLARATION: return createVariableDeclaration();
+      case AS3Package.VAR_TYPE: return createVarType();
       case AS3Package.IF_STATEMENT: return createIfStatement();
       case AS3Package.TRY_STATEMENT: return createTryStatement();
       case AS3Package.IF_BLOCK: return createIfBlock();
@@ -157,7 +159,6 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.EXPR_OR_OBJECT_LITERAL: return createexprOrObjectLiteral();
       case AS3Package.SYMBOL: return createSymbol();
       case AS3Package.EXPRESSION: return createExpression();
-      case AS3Package.TYPE: return createType();
       case AS3Package.NEW: return createNew();
       case AS3Package.WHILE: return createWhile();
       case AS3Package.SWITCH: return createSwitch();
@@ -169,7 +170,7 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.THIS: return createThis();
       case AS3Package.SUPER: return createSuper();
       case AS3Package.NULL: return createNull();
-      case AS3Package.VOID: return createVoid();
+      case AS3Package.UNDEFINED: return createUndefined();
       case AS3Package.SYMBOL_REF: return createSymbolRef();
       case AS3Package.TERMINAL_OP: return createTerminalOp();
       default:
@@ -491,6 +492,17 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
+  public VarType createVarType()
+  {
+    VarTypeImpl varType = new VarTypeImpl();
+    return varType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public IfStatement createIfStatement()
   {
     IfStatementImpl ifStatement = new IfStatementImpl();
@@ -645,17 +657,6 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type createType()
-  {
-    TypeImpl type = new TypeImpl();
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public New createNew()
   {
     NewImpl new_ = new NewImpl();
@@ -777,10 +778,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public de.lynorics.eclipse.jangaroo.aS3.Void createVoid()
+  public Undefined createUndefined()
   {
-    VoidImpl void_ = new VoidImpl();
-    return void_;
+    UndefinedImpl undefined = new UndefinedImpl();
+    return undefined;
   }
 
   /**

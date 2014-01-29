@@ -17,6 +17,8 @@ import java.lang.reflect.AnnotatedElement
 import org.eclipse.emf.ecore.EObject
 import de.lynorics.eclipse.jangaroo.aS3.Uses
 import de.lynorics.eclipse.jangaroo.aS3.Imports
+import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration
+import org.omg.CORBA.PUBLIC_MEMBER
 
 /**
  * Provides labels for a EObjects.
@@ -69,7 +71,20 @@ class AS3LabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelPro
     }
 
     def image(Method meth) {
-      return "outline-function-public.gif";
+      switch(meth.access) {
+        case PUBLIC: {
+          return "outline-function-public.gif";
+        }
+        case PROTECTED: {
+          return "outline-function-protected.gif";
+        }
+        case PRIVATE: {
+          return "outline-function-private.gif";
+        }
+        case INTERNAL: {
+          return "outline-function-internal.gif";
+        }
+      }
     }
 
     def text(Uses uses) {
@@ -78,6 +93,27 @@ class AS3LabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelPro
     
     def image(Uses uses) {
       return "outline-uses.gif";
+    }
+
+    def text(VariableDeclaration varDecl) {
+      return varDecl.name + ': ';  
+    }
+    
+    def image(VariableDeclaration varDecl) {
+      switch(varDecl.access) {
+        case PUBLIC: {
+          return "outline-field-public.gif";
+        }
+        case PROTECTED: {
+          return "outline-field-protected.gif";
+        }
+        case PRIVATE: {
+          return "outline-field-private.gif";
+        }
+        case INTERNAL: {
+          return "outline-field-internal.gif";
+        }
+      }
     }
 
 }
