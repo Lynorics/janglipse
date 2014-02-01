@@ -51,7 +51,7 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
    * @generated
    * @ordered
    */
-  protected static final AccessLevel ACCESS_EDEFAULT = AccessLevel.PRIVATE;
+  protected static final AccessLevel ACCESS_EDEFAULT = AccessLevel.INTERNAL;
 
   /**
    * The cached value of the '{@link #getAccess() <em>Access</em>}' attribute.

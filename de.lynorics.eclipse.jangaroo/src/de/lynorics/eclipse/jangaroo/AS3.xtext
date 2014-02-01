@@ -15,7 +15,7 @@ Model hidden(WS, ML_COMMENT, SL_COMMENT):
   classes+=(Class|Interface)*;
 
 Package:
-  'package' name=QualifiedName '{' 
+  'package' (name=QualifiedName)? '{' 
   imp=Imports
   directives+=directive*
   classes+=(Class|Interface)*
@@ -34,7 +34,7 @@ directive: {directive}
   | ";";
 
 Uses:
-	"use" name=ID (type=QualifiedName|'*'|'void')
+	"use" 'namespace' (type=QualifiedName|'*'|'void')
   ;
   
 annotationFields :
@@ -54,8 +54,16 @@ QualifiedName:
 Interface:
    access=AccessLevel? 'interface' name=ID
    ('extends' superclass=[Interface|QualifiedName])?
-   '{' members += Member* '}'
+   '{' members += InterfaceMethod* '}'
 ;
+
+InterfaceMethod:
+  access=AccessLevel? 'function' ('get'|'set')? name=ID
+  '(' (params+=Parameter (',' params+=Parameter)*)? ')' 
+  (':' ('void'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))?
+  ';'?
+;
+
 Class:
    access=AccessLevel? 'final'? 'static'? 'dynamic'? 'class' name=ID
    ('extends' superType=[Class|QualifiedName])?
@@ -71,12 +79,12 @@ Member:
 Method:
   'override'? access=AccessLevel? 'native'? 'static'? 'function' ('get'|'set')? name=ID
   '(' (params+=Parameter (',' params+=Parameter)*)? ')' 
-  (':' ('void'|type=[Class|QualifiedName]))?
-  body=MethodBody
+  (':' ('void'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))?
+  (body=MethodBody|';')
 ;
 
 enum AccessLevel:
-  PRIVATE='private' | PUBLIC='public' | PROTECTED='protected' | INTERNAL='internal' ;
+  INTERNAL='internal' | PRIVATE='private' | PUBLIC='public' | PROTECTED='protected';
 
 MethodBody: 
   {MethodBody} '{' statements += Statement* '}';
@@ -91,7 +99,7 @@ Statement:
   WhileStatement |
   DoWhileStatement |
   ForStatement |
-  NewStatement |
+  NewStatement ';' |
   objectLiteral
 ;
 
@@ -153,8 +161,9 @@ VariableDeclaration:
 ;
 
 VarType:
-	  'void'
-	| '*'
+	  name='void'
+	| name='*'
+	| type=[Interface|QualifiedName]
 	| type=[Class|QualifiedName]
 ;
 
@@ -194,7 +203,7 @@ Parameters :
   name=ID rel=typeRelation?;
 
 typeRelation :
-    ':' ('void' | type=[Class|QualifiedName]);
+    ':' ('*' | 'void' | type=[Class|QualifiedName]);
     
 objectLiteral :
     '{' objectFields '}';

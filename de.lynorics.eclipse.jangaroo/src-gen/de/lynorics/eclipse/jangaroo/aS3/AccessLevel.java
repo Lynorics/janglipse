@@ -20,6 +20,16 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum AccessLevel implements Enumerator
 {
   /**
+   * The '<em><b>INTERNAL</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #INTERNAL_VALUE
+   * @generated
+   * @ordered
+   */
+  INTERNAL(0, "INTERNAL", "internal"),
+
+  /**
    * The '<em><b>PRIVATE</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -27,7 +37,7 @@ public enum AccessLevel implements Enumerator
    * @generated
    * @ordered
    */
-  PRIVATE(0, "PRIVATE", "private"),
+  PRIVATE(1, "PRIVATE", "private"),
 
   /**
    * The '<em><b>PUBLIC</b></em>' literal object.
@@ -37,7 +47,7 @@ public enum AccessLevel implements Enumerator
    * @generated
    * @ordered
    */
-  PUBLIC(1, "PUBLIC", "public"),
+  PUBLIC(2, "PUBLIC", "public"),
 
   /**
    * The '<em><b>PROTECTED</b></em>' literal object.
@@ -47,62 +57,7 @@ public enum AccessLevel implements Enumerator
    * @generated
    * @ordered
    */
-  PROTECTED(2, "PROTECTED", "protected"),
-
-  /**
-   * The '<em><b>INTERNAL</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #INTERNAL_VALUE
-   * @generated
-   * @ordered
-   */
-  INTERNAL(3, "INTERNAL", "internal");
-
-  /**
-   * The '<em><b>PRIVATE</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>PRIVATE</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #PRIVATE
-   * @model literal="private"
-   * @generated
-   * @ordered
-   */
-  public static final int PRIVATE_VALUE = 0;
-
-  /**
-   * The '<em><b>PUBLIC</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>PUBLIC</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #PUBLIC
-   * @model literal="public"
-   * @generated
-   * @ordered
-   */
-  public static final int PUBLIC_VALUE = 1;
-
-  /**
-   * The '<em><b>PROTECTED</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>PROTECTED</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #PROTECTED
-   * @model literal="protected"
-   * @generated
-   * @ordered
-   */
-  public static final int PROTECTED_VALUE = 2;
+  PROTECTED(3, "PROTECTED", "protected");
 
   /**
    * The '<em><b>INTERNAL</b></em>' literal value.
@@ -117,7 +72,52 @@ public enum AccessLevel implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int INTERNAL_VALUE = 3;
+  public static final int INTERNAL_VALUE = 0;
+
+  /**
+   * The '<em><b>PRIVATE</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>PRIVATE</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #PRIVATE
+   * @model literal="private"
+   * @generated
+   * @ordered
+   */
+  public static final int PRIVATE_VALUE = 1;
+
+  /**
+   * The '<em><b>PUBLIC</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>PUBLIC</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #PUBLIC
+   * @model literal="public"
+   * @generated
+   * @ordered
+   */
+  public static final int PUBLIC_VALUE = 2;
+
+  /**
+   * The '<em><b>PROTECTED</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>PROTECTED</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #PROTECTED
+   * @model literal="protected"
+   * @generated
+   * @ordered
+   */
+  public static final int PROTECTED_VALUE = 3;
 
   /**
    * An array of all the '<em><b>Access Level</b></em>' enumerators.
@@ -128,10 +128,10 @@ public enum AccessLevel implements Enumerator
   private static final AccessLevel[] VALUES_ARRAY =
     new AccessLevel[]
     {
+      INTERNAL,
       PRIVATE,
       PUBLIC,
       PROTECTED,
-      INTERNAL,
     };
 
   /**
@@ -190,10 +190,10 @@ public enum AccessLevel implements Enumerator
   {
     switch (value)
     {
+      case INTERNAL_VALUE: return INTERNAL;
       case PRIVATE_VALUE: return PRIVATE;
       case PUBLIC_VALUE: return PUBLIC;
       case PROTECTED_VALUE: return PROTECTED;
-      case INTERNAL_VALUE: return INTERNAL;
     }
     return null;
   }

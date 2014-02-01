@@ -11,9 +11,11 @@ package de.lynorics.eclipse.jangaroo.formatting
 
 import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter
 import org.eclipse.xtext.formatting.impl.FormattingConfig
+import de.lynorics.eclipse.jangaroo.services.AS3GrammarAccess
+import org.eclipse.xtext.Keyword
+
 // import com.google.inject.Inject;
 // import de.lynorics.eclipse.jangaroo.services.AS3GrammarAccess
-
 /**
  * This class contains custom formatting description.
  * 
@@ -24,13 +26,42 @@ import org.eclipse.xtext.formatting.impl.FormattingConfig
  */
 class AS3Formatter extends AbstractDeclarativeFormatter {
 
-//	@Inject extension AS3GrammarAccess
-	 
-	override protected void configureFormatting(FormattingConfig c) {
-// It's usually a good idea to activate the following three statements.
-// They will add and preserve newlines around comments
-//		c.setLinewrap(0, 1, 2).before(SL_COMMENTRule)
-//		c.setLinewrap(0, 1, 2).before(ML_COMMENTRule)
-//		c.setLinewrap(0, 1, 1).after(ML_COMMENTRule)
+  //	@Inject extension AS3GrammarAccess
+  override protected void configureFormatting(FormattingConfig c) {
+//    var AS3GrammarAccess f = getGrammarAccess() as AS3GrammarAccess;
+//c.setAutoLinewrap(120);
+//      
+//      // find common keywords an specify formatting for them
+//      for (Pair<Keyword, Keyword> pair : f.findKeywordPairs("(", ")")) {
+//
+//  c.setNoSpace(). after(pair.getFirst());
+//        c.setNoSpace().before(pair.getSecond());
+//      }
+//      for (Keyword comma : f.findKeywords(",")) {
+//        c.setNoSpace().before(comma);
+//      }
+//  
+//      // formatting for grammar rule Line
+//      c.setLinewrap(2).after(f.getLineAccess().getSemicolonKeyword_1());
+//      c.setNoSpace().before(f.getLineAccess().getSemicolonKeyword_1());
+//      
+//      // formatting for grammar rule TestIndentation
+//      c.setIndentationIncrement().after(
+//          f.getTestIndentationAccess().getLeftCurlyBracketKeyword_1());
+//      c.setIndentationDecrement().before(
+//          f.getTestIndentationAccess().getRightCurlyBracketKeyword_3());
+//      c.setLinewrap().after(
+//          f.getTestIndentationAccess().getLeftCurlyBracketKeyword_1());
+//      c.setLinewrap().after(
+//          f.getTestIndentationAccess().getRightCurlyBracketKeyword_3());
+//      
+//      // formatting for grammar rule Param
+//      c.setNoLinewrap().around(f.getParamAccess().getColonKeyword_1());
+//      c.setNoSpace().around(f.getParamAccess().getColonKeyword_1());
+//      
+//      // formatting for Comments 
+//      cfg.setLinewrap(0, 1, 2).before(g.getSL_COMMENTRule());
+//      cfg.setLinewrap(0, 1, 2).before(g.getML_COMMENTRule());
+//      cfg.setLinewrap(0, 1, 1).after(g.getML_COMMENTRule());
 	}
 }

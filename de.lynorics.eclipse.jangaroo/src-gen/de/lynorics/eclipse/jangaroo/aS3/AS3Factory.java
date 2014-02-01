@@ -104,6 +104,15 @@ public interface AS3Factory extends EFactory
   Interface createInterface();
 
   /**
+   * Returns a new object of class '<em>Interface Method</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Interface Method</em>'.
+   * @generated
+   */
+  InterfaceMethod createInterfaceMethod();
+
+  /**
    * Returns a new object of class '<em>Class</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

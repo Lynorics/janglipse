@@ -17,6 +17,7 @@ import de.lynorics.eclipse.jangaroo.aS3.Import;
 import de.lynorics.eclipse.jangaroo.aS3.Imports;
 import de.lynorics.eclipse.jangaroo.aS3.IntConstant;
 import de.lynorics.eclipse.jangaroo.aS3.Interface;
+import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 import de.lynorics.eclipse.jangaroo.aS3.Member;
 import de.lynorics.eclipse.jangaroo.aS3.MemberSelection;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
@@ -128,6 +129,7 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.ANNOTATION_FIELDS: return createannotationFields();
       case AS3Package.ANNOTATION_FIELD: return createannotationField();
       case AS3Package.INTERFACE: return createInterface();
+      case AS3Package.INTERFACE_METHOD: return createInterfaceMethod();
       case AS3Package.CLASS: return createClass();
       case AS3Package.MEMBER: return createMember();
       case AS3Package.METHOD: return createMethod();
@@ -309,6 +311,17 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
   {
     InterfaceImpl interface_ = new InterfaceImpl();
     return interface_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InterfaceMethod createInterfaceMethod()
+  {
+    InterfaceMethodImpl interfaceMethod = new InterfaceMethodImpl();
+    return interfaceMethod;
   }
 
   /**

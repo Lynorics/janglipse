@@ -63,7 +63,7 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
    * @generated
    * @ordered
    */
-  protected static final AccessLevel ACCESS_EDEFAULT = AccessLevel.PRIVATE;
+  protected static final AccessLevel ACCESS_EDEFAULT = AccessLevel.INTERNAL;
 
   /**
    * The cached value of the '{@link #getAccess() <em>Access</em>}' attribute.

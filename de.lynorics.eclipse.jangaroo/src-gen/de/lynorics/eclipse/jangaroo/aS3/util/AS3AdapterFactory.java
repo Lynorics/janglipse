@@ -15,6 +15,7 @@ import de.lynorics.eclipse.jangaroo.aS3.Import;
 import de.lynorics.eclipse.jangaroo.aS3.Imports;
 import de.lynorics.eclipse.jangaroo.aS3.IntConstant;
 import de.lynorics.eclipse.jangaroo.aS3.Interface;
+import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 import de.lynorics.eclipse.jangaroo.aS3.Member;
 import de.lynorics.eclipse.jangaroo.aS3.MemberSelection;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
@@ -170,6 +171,11 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
       public Adapter caseInterface(Interface object)
       {
         return createInterfaceAdapter();
+      }
+      @Override
+      public Adapter caseInterfaceMethod(InterfaceMethod object)
+      {
+        return createInterfaceMethodAdapter();
       }
       @Override
       public Adapter caseClass(de.lynorics.eclipse.jangaroo.aS3.Class object)
@@ -549,6 +555,21 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createInterfaceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod <em>Interface Method</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod
+   * @generated
+   */
+  public Adapter createInterfaceMethodAdapter()
   {
     return null;
   }

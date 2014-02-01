@@ -5,7 +5,7 @@ package de.lynorics.eclipse.jangaroo.aS3.impl;
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
 import de.lynorics.eclipse.jangaroo.aS3.AccessLevel;
 import de.lynorics.eclipse.jangaroo.aS3.Interface;
-import de.lynorics.eclipse.jangaroo.aS3.Member;
+import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 
 import java.util.Collection;
 
@@ -49,7 +49,7 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
    * @generated
    * @ordered
    */
-  protected static final AccessLevel ACCESS_EDEFAULT = AccessLevel.PRIVATE;
+  protected static final AccessLevel ACCESS_EDEFAULT = AccessLevel.INTERNAL;
 
   /**
    * The cached value of the '{@link #getAccess() <em>Access</em>}' attribute.
@@ -99,7 +99,7 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
    * @generated
    * @ordered
    */
-  protected EList<Member> members;
+  protected EList<InterfaceMethod> members;
 
   /**
    * <!-- begin-user-doc -->
@@ -216,11 +216,11 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Member> getMembers()
+  public EList<InterfaceMethod> getMembers()
   {
     if (members == null)
     {
-      members = new EObjectContainmentEList<Member>(Member.class, this, AS3Package.INTERFACE__MEMBERS);
+      members = new EObjectContainmentEList<InterfaceMethod>(InterfaceMethod.class, this, AS3Package.INTERFACE__MEMBERS);
     }
     return members;
   }
@@ -286,7 +286,7 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
         return;
       case AS3Package.INTERFACE__MEMBERS:
         getMembers().clear();
-        getMembers().addAll((Collection<? extends Member>)newValue);
+        getMembers().addAll((Collection<? extends InterfaceMethod>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

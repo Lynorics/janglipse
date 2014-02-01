@@ -16,6 +16,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -51,7 +52,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * @generated
    * @ordered
    */
-  protected static final AccessLevel ACCESS_EDEFAULT = AccessLevel.PRIVATE;
+  protected static final AccessLevel ACCESS_EDEFAULT = AccessLevel.INTERNAL;
 
   /**
    * The cached value of the '{@link #getAccess() <em>Access</em>}' attribute.
@@ -101,7 +102,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * @generated
    * @ordered
    */
-  protected de.lynorics.eclipse.jangaroo.aS3.Class type;
+  protected EObject type;
 
   /**
    * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
@@ -199,12 +200,12 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public de.lynorics.eclipse.jangaroo.aS3.Class getType()
+  public EObject getType()
   {
     if (type != null && type.eIsProxy())
     {
       InternalEObject oldType = (InternalEObject)type;
-      type = (de.lynorics.eclipse.jangaroo.aS3.Class)eResolveProxy(oldType);
+      type = eResolveProxy(oldType);
       if (type != oldType)
       {
         if (eNotificationRequired())
@@ -219,7 +220,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public de.lynorics.eclipse.jangaroo.aS3.Class basicGetType()
+  public EObject basicGetType()
   {
     return type;
   }
@@ -229,9 +230,9 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(de.lynorics.eclipse.jangaroo.aS3.Class newType)
+  public void setType(EObject newType)
   {
-    de.lynorics.eclipse.jangaroo.aS3.Class oldType = type;
+    EObject oldType = type;
     type = newType;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.METHOD__TYPE, oldType, type));
@@ -350,7 +351,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
         getParams().addAll((Collection<? extends Parameter>)newValue);
         return;
       case AS3Package.METHOD__TYPE:
-        setType((de.lynorics.eclipse.jangaroo.aS3.Class)newValue);
+        setType((EObject)newValue);
         return;
       case AS3Package.METHOD__BODY:
         setBody((MethodBody)newValue);
@@ -379,7 +380,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
         getParams().clear();
         return;
       case AS3Package.METHOD__TYPE:
-        setType((de.lynorics.eclipse.jangaroo.aS3.Class)null);
+        setType((EObject)null);
         return;
       case AS3Package.METHOD__BODY:
         setBody((MethodBody)null);

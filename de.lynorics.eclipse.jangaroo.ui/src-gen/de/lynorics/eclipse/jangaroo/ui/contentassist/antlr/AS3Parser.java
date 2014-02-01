@@ -42,9 +42,12 @@ public class AS3Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getPackageAccess().getClassesAlternatives_5_0(), "rule__Package__ClassesAlternatives_5_0");
 					put(grammarAccess.getDirectiveAccess().getAlternatives(), "rule__Directive__Alternatives");
 					put(grammarAccess.getUsesAccess().getAlternatives_2(), "rule__Uses__Alternatives_2");
+					put(grammarAccess.getInterfaceMethodAccess().getAlternatives_2(), "rule__InterfaceMethod__Alternatives_2");
+					put(grammarAccess.getInterfaceMethodAccess().getAlternatives_7_1(), "rule__InterfaceMethod__Alternatives_7_1");
 					put(grammarAccess.getMemberAccess().getAlternatives(), "rule__Member__Alternatives");
 					put(grammarAccess.getMethodAccess().getAlternatives_5(), "rule__Method__Alternatives_5");
 					put(grammarAccess.getMethodAccess().getAlternatives_10_1(), "rule__Method__Alternatives_10_1");
+					put(grammarAccess.getMethodAccess().getAlternatives_11(), "rule__Method__Alternatives_11");
 					put(grammarAccess.getStatementAccess().getAlternatives(), "rule__Statement__Alternatives");
 					put(grammarAccess.getForStatementAccess().getAlternatives(), "rule__ForStatement__Alternatives");
 					put(grammarAccess.getStatementInSwitchAccess().getAlternatives(), "rule__StatementInSwitch__Alternatives");
@@ -75,6 +78,10 @@ public class AS3Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 					put(grammarAccess.getInterfaceAccess().getGroup(), "rule__Interface__Group__0");
 					put(grammarAccess.getInterfaceAccess().getGroup_3(), "rule__Interface__Group_3__0");
+					put(grammarAccess.getInterfaceMethodAccess().getGroup(), "rule__InterfaceMethod__Group__0");
+					put(grammarAccess.getInterfaceMethodAccess().getGroup_5(), "rule__InterfaceMethod__Group_5__0");
+					put(grammarAccess.getInterfaceMethodAccess().getGroup_5_1(), "rule__InterfaceMethod__Group_5_1__0");
+					put(grammarAccess.getInterfaceMethodAccess().getGroup_7(), "rule__InterfaceMethod__Group_7__0");
 					put(grammarAccess.getClassAccess().getGroup(), "rule__Class__Group__0");
 					put(grammarAccess.getClassAccess().getGroup_6(), "rule__Class__Group_6__0");
 					put(grammarAccess.getClassAccess().getGroup_7(), "rule__Class__Group_7__0");
@@ -85,6 +92,7 @@ public class AS3Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getMethodAccess().getGroup_10(), "rule__Method__Group_10__0");
 					put(grammarAccess.getMethodBodyAccess().getGroup(), "rule__MethodBody__Group__0");
 					put(grammarAccess.getStatementAccess().getGroup_2(), "rule__Statement__Group_2__0");
+					put(grammarAccess.getStatementAccess().getGroup_9(), "rule__Statement__Group_9__0");
 					put(grammarAccess.getNewStatementAccess().getGroup(), "rule__NewStatement__Group__0");
 					put(grammarAccess.getNewStatementAccess().getGroup_3(), "rule__NewStatement__Group_3__0");
 					put(grammarAccess.getForStatementAccess().getGroup_0(), "rule__ForStatement__Group_0__0");
@@ -153,7 +161,6 @@ public class AS3Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getImportAccess().getImportedNamespaceAssignment_1(), "rule__Import__ImportedNamespaceAssignment_1");
 					put(grammarAccess.getDirectiveAccess().getNameAssignment_0_2(), "rule__Directive__NameAssignment_0_2");
 					put(grammarAccess.getDirectiveAccess().getAnnonFieldsAssignment_0_3_1(), "rule__Directive__AnnonFieldsAssignment_0_3_1");
-					put(grammarAccess.getUsesAccess().getNameAssignment_1(), "rule__Uses__NameAssignment_1");
 					put(grammarAccess.getUsesAccess().getTypeAssignment_2_0(), "rule__Uses__TypeAssignment_2_0");
 					put(grammarAccess.getAnnotationFieldsAccess().getAnoonFieldsAssignment_0(), "rule__AnnotationFields__AnoonFieldsAssignment_0");
 					put(grammarAccess.getAnnotationFieldsAccess().getAnnonFieldsAssignment_1_1(), "rule__AnnotationFields__AnnonFieldsAssignment_1_1");
@@ -163,6 +170,12 @@ public class AS3Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getInterfaceAccess().getNameAssignment_2(), "rule__Interface__NameAssignment_2");
 					put(grammarAccess.getInterfaceAccess().getSuperclassAssignment_3_1(), "rule__Interface__SuperclassAssignment_3_1");
 					put(grammarAccess.getInterfaceAccess().getMembersAssignment_5(), "rule__Interface__MembersAssignment_5");
+					put(grammarAccess.getInterfaceMethodAccess().getAccessAssignment_0(), "rule__InterfaceMethod__AccessAssignment_0");
+					put(grammarAccess.getInterfaceMethodAccess().getNameAssignment_3(), "rule__InterfaceMethod__NameAssignment_3");
+					put(grammarAccess.getInterfaceMethodAccess().getParamsAssignment_5_0(), "rule__InterfaceMethod__ParamsAssignment_5_0");
+					put(grammarAccess.getInterfaceMethodAccess().getParamsAssignment_5_1_1(), "rule__InterfaceMethod__ParamsAssignment_5_1_1");
+					put(grammarAccess.getInterfaceMethodAccess().getTypeAssignment_7_1_1(), "rule__InterfaceMethod__TypeAssignment_7_1_1");
+					put(grammarAccess.getInterfaceMethodAccess().getTypeAssignment_7_1_2(), "rule__InterfaceMethod__TypeAssignment_7_1_2");
 					put(grammarAccess.getClassAccess().getAccessAssignment_0(), "rule__Class__AccessAssignment_0");
 					put(grammarAccess.getClassAccess().getNameAssignment_5(), "rule__Class__NameAssignment_5");
 					put(grammarAccess.getClassAccess().getSuperTypeAssignment_6_1(), "rule__Class__SuperTypeAssignment_6_1");
@@ -176,7 +189,8 @@ public class AS3Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getMethodAccess().getParamsAssignment_8_0(), "rule__Method__ParamsAssignment_8_0");
 					put(grammarAccess.getMethodAccess().getParamsAssignment_8_1_1(), "rule__Method__ParamsAssignment_8_1_1");
 					put(grammarAccess.getMethodAccess().getTypeAssignment_10_1_1(), "rule__Method__TypeAssignment_10_1_1");
-					put(grammarAccess.getMethodAccess().getBodyAssignment_11(), "rule__Method__BodyAssignment_11");
+					put(grammarAccess.getMethodAccess().getTypeAssignment_10_1_2(), "rule__Method__TypeAssignment_10_1_2");
+					put(grammarAccess.getMethodAccess().getBodyAssignment_11_0(), "rule__Method__BodyAssignment_11_0");
 					put(grammarAccess.getMethodBodyAccess().getStatementsAssignment_2(), "rule__MethodBody__StatementsAssignment_2");
 					put(grammarAccess.getNewStatementAccess().getTypeAssignment_2(), "rule__NewStatement__TypeAssignment_2");
 					put(grammarAccess.getNewStatementAccess().getParamAssignment_3_1(), "rule__NewStatement__ParamAssignment_3_1");
@@ -213,7 +227,10 @@ public class AS3Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getVariableDeclarationAccess().getNameAssignment_3(), "rule__VariableDeclaration__NameAssignment_3");
 					put(grammarAccess.getVariableDeclarationAccess().getTypeAssignment_5(), "rule__VariableDeclaration__TypeAssignment_5");
 					put(grammarAccess.getVariableDeclarationAccess().getExpressionAssignment_6_1(), "rule__VariableDeclaration__ExpressionAssignment_6_1");
+					put(grammarAccess.getVarTypeAccess().getNameAssignment_0(), "rule__VarType__NameAssignment_0");
+					put(grammarAccess.getVarTypeAccess().getNameAssignment_1(), "rule__VarType__NameAssignment_1");
 					put(grammarAccess.getVarTypeAccess().getTypeAssignment_2(), "rule__VarType__TypeAssignment_2");
+					put(grammarAccess.getVarTypeAccess().getTypeAssignment_3(), "rule__VarType__TypeAssignment_3");
 					put(grammarAccess.getIfStatementAccess().getExpressionAssignment_2(), "rule__IfStatement__ExpressionAssignment_2");
 					put(grammarAccess.getIfStatementAccess().getThenBlockAssignment_4(), "rule__IfStatement__ThenBlockAssignment_4");
 					put(grammarAccess.getIfStatementAccess().getElseBlockAssignment_5_1(), "rule__IfStatement__ElseBlockAssignment_5_1");
@@ -231,7 +248,7 @@ public class AS3Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getParametersAccess().getElementsAssignment_1_0_1_1(), "rule__Parameters__ElementsAssignment_1_0_1_1");
 					put(grammarAccess.getParametersAccess().getNameAssignment_1_1(), "rule__Parameters__NameAssignment_1_1");
 					put(grammarAccess.getParametersAccess().getRelAssignment_1_2(), "rule__Parameters__RelAssignment_1_2");
-					put(grammarAccess.getTypeRelationAccess().getTypeAssignment_1_1(), "rule__TypeRelation__TypeAssignment_1_1");
+					put(grammarAccess.getTypeRelationAccess().getTypeAssignment_1_2(), "rule__TypeRelation__TypeAssignment_1_2");
 					put(grammarAccess.getObjectFieldsAccess().getFieldsAssignment_0(), "rule__ObjectFields__FieldsAssignment_0");
 					put(grammarAccess.getObjectFieldsAccess().getFieldsAssignment_1_1(), "rule__ObjectFields__FieldsAssignment_1_1");
 					put(grammarAccess.getAssignmentAccess().getRightAssignment_1_2(), "rule__Assignment__RightAssignment_1_2");

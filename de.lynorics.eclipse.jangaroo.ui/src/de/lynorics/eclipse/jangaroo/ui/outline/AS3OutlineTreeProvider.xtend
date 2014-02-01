@@ -18,6 +18,7 @@ import org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode
 import de.lynorics.eclipse.jangaroo.aS3.Member
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration
 import de.lynorics.eclipse.jangaroo.aS3.Interface
+import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod
 
 /**
  * Customization of the default outline structure.
@@ -65,14 +66,16 @@ class AS3OutlineTreeProvider extends DefaultOutlineTreeProvider {
   
   def _createChildren(AbstractOutlineNode parentNode,
       Interface intf) {
-    for (Member member : intf.members) {
-      if (member.meth != null) {
-        createNode(parentNode, member.meth);
-      }
+    for (InterfaceMethod member : intf.members) {
+      createNode(parentNode, member);
     }
   }
   
   def _isLeaf(Method method) {
+    return true;
+  }
+
+  def _isLeaf(InterfaceMethod method) {
     return true;
   }
 

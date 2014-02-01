@@ -8,10 +8,10 @@
   <genPackages prefix="AS3" basePackage="de.lynorics.eclipse.jangaroo" disposableProviderFactory="true"
       fileExtensions="as" ecorePackage="AS3.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="AS3.ecore#//AccessLevel">
+      <genEnumLiterals ecoreEnumLiteral="AS3.ecore#//AccessLevel/INTERNAL"/>
       <genEnumLiterals ecoreEnumLiteral="AS3.ecore#//AccessLevel/PRIVATE"/>
       <genEnumLiterals ecoreEnumLiteral="AS3.ecore#//AccessLevel/PUBLIC"/>
       <genEnumLiterals ecoreEnumLiteral="AS3.ecore#//AccessLevel/PROTECTED"/>
-      <genEnumLiterals ecoreEnumLiteral="AS3.ecore#//AccessLevel/INTERNAL"/>
     </genEnums>
     <genClasses ecoreClass="AS3.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Model/package"/>
@@ -50,6 +50,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Interface/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//Interface/superclass"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Interface/members"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//InterfaceMethod">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//InterfaceMethod/access"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//InterfaceMethod/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//InterfaceMethod/params"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//InterfaceMethod/type"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//Class">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Class/access"/>
@@ -110,6 +116,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//VariableDeclaration/expression"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//VarType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//VarType/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//VarType/type"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//IfStatement">

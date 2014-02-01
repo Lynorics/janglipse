@@ -9,6 +9,7 @@ package de.lynorics.eclipse.jangaroo.ui.outline;
 import com.google.common.base.Objects;
 import de.lynorics.eclipse.jangaroo.aS3.Imports;
 import de.lynorics.eclipse.jangaroo.aS3.Interface;
+import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 import de.lynorics.eclipse.jangaroo.aS3.Member;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
 import de.lynorics.eclipse.jangaroo.aS3.Model;
@@ -90,18 +91,17 @@ public class AS3OutlineTreeProvider extends DefaultOutlineTreeProvider {
   }
   
   public void _createChildren(final AbstractOutlineNode parentNode, final Interface intf) {
-    EList<Member> _members = intf.getMembers();
-    for (final Member member : _members) {
-      Method _meth = member.getMeth();
-      boolean _notEquals = (!Objects.equal(_meth, null));
-      if (_notEquals) {
-        Method _meth_1 = member.getMeth();
-        this.createNode(parentNode, _meth_1);
-      }
+    EList<InterfaceMethod> _members = intf.getMembers();
+    for (final InterfaceMethod member : _members) {
+      this.createNode(parentNode, member);
     }
   }
   
   public boolean _isLeaf(final Method method) {
+    return true;
+  }
+  
+  public boolean _isLeaf(final InterfaceMethod method) {
     return true;
   }
   

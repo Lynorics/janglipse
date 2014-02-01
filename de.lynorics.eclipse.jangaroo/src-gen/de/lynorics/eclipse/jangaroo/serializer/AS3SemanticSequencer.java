@@ -12,6 +12,7 @@ import de.lynorics.eclipse.jangaroo.aS3.Import;
 import de.lynorics.eclipse.jangaroo.aS3.Imports;
 import de.lynorics.eclipse.jangaroo.aS3.IntConstant;
 import de.lynorics.eclipse.jangaroo.aS3.Interface;
+import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 import de.lynorics.eclipse.jangaroo.aS3.Member;
 import de.lynorics.eclipse.jangaroo.aS3.MemberSelection;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
@@ -153,6 +154,12 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case AS3Package.INTERFACE:
 				if(context == grammarAccess.getInterfaceRule()) {
 					sequence_Interface(context, (Interface) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.INTERFACE_METHOD:
+				if(context == grammarAccess.getInterfaceMethodRule()) {
+					sequence_InterfaceMethod(context, (InterfaceMethod) semanticObject); 
 					return; 
 				}
 				else break;
@@ -575,7 +582,16 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (access=AccessLevel? name=ID superclass=[Interface|QualifiedName]? members+=Member*)
+	 *     (access=AccessLevel? name=ID (params+=Parameter params+=Parameter*)? (type=[Interface|QualifiedName] | type=[Class|QualifiedName])?)
+	 */
+	protected void sequence_InterfaceMethod(EObject context, InterfaceMethod semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (access=AccessLevel? name=ID superclass=[Interface|QualifiedName]? members+=InterfaceMethod*)
 	 */
 	protected void sequence_Interface(EObject context, Interface semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -602,7 +618,13 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (access=AccessLevel? name=ID (params+=Parameter params+=Parameter*)? type=[Class|QualifiedName]? body=MethodBody)
+	 *     (
+	 *         access=AccessLevel? 
+	 *         name=ID 
+	 *         (params+=Parameter params+=Parameter*)? 
+	 *         (type=[Interface|QualifiedName] | type=[Class|QualifiedName])? 
+	 *         body=MethodBody?
+	 *     )
 	 */
 	protected void sequence_Method(EObject context, Method semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -629,7 +651,7 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=QualifiedName imp=Imports directives+=directive* (classes+=Class | classes+=Interface)*)
+	 *     (name=QualifiedName? imp=Imports directives+=directive* (classes+=Class | classes+=Interface)*)
 	 */
 	protected void sequence_Package(EObject context, de.lynorics.eclipse.jangaroo.aS3.Package semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -810,7 +832,7 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID type=QualifiedName?)
+	 *     type=QualifiedName
 	 */
 	protected void sequence_Uses(EObject context, Uses semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -819,7 +841,7 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     type=[Class|QualifiedName]?
+	 *     (name='void' | name='*' | type=[Interface|QualifiedName] | type=[Class|QualifiedName])
 	 */
 	protected void sequence_VarType(EObject context, VarType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

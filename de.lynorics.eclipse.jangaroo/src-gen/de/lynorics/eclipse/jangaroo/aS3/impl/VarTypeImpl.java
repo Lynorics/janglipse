@@ -8,6 +8,7 @@ import de.lynorics.eclipse.jangaroo.aS3.VarType;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -20,6 +21,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.VarTypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.VarTypeImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
@@ -29,6 +31,26 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class VarTypeImpl extends MinimalEObjectImpl.Container implements VarType
 {
   /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
    * The cached value of the '{@link #getType() <em>Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,7 +58,7 @@ public class VarTypeImpl extends MinimalEObjectImpl.Container implements VarType
    * @generated
    * @ordered
    */
-  protected de.lynorics.eclipse.jangaroo.aS3.Class type;
+  protected EObject type;
 
   /**
    * <!-- begin-user-doc -->
@@ -64,12 +86,35 @@ public class VarTypeImpl extends MinimalEObjectImpl.Container implements VarType
    * <!-- end-user-doc -->
    * @generated
    */
-  public de.lynorics.eclipse.jangaroo.aS3.Class getType()
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.VAR_TYPE__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EObject getType()
   {
     if (type != null && type.eIsProxy())
     {
       InternalEObject oldType = (InternalEObject)type;
-      type = (de.lynorics.eclipse.jangaroo.aS3.Class)eResolveProxy(oldType);
+      type = eResolveProxy(oldType);
       if (type != oldType)
       {
         if (eNotificationRequired())
@@ -84,7 +129,7 @@ public class VarTypeImpl extends MinimalEObjectImpl.Container implements VarType
    * <!-- end-user-doc -->
    * @generated
    */
-  public de.lynorics.eclipse.jangaroo.aS3.Class basicGetType()
+  public EObject basicGetType()
   {
     return type;
   }
@@ -94,9 +139,9 @@ public class VarTypeImpl extends MinimalEObjectImpl.Container implements VarType
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(de.lynorics.eclipse.jangaroo.aS3.Class newType)
+  public void setType(EObject newType)
   {
-    de.lynorics.eclipse.jangaroo.aS3.Class oldType = type;
+    EObject oldType = type;
     type = newType;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.VAR_TYPE__TYPE, oldType, type));
@@ -112,6 +157,8 @@ public class VarTypeImpl extends MinimalEObjectImpl.Container implements VarType
   {
     switch (featureID)
     {
+      case AS3Package.VAR_TYPE__NAME:
+        return getName();
       case AS3Package.VAR_TYPE__TYPE:
         if (resolve) return getType();
         return basicGetType();
@@ -129,8 +176,11 @@ public class VarTypeImpl extends MinimalEObjectImpl.Container implements VarType
   {
     switch (featureID)
     {
+      case AS3Package.VAR_TYPE__NAME:
+        setName((String)newValue);
+        return;
       case AS3Package.VAR_TYPE__TYPE:
-        setType((de.lynorics.eclipse.jangaroo.aS3.Class)newValue);
+        setType((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -146,8 +196,11 @@ public class VarTypeImpl extends MinimalEObjectImpl.Container implements VarType
   {
     switch (featureID)
     {
+      case AS3Package.VAR_TYPE__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case AS3Package.VAR_TYPE__TYPE:
-        setType((de.lynorics.eclipse.jangaroo.aS3.Class)null);
+        setType((EObject)null);
         return;
     }
     super.eUnset(featureID);
@@ -163,10 +216,29 @@ public class VarTypeImpl extends MinimalEObjectImpl.Container implements VarType
   {
     switch (featureID)
     {
+      case AS3Package.VAR_TYPE__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AS3Package.VAR_TYPE__TYPE:
         return type != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //VarTypeImpl

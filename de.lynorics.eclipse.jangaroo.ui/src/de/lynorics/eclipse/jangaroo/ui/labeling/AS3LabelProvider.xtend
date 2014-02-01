@@ -10,25 +10,37 @@
 package de.lynorics.eclipse.jangaroo.ui.labeling
 
 import com.google.inject.Inject
+import de.lynorics.eclipse.jangaroo.aS3.Class
 import de.lynorics.eclipse.jangaroo.aS3.Import
-import de.lynorics.eclipse.jangaroo.aS3.Method
-import de.lynorics.eclipse.jangaroo.aS3.Interface
-import java.lang.reflect.AnnotatedElement
-import org.eclipse.emf.ecore.EObject
-import de.lynorics.eclipse.jangaroo.aS3.Uses
 import de.lynorics.eclipse.jangaroo.aS3.Imports
+import de.lynorics.eclipse.jangaroo.aS3.Interface
+import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod
+import de.lynorics.eclipse.jangaroo.aS3.Method
+import de.lynorics.eclipse.jangaroo.aS3.Package
+import de.lynorics.eclipse.jangaroo.aS3.Uses
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration
-import org.omg.CORBA.PUBLIC_MEMBER
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
+import org.eclipse.xtext.ui.IImageHelper
+import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+
+import static de.lynorics.eclipse.jangaroo.aS3.AccessLevel.*
+import org.eclipse.swt.graphics.Image
+import org.eclipse.jface.viewers.DecorationOverlayIcon
+import org.eclipse.jface.viewers.IDecoration
+import org.eclipse.emf.ecore.EStructuralFeature
 
 /**
  * Provides labels for a EObjects.
  * 
  * see http://www.eclipse.org/Xtext/documentation.html#labelProvider
  */
-class AS3LabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider {
+class AS3LabelProvider extends DefaultEObjectLabelProvider {
 
+  @Inject
+  private IImageHelper imageHelper;
+  
 	@Inject
-	new(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate) {
+	new(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
 
@@ -46,11 +58,11 @@ class AS3LabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelPro
       return ele.class.name + ": " + super.text(ele);
     }
 */
-    def image(de.lynorics.eclipse.jangaroo.aS3.Class clas) {
+    def image(Class clas) {
       return "outline-class.gif";
     }
 
-    def image(de.lynorics.eclipse.jangaroo.aS3.Package pack) {
+    def image(Package pack) {
       return "outline-package.gif";
     }
 
@@ -70,7 +82,7 @@ class AS3LabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelPro
       return "outline-import.gif";
     }
 
-    def image(Method meth) {
+    def image(InterfaceMethod meth) {
       switch(meth.access) {
         case PUBLIC: {
           return "outline-function-public.gif";
@@ -87,6 +99,30 @@ class AS3LabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelPro
       }
     }
 
+    def Image image(Method meth) {
+      var Image image = null;
+      switch(meth.access) {
+        case PUBLIC: {
+          image = imageHelper.getImage("outline-function-public.gif");
+        }
+        case PROTECTED: {
+          image = imageHelper.getImage("outline-function-protected.gif");
+        }
+        case PRIVATE: {
+          image = imageHelper.getImage("outline-function-private.gif");
+        }
+        case INTERNAL: {
+          image = imageHelper.getImage("outline-function-internal.gif");
+        }
+      }
+//      var Class parent = meth.eContainer.eContainer as Class;
+//      if (parent.name.equals(meth.name)) {
+//          var Image overlay = imageHelper.getImage("outline-overlay-constructor.gif");
+//          image = new DecorationOverlayIcon(image, overlay.imageDescriptor, IDecoration.TOP_RIGHT).convertToImage;
+//      }
+      return image;
+    }
+
     def text(Uses uses) {
       return 'use declarations';  
     }
@@ -96,7 +132,11 @@ class AS3LabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelPro
     }
 
     def text(VariableDeclaration varDecl) {
-      return varDecl.name + ': ';  
+      var String name = varDecl.type.name;
+      if (name == null) {
+        name = varDecl.type.type.getText;
+      }
+      return varDecl.name + ': ' +name;  
     }
     
     def image(VariableDeclaration varDecl) {

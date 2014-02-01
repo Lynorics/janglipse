@@ -49,7 +49,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superclass" eType="#//Interface"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
-        eType="#//Member" containment="true"/>
+        eType="#//InterfaceMethod" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InterfaceMethod">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="access" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Class">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="access" eType="#//AccessLevel"/>
@@ -71,15 +78,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
         eType="#//Parameter" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//MethodBody"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AccessLevel">
-    <eLiterals name="PRIVATE" literal="private"/>
-    <eLiterals name="PUBLIC" value="1" literal="public"/>
-    <eLiterals name="PROTECTED" value="2" literal="protected"/>
-    <eLiterals name="INTERNAL" value="3" literal="internal"/>
+    <eLiterals name="INTERNAL" literal="internal"/>
+    <eLiterals name="PRIVATE" value="1" literal="private"/>
+    <eLiterals name="PUBLIC" value="2" literal="public"/>
+    <eLiterals name="PROTECTED" value="3" literal="protected"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MethodBody" eSuperTypes="#//Block"/>
   <eClassifiers xsi:type="ecore:EClass" name="Statement" eSuperTypes="#//statementInSwitch"/>
@@ -139,7 +146,8 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VarType">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IfStatement" eSuperTypes="#//Statement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"

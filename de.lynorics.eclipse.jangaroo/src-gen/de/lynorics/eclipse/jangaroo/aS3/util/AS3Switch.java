@@ -15,6 +15,7 @@ import de.lynorics.eclipse.jangaroo.aS3.Import;
 import de.lynorics.eclipse.jangaroo.aS3.Imports;
 import de.lynorics.eclipse.jangaroo.aS3.IntConstant;
 import de.lynorics.eclipse.jangaroo.aS3.Interface;
+import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 import de.lynorics.eclipse.jangaroo.aS3.Member;
 import de.lynorics.eclipse.jangaroo.aS3.MemberSelection;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
@@ -184,6 +185,13 @@ public class AS3Switch<T> extends Switch<T>
       {
         Interface interface_ = (Interface)theEObject;
         T result = caseInterface(interface_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.INTERFACE_METHOD:
+      {
+        InterfaceMethod interfaceMethod = (InterfaceMethod)theEObject;
+        T result = caseInterfaceMethod(interfaceMethod);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -750,6 +758,22 @@ public class AS3Switch<T> extends Switch<T>
    * @generated
    */
   public T caseInterface(Interface object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Interface Method</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Interface Method</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInterfaceMethod(InterfaceMethod object)
   {
     return null;
   }

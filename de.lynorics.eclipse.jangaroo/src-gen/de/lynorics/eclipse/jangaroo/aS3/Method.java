@@ -108,12 +108,12 @@ public interface Method extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' reference.
-   * @see #setType(de.lynorics.eclipse.jangaroo.aS3.Class)
+   * @see #setType(EObject)
    * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getMethod_Type()
    * @model
    * @generated
    */
-  de.lynorics.eclipse.jangaroo.aS3.Class getType();
+  EObject getType();
 
   /**
    * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getType <em>Type</em>}' reference.
@@ -123,7 +123,7 @@ public interface Method extends EObject
    * @see #getType()
    * @generated
    */
-  void setType(de.lynorics.eclipse.jangaroo.aS3.Class value);
+  void setType(EObject value);
 
   /**
    * Returns the value of the '<em><b>Body</b></em>' containment reference.
