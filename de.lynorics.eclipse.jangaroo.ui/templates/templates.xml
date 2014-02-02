@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<templates>
+<template
+		id="JANGLIPSE_AS_CLASS" 
+		autoinsert="true"
+		context="de.lynorics.eclipse.jangaroo.AS3.Model"
+		deleted="false"
+		description="Class template"
+		enabled="true"
+		name="Class">
+package ${PackageName} {
+
+/**
+ * Entity ${EntityName}
+ *
+ * @author ${user}
+ */
+public class ${EntityName} {
+
+	public function ${EntityName} {
+		${cursor}
+	}
+
+}
+}
+</template>
+<template
+		id="JANGLIPSE_AS_INTERFACE" 
+		autoinsert="true"
+		context="de.lynorics.eclipse.jangaroo.AS3.Model"
+		deleted="false"
+		description="Interface template"
+		enabled="true"
+		name="Interface">
+package ${PackageName} {
+
+/**
+ * Interface ${EntityName}
+ *
+ * @author ${user}
+ */
+public interface ${EntityName} {
+
+	${cursor}
+
+}
+}
+</template>
+<template
+		id="JANGLIPSE_AS_ENUM" 
+		autoinsert="true"
+		context="de.lynorics.eclipse.jangaroo.AS3.Model"
+		deleted="false"
+		description="Class template for an enum"
+		enabled="true"
+		name="Enum">
+package ${PackageName} {
+
+/**
+ * Enum ${EnumName}
+ * @author ${user}
+ */
+public class ${EnumName} extends Enum {
+
+    public static const FOO:${EnumName} = new ${EnumName}();
+
+    /**
+     * An array containing all ${EnumName} enums.
+     */
+    [ArrayElementType("${PackageName}${EnumName}")]
+    public static const values:Array = collectValues(${EnumName});
+    
+    /**
+     * Return the ${EnumName} with the given name.
+     *
+     * @param name the name of the ${EnumName}
+     * @return the ${EnumName}
+     */
+    public static function named(name:String):${EnumName} {
+      return namedIn(name, ${EnumName});
+    }
+
+    function ${EnumName}() {
+    } 
+}
+}
+</template>
+</templates>
