@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getForinexpr <em>Forinexpr</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getForcommand <em>Forcommand</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getNameForeachh <em>Name Foreachh</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getRelation <em>Relation</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getType <em>Type</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getForeachexpr <em>Foreachexpr</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getForeachcommand <em>Foreachcommand</em>}</li>
  * </ul>
@@ -258,30 +258,30 @@ public interface ForStatement extends Statement
   void setNameForeachh(String value);
 
   /**
-   * Returns the value of the '<em><b>Relation</b></em>' containment reference.
+   * Returns the value of the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Relation</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Type</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Relation</em>' containment reference.
-   * @see #setRelation(typeRelation)
-   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getForStatement_Relation()
+   * @return the value of the '<em>Type</em>' containment reference.
+   * @see #setType(VarType)
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getForStatement_Type()
    * @model containment="true"
    * @generated
    */
-  typeRelation getRelation();
+  VarType getType();
 
   /**
-   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getRelation <em>Relation</em>}' containment reference.
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement#getType <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Relation</em>' containment reference.
-   * @see #getRelation()
+   * @param value the new value of the '<em>Type</em>' containment reference.
+   * @see #getType()
    * @generated
    */
-  void setRelation(typeRelation value);
+  void setType(VarType value);
 
   /**
    * Returns the value of the '<em><b>Foreachexpr</b></em>' containment reference.

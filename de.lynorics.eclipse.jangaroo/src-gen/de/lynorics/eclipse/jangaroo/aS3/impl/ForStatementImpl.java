@@ -6,9 +6,9 @@ import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
 import de.lynorics.eclipse.jangaroo.aS3.Expression;
 import de.lynorics.eclipse.jangaroo.aS3.ForStatement;
 import de.lynorics.eclipse.jangaroo.aS3.StatementsBlock;
+import de.lynorics.eclipse.jangaroo.aS3.VarType;
 import de.lynorics.eclipse.jangaroo.aS3.commaExpr;
 import de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration;
-import de.lynorics.eclipse.jangaroo.aS3.typeRelation;
 
 import java.util.Collection;
 
@@ -41,7 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ForStatementImpl#getForinexpr <em>Forinexpr</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ForStatementImpl#getForcommand <em>Forcommand</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ForStatementImpl#getNameForeachh <em>Name Foreachh</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ForStatementImpl#getRelation <em>Relation</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ForStatementImpl#getType <em>Type</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ForStatementImpl#getForeachexpr <em>Foreachexpr</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ForStatementImpl#getForeachcommand <em>Foreachcommand</em>}</li>
  * </ul>
@@ -162,14 +162,14 @@ public class ForStatementImpl extends StatementImpl implements ForStatement
   protected String nameForeachh = NAME_FOREACHH_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getRelation() <em>Relation</em>}' containment reference.
+   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRelation()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected typeRelation relation;
+  protected VarType type;
 
   /**
    * The cached value of the '{@link #getForeachexpr() <em>Foreachexpr</em>}' containment reference.
@@ -565,9 +565,9 @@ public class ForStatementImpl extends StatementImpl implements ForStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public typeRelation getRelation()
+  public VarType getType()
   {
-    return relation;
+    return type;
   }
 
   /**
@@ -575,13 +575,13 @@ public class ForStatementImpl extends StatementImpl implements ForStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRelation(typeRelation newRelation, NotificationChain msgs)
+  public NotificationChain basicSetType(VarType newType, NotificationChain msgs)
   {
-    typeRelation oldRelation = relation;
-    relation = newRelation;
+    VarType oldType = type;
+    type = newType;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.FOR_STATEMENT__RELATION, oldRelation, newRelation);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.FOR_STATEMENT__TYPE, oldType, newType);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -592,20 +592,20 @@ public class ForStatementImpl extends StatementImpl implements ForStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRelation(typeRelation newRelation)
+  public void setType(VarType newType)
   {
-    if (newRelation != relation)
+    if (newType != type)
     {
       NotificationChain msgs = null;
-      if (relation != null)
-        msgs = ((InternalEObject)relation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.FOR_STATEMENT__RELATION, null, msgs);
-      if (newRelation != null)
-        msgs = ((InternalEObject)newRelation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.FOR_STATEMENT__RELATION, null, msgs);
-      msgs = basicSetRelation(newRelation, msgs);
+      if (type != null)
+        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.FOR_STATEMENT__TYPE, null, msgs);
+      if (newType != null)
+        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.FOR_STATEMENT__TYPE, null, msgs);
+      msgs = basicSetType(newType, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.FOR_STATEMENT__RELATION, newRelation, newRelation));
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.FOR_STATEMENT__TYPE, newType, newType));
   }
 
   /**
@@ -728,8 +728,8 @@ public class ForStatementImpl extends StatementImpl implements ForStatement
         return basicSetForinexpr(null, msgs);
       case AS3Package.FOR_STATEMENT__FORCOMMAND:
         return basicSetForcommand(null, msgs);
-      case AS3Package.FOR_STATEMENT__RELATION:
-        return basicSetRelation(null, msgs);
+      case AS3Package.FOR_STATEMENT__TYPE:
+        return basicSetType(null, msgs);
       case AS3Package.FOR_STATEMENT__FOREACHEXPR:
         return basicSetForeachexpr(null, msgs);
       case AS3Package.FOR_STATEMENT__FOREACHCOMMAND:
@@ -766,8 +766,8 @@ public class ForStatementImpl extends StatementImpl implements ForStatement
         return getForcommand();
       case AS3Package.FOR_STATEMENT__NAME_FOREACHH:
         return getNameForeachh();
-      case AS3Package.FOR_STATEMENT__RELATION:
-        return getRelation();
+      case AS3Package.FOR_STATEMENT__TYPE:
+        return getType();
       case AS3Package.FOR_STATEMENT__FOREACHEXPR:
         return getForeachexpr();
       case AS3Package.FOR_STATEMENT__FOREACHCOMMAND:
@@ -815,8 +815,8 @@ public class ForStatementImpl extends StatementImpl implements ForStatement
       case AS3Package.FOR_STATEMENT__NAME_FOREACHH:
         setNameForeachh((String)newValue);
         return;
-      case AS3Package.FOR_STATEMENT__RELATION:
-        setRelation((typeRelation)newValue);
+      case AS3Package.FOR_STATEMENT__TYPE:
+        setType((VarType)newValue);
         return;
       case AS3Package.FOR_STATEMENT__FOREACHEXPR:
         setForeachexpr((Expression)newValue);
@@ -865,8 +865,8 @@ public class ForStatementImpl extends StatementImpl implements ForStatement
       case AS3Package.FOR_STATEMENT__NAME_FOREACHH:
         setNameForeachh(NAME_FOREACHH_EDEFAULT);
         return;
-      case AS3Package.FOR_STATEMENT__RELATION:
-        setRelation((typeRelation)null);
+      case AS3Package.FOR_STATEMENT__TYPE:
+        setType((VarType)null);
         return;
       case AS3Package.FOR_STATEMENT__FOREACHEXPR:
         setForeachexpr((Expression)null);
@@ -906,8 +906,8 @@ public class ForStatementImpl extends StatementImpl implements ForStatement
         return forcommand != null;
       case AS3Package.FOR_STATEMENT__NAME_FOREACHH:
         return NAME_FOREACHH_EDEFAULT == null ? nameForeachh != null : !NAME_FOREACHH_EDEFAULT.equals(nameForeachh);
-      case AS3Package.FOR_STATEMENT__RELATION:
-        return relation != null;
+      case AS3Package.FOR_STATEMENT__TYPE:
+        return type != null;
       case AS3Package.FOR_STATEMENT__FOREACHEXPR:
         return foreachexpr != null;
       case AS3Package.FOR_STATEMENT__FOREACHCOMMAND:

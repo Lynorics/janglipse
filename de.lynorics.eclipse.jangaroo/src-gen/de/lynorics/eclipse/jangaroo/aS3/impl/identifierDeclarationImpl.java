@@ -3,9 +3,9 @@
 package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
+import de.lynorics.eclipse.jangaroo.aS3.VarType;
 import de.lynorics.eclipse.jangaroo.aS3.exprOrObjectLiteral;
 import de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration;
-import de.lynorics.eclipse.jangaroo.aS3.typeRelation;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.identifierDeclarationImpl#getName <em>Name</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.identifierDeclarationImpl#getRelation <em>Relation</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.identifierDeclarationImpl#getType <em>Type</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.identifierDeclarationImpl#getExpr <em>Expr</em>}</li>
  * </ul>
  * </p>
@@ -54,14 +54,14 @@ public class identifierDeclarationImpl extends MinimalEObjectImpl.Container impl
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getRelation() <em>Relation</em>}' containment reference.
+   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRelation()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected typeRelation relation;
+  protected VarType type;
 
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -122,9 +122,9 @@ public class identifierDeclarationImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  public typeRelation getRelation()
+  public VarType getType()
   {
-    return relation;
+    return type;
   }
 
   /**
@@ -132,13 +132,13 @@ public class identifierDeclarationImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRelation(typeRelation newRelation, NotificationChain msgs)
+  public NotificationChain basicSetType(VarType newType, NotificationChain msgs)
   {
-    typeRelation oldRelation = relation;
-    relation = newRelation;
+    VarType oldType = type;
+    type = newType;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.IDENTIFIER_DECLARATION__RELATION, oldRelation, newRelation);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.IDENTIFIER_DECLARATION__TYPE, oldType, newType);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -149,20 +149,20 @@ public class identifierDeclarationImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRelation(typeRelation newRelation)
+  public void setType(VarType newType)
   {
-    if (newRelation != relation)
+    if (newType != type)
     {
       NotificationChain msgs = null;
-      if (relation != null)
-        msgs = ((InternalEObject)relation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.IDENTIFIER_DECLARATION__RELATION, null, msgs);
-      if (newRelation != null)
-        msgs = ((InternalEObject)newRelation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.IDENTIFIER_DECLARATION__RELATION, null, msgs);
-      msgs = basicSetRelation(newRelation, msgs);
+      if (type != null)
+        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.IDENTIFIER_DECLARATION__TYPE, null, msgs);
+      if (newType != null)
+        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.IDENTIFIER_DECLARATION__TYPE, null, msgs);
+      msgs = basicSetType(newType, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.IDENTIFIER_DECLARATION__RELATION, newRelation, newRelation));
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.IDENTIFIER_DECLARATION__TYPE, newType, newType));
   }
 
   /**
@@ -223,8 +223,8 @@ public class identifierDeclarationImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
-      case AS3Package.IDENTIFIER_DECLARATION__RELATION:
-        return basicSetRelation(null, msgs);
+      case AS3Package.IDENTIFIER_DECLARATION__TYPE:
+        return basicSetType(null, msgs);
       case AS3Package.IDENTIFIER_DECLARATION__EXPR:
         return basicSetExpr(null, msgs);
     }
@@ -243,8 +243,8 @@ public class identifierDeclarationImpl extends MinimalEObjectImpl.Container impl
     {
       case AS3Package.IDENTIFIER_DECLARATION__NAME:
         return getName();
-      case AS3Package.IDENTIFIER_DECLARATION__RELATION:
-        return getRelation();
+      case AS3Package.IDENTIFIER_DECLARATION__TYPE:
+        return getType();
       case AS3Package.IDENTIFIER_DECLARATION__EXPR:
         return getExpr();
     }
@@ -264,8 +264,8 @@ public class identifierDeclarationImpl extends MinimalEObjectImpl.Container impl
       case AS3Package.IDENTIFIER_DECLARATION__NAME:
         setName((String)newValue);
         return;
-      case AS3Package.IDENTIFIER_DECLARATION__RELATION:
-        setRelation((typeRelation)newValue);
+      case AS3Package.IDENTIFIER_DECLARATION__TYPE:
+        setType((VarType)newValue);
         return;
       case AS3Package.IDENTIFIER_DECLARATION__EXPR:
         setExpr((exprOrObjectLiteral)newValue);
@@ -287,8 +287,8 @@ public class identifierDeclarationImpl extends MinimalEObjectImpl.Container impl
       case AS3Package.IDENTIFIER_DECLARATION__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case AS3Package.IDENTIFIER_DECLARATION__RELATION:
-        setRelation((typeRelation)null);
+      case AS3Package.IDENTIFIER_DECLARATION__TYPE:
+        setType((VarType)null);
         return;
       case AS3Package.IDENTIFIER_DECLARATION__EXPR:
         setExpr((exprOrObjectLiteral)null);
@@ -309,8 +309,8 @@ public class identifierDeclarationImpl extends MinimalEObjectImpl.Container impl
     {
       case AS3Package.IDENTIFIER_DECLARATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case AS3Package.IDENTIFIER_DECLARATION__RELATION:
-        return relation != null;
+      case AS3Package.IDENTIFIER_DECLARATION__TYPE:
+        return type != null;
       case AS3Package.IDENTIFIER_DECLARATION__EXPR:
         return expr != null;
     }

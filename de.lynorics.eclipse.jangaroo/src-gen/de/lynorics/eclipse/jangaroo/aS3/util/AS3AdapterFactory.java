@@ -6,6 +6,7 @@ import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
 import de.lynorics.eclipse.jangaroo.aS3.Assignment;
 import de.lynorics.eclipse.jangaroo.aS3.Block;
 import de.lynorics.eclipse.jangaroo.aS3.BoolConstant;
+import de.lynorics.eclipse.jangaroo.aS3.BracketExpr;
 import de.lynorics.eclipse.jangaroo.aS3.DoWhileStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Expression;
 import de.lynorics.eclipse.jangaroo.aS3.ForStatement;
@@ -55,7 +56,6 @@ import de.lynorics.eclipse.jangaroo.aS3.objectFields;
 import de.lynorics.eclipse.jangaroo.aS3.objectLiteral;
 import de.lynorics.eclipse.jangaroo.aS3.parenthesizedExpr;
 import de.lynorics.eclipse.jangaroo.aS3.statementInSwitch;
-import de.lynorics.eclipse.jangaroo.aS3.typeRelation;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -298,11 +298,6 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
         return createParametersAdapter();
       }
       @Override
-      public Adapter casetypeRelation(typeRelation object)
-      {
-        return createtypeRelationAdapter();
-      }
-      @Override
       public Adapter caseobjectLiteral(objectLiteral object)
       {
         return createobjectLiteralAdapter();
@@ -401,6 +396,11 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
       public Adapter caseTerminalOp(TerminalOp object)
       {
         return createTerminalOpAdapter();
+      }
+      @Override
+      public Adapter caseBracketExpr(BracketExpr object)
+      {
+        return createBracketExprAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -935,21 +935,6 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.typeRelation <em>type Relation</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.typeRelation
-   * @generated
-   */
-  public Adapter createtypeRelationAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.objectLiteral <em>object Literal</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1245,6 +1230,21 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTerminalOpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.BracketExpr <em>Bracket Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.BracketExpr
+   * @generated
+   */
+  public Adapter createBracketExprAdapter()
   {
     return null;
   }

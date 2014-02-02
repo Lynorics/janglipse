@@ -6,6 +6,7 @@ import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
 import de.lynorics.eclipse.jangaroo.aS3.Assignment;
 import de.lynorics.eclipse.jangaroo.aS3.Block;
 import de.lynorics.eclipse.jangaroo.aS3.BoolConstant;
+import de.lynorics.eclipse.jangaroo.aS3.BracketExpr;
 import de.lynorics.eclipse.jangaroo.aS3.DoWhileStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Expression;
 import de.lynorics.eclipse.jangaroo.aS3.ForStatement;
@@ -54,7 +55,6 @@ import de.lynorics.eclipse.jangaroo.aS3.objectFields;
 import de.lynorics.eclipse.jangaroo.aS3.objectLiteral;
 import de.lynorics.eclipse.jangaroo.aS3.parenthesizedExpr;
 import de.lynorics.eclipse.jangaroo.aS3.statementInSwitch;
-import de.lynorics.eclipse.jangaroo.aS3.typeRelation;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -388,13 +388,6 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.TYPE_RELATION:
-      {
-        typeRelation typeRelation = (typeRelation)theEObject;
-        T result = casetypeRelation(typeRelation);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case AS3Package.OBJECT_LITERAL:
       {
         objectLiteral objectLiteral = (objectLiteral)theEObject;
@@ -611,6 +604,18 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = caseexprOrObjectLiteral(terminalOp);
         if (result == null) result = casestatementInSwitch(terminalOp);
         if (result == null) result = caseobjectField(terminalOp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.BRACKET_EXPR:
+      {
+        BracketExpr bracketExpr = (BracketExpr)theEObject;
+        T result = caseBracketExpr(bracketExpr);
+        if (result == null) result = caseExpression(bracketExpr);
+        if (result == null) result = caseStatement(bracketExpr);
+        if (result == null) result = caseexprOrObjectLiteral(bracketExpr);
+        if (result == null) result = casestatementInSwitch(bracketExpr);
+        if (result == null) result = caseobjectField(bracketExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1163,22 +1168,6 @@ public class AS3Switch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>type Relation</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>type Relation</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casetypeRelation(typeRelation object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>object Literal</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1494,6 +1483,22 @@ public class AS3Switch<T> extends Switch<T>
    * @generated
    */
   public T caseTerminalOp(TerminalOp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Bracket Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Bracket Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBracketExpr(BracketExpr object)
   {
     return null;
   }

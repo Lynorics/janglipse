@@ -7,6 +7,7 @@ import de.lynorics.eclipse.jangaroo.aS3.AccessLevel;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
 import de.lynorics.eclipse.jangaroo.aS3.MethodBody;
 import de.lynorics.eclipse.jangaroo.aS3.Parameter;
+import de.lynorics.eclipse.jangaroo.aS3.VarType;
 
 import java.util.Collection;
 
@@ -16,7 +17,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -95,14 +95,14 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   protected EList<Parameter> params;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getType()
    * @generated
    * @ordered
    */
-  protected EObject type;
+  protected VarType type;
 
   /**
    * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
@@ -200,27 +200,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public EObject getType()
-  {
-    if (type != null && type.eIsProxy())
-    {
-      InternalEObject oldType = (InternalEObject)type;
-      type = eResolveProxy(oldType);
-      if (type != oldType)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AS3Package.METHOD__TYPE, oldType, type));
-      }
-    }
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EObject basicGetType()
+  public VarType getType()
   {
     return type;
   }
@@ -230,12 +210,37 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(EObject newType)
+  public NotificationChain basicSetType(VarType newType, NotificationChain msgs)
   {
-    EObject oldType = type;
+    VarType oldType = type;
     type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.METHOD__TYPE, oldType, type));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.METHOD__TYPE, oldType, newType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setType(VarType newType)
+  {
+    if (newType != type)
+    {
+      NotificationChain msgs = null;
+      if (type != null)
+        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.METHOD__TYPE, null, msgs);
+      if (newType != null)
+        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.METHOD__TYPE, null, msgs);
+      msgs = basicSetType(newType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.METHOD__TYPE, newType, newType));
   }
 
   /**
@@ -298,6 +303,8 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
     {
       case AS3Package.METHOD__PARAMS:
         return ((InternalEList<?>)getParams()).basicRemove(otherEnd, msgs);
+      case AS3Package.METHOD__TYPE:
+        return basicSetType(null, msgs);
       case AS3Package.METHOD__BODY:
         return basicSetBody(null, msgs);
     }
@@ -321,8 +328,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
       case AS3Package.METHOD__PARAMS:
         return getParams();
       case AS3Package.METHOD__TYPE:
-        if (resolve) return getType();
-        return basicGetType();
+        return getType();
       case AS3Package.METHOD__BODY:
         return getBody();
     }
@@ -351,7 +357,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
         getParams().addAll((Collection<? extends Parameter>)newValue);
         return;
       case AS3Package.METHOD__TYPE:
-        setType((EObject)newValue);
+        setType((VarType)newValue);
         return;
       case AS3Package.METHOD__BODY:
         setBody((MethodBody)newValue);
@@ -380,7 +386,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
         getParams().clear();
         return;
       case AS3Package.METHOD__TYPE:
-        setType((EObject)null);
+        setType((VarType)null);
         return;
       case AS3Package.METHOD__BODY:
         setBody((MethodBody)null);

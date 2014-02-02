@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration#getName <em>Name</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration#getRelation <em>Relation</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration#getType <em>Type</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration#getExpr <em>Expr</em>}</li>
  * </ul>
  * </p>
@@ -51,30 +51,30 @@ public interface identifierDeclaration extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Relation</b></em>' containment reference.
+   * Returns the value of the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Relation</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Type</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Relation</em>' containment reference.
-   * @see #setRelation(typeRelation)
-   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getidentifierDeclaration_Relation()
+   * @return the value of the '<em>Type</em>' containment reference.
+   * @see #setType(VarType)
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getidentifierDeclaration_Type()
    * @model containment="true"
    * @generated
    */
-  typeRelation getRelation();
+  VarType getType();
 
   /**
-   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration#getRelation <em>Relation</em>}' containment reference.
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration#getType <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Relation</em>' containment reference.
-   * @see #getRelation()
+   * @param value the new value of the '<em>Type</em>' containment reference.
+   * @see #getType()
    * @generated
    */
-  void setRelation(typeRelation value);
+  void setType(VarType value);
 
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference.

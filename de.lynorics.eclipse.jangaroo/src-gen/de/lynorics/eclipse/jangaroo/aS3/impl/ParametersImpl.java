@@ -5,7 +5,7 @@ package de.lynorics.eclipse.jangaroo.aS3.impl;
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
 import de.lynorics.eclipse.jangaroo.aS3.Parameter;
 import de.lynorics.eclipse.jangaroo.aS3.Parameters;
-import de.lynorics.eclipse.jangaroo.aS3.typeRelation;
+import de.lynorics.eclipse.jangaroo.aS3.VarType;
 
 import java.util.Collection;
 
@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ParametersImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ParametersImpl#getName <em>Name</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ParametersImpl#getRel <em>Rel</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ParametersImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,14 +71,14 @@ public class ParametersImpl extends MinimalEObjectImpl.Container implements Para
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getRel() <em>Rel</em>}' containment reference.
+   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRel()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected typeRelation rel;
+  protected VarType type;
 
   /**
    * <!-- begin-user-doc -->
@@ -143,9 +143,9 @@ public class ParametersImpl extends MinimalEObjectImpl.Container implements Para
    * <!-- end-user-doc -->
    * @generated
    */
-  public typeRelation getRel()
+  public VarType getType()
   {
-    return rel;
+    return type;
   }
 
   /**
@@ -153,13 +153,13 @@ public class ParametersImpl extends MinimalEObjectImpl.Container implements Para
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRel(typeRelation newRel, NotificationChain msgs)
+  public NotificationChain basicSetType(VarType newType, NotificationChain msgs)
   {
-    typeRelation oldRel = rel;
-    rel = newRel;
+    VarType oldType = type;
+    type = newType;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.PARAMETERS__REL, oldRel, newRel);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.PARAMETERS__TYPE, oldType, newType);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -170,20 +170,20 @@ public class ParametersImpl extends MinimalEObjectImpl.Container implements Para
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRel(typeRelation newRel)
+  public void setType(VarType newType)
   {
-    if (newRel != rel)
+    if (newType != type)
     {
       NotificationChain msgs = null;
-      if (rel != null)
-        msgs = ((InternalEObject)rel).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.PARAMETERS__REL, null, msgs);
-      if (newRel != null)
-        msgs = ((InternalEObject)newRel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.PARAMETERS__REL, null, msgs);
-      msgs = basicSetRel(newRel, msgs);
+      if (type != null)
+        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.PARAMETERS__TYPE, null, msgs);
+      if (newType != null)
+        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.PARAMETERS__TYPE, null, msgs);
+      msgs = basicSetType(newType, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.PARAMETERS__REL, newRel, newRel));
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.PARAMETERS__TYPE, newType, newType));
   }
 
   /**
@@ -198,8 +198,8 @@ public class ParametersImpl extends MinimalEObjectImpl.Container implements Para
     {
       case AS3Package.PARAMETERS__ELEMENTS:
         return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
-      case AS3Package.PARAMETERS__REL:
-        return basicSetRel(null, msgs);
+      case AS3Package.PARAMETERS__TYPE:
+        return basicSetType(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -218,8 +218,8 @@ public class ParametersImpl extends MinimalEObjectImpl.Container implements Para
         return getElements();
       case AS3Package.PARAMETERS__NAME:
         return getName();
-      case AS3Package.PARAMETERS__REL:
-        return getRel();
+      case AS3Package.PARAMETERS__TYPE:
+        return getType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -242,8 +242,8 @@ public class ParametersImpl extends MinimalEObjectImpl.Container implements Para
       case AS3Package.PARAMETERS__NAME:
         setName((String)newValue);
         return;
-      case AS3Package.PARAMETERS__REL:
-        setRel((typeRelation)newValue);
+      case AS3Package.PARAMETERS__TYPE:
+        setType((VarType)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -265,8 +265,8 @@ public class ParametersImpl extends MinimalEObjectImpl.Container implements Para
       case AS3Package.PARAMETERS__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case AS3Package.PARAMETERS__REL:
-        setRel((typeRelation)null);
+      case AS3Package.PARAMETERS__TYPE:
+        setType((VarType)null);
         return;
     }
     super.eUnset(featureID);
@@ -286,8 +286,8 @@ public class ParametersImpl extends MinimalEObjectImpl.Container implements Para
         return elements != null && !elements.isEmpty();
       case AS3Package.PARAMETERS__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case AS3Package.PARAMETERS__REL:
-        return rel != null;
+      case AS3Package.PARAMETERS__TYPE:
+        return type != null;
     }
     return super.eIsSet(featureID);
   }

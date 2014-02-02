@@ -25,8 +25,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl#getName <em>Name</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl#getAccess <em>Access</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl#getType <em>Type</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl#getAccess <em>Access</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  * </p>
@@ -56,6 +56,16 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
   protected String name = NAME_EDEFAULT;
 
   /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected VarType type;
+
+  /**
    * The default value of the '{@link #getAccess() <em>Access</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -74,16 +84,6 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
    * @ordered
    */
   protected AccessLevel access = ACCESS_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected VarType type;
 
   /**
    * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
@@ -144,29 +144,6 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
    * <!-- end-user-doc -->
    * @generated
    */
-  public AccessLevel getAccess()
-  {
-    return access;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAccess(AccessLevel newAccess)
-  {
-    AccessLevel oldAccess = access;
-    access = newAccess == null ? ACCESS_EDEFAULT : newAccess;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.VARIABLE_DECLARATION__ACCESS, oldAccess, access));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public VarType getType()
   {
     return type;
@@ -208,6 +185,29 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.VARIABLE_DECLARATION__TYPE, newType, newType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AccessLevel getAccess()
+  {
+    return access;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAccess(AccessLevel newAccess)
+  {
+    AccessLevel oldAccess = access;
+    access = newAccess == null ? ACCESS_EDEFAULT : newAccess;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.VARIABLE_DECLARATION__ACCESS, oldAccess, access));
   }
 
   /**
@@ -288,10 +288,10 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
     {
       case AS3Package.VARIABLE_DECLARATION__NAME:
         return getName();
-      case AS3Package.VARIABLE_DECLARATION__ACCESS:
-        return getAccess();
       case AS3Package.VARIABLE_DECLARATION__TYPE:
         return getType();
+      case AS3Package.VARIABLE_DECLARATION__ACCESS:
+        return getAccess();
       case AS3Package.VARIABLE_DECLARATION__EXPRESSION:
         return getExpression();
     }
@@ -311,11 +311,11 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
       case AS3Package.VARIABLE_DECLARATION__NAME:
         setName((String)newValue);
         return;
-      case AS3Package.VARIABLE_DECLARATION__ACCESS:
-        setAccess((AccessLevel)newValue);
-        return;
       case AS3Package.VARIABLE_DECLARATION__TYPE:
         setType((VarType)newValue);
+        return;
+      case AS3Package.VARIABLE_DECLARATION__ACCESS:
+        setAccess((AccessLevel)newValue);
         return;
       case AS3Package.VARIABLE_DECLARATION__EXPRESSION:
         setExpression((Expression)newValue);
@@ -337,11 +337,11 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
       case AS3Package.VARIABLE_DECLARATION__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case AS3Package.VARIABLE_DECLARATION__ACCESS:
-        setAccess(ACCESS_EDEFAULT);
-        return;
       case AS3Package.VARIABLE_DECLARATION__TYPE:
         setType((VarType)null);
+        return;
+      case AS3Package.VARIABLE_DECLARATION__ACCESS:
+        setAccess(ACCESS_EDEFAULT);
         return;
       case AS3Package.VARIABLE_DECLARATION__EXPRESSION:
         setExpression((Expression)null);
@@ -362,10 +362,10 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
     {
       case AS3Package.VARIABLE_DECLARATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case AS3Package.VARIABLE_DECLARATION__ACCESS:
-        return access != ACCESS_EDEFAULT;
       case AS3Package.VARIABLE_DECLARATION__TYPE:
         return type != null;
+      case AS3Package.VARIABLE_DECLARATION__ACCESS:
+        return access != ACCESS_EDEFAULT;
       case AS3Package.VARIABLE_DECLARATION__EXPRESSION:
         return expression != null;
     }
@@ -385,6 +385,7 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
       switch (derivedFeatureID)
       {
         case AS3Package.VARIABLE_DECLARATION__NAME: return AS3Package.SYMBOL__NAME;
+        case AS3Package.VARIABLE_DECLARATION__TYPE: return AS3Package.SYMBOL__TYPE;
         default: return -1;
       }
     }
@@ -404,6 +405,7 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
       switch (baseFeatureID)
       {
         case AS3Package.SYMBOL__NAME: return AS3Package.VARIABLE_DECLARATION__NAME;
+        case AS3Package.SYMBOL__TYPE: return AS3Package.VARIABLE_DECLARATION__TYPE;
         default: return -1;
       }
     }

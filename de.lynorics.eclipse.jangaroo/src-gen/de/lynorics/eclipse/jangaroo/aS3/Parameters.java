@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Parameters#getElements <em>Elements</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Parameters#getName <em>Name</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Parameters#getRel <em>Rel</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Parameters#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,29 +69,29 @@ public interface Parameters extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Rel</b></em>' containment reference.
+   * Returns the value of the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Rel</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Type</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Rel</em>' containment reference.
-   * @see #setRel(typeRelation)
-   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getParameters_Rel()
+   * @return the value of the '<em>Type</em>' containment reference.
+   * @see #setType(VarType)
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getParameters_Type()
    * @model containment="true"
    * @generated
    */
-  typeRelation getRel();
+  VarType getType();
 
   /**
-   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Parameters#getRel <em>Rel</em>}' containment reference.
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Parameters#getType <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Rel</em>' containment reference.
-   * @see #getRel()
+   * @param value the new value of the '<em>Type</em>' containment reference.
+   * @see #getType()
    * @generated
    */
-  void setRel(typeRelation value);
+  void setType(VarType value);
 
 } // Parameters

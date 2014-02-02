@@ -43,10 +43,8 @@ public class AS3Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getDirectiveAccess().getAlternatives(), "rule__Directive__Alternatives");
 					put(grammarAccess.getUsesAccess().getAlternatives_2(), "rule__Uses__Alternatives_2");
 					put(grammarAccess.getInterfaceMethodAccess().getAlternatives_2(), "rule__InterfaceMethod__Alternatives_2");
-					put(grammarAccess.getInterfaceMethodAccess().getAlternatives_7_1(), "rule__InterfaceMethod__Alternatives_7_1");
 					put(grammarAccess.getMemberAccess().getAlternatives(), "rule__Member__Alternatives");
 					put(grammarAccess.getMethodAccess().getAlternatives_5(), "rule__Method__Alternatives_5");
-					put(grammarAccess.getMethodAccess().getAlternatives_10_1(), "rule__Method__Alternatives_10_1");
 					put(grammarAccess.getMethodAccess().getAlternatives_11(), "rule__Method__Alternatives_11");
 					put(grammarAccess.getStatementAccess().getAlternatives(), "rule__Statement__Alternatives");
 					put(grammarAccess.getForStatementAccess().getAlternatives(), "rule__ForStatement__Alternatives");
@@ -55,7 +53,6 @@ public class AS3Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getIfBlockAccess().getAlternatives(), "rule__IfBlock__Alternatives");
 					put(grammarAccess.getBlockAccess().getAlternatives(), "rule__Block__Alternatives");
 					put(grammarAccess.getParametersAccess().getAlternatives(), "rule__Parameters__Alternatives");
-					put(grammarAccess.getTypeRelationAccess().getAlternatives_1(), "rule__TypeRelation__Alternatives_1");
 					put(grammarAccess.getObjectFieldAccess().getAlternatives(), "rule__ObjectField__Alternatives");
 					put(grammarAccess.getExprOrObjectLiteralAccess().getAlternatives(), "rule__ExprOrObjectLiteral__Alternatives");
 					put(grammarAccess.getSymbolAccess().getAlternatives(), "rule__Symbol__Alternatives");
@@ -100,7 +97,9 @@ public class AS3Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getForStatementAccess().getGroup_1_4(), "rule__ForStatement__Group_1_4__0");
 					put(grammarAccess.getForStatementAccess().getGroup_2(), "rule__ForStatement__Group_2__0");
 					put(grammarAccess.getForStatementAccess().getGroup_3(), "rule__ForStatement__Group_3__0");
+					put(grammarAccess.getForStatementAccess().getGroup_3_5(), "rule__ForStatement__Group_3_5__0");
 					put(grammarAccess.getIdentifierDeclarationAccess().getGroup(), "rule__IdentifierDeclaration__Group__0");
+					put(grammarAccess.getIdentifierDeclarationAccess().getGroup_1(), "rule__IdentifierDeclaration__Group_1__0");
 					put(grammarAccess.getIdentifierDeclarationAccess().getGroup_2(), "rule__IdentifierDeclaration__Group_2__0");
 					put(grammarAccess.getCommaExprAccess().getGroup(), "rule__CommaExpr__Group__0");
 					put(grammarAccess.getCommaExprAccess().getGroup_1(), "rule__CommaExpr__Group_1__0");
@@ -120,13 +119,14 @@ public class AS3Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getTryStatementAccess().getGroup_5(), "rule__TryStatement__Group_5__0");
 					put(grammarAccess.getStatementsBlockAccess().getGroup(), "rule__StatementsBlock__Group__0");
 					put(grammarAccess.getParameterAccess().getGroup(), "rule__Parameter__Group__0");
+					put(grammarAccess.getParameterAccess().getGroup_2(), "rule__Parameter__Group_2__0");
 					put(grammarAccess.getParameterAccess().getGroup_3(), "rule__Parameter__Group_3__0");
 					put(grammarAccess.getParametersAccess().getGroup_0(), "rule__Parameters__Group_0__0");
 					put(grammarAccess.getParametersAccess().getGroup_0_1(), "rule__Parameters__Group_0_1__0");
 					put(grammarAccess.getParametersAccess().getGroup_1(), "rule__Parameters__Group_1__0");
 					put(grammarAccess.getParametersAccess().getGroup_1_0(), "rule__Parameters__Group_1_0__0");
 					put(grammarAccess.getParametersAccess().getGroup_1_0_1(), "rule__Parameters__Group_1_0_1__0");
-					put(grammarAccess.getTypeRelationAccess().getGroup(), "rule__TypeRelation__Group__0");
+					put(grammarAccess.getParametersAccess().getGroup_1_2(), "rule__Parameters__Group_1_2__0");
 					put(grammarAccess.getObjectLiteralAccess().getGroup(), "rule__ObjectLiteral__Group__0");
 					put(grammarAccess.getObjectFieldsAccess().getGroup(), "rule__ObjectFields__Group__0");
 					put(grammarAccess.getObjectFieldsAccess().getGroup_1(), "rule__ObjectFields__Group_1__0");
@@ -145,6 +145,7 @@ public class AS3Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_2(), "rule__TerminalExpression__Group_2__0");
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_3(), "rule__TerminalExpression__Group_3__0");
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_4(), "rule__TerminalExpression__Group_4__0");
+					put(grammarAccess.getTerminalExpressionAccess().getGroup_4_2(), "rule__TerminalExpression__Group_4_2__0");
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_5(), "rule__TerminalExpression__Group_5__0");
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_6(), "rule__TerminalExpression__Group_6__0");
 					put(grammarAccess.getTerminalExpressionAccess().getGroup_7(), "rule__TerminalExpression__Group_7__0");
@@ -174,8 +175,7 @@ public class AS3Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getInterfaceMethodAccess().getNameAssignment_3(), "rule__InterfaceMethod__NameAssignment_3");
 					put(grammarAccess.getInterfaceMethodAccess().getParamsAssignment_5_0(), "rule__InterfaceMethod__ParamsAssignment_5_0");
 					put(grammarAccess.getInterfaceMethodAccess().getParamsAssignment_5_1_1(), "rule__InterfaceMethod__ParamsAssignment_5_1_1");
-					put(grammarAccess.getInterfaceMethodAccess().getTypeAssignment_7_1_1(), "rule__InterfaceMethod__TypeAssignment_7_1_1");
-					put(grammarAccess.getInterfaceMethodAccess().getTypeAssignment_7_1_2(), "rule__InterfaceMethod__TypeAssignment_7_1_2");
+					put(grammarAccess.getInterfaceMethodAccess().getTypeAssignment_7_1(), "rule__InterfaceMethod__TypeAssignment_7_1");
 					put(grammarAccess.getClassAccess().getAccessAssignment_0(), "rule__Class__AccessAssignment_0");
 					put(grammarAccess.getClassAccess().getNameAssignment_5(), "rule__Class__NameAssignment_5");
 					put(grammarAccess.getClassAccess().getSuperTypeAssignment_6_1(), "rule__Class__SuperTypeAssignment_6_1");
@@ -188,8 +188,7 @@ public class AS3Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getMethodAccess().getNameAssignment_6(), "rule__Method__NameAssignment_6");
 					put(grammarAccess.getMethodAccess().getParamsAssignment_8_0(), "rule__Method__ParamsAssignment_8_0");
 					put(grammarAccess.getMethodAccess().getParamsAssignment_8_1_1(), "rule__Method__ParamsAssignment_8_1_1");
-					put(grammarAccess.getMethodAccess().getTypeAssignment_10_1_1(), "rule__Method__TypeAssignment_10_1_1");
-					put(grammarAccess.getMethodAccess().getTypeAssignment_10_1_2(), "rule__Method__TypeAssignment_10_1_2");
+					put(grammarAccess.getMethodAccess().getTypeAssignment_10_1(), "rule__Method__TypeAssignment_10_1");
 					put(grammarAccess.getMethodAccess().getBodyAssignment_11_0(), "rule__Method__BodyAssignment_11_0");
 					put(grammarAccess.getMethodBodyAccess().getStatementsAssignment_2(), "rule__MethodBody__StatementsAssignment_2");
 					put(grammarAccess.getNewStatementAccess().getTypeAssignment_2(), "rule__NewStatement__TypeAssignment_2");
@@ -207,11 +206,11 @@ public class AS3Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getForStatementAccess().getForinexprAssignment_2_5(), "rule__ForStatement__ForinexprAssignment_2_5");
 					put(grammarAccess.getForStatementAccess().getForcommandAssignment_2_7(), "rule__ForStatement__ForcommandAssignment_2_7");
 					put(grammarAccess.getForStatementAccess().getNameForeachhAssignment_3_4(), "rule__ForStatement__NameForeachhAssignment_3_4");
-					put(grammarAccess.getForStatementAccess().getRelationAssignment_3_5(), "rule__ForStatement__RelationAssignment_3_5");
+					put(grammarAccess.getForStatementAccess().getTypeAssignment_3_5_1(), "rule__ForStatement__TypeAssignment_3_5_1");
 					put(grammarAccess.getForStatementAccess().getForeachexprAssignment_3_7(), "rule__ForStatement__ForeachexprAssignment_3_7");
 					put(grammarAccess.getForStatementAccess().getForeachcommandAssignment_3_9(), "rule__ForStatement__ForeachcommandAssignment_3_9");
 					put(grammarAccess.getIdentifierDeclarationAccess().getNameAssignment_0(), "rule__IdentifierDeclaration__NameAssignment_0");
-					put(grammarAccess.getIdentifierDeclarationAccess().getRelationAssignment_1(), "rule__IdentifierDeclaration__RelationAssignment_1");
+					put(grammarAccess.getIdentifierDeclarationAccess().getTypeAssignment_1_1(), "rule__IdentifierDeclaration__TypeAssignment_1_1");
 					put(grammarAccess.getIdentifierDeclarationAccess().getExprAssignment_2_1(), "rule__IdentifierDeclaration__ExprAssignment_2_1");
 					put(grammarAccess.getCommaExprAccess().getElementsAssignment_0(), "rule__CommaExpr__ElementsAssignment_0");
 					put(grammarAccess.getCommaExprAccess().getElementsAssignment_1_1(), "rule__CommaExpr__ElementsAssignment_1_1");
@@ -240,15 +239,14 @@ public class AS3Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getIfBlockAccess().getStatementsAssignment_0(), "rule__IfBlock__StatementsAssignment_0");
 					put(grammarAccess.getStatementsBlockAccess().getStatementsAssignment_1(), "rule__StatementsBlock__StatementsAssignment_1");
 					put(grammarAccess.getParameterAccess().getNameAssignment_1(), "rule__Parameter__NameAssignment_1");
-					put(grammarAccess.getParameterAccess().getRelAssignment_2(), "rule__Parameter__RelAssignment_2");
+					put(grammarAccess.getParameterAccess().getTypeAssignment_2_1(), "rule__Parameter__TypeAssignment_2_1");
 					put(grammarAccess.getParameterAccess().getLitAssignment_3_1(), "rule__Parameter__LitAssignment_3_1");
 					put(grammarAccess.getParametersAccess().getElementsAssignment_0_0(), "rule__Parameters__ElementsAssignment_0_0");
 					put(grammarAccess.getParametersAccess().getElementsAssignment_0_1_1(), "rule__Parameters__ElementsAssignment_0_1_1");
 					put(grammarAccess.getParametersAccess().getElementsAssignment_1_0_0(), "rule__Parameters__ElementsAssignment_1_0_0");
 					put(grammarAccess.getParametersAccess().getElementsAssignment_1_0_1_1(), "rule__Parameters__ElementsAssignment_1_0_1_1");
 					put(grammarAccess.getParametersAccess().getNameAssignment_1_1(), "rule__Parameters__NameAssignment_1_1");
-					put(grammarAccess.getParametersAccess().getRelAssignment_1_2(), "rule__Parameters__RelAssignment_1_2");
-					put(grammarAccess.getTypeRelationAccess().getTypeAssignment_1_2(), "rule__TypeRelation__TypeAssignment_1_2");
+					put(grammarAccess.getParametersAccess().getTypeAssignment_1_2_1(), "rule__Parameters__TypeAssignment_1_2_1");
 					put(grammarAccess.getObjectFieldsAccess().getFieldsAssignment_0(), "rule__ObjectFields__FieldsAssignment_0");
 					put(grammarAccess.getObjectFieldsAccess().getFieldsAssignment_1_1(), "rule__ObjectFields__FieldsAssignment_1_1");
 					put(grammarAccess.getAssignmentAccess().getRightAssignment_1_2(), "rule__Assignment__RightAssignment_1_2");
@@ -259,7 +257,9 @@ public class AS3Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getTerminalExpressionAccess().getValueAssignment_0_1(), "rule__TerminalExpression__ValueAssignment_0_1");
 					put(grammarAccess.getTerminalExpressionAccess().getValueAssignment_1_1(), "rule__TerminalExpression__ValueAssignment_1_1");
 					put(grammarAccess.getTerminalExpressionAccess().getValueAssignment_2_1(), "rule__TerminalExpression__ValueAssignment_2_1");
+					put(grammarAccess.getTerminalExpressionAccess().getExprAssignment_4_2_1(), "rule__TerminalExpression__ExprAssignment_4_2_1");
 					put(grammarAccess.getTerminalExpressionAccess().getSymbolAssignment_7_1(), "rule__TerminalExpression__SymbolAssignment_7_1");
+					put(grammarAccess.getTerminalExpressionAccess().getExprAssignment_9_2(), "rule__TerminalExpression__ExprAssignment_9_2");
 				}
 			};
 		}

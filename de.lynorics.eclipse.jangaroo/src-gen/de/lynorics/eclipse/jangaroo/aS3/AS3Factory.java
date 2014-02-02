@@ -329,15 +329,6 @@ public interface AS3Factory extends EFactory
   Parameters createParameters();
 
   /**
-   * Returns a new object of class '<em>type Relation</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>type Relation</em>'.
-   * @generated
-   */
-  typeRelation createtypeRelation();
-
-  /**
    * Returns a new object of class '<em>object Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -516,6 +507,15 @@ public interface AS3Factory extends EFactory
    * @generated
    */
   TerminalOp createTerminalOp();
+
+  /**
+   * Returns a new object of class '<em>Bracket Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Bracket Expr</em>'.
+   * @generated
+   */
+  BracketExpr createBracketExpr();
 
   /**
    * Returns the package supported by this factory.

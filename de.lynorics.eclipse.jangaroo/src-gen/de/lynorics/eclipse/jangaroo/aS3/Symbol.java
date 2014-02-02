@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Symbol#getName <em>Name</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Symbol#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,5 +48,31 @@ public interface Symbol extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' containment reference.
+   * @see #setType(VarType)
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getSymbol_Type()
+   * @model containment="true"
+   * @generated
+   */
+  VarType getType();
+
+  /**
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Symbol#getType <em>Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type</em>' containment reference.
+   * @see #getType()
+   * @generated
+   */
+  void setType(VarType value);
 
 } // Symbol

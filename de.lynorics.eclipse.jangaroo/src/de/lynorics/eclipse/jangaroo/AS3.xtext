@@ -60,7 +60,7 @@ Interface:
 InterfaceMethod:
   access=AccessLevel? 'function' ('get'|'set')? name=ID
   '(' (params+=Parameter (',' params+=Parameter)*)? ')' 
-  (':' ('void'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))?
+  (':' type=VarType)?
   ';'?
 ;
 
@@ -79,7 +79,7 @@ Member:
 Method:
   'override'? access=AccessLevel? 'native'? 'static'? 'function' ('get'|'set')? name=ID
   '(' (params+=Parameter (',' params+=Parameter)*)? ')' 
-  (':' ('void'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))?
+  (':' type=VarType)?
   (body=MethodBody|';')
 ;
 
@@ -116,12 +116,12 @@ ForStatement:
     (',' elements+=identifierDeclaration)* ';' 
     condition=commaExpr? ';' iterator=commaExpr? ')' command=StatementsBlock
   | 'for' 'each'? '(' nameForin=ID 'in' forinexpr=Expression ')' forcommand=StatementsBlock
-  | 'for' 'each'? '(' 'var' nameForeachh=ID relation=typeRelation?
+  | 'for' 'each'? '(' 'var' nameForeachh=ID (':' type=VarType)?
     'in' foreachexpr=Expression ')' foreachcommand=StatementsBlock
 ;
 
 identifierDeclaration :
-    name=ID relation=typeRelation? ('=' expr=exprOrObjectLiteral)?;
+    name=ID (':' type=VarType)? ('=' expr=exprOrObjectLiteral)?;
 
 commaExpr :
     elements+=Expression
@@ -192,7 +192,7 @@ Block:
 ;
 
 Parameter :
-    'const'? name=ID rel=typeRelation? ('=' lit=exprOrObjectLiteral)?;
+    'const'? name=ID (':' type=VarType)? ('=' lit=exprOrObjectLiteral)?;
 
 Parameters :
   (elements+=Parameter
@@ -200,11 +200,8 @@ Parameters :
   | 
   (elements+=Parameter
   (',' elements+=Parameter)* ',')?
-  name=ID rel=typeRelation?;
+  name=ID (':' type=VarType)?;
 
-typeRelation :
-    ':' ('*' | 'void' | type=[Class|QualifiedName]);
-    
 objectLiteral :
     '{' objectFields '}';
 
@@ -250,12 +247,12 @@ TerminalExpression returns Expression:
    {IntConstant} value=INT |
    {BoolConstant} value = ('true' | 'false') |
    {This} 'this' |
-   {Super} 'super' |
+   {Super} 'super' ('(' expr=Expression? ')')?|
    {Null} 'null' |
    {Undefined} 'undefined' |
    {SymbolRef} symbol=[Symbol] |
    {TerminalOp} TerminalOperator |
-   '(' Expression ')'; 
+   {BracketExpr} '(' expr=Expression? ')'; 
 
 TerminalOperator:
     '='

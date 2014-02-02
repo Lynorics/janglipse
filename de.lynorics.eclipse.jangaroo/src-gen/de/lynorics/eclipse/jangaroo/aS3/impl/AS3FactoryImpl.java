@@ -8,6 +8,7 @@ import de.lynorics.eclipse.jangaroo.aS3.AccessLevel;
 import de.lynorics.eclipse.jangaroo.aS3.Assignment;
 import de.lynorics.eclipse.jangaroo.aS3.Block;
 import de.lynorics.eclipse.jangaroo.aS3.BoolConstant;
+import de.lynorics.eclipse.jangaroo.aS3.BracketExpr;
 import de.lynorics.eclipse.jangaroo.aS3.DoWhileStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Expression;
 import de.lynorics.eclipse.jangaroo.aS3.ForStatement;
@@ -57,7 +58,6 @@ import de.lynorics.eclipse.jangaroo.aS3.objectFields;
 import de.lynorics.eclipse.jangaroo.aS3.objectLiteral;
 import de.lynorics.eclipse.jangaroo.aS3.parenthesizedExpr;
 import de.lynorics.eclipse.jangaroo.aS3.statementInSwitch;
-import de.lynorics.eclipse.jangaroo.aS3.typeRelation;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -154,7 +154,6 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.BLOCK: return createBlock();
       case AS3Package.PARAMETER: return createParameter();
       case AS3Package.PARAMETERS: return createParameters();
-      case AS3Package.TYPE_RELATION: return createtypeRelation();
       case AS3Package.OBJECT_LITERAL: return createobjectLiteral();
       case AS3Package.OBJECT_FIELDS: return createobjectFields();
       case AS3Package.OBJECT_FIELD: return createobjectField();
@@ -175,6 +174,7 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.UNDEFINED: return createUndefined();
       case AS3Package.SYMBOL_REF: return createSymbolRef();
       case AS3Package.TERMINAL_OP: return createTerminalOp();
+      case AS3Package.BRACKET_EXPR: return createBracketExpr();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -593,17 +593,6 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public typeRelation createtypeRelation()
-  {
-    typeRelationImpl typeRelation = new typeRelationImpl();
-    return typeRelation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public objectLiteral createobjectLiteral()
   {
     objectLiteralImpl objectLiteral = new objectLiteralImpl();
@@ -817,6 +806,17 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
   {
     TerminalOpImpl terminalOp = new TerminalOpImpl();
     return terminalOp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BracketExpr createBracketExpr()
+  {
+    BracketExprImpl bracketExpr = new BracketExprImpl();
+    return bracketExpr;
   }
 
   /**

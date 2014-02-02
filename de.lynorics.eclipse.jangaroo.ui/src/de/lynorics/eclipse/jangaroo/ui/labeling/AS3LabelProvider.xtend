@@ -17,17 +17,18 @@ import de.lynorics.eclipse.jangaroo.aS3.Interface
 import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod
 import de.lynorics.eclipse.jangaroo.aS3.Method
 import de.lynorics.eclipse.jangaroo.aS3.Package
+import de.lynorics.eclipse.jangaroo.aS3.Parameter
 import de.lynorics.eclipse.jangaroo.aS3.Uses
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
+import org.eclipse.jface.viewers.StyledString
+import org.eclipse.swt.graphics.Image
 import org.eclipse.xtext.ui.IImageHelper
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 
 import static de.lynorics.eclipse.jangaroo.aS3.AccessLevel.*
-import org.eclipse.swt.graphics.Image
-import org.eclipse.jface.viewers.DecorationOverlayIcon
-import org.eclipse.jface.viewers.IDecoration
-import org.eclipse.emf.ecore.EStructuralFeature
+import de.lynorics.eclipse.jangaroo.aS3.VarType
+import org.eclipse.emf.common.util.EList
 
 /**
  * Provides labels for a EObjects.
@@ -44,20 +45,6 @@ class AS3LabelProvider extends DefaultEObjectLabelProvider {
 		super(delegate);
 	}
 
-	// Labels and icons can be computed like this:
-	
-//	def text(Greeting ele) {
-//		'A greeting to ' + ele.name
-//	}
-//
-//	def image(Greeting ele) {
-//		'Greeting.gif'
-//	}
-/*
-    def text(EObject ele) {
-      return ele.class.name + ": " + super.text(ele);
-    }
-*/
     def image(Class clas) {
       return "outline-class.gif";
     }
@@ -82,6 +69,49 @@ class AS3LabelProvider extends DefaultEObjectLabelProvider {
       return "outline-import.gif";
     }
 
+    def text(InterfaceMethod meth) {
+      computeTextForMethod(meth.name, meth.type, meth.params);  
+    }
+    
+  private def computeTextForMethod(String methName, VarType varType, EList<Parameter> parameters) {
+      var String parameterNames = null
+        var String name = varType.name;
+        if (name == null) {
+          name = varType.type.getText;
+        }
+        if (parameters != null) {
+          for (Parameter param: parameters) {
+            var String pname = '*';
+            if (param.type != null) {
+              pname = param.type.name;
+              if (pname == null &&
+                  param.type.type != null) {
+                pname = param.type.type.getText;
+              }
+            }
+            if (pname == null) {
+              pname = '*';
+            }
+            if (parameterNames == null) {
+              parameterNames = pname;
+            }
+            else {
+              parameterNames = parameterNames+','+pname;
+            }
+          }
+        }
+        if (parameterNames != null) {
+          parameterNames = '('+parameterNames+')'
+        }
+        else {
+          parameterNames = '()'
+        }
+        return new StyledString(methName + parameterNames).
+         append(new StyledString(': ' +name,
+           StyledString::DECORATIONS_STYLER
+         ))
+    }
+    
     def image(InterfaceMethod meth) {
       switch(meth.access) {
         case PUBLIC: {
@@ -99,6 +129,10 @@ class AS3LabelProvider extends DefaultEObjectLabelProvider {
       }
     }
 
+    def text(Method meth) {
+      computeTextForMethod(meth.name, meth.type, meth.params);  
+    }
+  
     def Image image(Method meth) {
       var Image image = null;
       switch(meth.access) {
@@ -136,7 +170,10 @@ class AS3LabelProvider extends DefaultEObjectLabelProvider {
       if (name == null) {
         name = varDecl.type.type.getText;
       }
-      return varDecl.name + ': ' +name;  
+      return new StyledString(varDecl.name).
+       append(new StyledString(': ' +name,
+         StyledString::DECORATIONS_STYLER
+       ));  
     }
     
     def image(VariableDeclaration varDecl) {
