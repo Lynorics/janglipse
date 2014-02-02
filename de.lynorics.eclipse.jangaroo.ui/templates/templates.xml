@@ -85,4 +85,54 @@ public class ${EnumName} extends Enum {
 }
 }
 </template>
+<template
+		id="JANGLIPSE_EXT_AS_COMPONENT" 
+		autoinsert="true"
+		context="de.lynorics.eclipse.jangaroo.AS3.Model"
+		deleted="false"
+		description="Class template for an Ext AS component"
+		enabled="true"
+		name="ExtASComponent">
+package ${PackageName} {
+
+import ext.Ext;
+
+public class ${ComponentName} extends ${Super_class_name} {
+
+  public function ${ComponentName}(config:${Config_class_name} = null) {
+    super(${Config_class_name}(Ext.apply({
+      ${cursor}
+    }, config)));
+  }
+}
+}
+</template>
+<template
+		id="JANGLIPSE_EXT_AS_COMPONENT_CONFIG" 
+		autoinsert="true"
+		context="de.lynorics.eclipse.jangaroo.AS3.Model"
+		deleted="false"
+		description="Class template for an Ext AS component configuration"
+		enabled="true"
+		name="ExtASComponentConfig">
+package ${PackageName} {
+
+import ext.Ext;
+import ${Super_config_class_name};
+
+[ExtConfig(target="${Component_class}", xtype)]
+public class ${ComponentConfigName} extends ${Super_config_class_name} {
+
+  public static native function get xtype():String;
+
+  public function ${ComponentConfigName}(config:Object = null) {
+    super(config || {});
+  }
+
+  public native function get attribute():String;
+
+  public native function set attribute(value:String):void;
+}
+}
+</template>
 </templates>
