@@ -8,6 +8,8 @@ grammar de.lynorics.eclipse.jangaroo.AS3 with org.eclipse.xtext.common.Terminals
 
 generate aS3 "http://www.lynorics.de/eclipse/jangaroo/AS3"
 
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
 Model hidden(WS, ML_COMMENT, SL_COMMENT):
   package=Package
   |
@@ -28,12 +30,13 @@ Import:
     'import' importedNamespace = QualifiedNameWithWildcard ';'
 ;
 
-directive: {directive}
+directive: {directive} (
     "[" name=ID ("(" annonFields=annotationFields ")")? "]"
-  | Uses
-  | ";";
+  | uses=Uses
+  | ";"
+  );
 
-Uses:
+Uses: {Uses}
 	"use" 'namespace' (type=QualifiedName|'*'|'void')
   ;
   
@@ -41,7 +44,7 @@ annotationFields :
     anoonFields+=annotationField ("," annonFields+=annotationField)*;
 
 annotationField :
-    name=ID "=" expr=Expression;
+    name=ID "=" expr=ExpressionSJ;
 
 QualifiedNameWithWildcard:
     QualifiedName '.*'?
@@ -58,7 +61,7 @@ Interface:
 ;
 
 InterfaceMethod:
-  access=AccessLevel? 'function' ('get'|'set')? name=ID
+  access=AccessLevel? 'native'? 'function' ('get'|'set')? name=ID
   '(' (params+=Parameter (',' params+=Parameter)*)? ')' 
   (':' type=VarType)?
   ';'?
@@ -89,10 +92,10 @@ enum AccessLevel:
 MethodBody: 
   {MethodBody} '{' statements += Statement* '}';
 
-Statement:
+StatementSJ:
   VariableDeclaration |
   Return |
-  Expression ';' |
+  ExpressionSJ ';' |
   IfStatement |
   SwitchStatement |
   TryStatement |
@@ -108,38 +111,38 @@ NewStatement:
 	('(' param=Parameters? ')')?
 ;
 
-ForStatement:
+ForStatementSJ:
   'for' '(' forinit=commaExpr? ';'
     condition=commaExpr? ';' iterator=commaExpr? ')' command=StatementsBlock
   | 'for' '(' 'var'
     elements+=identifierDeclaration
     (',' elements+=identifierDeclaration)* ';' 
     condition=commaExpr? ';' iterator=commaExpr? ')' command=StatementsBlock
-  | 'for' 'each'? '(' nameForin=ID 'in' forinexpr=Expression ')' forcommand=StatementsBlock
+  | 'for' 'each'? '(' nameForin=ID 'in' forinexpr=ExpressionSJ ')' forcommand=StatementsBlock
   | 'for' 'each'? '(' 'var' nameForeachh=ID (':' type=VarType)?
-    'in' foreachexpr=Expression ')' foreachcommand=StatementsBlock
+    'in' foreachexpr=ExpressionSJ ')' foreachcommand=StatementsBlock
 ;
 
 identifierDeclaration :
     name=ID (':' type=VarType)? ('=' expr=exprOrObjectLiteral)?;
 
 commaExpr :
-    elements+=Expression
-    (',' elements+=Expression)*;
+    elements+=ExpressionSJ
+    (',' elements+=ExpressionSJ)*;
     
-DoWhileStatement:
+DoWhileStatementSJ:
   {While} 'do'
   whileBlock=StatementsBlock
   'while'
   cond=parenthesizedExpr ';'
 ;
 
-WhileStatement:
+WhileStatementSJ:
 	{While} 'while' cond=parenthesizedExpr
 	whileBlock=StatementsBlock
 ;
 
-SwitchStatement:
+SwitchStatementSJ:
 	{Switch} 'switch' cond=parenthesizedExpr
 	'{' cases+=statementInSwitch* '}'
 ;
@@ -147,17 +150,18 @@ SwitchStatement:
 parenthesizedExpr :
     '(' expression=exprOrObjectLiteral ')';
     
-statementInSwitch :
-   Statement
-  | 'case' Expression ':'
-  | 'default' ':';
+statementInSwitch : {statementInSwitch} (
+   statement=Statement
+  | 'case' expr=ExpressionSJ ':'
+  | 'default' ':'
+  );
 
 Return:
-  'return' expression=Expression ';'
+  'return' expression=ExpressionSJ ';'
 ;
 
 VariableDeclaration:
-  access=AccessLevel? 'static'? 'var' name=ID ':' type=VarType ('=' expression=Expression)? ';'
+  access=AccessLevel? 'static'? ('var'|'const') name=ID ':' type=VarType ('=' Expression=ExpressionSJ)? ';'
 ;
 
 VarType:
@@ -167,12 +171,12 @@ VarType:
 	| type=[Class|QualifiedName]
 ;
 
-IfStatement:
-  'if' '(' expression=Expression ')' thenBlock=IfBlock
+IfStatementSJ:
+  'if' '(' expression=ExpressionSJ ')' thenBlock=IfBlock
   (=>'else' elseBlock=IfBlock)?
 ;
 
-TryStatement:
+TryStatementSJ:
   'try' '{' statements += Statement+ '}'
   ('catch' '(' params+=Parameter')')?
   ('finally' finallyBlock=StatementsBlock)?
@@ -183,18 +187,18 @@ IfBlock:
   | StatementsBlock
 ;
 
-StatementsBlock:
-	'{' statements += Statement* '}'
+StatementsBlock: {StatementsBlock}
+	'{' statements+=Statement* '}'
 ;
 
-Block:
+BlockSJ:
   MethodBody | IfBlock
 ;
 
 Parameter :
     'const'? name=ID (':' type=VarType)? ('=' lit=exprOrObjectLiteral)?;
 
-Parameters :
+Parameters: {Parameters}
   (elements+=Parameter
   (',' elements+=Parameter)*)?
   | 
@@ -215,7 +219,7 @@ objectField :
   | INT ':' exprOrObjectLiteral;
 
 exprOrObjectLiteral :
-    Expression
+    ExpressionSJ
   | objectLiteral
   ;
 
@@ -223,36 +227,632 @@ Symbol:
   VariableDeclaration | Parameter
 ;
 
-Expression:
+qualifiedIdent
+  : (namespaceName '::')? ide=identi 
+  ;
+
+identi: {identi}
+  QualifiedName
+  | i='use' 
+  | i='xml'
+  | i='dynamic'
+  | i='namespace'
+  | i='is'
+  | i='as'
+  | i='get'
+  | i='set'
+  ;
+
+identifier 
+  : (   qual=qualifiedIdent
+    )
+    (poi+=propOrIdent
+    )*
+  ;
+
+propertyIdentifier: {propertyIdentifier}
+  '*'
+  | identi
+  ;
+
+qualifier
+  : ( propertyIdentifier | level=AccessLevel )
+  ;
+
+simpleQualifiedIdentifier
+  : proId=propertyIdentifier
+  | qual=qualifier '::'
+    ( piden=propertyIdentifier
+    |   bra=brackets
+    )
+  ;
+
+expressionQualifiedIdentifier
+  : encapsulatedExpression '::'
+    ( pden=propertyIdentifier
+    | bra=brackets
+    )
+  ;
+
+nonAttributeQualifiedIdentifier
+  : simpleQualifiedIdentifier
+  | expressionQualifiedIdentifier
+  ;
+
+qualifiedIdentifier
+  : e4xAttributeIdentifier
+  | nonAttributeQualifiedIdentifier
+  ;
+
+namespaceName: {namespaceName}
+  QualifiedName | level=AccessLevel
+  ;
+
+arrayLiteral: {arrayLiteral}
+  '[' list=elementList? ']'
+  ;
+    
+elementList: {elementList}
+  ','
+  | nonemptyElementList
+  ;
+nonemptyElementList
+  : assignmentExpression (',' expr+=assignmentExpression)*
+  ;
+
+// the mother of all expressions
+Expression
+  : assignmentExpression
+  ;
+
+// This is a list of expressions.
+expressionList
+  : expr+=assignmentExpression (',' expr+=assignmentExpression)*
+  ;
+
+// assignment expression (level 13)
+assignmentExpression
+  : conditionalExpression
+  op+=assignmentOperator*
+  ;
+
+assignmentOperator
+  : '='
+  | '*='
+  | '/='
+  | '%='
+  | '+='
+  | '-='
+  | '<<='
+  | '>>='
+  | '>>>='
+  | '&='
+  | '^='
+  | '|='
+  | '&&='
+  | '||='
+  ;
+
+// conditional test (level 12)
+conditionalExpression
+  : logicalOrExpression
+    (
+      '?'
+      cond=conditionalSubExpression
+    )?
+  ;
+conditionalSubExpression
+  : expr1=assignmentExpression ':' expr2=assignmentExpression
+  ;
+
+// TODO: should 'and'/'or' have same precidence as '&&'/'||' ?
+
+// logical or (||)  (level 11)
+logicalOrExpression
+  : expr+=logicalAndExpression
+    (o+=logicalOrOperator expr+=logicalAndExpression)*
+  ;
+
+logicalOrOperator
+  : '||' | 'or'
+  ;
+
+// logical and (&&)  (level 10)
+logicalAndExpression
+  : expr+=bitwiseOrExpression
+    (o+=logicalAndOperator expr+=bitwiseOrExpression)*
+  ;
+
+logicalAndOperator
+  : '&&' | 'and'
+  ;
+
+// bitwise or non-short-circuiting or (|)  (level 9)
+bitwiseOrExpression
+  : expr+=bitwiseXorExpression
+    (o+='|' expr+=bitwiseXorExpression)*
+  ;
+
+// exclusive or (^)  (level 8)
+bitwiseXorExpression
+  : expr+=bitwiseAndExpression
+    (o+='^' expr+=bitwiseAndExpression)*
+  ;
+
+// bitwise or non-short-circuiting and (&)  (level 7)
+bitwiseAndExpression
+  : expr+=equalityExpression
+    (o+='&' expr+=equalityExpression)*
+  ;
+
+// equality/inequality (==/!=) (level 6)
+equalityExpression
+  : expr+=relationalExpression
+  ( o+=equalityOperator
+    expr+=relationalExpression
+  )*
+  ;
+
+equalityOperator
+  : '===' | '!==' | '!=' | '=='
+  ;
+  
+// boolean relational expressions (level 5)
+relationalExpression
+  : expr+=shiftExpression
+    (o+=relationalOperator expr+=shiftExpression)*
+  ;
+
+relationalOperator
+  : 'in'
+  | '<' | '>' | '<=' | '>=' | 'is' | 'as' | 'instanceof'
+  ;
+
+// bit shift expressions (level 4)
+shiftExpression
+  : expr+=additiveExpression
+    (o+=shiftOperator expr+=additiveExpression)*
+  ;
+
+shiftOperator
+  : '<<' | '>>' | '>>>'
+  ;
+
+// binary addition/subtraction (level 3)
+additiveExpression
+  : expr+=multiplicativeExpression
+    (o+=additiveOperator expr+=multiplicativeExpression)*
+  ;
+
+additiveOperator
+  : '+' | '-'
+  ;
+
+// multiplication/division/modulo (level 2)
+multiplicativeExpression
+  : expr+=unaryExpression
+    ( o+=multiplicativeOperator
+      expr+=unaryExpression
+    )*
+  ;
+
+multiplicativeOperator:
+  '*'
+  | '/'
+  | '%'
+  ;
+
+//  (level 1)
+unaryExpression
+  : in='++' expr=unaryExpression
+  | de='--' expr=unaryExpression
+  | '-' uaem=unaryExpression
+  | '+' uaep=unaryExpression
+  | uaenpm=unaryExpressionNotPlusMinus
+  ;
+
+unaryExpressionNotPlusMinus
+  : 'delete' postfixExpression
+  | 'void' unaryExpression
+  | 'typeof' unaryExpression
+  | '!' unaryExpression
+  | '~' unaryExpression
+  | postfixExpression
+  ;
+
+// qualified names, array expressions, method invocation, post inc/dec
+postfixExpression
+  : {postfixExpression}
+    ((peexpr=primaryExpression
+     pepoi=propOrIdent?)
+    | '[' expr=Expression rb=']'
+    | '..' pewi=qualifiedIdentifier 
+    | '.' '(' expr=Expression ')'
+    | d='.' e4x=e4xAttributeIdentifier
+    | d='.' '*'
+    | args+=arguments*
+    (   in='+'
+    | de='+'
+    )?
+  );
+
+arguments: {arguments} (
+  '(' exprList=expressionList ')'
+  | '(' ')'
+  );
+  
+e4xAttributeIdentifier: {e4xAttributeIdentifier}
+  '@'
+    ( qual=qualifiedIdent
+    | '*'
+    | '[' expr=Expression ']'
+    )
+  ;
+
+primaryExpression: {primaryExpression}
+  '*'
+  | constant
+  | arrayLiteral
+  | objectLiteral
+  | functionExpression
+  | newExpression
+  | encapsulatedExpression
+  | e4xAttributeIdentifier
+  | qualifiedIdent
+  ;
+
+
+propOrIdent
+  : 
+    '.' propId=qualifiedIdent
+  ;
+
+constant: {constant} (
+  xmlLiteral
+  | regex=regexpLiteral
+  | number
+  | STRING
+  | 'true'
+  | 'false'
+  | 'null'
+  );
+
+number  : HEX_LITERAL
+  | INT
+  | OCTAL
+  | FLOAT
+  ;
+
+  
+xmlLiteral
+  : // We have to have the LT in the outer grammar for lookahead
+    // in AS3Parser to be able to predict that the xmlLiteral rule
+    // should be used.
+    '<'
+  ;
+
+regexpLiteral
+  : s='/'
+  ;
+
+newExpression
+  : 'new' fullNewSubexpression args+=arguments?
+  ;
+
+fullNewSubexpression
+  : ( expr+=primaryExpression
+    )
+    ( fnsd+='.' quali+=qualifiedIdent
+    | brack+=brackets
+    )*
+  ;
+
+propertyOperator
+  : '.' qualifiedIdent
+  | brackets
+  ;
+
+brackets
+  : '[' expressionList ']'
+  ;
+
+encapsulatedExpression
+  : '(' assignmentExpression ')'
+  ;
+
+functionSignature
+  : param=parameterDeclarationList type=typeExpression?
+  ;
+
+typeExpression: {typeExpression}
+  ':'
+    // TODO: identifier allows namespaces, and I suspect a type:spec shouldn't
+    (identi=identifier | 'void' | '*')
+  ; 
+
+// A list of formal parameters
+// TODO: shouldn't the 'rest' parameter only be allowed in the last position?
+parameterDeclarationList: {parameterDeclarationList}
+  '('
+    ( params+=parameterDeclaration
+      (',' params+=parameterDeclaration)*
+    )?
+    ')'
+  ;
+
+
+parameterDeclaration
+  : basicParameterDeclaration | parameterRestDeclaration
+  ;
+
+basicParameterDeclaration
+  : 'const'? name=identi type=typeExpression? param=parameterDefault?
+  ;
+
+parameterDefault
+  : '=' assignmentExpression
+  ;
+
+parameterRestDeclaration: {parameterRestDeclaration}
+  '...' name=identi?
+  ;
+
+block:
+   {block}'{' blocks+=blockEntry* '}'
+  ;
+
+blockEntry
+  :Statement
+  ;
+
+Condition
+  : '(' Expression ')'
+  ;
+  
+Statement: {Statement} (
+  sb=block
+  | sds=DeclarationStatement
+  | ses=ExpressionStatement
+  | sis=IfStatement
+  // For statement
+  | sfes=ForEachStatement
+  | sfs=ForStatement
+
+  // While statement
+  | sws=WhileStatement
+
+  // do-while statement
+  | sdws=DoWhileStatement
+  
+  // with statement
+  | ws=WithStatement
+  
+  // switch statement
+  | sss=SwitchStatement
+  
+  // get out of a loop (or switch)
+  | sbs=BreakStatement
+
+  // do next iteration of a loop
+  | scs=ContinueStatement
+
+  // Return an expression
+  | srs=ReturnStatement
+
+  // throw an exception
+  | sts=ThrowStatement
+  
+  // handle exceptions
+  | ts=TryStatement
+  
+  // handle 'default xml namespace = "foo"'
+  | sdxns=DefaultXMLNamespaceStatement
+
+  // empty statement
+  | ';'
+  
+  // assert statement
+  | 'assert' assert=Condition
+  );
+
+DefaultXMLNamespaceStatement
+  : 'default' 'xml' 'namespace' 'assign' Expression ';'
+  ;
+  
+DeclarationStatement
+  : Declaration ';'
+  ;
+
+variableDeclarator
+  : identi type=typeExpression? var=variableInitializer?
+  ;
+Declaration
+  : varOrConst variableDeclarator
+    tail=declarationTail
+  ;
+
+varOrConst
+  : 'var' | 'const'
+  ;
+  
+declarationTail
+  : {declarationTail} (',' var+=variableDeclarator)*
+  ;
+
+variableInitializer
+  : 'assign' expr=assignmentExpression
+  ;
+
+ExpressionStatement
+  : expressionList ';'
+  ;
+  
+IfStatement
+  : 'if' cond=Condition statement=Statement
+    (=>'else' else=elseClause)?
+  ;
+
+elseClause
+  : 'else' Statement
+  ;
+
+ThrowStatement
+  : 'throw' Expression ';'
+  ;
+
+TryStatement
+  : 'try'
+    block=block
+  ( finally=finallyBlock
+  | catch+=catchBlock+
+    finally=finallyBlock?
+  )
+  ;
+
+catchBlock
+  : 'catch' '(' identi type=typeExpression? ')'
+    block=block
+  ;
+
+finallyBlock
+  : 'finally' block
+  ;
+
+ReturnStatement: {ReturnStatement}
+  'return' expr=Expression? ';'
+  ;
+    
+ContinueStatement
+  : 'continue' ';'
+  ;
+
+BreakStatement
+  : 'break' ';'
+  ;
+
+SwitchStatement
+  : 'switch' Condition
+    switch=switchBlock
+  ;
+
+switchBlock: {switchBlock}
+  '{'
+    (case+=CaseStatement)*
+    (def=DefaultStatement)?
+    '}'
+  ;
+
+CaseStatement
+  : 'case' Expression ':' l=switchStatementList
+  ;
+  
+DefaultStatement
+  : 'default' ':' l=switchStatementList
+  ;
+
+switchStatementList: {switchStatementList}
+  statements+=Statement*
+  ;
+
+ForEachStatement
+  : 'for' 'each'
+    '('
+    fesfor=forInClause
+    ')'
+    fes=Statement
+  ;
+
+ForStatement
+  : 'for'
+    '('
+    ( forIn=forInClause ')' fsstate=Statement
+    | traditionalForClause=traditionalForClause ')' fsstate=Statement
+    )
+  ;
+
+traditionalForClause
+  : a=forInit ';' // initializer
+    b=forCond ';' // condition test
+    c=forIter  // updater
+  ;
+
+forInClause
+  : ficdecl=forInClauseDecl 'in' fictail=forInClauseTail
+  ;
+
+forInClauseDecl
+  : Declaration | identi
+  ;
+
+
+forInClauseTail
+  : expressionList
+  ;
+
+// The initializer for a for loop
+forInit: {forInit}
+  (decl=Declaration | expr=expressionList )?
+  ;
+
+forCond: {forCond}
+  expr=expressionList?
+  ;
+
+forIter: {forIter}
+  fiexpr=expressionList?
+  ;
+
+WhileStatement
+  : 'while' cond=Condition statement=Statement
+  ;
+
+DoWhileStatement
+  : 'do' state=Statement 'while' cond=Condition ';'
+  ;
+
+WithStatement
+  : 'with' cond=Condition statement=Statement
+  ;
+
+// TODO: block should be optional here,
+functionCommon
+  : sig=functionSignature block=block
+  ;
+
+functionExpression
+  : 'function' name=ID? func=functionCommon
+  ;
+
+ExpressionSJ:
   Assignment
 ;
 
-Assignment returns Expression:
+Assignment returns ExpressionSJ:
   SelectionExpression 
-  ({Assignment.left=current} '=' right=Expression)?
+  ({Assignment.left=current} '=' right=ExpressionSJ)?
 ;
 
-SelectionExpression returns Expression:
+SelectionExpression returns ExpressionSJ:
   TerminalExpression 
   (
     {MemberSelection.receiver=current} '.' 
     member=[Member]
     (methodinvocation?='(' 
-      (args+=Expression (',' args+=Expression)*)? ')' )?
+      (args+=ExpressionSJ (',' args+=ExpressionSJ)*)? ')' )?
   )*
 ;
 
-TerminalExpression returns Expression:
+TerminalExpression returns ExpressionSJ:
    {StringConstant} value=STRING |
    {IntConstant} value=INT |
    {BoolConstant} value = ('true' | 'false') |
    {This} 'this' |
-   {Super} 'super' ('(' expr=Expression? ')')?|
+   {Super} 'super' ('(' expr=ExpressionSJ? ')')?|
    {Null} 'null' |
    {Undefined} 'undefined' |
    {SymbolRef} symbol=[Symbol] |
    {TerminalOp} TerminalOperator |
-   {BracketExpr} '(' expr=Expression? ')'; 
+   {BracketExpr} '(' expr=ExpressionSJ? ')'; 
 
 TerminalOperator:
     '='
@@ -303,3 +903,12 @@ TerminalOperator:
   | '?'
   | ':'
 ;
+
+terminal HEX_LITERAL returns ecore::EBigDecimal :
+ '0x' ('0'..'9'|'A'..'F');
+
+terminal OCTAL returns ecore::EBigDecimal:
+  '0' ('0'..'7')+;
+
+terminal FLOAT returns ecore::EBigDecimal:
+  ('0'..'9')* '.' ('0'..'9')+;
