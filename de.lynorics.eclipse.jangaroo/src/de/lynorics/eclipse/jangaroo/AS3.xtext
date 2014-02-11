@@ -14,12 +14,14 @@ Model hidden(WS, ML_COMMENT, SL_COMMENT):
   package=Package
   |
   imp=Imports
+  members+=(Method|InterfaceMethod|VariableDeclaration)*
   classes+=(Class|Interface)*;
 
 Package:
   'package' (name=QualifiedName)? '{' 
   imp=Imports
   directives+=directive*
+  members+=(Method|InterfaceMethod|VariableDeclaration)*
   classes+=(Class|Interface)*
   '}';
 
@@ -44,7 +46,7 @@ annotationFields :
     anoonFields+=annotationField ("," annonFields+=annotationField)*;
 
 annotationField :
-    name=ID "=" expr=ExpressionSJ;
+    name=ID "=" expr=Expression;
 
 QualifiedNameWithWildcard:
     QualifiedName '.*'?
@@ -61,18 +63,26 @@ Interface:
 ;
 
 InterfaceMethod:
-  access=AccessLevel? 'native'? 'function' ('get'|'set')? name=ID
-  '(' (params+=Parameter (',' params+=Parameter)*)? ')' 
+  modifier=Modifier? 'function'
+  (
+    name=ID'('
+    | accessor=accessorRole name=ID'('
+  )
+  (params+=Parameter (',' params+=Parameter)*)? ')' 
   (':' type=VarType)?
   ';'?
 ;
 
 Class:
-   access=AccessLevel? 'final'? 'static'? 'dynamic'? 'class' name=ID
+   modifier=Modifier? 'class' name=ID
    ('extends' superType=[Class|QualifiedName])?
    ('implements' types+=[Interface|QualifiedName] (',' types+=[Interface|QualifiedName])*)?
    '{' members += Member* '}'
    ;
+
+accessorRole
+  : 'get' | 'set'
+  ;
 
 Member: 
     var=VariableDeclaration 
@@ -80,11 +90,23 @@ Member:
 ;
 
 Method:
-  'override'? access=AccessLevel? 'native'? 'static'? 'function' ('get'|'set')? name=ID
-  '(' (params+=Parameter (',' params+=Parameter)*)? ')' 
+  'override'? modifier=Modifier? 'function' 
+  (
+    name=ID'('
+    | accessor=accessorRole name=ID'('
+  )
+   (params+=Parameter (',' params+=Parameter)*)? ')' 
   (':' type=VarType)?
   (body=MethodBody|';')
 ;
+
+Modifier: {Modifier} (
+  static?='static'?
+  & final?='final'?
+  & native?='native'?
+  & dynamic?='dynamic'?
+  & access=AccessLevel?
+  );
 
 enum AccessLevel:
   INTERNAL='internal' | PRIVATE='private' | PUBLIC='public' | PROTECTED='protected';
@@ -92,76 +114,9 @@ enum AccessLevel:
 MethodBody: 
   {MethodBody} '{' statements += Statement* '}';
 
-StatementSJ:
-  VariableDeclaration |
-  Return |
-  ExpressionSJ ';' |
-  IfStatement |
-  SwitchStatement |
-  TryStatement |
-  WhileStatement |
-  DoWhileStatement |
-  ForStatement |
-  NewStatement ';' |
-  objectLiteral
-;
-
-NewStatement:
-	{New} 'new' type=[Class|QualifiedName]
-	('(' param=Parameters? ')')?
-;
-
-ForStatementSJ:
-  'for' '(' forinit=commaExpr? ';'
-    condition=commaExpr? ';' iterator=commaExpr? ')' command=StatementsBlock
-  | 'for' '(' 'var'
-    elements+=identifierDeclaration
-    (',' elements+=identifierDeclaration)* ';' 
-    condition=commaExpr? ';' iterator=commaExpr? ')' command=StatementsBlock
-  | 'for' 'each'? '(' nameForin=ID 'in' forinexpr=ExpressionSJ ')' forcommand=StatementsBlock
-  | 'for' 'each'? '(' 'var' nameForeachh=ID (':' type=VarType)?
-    'in' foreachexpr=ExpressionSJ ')' foreachcommand=StatementsBlock
-;
-
-identifierDeclaration :
-    name=ID (':' type=VarType)? ('=' expr=exprOrObjectLiteral)?;
-
-commaExpr :
-    elements+=ExpressionSJ
-    (',' elements+=ExpressionSJ)*;
-    
-DoWhileStatementSJ:
-  {While} 'do'
-  whileBlock=StatementsBlock
-  'while'
-  cond=parenthesizedExpr ';'
-;
-
-WhileStatementSJ:
-	{While} 'while' cond=parenthesizedExpr
-	whileBlock=StatementsBlock
-;
-
-SwitchStatementSJ:
-	{Switch} 'switch' cond=parenthesizedExpr
-	'{' cases+=statementInSwitch* '}'
-;
-
-parenthesizedExpr :
-    '(' expression=exprOrObjectLiteral ')';
-    
-statementInSwitch : {statementInSwitch} (
-   statement=Statement
-  | 'case' expr=ExpressionSJ ':'
-  | 'default' ':'
-  );
-
-Return:
-  'return' expression=ExpressionSJ ';'
-;
 
 VariableDeclaration:
-  access=AccessLevel? 'static'? ('var'|'const') name=ID ':' type=VarType ('=' Expression=ExpressionSJ)? ';'
+  access=AccessLevel? 'static'? ('var'|'const') name=ID ':' type=VarType ('=' Expression=Expression)? ';'
 ;
 
 VarType:
@@ -171,40 +126,8 @@ VarType:
 	| type=[Class|QualifiedName]
 ;
 
-IfStatementSJ:
-  'if' '(' expression=ExpressionSJ ')' thenBlock=IfBlock
-  (=>'else' elseBlock=IfBlock)?
-;
-
-TryStatementSJ:
-  'try' '{' statements += Statement+ '}'
-  ('catch' '(' params+=Parameter')')?
-  ('finally' finallyBlock=StatementsBlock)?
-;
-
-IfBlock:
-  statements += Statement
-  | StatementsBlock
-;
-
-StatementsBlock: {StatementsBlock}
-	'{' statements+=Statement* '}'
-;
-
-BlockSJ:
-  MethodBody | IfBlock
-;
-
 Parameter :
-    'const'? name=ID (':' type=VarType)? ('=' lit=exprOrObjectLiteral)?;
-
-Parameters: {Parameters}
-  (elements+=Parameter
-  (',' elements+=Parameter)*)?
-  | 
-  (elements+=Parameter
-  (',' elements+=Parameter)* ',')?
-  name=ID (':' type=VarType)?;
+    'const'? '...'? name=ID (':' type=VarType)? ('=' lit=exprOrObjectLiteral)?;
 
 objectLiteral :
     '{' objectFields '}';
@@ -219,13 +142,9 @@ objectField :
   | INT ':' exprOrObjectLiteral;
 
 exprOrObjectLiteral :
-    ExpressionSJ
+    Expression
   | objectLiteral
   ;
-
-Symbol:
-  VariableDeclaration | Parameter
-;
 
 qualifiedIdent
   : (namespaceName '::')? ide=identi 
@@ -313,7 +232,7 @@ expressionList
 // assignment expression (level 13)
 assignmentExpression
   : conditionalExpression
-  op+=assignmentOperator*
+  (op+=assignmentOperator expr+=Expression)*
   ;
 
 assignmentOperator
@@ -489,25 +408,26 @@ e4xAttributeIdentifier: {e4xAttributeIdentifier}
     )
   ;
 
-primaryExpression: {primaryExpression}
+primaryExpression: {primaryExpression} (
   '*'
-  | constant
-  | arrayLiteral
-  | objectLiteral
-  | functionExpression
-  | newExpression
-  | encapsulatedExpression
-  | e4xAttributeIdentifier
-  | qualifiedIdent
-  ;
-
+  | 'this'
+  | 'super' ('(' superExpr=Expression? ')')?
+  | con=Constant
+  | lit=arrayLiteral
+  | lit=objectLiteral
+  | fexpr=functionExpression
+  | nexpr=newExpression
+  | encexpr=encapsulatedExpression
+  | e4x=e4xAttributeIdentifier
+  | qual=qualifiedIdent
+  );
 
 propOrIdent
   : 
     '.' propId=qualifiedIdent
   ;
 
-constant: {constant} (
+Constant: {Constant} (
   xmlLiteral
   | regex=regexpLiteral
   | number
@@ -545,11 +465,6 @@ fullNewSubexpression
     ( fnsd+='.' quali+=qualifiedIdent
     | brack+=brackets
     )*
-  ;
-
-propertyOperator
-  : '.' qualifiedIdent
-  | brackets
   ;
 
 brackets
@@ -680,7 +595,7 @@ declarationTail
   ;
 
 variableInitializer
-  : 'assign' expr=assignmentExpression
+  : '=' expr=assignmentExpression
   ;
 
 ExpressionStatement
@@ -689,11 +604,7 @@ ExpressionStatement
   
 IfStatement
   : 'if' cond=Condition statement=Statement
-    (=>'else' else=elseClause)?
-  ;
-
-elseClause
-  : 'else' Statement
+    (=>'else' else=Statement)?
   ;
 
 ThrowStatement
@@ -822,87 +733,6 @@ functionCommon
 functionExpression
   : 'function' name=ID? func=functionCommon
   ;
-
-ExpressionSJ:
-  Assignment
-;
-
-Assignment returns ExpressionSJ:
-  SelectionExpression 
-  ({Assignment.left=current} '=' right=ExpressionSJ)?
-;
-
-SelectionExpression returns ExpressionSJ:
-  TerminalExpression 
-  (
-    {MemberSelection.receiver=current} '.' 
-    member=[Member]
-    (methodinvocation?='(' 
-      (args+=ExpressionSJ (',' args+=ExpressionSJ)*)? ')' )?
-  )*
-;
-
-TerminalExpression returns ExpressionSJ:
-   {StringConstant} value=STRING |
-   {IntConstant} value=INT |
-   {BoolConstant} value = ('true' | 'false') |
-   {This} 'this' |
-   {Super} 'super' ('(' expr=ExpressionSJ? ')')?|
-   {Null} 'null' |
-   {Undefined} 'undefined' |
-   {SymbolRef} symbol=[Symbol] |
-   {TerminalOp} TerminalOperator |
-   {BracketExpr} '(' expr=ExpressionSJ? ')'; 
-
-TerminalOperator:
-    '='
-  | '*='
-  | '/='
-  | '%='
-  | '+='
-  | '-='
-  | '<<='
-  | '>>='
-  | '>>>='
-  | '&='
-  | '^='
-  | '|='
-  | '?:'
-  | '||'
-  | '&&'
-  | '|'
-  | '^'
-  | '&'
-  | '=='
-  | '!='
-  | '==='
-  | '!=='
-  | '<'
-  | '>'
-  | '<='
-  | '>='
-  | 'as'
-  | 'in'
-  | 'instanceof'
-  | 'is'
-  | '<<'
-  | '>>'
-  | '>>>'
-  | '+'
-  | '-'
-  | '*'
-  | '/'
-  | '%'
-  | '++'
-  | '--'
-  | '!'
-  | '~'
-  | 'typeof'
-  | '.'
-  | '::'
-  | '?'
-  | ':'
-;
 
 terminal HEX_LITERAL returns ecore::EBigDecimal :
  '0x' ('0'..'9'|'A'..'F');
