@@ -3,9 +3,9 @@
 package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
-import de.lynorics.eclipse.jangaroo.aS3.AccessLevel;
 import de.lynorics.eclipse.jangaroo.aS3.Interface;
 import de.lynorics.eclipse.jangaroo.aS3.Member;
+import de.lynorics.eclipse.jangaroo.aS3.Modifier;
 
 import java.util.Collection;
 
@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ClassImpl#getAccess <em>Access</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ClassImpl#getModifier <em>Modifier</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ClassImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ClassImpl#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ClassImpl#getTypes <em>Types</em>}</li>
@@ -44,24 +44,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynorics.eclipse.jangaroo.aS3.Class
 {
   /**
-   * The default value of the '{@link #getAccess() <em>Access</em>}' attribute.
+   * The cached value of the '{@link #getModifier() <em>Modifier</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAccess()
+   * @see #getModifier()
    * @generated
    * @ordered
    */
-  protected static final AccessLevel ACCESS_EDEFAULT = AccessLevel.INTERNAL;
-
-  /**
-   * The cached value of the '{@link #getAccess() <em>Access</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAccess()
-   * @generated
-   * @ordered
-   */
-  protected AccessLevel access = ACCESS_EDEFAULT;
+  protected Modifier modifier;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -139,9 +129,9 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
    * <!-- end-user-doc -->
    * @generated
    */
-  public AccessLevel getAccess()
+  public Modifier getModifier()
   {
-    return access;
+    return modifier;
   }
 
   /**
@@ -149,12 +139,37 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setAccess(AccessLevel newAccess)
+  public NotificationChain basicSetModifier(Modifier newModifier, NotificationChain msgs)
   {
-    AccessLevel oldAccess = access;
-    access = newAccess == null ? ACCESS_EDEFAULT : newAccess;
+    Modifier oldModifier = modifier;
+    modifier = newModifier;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.CLASS__ACCESS, oldAccess, access));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.CLASS__MODIFIER, oldModifier, newModifier);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setModifier(Modifier newModifier)
+  {
+    if (newModifier != modifier)
+    {
+      NotificationChain msgs = null;
+      if (modifier != null)
+        msgs = ((InternalEObject)modifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.CLASS__MODIFIER, null, msgs);
+      if (newModifier != null)
+        msgs = ((InternalEObject)newModifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.CLASS__MODIFIER, null, msgs);
+      msgs = basicSetModifier(newModifier, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.CLASS__MODIFIER, newModifier, newModifier));
   }
 
   /**
@@ -261,6 +276,8 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
   {
     switch (featureID)
     {
+      case AS3Package.CLASS__MODIFIER:
+        return basicSetModifier(null, msgs);
       case AS3Package.CLASS__MEMBERS:
         return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
     }
@@ -277,8 +294,8 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
   {
     switch (featureID)
     {
-      case AS3Package.CLASS__ACCESS:
-        return getAccess();
+      case AS3Package.CLASS__MODIFIER:
+        return getModifier();
       case AS3Package.CLASS__NAME:
         return getName();
       case AS3Package.CLASS__SUPER_TYPE:
@@ -303,8 +320,8 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
   {
     switch (featureID)
     {
-      case AS3Package.CLASS__ACCESS:
-        setAccess((AccessLevel)newValue);
+      case AS3Package.CLASS__MODIFIER:
+        setModifier((Modifier)newValue);
         return;
       case AS3Package.CLASS__NAME:
         setName((String)newValue);
@@ -334,8 +351,8 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
   {
     switch (featureID)
     {
-      case AS3Package.CLASS__ACCESS:
-        setAccess(ACCESS_EDEFAULT);
+      case AS3Package.CLASS__MODIFIER:
+        setModifier((Modifier)null);
         return;
       case AS3Package.CLASS__NAME:
         setName(NAME_EDEFAULT);
@@ -363,8 +380,8 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
   {
     switch (featureID)
     {
-      case AS3Package.CLASS__ACCESS:
-        return access != ACCESS_EDEFAULT;
+      case AS3Package.CLASS__MODIFIER:
+        return modifier != null;
       case AS3Package.CLASS__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AS3Package.CLASS__SUPER_TYPE:
@@ -388,9 +405,7 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (access: ");
-    result.append(access);
-    result.append(", name: ");
+    result.append(" (name: ");
     result.append(name);
     result.append(')');
     return result.toString();

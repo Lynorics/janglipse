@@ -26,7 +26,7 @@ import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod
  * see http://www.eclipse.org/Xtext/documentation.html#outline
  */
 class AS3OutlineTreeProvider extends DefaultOutlineTreeProvider {
-	
+
   def _createChildren(DocumentRootNode parentNode,
       Model model) {
       if (model.package != null) {

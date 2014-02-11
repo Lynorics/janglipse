@@ -3,6 +3,7 @@
 package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
+import de.lynorics.eclipse.jangaroo.aS3.Uses;
 import de.lynorics.eclipse.jangaroo.aS3.annotationFields;
 import de.lynorics.eclipse.jangaroo.aS3.directive;
 
@@ -24,6 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.directiveImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.directiveImpl#getAnnonFields <em>Annon Fields</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.directiveImpl#getUses <em>Uses</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,6 +62,16 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
    * @ordered
    */
   protected annotationFields annonFields;
+
+  /**
+   * The cached value of the '{@link #getUses() <em>Uses</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUses()
+   * @generated
+   * @ordered
+   */
+  protected Uses uses;
 
   /**
    * <!-- begin-user-doc -->
@@ -158,6 +170,54 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
    * <!-- end-user-doc -->
    * @generated
    */
+  public Uses getUses()
+  {
+    return uses;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetUses(Uses newUses, NotificationChain msgs)
+  {
+    Uses oldUses = uses;
+    uses = newUses;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.DIRECTIVE__USES, oldUses, newUses);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUses(Uses newUses)
+  {
+    if (newUses != uses)
+    {
+      NotificationChain msgs = null;
+      if (uses != null)
+        msgs = ((InternalEObject)uses).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.DIRECTIVE__USES, null, msgs);
+      if (newUses != null)
+        msgs = ((InternalEObject)newUses).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.DIRECTIVE__USES, null, msgs);
+      msgs = basicSetUses(newUses, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.DIRECTIVE__USES, newUses, newUses));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -165,6 +225,8 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
     {
       case AS3Package.DIRECTIVE__ANNON_FIELDS:
         return basicSetAnnonFields(null, msgs);
+      case AS3Package.DIRECTIVE__USES:
+        return basicSetUses(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -183,6 +245,8 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
         return getName();
       case AS3Package.DIRECTIVE__ANNON_FIELDS:
         return getAnnonFields();
+      case AS3Package.DIRECTIVE__USES:
+        return getUses();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -202,6 +266,9 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
         return;
       case AS3Package.DIRECTIVE__ANNON_FIELDS:
         setAnnonFields((annotationFields)newValue);
+        return;
+      case AS3Package.DIRECTIVE__USES:
+        setUses((Uses)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -223,6 +290,9 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
       case AS3Package.DIRECTIVE__ANNON_FIELDS:
         setAnnonFields((annotationFields)null);
         return;
+      case AS3Package.DIRECTIVE__USES:
+        setUses((Uses)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -241,6 +311,8 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AS3Package.DIRECTIVE__ANNON_FIELDS:
         return annonFields != null;
+      case AS3Package.DIRECTIVE__USES:
+        return uses != null;
     }
     return super.eIsSet(featureID);
   }

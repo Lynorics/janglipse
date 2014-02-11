@@ -5,7 +5,6 @@ package de.lynorics.eclipse.jangaroo.aS3.impl;
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
 import de.lynorics.eclipse.jangaroo.aS3.AccessLevel;
 import de.lynorics.eclipse.jangaroo.aS3.Expression;
-import de.lynorics.eclipse.jangaroo.aS3.Symbol;
 import de.lynorics.eclipse.jangaroo.aS3.VarType;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 
@@ -16,6 +15,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,17 +24,37 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl#getAccess <em>Access</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl#getType <em>Type</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl#getAccess <em>Access</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class VariableDeclarationImpl extends StatementImpl implements VariableDeclaration
+public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implements VariableDeclaration
 {
+  /**
+   * The default value of the '{@link #getAccess() <em>Access</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAccess()
+   * @generated
+   * @ordered
+   */
+  protected static final AccessLevel ACCESS_EDEFAULT = AccessLevel.INTERNAL;
+
+  /**
+   * The cached value of the '{@link #getAccess() <em>Access</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAccess()
+   * @generated
+   * @ordered
+   */
+  protected AccessLevel access = ACCESS_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -66,26 +86,6 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
   protected VarType type;
 
   /**
-   * The default value of the '{@link #getAccess() <em>Access</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAccess()
-   * @generated
-   * @ordered
-   */
-  protected static final AccessLevel ACCESS_EDEFAULT = AccessLevel.INTERNAL;
-
-  /**
-   * The cached value of the '{@link #getAccess() <em>Access</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAccess()
-   * @generated
-   * @ordered
-   */
-  protected AccessLevel access = ACCESS_EDEFAULT;
-
-  /**
    * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -114,6 +114,29 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
   protected EClass eStaticClass()
   {
     return AS3Package.Literals.VARIABLE_DECLARATION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AccessLevel getAccess()
+  {
+    return access;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAccess(AccessLevel newAccess)
+  {
+    AccessLevel oldAccess = access;
+    access = newAccess == null ? ACCESS_EDEFAULT : newAccess;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.VARIABLE_DECLARATION__ACCESS, oldAccess, access));
   }
 
   /**
@@ -192,29 +215,6 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
    * <!-- end-user-doc -->
    * @generated
    */
-  public AccessLevel getAccess()
-  {
-    return access;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAccess(AccessLevel newAccess)
-  {
-    AccessLevel oldAccess = access;
-    access = newAccess == null ? ACCESS_EDEFAULT : newAccess;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.VARIABLE_DECLARATION__ACCESS, oldAccess, access));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Expression getExpression()
   {
     return expression;
@@ -286,12 +286,12 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
   {
     switch (featureID)
     {
+      case AS3Package.VARIABLE_DECLARATION__ACCESS:
+        return getAccess();
       case AS3Package.VARIABLE_DECLARATION__NAME:
         return getName();
       case AS3Package.VARIABLE_DECLARATION__TYPE:
         return getType();
-      case AS3Package.VARIABLE_DECLARATION__ACCESS:
-        return getAccess();
       case AS3Package.VARIABLE_DECLARATION__EXPRESSION:
         return getExpression();
     }
@@ -308,14 +308,14 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
   {
     switch (featureID)
     {
+      case AS3Package.VARIABLE_DECLARATION__ACCESS:
+        setAccess((AccessLevel)newValue);
+        return;
       case AS3Package.VARIABLE_DECLARATION__NAME:
         setName((String)newValue);
         return;
       case AS3Package.VARIABLE_DECLARATION__TYPE:
         setType((VarType)newValue);
-        return;
-      case AS3Package.VARIABLE_DECLARATION__ACCESS:
-        setAccess((AccessLevel)newValue);
         return;
       case AS3Package.VARIABLE_DECLARATION__EXPRESSION:
         setExpression((Expression)newValue);
@@ -334,14 +334,14 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
   {
     switch (featureID)
     {
+      case AS3Package.VARIABLE_DECLARATION__ACCESS:
+        setAccess(ACCESS_EDEFAULT);
+        return;
       case AS3Package.VARIABLE_DECLARATION__NAME:
         setName(NAME_EDEFAULT);
         return;
       case AS3Package.VARIABLE_DECLARATION__TYPE:
         setType((VarType)null);
-        return;
-      case AS3Package.VARIABLE_DECLARATION__ACCESS:
-        setAccess(ACCESS_EDEFAULT);
         return;
       case AS3Package.VARIABLE_DECLARATION__EXPRESSION:
         setExpression((Expression)null);
@@ -360,56 +360,16 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
   {
     switch (featureID)
     {
+      case AS3Package.VARIABLE_DECLARATION__ACCESS:
+        return access != ACCESS_EDEFAULT;
       case AS3Package.VARIABLE_DECLARATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AS3Package.VARIABLE_DECLARATION__TYPE:
         return type != null;
-      case AS3Package.VARIABLE_DECLARATION__ACCESS:
-        return access != ACCESS_EDEFAULT;
       case AS3Package.VARIABLE_DECLARATION__EXPRESSION:
         return expression != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == Symbol.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case AS3Package.VARIABLE_DECLARATION__NAME: return AS3Package.SYMBOL__NAME;
-        case AS3Package.VARIABLE_DECLARATION__TYPE: return AS3Package.SYMBOL__TYPE;
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == Symbol.class)
-    {
-      switch (baseFeatureID)
-      {
-        case AS3Package.SYMBOL__NAME: return AS3Package.VARIABLE_DECLARATION__NAME;
-        case AS3Package.SYMBOL__TYPE: return AS3Package.VARIABLE_DECLARATION__TYPE;
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
   /**
@@ -423,10 +383,10 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", access: ");
+    result.append(" (access: ");
     result.append(access);
+    result.append(", name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

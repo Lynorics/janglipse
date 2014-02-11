@@ -4,6 +4,8 @@ package de.lynorics.eclipse.jangaroo.aS3;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Try Statement</b></em>'.
@@ -12,9 +14,9 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.TryStatement#getStatements <em>Statements</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.TryStatement#getParams <em>Params</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.TryStatement#getFinallyBlock <em>Finally Block</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.TryStatement#getBlock <em>Block</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.TryStatement#getFinally <em>Finally</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.TryStatement#getCatch <em>Catch</em>}</li>
  * </ul>
  * </p>
  *
@@ -22,64 +24,74 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface TryStatement extends Statement
+public interface TryStatement extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Statements</b></em>' containment reference list.
-   * The list contents are of type {@link de.lynorics.eclipse.jangaroo.aS3.Statement}.
+   * Returns the value of the '<em><b>Block</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Statements</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Block</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Statements</em>' containment reference list.
-   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getTryStatement_Statements()
+   * @return the value of the '<em>Block</em>' containment reference.
+   * @see #setBlock(block)
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getTryStatement_Block()
    * @model containment="true"
    * @generated
    */
-  EList<Statement> getStatements();
+  block getBlock();
 
   /**
-   * Returns the value of the '<em><b>Params</b></em>' containment reference list.
-   * The list contents are of type {@link de.lynorics.eclipse.jangaroo.aS3.Parameter}.
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.TryStatement#getBlock <em>Block</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Block</em>' containment reference.
+   * @see #getBlock()
+   * @generated
+   */
+  void setBlock(block value);
+
+  /**
+   * Returns the value of the '<em><b>Finally</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Params</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Finally</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Params</em>' containment reference list.
-   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getTryStatement_Params()
+   * @return the value of the '<em>Finally</em>' containment reference.
+   * @see #setFinally(finallyBlock)
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getTryStatement_Finally()
    * @model containment="true"
    * @generated
    */
-  EList<Parameter> getParams();
+  finallyBlock getFinally();
 
   /**
-   * Returns the value of the '<em><b>Finally Block</b></em>' containment reference.
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.TryStatement#getFinally <em>Finally</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Finally</em>' containment reference.
+   * @see #getFinally()
+   * @generated
+   */
+  void setFinally(finallyBlock value);
+
+  /**
+   * Returns the value of the '<em><b>Catch</b></em>' containment reference list.
+   * The list contents are of type {@link de.lynorics.eclipse.jangaroo.aS3.catchBlock}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Finally Block</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Catch</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Finally Block</em>' containment reference.
-   * @see #setFinallyBlock(StatementsBlock)
-   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getTryStatement_FinallyBlock()
+   * @return the value of the '<em>Catch</em>' containment reference list.
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getTryStatement_Catch()
    * @model containment="true"
    * @generated
    */
-  StatementsBlock getFinallyBlock();
-
-  /**
-   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.TryStatement#getFinallyBlock <em>Finally Block</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Finally Block</em>' containment reference.
-   * @see #getFinallyBlock()
-   * @generated
-   */
-  void setFinallyBlock(StatementsBlock value);
+  EList<catchBlock> getCatch();
 
 } // TryStatement

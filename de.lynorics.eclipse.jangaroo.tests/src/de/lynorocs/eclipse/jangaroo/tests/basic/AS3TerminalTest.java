@@ -1,3 +1,4 @@
+package de.lynorocs.eclipse.jangaroo.tests.basic;
 /*
  * Copyright 2013
  *
@@ -28,8 +29,20 @@ public class AS3TerminalTest extends XtextTest
     @Test
     public void qualifiedName()
     {
-    	testParserRule("a.b.C", "QualifiedName");
     	testParserRule("a", "QualifiedName");
+    	testParserRule("a.b.C", "QualifiedName");
+    }
+
+    /**
+     * Check for valid qualified names
+     */
+    @Test
+    public void qualifiedNameWildcard()
+    {
+    	testParserRule("a", "QualifiedNameWithWildcard");
+    	testParserRule("a.b.C", "QualifiedNameWithWildcard");
+    	testParserRule("a.*", "QualifiedNameWithWildcard");
+    	testParserRule("a.b.C.*", "QualifiedNameWithWildcard");
     }
 
     /**

@@ -2,6 +2,7 @@
  */
 package de.lynorics.eclipse.jangaroo.aS3;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +14,6 @@ package de.lynorics.eclipse.jangaroo.aS3;
  * @model
  * @generated
  */
-public interface SwitchStatement extends Statement
+public interface SwitchStatement extends EObject
 {
 } // SwitchStatement

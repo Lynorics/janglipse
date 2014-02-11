@@ -3,9 +3,9 @@
 package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
-import de.lynorics.eclipse.jangaroo.aS3.Expression;
-import de.lynorics.eclipse.jangaroo.aS3.IfBlock;
+import de.lynorics.eclipse.jangaroo.aS3.Condition;
 import de.lynorics.eclipse.jangaroo.aS3.IfStatement;
+import de.lynorics.eclipse.jangaroo.aS3.Statement;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,45 +23,45 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.IfStatementImpl#getExpression <em>Expression</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.IfStatementImpl#getThenBlock <em>Then Block</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.IfStatementImpl#getElseBlock <em>Else Block</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.IfStatementImpl#getCond <em>Cond</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.IfStatementImpl#getStatement <em>Statement</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.IfStatementImpl#getElse <em>Else</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class IfStatementImpl extends StatementImpl implements IfStatement
+public class IfStatementImpl extends MinimalEObjectImpl.Container implements IfStatement
 {
   /**
-   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
+   * The cached value of the '{@link #getCond() <em>Cond</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpression()
+   * @see #getCond()
    * @generated
    * @ordered
    */
-  protected Expression expression;
+  protected Condition cond;
 
   /**
-   * The cached value of the '{@link #getThenBlock() <em>Then Block</em>}' containment reference.
+   * The cached value of the '{@link #getStatement() <em>Statement</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getThenBlock()
+   * @see #getStatement()
    * @generated
    * @ordered
    */
-  protected IfBlock thenBlock;
+  protected Statement statement;
 
   /**
-   * The cached value of the '{@link #getElseBlock() <em>Else Block</em>}' containment reference.
+   * The cached value of the '{@link #getElse() <em>Else</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getElseBlock()
+   * @see #getElse()
    * @generated
    * @ordered
    */
-  protected IfBlock elseBlock;
+  protected Statement else_;
 
   /**
    * <!-- begin-user-doc -->
@@ -88,9 +89,9 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getExpression()
+  public Condition getCond()
   {
-    return expression;
+    return cond;
   }
 
   /**
@@ -98,13 +99,13 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
+  public NotificationChain basicSetCond(Condition newCond, NotificationChain msgs)
   {
-    Expression oldExpression = expression;
-    expression = newExpression;
+    Condition oldCond = cond;
+    cond = newCond;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.IF_STATEMENT__EXPRESSION, oldExpression, newExpression);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.IF_STATEMENT__COND, oldCond, newCond);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -115,20 +116,20 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpression(Expression newExpression)
+  public void setCond(Condition newCond)
   {
-    if (newExpression != expression)
+    if (newCond != cond)
     {
       NotificationChain msgs = null;
-      if (expression != null)
-        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.IF_STATEMENT__EXPRESSION, null, msgs);
-      if (newExpression != null)
-        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.IF_STATEMENT__EXPRESSION, null, msgs);
-      msgs = basicSetExpression(newExpression, msgs);
+      if (cond != null)
+        msgs = ((InternalEObject)cond).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.IF_STATEMENT__COND, null, msgs);
+      if (newCond != null)
+        msgs = ((InternalEObject)newCond).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.IF_STATEMENT__COND, null, msgs);
+      msgs = basicSetCond(newCond, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.IF_STATEMENT__EXPRESSION, newExpression, newExpression));
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.IF_STATEMENT__COND, newCond, newCond));
   }
 
   /**
@@ -136,9 +137,9 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public IfBlock getThenBlock()
+  public Statement getStatement()
   {
-    return thenBlock;
+    return statement;
   }
 
   /**
@@ -146,13 +147,13 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetThenBlock(IfBlock newThenBlock, NotificationChain msgs)
+  public NotificationChain basicSetStatement(Statement newStatement, NotificationChain msgs)
   {
-    IfBlock oldThenBlock = thenBlock;
-    thenBlock = newThenBlock;
+    Statement oldStatement = statement;
+    statement = newStatement;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.IF_STATEMENT__THEN_BLOCK, oldThenBlock, newThenBlock);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.IF_STATEMENT__STATEMENT, oldStatement, newStatement);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -163,20 +164,20 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setThenBlock(IfBlock newThenBlock)
+  public void setStatement(Statement newStatement)
   {
-    if (newThenBlock != thenBlock)
+    if (newStatement != statement)
     {
       NotificationChain msgs = null;
-      if (thenBlock != null)
-        msgs = ((InternalEObject)thenBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.IF_STATEMENT__THEN_BLOCK, null, msgs);
-      if (newThenBlock != null)
-        msgs = ((InternalEObject)newThenBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.IF_STATEMENT__THEN_BLOCK, null, msgs);
-      msgs = basicSetThenBlock(newThenBlock, msgs);
+      if (statement != null)
+        msgs = ((InternalEObject)statement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.IF_STATEMENT__STATEMENT, null, msgs);
+      if (newStatement != null)
+        msgs = ((InternalEObject)newStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.IF_STATEMENT__STATEMENT, null, msgs);
+      msgs = basicSetStatement(newStatement, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.IF_STATEMENT__THEN_BLOCK, newThenBlock, newThenBlock));
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.IF_STATEMENT__STATEMENT, newStatement, newStatement));
   }
 
   /**
@@ -184,9 +185,9 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public IfBlock getElseBlock()
+  public Statement getElse()
   {
-    return elseBlock;
+    return else_;
   }
 
   /**
@@ -194,13 +195,13 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetElseBlock(IfBlock newElseBlock, NotificationChain msgs)
+  public NotificationChain basicSetElse(Statement newElse, NotificationChain msgs)
   {
-    IfBlock oldElseBlock = elseBlock;
-    elseBlock = newElseBlock;
+    Statement oldElse = else_;
+    else_ = newElse;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.IF_STATEMENT__ELSE_BLOCK, oldElseBlock, newElseBlock);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.IF_STATEMENT__ELSE, oldElse, newElse);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -211,20 +212,20 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setElseBlock(IfBlock newElseBlock)
+  public void setElse(Statement newElse)
   {
-    if (newElseBlock != elseBlock)
+    if (newElse != else_)
     {
       NotificationChain msgs = null;
-      if (elseBlock != null)
-        msgs = ((InternalEObject)elseBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.IF_STATEMENT__ELSE_BLOCK, null, msgs);
-      if (newElseBlock != null)
-        msgs = ((InternalEObject)newElseBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.IF_STATEMENT__ELSE_BLOCK, null, msgs);
-      msgs = basicSetElseBlock(newElseBlock, msgs);
+      if (else_ != null)
+        msgs = ((InternalEObject)else_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.IF_STATEMENT__ELSE, null, msgs);
+      if (newElse != null)
+        msgs = ((InternalEObject)newElse).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.IF_STATEMENT__ELSE, null, msgs);
+      msgs = basicSetElse(newElse, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.IF_STATEMENT__ELSE_BLOCK, newElseBlock, newElseBlock));
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.IF_STATEMENT__ELSE, newElse, newElse));
   }
 
   /**
@@ -237,12 +238,12 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
   {
     switch (featureID)
     {
-      case AS3Package.IF_STATEMENT__EXPRESSION:
-        return basicSetExpression(null, msgs);
-      case AS3Package.IF_STATEMENT__THEN_BLOCK:
-        return basicSetThenBlock(null, msgs);
-      case AS3Package.IF_STATEMENT__ELSE_BLOCK:
-        return basicSetElseBlock(null, msgs);
+      case AS3Package.IF_STATEMENT__COND:
+        return basicSetCond(null, msgs);
+      case AS3Package.IF_STATEMENT__STATEMENT:
+        return basicSetStatement(null, msgs);
+      case AS3Package.IF_STATEMENT__ELSE:
+        return basicSetElse(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -257,12 +258,12 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
   {
     switch (featureID)
     {
-      case AS3Package.IF_STATEMENT__EXPRESSION:
-        return getExpression();
-      case AS3Package.IF_STATEMENT__THEN_BLOCK:
-        return getThenBlock();
-      case AS3Package.IF_STATEMENT__ELSE_BLOCK:
-        return getElseBlock();
+      case AS3Package.IF_STATEMENT__COND:
+        return getCond();
+      case AS3Package.IF_STATEMENT__STATEMENT:
+        return getStatement();
+      case AS3Package.IF_STATEMENT__ELSE:
+        return getElse();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -277,14 +278,14 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
   {
     switch (featureID)
     {
-      case AS3Package.IF_STATEMENT__EXPRESSION:
-        setExpression((Expression)newValue);
+      case AS3Package.IF_STATEMENT__COND:
+        setCond((Condition)newValue);
         return;
-      case AS3Package.IF_STATEMENT__THEN_BLOCK:
-        setThenBlock((IfBlock)newValue);
+      case AS3Package.IF_STATEMENT__STATEMENT:
+        setStatement((Statement)newValue);
         return;
-      case AS3Package.IF_STATEMENT__ELSE_BLOCK:
-        setElseBlock((IfBlock)newValue);
+      case AS3Package.IF_STATEMENT__ELSE:
+        setElse((Statement)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -300,14 +301,14 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
   {
     switch (featureID)
     {
-      case AS3Package.IF_STATEMENT__EXPRESSION:
-        setExpression((Expression)null);
+      case AS3Package.IF_STATEMENT__COND:
+        setCond((Condition)null);
         return;
-      case AS3Package.IF_STATEMENT__THEN_BLOCK:
-        setThenBlock((IfBlock)null);
+      case AS3Package.IF_STATEMENT__STATEMENT:
+        setStatement((Statement)null);
         return;
-      case AS3Package.IF_STATEMENT__ELSE_BLOCK:
-        setElseBlock((IfBlock)null);
+      case AS3Package.IF_STATEMENT__ELSE:
+        setElse((Statement)null);
         return;
     }
     super.eUnset(featureID);
@@ -323,12 +324,12 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
   {
     switch (featureID)
     {
-      case AS3Package.IF_STATEMENT__EXPRESSION:
-        return expression != null;
-      case AS3Package.IF_STATEMENT__THEN_BLOCK:
-        return thenBlock != null;
-      case AS3Package.IF_STATEMENT__ELSE_BLOCK:
-        return elseBlock != null;
+      case AS3Package.IF_STATEMENT__COND:
+        return cond != null;
+      case AS3Package.IF_STATEMENT__STATEMENT:
+        return statement != null;
+      case AS3Package.IF_STATEMENT__ELSE:
+        return else_ != null;
     }
     return super.eIsSet(featureID);
   }

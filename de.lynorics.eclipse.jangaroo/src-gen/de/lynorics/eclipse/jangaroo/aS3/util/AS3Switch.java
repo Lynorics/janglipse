@@ -3,58 +3,112 @@
 package de.lynorics.eclipse.jangaroo.aS3.util;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
-import de.lynorics.eclipse.jangaroo.aS3.Assignment;
-import de.lynorics.eclipse.jangaroo.aS3.Block;
-import de.lynorics.eclipse.jangaroo.aS3.BoolConstant;
-import de.lynorics.eclipse.jangaroo.aS3.BracketExpr;
+import de.lynorics.eclipse.jangaroo.aS3.CaseStatement;
+import de.lynorics.eclipse.jangaroo.aS3.Condition;
+import de.lynorics.eclipse.jangaroo.aS3.Constant;
+import de.lynorics.eclipse.jangaroo.aS3.Declaration;
+import de.lynorics.eclipse.jangaroo.aS3.DeclarationStatement;
+import de.lynorics.eclipse.jangaroo.aS3.DefaultStatement;
+import de.lynorics.eclipse.jangaroo.aS3.DefaultXMLNamespaceStatement;
 import de.lynorics.eclipse.jangaroo.aS3.DoWhileStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Expression;
+import de.lynorics.eclipse.jangaroo.aS3.ExpressionStatement;
+import de.lynorics.eclipse.jangaroo.aS3.ForEachStatement;
 import de.lynorics.eclipse.jangaroo.aS3.ForStatement;
-import de.lynorics.eclipse.jangaroo.aS3.IfBlock;
 import de.lynorics.eclipse.jangaroo.aS3.IfStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Import;
 import de.lynorics.eclipse.jangaroo.aS3.Imports;
-import de.lynorics.eclipse.jangaroo.aS3.IntConstant;
 import de.lynorics.eclipse.jangaroo.aS3.Interface;
 import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 import de.lynorics.eclipse.jangaroo.aS3.Member;
-import de.lynorics.eclipse.jangaroo.aS3.MemberSelection;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
 import de.lynorics.eclipse.jangaroo.aS3.MethodBody;
 import de.lynorics.eclipse.jangaroo.aS3.Model;
-import de.lynorics.eclipse.jangaroo.aS3.New;
-import de.lynorics.eclipse.jangaroo.aS3.NewStatement;
-import de.lynorics.eclipse.jangaroo.aS3.Null;
+import de.lynorics.eclipse.jangaroo.aS3.Modifier;
 import de.lynorics.eclipse.jangaroo.aS3.Parameter;
-import de.lynorics.eclipse.jangaroo.aS3.Parameters;
-import de.lynorics.eclipse.jangaroo.aS3.Return;
+import de.lynorics.eclipse.jangaroo.aS3.ReturnStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Statement;
-import de.lynorics.eclipse.jangaroo.aS3.StatementsBlock;
-import de.lynorics.eclipse.jangaroo.aS3.StringConstant;
-import de.lynorics.eclipse.jangaroo.aS3.Super;
 import de.lynorics.eclipse.jangaroo.aS3.SwitchStatement;
-import de.lynorics.eclipse.jangaroo.aS3.Symbol;
-import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
-import de.lynorics.eclipse.jangaroo.aS3.TerminalOp;
-import de.lynorics.eclipse.jangaroo.aS3.This;
+import de.lynorics.eclipse.jangaroo.aS3.ThrowStatement;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
-import de.lynorics.eclipse.jangaroo.aS3.Undefined;
 import de.lynorics.eclipse.jangaroo.aS3.Uses;
 import de.lynorics.eclipse.jangaroo.aS3.VarType;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
-import de.lynorics.eclipse.jangaroo.aS3.While;
 import de.lynorics.eclipse.jangaroo.aS3.WhileStatement;
+import de.lynorics.eclipse.jangaroo.aS3.WithStatement;
+import de.lynorics.eclipse.jangaroo.aS3.additiveExpression;
 import de.lynorics.eclipse.jangaroo.aS3.annotationField;
 import de.lynorics.eclipse.jangaroo.aS3.annotationFields;
-import de.lynorics.eclipse.jangaroo.aS3.commaExpr;
+import de.lynorics.eclipse.jangaroo.aS3.arguments;
+import de.lynorics.eclipse.jangaroo.aS3.arrayLiteral;
+import de.lynorics.eclipse.jangaroo.aS3.assignmentExpression;
+import de.lynorics.eclipse.jangaroo.aS3.basicParameterDeclaration;
+import de.lynorics.eclipse.jangaroo.aS3.bitwiseAndExpression;
+import de.lynorics.eclipse.jangaroo.aS3.bitwiseOrExpression;
+import de.lynorics.eclipse.jangaroo.aS3.bitwiseXorExpression;
+import de.lynorics.eclipse.jangaroo.aS3.block;
+import de.lynorics.eclipse.jangaroo.aS3.blockEntry;
+import de.lynorics.eclipse.jangaroo.aS3.brackets;
+import de.lynorics.eclipse.jangaroo.aS3.catchBlock;
+import de.lynorics.eclipse.jangaroo.aS3.conditionalExpression;
+import de.lynorics.eclipse.jangaroo.aS3.conditionalSubExpression;
+import de.lynorics.eclipse.jangaroo.aS3.declarationTail;
 import de.lynorics.eclipse.jangaroo.aS3.directive;
+import de.lynorics.eclipse.jangaroo.aS3.e4xAttributeIdentifier;
+import de.lynorics.eclipse.jangaroo.aS3.element;
+import de.lynorics.eclipse.jangaroo.aS3.elementList;
+import de.lynorics.eclipse.jangaroo.aS3.encapsulatedExpression;
+import de.lynorics.eclipse.jangaroo.aS3.equalityExpression;
 import de.lynorics.eclipse.jangaroo.aS3.exprOrObjectLiteral;
-import de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration;
-import de.lynorics.eclipse.jangaroo.aS3.objectField;
-import de.lynorics.eclipse.jangaroo.aS3.objectFields;
+import de.lynorics.eclipse.jangaroo.aS3.expressionList;
+import de.lynorics.eclipse.jangaroo.aS3.expressionQualifiedIdentifier;
+import de.lynorics.eclipse.jangaroo.aS3.fieldList;
+import de.lynorics.eclipse.jangaroo.aS3.fieldName;
+import de.lynorics.eclipse.jangaroo.aS3.finallyBlock;
+import de.lynorics.eclipse.jangaroo.aS3.forCond;
+import de.lynorics.eclipse.jangaroo.aS3.forInClause;
+import de.lynorics.eclipse.jangaroo.aS3.forInClauseDecl;
+import de.lynorics.eclipse.jangaroo.aS3.forInClauseTail;
+import de.lynorics.eclipse.jangaroo.aS3.forInit;
+import de.lynorics.eclipse.jangaroo.aS3.forIter;
+import de.lynorics.eclipse.jangaroo.aS3.fullNewSubexpression;
+import de.lynorics.eclipse.jangaroo.aS3.functionCommon;
+import de.lynorics.eclipse.jangaroo.aS3.functionExpression;
+import de.lynorics.eclipse.jangaroo.aS3.functionSignature;
+import de.lynorics.eclipse.jangaroo.aS3.identi;
+import de.lynorics.eclipse.jangaroo.aS3.identifier;
+import de.lynorics.eclipse.jangaroo.aS3.literalField;
+import de.lynorics.eclipse.jangaroo.aS3.logicalAndExpression;
+import de.lynorics.eclipse.jangaroo.aS3.logicalOrExpression;
+import de.lynorics.eclipse.jangaroo.aS3.multiplicativeExpression;
+import de.lynorics.eclipse.jangaroo.aS3.namespaceName;
+import de.lynorics.eclipse.jangaroo.aS3.newExpression;
+import de.lynorics.eclipse.jangaroo.aS3.nonAttributeQualifiedIdentifier;
+import de.lynorics.eclipse.jangaroo.aS3.nonemptyElementList;
 import de.lynorics.eclipse.jangaroo.aS3.objectLiteral;
-import de.lynorics.eclipse.jangaroo.aS3.parenthesizedExpr;
-import de.lynorics.eclipse.jangaroo.aS3.statementInSwitch;
+import de.lynorics.eclipse.jangaroo.aS3.parameterDeclaration;
+import de.lynorics.eclipse.jangaroo.aS3.parameterDeclarationList;
+import de.lynorics.eclipse.jangaroo.aS3.parameterDefault;
+import de.lynorics.eclipse.jangaroo.aS3.parameterRestDeclaration;
+import de.lynorics.eclipse.jangaroo.aS3.postfixExpression;
+import de.lynorics.eclipse.jangaroo.aS3.primaryExpression;
+import de.lynorics.eclipse.jangaroo.aS3.propOrIdent;
+import de.lynorics.eclipse.jangaroo.aS3.propertyIdentifier;
+import de.lynorics.eclipse.jangaroo.aS3.qualifiedIdent;
+import de.lynorics.eclipse.jangaroo.aS3.qualifiedIdentifier;
+import de.lynorics.eclipse.jangaroo.aS3.qualifier;
+import de.lynorics.eclipse.jangaroo.aS3.regexpLiteral;
+import de.lynorics.eclipse.jangaroo.aS3.relationalExpression;
+import de.lynorics.eclipse.jangaroo.aS3.shiftExpression;
+import de.lynorics.eclipse.jangaroo.aS3.simpleQualifiedIdentifier;
+import de.lynorics.eclipse.jangaroo.aS3.switchBlock;
+import de.lynorics.eclipse.jangaroo.aS3.switchStatementList;
+import de.lynorics.eclipse.jangaroo.aS3.traditionalForClause;
+import de.lynorics.eclipse.jangaroo.aS3.typeExpression;
+import de.lynorics.eclipse.jangaroo.aS3.unaryExpression;
+import de.lynorics.eclipse.jangaroo.aS3.unaryExpressionNotPlusMinus;
+import de.lynorics.eclipse.jangaroo.aS3.variableDeclarator;
+import de.lynorics.eclipse.jangaroo.aS3.variableInitializer;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -163,7 +217,6 @@ public class AS3Switch<T> extends Switch<T>
       {
         Uses uses = (Uses)theEObject;
         T result = caseUses(uses);
-        if (result == null) result = casedirective(uses);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -216,101 +269,17 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AS3Package.MODIFIER:
+      {
+        Modifier modifier = (Modifier)theEObject;
+        T result = caseModifier(modifier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AS3Package.METHOD_BODY:
       {
         MethodBody methodBody = (MethodBody)theEObject;
         T result = caseMethodBody(methodBody);
-        if (result == null) result = caseBlock(methodBody);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.STATEMENT:
-      {
-        Statement statement = (Statement)theEObject;
-        T result = caseStatement(statement);
-        if (result == null) result = casestatementInSwitch(statement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.NEW_STATEMENT:
-      {
-        NewStatement newStatement = (NewStatement)theEObject;
-        T result = caseNewStatement(newStatement);
-        if (result == null) result = caseStatement(newStatement);
-        if (result == null) result = casestatementInSwitch(newStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.FOR_STATEMENT:
-      {
-        ForStatement forStatement = (ForStatement)theEObject;
-        T result = caseForStatement(forStatement);
-        if (result == null) result = caseStatement(forStatement);
-        if (result == null) result = casestatementInSwitch(forStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.IDENTIFIER_DECLARATION:
-      {
-        identifierDeclaration identifierDeclaration = (identifierDeclaration)theEObject;
-        T result = caseidentifierDeclaration(identifierDeclaration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.COMMA_EXPR:
-      {
-        commaExpr commaExpr = (commaExpr)theEObject;
-        T result = casecommaExpr(commaExpr);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.DO_WHILE_STATEMENT:
-      {
-        DoWhileStatement doWhileStatement = (DoWhileStatement)theEObject;
-        T result = caseDoWhileStatement(doWhileStatement);
-        if (result == null) result = caseStatement(doWhileStatement);
-        if (result == null) result = casestatementInSwitch(doWhileStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.WHILE_STATEMENT:
-      {
-        WhileStatement whileStatement = (WhileStatement)theEObject;
-        T result = caseWhileStatement(whileStatement);
-        if (result == null) result = caseStatement(whileStatement);
-        if (result == null) result = casestatementInSwitch(whileStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.SWITCH_STATEMENT:
-      {
-        SwitchStatement switchStatement = (SwitchStatement)theEObject;
-        T result = caseSwitchStatement(switchStatement);
-        if (result == null) result = caseStatement(switchStatement);
-        if (result == null) result = casestatementInSwitch(switchStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.PARENTHESIZED_EXPR:
-      {
-        parenthesizedExpr parenthesizedExpr = (parenthesizedExpr)theEObject;
-        T result = caseparenthesizedExpr(parenthesizedExpr);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.STATEMENT_IN_SWITCH:
-      {
-        statementInSwitch statementInSwitch = (statementInSwitch)theEObject;
-        T result = casestatementInSwitch(statementInSwitch);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.RETURN:
-      {
-        Return return_ = (Return)theEObject;
-        T result = caseReturn(return_);
-        if (result == null) result = caseStatement(return_);
-        if (result == null) result = casestatementInSwitch(return_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -318,9 +287,6 @@ public class AS3Switch<T> extends Switch<T>
       {
         VariableDeclaration variableDeclaration = (VariableDeclaration)theEObject;
         T result = caseVariableDeclaration(variableDeclaration);
-        if (result == null) result = caseStatement(variableDeclaration);
-        if (result == null) result = caseSymbol(variableDeclaration);
-        if (result == null) result = casestatementInSwitch(variableDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -331,60 +297,10 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.IF_STATEMENT:
-      {
-        IfStatement ifStatement = (IfStatement)theEObject;
-        T result = caseIfStatement(ifStatement);
-        if (result == null) result = caseStatement(ifStatement);
-        if (result == null) result = casestatementInSwitch(ifStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.TRY_STATEMENT:
-      {
-        TryStatement tryStatement = (TryStatement)theEObject;
-        T result = caseTryStatement(tryStatement);
-        if (result == null) result = caseStatement(tryStatement);
-        if (result == null) result = casestatementInSwitch(tryStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.IF_BLOCK:
-      {
-        IfBlock ifBlock = (IfBlock)theEObject;
-        T result = caseIfBlock(ifBlock);
-        if (result == null) result = caseBlock(ifBlock);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.STATEMENTS_BLOCK:
-      {
-        StatementsBlock statementsBlock = (StatementsBlock)theEObject;
-        T result = caseStatementsBlock(statementsBlock);
-        if (result == null) result = caseIfBlock(statementsBlock);
-        if (result == null) result = caseBlock(statementsBlock);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.BLOCK:
-      {
-        Block block = (Block)theEObject;
-        T result = caseBlock(block);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case AS3Package.PARAMETER:
       {
         Parameter parameter = (Parameter)theEObject;
         T result = caseParameter(parameter);
-        if (result == null) result = caseSymbol(parameter);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.PARAMETERS:
-      {
-        Parameters parameters = (Parameters)theEObject;
-        T result = caseParameters(parameters);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -392,29 +308,35 @@ public class AS3Switch<T> extends Switch<T>
       {
         objectLiteral objectLiteral = (objectLiteral)theEObject;
         T result = caseobjectLiteral(objectLiteral);
-        if (result == null) result = caseStatement(objectLiteral);
         if (result == null) result = caseexprOrObjectLiteral(objectLiteral);
-        if (result == null) result = casestatementInSwitch(objectLiteral);
-        if (result == null) result = caseobjectField(objectLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.OBJECT_FIELDS:
+      case AS3Package.FIELD_LIST:
       {
-        objectFields objectFields = (objectFields)theEObject;
-        T result = caseobjectFields(objectFields);
-        if (result == null) result = caseobjectLiteral(objectFields);
-        if (result == null) result = caseStatement(objectFields);
-        if (result == null) result = caseexprOrObjectLiteral(objectFields);
-        if (result == null) result = casestatementInSwitch(objectFields);
-        if (result == null) result = caseobjectField(objectFields);
+        fieldList fieldList = (fieldList)theEObject;
+        T result = casefieldList(fieldList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.OBJECT_FIELD:
+      case AS3Package.LITERAL_FIELD:
       {
-        objectField objectField = (objectField)theEObject;
-        T result = caseobjectField(objectField);
+        literalField literalField = (literalField)theEObject;
+        T result = caseliteralField(literalField);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.FIELD_NAME:
+      {
+        fieldName fieldName = (fieldName)theEObject;
+        T result = casefieldName(fieldName);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.ELEMENT:
+      {
+        element element = (element)theEObject;
+        T result = caseelement(element);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -422,14 +344,113 @@ public class AS3Switch<T> extends Switch<T>
       {
         exprOrObjectLiteral exprOrObjectLiteral = (exprOrObjectLiteral)theEObject;
         T result = caseexprOrObjectLiteral(exprOrObjectLiteral);
-        if (result == null) result = caseobjectField(exprOrObjectLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.SYMBOL:
+      case AS3Package.QUALIFIED_IDENT:
       {
-        Symbol symbol = (Symbol)theEObject;
-        T result = caseSymbol(symbol);
+        qualifiedIdent qualifiedIdent = (qualifiedIdent)theEObject;
+        T result = casequalifiedIdent(qualifiedIdent);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.IDENTI:
+      {
+        identi identi = (identi)theEObject;
+        T result = caseidenti(identi);
+        if (result == null) result = casefieldName(identi);
+        if (result == null) result = casepropertyIdentifier(identi);
+        if (result == null) result = casevariableDeclarator(identi);
+        if (result == null) result = casecatchBlock(identi);
+        if (result == null) result = casequalifier(identi);
+        if (result == null) result = caseDeclaration(identi);
+        if (result == null) result = caseDeclarationStatement(identi);
+        if (result == null) result = caseforInClauseDecl(identi);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.IDENTIFIER:
+      {
+        identifier identifier = (identifier)theEObject;
+        T result = caseidentifier(identifier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.PROPERTY_IDENTIFIER:
+      {
+        propertyIdentifier propertyIdentifier = (propertyIdentifier)theEObject;
+        T result = casepropertyIdentifier(propertyIdentifier);
+        if (result == null) result = casequalifier(propertyIdentifier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.QUALIFIER:
+      {
+        qualifier qualifier = (qualifier)theEObject;
+        T result = casequalifier(qualifier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.SIMPLE_QUALIFIED_IDENTIFIER:
+      {
+        simpleQualifiedIdentifier simpleQualifiedIdentifier = (simpleQualifiedIdentifier)theEObject;
+        T result = casesimpleQualifiedIdentifier(simpleQualifiedIdentifier);
+        if (result == null) result = casenonAttributeQualifiedIdentifier(simpleQualifiedIdentifier);
+        if (result == null) result = casequalifiedIdentifier(simpleQualifiedIdentifier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.EXPRESSION_QUALIFIED_IDENTIFIER:
+      {
+        expressionQualifiedIdentifier expressionQualifiedIdentifier = (expressionQualifiedIdentifier)theEObject;
+        T result = caseexpressionQualifiedIdentifier(expressionQualifiedIdentifier);
+        if (result == null) result = casenonAttributeQualifiedIdentifier(expressionQualifiedIdentifier);
+        if (result == null) result = casequalifiedIdentifier(expressionQualifiedIdentifier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.NON_ATTRIBUTE_QUALIFIED_IDENTIFIER:
+      {
+        nonAttributeQualifiedIdentifier nonAttributeQualifiedIdentifier = (nonAttributeQualifiedIdentifier)theEObject;
+        T result = casenonAttributeQualifiedIdentifier(nonAttributeQualifiedIdentifier);
+        if (result == null) result = casequalifiedIdentifier(nonAttributeQualifiedIdentifier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.QUALIFIED_IDENTIFIER:
+      {
+        qualifiedIdentifier qualifiedIdentifier = (qualifiedIdentifier)theEObject;
+        T result = casequalifiedIdentifier(qualifiedIdentifier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.NAMESPACE_NAME:
+      {
+        namespaceName namespaceName = (namespaceName)theEObject;
+        T result = casenamespaceName(namespaceName);
+        if (result == null) result = casequalifiedIdent(namespaceName);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.ARRAY_LITERAL:
+      {
+        arrayLiteral arrayLiteral = (arrayLiteral)theEObject;
+        T result = casearrayLiteral(arrayLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.ELEMENT_LIST:
+      {
+        elementList elementList = (elementList)theEObject;
+        T result = caseelementList(elementList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.NONEMPTY_ELEMENT_LIST:
+      {
+        nonemptyElementList nonemptyElementList = (nonemptyElementList)theEObject;
+        T result = casenonemptyElementList(nonemptyElementList);
+        if (result == null) result = caseelementList(nonemptyElementList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -437,185 +458,570 @@ public class AS3Switch<T> extends Switch<T>
       {
         Expression expression = (Expression)theEObject;
         T result = caseExpression(expression);
-        if (result == null) result = caseStatement(expression);
         if (result == null) result = caseexprOrObjectLiteral(expression);
-        if (result == null) result = casestatementInSwitch(expression);
-        if (result == null) result = caseobjectField(expression);
+        if (result == null) result = caseCondition(expression);
+        if (result == null) result = caseDefaultXMLNamespaceStatement(expression);
+        if (result == null) result = caseThrowStatement(expression);
+        if (result == null) result = caseCaseStatement(expression);
+        if (result == null) result = caseSwitchStatement(expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.NEW:
+      case AS3Package.EXPRESSION_LIST:
       {
-        New new_ = (New)theEObject;
-        T result = caseNew(new_);
-        if (result == null) result = caseNewStatement(new_);
-        if (result == null) result = caseStatement(new_);
-        if (result == null) result = casestatementInSwitch(new_);
+        expressionList expressionList = (expressionList)theEObject;
+        T result = caseexpressionList(expressionList);
+        if (result == null) result = casebrackets(expressionList);
+        if (result == null) result = caseExpressionStatement(expressionList);
+        if (result == null) result = caseforInClauseTail(expressionList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.WHILE:
+      case AS3Package.ASSIGNMENT_EXPRESSION:
       {
-        While while_ = (While)theEObject;
-        T result = caseWhile(while_);
-        if (result == null) result = caseDoWhileStatement(while_);
-        if (result == null) result = caseWhileStatement(while_);
-        if (result == null) result = caseStatement(while_);
-        if (result == null) result = casestatementInSwitch(while_);
+        assignmentExpression assignmentExpression = (assignmentExpression)theEObject;
+        T result = caseassignmentExpression(assignmentExpression);
+        if (result == null) result = caseelement(assignmentExpression);
+        if (result == null) result = casenonemptyElementList(assignmentExpression);
+        if (result == null) result = caseExpression(assignmentExpression);
+        if (result == null) result = caseencapsulatedExpression(assignmentExpression);
+        if (result == null) result = caseparameterDefault(assignmentExpression);
+        if (result == null) result = caseelementList(assignmentExpression);
+        if (result == null) result = caseexprOrObjectLiteral(assignmentExpression);
+        if (result == null) result = caseCondition(assignmentExpression);
+        if (result == null) result = caseDefaultXMLNamespaceStatement(assignmentExpression);
+        if (result == null) result = caseThrowStatement(assignmentExpression);
+        if (result == null) result = caseCaseStatement(assignmentExpression);
+        if (result == null) result = caseexpressionQualifiedIdentifier(assignmentExpression);
+        if (result == null) result = caseSwitchStatement(assignmentExpression);
+        if (result == null) result = casenonAttributeQualifiedIdentifier(assignmentExpression);
+        if (result == null) result = casequalifiedIdentifier(assignmentExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.SWITCH:
+      case AS3Package.CONDITIONAL_EXPRESSION:
       {
-        de.lynorics.eclipse.jangaroo.aS3.Switch switch_ = (de.lynorics.eclipse.jangaroo.aS3.Switch)theEObject;
-        T result = caseSwitch(switch_);
-        if (result == null) result = caseSwitchStatement(switch_);
-        if (result == null) result = caseStatement(switch_);
-        if (result == null) result = casestatementInSwitch(switch_);
+        conditionalExpression conditionalExpression = (conditionalExpression)theEObject;
+        T result = caseconditionalExpression(conditionalExpression);
+        if (result == null) result = caseassignmentExpression(conditionalExpression);
+        if (result == null) result = caseelement(conditionalExpression);
+        if (result == null) result = casenonemptyElementList(conditionalExpression);
+        if (result == null) result = caseExpression(conditionalExpression);
+        if (result == null) result = caseencapsulatedExpression(conditionalExpression);
+        if (result == null) result = caseparameterDefault(conditionalExpression);
+        if (result == null) result = caseelementList(conditionalExpression);
+        if (result == null) result = caseexprOrObjectLiteral(conditionalExpression);
+        if (result == null) result = caseCondition(conditionalExpression);
+        if (result == null) result = caseDefaultXMLNamespaceStatement(conditionalExpression);
+        if (result == null) result = caseThrowStatement(conditionalExpression);
+        if (result == null) result = caseCaseStatement(conditionalExpression);
+        if (result == null) result = caseexpressionQualifiedIdentifier(conditionalExpression);
+        if (result == null) result = caseSwitchStatement(conditionalExpression);
+        if (result == null) result = casenonAttributeQualifiedIdentifier(conditionalExpression);
+        if (result == null) result = casequalifiedIdentifier(conditionalExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.ASSIGNMENT:
+      case AS3Package.CONDITIONAL_SUB_EXPRESSION:
       {
-        Assignment assignment = (Assignment)theEObject;
-        T result = caseAssignment(assignment);
-        if (result == null) result = caseExpression(assignment);
-        if (result == null) result = caseStatement(assignment);
-        if (result == null) result = caseexprOrObjectLiteral(assignment);
-        if (result == null) result = casestatementInSwitch(assignment);
-        if (result == null) result = caseobjectField(assignment);
+        conditionalSubExpression conditionalSubExpression = (conditionalSubExpression)theEObject;
+        T result = caseconditionalSubExpression(conditionalSubExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.MEMBER_SELECTION:
+      case AS3Package.LOGICAL_OR_EXPRESSION:
       {
-        MemberSelection memberSelection = (MemberSelection)theEObject;
-        T result = caseMemberSelection(memberSelection);
-        if (result == null) result = caseExpression(memberSelection);
-        if (result == null) result = caseStatement(memberSelection);
-        if (result == null) result = caseexprOrObjectLiteral(memberSelection);
-        if (result == null) result = casestatementInSwitch(memberSelection);
-        if (result == null) result = caseobjectField(memberSelection);
+        logicalOrExpression logicalOrExpression = (logicalOrExpression)theEObject;
+        T result = caselogicalOrExpression(logicalOrExpression);
+        if (result == null) result = caseconditionalExpression(logicalOrExpression);
+        if (result == null) result = caseassignmentExpression(logicalOrExpression);
+        if (result == null) result = caseelement(logicalOrExpression);
+        if (result == null) result = casenonemptyElementList(logicalOrExpression);
+        if (result == null) result = caseExpression(logicalOrExpression);
+        if (result == null) result = caseencapsulatedExpression(logicalOrExpression);
+        if (result == null) result = caseparameterDefault(logicalOrExpression);
+        if (result == null) result = caseelementList(logicalOrExpression);
+        if (result == null) result = caseexprOrObjectLiteral(logicalOrExpression);
+        if (result == null) result = caseCondition(logicalOrExpression);
+        if (result == null) result = caseDefaultXMLNamespaceStatement(logicalOrExpression);
+        if (result == null) result = caseThrowStatement(logicalOrExpression);
+        if (result == null) result = caseCaseStatement(logicalOrExpression);
+        if (result == null) result = caseexpressionQualifiedIdentifier(logicalOrExpression);
+        if (result == null) result = caseSwitchStatement(logicalOrExpression);
+        if (result == null) result = casenonAttributeQualifiedIdentifier(logicalOrExpression);
+        if (result == null) result = casequalifiedIdentifier(logicalOrExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.STRING_CONSTANT:
+      case AS3Package.LOGICAL_AND_EXPRESSION:
       {
-        StringConstant stringConstant = (StringConstant)theEObject;
-        T result = caseStringConstant(stringConstant);
-        if (result == null) result = caseExpression(stringConstant);
-        if (result == null) result = caseStatement(stringConstant);
-        if (result == null) result = caseexprOrObjectLiteral(stringConstant);
-        if (result == null) result = casestatementInSwitch(stringConstant);
-        if (result == null) result = caseobjectField(stringConstant);
+        logicalAndExpression logicalAndExpression = (logicalAndExpression)theEObject;
+        T result = caselogicalAndExpression(logicalAndExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.INT_CONSTANT:
+      case AS3Package.BITWISE_OR_EXPRESSION:
       {
-        IntConstant intConstant = (IntConstant)theEObject;
-        T result = caseIntConstant(intConstant);
-        if (result == null) result = caseExpression(intConstant);
-        if (result == null) result = caseStatement(intConstant);
-        if (result == null) result = caseexprOrObjectLiteral(intConstant);
-        if (result == null) result = casestatementInSwitch(intConstant);
-        if (result == null) result = caseobjectField(intConstant);
+        bitwiseOrExpression bitwiseOrExpression = (bitwiseOrExpression)theEObject;
+        T result = casebitwiseOrExpression(bitwiseOrExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.BOOL_CONSTANT:
+      case AS3Package.BITWISE_XOR_EXPRESSION:
       {
-        BoolConstant boolConstant = (BoolConstant)theEObject;
-        T result = caseBoolConstant(boolConstant);
-        if (result == null) result = caseExpression(boolConstant);
-        if (result == null) result = caseStatement(boolConstant);
-        if (result == null) result = caseexprOrObjectLiteral(boolConstant);
-        if (result == null) result = casestatementInSwitch(boolConstant);
-        if (result == null) result = caseobjectField(boolConstant);
+        bitwiseXorExpression bitwiseXorExpression = (bitwiseXorExpression)theEObject;
+        T result = casebitwiseXorExpression(bitwiseXorExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.THIS:
+      case AS3Package.BITWISE_AND_EXPRESSION:
       {
-        This this_ = (This)theEObject;
-        T result = caseThis(this_);
-        if (result == null) result = caseExpression(this_);
-        if (result == null) result = caseStatement(this_);
-        if (result == null) result = caseexprOrObjectLiteral(this_);
-        if (result == null) result = casestatementInSwitch(this_);
-        if (result == null) result = caseobjectField(this_);
+        bitwiseAndExpression bitwiseAndExpression = (bitwiseAndExpression)theEObject;
+        T result = casebitwiseAndExpression(bitwiseAndExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.SUPER:
+      case AS3Package.EQUALITY_EXPRESSION:
       {
-        Super super_ = (Super)theEObject;
-        T result = caseSuper(super_);
-        if (result == null) result = caseExpression(super_);
-        if (result == null) result = caseStatement(super_);
-        if (result == null) result = caseexprOrObjectLiteral(super_);
-        if (result == null) result = casestatementInSwitch(super_);
-        if (result == null) result = caseobjectField(super_);
+        equalityExpression equalityExpression = (equalityExpression)theEObject;
+        T result = caseequalityExpression(equalityExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.NULL:
+      case AS3Package.RELATIONAL_EXPRESSION:
       {
-        Null null_ = (Null)theEObject;
-        T result = caseNull(null_);
-        if (result == null) result = caseExpression(null_);
-        if (result == null) result = caseStatement(null_);
-        if (result == null) result = caseexprOrObjectLiteral(null_);
-        if (result == null) result = casestatementInSwitch(null_);
-        if (result == null) result = caseobjectField(null_);
+        relationalExpression relationalExpression = (relationalExpression)theEObject;
+        T result = caserelationalExpression(relationalExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.UNDEFINED:
+      case AS3Package.SHIFT_EXPRESSION:
       {
-        Undefined undefined = (Undefined)theEObject;
-        T result = caseUndefined(undefined);
-        if (result == null) result = caseExpression(undefined);
-        if (result == null) result = caseStatement(undefined);
-        if (result == null) result = caseexprOrObjectLiteral(undefined);
-        if (result == null) result = casestatementInSwitch(undefined);
-        if (result == null) result = caseobjectField(undefined);
+        shiftExpression shiftExpression = (shiftExpression)theEObject;
+        T result = caseshiftExpression(shiftExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.SYMBOL_REF:
+      case AS3Package.ADDITIVE_EXPRESSION:
       {
-        SymbolRef symbolRef = (SymbolRef)theEObject;
-        T result = caseSymbolRef(symbolRef);
-        if (result == null) result = caseExpression(symbolRef);
-        if (result == null) result = caseStatement(symbolRef);
-        if (result == null) result = caseexprOrObjectLiteral(symbolRef);
-        if (result == null) result = casestatementInSwitch(symbolRef);
-        if (result == null) result = caseobjectField(symbolRef);
+        additiveExpression additiveExpression = (additiveExpression)theEObject;
+        T result = caseadditiveExpression(additiveExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.TERMINAL_OP:
+      case AS3Package.MULTIPLICATIVE_EXPRESSION:
       {
-        TerminalOp terminalOp = (TerminalOp)theEObject;
-        T result = caseTerminalOp(terminalOp);
-        if (result == null) result = caseExpression(terminalOp);
-        if (result == null) result = caseStatement(terminalOp);
-        if (result == null) result = caseexprOrObjectLiteral(terminalOp);
-        if (result == null) result = casestatementInSwitch(terminalOp);
-        if (result == null) result = caseobjectField(terminalOp);
+        multiplicativeExpression multiplicativeExpression = (multiplicativeExpression)theEObject;
+        T result = casemultiplicativeExpression(multiplicativeExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.BRACKET_EXPR:
+      case AS3Package.UNARY_EXPRESSION:
       {
-        BracketExpr bracketExpr = (BracketExpr)theEObject;
-        T result = caseBracketExpr(bracketExpr);
-        if (result == null) result = caseExpression(bracketExpr);
-        if (result == null) result = caseStatement(bracketExpr);
-        if (result == null) result = caseexprOrObjectLiteral(bracketExpr);
-        if (result == null) result = casestatementInSwitch(bracketExpr);
-        if (result == null) result = caseobjectField(bracketExpr);
+        unaryExpression unaryExpression = (unaryExpression)theEObject;
+        T result = caseunaryExpression(unaryExpression);
+        if (result == null) result = caseunaryExpressionNotPlusMinus(unaryExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.UNARY_EXPRESSION_NOT_PLUS_MINUS:
+      {
+        unaryExpressionNotPlusMinus unaryExpressionNotPlusMinus = (unaryExpressionNotPlusMinus)theEObject;
+        T result = caseunaryExpressionNotPlusMinus(unaryExpressionNotPlusMinus);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.POSTFIX_EXPRESSION:
+      {
+        postfixExpression postfixExpression = (postfixExpression)theEObject;
+        T result = casepostfixExpression(postfixExpression);
+        if (result == null) result = caseunaryExpressionNotPlusMinus(postfixExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.ARGUMENTS:
+      {
+        arguments arguments = (arguments)theEObject;
+        T result = casearguments(arguments);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.E4X_ATTRIBUTE_IDENTIFIER:
+      {
+        e4xAttributeIdentifier e4xAttributeIdentifier = (e4xAttributeIdentifier)theEObject;
+        T result = casee4xAttributeIdentifier(e4xAttributeIdentifier);
+        if (result == null) result = casequalifiedIdentifier(e4xAttributeIdentifier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.PRIMARY_EXPRESSION:
+      {
+        primaryExpression primaryExpression = (primaryExpression)theEObject;
+        T result = caseprimaryExpression(primaryExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.PROP_OR_IDENT:
+      {
+        propOrIdent propOrIdent = (propOrIdent)theEObject;
+        T result = casepropOrIdent(propOrIdent);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.CONSTANT:
+      {
+        Constant constant = (Constant)theEObject;
+        T result = caseConstant(constant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.REGEXP_LITERAL:
+      {
+        regexpLiteral regexpLiteral = (regexpLiteral)theEObject;
+        T result = caseregexpLiteral(regexpLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.NEW_EXPRESSION:
+      {
+        newExpression newExpression = (newExpression)theEObject;
+        T result = casenewExpression(newExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.FULL_NEW_SUBEXPRESSION:
+      {
+        fullNewSubexpression fullNewSubexpression = (fullNewSubexpression)theEObject;
+        T result = casefullNewSubexpression(fullNewSubexpression);
+        if (result == null) result = casenewExpression(fullNewSubexpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.BRACKETS:
+      {
+        brackets brackets = (brackets)theEObject;
+        T result = casebrackets(brackets);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.ENCAPSULATED_EXPRESSION:
+      {
+        encapsulatedExpression encapsulatedExpression = (encapsulatedExpression)theEObject;
+        T result = caseencapsulatedExpression(encapsulatedExpression);
+        if (result == null) result = caseexpressionQualifiedIdentifier(encapsulatedExpression);
+        if (result == null) result = casenonAttributeQualifiedIdentifier(encapsulatedExpression);
+        if (result == null) result = casequalifiedIdentifier(encapsulatedExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.FUNCTION_SIGNATURE:
+      {
+        functionSignature functionSignature = (functionSignature)theEObject;
+        T result = casefunctionSignature(functionSignature);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.TYPE_EXPRESSION:
+      {
+        typeExpression typeExpression = (typeExpression)theEObject;
+        T result = casetypeExpression(typeExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.PARAMETER_DECLARATION_LIST:
+      {
+        parameterDeclarationList parameterDeclarationList = (parameterDeclarationList)theEObject;
+        T result = caseparameterDeclarationList(parameterDeclarationList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.PARAMETER_DECLARATION:
+      {
+        parameterDeclaration parameterDeclaration = (parameterDeclaration)theEObject;
+        T result = caseparameterDeclaration(parameterDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.BASIC_PARAMETER_DECLARATION:
+      {
+        basicParameterDeclaration basicParameterDeclaration = (basicParameterDeclaration)theEObject;
+        T result = casebasicParameterDeclaration(basicParameterDeclaration);
+        if (result == null) result = caseparameterDeclaration(basicParameterDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.PARAMETER_DEFAULT:
+      {
+        parameterDefault parameterDefault = (parameterDefault)theEObject;
+        T result = caseparameterDefault(parameterDefault);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.PARAMETER_REST_DECLARATION:
+      {
+        parameterRestDeclaration parameterRestDeclaration = (parameterRestDeclaration)theEObject;
+        T result = caseparameterRestDeclaration(parameterRestDeclaration);
+        if (result == null) result = caseparameterDeclaration(parameterRestDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.BLOCK:
+      {
+        block block = (block)theEObject;
+        T result = caseblock(block);
+        if (result == null) result = casefinallyBlock(block);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.BLOCK_ENTRY:
+      {
+        blockEntry blockEntry = (blockEntry)theEObject;
+        T result = caseblockEntry(blockEntry);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.CONDITION:
+      {
+        Condition condition = (Condition)theEObject;
+        T result = caseCondition(condition);
+        if (result == null) result = caseSwitchStatement(condition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.STATEMENT:
+      {
+        Statement statement = (Statement)theEObject;
+        T result = caseStatement(statement);
+        if (result == null) result = caseblockEntry(statement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.DEFAULT_XML_NAMESPACE_STATEMENT:
+      {
+        DefaultXMLNamespaceStatement defaultXMLNamespaceStatement = (DefaultXMLNamespaceStatement)theEObject;
+        T result = caseDefaultXMLNamespaceStatement(defaultXMLNamespaceStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.DECLARATION_STATEMENT:
+      {
+        DeclarationStatement declarationStatement = (DeclarationStatement)theEObject;
+        T result = caseDeclarationStatement(declarationStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.VARIABLE_DECLARATOR:
+      {
+        variableDeclarator variableDeclarator = (variableDeclarator)theEObject;
+        T result = casevariableDeclarator(variableDeclarator);
+        if (result == null) result = caseDeclaration(variableDeclarator);
+        if (result == null) result = caseDeclarationStatement(variableDeclarator);
+        if (result == null) result = caseforInClauseDecl(variableDeclarator);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.DECLARATION:
+      {
+        Declaration declaration = (Declaration)theEObject;
+        T result = caseDeclaration(declaration);
+        if (result == null) result = caseDeclarationStatement(declaration);
+        if (result == null) result = caseforInClauseDecl(declaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.DECLARATION_TAIL:
+      {
+        declarationTail declarationTail = (declarationTail)theEObject;
+        T result = casedeclarationTail(declarationTail);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.VARIABLE_INITIALIZER:
+      {
+        variableInitializer variableInitializer = (variableInitializer)theEObject;
+        T result = casevariableInitializer(variableInitializer);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.EXPRESSION_STATEMENT:
+      {
+        ExpressionStatement expressionStatement = (ExpressionStatement)theEObject;
+        T result = caseExpressionStatement(expressionStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.IF_STATEMENT:
+      {
+        IfStatement ifStatement = (IfStatement)theEObject;
+        T result = caseIfStatement(ifStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.THROW_STATEMENT:
+      {
+        ThrowStatement throwStatement = (ThrowStatement)theEObject;
+        T result = caseThrowStatement(throwStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.TRY_STATEMENT:
+      {
+        TryStatement tryStatement = (TryStatement)theEObject;
+        T result = caseTryStatement(tryStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.CATCH_BLOCK:
+      {
+        catchBlock catchBlock = (catchBlock)theEObject;
+        T result = casecatchBlock(catchBlock);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.FINALLY_BLOCK:
+      {
+        finallyBlock finallyBlock = (finallyBlock)theEObject;
+        T result = casefinallyBlock(finallyBlock);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.RETURN_STATEMENT:
+      {
+        ReturnStatement returnStatement = (ReturnStatement)theEObject;
+        T result = caseReturnStatement(returnStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.SWITCH_STATEMENT:
+      {
+        SwitchStatement switchStatement = (SwitchStatement)theEObject;
+        T result = caseSwitchStatement(switchStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.SWITCH_BLOCK:
+      {
+        switchBlock switchBlock = (switchBlock)theEObject;
+        T result = caseswitchBlock(switchBlock);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.CASE_STATEMENT:
+      {
+        CaseStatement caseStatement = (CaseStatement)theEObject;
+        T result = caseCaseStatement(caseStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.DEFAULT_STATEMENT:
+      {
+        DefaultStatement defaultStatement = (DefaultStatement)theEObject;
+        T result = caseDefaultStatement(defaultStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.SWITCH_STATEMENT_LIST:
+      {
+        switchStatementList switchStatementList = (switchStatementList)theEObject;
+        T result = caseswitchStatementList(switchStatementList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.FOR_EACH_STATEMENT:
+      {
+        ForEachStatement forEachStatement = (ForEachStatement)theEObject;
+        T result = caseForEachStatement(forEachStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.FOR_STATEMENT:
+      {
+        ForStatement forStatement = (ForStatement)theEObject;
+        T result = caseForStatement(forStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.TRADITIONAL_FOR_CLAUSE:
+      {
+        traditionalForClause traditionalForClause = (traditionalForClause)theEObject;
+        T result = casetraditionalForClause(traditionalForClause);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.FOR_IN_CLAUSE:
+      {
+        forInClause forInClause = (forInClause)theEObject;
+        T result = caseforInClause(forInClause);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.FOR_IN_CLAUSE_DECL:
+      {
+        forInClauseDecl forInClauseDecl = (forInClauseDecl)theEObject;
+        T result = caseforInClauseDecl(forInClauseDecl);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.FOR_IN_CLAUSE_TAIL:
+      {
+        forInClauseTail forInClauseTail = (forInClauseTail)theEObject;
+        T result = caseforInClauseTail(forInClauseTail);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.FOR_INIT:
+      {
+        forInit forInit = (forInit)theEObject;
+        T result = caseforInit(forInit);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.FOR_COND:
+      {
+        forCond forCond = (forCond)theEObject;
+        T result = caseforCond(forCond);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.FOR_ITER:
+      {
+        forIter forIter = (forIter)theEObject;
+        T result = caseforIter(forIter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.WHILE_STATEMENT:
+      {
+        WhileStatement whileStatement = (WhileStatement)theEObject;
+        T result = caseWhileStatement(whileStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.DO_WHILE_STATEMENT:
+      {
+        DoWhileStatement doWhileStatement = (DoWhileStatement)theEObject;
+        T result = caseDoWhileStatement(doWhileStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.WITH_STATEMENT:
+      {
+        WithStatement withStatement = (WithStatement)theEObject;
+        T result = caseWithStatement(withStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.FUNCTION_COMMON:
+      {
+        functionCommon functionCommon = (functionCommon)theEObject;
+        T result = casefunctionCommon(functionCommon);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.FUNCTION_EXPRESSION:
+      {
+        functionExpression functionExpression = (functionExpression)theEObject;
+        T result = casefunctionExpression(functionExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -832,6 +1238,22 @@ public class AS3Switch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Modifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Modifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseModifier(Modifier object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Method Body</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -843,182 +1265,6 @@ public class AS3Switch<T> extends Switch<T>
    * @generated
    */
   public T caseMethodBody(MethodBody object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseStatement(Statement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>New Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>New Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseNewStatement(NewStatement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>For Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>For Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseForStatement(ForStatement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>identifier Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>identifier Declaration</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseidentifierDeclaration(identifierDeclaration object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>comma Expr</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>comma Expr</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casecommaExpr(commaExpr object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Do While Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Do While Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDoWhileStatement(DoWhileStatement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>While Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>While Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseWhileStatement(WhileStatement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Switch Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Switch Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSwitchStatement(SwitchStatement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>parenthesized Expr</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>parenthesized Expr</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseparenthesizedExpr(parenthesizedExpr object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>statement In Switch</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>statement In Switch</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casestatementInSwitch(statementInSwitch object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Return</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Return</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseReturn(Return object)
   {
     return null;
   }
@@ -1056,86 +1302,6 @@ public class AS3Switch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>If Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>If Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseIfStatement(IfStatement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Try Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Try Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTryStatement(TryStatement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>If Block</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>If Block</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseIfBlock(IfBlock object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Statements Block</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Statements Block</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseStatementsBlock(StatementsBlock object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Block</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Block</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBlock(Block object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1147,22 +1313,6 @@ public class AS3Switch<T> extends Switch<T>
    * @generated
    */
   public T caseParameter(Parameter object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Parameters</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Parameters</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseParameters(Parameters object)
   {
     return null;
   }
@@ -1184,33 +1334,65 @@ public class AS3Switch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>object Fields</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>field List</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>object Fields</em>'.
+   * @return the result of interpreting the object as an instance of '<em>field List</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseobjectFields(objectFields object)
+  public T casefieldList(fieldList object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>object Field</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>literal Field</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>object Field</em>'.
+   * @return the result of interpreting the object as an instance of '<em>literal Field</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseobjectField(objectField object)
+  public T caseliteralField(literalField object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>field Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>field Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casefieldName(fieldName object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseelement(element object)
   {
     return null;
   }
@@ -1232,17 +1414,209 @@ public class AS3Switch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Symbol</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>qualified Ident</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Symbol</em>'.
+   * @return the result of interpreting the object as an instance of '<em>qualified Ident</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSymbol(Symbol object)
+  public T casequalifiedIdent(qualifiedIdent object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>identi</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>identi</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseidenti(identi object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>identifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>identifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseidentifier(identifier object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>property Identifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>property Identifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casepropertyIdentifier(propertyIdentifier object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>qualifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>qualifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casequalifier(qualifier object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>simple Qualified Identifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>simple Qualified Identifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casesimpleQualifiedIdentifier(simpleQualifiedIdentifier object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>expression Qualified Identifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>expression Qualified Identifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseexpressionQualifiedIdentifier(expressionQualifiedIdentifier object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>non Attribute Qualified Identifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>non Attribute Qualified Identifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casenonAttributeQualifiedIdentifier(nonAttributeQualifiedIdentifier object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>qualified Identifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>qualified Identifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casequalifiedIdentifier(qualifiedIdentifier object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>namespace Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>namespace Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casenamespaceName(namespaceName object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>array Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>array Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casearrayLiteral(arrayLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>element List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>element List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseelementList(elementList object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>nonempty Element List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>nonempty Element List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casenonemptyElementList(nonemptyElementList object)
   {
     return null;
   }
@@ -1264,241 +1638,1121 @@ public class AS3Switch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>New</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>expression List</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>New</em>'.
+   * @return the result of interpreting the object as an instance of '<em>expression List</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNew(New object)
+  public T caseexpressionList(expressionList object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>While</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>assignment Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>While</em>'.
+   * @return the result of interpreting the object as an instance of '<em>assignment Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseWhile(While object)
+  public T caseassignmentExpression(assignmentExpression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Switch</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>conditional Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Switch</em>'.
+   * @return the result of interpreting the object as an instance of '<em>conditional Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSwitch(de.lynorics.eclipse.jangaroo.aS3.Switch object)
+  public T caseconditionalExpression(conditionalExpression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Assignment</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>conditional Sub Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Assignment</em>'.
+   * @return the result of interpreting the object as an instance of '<em>conditional Sub Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAssignment(Assignment object)
+  public T caseconditionalSubExpression(conditionalSubExpression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Member Selection</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>logical Or Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Member Selection</em>'.
+   * @return the result of interpreting the object as an instance of '<em>logical Or Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMemberSelection(MemberSelection object)
+  public T caselogicalOrExpression(logicalOrExpression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>String Constant</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>logical And Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>String Constant</em>'.
+   * @return the result of interpreting the object as an instance of '<em>logical And Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseStringConstant(StringConstant object)
+  public T caselogicalAndExpression(logicalAndExpression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Int Constant</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>bitwise Or Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Int Constant</em>'.
+   * @return the result of interpreting the object as an instance of '<em>bitwise Or Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseIntConstant(IntConstant object)
+  public T casebitwiseOrExpression(bitwiseOrExpression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Bool Constant</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>bitwise Xor Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Bool Constant</em>'.
+   * @return the result of interpreting the object as an instance of '<em>bitwise Xor Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseBoolConstant(BoolConstant object)
+  public T casebitwiseXorExpression(bitwiseXorExpression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>This</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>bitwise And Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>This</em>'.
+   * @return the result of interpreting the object as an instance of '<em>bitwise And Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseThis(This object)
+  public T casebitwiseAndExpression(bitwiseAndExpression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Super</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>equality Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Super</em>'.
+   * @return the result of interpreting the object as an instance of '<em>equality Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSuper(Super object)
+  public T caseequalityExpression(equalityExpression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Null</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>relational Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Null</em>'.
+   * @return the result of interpreting the object as an instance of '<em>relational Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNull(Null object)
+  public T caserelationalExpression(relationalExpression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Undefined</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>shift Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Undefined</em>'.
+   * @return the result of interpreting the object as an instance of '<em>shift Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseUndefined(Undefined object)
+  public T caseshiftExpression(shiftExpression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Symbol Ref</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>additive Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Symbol Ref</em>'.
+   * @return the result of interpreting the object as an instance of '<em>additive Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSymbolRef(SymbolRef object)
+  public T caseadditiveExpression(additiveExpression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Terminal Op</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>multiplicative Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Terminal Op</em>'.
+   * @return the result of interpreting the object as an instance of '<em>multiplicative Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTerminalOp(TerminalOp object)
+  public T casemultiplicativeExpression(multiplicativeExpression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Bracket Expr</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>unary Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Bracket Expr</em>'.
+   * @return the result of interpreting the object as an instance of '<em>unary Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseBracketExpr(BracketExpr object)
+  public T caseunaryExpression(unaryExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>unary Expression Not Plus Minus</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>unary Expression Not Plus Minus</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseunaryExpressionNotPlusMinus(unaryExpressionNotPlusMinus object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>postfix Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>postfix Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casepostfixExpression(postfixExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>arguments</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>arguments</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casearguments(arguments object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>e4x Attribute Identifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>e4x Attribute Identifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casee4xAttributeIdentifier(e4xAttributeIdentifier object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>primary Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>primary Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseprimaryExpression(primaryExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>prop Or Ident</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>prop Or Ident</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casepropOrIdent(propOrIdent object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConstant(Constant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>regexp Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>regexp Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseregexpLiteral(regexpLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>new Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>new Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casenewExpression(newExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>full New Subexpression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>full New Subexpression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casefullNewSubexpression(fullNewSubexpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>brackets</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>brackets</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casebrackets(brackets object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>encapsulated Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>encapsulated Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseencapsulatedExpression(encapsulatedExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>function Signature</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>function Signature</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casefunctionSignature(functionSignature object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>type Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>type Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casetypeExpression(typeExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>parameter Declaration List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>parameter Declaration List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseparameterDeclarationList(parameterDeclarationList object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>parameter Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>parameter Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseparameterDeclaration(parameterDeclaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>basic Parameter Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>basic Parameter Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casebasicParameterDeclaration(basicParameterDeclaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>parameter Default</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>parameter Default</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseparameterDefault(parameterDefault object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>parameter Rest Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>parameter Rest Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseparameterRestDeclaration(parameterRestDeclaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>block</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>block</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseblock(block object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>block Entry</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>block Entry</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseblockEntry(blockEntry object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Condition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Condition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCondition(Condition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStatement(Statement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Default XML Namespace Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Default XML Namespace Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDefaultXMLNamespaceStatement(DefaultXMLNamespaceStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Declaration Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Declaration Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDeclarationStatement(DeclarationStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>variable Declarator</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>variable Declarator</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casevariableDeclarator(variableDeclarator object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDeclaration(Declaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>declaration Tail</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>declaration Tail</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casedeclarationTail(declarationTail object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>variable Initializer</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>variable Initializer</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casevariableInitializer(variableInitializer object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expression Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expression Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExpressionStatement(ExpressionStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>If Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>If Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIfStatement(IfStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Throw Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Throw Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseThrowStatement(ThrowStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Try Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Try Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTryStatement(TryStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>catch Block</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>catch Block</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casecatchBlock(catchBlock object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>finally Block</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>finally Block</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casefinallyBlock(finallyBlock object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Return Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Return Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReturnStatement(ReturnStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Switch Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Switch Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSwitchStatement(SwitchStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>switch Block</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>switch Block</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseswitchBlock(switchBlock object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Case Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Case Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCaseStatement(CaseStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Default Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Default Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDefaultStatement(DefaultStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>switch Statement List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>switch Statement List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseswitchStatementList(switchStatementList object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>For Each Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>For Each Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseForEachStatement(ForEachStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>For Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>For Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseForStatement(ForStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>traditional For Clause</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>traditional For Clause</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casetraditionalForClause(traditionalForClause object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>for In Clause</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>for In Clause</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseforInClause(forInClause object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>for In Clause Decl</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>for In Clause Decl</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseforInClauseDecl(forInClauseDecl object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>for In Clause Tail</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>for In Clause Tail</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseforInClauseTail(forInClauseTail object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>for Init</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>for Init</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseforInit(forInit object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>for Cond</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>for Cond</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseforCond(forCond object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>for Iter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>for Iter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseforIter(forIter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>While Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>While Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWhileStatement(WhileStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Do While Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Do While Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDoWhileStatement(DoWhileStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>With Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>With Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWithStatement(WithStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>function Common</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>function Common</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casefunctionCommon(functionCommon object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>function Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>function Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casefunctionExpression(functionExpression object)
   {
     return null;
   }

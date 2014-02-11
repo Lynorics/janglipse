@@ -64,9 +64,7 @@ public class AS3Validator extends AbstractAS3Validator {
   
   @Check
   public void checkMethodStartsWithLowercase(final Method method) {
-    EObject _eContainer = method.eContainer();
-    EObject _eContainer_1 = _eContainer.eContainer();
-    de.lynorics.eclipse.jangaroo.aS3.Class parent = ((de.lynorics.eclipse.jangaroo.aS3.Class) _eContainer_1);
+    de.lynorics.eclipse.jangaroo.aS3.Class clazz = this.<de.lynorics.eclipse.jangaroo.aS3.Class>findParentOfType(method, de.lynorics.eclipse.jangaroo.aS3.Class.class);
     boolean _and = false;
     String _name = method.getName();
     char _charAt = _name.charAt(0);
@@ -74,17 +72,46 @@ public class AS3Validator extends AbstractAS3Validator {
     if (!_isUpperCase) {
       _and = false;
     } else {
-      String _name_1 = parent.getName();
+      String _name_1 = clazz.getName();
       String _name_2 = method.getName();
       boolean _equals = _name_1.equals(_name_2);
       boolean _not = (!_equals);
-      _and = (_isUpperCase && _not);
+      _and = _not;
     }
     if (_and) {
       this.warning("Method name should start with a lowercase", 
         AS3Package.Literals.METHOD__NAME, 
         AS3Validator.METHOD_SHOULD_START_WITH_LOWERCASE);
     }
+  }
+  
+  public <E extends EObject> E findParentOfType(final EObject start, final Class<E> type) {
+    EObject current = start;
+    boolean _and = false;
+    boolean _notEquals = (!Objects.equal(current, null));
+    if (!_notEquals) {
+      _and = false;
+    } else {
+      boolean _isInstance = type.isInstance(current);
+      boolean _not = (!_isInstance);
+      _and = _not;
+    }
+    boolean _while = _and;
+    while (_while) {
+      EObject _eContainer = current.eContainer();
+      current = _eContainer;
+      boolean _and_1 = false;
+      boolean _notEquals_1 = (!Objects.equal(current, null));
+      if (!_notEquals_1) {
+        _and_1 = false;
+      } else {
+        boolean _isInstance_1 = type.isInstance(current);
+        boolean _not_1 = (!_isInstance_1);
+        _and_1 = _not_1;
+      }
+      _while = _and_1;
+    }
+    return ((E) current);
   }
   
   @Check
@@ -94,7 +121,7 @@ public class AS3Validator extends AbstractAS3Validator {
     boolean _isUpperCase = Character.isUpperCase(_charAt);
     if (_isUpperCase) {
       this.warning("Method name should start with a lowercase", 
-        AS3Package.Literals.METHOD__NAME, 
+        AS3Package.Literals.INTERFACE_METHOD__NAME, 
         AS3Validator.METHOD_SHOULD_START_WITH_LOWERCASE);
     }
   }

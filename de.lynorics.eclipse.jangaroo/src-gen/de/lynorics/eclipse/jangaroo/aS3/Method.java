@@ -14,8 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getAccess <em>Access</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getModifier <em>Modifier</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getName <em>Name</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getAccessor <em>Accessor</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getParams <em>Params</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getType <em>Type</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getBody <em>Body</em>}</li>
@@ -29,33 +30,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Method extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Access</b></em>' attribute.
-   * The literals are from the enumeration {@link de.lynorics.eclipse.jangaroo.aS3.AccessLevel}.
+   * Returns the value of the '<em><b>Modifier</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Access</em>' attribute isn't clear,
+   * If the meaning of the '<em>Modifier</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Access</em>' attribute.
-   * @see de.lynorics.eclipse.jangaroo.aS3.AccessLevel
-   * @see #setAccess(AccessLevel)
-   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getMethod_Access()
-   * @model
+   * @return the value of the '<em>Modifier</em>' containment reference.
+   * @see #setModifier(Modifier)
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getMethod_Modifier()
+   * @model containment="true"
    * @generated
    */
-  AccessLevel getAccess();
+  Modifier getModifier();
 
   /**
-   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getAccess <em>Access</em>}' attribute.
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getModifier <em>Modifier</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Access</em>' attribute.
-   * @see de.lynorics.eclipse.jangaroo.aS3.AccessLevel
-   * @see #getAccess()
+   * @param value the new value of the '<em>Modifier</em>' containment reference.
+   * @see #getModifier()
    * @generated
    */
-  void setAccess(AccessLevel value);
+  void setModifier(Modifier value);
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -82,6 +80,32 @@ public interface Method extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Accessor</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Accessor</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Accessor</em>' attribute.
+   * @see #setAccessor(String)
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getMethod_Accessor()
+   * @model
+   * @generated
+   */
+  String getAccessor();
+
+  /**
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getAccessor <em>Accessor</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Accessor</em>' attribute.
+   * @see #getAccessor()
+   * @generated
+   */
+  void setAccessor(String value);
 
   /**
    * Returns the value of the '<em><b>Params</b></em>' containment reference list.

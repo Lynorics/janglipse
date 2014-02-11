@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Class#getAccess <em>Access</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Class#getModifier <em>Modifier</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Class#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Class#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Class#getTypes <em>Types</em>}</li>
@@ -29,33 +29,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Class extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Access</b></em>' attribute.
-   * The literals are from the enumeration {@link de.lynorics.eclipse.jangaroo.aS3.AccessLevel}.
+   * Returns the value of the '<em><b>Modifier</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Access</em>' attribute isn't clear,
+   * If the meaning of the '<em>Modifier</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Access</em>' attribute.
-   * @see de.lynorics.eclipse.jangaroo.aS3.AccessLevel
-   * @see #setAccess(AccessLevel)
-   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getClass_Access()
-   * @model
+   * @return the value of the '<em>Modifier</em>' containment reference.
+   * @see #setModifier(Modifier)
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getClass_Modifier()
+   * @model containment="true"
    * @generated
    */
-  AccessLevel getAccess();
+  Modifier getModifier();
 
   /**
-   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Class#getAccess <em>Access</em>}' attribute.
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Class#getModifier <em>Modifier</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Access</em>' attribute.
-   * @see de.lynorics.eclipse.jangaroo.aS3.AccessLevel
-   * @see #getAccess()
+   * @param value the new value of the '<em>Modifier</em>' containment reference.
+   * @see #getModifier()
    * @generated
    */
-  void setAccess(AccessLevel value);
+  void setModifier(Modifier value);
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

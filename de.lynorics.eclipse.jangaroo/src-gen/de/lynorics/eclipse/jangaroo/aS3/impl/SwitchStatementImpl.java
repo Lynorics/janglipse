@@ -7,6 +7,8 @@ import de.lynorics.eclipse.jangaroo.aS3.SwitchStatement;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Switch Statement</b></em>'.
@@ -16,7 +18,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class SwitchStatementImpl extends StatementImpl implements SwitchStatement
+public class SwitchStatementImpl extends MinimalEObjectImpl.Container implements SwitchStatement
 {
   /**
    * <!-- begin-user-doc -->

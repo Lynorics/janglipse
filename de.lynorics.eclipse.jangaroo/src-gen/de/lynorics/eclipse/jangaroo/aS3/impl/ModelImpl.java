@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ModelImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ModelImpl#getImp <em>Imp</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ModelImpl#getMembers <em>Members</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ModelImpl#getClasses <em>Classes</em>}</li>
  * </ul>
  * </p>
@@ -59,6 +60,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @ordered
    */
   protected Imports imp;
+
+  /**
+   * The cached value of the '{@link #getMembers() <em>Members</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMembers()
+   * @generated
+   * @ordered
+   */
+  protected EList<EObject> members;
 
   /**
    * The cached value of the '{@link #getClasses() <em>Classes</em>}' containment reference list.
@@ -192,6 +203,20 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<EObject> getMembers()
+  {
+    if (members == null)
+    {
+      members = new EObjectContainmentEList<EObject>(EObject.class, this, AS3Package.MODEL__MEMBERS);
+    }
+    return members;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<EObject> getClasses()
   {
     if (classes == null)
@@ -215,6 +240,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return basicSetPackage(null, msgs);
       case AS3Package.MODEL__IMP:
         return basicSetImp(null, msgs);
+      case AS3Package.MODEL__MEMBERS:
+        return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
       case AS3Package.MODEL__CLASSES:
         return ((InternalEList<?>)getClasses()).basicRemove(otherEnd, msgs);
     }
@@ -235,6 +262,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return getPackage();
       case AS3Package.MODEL__IMP:
         return getImp();
+      case AS3Package.MODEL__MEMBERS:
+        return getMembers();
       case AS3Package.MODEL__CLASSES:
         return getClasses();
     }
@@ -257,6 +286,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return;
       case AS3Package.MODEL__IMP:
         setImp((Imports)newValue);
+        return;
+      case AS3Package.MODEL__MEMBERS:
+        getMembers().clear();
+        getMembers().addAll((Collection<? extends EObject>)newValue);
         return;
       case AS3Package.MODEL__CLASSES:
         getClasses().clear();
@@ -282,6 +315,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case AS3Package.MODEL__IMP:
         setImp((Imports)null);
         return;
+      case AS3Package.MODEL__MEMBERS:
+        getMembers().clear();
+        return;
       case AS3Package.MODEL__CLASSES:
         getClasses().clear();
         return;
@@ -303,6 +339,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return package_ != null;
       case AS3Package.MODEL__IMP:
         return imp != null;
+      case AS3Package.MODEL__MEMBERS:
+        return members != null && !members.isEmpty();
       case AS3Package.MODEL__CLASSES:
         return classes != null && !classes.isEmpty();
     }

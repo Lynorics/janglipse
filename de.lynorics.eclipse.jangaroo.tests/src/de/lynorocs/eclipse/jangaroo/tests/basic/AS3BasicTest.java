@@ -4,6 +4,8 @@
  * Licensed under the Eclipse Public License version 1.0, available at
  * http://opensource.org/licenses/eclipse-1.0.txt
  */
+package de.lynorocs.eclipse.jangaroo.tests.basic;
+
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
 import org.eclipselabs.xtext.utils.unittesting.XtextTest;
@@ -35,7 +37,7 @@ public class AS3BasicTest extends XtextTest
     {
     	testParserRule(
     			"{}",
-    			"StatementsBlock");
+    			"Statement");
     }
     
     /**
@@ -151,6 +153,43 @@ public class AS3BasicTest extends XtextTest
     }
 
     /**
+     * Checks some simple expression definitions
+     */
+    @Test
+    public void simpleExpression()
+    {
+    	testParserRule(
+    			"x",
+    			"Expression");
+    	testParserRule(
+    			"1",
+    			"Expression");
+    	testParserRule(
+    			"x()",
+    			"Expression");
+    }
+
+    /**
+     * Checks some simple assignment definitions
+     */
+    @Test
+    public void simpleAssignment()
+    {
+    	testParserRule(
+    			"x=1",
+    			"assignmentExpression");
+    	testParserRule(
+    			"x+=1",
+    			"assignmentExpression");
+    	testParserRule(
+    			"++y",
+    			"assignmentExpression");
+    	testParserRule(
+    			"x++",
+    			"assignmentExpression");
+    }
+
+    /**
      * Checks some simple for-in loop definitions
      */
     @Test
@@ -163,7 +202,7 @@ public class AS3BasicTest extends XtextTest
     	testParserRule(
     			"for each (x in list) {"
     			+ "}",
-    			"ForStatement");
+    			"ForEachStatement");
     }
 
     /**
@@ -212,11 +251,8 @@ public class AS3BasicTest extends XtextTest
     public void simpleTry()
     {
     	testParserRule(
-    			"try { a; }",
-    			"TryStatement");
-    	testParserRule(
     			"try { b; }"
-    			+ "catch (exception)",
+    			+ "catch (exception) {}",
     			"TryStatement");
     	testParserRule(
     			"try { c; }"
@@ -224,7 +260,7 @@ public class AS3BasicTest extends XtextTest
     			"TryStatement");
     	testParserRule(
     			"try { d; }"
-    			+ "catch (exception)"
+    			+ "catch (exception) {}"
     			+ "finally { }",
     			"TryStatement");
     }
@@ -237,16 +273,16 @@ public class AS3BasicTest extends XtextTest
     {
     	testParserRule(
     			"new a",
-    			"NewStatement");
+    			"newExpression");
     	testParserRule(
     			"new a()",
-    			"NewStatement");
+    			"newExpression");
     	testParserRule(
     			"new a(b)",
-    			"NewStatement");
+    			"newExpression");
     	testParserRule(
     			"new a(c,d)",
-    			"NewStatement");
+    			"newExpression");
     }
 
     @Test
@@ -260,6 +296,11 @@ public class AS3BasicTest extends XtextTest
     public void varDeclarations()
     {
         testParserRule("var i: int;","VariableDeclaration");	
+        testParserRule("public var i: int;","VariableDeclaration");	
+        testParserRule("private static var i: int;","VariableDeclaration");	
+        testParserRule("const i: int;","VariableDeclaration");	
+        testParserRule("private const i: int;","VariableDeclaration");	
+        testParserRule("public static const i: int;","VariableDeclaration");	
         testParserRule("var i: int = 0;","VariableDeclaration");	
         testParserRule("var n: number;","VariableDeclaration");	
         testParserRule("var n: number = 0;","VariableDeclaration");	
@@ -278,4 +319,10 @@ public class AS3BasicTest extends XtextTest
 
     }
     
+    @Test
+    public void simpleCondition()
+    {
+        testParserRule("(scheme !== undefined)","Condition");	
+    }
+
 }

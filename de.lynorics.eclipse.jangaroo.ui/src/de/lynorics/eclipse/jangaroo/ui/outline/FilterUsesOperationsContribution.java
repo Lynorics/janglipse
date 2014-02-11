@@ -11,11 +11,8 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.xtext.ui.PluginImageHelper;
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode;
 import org.eclipse.xtext.ui.editor.outline.actions.AbstractFilterOutlineContribution;
-import org.eclipse.xtext.ui.editor.outline.impl.EObjectNode;
 
 import com.google.inject.Inject;
-
-import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
 
 public class FilterUsesOperationsContribution 
     extends AbstractFilterOutlineContribution {
@@ -28,9 +25,10 @@ public class FilterUsesOperationsContribution
   
   @Override
   protected boolean apply(IOutlineNode node) {
-    return !(node instanceof EObjectNode)
-        || !((EObjectNode) node).getEClass()
-          .equals(AS3Package.Literals.USES);
+    return false;
+//    		!(node instanceof EObjectNode)
+//        || !((EObjectNode) node).getEClass()
+//          .equals(AS3Package.Literals.USES);
   }
  
   @Override

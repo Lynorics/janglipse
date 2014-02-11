@@ -2,6 +2,7 @@
  */
 package de.lynorics.eclipse.jangaroo.aS3;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -11,9 +12,9 @@ package de.lynorics.eclipse.jangaroo.aS3;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.IfStatement#getExpression <em>Expression</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.IfStatement#getThenBlock <em>Then Block</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.IfStatement#getElseBlock <em>Else Block</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.IfStatement#getCond <em>Cond</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.IfStatement#getStatement <em>Statement</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.IfStatement#getElse <em>Else</em>}</li>
  * </ul>
  * </p>
  *
@@ -21,84 +22,84 @@ package de.lynorics.eclipse.jangaroo.aS3;
  * @model
  * @generated
  */
-public interface IfStatement extends Statement
+public interface IfStatement extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Expression</b></em>' containment reference.
+   * Returns the value of the '<em><b>Cond</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expression</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Cond</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(Expression)
-   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getIfStatement_Expression()
+   * @return the value of the '<em>Cond</em>' containment reference.
+   * @see #setCond(Condition)
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getIfStatement_Cond()
    * @model containment="true"
    * @generated
    */
-  Expression getExpression();
+  Condition getCond();
 
   /**
-   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.IfStatement#getExpression <em>Expression</em>}' containment reference.
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.IfStatement#getCond <em>Cond</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expression</em>' containment reference.
-   * @see #getExpression()
+   * @param value the new value of the '<em>Cond</em>' containment reference.
+   * @see #getCond()
    * @generated
    */
-  void setExpression(Expression value);
+  void setCond(Condition value);
 
   /**
-   * Returns the value of the '<em><b>Then Block</b></em>' containment reference.
+   * Returns the value of the '<em><b>Statement</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Then Block</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Statement</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Then Block</em>' containment reference.
-   * @see #setThenBlock(IfBlock)
-   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getIfStatement_ThenBlock()
+   * @return the value of the '<em>Statement</em>' containment reference.
+   * @see #setStatement(Statement)
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getIfStatement_Statement()
    * @model containment="true"
    * @generated
    */
-  IfBlock getThenBlock();
+  Statement getStatement();
 
   /**
-   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.IfStatement#getThenBlock <em>Then Block</em>}' containment reference.
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.IfStatement#getStatement <em>Statement</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Then Block</em>' containment reference.
-   * @see #getThenBlock()
+   * @param value the new value of the '<em>Statement</em>' containment reference.
+   * @see #getStatement()
    * @generated
    */
-  void setThenBlock(IfBlock value);
+  void setStatement(Statement value);
 
   /**
-   * Returns the value of the '<em><b>Else Block</b></em>' containment reference.
+   * Returns the value of the '<em><b>Else</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Else Block</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Else</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Else Block</em>' containment reference.
-   * @see #setElseBlock(IfBlock)
-   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getIfStatement_ElseBlock()
+   * @return the value of the '<em>Else</em>' containment reference.
+   * @see #setElse(Statement)
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getIfStatement_Else()
    * @model containment="true"
    * @generated
    */
-  IfBlock getElseBlock();
+  Statement getElse();
 
   /**
-   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.IfStatement#getElseBlock <em>Else Block</em>}' containment reference.
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.IfStatement#getElse <em>Else</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Else Block</em>' containment reference.
-   * @see #getElseBlock()
+   * @param value the new value of the '<em>Else</em>' containment reference.
+   * @see #getElse()
    * @generated
    */
-  void setElseBlock(IfBlock value);
+  void setElse(Statement value);
 
 } // IfStatement

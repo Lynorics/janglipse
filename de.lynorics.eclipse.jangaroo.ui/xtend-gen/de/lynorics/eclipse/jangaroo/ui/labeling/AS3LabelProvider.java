@@ -14,6 +14,7 @@ import de.lynorics.eclipse.jangaroo.aS3.Imports;
 import de.lynorics.eclipse.jangaroo.aS3.Interface;
 import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
+import de.lynorics.eclipse.jangaroo.aS3.Modifier;
 import de.lynorics.eclipse.jangaroo.aS3.Parameter;
 import de.lynorics.eclipse.jangaroo.aS3.Uses;
 import de.lynorics.eclipse.jangaroo.aS3.VarType;
@@ -69,8 +70,7 @@ public class AS3LabelProvider extends DefaultEObjectLabelProvider {
     String _name = meth.getName();
     VarType _type = meth.getType();
     EList<Parameter> _params = meth.getParams();
-    StyledString _computeTextForMethod = this.computeTextForMethod(_name, _type, _params);
-    return _computeTextForMethod;
+    return this.computeTextForMethod(_name, _type, _params);
   }
   
   private StyledString computeTextForMethod(final String methName, final VarType varType, final EList<Parameter> parameters) {
@@ -101,7 +101,7 @@ public class AS3LabelProvider extends DefaultEObjectLabelProvider {
               VarType _type_3 = param.getType();
               EObject _type_4 = _type_3.getType();
               boolean _notEquals_2 = (!Objects.equal(_type_4, null));
-              _and = (_equals_1 && _notEquals_2);
+              _and = _notEquals_2;
             }
             if (_and) {
               VarType _type_5 = param.getType();
@@ -136,32 +136,19 @@ public class AS3LabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public String image(final InterfaceMethod meth) {
-    AccessLevel _access = meth.getAccess();
-    final AccessLevel _switchValue = _access;
-    boolean _matched = false;
-    if (!_matched) {
-      if (Objects.equal(_switchValue,AccessLevel.PUBLIC)) {
-        _matched=true;
+    Modifier _modifier = meth.getModifier();
+    AccessLevel _access = _modifier.getAccess();
+    switch (_access) {
+      case PUBLIC:
         return "outline-function-public.gif";
-      }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,AccessLevel.PROTECTED)) {
-        _matched=true;
+      case PROTECTED:
         return "outline-function-protected.gif";
-      }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,AccessLevel.PRIVATE)) {
-        _matched=true;
+      case PRIVATE:
         return "outline-function-private.gif";
-      }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,AccessLevel.INTERNAL)) {
-        _matched=true;
+      case INTERNAL:
         return "outline-function-internal.gif";
-      }
+      default:
+        break;
     }
     return null;
   }
@@ -170,42 +157,32 @@ public class AS3LabelProvider extends DefaultEObjectLabelProvider {
     String _name = meth.getName();
     VarType _type = meth.getType();
     EList<Parameter> _params = meth.getParams();
-    StyledString _computeTextForMethod = this.computeTextForMethod(_name, _type, _params);
-    return _computeTextForMethod;
+    return this.computeTextForMethod(_name, _type, _params);
   }
   
   public Image image(final Method meth) {
     Image image = null;
-    AccessLevel _access = meth.getAccess();
-    final AccessLevel _switchValue = _access;
-    boolean _matched = false;
-    if (!_matched) {
-      if (Objects.equal(_switchValue,AccessLevel.PUBLIC)) {
-        _matched=true;
+    Modifier _modifier = meth.getModifier();
+    AccessLevel _access = _modifier.getAccess();
+    switch (_access) {
+      case PUBLIC:
         Image _image = this.imageHelper.getImage("outline-function-public.gif");
         image = _image;
-      }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,AccessLevel.PROTECTED)) {
-        _matched=true;
+        break;
+      case PROTECTED:
         Image _image_1 = this.imageHelper.getImage("outline-function-protected.gif");
         image = _image_1;
-      }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,AccessLevel.PRIVATE)) {
-        _matched=true;
+        break;
+      case PRIVATE:
         Image _image_2 = this.imageHelper.getImage("outline-function-private.gif");
         image = _image_2;
-      }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,AccessLevel.INTERNAL)) {
-        _matched=true;
+        break;
+      case INTERNAL:
         Image _image_3 = this.imageHelper.getImage("outline-function-internal.gif");
         image = _image_3;
-      }
+        break;
+      default:
+        break;
     }
     return image;
   }
@@ -237,31 +214,17 @@ public class AS3LabelProvider extends DefaultEObjectLabelProvider {
   
   public String image(final VariableDeclaration varDecl) {
     AccessLevel _access = varDecl.getAccess();
-    final AccessLevel _switchValue = _access;
-    boolean _matched = false;
-    if (!_matched) {
-      if (Objects.equal(_switchValue,AccessLevel.PUBLIC)) {
-        _matched=true;
+    switch (_access) {
+      case PUBLIC:
         return "outline-field-public.gif";
-      }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,AccessLevel.PROTECTED)) {
-        _matched=true;
+      case PROTECTED:
         return "outline-field-protected.gif";
-      }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,AccessLevel.PRIVATE)) {
-        _matched=true;
+      case PRIVATE:
         return "outline-field-private.gif";
-      }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,AccessLevel.INTERNAL)) {
-        _matched=true;
+      case INTERNAL:
         return "outline-field-internal.gif";
-      }
+      default:
+        break;
     }
     return null;
   }

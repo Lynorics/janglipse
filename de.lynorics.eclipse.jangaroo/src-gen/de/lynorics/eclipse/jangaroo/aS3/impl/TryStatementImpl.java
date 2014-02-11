@@ -3,10 +3,10 @@
 package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
-import de.lynorics.eclipse.jangaroo.aS3.Parameter;
-import de.lynorics.eclipse.jangaroo.aS3.Statement;
-import de.lynorics.eclipse.jangaroo.aS3.StatementsBlock;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
+import de.lynorics.eclipse.jangaroo.aS3.block;
+import de.lynorics.eclipse.jangaroo.aS3.catchBlock;
+import de.lynorics.eclipse.jangaroo.aS3.finallyBlock;
 
 import java.util.Collection;
 
@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -30,45 +31,45 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.TryStatementImpl#getStatements <em>Statements</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.TryStatementImpl#getParams <em>Params</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.TryStatementImpl#getFinallyBlock <em>Finally Block</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.TryStatementImpl#getBlock <em>Block</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.TryStatementImpl#getFinally <em>Finally</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.TryStatementImpl#getCatch <em>Catch</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class TryStatementImpl extends StatementImpl implements TryStatement
+public class TryStatementImpl extends MinimalEObjectImpl.Container implements TryStatement
 {
   /**
-   * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
+   * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStatements()
+   * @see #getBlock()
    * @generated
    * @ordered
    */
-  protected EList<Statement> statements;
+  protected block block;
 
   /**
-   * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference list.
+   * The cached value of the '{@link #getFinally() <em>Finally</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getParams()
+   * @see #getFinally()
    * @generated
    * @ordered
    */
-  protected EList<Parameter> params;
+  protected finallyBlock finally_;
 
   /**
-   * The cached value of the '{@link #getFinallyBlock() <em>Finally Block</em>}' containment reference.
+   * The cached value of the '{@link #getCatch() <em>Catch</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFinallyBlock()
+   * @see #getCatch()
    * @generated
    * @ordered
    */
-  protected StatementsBlock finallyBlock;
+  protected EList<catchBlock> catch_;
 
   /**
    * <!-- begin-user-doc -->
@@ -96,13 +97,9 @@ public class TryStatementImpl extends StatementImpl implements TryStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Statement> getStatements()
+  public block getBlock()
   {
-    if (statements == null)
-    {
-      statements = new EObjectContainmentEList<Statement>(Statement.class, this, AS3Package.TRY_STATEMENT__STATEMENTS);
-    }
-    return statements;
+    return block;
   }
 
   /**
@@ -110,37 +107,13 @@ public class TryStatementImpl extends StatementImpl implements TryStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Parameter> getParams()
+  public NotificationChain basicSetBlock(block newBlock, NotificationChain msgs)
   {
-    if (params == null)
-    {
-      params = new EObjectContainmentEList<Parameter>(Parameter.class, this, AS3Package.TRY_STATEMENT__PARAMS);
-    }
-    return params;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public StatementsBlock getFinallyBlock()
-  {
-    return finallyBlock;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetFinallyBlock(StatementsBlock newFinallyBlock, NotificationChain msgs)
-  {
-    StatementsBlock oldFinallyBlock = finallyBlock;
-    finallyBlock = newFinallyBlock;
+    block oldBlock = block;
+    block = newBlock;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.TRY_STATEMENT__FINALLY_BLOCK, oldFinallyBlock, newFinallyBlock);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.TRY_STATEMENT__BLOCK, oldBlock, newBlock);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -151,20 +124,82 @@ public class TryStatementImpl extends StatementImpl implements TryStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFinallyBlock(StatementsBlock newFinallyBlock)
+  public void setBlock(block newBlock)
   {
-    if (newFinallyBlock != finallyBlock)
+    if (newBlock != block)
     {
       NotificationChain msgs = null;
-      if (finallyBlock != null)
-        msgs = ((InternalEObject)finallyBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.TRY_STATEMENT__FINALLY_BLOCK, null, msgs);
-      if (newFinallyBlock != null)
-        msgs = ((InternalEObject)newFinallyBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.TRY_STATEMENT__FINALLY_BLOCK, null, msgs);
-      msgs = basicSetFinallyBlock(newFinallyBlock, msgs);
+      if (block != null)
+        msgs = ((InternalEObject)block).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.TRY_STATEMENT__BLOCK, null, msgs);
+      if (newBlock != null)
+        msgs = ((InternalEObject)newBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.TRY_STATEMENT__BLOCK, null, msgs);
+      msgs = basicSetBlock(newBlock, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.TRY_STATEMENT__FINALLY_BLOCK, newFinallyBlock, newFinallyBlock));
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.TRY_STATEMENT__BLOCK, newBlock, newBlock));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public finallyBlock getFinally()
+  {
+    return finally_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFinally(finallyBlock newFinally, NotificationChain msgs)
+  {
+    finallyBlock oldFinally = finally_;
+    finally_ = newFinally;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.TRY_STATEMENT__FINALLY, oldFinally, newFinally);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFinally(finallyBlock newFinally)
+  {
+    if (newFinally != finally_)
+    {
+      NotificationChain msgs = null;
+      if (finally_ != null)
+        msgs = ((InternalEObject)finally_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.TRY_STATEMENT__FINALLY, null, msgs);
+      if (newFinally != null)
+        msgs = ((InternalEObject)newFinally).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.TRY_STATEMENT__FINALLY, null, msgs);
+      msgs = basicSetFinally(newFinally, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.TRY_STATEMENT__FINALLY, newFinally, newFinally));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<catchBlock> getCatch()
+  {
+    if (catch_ == null)
+    {
+      catch_ = new EObjectContainmentEList<catchBlock>(catchBlock.class, this, AS3Package.TRY_STATEMENT__CATCH);
+    }
+    return catch_;
   }
 
   /**
@@ -177,12 +212,12 @@ public class TryStatementImpl extends StatementImpl implements TryStatement
   {
     switch (featureID)
     {
-      case AS3Package.TRY_STATEMENT__STATEMENTS:
-        return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
-      case AS3Package.TRY_STATEMENT__PARAMS:
-        return ((InternalEList<?>)getParams()).basicRemove(otherEnd, msgs);
-      case AS3Package.TRY_STATEMENT__FINALLY_BLOCK:
-        return basicSetFinallyBlock(null, msgs);
+      case AS3Package.TRY_STATEMENT__BLOCK:
+        return basicSetBlock(null, msgs);
+      case AS3Package.TRY_STATEMENT__FINALLY:
+        return basicSetFinally(null, msgs);
+      case AS3Package.TRY_STATEMENT__CATCH:
+        return ((InternalEList<?>)getCatch()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -197,12 +232,12 @@ public class TryStatementImpl extends StatementImpl implements TryStatement
   {
     switch (featureID)
     {
-      case AS3Package.TRY_STATEMENT__STATEMENTS:
-        return getStatements();
-      case AS3Package.TRY_STATEMENT__PARAMS:
-        return getParams();
-      case AS3Package.TRY_STATEMENT__FINALLY_BLOCK:
-        return getFinallyBlock();
+      case AS3Package.TRY_STATEMENT__BLOCK:
+        return getBlock();
+      case AS3Package.TRY_STATEMENT__FINALLY:
+        return getFinally();
+      case AS3Package.TRY_STATEMENT__CATCH:
+        return getCatch();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -218,16 +253,15 @@ public class TryStatementImpl extends StatementImpl implements TryStatement
   {
     switch (featureID)
     {
-      case AS3Package.TRY_STATEMENT__STATEMENTS:
-        getStatements().clear();
-        getStatements().addAll((Collection<? extends Statement>)newValue);
+      case AS3Package.TRY_STATEMENT__BLOCK:
+        setBlock((block)newValue);
         return;
-      case AS3Package.TRY_STATEMENT__PARAMS:
-        getParams().clear();
-        getParams().addAll((Collection<? extends Parameter>)newValue);
+      case AS3Package.TRY_STATEMENT__FINALLY:
+        setFinally((finallyBlock)newValue);
         return;
-      case AS3Package.TRY_STATEMENT__FINALLY_BLOCK:
-        setFinallyBlock((StatementsBlock)newValue);
+      case AS3Package.TRY_STATEMENT__CATCH:
+        getCatch().clear();
+        getCatch().addAll((Collection<? extends catchBlock>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -243,14 +277,14 @@ public class TryStatementImpl extends StatementImpl implements TryStatement
   {
     switch (featureID)
     {
-      case AS3Package.TRY_STATEMENT__STATEMENTS:
-        getStatements().clear();
+      case AS3Package.TRY_STATEMENT__BLOCK:
+        setBlock((block)null);
         return;
-      case AS3Package.TRY_STATEMENT__PARAMS:
-        getParams().clear();
+      case AS3Package.TRY_STATEMENT__FINALLY:
+        setFinally((finallyBlock)null);
         return;
-      case AS3Package.TRY_STATEMENT__FINALLY_BLOCK:
-        setFinallyBlock((StatementsBlock)null);
+      case AS3Package.TRY_STATEMENT__CATCH:
+        getCatch().clear();
         return;
     }
     super.eUnset(featureID);
@@ -266,12 +300,12 @@ public class TryStatementImpl extends StatementImpl implements TryStatement
   {
     switch (featureID)
     {
-      case AS3Package.TRY_STATEMENT__STATEMENTS:
-        return statements != null && !statements.isEmpty();
-      case AS3Package.TRY_STATEMENT__PARAMS:
-        return params != null && !params.isEmpty();
-      case AS3Package.TRY_STATEMENT__FINALLY_BLOCK:
-        return finallyBlock != null;
+      case AS3Package.TRY_STATEMENT__BLOCK:
+        return block != null;
+      case AS3Package.TRY_STATEMENT__FINALLY:
+        return finally_ != null;
+      case AS3Package.TRY_STATEMENT__CATCH:
+        return catch_ != null && !catch_.isEmpty();
     }
     return super.eIsSet(featureID);
   }

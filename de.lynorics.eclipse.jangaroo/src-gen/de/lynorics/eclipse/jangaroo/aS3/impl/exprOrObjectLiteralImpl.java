@@ -7,6 +7,8 @@ import de.lynorics.eclipse.jangaroo.aS3.exprOrObjectLiteral;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>expr Or Object Literal</b></em>'.
@@ -16,7 +18,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class exprOrObjectLiteralImpl extends objectFieldImpl implements exprOrObjectLiteral
+public class exprOrObjectLiteralImpl extends MinimalEObjectImpl.Container implements exprOrObjectLiteral
 {
   /**
    * <!-- begin-user-doc -->

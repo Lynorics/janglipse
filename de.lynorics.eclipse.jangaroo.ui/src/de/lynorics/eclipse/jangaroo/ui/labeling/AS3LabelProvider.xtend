@@ -113,7 +113,7 @@ class AS3LabelProvider extends DefaultEObjectLabelProvider {
     }
     
     def image(InterfaceMethod meth) {
-      switch(meth.access) {
+      switch(meth.modifier.access) {
         case PUBLIC: {
           return "outline-function-public.gif";
         }
@@ -135,7 +135,7 @@ class AS3LabelProvider extends DefaultEObjectLabelProvider {
   
     def Image image(Method meth) {
       var Image image = null;
-      switch(meth.access) {
+      switch(meth.modifier.access) {
         case PUBLIC: {
           image = imageHelper.getImage("outline-function-public.gif");
         }

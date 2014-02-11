@@ -5,59 +5,112 @@ package de.lynorics.eclipse.jangaroo.aS3.impl;
 import de.lynorics.eclipse.jangaroo.aS3.AS3Factory;
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
 import de.lynorics.eclipse.jangaroo.aS3.AccessLevel;
-import de.lynorics.eclipse.jangaroo.aS3.Assignment;
-import de.lynorics.eclipse.jangaroo.aS3.Block;
-import de.lynorics.eclipse.jangaroo.aS3.BoolConstant;
-import de.lynorics.eclipse.jangaroo.aS3.BracketExpr;
+import de.lynorics.eclipse.jangaroo.aS3.CaseStatement;
+import de.lynorics.eclipse.jangaroo.aS3.Condition;
+import de.lynorics.eclipse.jangaroo.aS3.Constant;
+import de.lynorics.eclipse.jangaroo.aS3.Declaration;
+import de.lynorics.eclipse.jangaroo.aS3.DeclarationStatement;
+import de.lynorics.eclipse.jangaroo.aS3.DefaultStatement;
+import de.lynorics.eclipse.jangaroo.aS3.DefaultXMLNamespaceStatement;
 import de.lynorics.eclipse.jangaroo.aS3.DoWhileStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Expression;
+import de.lynorics.eclipse.jangaroo.aS3.ExpressionStatement;
+import de.lynorics.eclipse.jangaroo.aS3.ForEachStatement;
 import de.lynorics.eclipse.jangaroo.aS3.ForStatement;
-import de.lynorics.eclipse.jangaroo.aS3.IfBlock;
 import de.lynorics.eclipse.jangaroo.aS3.IfStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Import;
 import de.lynorics.eclipse.jangaroo.aS3.Imports;
-import de.lynorics.eclipse.jangaroo.aS3.IntConstant;
 import de.lynorics.eclipse.jangaroo.aS3.Interface;
 import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 import de.lynorics.eclipse.jangaroo.aS3.Member;
-import de.lynorics.eclipse.jangaroo.aS3.MemberSelection;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
 import de.lynorics.eclipse.jangaroo.aS3.MethodBody;
 import de.lynorics.eclipse.jangaroo.aS3.Model;
-import de.lynorics.eclipse.jangaroo.aS3.New;
-import de.lynorics.eclipse.jangaroo.aS3.NewStatement;
-import de.lynorics.eclipse.jangaroo.aS3.Null;
+import de.lynorics.eclipse.jangaroo.aS3.Modifier;
 import de.lynorics.eclipse.jangaroo.aS3.Parameter;
-import de.lynorics.eclipse.jangaroo.aS3.Parameters;
-import de.lynorics.eclipse.jangaroo.aS3.Return;
+import de.lynorics.eclipse.jangaroo.aS3.ReturnStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Statement;
-import de.lynorics.eclipse.jangaroo.aS3.StatementsBlock;
-import de.lynorics.eclipse.jangaroo.aS3.StringConstant;
-import de.lynorics.eclipse.jangaroo.aS3.Super;
-import de.lynorics.eclipse.jangaroo.aS3.Switch;
 import de.lynorics.eclipse.jangaroo.aS3.SwitchStatement;
-import de.lynorics.eclipse.jangaroo.aS3.Symbol;
-import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
-import de.lynorics.eclipse.jangaroo.aS3.TerminalOp;
-import de.lynorics.eclipse.jangaroo.aS3.This;
+import de.lynorics.eclipse.jangaroo.aS3.ThrowStatement;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
-import de.lynorics.eclipse.jangaroo.aS3.Undefined;
 import de.lynorics.eclipse.jangaroo.aS3.Uses;
 import de.lynorics.eclipse.jangaroo.aS3.VarType;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
-import de.lynorics.eclipse.jangaroo.aS3.While;
 import de.lynorics.eclipse.jangaroo.aS3.WhileStatement;
+import de.lynorics.eclipse.jangaroo.aS3.WithStatement;
+import de.lynorics.eclipse.jangaroo.aS3.additiveExpression;
 import de.lynorics.eclipse.jangaroo.aS3.annotationField;
 import de.lynorics.eclipse.jangaroo.aS3.annotationFields;
-import de.lynorics.eclipse.jangaroo.aS3.commaExpr;
+import de.lynorics.eclipse.jangaroo.aS3.arguments;
+import de.lynorics.eclipse.jangaroo.aS3.arrayLiteral;
+import de.lynorics.eclipse.jangaroo.aS3.assignmentExpression;
+import de.lynorics.eclipse.jangaroo.aS3.basicParameterDeclaration;
+import de.lynorics.eclipse.jangaroo.aS3.bitwiseAndExpression;
+import de.lynorics.eclipse.jangaroo.aS3.bitwiseOrExpression;
+import de.lynorics.eclipse.jangaroo.aS3.bitwiseXorExpression;
+import de.lynorics.eclipse.jangaroo.aS3.block;
+import de.lynorics.eclipse.jangaroo.aS3.blockEntry;
+import de.lynorics.eclipse.jangaroo.aS3.brackets;
+import de.lynorics.eclipse.jangaroo.aS3.catchBlock;
+import de.lynorics.eclipse.jangaroo.aS3.conditionalExpression;
+import de.lynorics.eclipse.jangaroo.aS3.conditionalSubExpression;
+import de.lynorics.eclipse.jangaroo.aS3.declarationTail;
 import de.lynorics.eclipse.jangaroo.aS3.directive;
+import de.lynorics.eclipse.jangaroo.aS3.e4xAttributeIdentifier;
+import de.lynorics.eclipse.jangaroo.aS3.element;
+import de.lynorics.eclipse.jangaroo.aS3.elementList;
+import de.lynorics.eclipse.jangaroo.aS3.encapsulatedExpression;
+import de.lynorics.eclipse.jangaroo.aS3.equalityExpression;
 import de.lynorics.eclipse.jangaroo.aS3.exprOrObjectLiteral;
-import de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration;
-import de.lynorics.eclipse.jangaroo.aS3.objectField;
-import de.lynorics.eclipse.jangaroo.aS3.objectFields;
+import de.lynorics.eclipse.jangaroo.aS3.expressionList;
+import de.lynorics.eclipse.jangaroo.aS3.expressionQualifiedIdentifier;
+import de.lynorics.eclipse.jangaroo.aS3.fieldList;
+import de.lynorics.eclipse.jangaroo.aS3.fieldName;
+import de.lynorics.eclipse.jangaroo.aS3.finallyBlock;
+import de.lynorics.eclipse.jangaroo.aS3.forCond;
+import de.lynorics.eclipse.jangaroo.aS3.forInClause;
+import de.lynorics.eclipse.jangaroo.aS3.forInClauseDecl;
+import de.lynorics.eclipse.jangaroo.aS3.forInClauseTail;
+import de.lynorics.eclipse.jangaroo.aS3.forInit;
+import de.lynorics.eclipse.jangaroo.aS3.forIter;
+import de.lynorics.eclipse.jangaroo.aS3.fullNewSubexpression;
+import de.lynorics.eclipse.jangaroo.aS3.functionCommon;
+import de.lynorics.eclipse.jangaroo.aS3.functionExpression;
+import de.lynorics.eclipse.jangaroo.aS3.functionSignature;
+import de.lynorics.eclipse.jangaroo.aS3.identi;
+import de.lynorics.eclipse.jangaroo.aS3.identifier;
+import de.lynorics.eclipse.jangaroo.aS3.literalField;
+import de.lynorics.eclipse.jangaroo.aS3.logicalAndExpression;
+import de.lynorics.eclipse.jangaroo.aS3.logicalOrExpression;
+import de.lynorics.eclipse.jangaroo.aS3.multiplicativeExpression;
+import de.lynorics.eclipse.jangaroo.aS3.namespaceName;
+import de.lynorics.eclipse.jangaroo.aS3.newExpression;
+import de.lynorics.eclipse.jangaroo.aS3.nonAttributeQualifiedIdentifier;
+import de.lynorics.eclipse.jangaroo.aS3.nonemptyElementList;
 import de.lynorics.eclipse.jangaroo.aS3.objectLiteral;
-import de.lynorics.eclipse.jangaroo.aS3.parenthesizedExpr;
-import de.lynorics.eclipse.jangaroo.aS3.statementInSwitch;
+import de.lynorics.eclipse.jangaroo.aS3.parameterDeclaration;
+import de.lynorics.eclipse.jangaroo.aS3.parameterDeclarationList;
+import de.lynorics.eclipse.jangaroo.aS3.parameterDefault;
+import de.lynorics.eclipse.jangaroo.aS3.parameterRestDeclaration;
+import de.lynorics.eclipse.jangaroo.aS3.postfixExpression;
+import de.lynorics.eclipse.jangaroo.aS3.primaryExpression;
+import de.lynorics.eclipse.jangaroo.aS3.propOrIdent;
+import de.lynorics.eclipse.jangaroo.aS3.propertyIdentifier;
+import de.lynorics.eclipse.jangaroo.aS3.qualifiedIdent;
+import de.lynorics.eclipse.jangaroo.aS3.qualifiedIdentifier;
+import de.lynorics.eclipse.jangaroo.aS3.qualifier;
+import de.lynorics.eclipse.jangaroo.aS3.regexpLiteral;
+import de.lynorics.eclipse.jangaroo.aS3.relationalExpression;
+import de.lynorics.eclipse.jangaroo.aS3.shiftExpression;
+import de.lynorics.eclipse.jangaroo.aS3.simpleQualifiedIdentifier;
+import de.lynorics.eclipse.jangaroo.aS3.switchBlock;
+import de.lynorics.eclipse.jangaroo.aS3.switchStatementList;
+import de.lynorics.eclipse.jangaroo.aS3.traditionalForClause;
+import de.lynorics.eclipse.jangaroo.aS3.typeExpression;
+import de.lynorics.eclipse.jangaroo.aS3.unaryExpression;
+import de.lynorics.eclipse.jangaroo.aS3.unaryExpressionNotPlusMinus;
+import de.lynorics.eclipse.jangaroo.aS3.variableDeclarator;
+import de.lynorics.eclipse.jangaroo.aS3.variableInitializer;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -133,48 +186,101 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.CLASS: return createClass();
       case AS3Package.MEMBER: return createMember();
       case AS3Package.METHOD: return createMethod();
+      case AS3Package.MODIFIER: return createModifier();
       case AS3Package.METHOD_BODY: return createMethodBody();
-      case AS3Package.STATEMENT: return createStatement();
-      case AS3Package.NEW_STATEMENT: return createNewStatement();
-      case AS3Package.FOR_STATEMENT: return createForStatement();
-      case AS3Package.IDENTIFIER_DECLARATION: return createidentifierDeclaration();
-      case AS3Package.COMMA_EXPR: return createcommaExpr();
-      case AS3Package.DO_WHILE_STATEMENT: return createDoWhileStatement();
-      case AS3Package.WHILE_STATEMENT: return createWhileStatement();
-      case AS3Package.SWITCH_STATEMENT: return createSwitchStatement();
-      case AS3Package.PARENTHESIZED_EXPR: return createparenthesizedExpr();
-      case AS3Package.STATEMENT_IN_SWITCH: return createstatementInSwitch();
-      case AS3Package.RETURN: return createReturn();
       case AS3Package.VARIABLE_DECLARATION: return createVariableDeclaration();
       case AS3Package.VAR_TYPE: return createVarType();
-      case AS3Package.IF_STATEMENT: return createIfStatement();
-      case AS3Package.TRY_STATEMENT: return createTryStatement();
-      case AS3Package.IF_BLOCK: return createIfBlock();
-      case AS3Package.STATEMENTS_BLOCK: return createStatementsBlock();
-      case AS3Package.BLOCK: return createBlock();
       case AS3Package.PARAMETER: return createParameter();
-      case AS3Package.PARAMETERS: return createParameters();
       case AS3Package.OBJECT_LITERAL: return createobjectLiteral();
-      case AS3Package.OBJECT_FIELDS: return createobjectFields();
-      case AS3Package.OBJECT_FIELD: return createobjectField();
+      case AS3Package.FIELD_LIST: return createfieldList();
+      case AS3Package.LITERAL_FIELD: return createliteralField();
+      case AS3Package.FIELD_NAME: return createfieldName();
+      case AS3Package.ELEMENT: return createelement();
       case AS3Package.EXPR_OR_OBJECT_LITERAL: return createexprOrObjectLiteral();
-      case AS3Package.SYMBOL: return createSymbol();
+      case AS3Package.QUALIFIED_IDENT: return createqualifiedIdent();
+      case AS3Package.IDENTI: return createidenti();
+      case AS3Package.IDENTIFIER: return createidentifier();
+      case AS3Package.PROPERTY_IDENTIFIER: return createpropertyIdentifier();
+      case AS3Package.QUALIFIER: return createqualifier();
+      case AS3Package.SIMPLE_QUALIFIED_IDENTIFIER: return createsimpleQualifiedIdentifier();
+      case AS3Package.EXPRESSION_QUALIFIED_IDENTIFIER: return createexpressionQualifiedIdentifier();
+      case AS3Package.NON_ATTRIBUTE_QUALIFIED_IDENTIFIER: return createnonAttributeQualifiedIdentifier();
+      case AS3Package.QUALIFIED_IDENTIFIER: return createqualifiedIdentifier();
+      case AS3Package.NAMESPACE_NAME: return createnamespaceName();
+      case AS3Package.ARRAY_LITERAL: return createarrayLiteral();
+      case AS3Package.ELEMENT_LIST: return createelementList();
+      case AS3Package.NONEMPTY_ELEMENT_LIST: return createnonemptyElementList();
       case AS3Package.EXPRESSION: return createExpression();
-      case AS3Package.NEW: return createNew();
-      case AS3Package.WHILE: return createWhile();
-      case AS3Package.SWITCH: return createSwitch();
-      case AS3Package.ASSIGNMENT: return createAssignment();
-      case AS3Package.MEMBER_SELECTION: return createMemberSelection();
-      case AS3Package.STRING_CONSTANT: return createStringConstant();
-      case AS3Package.INT_CONSTANT: return createIntConstant();
-      case AS3Package.BOOL_CONSTANT: return createBoolConstant();
-      case AS3Package.THIS: return createThis();
-      case AS3Package.SUPER: return createSuper();
-      case AS3Package.NULL: return createNull();
-      case AS3Package.UNDEFINED: return createUndefined();
-      case AS3Package.SYMBOL_REF: return createSymbolRef();
-      case AS3Package.TERMINAL_OP: return createTerminalOp();
-      case AS3Package.BRACKET_EXPR: return createBracketExpr();
+      case AS3Package.EXPRESSION_LIST: return createexpressionList();
+      case AS3Package.ASSIGNMENT_EXPRESSION: return createassignmentExpression();
+      case AS3Package.CONDITIONAL_EXPRESSION: return createconditionalExpression();
+      case AS3Package.CONDITIONAL_SUB_EXPRESSION: return createconditionalSubExpression();
+      case AS3Package.LOGICAL_OR_EXPRESSION: return createlogicalOrExpression();
+      case AS3Package.LOGICAL_AND_EXPRESSION: return createlogicalAndExpression();
+      case AS3Package.BITWISE_OR_EXPRESSION: return createbitwiseOrExpression();
+      case AS3Package.BITWISE_XOR_EXPRESSION: return createbitwiseXorExpression();
+      case AS3Package.BITWISE_AND_EXPRESSION: return createbitwiseAndExpression();
+      case AS3Package.EQUALITY_EXPRESSION: return createequalityExpression();
+      case AS3Package.RELATIONAL_EXPRESSION: return createrelationalExpression();
+      case AS3Package.SHIFT_EXPRESSION: return createshiftExpression();
+      case AS3Package.ADDITIVE_EXPRESSION: return createadditiveExpression();
+      case AS3Package.MULTIPLICATIVE_EXPRESSION: return createmultiplicativeExpression();
+      case AS3Package.UNARY_EXPRESSION: return createunaryExpression();
+      case AS3Package.UNARY_EXPRESSION_NOT_PLUS_MINUS: return createunaryExpressionNotPlusMinus();
+      case AS3Package.POSTFIX_EXPRESSION: return createpostfixExpression();
+      case AS3Package.ARGUMENTS: return createarguments();
+      case AS3Package.E4X_ATTRIBUTE_IDENTIFIER: return createe4xAttributeIdentifier();
+      case AS3Package.PRIMARY_EXPRESSION: return createprimaryExpression();
+      case AS3Package.PROP_OR_IDENT: return createpropOrIdent();
+      case AS3Package.CONSTANT: return createConstant();
+      case AS3Package.REGEXP_LITERAL: return createregexpLiteral();
+      case AS3Package.NEW_EXPRESSION: return createnewExpression();
+      case AS3Package.FULL_NEW_SUBEXPRESSION: return createfullNewSubexpression();
+      case AS3Package.BRACKETS: return createbrackets();
+      case AS3Package.ENCAPSULATED_EXPRESSION: return createencapsulatedExpression();
+      case AS3Package.FUNCTION_SIGNATURE: return createfunctionSignature();
+      case AS3Package.TYPE_EXPRESSION: return createtypeExpression();
+      case AS3Package.PARAMETER_DECLARATION_LIST: return createparameterDeclarationList();
+      case AS3Package.PARAMETER_DECLARATION: return createparameterDeclaration();
+      case AS3Package.BASIC_PARAMETER_DECLARATION: return createbasicParameterDeclaration();
+      case AS3Package.PARAMETER_DEFAULT: return createparameterDefault();
+      case AS3Package.PARAMETER_REST_DECLARATION: return createparameterRestDeclaration();
+      case AS3Package.BLOCK: return createblock();
+      case AS3Package.BLOCK_ENTRY: return createblockEntry();
+      case AS3Package.CONDITION: return createCondition();
+      case AS3Package.STATEMENT: return createStatement();
+      case AS3Package.DEFAULT_XML_NAMESPACE_STATEMENT: return createDefaultXMLNamespaceStatement();
+      case AS3Package.DECLARATION_STATEMENT: return createDeclarationStatement();
+      case AS3Package.VARIABLE_DECLARATOR: return createvariableDeclarator();
+      case AS3Package.DECLARATION: return createDeclaration();
+      case AS3Package.DECLARATION_TAIL: return createdeclarationTail();
+      case AS3Package.VARIABLE_INITIALIZER: return createvariableInitializer();
+      case AS3Package.EXPRESSION_STATEMENT: return createExpressionStatement();
+      case AS3Package.IF_STATEMENT: return createIfStatement();
+      case AS3Package.THROW_STATEMENT: return createThrowStatement();
+      case AS3Package.TRY_STATEMENT: return createTryStatement();
+      case AS3Package.CATCH_BLOCK: return createcatchBlock();
+      case AS3Package.FINALLY_BLOCK: return createfinallyBlock();
+      case AS3Package.RETURN_STATEMENT: return createReturnStatement();
+      case AS3Package.SWITCH_STATEMENT: return createSwitchStatement();
+      case AS3Package.SWITCH_BLOCK: return createswitchBlock();
+      case AS3Package.CASE_STATEMENT: return createCaseStatement();
+      case AS3Package.DEFAULT_STATEMENT: return createDefaultStatement();
+      case AS3Package.SWITCH_STATEMENT_LIST: return createswitchStatementList();
+      case AS3Package.FOR_EACH_STATEMENT: return createForEachStatement();
+      case AS3Package.FOR_STATEMENT: return createForStatement();
+      case AS3Package.TRADITIONAL_FOR_CLAUSE: return createtraditionalForClause();
+      case AS3Package.FOR_IN_CLAUSE: return createforInClause();
+      case AS3Package.FOR_IN_CLAUSE_DECL: return createforInClauseDecl();
+      case AS3Package.FOR_IN_CLAUSE_TAIL: return createforInClauseTail();
+      case AS3Package.FOR_INIT: return createforInit();
+      case AS3Package.FOR_COND: return createforCond();
+      case AS3Package.FOR_ITER: return createforIter();
+      case AS3Package.WHILE_STATEMENT: return createWhileStatement();
+      case AS3Package.DO_WHILE_STATEMENT: return createDoWhileStatement();
+      case AS3Package.WITH_STATEMENT: return createWithStatement();
+      case AS3Package.FUNCTION_COMMON: return createfunctionCommon();
+      case AS3Package.FUNCTION_EXPRESSION: return createfunctionExpression();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -362,131 +468,21 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Modifier createModifier()
+  {
+    ModifierImpl modifier = new ModifierImpl();
+    return modifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public MethodBody createMethodBody()
   {
     MethodBodyImpl methodBody = new MethodBodyImpl();
     return methodBody;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Statement createStatement()
-  {
-    StatementImpl statement = new StatementImpl();
-    return statement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NewStatement createNewStatement()
-  {
-    NewStatementImpl newStatement = new NewStatementImpl();
-    return newStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ForStatement createForStatement()
-  {
-    ForStatementImpl forStatement = new ForStatementImpl();
-    return forStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public identifierDeclaration createidentifierDeclaration()
-  {
-    identifierDeclarationImpl identifierDeclaration = new identifierDeclarationImpl();
-    return identifierDeclaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public commaExpr createcommaExpr()
-  {
-    commaExprImpl commaExpr = new commaExprImpl();
-    return commaExpr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DoWhileStatement createDoWhileStatement()
-  {
-    DoWhileStatementImpl doWhileStatement = new DoWhileStatementImpl();
-    return doWhileStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public WhileStatement createWhileStatement()
-  {
-    WhileStatementImpl whileStatement = new WhileStatementImpl();
-    return whileStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SwitchStatement createSwitchStatement()
-  {
-    SwitchStatementImpl switchStatement = new SwitchStatementImpl();
-    return switchStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public parenthesizedExpr createparenthesizedExpr()
-  {
-    parenthesizedExprImpl parenthesizedExpr = new parenthesizedExprImpl();
-    return parenthesizedExpr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public statementInSwitch createstatementInSwitch()
-  {
-    statementInSwitchImpl statementInSwitch = new statementInSwitchImpl();
-    return statementInSwitch;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Return createReturn()
-  {
-    ReturnImpl return_ = new ReturnImpl();
-    return return_;
   }
 
   /**
@@ -516,76 +512,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public IfStatement createIfStatement()
-  {
-    IfStatementImpl ifStatement = new IfStatementImpl();
-    return ifStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public TryStatement createTryStatement()
-  {
-    TryStatementImpl tryStatement = new TryStatementImpl();
-    return tryStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public IfBlock createIfBlock()
-  {
-    IfBlockImpl ifBlock = new IfBlockImpl();
-    return ifBlock;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public StatementsBlock createStatementsBlock()
-  {
-    StatementsBlockImpl statementsBlock = new StatementsBlockImpl();
-    return statementsBlock;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Block createBlock()
-  {
-    BlockImpl block = new BlockImpl();
-    return block;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Parameter createParameter()
   {
     ParameterImpl parameter = new ParameterImpl();
     return parameter;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parameters createParameters()
-  {
-    ParametersImpl parameters = new ParametersImpl();
-    return parameters;
   }
 
   /**
@@ -604,10 +534,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public objectFields createobjectFields()
+  public fieldList createfieldList()
   {
-    objectFieldsImpl objectFields = new objectFieldsImpl();
-    return objectFields;
+    fieldListImpl fieldList = new fieldListImpl();
+    return fieldList;
   }
 
   /**
@@ -615,10 +545,32 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public objectField createobjectField()
+  public literalField createliteralField()
   {
-    objectFieldImpl objectField = new objectFieldImpl();
-    return objectField;
+    literalFieldImpl literalField = new literalFieldImpl();
+    return literalField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public fieldName createfieldName()
+  {
+    fieldNameImpl fieldName = new fieldNameImpl();
+    return fieldName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public element createelement()
+  {
+    elementImpl element = new elementImpl();
+    return element;
   }
 
   /**
@@ -637,10 +589,142 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Symbol createSymbol()
+  public qualifiedIdent createqualifiedIdent()
   {
-    SymbolImpl symbol = new SymbolImpl();
-    return symbol;
+    qualifiedIdentImpl qualifiedIdent = new qualifiedIdentImpl();
+    return qualifiedIdent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public identi createidenti()
+  {
+    identiImpl identi = new identiImpl();
+    return identi;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public identifier createidentifier()
+  {
+    identifierImpl identifier = new identifierImpl();
+    return identifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public propertyIdentifier createpropertyIdentifier()
+  {
+    propertyIdentifierImpl propertyIdentifier = new propertyIdentifierImpl();
+    return propertyIdentifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public qualifier createqualifier()
+  {
+    qualifierImpl qualifier = new qualifierImpl();
+    return qualifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public simpleQualifiedIdentifier createsimpleQualifiedIdentifier()
+  {
+    simpleQualifiedIdentifierImpl simpleQualifiedIdentifier = new simpleQualifiedIdentifierImpl();
+    return simpleQualifiedIdentifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public expressionQualifiedIdentifier createexpressionQualifiedIdentifier()
+  {
+    expressionQualifiedIdentifierImpl expressionQualifiedIdentifier = new expressionQualifiedIdentifierImpl();
+    return expressionQualifiedIdentifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public nonAttributeQualifiedIdentifier createnonAttributeQualifiedIdentifier()
+  {
+    nonAttributeQualifiedIdentifierImpl nonAttributeQualifiedIdentifier = new nonAttributeQualifiedIdentifierImpl();
+    return nonAttributeQualifiedIdentifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public qualifiedIdentifier createqualifiedIdentifier()
+  {
+    qualifiedIdentifierImpl qualifiedIdentifier = new qualifiedIdentifierImpl();
+    return qualifiedIdentifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public namespaceName createnamespaceName()
+  {
+    namespaceNameImpl namespaceName = new namespaceNameImpl();
+    return namespaceName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public arrayLiteral createarrayLiteral()
+  {
+    arrayLiteralImpl arrayLiteral = new arrayLiteralImpl();
+    return arrayLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public elementList createelementList()
+  {
+    elementListImpl elementList = new elementListImpl();
+    return elementList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public nonemptyElementList createnonemptyElementList()
+  {
+    nonemptyElementListImpl nonemptyElementList = new nonemptyElementListImpl();
+    return nonemptyElementList;
   }
 
   /**
@@ -659,10 +743,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public New createNew()
+  public expressionList createexpressionList()
   {
-    NewImpl new_ = new NewImpl();
-    return new_;
+    expressionListImpl expressionList = new expressionListImpl();
+    return expressionList;
   }
 
   /**
@@ -670,10 +754,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public While createWhile()
+  public assignmentExpression createassignmentExpression()
   {
-    WhileImpl while_ = new WhileImpl();
-    return while_;
+    assignmentExpressionImpl assignmentExpression = new assignmentExpressionImpl();
+    return assignmentExpression;
   }
 
   /**
@@ -681,10 +765,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Switch createSwitch()
+  public conditionalExpression createconditionalExpression()
   {
-    SwitchImpl switch_ = new SwitchImpl();
-    return switch_;
+    conditionalExpressionImpl conditionalExpression = new conditionalExpressionImpl();
+    return conditionalExpression;
   }
 
   /**
@@ -692,10 +776,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Assignment createAssignment()
+  public conditionalSubExpression createconditionalSubExpression()
   {
-    AssignmentImpl assignment = new AssignmentImpl();
-    return assignment;
+    conditionalSubExpressionImpl conditionalSubExpression = new conditionalSubExpressionImpl();
+    return conditionalSubExpression;
   }
 
   /**
@@ -703,10 +787,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MemberSelection createMemberSelection()
+  public logicalOrExpression createlogicalOrExpression()
   {
-    MemberSelectionImpl memberSelection = new MemberSelectionImpl();
-    return memberSelection;
+    logicalOrExpressionImpl logicalOrExpression = new logicalOrExpressionImpl();
+    return logicalOrExpression;
   }
 
   /**
@@ -714,10 +798,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public StringConstant createStringConstant()
+  public logicalAndExpression createlogicalAndExpression()
   {
-    StringConstantImpl stringConstant = new StringConstantImpl();
-    return stringConstant;
+    logicalAndExpressionImpl logicalAndExpression = new logicalAndExpressionImpl();
+    return logicalAndExpression;
   }
 
   /**
@@ -725,10 +809,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public IntConstant createIntConstant()
+  public bitwiseOrExpression createbitwiseOrExpression()
   {
-    IntConstantImpl intConstant = new IntConstantImpl();
-    return intConstant;
+    bitwiseOrExpressionImpl bitwiseOrExpression = new bitwiseOrExpressionImpl();
+    return bitwiseOrExpression;
   }
 
   /**
@@ -736,10 +820,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public BoolConstant createBoolConstant()
+  public bitwiseXorExpression createbitwiseXorExpression()
   {
-    BoolConstantImpl boolConstant = new BoolConstantImpl();
-    return boolConstant;
+    bitwiseXorExpressionImpl bitwiseXorExpression = new bitwiseXorExpressionImpl();
+    return bitwiseXorExpression;
   }
 
   /**
@@ -747,10 +831,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public This createThis()
+  public bitwiseAndExpression createbitwiseAndExpression()
   {
-    ThisImpl this_ = new ThisImpl();
-    return this_;
+    bitwiseAndExpressionImpl bitwiseAndExpression = new bitwiseAndExpressionImpl();
+    return bitwiseAndExpression;
   }
 
   /**
@@ -758,10 +842,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Super createSuper()
+  public equalityExpression createequalityExpression()
   {
-    SuperImpl super_ = new SuperImpl();
-    return super_;
+    equalityExpressionImpl equalityExpression = new equalityExpressionImpl();
+    return equalityExpression;
   }
 
   /**
@@ -769,10 +853,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Null createNull()
+  public relationalExpression createrelationalExpression()
   {
-    NullImpl null_ = new NullImpl();
-    return null_;
+    relationalExpressionImpl relationalExpression = new relationalExpressionImpl();
+    return relationalExpression;
   }
 
   /**
@@ -780,10 +864,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Undefined createUndefined()
+  public shiftExpression createshiftExpression()
   {
-    UndefinedImpl undefined = new UndefinedImpl();
-    return undefined;
+    shiftExpressionImpl shiftExpression = new shiftExpressionImpl();
+    return shiftExpression;
   }
 
   /**
@@ -791,10 +875,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public SymbolRef createSymbolRef()
+  public additiveExpression createadditiveExpression()
   {
-    SymbolRefImpl symbolRef = new SymbolRefImpl();
-    return symbolRef;
+    additiveExpressionImpl additiveExpression = new additiveExpressionImpl();
+    return additiveExpression;
   }
 
   /**
@@ -802,10 +886,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public TerminalOp createTerminalOp()
+  public multiplicativeExpression createmultiplicativeExpression()
   {
-    TerminalOpImpl terminalOp = new TerminalOpImpl();
-    return terminalOp;
+    multiplicativeExpressionImpl multiplicativeExpression = new multiplicativeExpressionImpl();
+    return multiplicativeExpression;
   }
 
   /**
@@ -813,10 +897,615 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public BracketExpr createBracketExpr()
+  public unaryExpression createunaryExpression()
   {
-    BracketExprImpl bracketExpr = new BracketExprImpl();
-    return bracketExpr;
+    unaryExpressionImpl unaryExpression = new unaryExpressionImpl();
+    return unaryExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public unaryExpressionNotPlusMinus createunaryExpressionNotPlusMinus()
+  {
+    unaryExpressionNotPlusMinusImpl unaryExpressionNotPlusMinus = new unaryExpressionNotPlusMinusImpl();
+    return unaryExpressionNotPlusMinus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public postfixExpression createpostfixExpression()
+  {
+    postfixExpressionImpl postfixExpression = new postfixExpressionImpl();
+    return postfixExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public arguments createarguments()
+  {
+    argumentsImpl arguments = new argumentsImpl();
+    return arguments;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public e4xAttributeIdentifier createe4xAttributeIdentifier()
+  {
+    e4xAttributeIdentifierImpl e4xAttributeIdentifier = new e4xAttributeIdentifierImpl();
+    return e4xAttributeIdentifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public primaryExpression createprimaryExpression()
+  {
+    primaryExpressionImpl primaryExpression = new primaryExpressionImpl();
+    return primaryExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public propOrIdent createpropOrIdent()
+  {
+    propOrIdentImpl propOrIdent = new propOrIdentImpl();
+    return propOrIdent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Constant createConstant()
+  {
+    ConstantImpl constant = new ConstantImpl();
+    return constant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public regexpLiteral createregexpLiteral()
+  {
+    regexpLiteralImpl regexpLiteral = new regexpLiteralImpl();
+    return regexpLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public newExpression createnewExpression()
+  {
+    newExpressionImpl newExpression = new newExpressionImpl();
+    return newExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public fullNewSubexpression createfullNewSubexpression()
+  {
+    fullNewSubexpressionImpl fullNewSubexpression = new fullNewSubexpressionImpl();
+    return fullNewSubexpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public brackets createbrackets()
+  {
+    bracketsImpl brackets = new bracketsImpl();
+    return brackets;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public encapsulatedExpression createencapsulatedExpression()
+  {
+    encapsulatedExpressionImpl encapsulatedExpression = new encapsulatedExpressionImpl();
+    return encapsulatedExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public functionSignature createfunctionSignature()
+  {
+    functionSignatureImpl functionSignature = new functionSignatureImpl();
+    return functionSignature;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public typeExpression createtypeExpression()
+  {
+    typeExpressionImpl typeExpression = new typeExpressionImpl();
+    return typeExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public parameterDeclarationList createparameterDeclarationList()
+  {
+    parameterDeclarationListImpl parameterDeclarationList = new parameterDeclarationListImpl();
+    return parameterDeclarationList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public parameterDeclaration createparameterDeclaration()
+  {
+    parameterDeclarationImpl parameterDeclaration = new parameterDeclarationImpl();
+    return parameterDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public basicParameterDeclaration createbasicParameterDeclaration()
+  {
+    basicParameterDeclarationImpl basicParameterDeclaration = new basicParameterDeclarationImpl();
+    return basicParameterDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public parameterDefault createparameterDefault()
+  {
+    parameterDefaultImpl parameterDefault = new parameterDefaultImpl();
+    return parameterDefault;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public parameterRestDeclaration createparameterRestDeclaration()
+  {
+    parameterRestDeclarationImpl parameterRestDeclaration = new parameterRestDeclarationImpl();
+    return parameterRestDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public block createblock()
+  {
+    blockImpl block = new blockImpl();
+    return block;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public blockEntry createblockEntry()
+  {
+    blockEntryImpl blockEntry = new blockEntryImpl();
+    return blockEntry;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Condition createCondition()
+  {
+    ConditionImpl condition = new ConditionImpl();
+    return condition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Statement createStatement()
+  {
+    StatementImpl statement = new StatementImpl();
+    return statement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DefaultXMLNamespaceStatement createDefaultXMLNamespaceStatement()
+  {
+    DefaultXMLNamespaceStatementImpl defaultXMLNamespaceStatement = new DefaultXMLNamespaceStatementImpl();
+    return defaultXMLNamespaceStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DeclarationStatement createDeclarationStatement()
+  {
+    DeclarationStatementImpl declarationStatement = new DeclarationStatementImpl();
+    return declarationStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public variableDeclarator createvariableDeclarator()
+  {
+    variableDeclaratorImpl variableDeclarator = new variableDeclaratorImpl();
+    return variableDeclarator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Declaration createDeclaration()
+  {
+    DeclarationImpl declaration = new DeclarationImpl();
+    return declaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public declarationTail createdeclarationTail()
+  {
+    declarationTailImpl declarationTail = new declarationTailImpl();
+    return declarationTail;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public variableInitializer createvariableInitializer()
+  {
+    variableInitializerImpl variableInitializer = new variableInitializerImpl();
+    return variableInitializer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExpressionStatement createExpressionStatement()
+  {
+    ExpressionStatementImpl expressionStatement = new ExpressionStatementImpl();
+    return expressionStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IfStatement createIfStatement()
+  {
+    IfStatementImpl ifStatement = new IfStatementImpl();
+    return ifStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ThrowStatement createThrowStatement()
+  {
+    ThrowStatementImpl throwStatement = new ThrowStatementImpl();
+    return throwStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TryStatement createTryStatement()
+  {
+    TryStatementImpl tryStatement = new TryStatementImpl();
+    return tryStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public catchBlock createcatchBlock()
+  {
+    catchBlockImpl catchBlock = new catchBlockImpl();
+    return catchBlock;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public finallyBlock createfinallyBlock()
+  {
+    finallyBlockImpl finallyBlock = new finallyBlockImpl();
+    return finallyBlock;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ReturnStatement createReturnStatement()
+  {
+    ReturnStatementImpl returnStatement = new ReturnStatementImpl();
+    return returnStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SwitchStatement createSwitchStatement()
+  {
+    SwitchStatementImpl switchStatement = new SwitchStatementImpl();
+    return switchStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public switchBlock createswitchBlock()
+  {
+    switchBlockImpl switchBlock = new switchBlockImpl();
+    return switchBlock;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CaseStatement createCaseStatement()
+  {
+    CaseStatementImpl caseStatement = new CaseStatementImpl();
+    return caseStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DefaultStatement createDefaultStatement()
+  {
+    DefaultStatementImpl defaultStatement = new DefaultStatementImpl();
+    return defaultStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public switchStatementList createswitchStatementList()
+  {
+    switchStatementListImpl switchStatementList = new switchStatementListImpl();
+    return switchStatementList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ForEachStatement createForEachStatement()
+  {
+    ForEachStatementImpl forEachStatement = new ForEachStatementImpl();
+    return forEachStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ForStatement createForStatement()
+  {
+    ForStatementImpl forStatement = new ForStatementImpl();
+    return forStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public traditionalForClause createtraditionalForClause()
+  {
+    traditionalForClauseImpl traditionalForClause = new traditionalForClauseImpl();
+    return traditionalForClause;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public forInClause createforInClause()
+  {
+    forInClauseImpl forInClause = new forInClauseImpl();
+    return forInClause;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public forInClauseDecl createforInClauseDecl()
+  {
+    forInClauseDeclImpl forInClauseDecl = new forInClauseDeclImpl();
+    return forInClauseDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public forInClauseTail createforInClauseTail()
+  {
+    forInClauseTailImpl forInClauseTail = new forInClauseTailImpl();
+    return forInClauseTail;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public forInit createforInit()
+  {
+    forInitImpl forInit = new forInitImpl();
+    return forInit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public forCond createforCond()
+  {
+    forCondImpl forCond = new forCondImpl();
+    return forCond;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public forIter createforIter()
+  {
+    forIterImpl forIter = new forIterImpl();
+    return forIter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WhileStatement createWhileStatement()
+  {
+    WhileStatementImpl whileStatement = new WhileStatementImpl();
+    return whileStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DoWhileStatement createDoWhileStatement()
+  {
+    DoWhileStatementImpl doWhileStatement = new DoWhileStatementImpl();
+    return doWhileStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WithStatement createWithStatement()
+  {
+    WithStatementImpl withStatement = new WithStatementImpl();
+    return withStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public functionCommon createfunctionCommon()
+  {
+    functionCommonImpl functionCommon = new functionCommonImpl();
+    return functionCommon;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public functionExpression createfunctionExpression()
+  {
+    functionExpressionImpl functionExpression = new functionExpressionImpl();
+    return functionExpression;
   }
 
   /**

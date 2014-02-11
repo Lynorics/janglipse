@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Package#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Package#getImp <em>Imp</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Package#getDirectives <em>Directives</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Package#getMembers <em>Members</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Package#getClasses <em>Classes</em>}</li>
  * </ul>
  * </p>
@@ -94,6 +95,22 @@ public interface Package extends EObject
    * @generated
    */
   EList<directive> getDirectives();
+
+  /**
+   * Returns the value of the '<em><b>Members</b></em>' containment reference list.
+   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Members</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Members</em>' containment reference list.
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getPackage_Members()
+   * @model containment="true"
+   * @generated
+   */
+  EList<EObject> getMembers();
 
   /**
    * Returns the value of the '<em><b>Classes</b></em>' containment reference list.

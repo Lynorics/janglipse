@@ -1,3 +1,9 @@
+/*
+ * Copyright 2013
+ *
+ * Licensed under the Eclipse Public License version 1.0, available at
+ * http://opensource.org/licenses/eclipse-1.0.txt
+ */
 package de.lynorics.eclipse.jangaroo.scoping;
 
 import java.util.Collections;
@@ -6,7 +12,6 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.naming.IQualifiedNameConverter;
-import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.scoping.impl.ImportNormalizer;
 import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider;
 import org.eclipse.xtext.util.Strings;
@@ -34,9 +39,6 @@ import de.lynorics.eclipse.jangaroo.aS3.Model;
  */
 public class AS3ImportedNamespaceScopeProvider extends
 		ImportedNamespaceAwareLocalScopeProvider {
-
-	public static final QualifiedName JAVA_LANG = QualifiedName.create("java","lang");
-	public static final QualifiedName EUCLID_LIB = QualifiedName.create("com","euclideanspace","euclid","Editor");
 
 	/**
 	 * Converts QualifiedNames to strings and back

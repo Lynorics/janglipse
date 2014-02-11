@@ -13,6 +13,8 @@ import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter
 import org.eclipse.xtext.formatting.impl.FormattingConfig
 import de.lynorics.eclipse.jangaroo.services.AS3GrammarAccess
 import org.eclipse.xtext.Keyword
+import com.google.inject.Inject
+import java.util.List
 
 // import com.google.inject.Inject;
 // import de.lynorics.eclipse.jangaroo.services.AS3GrammarAccess
@@ -26,42 +28,61 @@ import org.eclipse.xtext.Keyword
  */
 class AS3Formatter extends AbstractDeclarativeFormatter {
 
-  //	@Inject extension AS3GrammarAccess
+  @Inject AS3GrammarAccess g
+
   override protected void configureFormatting(FormattingConfig c) {
-//    var AS3GrammarAccess f = getGrammarAccess() as AS3GrammarAccess;
-//c.setAutoLinewrap(120);
-//      
-//      // find common keywords an specify formatting for them
-//      for (Pair<Keyword, Keyword> pair : f.findKeywordPairs("(", ")")) {
-//
-//  c.setNoSpace(). after(pair.getFirst());
-//        c.setNoSpace().before(pair.getSecond());
-//      }
-//      for (Keyword comma : f.findKeywords(",")) {
-//        c.setNoSpace().before(comma);
-//      }
-//  
-//      // formatting for grammar rule Line
-//      c.setLinewrap(2).after(f.getLineAccess().getSemicolonKeyword_1());
-//      c.setNoSpace().before(f.getLineAccess().getSemicolonKeyword_1());
-//      
-//      // formatting for grammar rule TestIndentation
-//      c.setIndentationIncrement().after(
-//          f.getTestIndentationAccess().getLeftCurlyBracketKeyword_1());
-//      c.setIndentationDecrement().before(
-//          f.getTestIndentationAccess().getRightCurlyBracketKeyword_3());
-//      c.setLinewrap().after(
-//          f.getTestIndentationAccess().getLeftCurlyBracketKeyword_1());
-//      c.setLinewrap().after(
-//          f.getTestIndentationAccess().getRightCurlyBracketKeyword_3());
-//      
-//      // formatting for grammar rule Param
-//      c.setNoLinewrap().around(f.getParamAccess().getColonKeyword_1());
-//      c.setNoSpace().around(f.getParamAccess().getColonKeyword_1());
-//      
-//      // formatting for Comments 
-//      cfg.setLinewrap(0, 1, 2).before(g.getSL_COMMENTRule());
-//      cfg.setLinewrap(0, 1, 2).before(g.getML_COMMENTRule());
-//      cfg.setLinewrap(0, 1, 1).after(g.getML_COMMENTRule());
-	}
+    c.setAutoLinewrap(120);
+
+    //    // indentation between { }
+    //    c.setIndentation(g.LEFT_CURLYAccess.leftCurlyBracketKeyword,
+    //      g.RIGHT_CURLYAccess.rightCurlyBracketKeyword);
+    //    // newline after ;
+    //    c.setLinewrap.after(g.SEMICOLONRule);
+    //    // newline after {
+    //    c.setLinewrap.after(g.LEFT_CURLYRule);
+    //    // newline before }
+    //    c.setLinewrap.before(g.RIGHT_CURLYRule);
+    //    // newline after }
+    //    c.setLinewrap.after(g.RIGHT_CURLYRule);
+    //    // remove spaces before ;
+    //    c.setNoSpace.before(g.SEMICOLONRule);
+    //     
+    GenericFormatter.genericFormatting(c, g);
+
+    //    val f = g; 
+    //    val List<Pair<Keyword,Keyword>> pairs = f.findKeywordPairs("{", "}") as List<Pair<Keyword,Keyword>>;
+    //      // find common keywords an specify formatting for them
+    //      for (Pair<Keyword, Keyword> pair : pairs) {
+    //
+    //  c.setLinewrap. after(pair.key);
+    //        c.setLinewrap.before(pair.value);
+    //        c.setLinewrap.after(pair.value);
+    //      }
+    //      for (Keyword comma : f.findKeywords(",")) {
+    //        c.setNoSpace().before(comma);
+    //      }
+    //  
+    //      // formatting for grammar rule Line
+    //      c.setLinewrap(2).after(f.getLineAccess().getSemicolonKeyword_1());
+    //      c.setNoSpace().before(f.getLineAccess().getSemicolonKeyword_1());
+    //      
+    //      // formatting for grammar rule TestIndentation
+    //      c.setIndentationIncrement().after(
+    //          f.getTestIndentationAccess().getLeftCurlyBracketKeyword_1());
+    //      c.setIndentationDecrement().before(
+    //          f.getTestIndentationAccess().getRightCurlyBracketKeyword_3());
+    //      c.setLinewrap().after(
+    //          f.getTestIndentationAccess().getLeftCurlyBracketKeyword_1());
+    //      c.setLinewrap().after(
+    //          f.getTestIndentationAccess().getRightCurlyBracketKeyword_3());
+    //      
+    //      // formatting for grammar rule Param
+    //      c.setNoLinewrap().around(f.getParamAccess().getColonKeyword_1());
+    //      c.setNoSpace().around(f.getParamAccess().getColonKeyword_1());
+    //      
+    //      // formatting for Comments 
+    c.setLinewrap(0, 1, 2).before(g.getSL_COMMENTRule());
+    c.setLinewrap(0, 1, 2).before(g.getML_COMMENTRule());
+    c.setLinewrap(0, 1, 1).after(g.getML_COMMENTRule());
+  }
 }

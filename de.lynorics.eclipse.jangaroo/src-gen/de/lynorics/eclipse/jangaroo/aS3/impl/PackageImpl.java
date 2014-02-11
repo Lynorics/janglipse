@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.PackageImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.PackageImpl#getImp <em>Imp</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.PackageImpl#getDirectives <em>Directives</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.PackageImpl#getMembers <em>Members</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.PackageImpl#getClasses <em>Classes</em>}</li>
  * </ul>
  * </p>
@@ -80,6 +81,16 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.lyno
    * @ordered
    */
   protected EList<directive> directives;
+
+  /**
+   * The cached value of the '{@link #getMembers() <em>Members</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMembers()
+   * @generated
+   * @ordered
+   */
+  protected EList<EObject> members;
 
   /**
    * The cached value of the '{@link #getClasses() <em>Classes</em>}' containment reference list.
@@ -202,6 +213,20 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.lyno
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<EObject> getMembers()
+  {
+    if (members == null)
+    {
+      members = new EObjectContainmentEList<EObject>(EObject.class, this, AS3Package.PACKAGE__MEMBERS);
+    }
+    return members;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<EObject> getClasses()
   {
     if (classes == null)
@@ -225,6 +250,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.lyno
         return basicSetImp(null, msgs);
       case AS3Package.PACKAGE__DIRECTIVES:
         return ((InternalEList<?>)getDirectives()).basicRemove(otherEnd, msgs);
+      case AS3Package.PACKAGE__MEMBERS:
+        return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
       case AS3Package.PACKAGE__CLASSES:
         return ((InternalEList<?>)getClasses()).basicRemove(otherEnd, msgs);
     }
@@ -247,6 +274,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.lyno
         return getImp();
       case AS3Package.PACKAGE__DIRECTIVES:
         return getDirectives();
+      case AS3Package.PACKAGE__MEMBERS:
+        return getMembers();
       case AS3Package.PACKAGE__CLASSES:
         return getClasses();
     }
@@ -273,6 +302,10 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.lyno
       case AS3Package.PACKAGE__DIRECTIVES:
         getDirectives().clear();
         getDirectives().addAll((Collection<? extends directive>)newValue);
+        return;
+      case AS3Package.PACKAGE__MEMBERS:
+        getMembers().clear();
+        getMembers().addAll((Collection<? extends EObject>)newValue);
         return;
       case AS3Package.PACKAGE__CLASSES:
         getClasses().clear();
@@ -301,6 +334,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.lyno
       case AS3Package.PACKAGE__DIRECTIVES:
         getDirectives().clear();
         return;
+      case AS3Package.PACKAGE__MEMBERS:
+        getMembers().clear();
+        return;
       case AS3Package.PACKAGE__CLASSES:
         getClasses().clear();
         return;
@@ -324,6 +360,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements de.lyno
         return imp != null;
       case AS3Package.PACKAGE__DIRECTIVES:
         return directives != null && !directives.isEmpty();
+      case AS3Package.PACKAGE__MEMBERS:
+        return members != null && !members.isEmpty();
       case AS3Package.PACKAGE__CLASSES:
         return classes != null && !classes.isEmpty();
     }

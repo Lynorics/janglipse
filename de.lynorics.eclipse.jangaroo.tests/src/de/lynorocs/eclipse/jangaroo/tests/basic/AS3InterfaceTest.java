@@ -1,3 +1,4 @@
+package de.lynorocs.eclipse.jangaroo.tests.basic;
 /*
  * Copyright 2013
  *

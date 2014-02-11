@@ -39,7 +39,7 @@ directive: {directive} (
   );
 
 Uses: {Uses}
-	"use" 'namespace' (type=QualifiedName|'*'|'void')
+  "use" 'namespace' (type=QualifiedName|'*'|'void')
   ;
   
 annotationFields :
@@ -120,26 +120,35 @@ VariableDeclaration:
 ;
 
 VarType:
-	  name='void'
-	| name='*'
-	| type=[Interface|QualifiedName]
-	| type=[Class|QualifiedName]
+    name='void'
+  | name='*'
+  | type=[Interface|QualifiedName]
+  | type=[Class|QualifiedName]
 ;
 
 Parameter :
     'const'? '...'? name=ID (':' type=VarType)? ('=' lit=exprOrObjectLiteral)?;
 
-objectLiteral :
-    '{' objectFields '}';
+objectLiteral: {objectLiteral}
+  '{' fields+=fieldList? '}'
+  ;
+  
+fieldList
+  : lf=literalField (',' fields+=literalField?)*
+  ;
+  
+literalField 
+  :   name=fieldName ':' el=element
+  ;
+  
+fieldName:
+   identi
+  | number=number
+  ;
 
-objectFields :
-    fields+=objectField
-    (',' fields+=objectField)*;
-
-objectField :
-    ID ':' exprOrObjectLiteral
-  | STRING ':' exprOrObjectLiteral
-  | INT ':' exprOrObjectLiteral;
+element
+  : assignmentExpression
+  ;
 
 exprOrObjectLiteral :
     Expression
@@ -232,7 +241,7 @@ expressionList
 // assignment expression (level 13)
 assignmentExpression
   : conditionalExpression
-  (op+=assignmentOperator expr+=Expression)*
+  (op+=assignmentOperator aexpr+=Expression?)*
   ;
 
 assignmentOperator
@@ -382,16 +391,17 @@ unaryExpressionNotPlusMinus
 // qualified names, array expressions, method invocation, post inc/dec
 postfixExpression
   : {postfixExpression}
-    ((peexpr=primaryExpression
-     pepoi=propOrIdent?)
-    | '[' expr=Expression rb=']'
-    | '..' pewi=qualifiedIdentifier 
-    | '.' '(' expr=Expression ')'
-    | d='.' e4x=e4xAttributeIdentifier
-    | d='.' '*'
-    | args+=arguments*
-    (   in='+'
-    | de='+'
+    ((peexpr=primaryExpression)
+    (pepoi+=propOrIdent
+    | '[' expr+=Expression ']'
+    | '..' pewi+=qualifiedIdentifier 
+    | '.' '(' expr+=Expression ')'
+    | '.' e4x+=e4xAttributeIdentifier
+    | '.' '*'
+    | args+=arguments
+    )*
+    (   in='++'
+    | de='--'
     )?
   );
 
@@ -428,10 +438,10 @@ propOrIdent
   ;
 
 Constant: {Constant} (
-  xmlLiteral
+  xml=xmlLiteral
   | regex=regexpLiteral
-  | number
-  | STRING
+  | number=number
+  | string=STRING
   | 'true'
   | 'false'
   | 'null'
@@ -735,10 +745,11 @@ functionExpression
   ;
 
 terminal HEX_LITERAL returns ecore::EBigDecimal :
- '0x' ('0'..'9'|'A'..'F');
+ '0x' ('0'..'9'|'A'..'F')+;
 
 terminal OCTAL returns ecore::EBigDecimal:
   '0' ('0'..'7')+;
 
 terminal FLOAT returns ecore::EBigDecimal:
   ('0'..'9')* '.' ('0'..'9')+;
+

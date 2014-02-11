@@ -3,59 +3,112 @@
 package de.lynorics.eclipse.jangaroo.aS3.util;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
-import de.lynorics.eclipse.jangaroo.aS3.Assignment;
-import de.lynorics.eclipse.jangaroo.aS3.Block;
-import de.lynorics.eclipse.jangaroo.aS3.BoolConstant;
-import de.lynorics.eclipse.jangaroo.aS3.BracketExpr;
+import de.lynorics.eclipse.jangaroo.aS3.CaseStatement;
+import de.lynorics.eclipse.jangaroo.aS3.Condition;
+import de.lynorics.eclipse.jangaroo.aS3.Constant;
+import de.lynorics.eclipse.jangaroo.aS3.Declaration;
+import de.lynorics.eclipse.jangaroo.aS3.DeclarationStatement;
+import de.lynorics.eclipse.jangaroo.aS3.DefaultStatement;
+import de.lynorics.eclipse.jangaroo.aS3.DefaultXMLNamespaceStatement;
 import de.lynorics.eclipse.jangaroo.aS3.DoWhileStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Expression;
+import de.lynorics.eclipse.jangaroo.aS3.ExpressionStatement;
+import de.lynorics.eclipse.jangaroo.aS3.ForEachStatement;
 import de.lynorics.eclipse.jangaroo.aS3.ForStatement;
-import de.lynorics.eclipse.jangaroo.aS3.IfBlock;
 import de.lynorics.eclipse.jangaroo.aS3.IfStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Import;
 import de.lynorics.eclipse.jangaroo.aS3.Imports;
-import de.lynorics.eclipse.jangaroo.aS3.IntConstant;
 import de.lynorics.eclipse.jangaroo.aS3.Interface;
 import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 import de.lynorics.eclipse.jangaroo.aS3.Member;
-import de.lynorics.eclipse.jangaroo.aS3.MemberSelection;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
 import de.lynorics.eclipse.jangaroo.aS3.MethodBody;
 import de.lynorics.eclipse.jangaroo.aS3.Model;
-import de.lynorics.eclipse.jangaroo.aS3.New;
-import de.lynorics.eclipse.jangaroo.aS3.NewStatement;
-import de.lynorics.eclipse.jangaroo.aS3.Null;
+import de.lynorics.eclipse.jangaroo.aS3.Modifier;
 import de.lynorics.eclipse.jangaroo.aS3.Parameter;
-import de.lynorics.eclipse.jangaroo.aS3.Parameters;
-import de.lynorics.eclipse.jangaroo.aS3.Return;
+import de.lynorics.eclipse.jangaroo.aS3.ReturnStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Statement;
-import de.lynorics.eclipse.jangaroo.aS3.StatementsBlock;
-import de.lynorics.eclipse.jangaroo.aS3.StringConstant;
-import de.lynorics.eclipse.jangaroo.aS3.Super;
-import de.lynorics.eclipse.jangaroo.aS3.Switch;
 import de.lynorics.eclipse.jangaroo.aS3.SwitchStatement;
-import de.lynorics.eclipse.jangaroo.aS3.Symbol;
-import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
-import de.lynorics.eclipse.jangaroo.aS3.TerminalOp;
-import de.lynorics.eclipse.jangaroo.aS3.This;
+import de.lynorics.eclipse.jangaroo.aS3.ThrowStatement;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
-import de.lynorics.eclipse.jangaroo.aS3.Undefined;
 import de.lynorics.eclipse.jangaroo.aS3.Uses;
 import de.lynorics.eclipse.jangaroo.aS3.VarType;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
-import de.lynorics.eclipse.jangaroo.aS3.While;
 import de.lynorics.eclipse.jangaroo.aS3.WhileStatement;
+import de.lynorics.eclipse.jangaroo.aS3.WithStatement;
+import de.lynorics.eclipse.jangaroo.aS3.additiveExpression;
 import de.lynorics.eclipse.jangaroo.aS3.annotationField;
 import de.lynorics.eclipse.jangaroo.aS3.annotationFields;
-import de.lynorics.eclipse.jangaroo.aS3.commaExpr;
+import de.lynorics.eclipse.jangaroo.aS3.arguments;
+import de.lynorics.eclipse.jangaroo.aS3.arrayLiteral;
+import de.lynorics.eclipse.jangaroo.aS3.assignmentExpression;
+import de.lynorics.eclipse.jangaroo.aS3.basicParameterDeclaration;
+import de.lynorics.eclipse.jangaroo.aS3.bitwiseAndExpression;
+import de.lynorics.eclipse.jangaroo.aS3.bitwiseOrExpression;
+import de.lynorics.eclipse.jangaroo.aS3.bitwiseXorExpression;
+import de.lynorics.eclipse.jangaroo.aS3.block;
+import de.lynorics.eclipse.jangaroo.aS3.blockEntry;
+import de.lynorics.eclipse.jangaroo.aS3.brackets;
+import de.lynorics.eclipse.jangaroo.aS3.catchBlock;
+import de.lynorics.eclipse.jangaroo.aS3.conditionalExpression;
+import de.lynorics.eclipse.jangaroo.aS3.conditionalSubExpression;
+import de.lynorics.eclipse.jangaroo.aS3.declarationTail;
 import de.lynorics.eclipse.jangaroo.aS3.directive;
+import de.lynorics.eclipse.jangaroo.aS3.e4xAttributeIdentifier;
+import de.lynorics.eclipse.jangaroo.aS3.element;
+import de.lynorics.eclipse.jangaroo.aS3.elementList;
+import de.lynorics.eclipse.jangaroo.aS3.encapsulatedExpression;
+import de.lynorics.eclipse.jangaroo.aS3.equalityExpression;
 import de.lynorics.eclipse.jangaroo.aS3.exprOrObjectLiteral;
-import de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration;
-import de.lynorics.eclipse.jangaroo.aS3.objectField;
-import de.lynorics.eclipse.jangaroo.aS3.objectFields;
+import de.lynorics.eclipse.jangaroo.aS3.expressionList;
+import de.lynorics.eclipse.jangaroo.aS3.expressionQualifiedIdentifier;
+import de.lynorics.eclipse.jangaroo.aS3.fieldList;
+import de.lynorics.eclipse.jangaroo.aS3.fieldName;
+import de.lynorics.eclipse.jangaroo.aS3.finallyBlock;
+import de.lynorics.eclipse.jangaroo.aS3.forCond;
+import de.lynorics.eclipse.jangaroo.aS3.forInClause;
+import de.lynorics.eclipse.jangaroo.aS3.forInClauseDecl;
+import de.lynorics.eclipse.jangaroo.aS3.forInClauseTail;
+import de.lynorics.eclipse.jangaroo.aS3.forInit;
+import de.lynorics.eclipse.jangaroo.aS3.forIter;
+import de.lynorics.eclipse.jangaroo.aS3.fullNewSubexpression;
+import de.lynorics.eclipse.jangaroo.aS3.functionCommon;
+import de.lynorics.eclipse.jangaroo.aS3.functionExpression;
+import de.lynorics.eclipse.jangaroo.aS3.functionSignature;
+import de.lynorics.eclipse.jangaroo.aS3.identi;
+import de.lynorics.eclipse.jangaroo.aS3.identifier;
+import de.lynorics.eclipse.jangaroo.aS3.literalField;
+import de.lynorics.eclipse.jangaroo.aS3.logicalAndExpression;
+import de.lynorics.eclipse.jangaroo.aS3.logicalOrExpression;
+import de.lynorics.eclipse.jangaroo.aS3.multiplicativeExpression;
+import de.lynorics.eclipse.jangaroo.aS3.namespaceName;
+import de.lynorics.eclipse.jangaroo.aS3.newExpression;
+import de.lynorics.eclipse.jangaroo.aS3.nonAttributeQualifiedIdentifier;
+import de.lynorics.eclipse.jangaroo.aS3.nonemptyElementList;
 import de.lynorics.eclipse.jangaroo.aS3.objectLiteral;
-import de.lynorics.eclipse.jangaroo.aS3.parenthesizedExpr;
-import de.lynorics.eclipse.jangaroo.aS3.statementInSwitch;
+import de.lynorics.eclipse.jangaroo.aS3.parameterDeclaration;
+import de.lynorics.eclipse.jangaroo.aS3.parameterDeclarationList;
+import de.lynorics.eclipse.jangaroo.aS3.parameterDefault;
+import de.lynorics.eclipse.jangaroo.aS3.parameterRestDeclaration;
+import de.lynorics.eclipse.jangaroo.aS3.postfixExpression;
+import de.lynorics.eclipse.jangaroo.aS3.primaryExpression;
+import de.lynorics.eclipse.jangaroo.aS3.propOrIdent;
+import de.lynorics.eclipse.jangaroo.aS3.propertyIdentifier;
+import de.lynorics.eclipse.jangaroo.aS3.qualifiedIdent;
+import de.lynorics.eclipse.jangaroo.aS3.qualifiedIdentifier;
+import de.lynorics.eclipse.jangaroo.aS3.qualifier;
+import de.lynorics.eclipse.jangaroo.aS3.regexpLiteral;
+import de.lynorics.eclipse.jangaroo.aS3.relationalExpression;
+import de.lynorics.eclipse.jangaroo.aS3.shiftExpression;
+import de.lynorics.eclipse.jangaroo.aS3.simpleQualifiedIdentifier;
+import de.lynorics.eclipse.jangaroo.aS3.switchBlock;
+import de.lynorics.eclipse.jangaroo.aS3.switchStatementList;
+import de.lynorics.eclipse.jangaroo.aS3.traditionalForClause;
+import de.lynorics.eclipse.jangaroo.aS3.typeExpression;
+import de.lynorics.eclipse.jangaroo.aS3.unaryExpression;
+import de.lynorics.eclipse.jangaroo.aS3.unaryExpressionNotPlusMinus;
+import de.lynorics.eclipse.jangaroo.aS3.variableDeclarator;
+import de.lynorics.eclipse.jangaroo.aS3.variableInitializer;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -193,64 +246,14 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
         return createMethodAdapter();
       }
       @Override
+      public Adapter caseModifier(Modifier object)
+      {
+        return createModifierAdapter();
+      }
+      @Override
       public Adapter caseMethodBody(MethodBody object)
       {
         return createMethodBodyAdapter();
-      }
-      @Override
-      public Adapter caseStatement(Statement object)
-      {
-        return createStatementAdapter();
-      }
-      @Override
-      public Adapter caseNewStatement(NewStatement object)
-      {
-        return createNewStatementAdapter();
-      }
-      @Override
-      public Adapter caseForStatement(ForStatement object)
-      {
-        return createForStatementAdapter();
-      }
-      @Override
-      public Adapter caseidentifierDeclaration(identifierDeclaration object)
-      {
-        return createidentifierDeclarationAdapter();
-      }
-      @Override
-      public Adapter casecommaExpr(commaExpr object)
-      {
-        return createcommaExprAdapter();
-      }
-      @Override
-      public Adapter caseDoWhileStatement(DoWhileStatement object)
-      {
-        return createDoWhileStatementAdapter();
-      }
-      @Override
-      public Adapter caseWhileStatement(WhileStatement object)
-      {
-        return createWhileStatementAdapter();
-      }
-      @Override
-      public Adapter caseSwitchStatement(SwitchStatement object)
-      {
-        return createSwitchStatementAdapter();
-      }
-      @Override
-      public Adapter caseparenthesizedExpr(parenthesizedExpr object)
-      {
-        return createparenthesizedExprAdapter();
-      }
-      @Override
-      public Adapter casestatementInSwitch(statementInSwitch object)
-      {
-        return createstatementInSwitchAdapter();
-      }
-      @Override
-      public Adapter caseReturn(Return object)
-      {
-        return createReturnAdapter();
       }
       @Override
       public Adapter caseVariableDeclaration(VariableDeclaration object)
@@ -263,39 +266,9 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
         return createVarTypeAdapter();
       }
       @Override
-      public Adapter caseIfStatement(IfStatement object)
-      {
-        return createIfStatementAdapter();
-      }
-      @Override
-      public Adapter caseTryStatement(TryStatement object)
-      {
-        return createTryStatementAdapter();
-      }
-      @Override
-      public Adapter caseIfBlock(IfBlock object)
-      {
-        return createIfBlockAdapter();
-      }
-      @Override
-      public Adapter caseStatementsBlock(StatementsBlock object)
-      {
-        return createStatementsBlockAdapter();
-      }
-      @Override
-      public Adapter caseBlock(Block object)
-      {
-        return createBlockAdapter();
-      }
-      @Override
       public Adapter caseParameter(Parameter object)
       {
         return createParameterAdapter();
-      }
-      @Override
-      public Adapter caseParameters(Parameters object)
-      {
-        return createParametersAdapter();
       }
       @Override
       public Adapter caseobjectLiteral(objectLiteral object)
@@ -303,14 +276,24 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
         return createobjectLiteralAdapter();
       }
       @Override
-      public Adapter caseobjectFields(objectFields object)
+      public Adapter casefieldList(fieldList object)
       {
-        return createobjectFieldsAdapter();
+        return createfieldListAdapter();
       }
       @Override
-      public Adapter caseobjectField(objectField object)
+      public Adapter caseliteralField(literalField object)
       {
-        return createobjectFieldAdapter();
+        return createliteralFieldAdapter();
+      }
+      @Override
+      public Adapter casefieldName(fieldName object)
+      {
+        return createfieldNameAdapter();
+      }
+      @Override
+      public Adapter caseelement(element object)
+      {
+        return createelementAdapter();
       }
       @Override
       public Adapter caseexprOrObjectLiteral(exprOrObjectLiteral object)
@@ -318,9 +301,69 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
         return createexprOrObjectLiteralAdapter();
       }
       @Override
-      public Adapter caseSymbol(Symbol object)
+      public Adapter casequalifiedIdent(qualifiedIdent object)
       {
-        return createSymbolAdapter();
+        return createqualifiedIdentAdapter();
+      }
+      @Override
+      public Adapter caseidenti(identi object)
+      {
+        return createidentiAdapter();
+      }
+      @Override
+      public Adapter caseidentifier(identifier object)
+      {
+        return createidentifierAdapter();
+      }
+      @Override
+      public Adapter casepropertyIdentifier(propertyIdentifier object)
+      {
+        return createpropertyIdentifierAdapter();
+      }
+      @Override
+      public Adapter casequalifier(qualifier object)
+      {
+        return createqualifierAdapter();
+      }
+      @Override
+      public Adapter casesimpleQualifiedIdentifier(simpleQualifiedIdentifier object)
+      {
+        return createsimpleQualifiedIdentifierAdapter();
+      }
+      @Override
+      public Adapter caseexpressionQualifiedIdentifier(expressionQualifiedIdentifier object)
+      {
+        return createexpressionQualifiedIdentifierAdapter();
+      }
+      @Override
+      public Adapter casenonAttributeQualifiedIdentifier(nonAttributeQualifiedIdentifier object)
+      {
+        return createnonAttributeQualifiedIdentifierAdapter();
+      }
+      @Override
+      public Adapter casequalifiedIdentifier(qualifiedIdentifier object)
+      {
+        return createqualifiedIdentifierAdapter();
+      }
+      @Override
+      public Adapter casenamespaceName(namespaceName object)
+      {
+        return createnamespaceNameAdapter();
+      }
+      @Override
+      public Adapter casearrayLiteral(arrayLiteral object)
+      {
+        return createarrayLiteralAdapter();
+      }
+      @Override
+      public Adapter caseelementList(elementList object)
+      {
+        return createelementListAdapter();
+      }
+      @Override
+      public Adapter casenonemptyElementList(nonemptyElementList object)
+      {
+        return createnonemptyElementListAdapter();
       }
       @Override
       public Adapter caseExpression(Expression object)
@@ -328,79 +371,354 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
         return createExpressionAdapter();
       }
       @Override
-      public Adapter caseNew(New object)
+      public Adapter caseexpressionList(expressionList object)
       {
-        return createNewAdapter();
+        return createexpressionListAdapter();
       }
       @Override
-      public Adapter caseWhile(While object)
+      public Adapter caseassignmentExpression(assignmentExpression object)
       {
-        return createWhileAdapter();
+        return createassignmentExpressionAdapter();
       }
       @Override
-      public Adapter caseSwitch(Switch object)
+      public Adapter caseconditionalExpression(conditionalExpression object)
       {
-        return createSwitchAdapter();
+        return createconditionalExpressionAdapter();
       }
       @Override
-      public Adapter caseAssignment(Assignment object)
+      public Adapter caseconditionalSubExpression(conditionalSubExpression object)
       {
-        return createAssignmentAdapter();
+        return createconditionalSubExpressionAdapter();
       }
       @Override
-      public Adapter caseMemberSelection(MemberSelection object)
+      public Adapter caselogicalOrExpression(logicalOrExpression object)
       {
-        return createMemberSelectionAdapter();
+        return createlogicalOrExpressionAdapter();
       }
       @Override
-      public Adapter caseStringConstant(StringConstant object)
+      public Adapter caselogicalAndExpression(logicalAndExpression object)
       {
-        return createStringConstantAdapter();
+        return createlogicalAndExpressionAdapter();
       }
       @Override
-      public Adapter caseIntConstant(IntConstant object)
+      public Adapter casebitwiseOrExpression(bitwiseOrExpression object)
       {
-        return createIntConstantAdapter();
+        return createbitwiseOrExpressionAdapter();
       }
       @Override
-      public Adapter caseBoolConstant(BoolConstant object)
+      public Adapter casebitwiseXorExpression(bitwiseXorExpression object)
       {
-        return createBoolConstantAdapter();
+        return createbitwiseXorExpressionAdapter();
       }
       @Override
-      public Adapter caseThis(This object)
+      public Adapter casebitwiseAndExpression(bitwiseAndExpression object)
       {
-        return createThisAdapter();
+        return createbitwiseAndExpressionAdapter();
       }
       @Override
-      public Adapter caseSuper(Super object)
+      public Adapter caseequalityExpression(equalityExpression object)
       {
-        return createSuperAdapter();
+        return createequalityExpressionAdapter();
       }
       @Override
-      public Adapter caseNull(Null object)
+      public Adapter caserelationalExpression(relationalExpression object)
       {
-        return createNullAdapter();
+        return createrelationalExpressionAdapter();
       }
       @Override
-      public Adapter caseUndefined(Undefined object)
+      public Adapter caseshiftExpression(shiftExpression object)
       {
-        return createUndefinedAdapter();
+        return createshiftExpressionAdapter();
       }
       @Override
-      public Adapter caseSymbolRef(SymbolRef object)
+      public Adapter caseadditiveExpression(additiveExpression object)
       {
-        return createSymbolRefAdapter();
+        return createadditiveExpressionAdapter();
       }
       @Override
-      public Adapter caseTerminalOp(TerminalOp object)
+      public Adapter casemultiplicativeExpression(multiplicativeExpression object)
       {
-        return createTerminalOpAdapter();
+        return createmultiplicativeExpressionAdapter();
       }
       @Override
-      public Adapter caseBracketExpr(BracketExpr object)
+      public Adapter caseunaryExpression(unaryExpression object)
       {
-        return createBracketExprAdapter();
+        return createunaryExpressionAdapter();
+      }
+      @Override
+      public Adapter caseunaryExpressionNotPlusMinus(unaryExpressionNotPlusMinus object)
+      {
+        return createunaryExpressionNotPlusMinusAdapter();
+      }
+      @Override
+      public Adapter casepostfixExpression(postfixExpression object)
+      {
+        return createpostfixExpressionAdapter();
+      }
+      @Override
+      public Adapter casearguments(arguments object)
+      {
+        return createargumentsAdapter();
+      }
+      @Override
+      public Adapter casee4xAttributeIdentifier(e4xAttributeIdentifier object)
+      {
+        return createe4xAttributeIdentifierAdapter();
+      }
+      @Override
+      public Adapter caseprimaryExpression(primaryExpression object)
+      {
+        return createprimaryExpressionAdapter();
+      }
+      @Override
+      public Adapter casepropOrIdent(propOrIdent object)
+      {
+        return createpropOrIdentAdapter();
+      }
+      @Override
+      public Adapter caseConstant(Constant object)
+      {
+        return createConstantAdapter();
+      }
+      @Override
+      public Adapter caseregexpLiteral(regexpLiteral object)
+      {
+        return createregexpLiteralAdapter();
+      }
+      @Override
+      public Adapter casenewExpression(newExpression object)
+      {
+        return createnewExpressionAdapter();
+      }
+      @Override
+      public Adapter casefullNewSubexpression(fullNewSubexpression object)
+      {
+        return createfullNewSubexpressionAdapter();
+      }
+      @Override
+      public Adapter casebrackets(brackets object)
+      {
+        return createbracketsAdapter();
+      }
+      @Override
+      public Adapter caseencapsulatedExpression(encapsulatedExpression object)
+      {
+        return createencapsulatedExpressionAdapter();
+      }
+      @Override
+      public Adapter casefunctionSignature(functionSignature object)
+      {
+        return createfunctionSignatureAdapter();
+      }
+      @Override
+      public Adapter casetypeExpression(typeExpression object)
+      {
+        return createtypeExpressionAdapter();
+      }
+      @Override
+      public Adapter caseparameterDeclarationList(parameterDeclarationList object)
+      {
+        return createparameterDeclarationListAdapter();
+      }
+      @Override
+      public Adapter caseparameterDeclaration(parameterDeclaration object)
+      {
+        return createparameterDeclarationAdapter();
+      }
+      @Override
+      public Adapter casebasicParameterDeclaration(basicParameterDeclaration object)
+      {
+        return createbasicParameterDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseparameterDefault(parameterDefault object)
+      {
+        return createparameterDefaultAdapter();
+      }
+      @Override
+      public Adapter caseparameterRestDeclaration(parameterRestDeclaration object)
+      {
+        return createparameterRestDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseblock(block object)
+      {
+        return createblockAdapter();
+      }
+      @Override
+      public Adapter caseblockEntry(blockEntry object)
+      {
+        return createblockEntryAdapter();
+      }
+      @Override
+      public Adapter caseCondition(Condition object)
+      {
+        return createConditionAdapter();
+      }
+      @Override
+      public Adapter caseStatement(Statement object)
+      {
+        return createStatementAdapter();
+      }
+      @Override
+      public Adapter caseDefaultXMLNamespaceStatement(DefaultXMLNamespaceStatement object)
+      {
+        return createDefaultXMLNamespaceStatementAdapter();
+      }
+      @Override
+      public Adapter caseDeclarationStatement(DeclarationStatement object)
+      {
+        return createDeclarationStatementAdapter();
+      }
+      @Override
+      public Adapter casevariableDeclarator(variableDeclarator object)
+      {
+        return createvariableDeclaratorAdapter();
+      }
+      @Override
+      public Adapter caseDeclaration(Declaration object)
+      {
+        return createDeclarationAdapter();
+      }
+      @Override
+      public Adapter casedeclarationTail(declarationTail object)
+      {
+        return createdeclarationTailAdapter();
+      }
+      @Override
+      public Adapter casevariableInitializer(variableInitializer object)
+      {
+        return createvariableInitializerAdapter();
+      }
+      @Override
+      public Adapter caseExpressionStatement(ExpressionStatement object)
+      {
+        return createExpressionStatementAdapter();
+      }
+      @Override
+      public Adapter caseIfStatement(IfStatement object)
+      {
+        return createIfStatementAdapter();
+      }
+      @Override
+      public Adapter caseThrowStatement(ThrowStatement object)
+      {
+        return createThrowStatementAdapter();
+      }
+      @Override
+      public Adapter caseTryStatement(TryStatement object)
+      {
+        return createTryStatementAdapter();
+      }
+      @Override
+      public Adapter casecatchBlock(catchBlock object)
+      {
+        return createcatchBlockAdapter();
+      }
+      @Override
+      public Adapter casefinallyBlock(finallyBlock object)
+      {
+        return createfinallyBlockAdapter();
+      }
+      @Override
+      public Adapter caseReturnStatement(ReturnStatement object)
+      {
+        return createReturnStatementAdapter();
+      }
+      @Override
+      public Adapter caseSwitchStatement(SwitchStatement object)
+      {
+        return createSwitchStatementAdapter();
+      }
+      @Override
+      public Adapter caseswitchBlock(switchBlock object)
+      {
+        return createswitchBlockAdapter();
+      }
+      @Override
+      public Adapter caseCaseStatement(CaseStatement object)
+      {
+        return createCaseStatementAdapter();
+      }
+      @Override
+      public Adapter caseDefaultStatement(DefaultStatement object)
+      {
+        return createDefaultStatementAdapter();
+      }
+      @Override
+      public Adapter caseswitchStatementList(switchStatementList object)
+      {
+        return createswitchStatementListAdapter();
+      }
+      @Override
+      public Adapter caseForEachStatement(ForEachStatement object)
+      {
+        return createForEachStatementAdapter();
+      }
+      @Override
+      public Adapter caseForStatement(ForStatement object)
+      {
+        return createForStatementAdapter();
+      }
+      @Override
+      public Adapter casetraditionalForClause(traditionalForClause object)
+      {
+        return createtraditionalForClauseAdapter();
+      }
+      @Override
+      public Adapter caseforInClause(forInClause object)
+      {
+        return createforInClauseAdapter();
+      }
+      @Override
+      public Adapter caseforInClauseDecl(forInClauseDecl object)
+      {
+        return createforInClauseDeclAdapter();
+      }
+      @Override
+      public Adapter caseforInClauseTail(forInClauseTail object)
+      {
+        return createforInClauseTailAdapter();
+      }
+      @Override
+      public Adapter caseforInit(forInit object)
+      {
+        return createforInitAdapter();
+      }
+      @Override
+      public Adapter caseforCond(forCond object)
+      {
+        return createforCondAdapter();
+      }
+      @Override
+      public Adapter caseforIter(forIter object)
+      {
+        return createforIterAdapter();
+      }
+      @Override
+      public Adapter caseWhileStatement(WhileStatement object)
+      {
+        return createWhileStatementAdapter();
+      }
+      @Override
+      public Adapter caseDoWhileStatement(DoWhileStatement object)
+      {
+        return createDoWhileStatementAdapter();
+      }
+      @Override
+      public Adapter caseWithStatement(WithStatement object)
+      {
+        return createWithStatementAdapter();
+      }
+      @Override
+      public Adapter casefunctionCommon(functionCommon object)
+      {
+        return createfunctionCommonAdapter();
+      }
+      @Override
+      public Adapter casefunctionExpression(functionExpression object)
+      {
+        return createfunctionExpressionAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -620,6 +938,21 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Modifier <em>Modifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Modifier
+   * @generated
+   */
+  public Adapter createModifierAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.MethodBody <em>Method Body</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -630,171 +963,6 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMethodBodyAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Statement <em>Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Statement
-   * @generated
-   */
-  public Adapter createStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.NewStatement <em>New Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.NewStatement
-   * @generated
-   */
-  public Adapter createNewStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement <em>For Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.ForStatement
-   * @generated
-   */
-  public Adapter createForStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration <em>identifier Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.identifierDeclaration
-   * @generated
-   */
-  public Adapter createidentifierDeclarationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.commaExpr <em>comma Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.commaExpr
-   * @generated
-   */
-  public Adapter createcommaExprAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.DoWhileStatement <em>Do While Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.DoWhileStatement
-   * @generated
-   */
-  public Adapter createDoWhileStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.WhileStatement <em>While Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.WhileStatement
-   * @generated
-   */
-  public Adapter createWhileStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.SwitchStatement <em>Switch Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.SwitchStatement
-   * @generated
-   */
-  public Adapter createSwitchStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.parenthesizedExpr <em>parenthesized Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.parenthesizedExpr
-   * @generated
-   */
-  public Adapter createparenthesizedExprAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.statementInSwitch <em>statement In Switch</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.statementInSwitch
-   * @generated
-   */
-  public Adapter createstatementInSwitchAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Return <em>Return</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Return
-   * @generated
-   */
-  public Adapter createReturnAdapter()
   {
     return null;
   }
@@ -830,81 +998,6 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.IfStatement <em>If Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.IfStatement
-   * @generated
-   */
-  public Adapter createIfStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.TryStatement <em>Try Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.TryStatement
-   * @generated
-   */
-  public Adapter createTryStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.IfBlock <em>If Block</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.IfBlock
-   * @generated
-   */
-  public Adapter createIfBlockAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.StatementsBlock <em>Statements Block</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.StatementsBlock
-   * @generated
-   */
-  public Adapter createStatementsBlockAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Block <em>Block</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Block
-   * @generated
-   */
-  public Adapter createBlockAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Parameter <em>Parameter</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -915,21 +1008,6 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createParameterAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Parameters <em>Parameters</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Parameters
-   * @generated
-   */
-  public Adapter createParametersAdapter()
   {
     return null;
   }
@@ -950,31 +1028,61 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.objectFields <em>object Fields</em>}'.
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.fieldList <em>field List</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.objectFields
+   * @see de.lynorics.eclipse.jangaroo.aS3.fieldList
    * @generated
    */
-  public Adapter createobjectFieldsAdapter()
+  public Adapter createfieldListAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.objectField <em>object Field</em>}'.
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.literalField <em>literal Field</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.objectField
+   * @see de.lynorics.eclipse.jangaroo.aS3.literalField
    * @generated
    */
-  public Adapter createobjectFieldAdapter()
+  public Adapter createliteralFieldAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.fieldName <em>field Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.fieldName
+   * @generated
+   */
+  public Adapter createfieldNameAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.element <em>element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.element
+   * @generated
+   */
+  public Adapter createelementAdapter()
   {
     return null;
   }
@@ -995,16 +1103,196 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Symbol <em>Symbol</em>}'.
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.qualifiedIdent <em>qualified Ident</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Symbol
+   * @see de.lynorics.eclipse.jangaroo.aS3.qualifiedIdent
    * @generated
    */
-  public Adapter createSymbolAdapter()
+  public Adapter createqualifiedIdentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.identi <em>identi</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.identi
+   * @generated
+   */
+  public Adapter createidentiAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.identifier <em>identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.identifier
+   * @generated
+   */
+  public Adapter createidentifierAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.propertyIdentifier <em>property Identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.propertyIdentifier
+   * @generated
+   */
+  public Adapter createpropertyIdentifierAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.qualifier <em>qualifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.qualifier
+   * @generated
+   */
+  public Adapter createqualifierAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.simpleQualifiedIdentifier <em>simple Qualified Identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.simpleQualifiedIdentifier
+   * @generated
+   */
+  public Adapter createsimpleQualifiedIdentifierAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.expressionQualifiedIdentifier <em>expression Qualified Identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.expressionQualifiedIdentifier
+   * @generated
+   */
+  public Adapter createexpressionQualifiedIdentifierAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.nonAttributeQualifiedIdentifier <em>non Attribute Qualified Identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.nonAttributeQualifiedIdentifier
+   * @generated
+   */
+  public Adapter createnonAttributeQualifiedIdentifierAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.qualifiedIdentifier <em>qualified Identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.qualifiedIdentifier
+   * @generated
+   */
+  public Adapter createqualifiedIdentifierAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.namespaceName <em>namespace Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.namespaceName
+   * @generated
+   */
+  public Adapter createnamespaceNameAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.arrayLiteral <em>array Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.arrayLiteral
+   * @generated
+   */
+  public Adapter createarrayLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.elementList <em>element List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.elementList
+   * @generated
+   */
+  public Adapter createelementListAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.nonemptyElementList <em>nonempty Element List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.nonemptyElementList
+   * @generated
+   */
+  public Adapter createnonemptyElementListAdapter()
   {
     return null;
   }
@@ -1025,226 +1313,1051 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.New <em>New</em>}'.
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.expressionList <em>expression List</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.New
+   * @see de.lynorics.eclipse.jangaroo.aS3.expressionList
    * @generated
    */
-  public Adapter createNewAdapter()
+  public Adapter createexpressionListAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.While <em>While</em>}'.
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.assignmentExpression <em>assignment Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.While
+   * @see de.lynorics.eclipse.jangaroo.aS3.assignmentExpression
    * @generated
    */
-  public Adapter createWhileAdapter()
+  public Adapter createassignmentExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Switch <em>Switch</em>}'.
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.conditionalExpression <em>conditional Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Switch
+   * @see de.lynorics.eclipse.jangaroo.aS3.conditionalExpression
    * @generated
    */
-  public Adapter createSwitchAdapter()
+  public Adapter createconditionalExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Assignment <em>Assignment</em>}'.
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.conditionalSubExpression <em>conditional Sub Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Assignment
+   * @see de.lynorics.eclipse.jangaroo.aS3.conditionalSubExpression
    * @generated
    */
-  public Adapter createAssignmentAdapter()
+  public Adapter createconditionalSubExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.MemberSelection <em>Member Selection</em>}'.
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.logicalOrExpression <em>logical Or Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.MemberSelection
+   * @see de.lynorics.eclipse.jangaroo.aS3.logicalOrExpression
    * @generated
    */
-  public Adapter createMemberSelectionAdapter()
+  public Adapter createlogicalOrExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.StringConstant <em>String Constant</em>}'.
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.logicalAndExpression <em>logical And Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.StringConstant
+   * @see de.lynorics.eclipse.jangaroo.aS3.logicalAndExpression
    * @generated
    */
-  public Adapter createStringConstantAdapter()
+  public Adapter createlogicalAndExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.IntConstant <em>Int Constant</em>}'.
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.bitwiseOrExpression <em>bitwise Or Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.IntConstant
+   * @see de.lynorics.eclipse.jangaroo.aS3.bitwiseOrExpression
    * @generated
    */
-  public Adapter createIntConstantAdapter()
+  public Adapter createbitwiseOrExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.BoolConstant <em>Bool Constant</em>}'.
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.bitwiseXorExpression <em>bitwise Xor Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.BoolConstant
+   * @see de.lynorics.eclipse.jangaroo.aS3.bitwiseXorExpression
    * @generated
    */
-  public Adapter createBoolConstantAdapter()
+  public Adapter createbitwiseXorExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.This <em>This</em>}'.
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.bitwiseAndExpression <em>bitwise And Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.This
+   * @see de.lynorics.eclipse.jangaroo.aS3.bitwiseAndExpression
    * @generated
    */
-  public Adapter createThisAdapter()
+  public Adapter createbitwiseAndExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Super <em>Super</em>}'.
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.equalityExpression <em>equality Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Super
+   * @see de.lynorics.eclipse.jangaroo.aS3.equalityExpression
    * @generated
    */
-  public Adapter createSuperAdapter()
+  public Adapter createequalityExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Null <em>Null</em>}'.
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.relationalExpression <em>relational Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Null
+   * @see de.lynorics.eclipse.jangaroo.aS3.relationalExpression
    * @generated
    */
-  public Adapter createNullAdapter()
+  public Adapter createrelationalExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Undefined <em>Undefined</em>}'.
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.shiftExpression <em>shift Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Undefined
+   * @see de.lynorics.eclipse.jangaroo.aS3.shiftExpression
    * @generated
    */
-  public Adapter createUndefinedAdapter()
+  public Adapter createshiftExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.SymbolRef <em>Symbol Ref</em>}'.
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.additiveExpression <em>additive Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.SymbolRef
+   * @see de.lynorics.eclipse.jangaroo.aS3.additiveExpression
    * @generated
    */
-  public Adapter createSymbolRefAdapter()
+  public Adapter createadditiveExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.TerminalOp <em>Terminal Op</em>}'.
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.multiplicativeExpression <em>multiplicative Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.TerminalOp
+   * @see de.lynorics.eclipse.jangaroo.aS3.multiplicativeExpression
    * @generated
    */
-  public Adapter createTerminalOpAdapter()
+  public Adapter createmultiplicativeExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.BracketExpr <em>Bracket Expr</em>}'.
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.unaryExpression <em>unary Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.BracketExpr
+   * @see de.lynorics.eclipse.jangaroo.aS3.unaryExpression
    * @generated
    */
-  public Adapter createBracketExprAdapter()
+  public Adapter createunaryExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.unaryExpressionNotPlusMinus <em>unary Expression Not Plus Minus</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.unaryExpressionNotPlusMinus
+   * @generated
+   */
+  public Adapter createunaryExpressionNotPlusMinusAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.postfixExpression <em>postfix Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.postfixExpression
+   * @generated
+   */
+  public Adapter createpostfixExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.arguments <em>arguments</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.arguments
+   * @generated
+   */
+  public Adapter createargumentsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.e4xAttributeIdentifier <em>e4x Attribute Identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.e4xAttributeIdentifier
+   * @generated
+   */
+  public Adapter createe4xAttributeIdentifierAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.primaryExpression <em>primary Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.primaryExpression
+   * @generated
+   */
+  public Adapter createprimaryExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.propOrIdent <em>prop Or Ident</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.propOrIdent
+   * @generated
+   */
+  public Adapter createpropOrIdentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Constant <em>Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Constant
+   * @generated
+   */
+  public Adapter createConstantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.regexpLiteral <em>regexp Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.regexpLiteral
+   * @generated
+   */
+  public Adapter createregexpLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.newExpression <em>new Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.newExpression
+   * @generated
+   */
+  public Adapter createnewExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.fullNewSubexpression <em>full New Subexpression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.fullNewSubexpression
+   * @generated
+   */
+  public Adapter createfullNewSubexpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.brackets <em>brackets</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.brackets
+   * @generated
+   */
+  public Adapter createbracketsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.encapsulatedExpression <em>encapsulated Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.encapsulatedExpression
+   * @generated
+   */
+  public Adapter createencapsulatedExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.functionSignature <em>function Signature</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.functionSignature
+   * @generated
+   */
+  public Adapter createfunctionSignatureAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.typeExpression <em>type Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.typeExpression
+   * @generated
+   */
+  public Adapter createtypeExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.parameterDeclarationList <em>parameter Declaration List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.parameterDeclarationList
+   * @generated
+   */
+  public Adapter createparameterDeclarationListAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.parameterDeclaration <em>parameter Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.parameterDeclaration
+   * @generated
+   */
+  public Adapter createparameterDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.basicParameterDeclaration <em>basic Parameter Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.basicParameterDeclaration
+   * @generated
+   */
+  public Adapter createbasicParameterDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.parameterDefault <em>parameter Default</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.parameterDefault
+   * @generated
+   */
+  public Adapter createparameterDefaultAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.parameterRestDeclaration <em>parameter Rest Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.parameterRestDeclaration
+   * @generated
+   */
+  public Adapter createparameterRestDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.block <em>block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.block
+   * @generated
+   */
+  public Adapter createblockAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.blockEntry <em>block Entry</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.blockEntry
+   * @generated
+   */
+  public Adapter createblockEntryAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Condition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Condition
+   * @generated
+   */
+  public Adapter createConditionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Statement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Statement
+   * @generated
+   */
+  public Adapter createStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.DefaultXMLNamespaceStatement <em>Default XML Namespace Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.DefaultXMLNamespaceStatement
+   * @generated
+   */
+  public Adapter createDefaultXMLNamespaceStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.DeclarationStatement <em>Declaration Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.DeclarationStatement
+   * @generated
+   */
+  public Adapter createDeclarationStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.variableDeclarator <em>variable Declarator</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.variableDeclarator
+   * @generated
+   */
+  public Adapter createvariableDeclaratorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Declaration <em>Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Declaration
+   * @generated
+   */
+  public Adapter createDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.declarationTail <em>declaration Tail</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.declarationTail
+   * @generated
+   */
+  public Adapter createdeclarationTailAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.variableInitializer <em>variable Initializer</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.variableInitializer
+   * @generated
+   */
+  public Adapter createvariableInitializerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.ExpressionStatement <em>Expression Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.ExpressionStatement
+   * @generated
+   */
+  public Adapter createExpressionStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.IfStatement <em>If Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.IfStatement
+   * @generated
+   */
+  public Adapter createIfStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.ThrowStatement <em>Throw Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.ThrowStatement
+   * @generated
+   */
+  public Adapter createThrowStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.TryStatement <em>Try Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.TryStatement
+   * @generated
+   */
+  public Adapter createTryStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.catchBlock <em>catch Block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.catchBlock
+   * @generated
+   */
+  public Adapter createcatchBlockAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.finallyBlock <em>finally Block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.finallyBlock
+   * @generated
+   */
+  public Adapter createfinallyBlockAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.ReturnStatement <em>Return Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.ReturnStatement
+   * @generated
+   */
+  public Adapter createReturnStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.SwitchStatement <em>Switch Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.SwitchStatement
+   * @generated
+   */
+  public Adapter createSwitchStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.switchBlock <em>switch Block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.switchBlock
+   * @generated
+   */
+  public Adapter createswitchBlockAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.CaseStatement <em>Case Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.CaseStatement
+   * @generated
+   */
+  public Adapter createCaseStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.DefaultStatement <em>Default Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.DefaultStatement
+   * @generated
+   */
+  public Adapter createDefaultStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.switchStatementList <em>switch Statement List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.switchStatementList
+   * @generated
+   */
+  public Adapter createswitchStatementListAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.ForEachStatement <em>For Each Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.ForEachStatement
+   * @generated
+   */
+  public Adapter createForEachStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.ForStatement <em>For Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.ForStatement
+   * @generated
+   */
+  public Adapter createForStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.traditionalForClause <em>traditional For Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.traditionalForClause
+   * @generated
+   */
+  public Adapter createtraditionalForClauseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.forInClause <em>for In Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.forInClause
+   * @generated
+   */
+  public Adapter createforInClauseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.forInClauseDecl <em>for In Clause Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.forInClauseDecl
+   * @generated
+   */
+  public Adapter createforInClauseDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.forInClauseTail <em>for In Clause Tail</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.forInClauseTail
+   * @generated
+   */
+  public Adapter createforInClauseTailAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.forInit <em>for Init</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.forInit
+   * @generated
+   */
+  public Adapter createforInitAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.forCond <em>for Cond</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.forCond
+   * @generated
+   */
+  public Adapter createforCondAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.forIter <em>for Iter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.forIter
+   * @generated
+   */
+  public Adapter createforIterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.WhileStatement <em>While Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.WhileStatement
+   * @generated
+   */
+  public Adapter createWhileStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.DoWhileStatement <em>Do While Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.DoWhileStatement
+   * @generated
+   */
+  public Adapter createDoWhileStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.WithStatement <em>With Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.WithStatement
+   * @generated
+   */
+  public Adapter createWithStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.functionCommon <em>function Common</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.functionCommon
+   * @generated
+   */
+  public Adapter createfunctionCommonAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.functionExpression <em>function Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.functionExpression
+   * @generated
+   */
+  public Adapter createfunctionExpressionAdapter()
   {
     return null;
   }

@@ -312,7 +312,6 @@ forStatement
   : f=FOR
     LPAREN
     ( forInClause RPAREN fsstate=statement
-
     | traditionalForClause RPAREN fsstate=statement
     )
   ;
