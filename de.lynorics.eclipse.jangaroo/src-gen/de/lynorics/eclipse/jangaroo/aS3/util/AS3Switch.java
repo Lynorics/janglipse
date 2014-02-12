@@ -3,9 +3,10 @@
 package de.lynorics.eclipse.jangaroo.aS3.util;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
+import de.lynorics.eclipse.jangaroo.aS3.Block;
+import de.lynorics.eclipse.jangaroo.aS3.BoolConstant;
 import de.lynorics.eclipse.jangaroo.aS3.CaseStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Condition;
-import de.lynorics.eclipse.jangaroo.aS3.Constant;
 import de.lynorics.eclipse.jangaroo.aS3.Declaration;
 import de.lynorics.eclipse.jangaroo.aS3.DeclarationStatement;
 import de.lynorics.eclipse.jangaroo.aS3.DefaultStatement;
@@ -25,10 +26,15 @@ import de.lynorics.eclipse.jangaroo.aS3.Method;
 import de.lynorics.eclipse.jangaroo.aS3.MethodBody;
 import de.lynorics.eclipse.jangaroo.aS3.Model;
 import de.lynorics.eclipse.jangaroo.aS3.Modifier;
+import de.lynorics.eclipse.jangaroo.aS3.Null;
+import de.lynorics.eclipse.jangaroo.aS3.NumberConstant;
 import de.lynorics.eclipse.jangaroo.aS3.Parameter;
+import de.lynorics.eclipse.jangaroo.aS3.RegexpConstant;
 import de.lynorics.eclipse.jangaroo.aS3.ReturnStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Statement;
+import de.lynorics.eclipse.jangaroo.aS3.StringConstant;
 import de.lynorics.eclipse.jangaroo.aS3.SwitchStatement;
+import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.ThrowStatement;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Uses;
@@ -36,6 +42,7 @@ import de.lynorics.eclipse.jangaroo.aS3.VarType;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.WhileStatement;
 import de.lynorics.eclipse.jangaroo.aS3.WithStatement;
+import de.lynorics.eclipse.jangaroo.aS3.XmlConstant;
 import de.lynorics.eclipse.jangaroo.aS3.additiveExpression;
 import de.lynorics.eclipse.jangaroo.aS3.annotationField;
 import de.lynorics.eclipse.jangaroo.aS3.annotationFields;
@@ -46,8 +53,6 @@ import de.lynorics.eclipse.jangaroo.aS3.basicParameterDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.bitwiseAndExpression;
 import de.lynorics.eclipse.jangaroo.aS3.bitwiseOrExpression;
 import de.lynorics.eclipse.jangaroo.aS3.bitwiseXorExpression;
-import de.lynorics.eclipse.jangaroo.aS3.block;
-import de.lynorics.eclipse.jangaroo.aS3.blockEntry;
 import de.lynorics.eclipse.jangaroo.aS3.brackets;
 import de.lynorics.eclipse.jangaroo.aS3.catchBlock;
 import de.lynorics.eclipse.jangaroo.aS3.conditionalExpression;
@@ -366,6 +371,7 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = caseDeclaration(identi);
         if (result == null) result = caseDeclarationStatement(identi);
         if (result == null) result = caseforInClauseDecl(identi);
+        if (result == null) result = caseStatement(identi);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -464,6 +470,7 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = caseThrowStatement(expression);
         if (result == null) result = caseCaseStatement(expression);
         if (result == null) result = caseSwitchStatement(expression);
+        if (result == null) result = caseStatement(expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -474,6 +481,7 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = casebrackets(expressionList);
         if (result == null) result = caseExpressionStatement(expressionList);
         if (result == null) result = caseforInClauseTail(expressionList);
+        if (result == null) result = caseStatement(expressionList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -495,6 +503,7 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = caseexpressionQualifiedIdentifier(assignmentExpression);
         if (result == null) result = caseSwitchStatement(assignmentExpression);
         if (result == null) result = casenonAttributeQualifiedIdentifier(assignmentExpression);
+        if (result == null) result = caseStatement(assignmentExpression);
         if (result == null) result = casequalifiedIdentifier(assignmentExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -518,6 +527,7 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = caseexpressionQualifiedIdentifier(conditionalExpression);
         if (result == null) result = caseSwitchStatement(conditionalExpression);
         if (result == null) result = casenonAttributeQualifiedIdentifier(conditionalExpression);
+        if (result == null) result = caseStatement(conditionalExpression);
         if (result == null) result = casequalifiedIdentifier(conditionalExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -549,6 +559,7 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = caseexpressionQualifiedIdentifier(logicalOrExpression);
         if (result == null) result = caseSwitchStatement(logicalOrExpression);
         if (result == null) result = casenonAttributeQualifiedIdentifier(logicalOrExpression);
+        if (result == null) result = caseStatement(logicalOrExpression);
         if (result == null) result = casequalifiedIdentifier(logicalOrExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -668,13 +679,6 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.CONSTANT:
-      {
-        Constant constant = (Constant)theEObject;
-        T result = caseConstant(constant);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case AS3Package.REGEXP_LITERAL:
       {
         regexpLiteral regexpLiteral = (regexpLiteral)theEObject;
@@ -767,16 +771,10 @@ public class AS3Switch<T> extends Switch<T>
       }
       case AS3Package.BLOCK:
       {
-        block block = (block)theEObject;
-        T result = caseblock(block);
+        Block block = (Block)theEObject;
+        T result = caseBlock(block);
+        if (result == null) result = caseStatement(block);
         if (result == null) result = casefinallyBlock(block);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.BLOCK_ENTRY:
-      {
-        blockEntry blockEntry = (blockEntry)theEObject;
-        T result = caseblockEntry(blockEntry);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -785,6 +783,7 @@ public class AS3Switch<T> extends Switch<T>
         Condition condition = (Condition)theEObject;
         T result = caseCondition(condition);
         if (result == null) result = caseSwitchStatement(condition);
+        if (result == null) result = caseStatement(condition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -792,7 +791,6 @@ public class AS3Switch<T> extends Switch<T>
       {
         Statement statement = (Statement)theEObject;
         T result = caseStatement(statement);
-        if (result == null) result = caseblockEntry(statement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -800,6 +798,7 @@ public class AS3Switch<T> extends Switch<T>
       {
         DefaultXMLNamespaceStatement defaultXMLNamespaceStatement = (DefaultXMLNamespaceStatement)theEObject;
         T result = caseDefaultXMLNamespaceStatement(defaultXMLNamespaceStatement);
+        if (result == null) result = caseStatement(defaultXMLNamespaceStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -807,6 +806,7 @@ public class AS3Switch<T> extends Switch<T>
       {
         DeclarationStatement declarationStatement = (DeclarationStatement)theEObject;
         T result = caseDeclarationStatement(declarationStatement);
+        if (result == null) result = caseStatement(declarationStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -817,6 +817,7 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = caseDeclaration(variableDeclarator);
         if (result == null) result = caseDeclarationStatement(variableDeclarator);
         if (result == null) result = caseforInClauseDecl(variableDeclarator);
+        if (result == null) result = caseStatement(variableDeclarator);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -826,6 +827,7 @@ public class AS3Switch<T> extends Switch<T>
         T result = caseDeclaration(declaration);
         if (result == null) result = caseDeclarationStatement(declaration);
         if (result == null) result = caseforInClauseDecl(declaration);
+        if (result == null) result = caseStatement(declaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -847,6 +849,7 @@ public class AS3Switch<T> extends Switch<T>
       {
         ExpressionStatement expressionStatement = (ExpressionStatement)theEObject;
         T result = caseExpressionStatement(expressionStatement);
+        if (result == null) result = caseStatement(expressionStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -854,6 +857,7 @@ public class AS3Switch<T> extends Switch<T>
       {
         IfStatement ifStatement = (IfStatement)theEObject;
         T result = caseIfStatement(ifStatement);
+        if (result == null) result = caseStatement(ifStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -861,6 +865,7 @@ public class AS3Switch<T> extends Switch<T>
       {
         ThrowStatement throwStatement = (ThrowStatement)theEObject;
         T result = caseThrowStatement(throwStatement);
+        if (result == null) result = caseStatement(throwStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -868,6 +873,7 @@ public class AS3Switch<T> extends Switch<T>
       {
         TryStatement tryStatement = (TryStatement)theEObject;
         T result = caseTryStatement(tryStatement);
+        if (result == null) result = caseStatement(tryStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -889,6 +895,7 @@ public class AS3Switch<T> extends Switch<T>
       {
         ReturnStatement returnStatement = (ReturnStatement)theEObject;
         T result = caseReturnStatement(returnStatement);
+        if (result == null) result = caseStatement(returnStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -896,6 +903,7 @@ public class AS3Switch<T> extends Switch<T>
       {
         SwitchStatement switchStatement = (SwitchStatement)theEObject;
         T result = caseSwitchStatement(switchStatement);
+        if (result == null) result = caseStatement(switchStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -931,6 +939,7 @@ public class AS3Switch<T> extends Switch<T>
       {
         ForEachStatement forEachStatement = (ForEachStatement)theEObject;
         T result = caseForEachStatement(forEachStatement);
+        if (result == null) result = caseStatement(forEachStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -938,6 +947,7 @@ public class AS3Switch<T> extends Switch<T>
       {
         ForStatement forStatement = (ForStatement)theEObject;
         T result = caseForStatement(forStatement);
+        if (result == null) result = caseStatement(forStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -994,6 +1004,7 @@ public class AS3Switch<T> extends Switch<T>
       {
         WhileStatement whileStatement = (WhileStatement)theEObject;
         T result = caseWhileStatement(whileStatement);
+        if (result == null) result = caseStatement(whileStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1001,6 +1012,7 @@ public class AS3Switch<T> extends Switch<T>
       {
         DoWhileStatement doWhileStatement = (DoWhileStatement)theEObject;
         T result = caseDoWhileStatement(doWhileStatement);
+        if (result == null) result = caseStatement(doWhileStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1008,6 +1020,7 @@ public class AS3Switch<T> extends Switch<T>
       {
         WithStatement withStatement = (WithStatement)theEObject;
         T result = caseWithStatement(withStatement);
+        if (result == null) result = caseStatement(withStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1022,6 +1035,111 @@ public class AS3Switch<T> extends Switch<T>
       {
         functionExpression functionExpression = (functionExpression)theEObject;
         T result = casefunctionExpression(functionExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.XML_CONSTANT:
+      {
+        XmlConstant xmlConstant = (XmlConstant)theEObject;
+        T result = caseXmlConstant(xmlConstant);
+        if (result == null) result = caseExpression(xmlConstant);
+        if (result == null) result = caseexprOrObjectLiteral(xmlConstant);
+        if (result == null) result = caseCondition(xmlConstant);
+        if (result == null) result = caseDefaultXMLNamespaceStatement(xmlConstant);
+        if (result == null) result = caseThrowStatement(xmlConstant);
+        if (result == null) result = caseCaseStatement(xmlConstant);
+        if (result == null) result = caseSwitchStatement(xmlConstant);
+        if (result == null) result = caseStatement(xmlConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.REGEXP_CONSTANT:
+      {
+        RegexpConstant regexpConstant = (RegexpConstant)theEObject;
+        T result = caseRegexpConstant(regexpConstant);
+        if (result == null) result = caseExpression(regexpConstant);
+        if (result == null) result = caseexprOrObjectLiteral(regexpConstant);
+        if (result == null) result = caseCondition(regexpConstant);
+        if (result == null) result = caseDefaultXMLNamespaceStatement(regexpConstant);
+        if (result == null) result = caseThrowStatement(regexpConstant);
+        if (result == null) result = caseCaseStatement(regexpConstant);
+        if (result == null) result = caseSwitchStatement(regexpConstant);
+        if (result == null) result = caseStatement(regexpConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.NUMBER_CONSTANT:
+      {
+        NumberConstant numberConstant = (NumberConstant)theEObject;
+        T result = caseNumberConstant(numberConstant);
+        if (result == null) result = caseExpression(numberConstant);
+        if (result == null) result = caseexprOrObjectLiteral(numberConstant);
+        if (result == null) result = caseCondition(numberConstant);
+        if (result == null) result = caseDefaultXMLNamespaceStatement(numberConstant);
+        if (result == null) result = caseThrowStatement(numberConstant);
+        if (result == null) result = caseCaseStatement(numberConstant);
+        if (result == null) result = caseSwitchStatement(numberConstant);
+        if (result == null) result = caseStatement(numberConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.STRING_CONSTANT:
+      {
+        StringConstant stringConstant = (StringConstant)theEObject;
+        T result = caseStringConstant(stringConstant);
+        if (result == null) result = caseExpression(stringConstant);
+        if (result == null) result = caseexprOrObjectLiteral(stringConstant);
+        if (result == null) result = caseCondition(stringConstant);
+        if (result == null) result = caseDefaultXMLNamespaceStatement(stringConstant);
+        if (result == null) result = caseThrowStatement(stringConstant);
+        if (result == null) result = caseCaseStatement(stringConstant);
+        if (result == null) result = caseSwitchStatement(stringConstant);
+        if (result == null) result = caseStatement(stringConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.BOOL_CONSTANT:
+      {
+        BoolConstant boolConstant = (BoolConstant)theEObject;
+        T result = caseBoolConstant(boolConstant);
+        if (result == null) result = caseExpression(boolConstant);
+        if (result == null) result = caseexprOrObjectLiteral(boolConstant);
+        if (result == null) result = caseCondition(boolConstant);
+        if (result == null) result = caseDefaultXMLNamespaceStatement(boolConstant);
+        if (result == null) result = caseThrowStatement(boolConstant);
+        if (result == null) result = caseCaseStatement(boolConstant);
+        if (result == null) result = caseSwitchStatement(boolConstant);
+        if (result == null) result = caseStatement(boolConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.THIS:
+      {
+        This this_ = (This)theEObject;
+        T result = caseThis(this_);
+        if (result == null) result = caseExpression(this_);
+        if (result == null) result = caseexprOrObjectLiteral(this_);
+        if (result == null) result = caseCondition(this_);
+        if (result == null) result = caseDefaultXMLNamespaceStatement(this_);
+        if (result == null) result = caseThrowStatement(this_);
+        if (result == null) result = caseCaseStatement(this_);
+        if (result == null) result = caseSwitchStatement(this_);
+        if (result == null) result = caseStatement(this_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.NULL:
+      {
+        Null null_ = (Null)theEObject;
+        T result = caseNull(null_);
+        if (result == null) result = caseExpression(null_);
+        if (result == null) result = caseexprOrObjectLiteral(null_);
+        if (result == null) result = caseCondition(null_);
+        if (result == null) result = caseDefaultXMLNamespaceStatement(null_);
+        if (result == null) result = caseThrowStatement(null_);
+        if (result == null) result = caseCaseStatement(null_);
+        if (result == null) result = caseSwitchStatement(null_);
+        if (result == null) result = caseStatement(null_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1974,22 +2092,6 @@ public class AS3Switch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Constant</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Constant</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseConstant(Constant object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>regexp Literal</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2182,33 +2284,17 @@ public class AS3Switch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>block</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Block</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>block</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Block</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseblock(block object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>block Entry</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>block Entry</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseblockEntry(blockEntry object)
+  public T caseBlock(Block object)
   {
     return null;
   }
@@ -2753,6 +2839,118 @@ public class AS3Switch<T> extends Switch<T>
    * @generated
    */
   public T casefunctionExpression(functionExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Xml Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Xml Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseXmlConstant(XmlConstant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Regexp Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Regexp Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRegexpConstant(RegexpConstant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Number Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Number Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNumberConstant(NumberConstant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>String Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>String Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStringConstant(StringConstant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Bool Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Bool Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBoolConstant(BoolConstant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>This</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>This</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseThis(This object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Null</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Null</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNull(Null object)
   {
     return null;
   }

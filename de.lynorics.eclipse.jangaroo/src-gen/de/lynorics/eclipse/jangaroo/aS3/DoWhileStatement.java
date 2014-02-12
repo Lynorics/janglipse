@@ -2,7 +2,6 @@
  */
 package de.lynorics.eclipse.jangaroo.aS3;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface DoWhileStatement extends EObject
+public interface DoWhileStatement extends Statement
 {
   /**
    * Returns the value of the '<em><b>State</b></em>' containment reference.

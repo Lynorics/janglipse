@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class WhileStatementImpl extends MinimalEObjectImpl.Container implements WhileStatement
+public class WhileStatementImpl extends StatementImpl implements WhileStatement
 {
   /**
    * The cached value of the '{@link #getCond() <em>Cond</em>}' containment reference.

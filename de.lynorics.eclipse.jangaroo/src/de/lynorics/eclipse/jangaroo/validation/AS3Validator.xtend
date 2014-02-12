@@ -6,6 +6,8 @@
  */
 package de.lynorics.eclipse.jangaroo.validation
 
+import static extension de.lynorics.eclipse.jangaroo.AS3ModelUtil.*;
+
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package
 import de.lynorics.eclipse.jangaroo.aS3.Class
 import de.lynorics.eclipse.jangaroo.aS3.Package
@@ -14,6 +16,7 @@ import de.lynorics.eclipse.jangaroo.aS3.Method
 import de.lynorics.eclipse.jangaroo.aS3.Interface
 import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod
 import org.eclipse.emf.ecore.EObject
+import de.lynorics.eclipse.jangaroo.aS3.ReturnStatement
 
 /**
  * Custom validation rules. 
@@ -28,6 +31,7 @@ class AS3Validator extends AbstractAS3Validator {
   public static val CYCLE_IN_CLASS_HIERARCHY = "cycleInClassHierarchy";
   public static val PACKAGE_SHOULD_START_WITH_LOWERCASE = 'fieldStartsWithLowercase';
   public static val METHOD_SHOULD_START_WITH_LOWERCASE = 'methodStartsWithLowercase';
+  public static val UNREACHABLE_CODE = 'unreachableCode';
 
   @Check
   def checkClassStartsWithCapital(Class clas) {
@@ -117,5 +121,15 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
 
+  @Check
+  def checkNoStatementAfterReturn(ReturnStatement ret) {
+    val statements = ret.containingBlock.statements;
+    if (statements.last != ret) {
+      error("Unreachable code",
+        statements.get(statements.indexOf(ret)+1),
+        null,
+        UNREACHABLE_CODE);
+    }
+  }
 
 }

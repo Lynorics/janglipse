@@ -3,9 +3,10 @@
 package de.lynorics.eclipse.jangaroo.aS3.util;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
+import de.lynorics.eclipse.jangaroo.aS3.Block;
+import de.lynorics.eclipse.jangaroo.aS3.BoolConstant;
 import de.lynorics.eclipse.jangaroo.aS3.CaseStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Condition;
-import de.lynorics.eclipse.jangaroo.aS3.Constant;
 import de.lynorics.eclipse.jangaroo.aS3.Declaration;
 import de.lynorics.eclipse.jangaroo.aS3.DeclarationStatement;
 import de.lynorics.eclipse.jangaroo.aS3.DefaultStatement;
@@ -25,10 +26,15 @@ import de.lynorics.eclipse.jangaroo.aS3.Method;
 import de.lynorics.eclipse.jangaroo.aS3.MethodBody;
 import de.lynorics.eclipse.jangaroo.aS3.Model;
 import de.lynorics.eclipse.jangaroo.aS3.Modifier;
+import de.lynorics.eclipse.jangaroo.aS3.Null;
+import de.lynorics.eclipse.jangaroo.aS3.NumberConstant;
 import de.lynorics.eclipse.jangaroo.aS3.Parameter;
+import de.lynorics.eclipse.jangaroo.aS3.RegexpConstant;
 import de.lynorics.eclipse.jangaroo.aS3.ReturnStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Statement;
+import de.lynorics.eclipse.jangaroo.aS3.StringConstant;
 import de.lynorics.eclipse.jangaroo.aS3.SwitchStatement;
+import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.ThrowStatement;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Uses;
@@ -36,6 +42,7 @@ import de.lynorics.eclipse.jangaroo.aS3.VarType;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.WhileStatement;
 import de.lynorics.eclipse.jangaroo.aS3.WithStatement;
+import de.lynorics.eclipse.jangaroo.aS3.XmlConstant;
 import de.lynorics.eclipse.jangaroo.aS3.additiveExpression;
 import de.lynorics.eclipse.jangaroo.aS3.annotationField;
 import de.lynorics.eclipse.jangaroo.aS3.annotationFields;
@@ -46,8 +53,6 @@ import de.lynorics.eclipse.jangaroo.aS3.basicParameterDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.bitwiseAndExpression;
 import de.lynorics.eclipse.jangaroo.aS3.bitwiseOrExpression;
 import de.lynorics.eclipse.jangaroo.aS3.bitwiseXorExpression;
-import de.lynorics.eclipse.jangaroo.aS3.block;
-import de.lynorics.eclipse.jangaroo.aS3.blockEntry;
 import de.lynorics.eclipse.jangaroo.aS3.brackets;
 import de.lynorics.eclipse.jangaroo.aS3.catchBlock;
 import de.lynorics.eclipse.jangaroo.aS3.conditionalExpression;
@@ -476,11 +481,6 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
         return createpropOrIdentAdapter();
       }
       @Override
-      public Adapter caseConstant(Constant object)
-      {
-        return createConstantAdapter();
-      }
-      @Override
       public Adapter caseregexpLiteral(regexpLiteral object)
       {
         return createregexpLiteralAdapter();
@@ -541,14 +541,9 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
         return createparameterRestDeclarationAdapter();
       }
       @Override
-      public Adapter caseblock(block object)
+      public Adapter caseBlock(Block object)
       {
-        return createblockAdapter();
-      }
-      @Override
-      public Adapter caseblockEntry(blockEntry object)
-      {
-        return createblockEntryAdapter();
+        return createBlockAdapter();
       }
       @Override
       public Adapter caseCondition(Condition object)
@@ -719,6 +714,41 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
       public Adapter casefunctionExpression(functionExpression object)
       {
         return createfunctionExpressionAdapter();
+      }
+      @Override
+      public Adapter caseXmlConstant(XmlConstant object)
+      {
+        return createXmlConstantAdapter();
+      }
+      @Override
+      public Adapter caseRegexpConstant(RegexpConstant object)
+      {
+        return createRegexpConstantAdapter();
+      }
+      @Override
+      public Adapter caseNumberConstant(NumberConstant object)
+      {
+        return createNumberConstantAdapter();
+      }
+      @Override
+      public Adapter caseStringConstant(StringConstant object)
+      {
+        return createStringConstantAdapter();
+      }
+      @Override
+      public Adapter caseBoolConstant(BoolConstant object)
+      {
+        return createBoolConstantAdapter();
+      }
+      @Override
+      public Adapter caseThis(This object)
+      {
+        return createThisAdapter();
+      }
+      @Override
+      public Adapter caseNull(Null object)
+      {
+        return createNullAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -1628,21 +1658,6 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Constant <em>Constant</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Constant
-   * @generated
-   */
-  public Adapter createConstantAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.regexpLiteral <em>regexp Literal</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1823,31 +1838,16 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.block <em>block</em>}'.
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Block <em>Block</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.block
+   * @see de.lynorics.eclipse.jangaroo.aS3.Block
    * @generated
    */
-  public Adapter createblockAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.blockEntry <em>block Entry</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.blockEntry
-   * @generated
-   */
-  public Adapter createblockEntryAdapter()
+  public Adapter createBlockAdapter()
   {
     return null;
   }
@@ -2358,6 +2358,111 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createfunctionExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.XmlConstant <em>Xml Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.XmlConstant
+   * @generated
+   */
+  public Adapter createXmlConstantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.RegexpConstant <em>Regexp Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.RegexpConstant
+   * @generated
+   */
+  public Adapter createRegexpConstantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.NumberConstant <em>Number Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.NumberConstant
+   * @generated
+   */
+  public Adapter createNumberConstantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.StringConstant <em>String Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.StringConstant
+   * @generated
+   */
+  public Adapter createStringConstantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.BoolConstant <em>Bool Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.BoolConstant
+   * @generated
+   */
+  public Adapter createBoolConstantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.This <em>This</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.This
+   * @generated
+   */
+  public Adapter createThisAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Null <em>Null</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Null
+   * @generated
+   */
+  public Adapter createNullAdapter()
   {
     return null;
   }

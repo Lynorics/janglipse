@@ -7,15 +7,21 @@
 package de.lynorics.eclipse.jangaroo.validation;
 
 import com.google.common.base.Objects;
+import de.lynorics.eclipse.jangaroo.AS3ModelUtil;
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
+import de.lynorics.eclipse.jangaroo.aS3.Block;
 import de.lynorics.eclipse.jangaroo.aS3.Interface;
 import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
+import de.lynorics.eclipse.jangaroo.aS3.ReturnStatement;
+import de.lynorics.eclipse.jangaroo.aS3.Statement;
 import de.lynorics.eclipse.jangaroo.validation.AbstractAS3Validator;
 import java.util.HashSet;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * Custom validation rules.
@@ -35,6 +41,8 @@ public class AS3Validator extends AbstractAS3Validator {
   public final static String PACKAGE_SHOULD_START_WITH_LOWERCASE = "fieldStartsWithLowercase";
   
   public final static String METHOD_SHOULD_START_WITH_LOWERCASE = "methodStartsWithLowercase";
+  
+  public final static String UNREACHABLE_CODE = "unreachableCode";
   
   @Check
   public void checkClassStartsWithCapital(final de.lynorics.eclipse.jangaroo.aS3.Class clas) {
@@ -172,6 +180,22 @@ public class AS3Validator extends AbstractAS3Validator {
       }
       boolean _notEquals_1 = (!Objects.equal(current, null));
       _while = _notEquals_1;
+    }
+  }
+  
+  @Check
+  public void checkNoStatementAfterReturn(final ReturnStatement ret) {
+    Block _containingBlock = AS3ModelUtil.containingBlock(ret);
+    final EList<Statement> statements = _containingBlock.getStatements();
+    Statement _last = IterableExtensions.<Statement>last(statements);
+    boolean _notEquals = (!Objects.equal(_last, ret));
+    if (_notEquals) {
+      int _indexOf = statements.indexOf(ret);
+      int _plus = (_indexOf + 1);
+      Statement _get = statements.get(_plus);
+      this.error("Unreachable code", _get, 
+        null, 
+        AS3Validator.UNREACHABLE_CODE);
     }
   }
 }

@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class DoWhileStatementImpl extends MinimalEObjectImpl.Container implements DoWhileStatement
+public class DoWhileStatementImpl extends StatementImpl implements DoWhileStatement
 {
   /**
    * The cached value of the '{@link #getState() <em>State</em>}' containment reference.

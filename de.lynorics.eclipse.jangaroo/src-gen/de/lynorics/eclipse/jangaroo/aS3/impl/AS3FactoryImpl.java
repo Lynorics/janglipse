@@ -5,9 +5,10 @@ package de.lynorics.eclipse.jangaroo.aS3.impl;
 import de.lynorics.eclipse.jangaroo.aS3.AS3Factory;
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
 import de.lynorics.eclipse.jangaroo.aS3.AccessLevel;
+import de.lynorics.eclipse.jangaroo.aS3.Block;
+import de.lynorics.eclipse.jangaroo.aS3.BoolConstant;
 import de.lynorics.eclipse.jangaroo.aS3.CaseStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Condition;
-import de.lynorics.eclipse.jangaroo.aS3.Constant;
 import de.lynorics.eclipse.jangaroo.aS3.Declaration;
 import de.lynorics.eclipse.jangaroo.aS3.DeclarationStatement;
 import de.lynorics.eclipse.jangaroo.aS3.DefaultStatement;
@@ -27,10 +28,15 @@ import de.lynorics.eclipse.jangaroo.aS3.Method;
 import de.lynorics.eclipse.jangaroo.aS3.MethodBody;
 import de.lynorics.eclipse.jangaroo.aS3.Model;
 import de.lynorics.eclipse.jangaroo.aS3.Modifier;
+import de.lynorics.eclipse.jangaroo.aS3.Null;
+import de.lynorics.eclipse.jangaroo.aS3.NumberConstant;
 import de.lynorics.eclipse.jangaroo.aS3.Parameter;
+import de.lynorics.eclipse.jangaroo.aS3.RegexpConstant;
 import de.lynorics.eclipse.jangaroo.aS3.ReturnStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Statement;
+import de.lynorics.eclipse.jangaroo.aS3.StringConstant;
 import de.lynorics.eclipse.jangaroo.aS3.SwitchStatement;
+import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.ThrowStatement;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Uses;
@@ -38,6 +44,7 @@ import de.lynorics.eclipse.jangaroo.aS3.VarType;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.WhileStatement;
 import de.lynorics.eclipse.jangaroo.aS3.WithStatement;
+import de.lynorics.eclipse.jangaroo.aS3.XmlConstant;
 import de.lynorics.eclipse.jangaroo.aS3.additiveExpression;
 import de.lynorics.eclipse.jangaroo.aS3.annotationField;
 import de.lynorics.eclipse.jangaroo.aS3.annotationFields;
@@ -48,8 +55,6 @@ import de.lynorics.eclipse.jangaroo.aS3.basicParameterDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.bitwiseAndExpression;
 import de.lynorics.eclipse.jangaroo.aS3.bitwiseOrExpression;
 import de.lynorics.eclipse.jangaroo.aS3.bitwiseXorExpression;
-import de.lynorics.eclipse.jangaroo.aS3.block;
-import de.lynorics.eclipse.jangaroo.aS3.blockEntry;
 import de.lynorics.eclipse.jangaroo.aS3.brackets;
 import de.lynorics.eclipse.jangaroo.aS3.catchBlock;
 import de.lynorics.eclipse.jangaroo.aS3.conditionalExpression;
@@ -232,7 +237,6 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.E4X_ATTRIBUTE_IDENTIFIER: return createe4xAttributeIdentifier();
       case AS3Package.PRIMARY_EXPRESSION: return createprimaryExpression();
       case AS3Package.PROP_OR_IDENT: return createpropOrIdent();
-      case AS3Package.CONSTANT: return createConstant();
       case AS3Package.REGEXP_LITERAL: return createregexpLiteral();
       case AS3Package.NEW_EXPRESSION: return createnewExpression();
       case AS3Package.FULL_NEW_SUBEXPRESSION: return createfullNewSubexpression();
@@ -245,8 +249,7 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.BASIC_PARAMETER_DECLARATION: return createbasicParameterDeclaration();
       case AS3Package.PARAMETER_DEFAULT: return createparameterDefault();
       case AS3Package.PARAMETER_REST_DECLARATION: return createparameterRestDeclaration();
-      case AS3Package.BLOCK: return createblock();
-      case AS3Package.BLOCK_ENTRY: return createblockEntry();
+      case AS3Package.BLOCK: return createBlock();
       case AS3Package.CONDITION: return createCondition();
       case AS3Package.STATEMENT: return createStatement();
       case AS3Package.DEFAULT_XML_NAMESPACE_STATEMENT: return createDefaultXMLNamespaceStatement();
@@ -281,6 +284,13 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.WITH_STATEMENT: return createWithStatement();
       case AS3Package.FUNCTION_COMMON: return createfunctionCommon();
       case AS3Package.FUNCTION_EXPRESSION: return createfunctionExpression();
+      case AS3Package.XML_CONSTANT: return createXmlConstant();
+      case AS3Package.REGEXP_CONSTANT: return createRegexpConstant();
+      case AS3Package.NUMBER_CONSTANT: return createNumberConstant();
+      case AS3Package.STRING_CONSTANT: return createStringConstant();
+      case AS3Package.BOOL_CONSTANT: return createBoolConstant();
+      case AS3Package.THIS: return createThis();
+      case AS3Package.NULL: return createNull();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -974,17 +984,6 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Constant createConstant()
-  {
-    ConstantImpl constant = new ConstantImpl();
-    return constant;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public regexpLiteral createregexpLiteral()
   {
     regexpLiteralImpl regexpLiteral = new regexpLiteralImpl();
@@ -1117,21 +1116,10 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public block createblock()
+  public Block createBlock()
   {
-    blockImpl block = new blockImpl();
+    BlockImpl block = new BlockImpl();
     return block;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public blockEntry createblockEntry()
-  {
-    blockEntryImpl blockEntry = new blockEntryImpl();
-    return blockEntry;
   }
 
   /**
@@ -1506,6 +1494,83 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
   {
     functionExpressionImpl functionExpression = new functionExpressionImpl();
     return functionExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public XmlConstant createXmlConstant()
+  {
+    XmlConstantImpl xmlConstant = new XmlConstantImpl();
+    return xmlConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RegexpConstant createRegexpConstant()
+  {
+    RegexpConstantImpl regexpConstant = new RegexpConstantImpl();
+    return regexpConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NumberConstant createNumberConstant()
+  {
+    NumberConstantImpl numberConstant = new NumberConstantImpl();
+    return numberConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StringConstant createStringConstant()
+  {
+    StringConstantImpl stringConstant = new StringConstantImpl();
+    return stringConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BoolConstant createBoolConstant()
+  {
+    BoolConstantImpl boolConstant = new BoolConstantImpl();
+    return boolConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public This createThis()
+  {
+    ThisImpl this_ = new ThisImpl();
+    return this_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Null createNull()
+  {
+    NullImpl null_ = new NullImpl();
+    return null_;
   }
 
   /**

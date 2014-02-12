@@ -7,6 +7,7 @@ import de.lynorics.eclipse.jangaroo.aS3.CaseStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Condition;
 import de.lynorics.eclipse.jangaroo.aS3.DefaultXMLNamespaceStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Expression;
+import de.lynorics.eclipse.jangaroo.aS3.Statement;
 import de.lynorics.eclipse.jangaroo.aS3.SwitchStatement;
 import de.lynorics.eclipse.jangaroo.aS3.ThrowStatement;
 import de.lynorics.eclipse.jangaroo.aS3.switchBlock;
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ExpressionImpl#getAssert <em>Assert</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ExpressionImpl#getSwitch <em>Switch</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ExpressionImpl#getL <em>L</em>}</li>
  * </ul>
@@ -36,6 +38,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ExpressionImpl extends exprOrObjectLiteralImpl implements Expression
 {
+  /**
+   * The cached value of the '{@link #getAssert() <em>Assert</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAssert()
+   * @generated
+   * @ordered
+   */
+  protected Condition assert_;
+
   /**
    * The cached value of the '{@link #getSwitch() <em>Switch</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -75,6 +87,54 @@ public class ExpressionImpl extends exprOrObjectLiteralImpl implements Expressio
   protected EClass eStaticClass()
   {
     return AS3Package.Literals.EXPRESSION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Condition getAssert()
+  {
+    return assert_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAssert(Condition newAssert, NotificationChain msgs)
+  {
+    Condition oldAssert = assert_;
+    assert_ = newAssert;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.EXPRESSION__ASSERT, oldAssert, newAssert);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAssert(Condition newAssert)
+  {
+    if (newAssert != assert_)
+    {
+      NotificationChain msgs = null;
+      if (assert_ != null)
+        msgs = ((InternalEObject)assert_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.EXPRESSION__ASSERT, null, msgs);
+      if (newAssert != null)
+        msgs = ((InternalEObject)newAssert).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.EXPRESSION__ASSERT, null, msgs);
+      msgs = basicSetAssert(newAssert, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.EXPRESSION__ASSERT, newAssert, newAssert));
   }
 
   /**
@@ -183,6 +243,8 @@ public class ExpressionImpl extends exprOrObjectLiteralImpl implements Expressio
   {
     switch (featureID)
     {
+      case AS3Package.EXPRESSION__ASSERT:
+        return basicSetAssert(null, msgs);
       case AS3Package.EXPRESSION__SWITCH:
         return basicSetSwitch(null, msgs);
       case AS3Package.EXPRESSION__L:
@@ -201,6 +263,8 @@ public class ExpressionImpl extends exprOrObjectLiteralImpl implements Expressio
   {
     switch (featureID)
     {
+      case AS3Package.EXPRESSION__ASSERT:
+        return getAssert();
       case AS3Package.EXPRESSION__SWITCH:
         return getSwitch();
       case AS3Package.EXPRESSION__L:
@@ -219,6 +283,9 @@ public class ExpressionImpl extends exprOrObjectLiteralImpl implements Expressio
   {
     switch (featureID)
     {
+      case AS3Package.EXPRESSION__ASSERT:
+        setAssert((Condition)newValue);
+        return;
       case AS3Package.EXPRESSION__SWITCH:
         setSwitch((switchBlock)newValue);
         return;
@@ -239,6 +306,9 @@ public class ExpressionImpl extends exprOrObjectLiteralImpl implements Expressio
   {
     switch (featureID)
     {
+      case AS3Package.EXPRESSION__ASSERT:
+        setAssert((Condition)null);
+        return;
       case AS3Package.EXPRESSION__SWITCH:
         setSwitch((switchBlock)null);
         return;
@@ -259,6 +329,8 @@ public class ExpressionImpl extends exprOrObjectLiteralImpl implements Expressio
   {
     switch (featureID)
     {
+      case AS3Package.EXPRESSION__ASSERT:
+        return assert_ != null;
       case AS3Package.EXPRESSION__SWITCH:
         return switch_ != null;
       case AS3Package.EXPRESSION__L:
@@ -275,6 +347,14 @@ public class ExpressionImpl extends exprOrObjectLiteralImpl implements Expressio
   @Override
   public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
   {
+    if (baseClass == Statement.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case AS3Package.EXPRESSION__ASSERT: return AS3Package.STATEMENT__ASSERT;
+        default: return -1;
+      }
+    }
     if (baseClass == SwitchStatement.class)
     {
       switch (derivedFeatureID)
@@ -322,6 +402,14 @@ public class ExpressionImpl extends exprOrObjectLiteralImpl implements Expressio
   @Override
   public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
   {
+    if (baseClass == Statement.class)
+    {
+      switch (baseFeatureID)
+      {
+        case AS3Package.STATEMENT__ASSERT: return AS3Package.EXPRESSION__ASSERT;
+        default: return -1;
+      }
+    }
     if (baseClass == SwitchStatement.class)
     {
       switch (baseFeatureID)

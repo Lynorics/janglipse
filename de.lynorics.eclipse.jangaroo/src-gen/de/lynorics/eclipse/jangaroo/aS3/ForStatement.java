@@ -2,7 +2,6 @@
  */
 package de.lynorics.eclipse.jangaroo.aS3;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ForStatement extends EObject
+public interface ForStatement extends Statement
 {
   /**
    * Returns the value of the '<em><b>For In</b></em>' containment reference.

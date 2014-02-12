@@ -554,15 +554,6 @@ public interface AS3Factory extends EFactory
   propOrIdent createpropOrIdent();
 
   /**
-   * Returns a new object of class '<em>Constant</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Constant</em>'.
-   * @generated
-   */
-  Constant createConstant();
-
-  /**
    * Returns a new object of class '<em>regexp Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -671,22 +662,13 @@ public interface AS3Factory extends EFactory
   parameterRestDeclaration createparameterRestDeclaration();
 
   /**
-   * Returns a new object of class '<em>block</em>'.
+   * Returns a new object of class '<em>Block</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>block</em>'.
+   * @return a new object of class '<em>Block</em>'.
    * @generated
    */
-  block createblock();
-
-  /**
-   * Returns a new object of class '<em>block Entry</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>block Entry</em>'.
-   * @generated
-   */
-  blockEntry createblockEntry();
+  Block createBlock();
 
   /**
    * Returns a new object of class '<em>Condition</em>'.
@@ -993,6 +975,69 @@ public interface AS3Factory extends EFactory
    * @generated
    */
   functionExpression createfunctionExpression();
+
+  /**
+   * Returns a new object of class '<em>Xml Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Xml Constant</em>'.
+   * @generated
+   */
+  XmlConstant createXmlConstant();
+
+  /**
+   * Returns a new object of class '<em>Regexp Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Regexp Constant</em>'.
+   * @generated
+   */
+  RegexpConstant createRegexpConstant();
+
+  /**
+   * Returns a new object of class '<em>Number Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Number Constant</em>'.
+   * @generated
+   */
+  NumberConstant createNumberConstant();
+
+  /**
+   * Returns a new object of class '<em>String Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>String Constant</em>'.
+   * @generated
+   */
+  StringConstant createStringConstant();
+
+  /**
+   * Returns a new object of class '<em>Bool Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Bool Constant</em>'.
+   * @generated
+   */
+  BoolConstant createBoolConstant();
+
+  /**
+   * Returns a new object of class '<em>This</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>This</em>'.
+   * @generated
+   */
+  This createThis();
+
+  /**
+   * Returns a new object of class '<em>Null</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Null</em>'.
+   * @generated
+   */
+  Null createNull();
 
   /**
    * Returns the package supported by this factory.

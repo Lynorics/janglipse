@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +31,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class ForStatementImpl extends MinimalEObjectImpl.Container implements ForStatement
+public class ForStatementImpl extends StatementImpl implements ForStatement
 {
   /**
    * The cached value of the '{@link #getForIn() <em>For In</em>}' containment reference.

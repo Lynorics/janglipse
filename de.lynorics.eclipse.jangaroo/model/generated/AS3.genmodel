@@ -250,12 +250,6 @@
     <genClasses ecoreClass="AS3.ecore#//propOrIdent">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//propOrIdent/propId"/>
     </genClasses>
-    <genClasses ecoreClass="AS3.ecore#//Constant">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Constant/xml"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Constant/regex"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Constant/number"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Constant/string"/>
-    </genClasses>
     <genClasses ecoreClass="AS3.ecore#//regexpLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//regexpLiteral/s"/>
     </genClasses>
@@ -291,30 +285,13 @@
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//parameterDefault"/>
     <genClasses ecoreClass="AS3.ecore#//parameterRestDeclaration"/>
-    <genClasses ecoreClass="AS3.ecore#//block">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//block/blocks"/>
+    <genClasses ecoreClass="AS3.ecore#//Block">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Block/statements"/>
     </genClasses>
-    <genClasses ecoreClass="AS3.ecore#//blockEntry"/>
     <genClasses ecoreClass="AS3.ecore#//Condition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Condition/switch"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//Statement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Statement/sb"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Statement/sds"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Statement/ses"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Statement/sis"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Statement/sfes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Statement/sfs"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Statement/sws"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Statement/sdws"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Statement/ws"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Statement/sss"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Statement/sbs"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Statement/scs"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Statement/srs"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Statement/sts"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Statement/ts"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Statement/sdxns"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Statement/assert"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//DefaultXMLNamespaceStatement"/>
@@ -408,5 +385,22 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//functionExpression/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//functionExpression/func"/>
     </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//XmlConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//XmlConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//RegexpConstant">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//RegexpConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//NumberConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//NumberConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//StringConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//StringConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//BoolConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//BoolConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//This"/>
+    <genClasses ecoreClass="AS3.ecore#//Null"/>
   </genPackages>
 </genmodel:GenModel>

@@ -4,8 +4,6 @@ package de.lynorics.eclipse.jangaroo.aS3;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Try Statement</b></em>'.
@@ -24,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface TryStatement extends EObject
+public interface TryStatement extends Statement
 {
   /**
    * Returns the value of the '<em><b>Block</b></em>' containment reference.
@@ -35,12 +33,12 @@ public interface TryStatement extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Block</em>' containment reference.
-   * @see #setBlock(block)
+   * @see #setBlock(Block)
    * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getTryStatement_Block()
    * @model containment="true"
    * @generated
    */
-  block getBlock();
+  Block getBlock();
 
   /**
    * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.TryStatement#getBlock <em>Block</em>}' containment reference.
@@ -50,7 +48,7 @@ public interface TryStatement extends EObject
    * @see #getBlock()
    * @generated
    */
-  void setBlock(block value);
+  void setBlock(Block value);
 
   /**
    * Returns the value of the '<em><b>Finally</b></em>' containment reference.

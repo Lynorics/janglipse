@@ -124,7 +124,7 @@ RULE_WS=12
 '=='=75
 'implements'=36
 'with'=121
-'this'=97
+'this'=100
 ';'=18
 'return'=112
 '==='=72
@@ -162,7 +162,7 @@ RULE_WS=12
 '='=28
 'assign'=105
 '%'=88
-'super'=98
+'super'=97
 'case'=116
 'override'=39
 '<<'=82
@@ -192,7 +192,7 @@ RULE_WS=12
 'delete'=91
 'import'=17
 '++'=89
-'true'=99
+'true'=98
 'else'=107
 'final'=41
 '^='=60
@@ -229,6 +229,6 @@ RULE_WS=12
 'do'=120
 '}'=16
 'namespace'=24
-'false'=100
+'false'=99
 '*'=25
 'interface'=31

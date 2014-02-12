@@ -3,8 +3,8 @@
 package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
+import de.lynorics.eclipse.jangaroo.aS3.Block;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
-import de.lynorics.eclipse.jangaroo.aS3.block;
 import de.lynorics.eclipse.jangaroo.aS3.catchBlock;
 import de.lynorics.eclipse.jangaroo.aS3.finallyBlock;
 
@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -39,7 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class TryStatementImpl extends MinimalEObjectImpl.Container implements TryStatement
+public class TryStatementImpl extends StatementImpl implements TryStatement
 {
   /**
    * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
@@ -49,7 +48,7 @@ public class TryStatementImpl extends MinimalEObjectImpl.Container implements Tr
    * @generated
    * @ordered
    */
-  protected block block;
+  protected Block block;
 
   /**
    * The cached value of the '{@link #getFinally() <em>Finally</em>}' containment reference.
@@ -97,7 +96,7 @@ public class TryStatementImpl extends MinimalEObjectImpl.Container implements Tr
    * <!-- end-user-doc -->
    * @generated
    */
-  public block getBlock()
+  public Block getBlock()
   {
     return block;
   }
@@ -107,9 +106,9 @@ public class TryStatementImpl extends MinimalEObjectImpl.Container implements Tr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetBlock(block newBlock, NotificationChain msgs)
+  public NotificationChain basicSetBlock(Block newBlock, NotificationChain msgs)
   {
-    block oldBlock = block;
+    Block oldBlock = block;
     block = newBlock;
     if (eNotificationRequired())
     {
@@ -124,7 +123,7 @@ public class TryStatementImpl extends MinimalEObjectImpl.Container implements Tr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBlock(block newBlock)
+  public void setBlock(Block newBlock)
   {
     if (newBlock != block)
     {
@@ -254,7 +253,7 @@ public class TryStatementImpl extends MinimalEObjectImpl.Container implements Tr
     switch (featureID)
     {
       case AS3Package.TRY_STATEMENT__BLOCK:
-        setBlock((block)newValue);
+        setBlock((Block)newValue);
         return;
       case AS3Package.TRY_STATEMENT__FINALLY:
         setFinally((finallyBlock)newValue);
@@ -278,7 +277,7 @@ public class TryStatementImpl extends MinimalEObjectImpl.Container implements Tr
     switch (featureID)
     {
       case AS3Package.TRY_STATEMENT__BLOCK:
-        setBlock((block)null);
+        setBlock((Block)null);
         return;
       case AS3Package.TRY_STATEMENT__FINALLY:
         setFinally((finallyBlock)null);

@@ -97,7 +97,7 @@ Method:
   )
    (params+=Parameter (',' params+=Parameter)*)? ')' 
   (':' type=VarType)?
-  (body=MethodBody|';')
+  (body=Block|';')
 ;
 
 Modifier: {Modifier} (
@@ -420,9 +420,8 @@ e4xAttributeIdentifier: {e4xAttributeIdentifier}
 
 primaryExpression: {primaryExpression} (
   '*'
-  | 'this'
   | 'super' ('(' superExpr=Expression? ')')?
-  | con=Constant
+  | con=TerminalExpression
   | lit=arrayLiteral
   | lit=objectLiteral
   | fexpr=functionExpression
@@ -437,17 +436,18 @@ propOrIdent
     '.' propId=qualifiedIdent
   ;
 
-Constant: {Constant} (
-  xml=xmlLiteral
-  | regex=regexpLiteral
-  | number=number
-  | string=STRING
-  | 'true'
-  | 'false'
-  | 'null'
-  );
+TerminalExpression returns Expression:
+    {XmlConstant} value=xmlLiteral
+  | {RegexpConstant} value=regexpLiteral
+  | {NumberConstant} value=number
+  | {StringConstant} value=STRING
+  | {BoolConstant} value=('true'| 'false')
+  | {This} 'this'
+  | {Null} 'null'
+  ;
 
-number  : HEX_LITERAL
+number :
+    HEX_LITERAL
   | INT
   | OCTAL
   | FLOAT
@@ -522,63 +522,47 @@ parameterRestDeclaration: {parameterRestDeclaration}
   '...' name=identi?
   ;
 
-block:
-   {block}'{' blocks+=blockEntry* '}'
-  ;
-
-blockEntry
-  :Statement
+Block:
+   {Block}'{' statements+=Statement* '}'
   ;
 
 Condition
   : '(' Expression ')'
   ;
   
-Statement: {Statement} (
-  sb=block
-  | sds=DeclarationStatement
-  | ses=ExpressionStatement
-  | sis=IfStatement
+Statement: 
+  Block
+  | DeclarationStatement
+  | ExpressionStatement
+  | IfStatement
   // For statement
-  | sfes=ForEachStatement
-  | sfs=ForStatement
-
+  | ForEachStatement
+  | ForStatement
   // While statement
-  | sws=WhileStatement
-
+  | WhileStatement
   // do-while statement
-  | sdws=DoWhileStatement
-  
+  | DoWhileStatement
   // with statement
-  | ws=WithStatement
-  
+  | WithStatement
   // switch statement
-  | sss=SwitchStatement
-  
+  | SwitchStatement
   // get out of a loop (or switch)
-  | sbs=BreakStatement
-
+  | BreakStatement
   // do next iteration of a loop
-  | scs=ContinueStatement
-
+  | ContinueStatement
   // Return an expression
-  | srs=ReturnStatement
-
+  | ReturnStatement
   // throw an exception
-  | sts=ThrowStatement
-  
+  | ThrowStatement
   // handle exceptions
-  | ts=TryStatement
-  
+  | TryStatement
   // handle 'default xml namespace = "foo"'
-  | sdxns=DefaultXMLNamespaceStatement
-
+  | DefaultXMLNamespaceStatement
   // empty statement
   | ';'
-  
   // assert statement
   | 'assert' assert=Condition
-  );
+  ;
 
 DefaultXMLNamespaceStatement
   : 'default' 'xml' 'namespace' 'assign' Expression ';'
@@ -623,7 +607,7 @@ ThrowStatement
 
 TryStatement
   : 'try'
-    block=block
+    block=Block
   ( finally=finallyBlock
   | catch+=catchBlock+
     finally=finallyBlock?
@@ -632,11 +616,11 @@ TryStatement
 
 catchBlock
   : 'catch' '(' identi type=typeExpression? ')'
-    block=block
+    block=Block
   ;
 
 finallyBlock
-  : 'finally' block
+  : 'finally' Block
   ;
 
 ReturnStatement: {ReturnStatement}
@@ -737,7 +721,7 @@ WithStatement
 
 // TODO: block should be optional here,
 functionCommon
-  : sig=functionSignature block=block
+  : sig=functionSignature block=Block
   ;
 
 functionExpression

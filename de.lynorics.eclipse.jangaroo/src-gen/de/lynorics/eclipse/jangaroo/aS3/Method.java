@@ -158,12 +158,12 @@ public interface Method extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Body</em>' containment reference.
-   * @see #setBody(MethodBody)
+   * @see #setBody(Block)
    * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getMethod_Body()
    * @model containment="true"
    * @generated
    */
-  MethodBody getBody();
+  Block getBody();
 
   /**
    * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getBody <em>Body</em>}' containment reference.
@@ -173,6 +173,6 @@ public interface Method extends EObject
    * @see #getBody()
    * @generated
    */
-  void setBody(MethodBody value);
+  void setBody(Block value);
 
 } // Method

@@ -3,8 +3,8 @@
 package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
+import de.lynorics.eclipse.jangaroo.aS3.Block;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
-import de.lynorics.eclipse.jangaroo.aS3.MethodBody;
 import de.lynorics.eclipse.jangaroo.aS3.Modifier;
 import de.lynorics.eclipse.jangaroo.aS3.Parameter;
 import de.lynorics.eclipse.jangaroo.aS3.VarType;
@@ -123,7 +123,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * @generated
    * @ordered
    */
-  protected MethodBody body;
+  protected Block body;
 
   /**
    * <!-- begin-user-doc -->
@@ -307,7 +307,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public MethodBody getBody()
+  public Block getBody()
   {
     return body;
   }
@@ -317,9 +317,9 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetBody(MethodBody newBody, NotificationChain msgs)
+  public NotificationChain basicSetBody(Block newBody, NotificationChain msgs)
   {
-    MethodBody oldBody = body;
+    Block oldBody = body;
     body = newBody;
     if (eNotificationRequired())
     {
@@ -334,7 +334,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBody(MethodBody newBody)
+  public void setBody(Block newBody)
   {
     if (newBody != body)
     {
@@ -426,7 +426,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
         setType((VarType)newValue);
         return;
       case AS3Package.METHOD__BODY:
-        setBody((MethodBody)newValue);
+        setBody((Block)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -458,7 +458,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
         setType((VarType)null);
         return;
       case AS3Package.METHOD__BODY:
-        setBody((MethodBody)null);
+        setBody((Block)null);
         return;
     }
     super.eUnset(featureID);
