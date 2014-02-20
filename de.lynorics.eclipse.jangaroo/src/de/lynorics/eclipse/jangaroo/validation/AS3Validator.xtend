@@ -15,7 +15,6 @@ import org.eclipse.xtext.validation.Check
 import de.lynorics.eclipse.jangaroo.aS3.Method
 import de.lynorics.eclipse.jangaroo.aS3.Interface
 import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod
-import org.eclipse.emf.ecore.EObject
 import de.lynorics.eclipse.jangaroo.aS3.ReturnStatement
 
 /**
@@ -53,7 +52,7 @@ class AS3Validator extends AbstractAS3Validator {
 
   @Check
   def checkMethodStartsWithLowercase(Method method) {
-    var Class clazz =  findParentOfType(method, Class);
+    var Class clazz =  method.findParentOfType(Class);
     if (Character.isUpperCase(method.name.charAt(0)) &&
         !clazz.name.equals(method.name)) {
       warning('Method name should start with a lowercase', 
@@ -62,14 +61,6 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
   
-  def <E extends EObject> E findParentOfType(EObject start, java.lang.Class<E> type) {
-    var EObject current = start
-    while (current!=null && !(type.isInstance(current))) {
-      current = current.eContainer;
-    }
-    return current as E;
-  }
-
   @Check
   def checkMethodStartsWithLowercase(InterfaceMethod method) {
     if (Character.isUpperCase(method.name.charAt(0))) {

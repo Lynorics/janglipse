@@ -18,7 +18,6 @@ import de.lynorics.eclipse.jangaroo.aS3.Statement;
 import de.lynorics.eclipse.jangaroo.validation.AbstractAS3Validator;
 import java.util.HashSet;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -72,7 +71,7 @@ public class AS3Validator extends AbstractAS3Validator {
   
   @Check
   public void checkMethodStartsWithLowercase(final Method method) {
-    de.lynorics.eclipse.jangaroo.aS3.Class clazz = this.<de.lynorics.eclipse.jangaroo.aS3.Class>findParentOfType(method, de.lynorics.eclipse.jangaroo.aS3.Class.class);
+    de.lynorics.eclipse.jangaroo.aS3.Class clazz = AS3ModelUtil.<de.lynorics.eclipse.jangaroo.aS3.Class>findParentOfType(method, de.lynorics.eclipse.jangaroo.aS3.Class.class);
     boolean _and = false;
     String _name = method.getName();
     char _charAt = _name.charAt(0);
@@ -91,35 +90,6 @@ public class AS3Validator extends AbstractAS3Validator {
         AS3Package.Literals.METHOD__NAME, 
         AS3Validator.METHOD_SHOULD_START_WITH_LOWERCASE);
     }
-  }
-  
-  public <E extends EObject> E findParentOfType(final EObject start, final Class<E> type) {
-    EObject current = start;
-    boolean _and = false;
-    boolean _notEquals = (!Objects.equal(current, null));
-    if (!_notEquals) {
-      _and = false;
-    } else {
-      boolean _isInstance = type.isInstance(current);
-      boolean _not = (!_isInstance);
-      _and = _not;
-    }
-    boolean _while = _and;
-    while (_while) {
-      EObject _eContainer = current.eContainer();
-      current = _eContainer;
-      boolean _and_1 = false;
-      boolean _notEquals_1 = (!Objects.equal(current, null));
-      if (!_notEquals_1) {
-        _and_1 = false;
-      } else {
-        boolean _isInstance_1 = type.isInstance(current);
-        boolean _not_1 = (!_isInstance_1);
-        _and_1 = _not_1;
-      }
-      _while = _and_1;
-    }
-    return ((E) current);
   }
   
   @Check
