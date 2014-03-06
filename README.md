@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/lynorics/janglipse.png)](http://travis-ci.org/lynorics/janglipse)
+
 janglipse
 =========
 
