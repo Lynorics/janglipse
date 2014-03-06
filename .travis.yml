@@ -1,0 +1,2 @@
+language: java
+before_script: cd de.lynorics.eclipse.jangaroo.releng
