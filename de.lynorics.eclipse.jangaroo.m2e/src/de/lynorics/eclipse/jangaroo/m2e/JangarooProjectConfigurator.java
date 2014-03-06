@@ -9,10 +9,6 @@ import de.lynorics.eclipse.jangaroo.ui.JangarooProjectHelper;
 
 public class JangarooProjectConfigurator extends AbstractProjectConfigurator {
 
-	/**
-	 * This is enough configuration for now, as Xtend will add the required
-	 * source folders itself the moment it starts compiling.
-	 */
 	@Override
 	public void configure(ProjectConfigurationRequest request,
 			IProgressMonitor monitor) throws CoreException {

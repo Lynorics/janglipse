@@ -7,10 +7,12 @@ Bundle-SymbolicName: de.lynorics.eclipse.jangaroo.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: de.lynorics.eclipse.jangaroo,
  de.lynorics.eclipse.jangaroo.ui,
- org.eclipselabs.xtext.utils.unittesting,
  org.eclipse.core.runtime,
  org.eclipse.xtext.junit4,
- org.eclipse.ui.workbench;resolution:=optional
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.ui.workbench;resolution:=optional,
+ org.eclipselabs.xtext.utils.unittesting
 Import-Package: org.apache.log4j,
  org.junit;version="4.5.0",
  org.junit.runner;version="4.5.0",
