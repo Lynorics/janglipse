@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <relativePath>../de.lynorics.eclipse.jangaroo.releng/pom.xml</relativePath>
+    <groupId>de.lynorics.eclipse.jangaroo</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>de.lynorics.eclipse.jangaroo.sdk</artifactId>
+  <packaging>eclipse-feature</packaging>
+
+  <name>Jangaroo Language Feature</name>
+</project>

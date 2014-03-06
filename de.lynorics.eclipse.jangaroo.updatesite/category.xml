@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/de.lynorics.eclipse.jangaroo.sdk_1.0.0.qualifier.jar" id="de.lynorics.eclipse.jangaroo.sdk" version="1.0.0.qualifier">
+      <category name="de.lynorics.eclipse.jangaroo"/>
+   </feature>
+   <category-def name="de.lynorics.eclipse.jangaroo" label="Janglipse"/>
+</site>
