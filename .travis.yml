@@ -1,2 +1,2 @@
 language: java
-before_script: cd de.lynorics.eclipse.jangaroo.releng
+before_script: cd de.lynorics.eclipse.jangaroo.releng && mvn install -DskipTests=true
