@@ -166,7 +166,7 @@ public class AS3SyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Syntax:
-	 *     (('switch' '(') | 'throw') | ('default' 'xml' 'namespace' 'assign')
+	 *     ('default' 'xml' 'namespace' 'assign') | ('throw' | ('switch' '('))
 	 */
 	protected void emit_Condition_DefaultXMLNamespaceStatement_SwitchStatement_ThrowStatement___DefaultKeyword_0_XmlKeyword_1_NamespaceKeyword_2_AssignKeyword_3___or___ThrowKeyword_0_or___SwitchKeyword_0_LeftParenthesisKeyword_0____(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -214,7 +214,7 @@ public class AS3SyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     ';' | ContinueStatement | BreakStatement
+	 *     ContinueStatement | ';' | BreakStatement
 	 */
 	protected void emit_Statement_BreakStatementParserRuleCall_10_or_ContinueStatementParserRuleCall_11_or_SemicolonKeyword_16(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -222,7 +222,7 @@ public class AS3SyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     '*' | 'void'
+	 *     'void' | '*'
 	 */
 	protected void emit_Uses_AsteriskKeyword_3_1_or_VoidKeyword_3_2(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -278,7 +278,7 @@ public class AS3SyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     ('super' ('(' ')')?) | '*'
+	 *     '*' | ('super' ('(' ')')?)
 	 */
 	protected void emit_primaryExpression_AsteriskKeyword_1_0_or___SuperKeyword_1_1_0___LeftParenthesisKeyword_1_1_1_0_RightParenthesisKeyword_1_1_1_2__q__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -286,7 +286,7 @@ public class AS3SyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'void' | '*'
+	 *     '*' | 'void'
 	 */
 	protected void emit_typeExpression_AsteriskKeyword_2_2_or_VoidKeyword_2_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -302,7 +302,7 @@ public class AS3SyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'typeof' | '~' | '!' | 'void'
+	 *     'typeof' | '!' | '~' | 'void'
 	 */
 	protected void emit_unaryExpressionNotPlusMinus_ExclamationMarkKeyword_3_0_or_TildeKeyword_4_0_or_TypeofKeyword_2_0_or_VoidKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
