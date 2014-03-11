@@ -34,9 +34,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Import/importedNamespace"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//directive">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//directive/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//directive/annonFields"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//directive/annotation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//directive/uses"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//Annotation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Annotation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Annotation/annonFields"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//Uses">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Uses/type"/>

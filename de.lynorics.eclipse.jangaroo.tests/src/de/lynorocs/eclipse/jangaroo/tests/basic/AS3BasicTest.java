@@ -8,7 +8,6 @@ package de.lynorocs.eclipse.jangaroo.tests.basic;
 
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
-import org.eclipse.xtext.junit4.util.ParseHelper;
 import org.eclipselabs.xtext.utils.unittesting.XtextTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -324,6 +323,16 @@ public class AS3BasicTest extends XtextTest
     public void simpleCondition()
     {
         testParserRule("(scheme !== undefined)","Condition");	
+    }
+
+    @Test
+    public void simpleAnnotation()
+    {
+        testParserRule("[Annon1(a='b')]","Annotation");	
+        testParserRule("[Annon2(value=true)]","Annotation");	
+        testParserRule("[Annon3(value=1)]","Annotation");	
+        testParserRule("[Annon4(key)]","Annotation");	
+        testParserRule("[Annon5(a='b',c=\"d\")]","Annotation");	
     }
 
 }

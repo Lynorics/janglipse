@@ -33,10 +33,14 @@ Import:
 ;
 
 directive: {directive} (
-    "[" name=ID ("(" annonFields=annotationFields ")")? "]"
+    annotation=Annotation
   | uses=Uses
   | ";"
   );
+
+Annotation:
+	"[" name=ID ("(" annonFields=annotationFields ")")? "]"
+;
 
 Uses: {Uses}
   "use" 'namespace' (type=QualifiedName|'*'|'void')
@@ -46,7 +50,7 @@ annotationFields :
     anoonFields+=annotationField ("," annonFields+=annotationField)*;
 
 annotationField :
-    name=ID "=" expr=Expression;
+    name=ID ("=" expr=Expression)?;
 
 QualifiedNameWithWildcard:
     QualifiedName '.*'?

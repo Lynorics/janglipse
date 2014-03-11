@@ -30,10 +30,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="directive">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotation" eType="#//Annotation"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="uses" eType="#//Uses" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Annotation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="annonFields" eType="#//annotationFields"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="uses" eType="#//Uses" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Uses">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
