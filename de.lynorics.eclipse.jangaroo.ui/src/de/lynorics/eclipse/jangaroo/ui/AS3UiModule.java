@@ -10,6 +10,8 @@
 package de.lynorics.eclipse.jangaroo.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.documentation.IEObjectDocumentationProvider;
+import org.eclipse.xtext.ui.editor.hover.IEObjectHoverProvider;
 import org.eclipse.xtext.ui.editor.outline.actions.IOutlineContribution;
 
 import com.google.inject.Binder;
@@ -37,4 +39,11 @@ public class AS3UiModule extends de.lynorics.eclipse.jangaroo.ui.AbstractAS3UiMo
 		    .to(FilterUsesOperationsContribution.class);
 		}
 
+    public Class<? extends IEObjectHoverProvider> bindIEObjectHoverProvider() {
+        return AS3EObjectHoverProvider.class;
+    }
+ 
+    public Class<? extends IEObjectDocumentationProvider> bindIEObjectDocumentationProviderr() {
+        return AS3EObjectDocumentationProvider.class;
+    }
 }
