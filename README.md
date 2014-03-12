@@ -23,3 +23,6 @@ Important files are
 * grammar definition: de.lynorics.eclipse.jangaroo/de.lynorics.eclipse.jangaroo.AS3.xtext
 * validations: de.lynorics.eclipse.jangaroo.validation.*
 * tests: de.lynorics.eclipse.jangaroo.tests
+
+Installing a snapshot release
+* Update site http://www.lynorics.de/eclipse
