@@ -1,4 +1,4 @@
 janglipse
 =========
 
-[http://github.com/Lynorics/janglipse](jangaroo integration for eclipse)
+[jangaroo integration for eclipse](http://github.com/Lynorics/janglipse)
