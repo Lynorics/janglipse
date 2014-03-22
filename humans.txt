@@ -1,0 +1,13 @@
+/* TEAM */
+Founder: Marc Pompl
+Site: http://www.lynorics.de
+Location: Dortmund, Germany
+
+/* THANKS */
+
+/* SITE */
+Last update: YYYY/MM/DD 
+Language: English
+Standards: HTML5, CSS3
+Components: Foundation The most advanced responsive front-end framework in the world
+
