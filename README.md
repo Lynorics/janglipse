@@ -5,22 +5,15 @@ janglipse
 
 [Jangaroo](http://jangaroo.net) integration for [Eclipse](http://www.eclipse.org/) based upon [Xtext](http://www.xtext.org/)
 
-Work in progress, just no release at the moment.
-
 # License
 
 Janglipse is Licensed under the [Eclipse Public License version 1.0](http://opensource.org/licenses/eclipse-1.0.txt)
 
-# News
- 
-Release 1.0 is on the way...
+# Users
 
-# Installing a snapshot release
-Note: a snapshot release may be unstable and involve the stability of your
-eclipse installation/data integrity of your source code.
-Any usage without warranty and at your own risk.
+Work in progress, just no release at the moment.
 
-* Update site http://www.lynorics.de/eclipse
+Please visit the [Github Page for janglipse](http://lynorics.github.io/janglipse/).
 
 # Contributors
 
@@ -36,6 +29,13 @@ Important files are
 * validations: de.lynorics.eclipse.jangaroo/src/de.lynorics.eclipse.jangaroo.validation.*
 * tests: de.lynorics.eclipse.jangaroo.tests/src
 * ui: de.lynorics.eclipse.jangaroo.ui/src
+
+# Installing a snapshot release
+Note: a snapshot release may be unstable and involve the stability of your
+eclipse installation/data integrity of your source code.
+Any usage without warranty and at your own risk.
+
+* Update site http://www.lynorics.de/eclipse
 
 # References
 
