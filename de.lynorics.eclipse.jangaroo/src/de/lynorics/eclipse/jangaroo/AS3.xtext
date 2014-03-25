@@ -573,7 +573,7 @@ DefaultXMLNamespaceStatement
   ;
   
 DeclarationStatement
-  : Declaration ';'
+  : Declaration
   ;
 
 variableDeclarator
@@ -597,7 +597,7 @@ variableInitializer
   ;
 
 ExpressionStatement
-  : expressionList ';'
+  : expressionList
   ;
   
 IfStatement
@@ -606,7 +606,7 @@ IfStatement
   ;
 
 ThrowStatement
-  : 'throw' Expression ';'
+  : 'throw' Expression
   ;
 
 TryStatement
@@ -628,15 +628,15 @@ finallyBlock
   ;
 
 ReturnStatement: {ReturnStatement}
-  'return' expr=Expression? ';'
+  'return' expr=Expression?
   ;
     
 ContinueStatement
-  : 'continue' ';'
+  : 'continue'
   ;
 
 BreakStatement
-  : 'break' ';'
+  : 'break'
   ;
 
 SwitchStatement
