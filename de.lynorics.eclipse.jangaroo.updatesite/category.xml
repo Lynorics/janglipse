@@ -3,5 +3,8 @@
    <feature url="features/de.lynorics.eclipse.jangaroo.sdk_1.0.0.qualifier.jar" id="de.lynorics.eclipse.jangaroo.sdk" version="1.0.0.qualifier">
       <category name="de.lynorics.eclipse.jangaroo"/>
    </feature>
+   <bundle id="de.lynorics.eclipse.jangaroo.m2e" version="1.0.0.qualifier">
+      <category name="de.lynorics.eclipse.jangaroo"/>
+   </bundle>
    <category-def name="de.lynorics.eclipse.jangaroo" label="Janglipse"/>
 </site>

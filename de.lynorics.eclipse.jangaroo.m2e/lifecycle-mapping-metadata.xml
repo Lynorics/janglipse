@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lifecycleMappingMetadata>
+	
   <pluginExecutions>
+  	
     <pluginExecution>
+    	
       <pluginExecutionFilter>
+      	
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
         <versionRange>[0.8,)</versionRange>
         <goals>
           <goal>compile</goal>
           <goal>testCompile</goal>
+          <goal>unpack-jangaroo-test-dependencies</goal>
+          <goal>properties</goal>
         </goals>
       </pluginExecutionFilter>
       <action>
