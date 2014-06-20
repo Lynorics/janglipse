@@ -22,14 +22,12 @@ public class JangarooBuildParticipant extends MojoExecutionBuildParticipant
     public Set<IProject> build(int kind, IProgressMonitor monitor) throws Exception {
         final IMaven maven = MavenPlugin.getMaven();
         final BuildContext buildContext = getBuildContext();
-        final MavenSession mavenSession = getSession();
         final MojoExecution mojoExecution = getMojoExecution();
 
         final Set<IProject> result = super.build(kind, monitor);
 
         final File generated =
-                        maven.getMojoParameterValue(mavenSession, mojoExecution, "generateDirectory", File.class);
-
+                        maven.getMojoParameterValue(getMavenProjectFacade().getMavenProject(), mojoExecution, "generateDirectory", File.class, monitor);
         if (generated != null)
         {
             buildContext.refresh(generated);
