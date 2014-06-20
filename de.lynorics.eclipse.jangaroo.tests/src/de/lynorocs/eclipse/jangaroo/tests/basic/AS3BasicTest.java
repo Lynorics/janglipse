@@ -333,6 +333,8 @@ public class AS3BasicTest extends XtextTest
         testParserRule("[Annon3(value=1)]","Annotation");	
         testParserRule("[Annon4(key)]","Annotation");	
         testParserRule("[Annon5(a='b',c=\"d\")]","Annotation");	
+        testParserRule("[Annon6(a='b',c='d')]","Annotation");	
+        testParserRule("[Annon7('a')]","Annotation");	
     }
 
 }
