@@ -5,10 +5,19 @@ Bundle-SymbolicName: de.lynorics.eclipse.jangaroo.m2e;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Localization: plugin
 Bundle-Vendor: %providerName
-Require-Bundle: org.eclipse.m2e.core;resolution:=optional,
+Require-Bundle: org.eclipse.m2e.core,
+ org.eclipse.debug.core,
  org.eclipse.core.resources,
  org.eclipse.equinox.registry,
  de.lynorics.eclipse.jangaroo.ui;bundle-version="1.0.0",
  org.eclipse.m2e.maven.runtime,
- org.eclipse.m2e.jdt
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+ org.eclipse.m2e.jdt,
+ org.apache.log4j,
+ org.slf4j.api,
+ org.eclipse.m2e.editor,
+ org.eclipse.core.runtime,
+ org.eclipse.jdt.core,
+ org.eclipse.jdt.launching
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: de.lynorics.eclipse.jangaroo.m2e.MavenJangarooPlugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6,JavaSE-1.7

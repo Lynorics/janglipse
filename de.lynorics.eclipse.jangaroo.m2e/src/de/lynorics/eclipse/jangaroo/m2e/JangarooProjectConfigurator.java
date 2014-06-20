@@ -6,12 +6,13 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.m2e.core.lifecyclemapping.model.IPluginExecutionMetadata;
 import org.eclipse.m2e.core.project.IMavenProjectFacade;
 import org.eclipse.m2e.core.project.configurator.AbstractBuildParticipant;
+import org.eclipse.m2e.core.project.configurator.AbstractProjectConfigurator;
 import org.eclipse.m2e.core.project.configurator.ProjectConfigurationRequest;
-import org.eclipse.m2e.jdt.AbstractJavaProjectConfigurator;
 
 import de.lynorics.eclipse.jangaroo.ui.JangarooProjectHelper;
 
-public class JangarooProjectConfigurator extends AbstractJavaProjectConfigurator {
+@SuppressWarnings("deprecation")
+public class JangarooProjectConfigurator extends AbstractProjectConfigurator {
 
 	@Override
 	public void configure(ProjectConfigurationRequest request,
@@ -22,10 +23,10 @@ public class JangarooProjectConfigurator extends AbstractJavaProjectConfigurator
 //		}
 	}
 	
-    @Override
-    protected String getOutputFolderParameterName() {
-        return "generateDirectory";
-    }
+//    @Override
+//    protected String getOutputFolderParameterName() {
+//        return "generateDirectory";
+//    }
 
     @Override
     public AbstractBuildParticipant getBuildParticipant(

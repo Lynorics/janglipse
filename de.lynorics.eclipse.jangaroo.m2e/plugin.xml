@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
+
+   <extension
+         point="org.eclipse.m2e.core.lifecycleMappings">
+      <lifecycleMapping
+            class="de.lynorics.eclipse.jangaroo.m2e.JangarooLifecycleMapping"
+            id="de.lynorics.eclipse.jangaroo.m2e.jangarooLifecycleMapping"
+            name="Jangaroo Lifecycle Mapping">
+      </lifecycleMapping>
+   </extension>
+   
    <extension
          point="org.eclipse.m2e.core.lifecycleMappingMetadataSource">
    </extension>
+
    <extension
         point="org.eclipse.m2e.core.projectConfigurators">
      <configurator
@@ -12,5 +23,6 @@
            name="Jangaroo Project Configurator">
      </configurator>
   </extension>
+
 
 </plugin>
