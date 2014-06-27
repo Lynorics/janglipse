@@ -111,7 +111,7 @@ public class AS3BasicTest extends XtextTest
     			+ "}",
     			"Method");
     	testParserRule(
-    			"private static function b(): int {"
+    			"private static function b(): * {"
     			+ "}",
     			"Method");
     	testParserRule(

@@ -1,4 +1,14 @@
+/*
+ * Copyright 2014
+ *
+ * Licensed under the Eclipse Public License version 1.0, available at
+ * http://opensource.org/licenses/eclipse-1.0.txt
+ */
 package de.lynorics.eclipse.jangaroo.m2e;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Vector;
 
 import org.apache.maven.plugin.MojoExecution;
 import org.eclipse.core.runtime.CoreException;
@@ -11,42 +21,49 @@ import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.m2e.core.lifecyclemapping.model.IPluginExecutionMetadata;
 import org.eclipse.m2e.core.project.IMavenProjectFacade;
 import org.eclipse.m2e.core.project.configurator.AbstractBuildParticipant;
-import org.eclipse.m2e.core.project.configurator.AbstractProjectConfigurator;
 import org.eclipse.m2e.core.project.configurator.ProjectConfigurationRequest;
+import org.eclipse.m2e.jdt.internal.AbstractJavaProjectConfigurator;
 
 import de.lynorics.eclipse.jangaroo.ui.JangarooProjectHelper;
 
-public class JangarooProjectConfigurator extends AbstractProjectConfigurator {
+public class JangarooProjectConfigurator extends AbstractJavaProjectConfigurator {
 
 	@Override
 	public void configure(ProjectConfigurationRequest request,
 			IProgressMonitor monitor) throws CoreException {
+		super.configure(request, monitor);
 		addNature(request.getProject(), JangarooProjectHelper.NATURE_ID, monitor);
-		
-		IJavaProject javaProject = JavaCore.create(request.getProject());
-		IClasspathEntry[] entries = javaProject.getRawClasspath();
+		addNature(request.getProject(), "org.eclipse.jdt.core.javanature", monitor);
+		declareSourcePath(request, monitor);
+	}
 
-		addSourcePath(javaProject, entries, "src/main/joo");
-		addSourcePath(javaProject, entries, "target/generated-sources/joo");
-		addSourcePath(javaProject, entries, "src/main/resources");
+	private void declareSourcePath(ProjectConfigurationRequest request, IProgressMonitor monitor)
+			throws JavaModelException {
+		IJavaProject javaProject = JavaCore.create(request.getProject());
+		IClasspathEntry[] classpath = javaProject.getRawClasspath();
+		List<IClasspathEntry> list = new Vector<IClasspathEntry>();
+		list.addAll(Arrays.asList(classpath));
+//		List<IClasspathEntry> list = new Vector<IClasspathEntry>();
+		addSourcePath(javaProject, list, "src/main/joo");
+		addSourcePath(javaProject, list, "src/test/joo");
+		addSourcePath(javaProject, list, "src/main/resources");
+		addSourcePath(javaProject, list, "target/generated-sources/joo");
+		javaProject.setRawClasspath((IClasspathEntry[]) list.toArray(new IClasspathEntry[list.size()]), monitor);
 	}
 	
-   private void addSourcePath(IJavaProject javaProject, IClasspathEntry[] entries, String path) throws JavaModelException {
+	private void addSourcePath(IJavaProject javaProject, List<IClasspathEntry> entries, String path) throws JavaModelException {
+		IPath srcPath= javaProject.getPath().append(path);
+		IClasspathEntry srcEntry= JavaCore.newSourceEntry(srcPath, null);
 		boolean found = false;
-		for(IClasspathEntry entry : entries) {
-			if (entry.getPath().toPortableString().endsWith(path)) {
+		for (IClasspathEntry entry : entries) {
+			if (entry.getPath().makeRelative().toString().equals(srcEntry.getPath().makeRelative().toString())) {
 				found = true;
+				break;
 			}
 		}
 		if (!found) {
-			IClasspathEntry[] newEntries = new IClasspathEntry[entries.length + 1];
-			System.arraycopy(entries, 0, newEntries, 0, entries.length);
-			IPath srcPath= javaProject.getPath().append(path);
-			IClasspathEntry srcEntry= JavaCore.newSourceEntry(srcPath, null);
-			newEntries[entries.length] = JavaCore.newSourceEntry(srcEntry.getPath());
-			javaProject.setRawClasspath(newEntries, null);
+			entries.add(JavaCore.newSourceEntry(srcEntry.getPath()));
 		}
-
 	}
 
 //    @Override

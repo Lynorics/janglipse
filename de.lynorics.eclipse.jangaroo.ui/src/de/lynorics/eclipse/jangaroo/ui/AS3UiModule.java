@@ -13,10 +13,14 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.documentation.IEObjectDocumentationProvider;
 import org.eclipse.xtext.ui.editor.hover.IEObjectHoverProvider;
 import org.eclipse.xtext.ui.editor.outline.actions.IOutlineContribution;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 
 import com.google.inject.Binder;
 import com.google.inject.name.Names;
 
+import de.lynorics.eclipse.jangaroo.ui.highlighting.AS3HighlightingCalculator;
+import de.lynorics.eclipse.jangaroo.ui.highlighting.AS3HighlightingConfiguration;
 import de.lynorics.eclipse.jangaroo.ui.outline.FilterImportsOperationsContribution;
 import de.lynorics.eclipse.jangaroo.ui.outline.FilterUsesOperationsContribution;
 
@@ -27,23 +31,32 @@ public class AS3UiModule extends de.lynorics.eclipse.jangaroo.ui.AbstractAS3UiMo
 	public AS3UiModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
-	
-	public void configureFilterOperationsContribution(Binder binder) {
-		  binder
-		    .bind(IOutlineContribution.class).annotatedWith(
-		      Names.named("FilterImportsOperationsContribution"))
-		    .to(FilterImportsOperationsContribution.class);
-		  binder
-		    .bind(IOutlineContribution.class).annotatedWith(
-		      Names.named("FilterUsesOperationsContribution"))
-		    .to(FilterUsesOperationsContribution.class);
-		}
 
-    public Class<? extends IEObjectHoverProvider> bindIEObjectHoverProvider() {
-        return AS3EObjectHoverProvider.class;
-    }
- 
-    public Class<? extends IEObjectDocumentationProvider> bindIEObjectDocumentationProviderr() {
-        return AS3EObjectDocumentationProvider.class;
-    }
+	public void configureFilterOperationsContribution(Binder binder) {
+		binder
+		.bind(IOutlineContribution.class).annotatedWith(
+				Names.named("FilterImportsOperationsContribution"))
+				.to(FilterImportsOperationsContribution.class);
+		binder
+		.bind(IOutlineContribution.class).annotatedWith(
+				Names.named("FilterUsesOperationsContribution"))
+				.to(FilterUsesOperationsContribution.class);
+	}
+
+	public Class<? extends IEObjectHoverProvider> bindIEObjectHoverProvider() {
+		return AS3EObjectHoverProvider.class;
+	}
+
+	public Class<? extends IEObjectDocumentationProvider> bindIEObjectDocumentationProvider() {
+		return AS3EObjectDocumentationProvider.class;
+	}
+
+	public Class<? extends IHighlightingConfiguration> bindIHighlightingConfiguration () {
+		return AS3HighlightingConfiguration.class;
+	}
+
+	public Class<? extends ISemanticHighlightingCalculator> bindISemanticHighlightingCalculator() {
+		return AS3HighlightingCalculator.class;
+	}
+	
 }

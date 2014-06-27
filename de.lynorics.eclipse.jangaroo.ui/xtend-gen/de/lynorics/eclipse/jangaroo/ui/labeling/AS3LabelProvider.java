@@ -17,7 +17,6 @@ import de.lynorics.eclipse.jangaroo.aS3.Method;
 import de.lynorics.eclipse.jangaroo.aS3.Modifier;
 import de.lynorics.eclipse.jangaroo.aS3.Parameter;
 import de.lynorics.eclipse.jangaroo.aS3.Uses;
-import de.lynorics.eclipse.jangaroo.aS3.VarType;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -68,18 +67,26 @@ public class AS3LabelProvider extends DefaultEObjectLabelProvider {
   
   public StyledString text(final InterfaceMethod meth) {
     String _name = meth.getName();
-    VarType _type = meth.getType();
+    EObject _type = meth.getType();
     EList<Parameter> _params = meth.getParams();
     return this.computeTextForMethod(_name, _type, _params);
   }
   
-  private StyledString computeTextForMethod(final String methName, final VarType varType, final EList<Parameter> parameters) {
+  private StyledString computeTextForMethod(final String methName, final EObject type, final EList<Parameter> parameters) {
     String parameterNames = null;
-    String name = varType.getName();
+    String name = null;
+    if ((type instanceof Interface)) {
+      String _name = ((Interface) type).getName();
+      name = _name;
+    } else {
+      if ((type instanceof de.lynorics.eclipse.jangaroo.aS3.Class)) {
+        String _name_1 = ((de.lynorics.eclipse.jangaroo.aS3.Class) type).getName();
+        name = _name_1;
+      }
+    }
     boolean _equals = Objects.equal(name, null);
     if (_equals) {
-      EObject _type = varType.getType();
-      String _text = this.getText(_type);
+      String _text = this.getText(type);
       name = _text;
     }
     boolean _notEquals = (!Objects.equal(parameters, null));
@@ -87,26 +94,26 @@ public class AS3LabelProvider extends DefaultEObjectLabelProvider {
       for (final Parameter param : parameters) {
         {
           String pname = "*";
-          VarType _type_1 = param.getType();
-          boolean _notEquals_1 = (!Objects.equal(_type_1, null));
+          EObject _type = param.getType();
+          boolean _notEquals_1 = (!Objects.equal(_type, null));
           if (_notEquals_1) {
-            VarType _type_2 = param.getType();
-            String _name = _type_2.getName();
-            pname = _name;
-            boolean _and = false;
-            boolean _equals_1 = Objects.equal(pname, null);
-            if (!_equals_1) {
-              _and = false;
+            EObject _type_1 = param.getType();
+            if ((_type_1 instanceof Interface)) {
+              EObject _type_2 = param.getType();
+              String _name_2 = ((Interface) _type_2).getName();
+              pname = _name_2;
             } else {
-              VarType _type_3 = param.getType();
-              EObject _type_4 = _type_3.getType();
-              boolean _notEquals_2 = (!Objects.equal(_type_4, null));
-              _and = _notEquals_2;
+              EObject _type_3 = param.getType();
+              if ((_type_3 instanceof de.lynorics.eclipse.jangaroo.aS3.Class)) {
+                EObject _type_4 = param.getType();
+                String _name_3 = ((de.lynorics.eclipse.jangaroo.aS3.Class) _type_4).getName();
+                pname = _name_3;
+              }
             }
-            if (_and) {
-              VarType _type_5 = param.getType();
-              EObject _type_6 = _type_5.getType();
-              String _text_1 = this.getText(_type_6);
+            boolean _equals_1 = Objects.equal(pname, null);
+            if (_equals_1) {
+              EObject _type_5 = param.getType();
+              String _text_1 = this.getText(_type_5);
               pname = _text_1;
             }
           }
@@ -155,7 +162,7 @@ public class AS3LabelProvider extends DefaultEObjectLabelProvider {
   
   public StyledString text(final Method meth) {
     String _name = meth.getName();
-    VarType _type = meth.getType();
+    EObject _type = meth.getType();
     EList<Parameter> _params = meth.getParams();
     return this.computeTextForMethod(_name, _type, _params);
   }
@@ -196,17 +203,28 @@ public class AS3LabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public StyledString text(final VariableDeclaration varDecl) {
-    VarType _type = varDecl.getType();
-    String name = _type.getName();
+    String name = null;
+    EObject _type = varDecl.getType();
+    if ((_type instanceof Interface)) {
+      EObject _type_1 = varDecl.getType();
+      String _name = ((Interface) _type_1).getName();
+      name = _name;
+    } else {
+      EObject _type_2 = varDecl.getType();
+      if ((_type_2 instanceof de.lynorics.eclipse.jangaroo.aS3.Class)) {
+        EObject _type_3 = varDecl.getType();
+        String _name_1 = ((de.lynorics.eclipse.jangaroo.aS3.Class) _type_3).getName();
+        name = _name_1;
+      }
+    }
     boolean _equals = Objects.equal(name, null);
     if (_equals) {
-      VarType _type_1 = varDecl.getType();
-      EObject _type_2 = _type_1.getType();
-      String _text = this.getText(_type_2);
+      EObject _type_4 = varDecl.getType();
+      String _text = this.getText(_type_4);
       name = _text;
     }
-    String _name = varDecl.getName();
-    StyledString _styledString = new StyledString(_name);
+    String _name_2 = varDecl.getName();
+    StyledString _styledString = new StyledString(_name_2);
     StyledString _styledString_1 = new StyledString((": " + name), 
       StyledString.DECORATIONS_STYLER);
     return _styledString.append(_styledString_1);

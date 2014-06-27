@@ -3,6 +3,7 @@ package de.lynorics.eclipse.jangaroo.serializer;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
+import de.lynorics.eclipse.jangaroo.aS3.Annotation;
 import de.lynorics.eclipse.jangaroo.aS3.Block;
 import de.lynorics.eclipse.jangaroo.aS3.BoolConstant;
 import de.lynorics.eclipse.jangaroo.aS3.DefaultStatement;
@@ -29,7 +30,6 @@ import de.lynorics.eclipse.jangaroo.aS3.StringConstant;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Uses;
-import de.lynorics.eclipse.jangaroo.aS3.VarType;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.WhileStatement;
 import de.lynorics.eclipse.jangaroo.aS3.WithStatement;
@@ -107,6 +107,12 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == AS3Package.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case AS3Package.ANNOTATION:
+				if(context == grammarAccess.getAnnotationRule()) {
+					sequence_Annotation(context, (Annotation) semanticObject); 
+					return; 
+				}
+				else break;
 			case AS3Package.BLOCK:
 				if(context == grammarAccess.getBlockRule() ||
 				   context == grammarAccess.getStatementRule() ||
@@ -280,12 +286,6 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case AS3Package.USES:
 				if(context == grammarAccess.getUsesRule()) {
 					sequence_Uses(context, (Uses) semanticObject); 
-					return; 
-				}
-				else break;
-			case AS3Package.VAR_TYPE:
-				if(context == grammarAccess.getVarTypeRule()) {
-					sequence_VarType(context, (VarType) semanticObject); 
 					return; 
 				}
 				else break;
@@ -708,6 +708,15 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (name=ID annonFields=annotationFields?)
+	 */
+	protected void sequence_Annotation(EObject context, Annotation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (statements+=Statement*)
 	 */
 	protected void sequence_Block(EObject context, Block semanticObject) {
@@ -733,6 +742,7 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
+	 *         annon=Annotation? 
 	 *         modifier=Modifier? 
 	 *         name=ID 
 	 *         superType=[Class|QualifiedName]? 
@@ -833,7 +843,13 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (modifier=Modifier? (name=ID | (accessor=accessorRole name=ID)) (params+=Parameter params+=Parameter*)? type=VarType?)
+	 *     (
+	 *         annon=Annotation? 
+	 *         modifier=Modifier? 
+	 *         (name=ID | (accessor=accessorRole name=ID)) 
+	 *         (params+=Parameter params+=Parameter*)? 
+	 *         (type=[Interface|QualifiedName] | type=[Class|QualifiedName])?
+	 *     )
 	 */
 	protected void sequence_InterfaceMethod(EObject context, InterfaceMethod semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -869,7 +885,14 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (modifier=Modifier? (name=ID | (accessor=accessorRole name=ID)) (params+=Parameter params+=Parameter*)? type=VarType? body=Block?)
+	 *     (
+	 *         annon=Annotation? 
+	 *         modifier=Modifier? 
+	 *         (name=ID | (accessor=accessorRole name=ID)) 
+	 *         (params+=Parameter params+=Parameter*)? 
+	 *         (type=[Interface|QualifiedName] | type=[Class|QualifiedName])? 
+	 *         body=Block?
+	 *     )
 	 */
 	protected void sequence_Method(EObject context, Method semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -914,7 +937,7 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID type=VarType? lit=exprOrObjectLiteral?)
+	 *     (name=ID (type=[Interface|QualifiedName] | type=[Class|QualifiedName])? lit=exprOrObjectLiteral?)
 	 */
 	protected void sequence_Parameter(EObject context, Parameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1037,16 +1060,7 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name='void' | name='*' | type=[Interface|QualifiedName] | type=[Class|QualifiedName])
-	 */
-	protected void sequence_VarType(EObject context, VarType semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (access=AccessLevel? name=ID type=VarType Expression=Expression?)
+	 *     (access=AccessLevel? name=ID (type=[Interface|QualifiedName] | type=[Class|QualifiedName])? Expression=Expression?)
 	 */
 	protected void sequence_VariableDeclaration(EObject context, VariableDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1082,20 +1096,10 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID expr=Expression)
+	 *     ((name=ID | name=STRING) expr=Expression?)
 	 */
 	protected void sequence_annotationField(EObject context, annotationField semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.ANNOTATION_FIELD__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.ANNOTATION_FIELD__NAME));
-			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.ANNOTATION_FIELD__EXPR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.ANNOTATION_FIELD__EXPR));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getAnnotationFieldAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getAnnotationFieldAccess().getExprExpressionParserRuleCall_2_0(), semanticObject.getExpr());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1254,7 +1258,7 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (((name=ID annonFields=annotationFields?) | uses=Uses)?)
+	 *     ((annotation=Annotation | uses=Uses)?)
 	 */
 	protected void sequence_directive(EObject context, directive semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1715,7 +1719,7 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (identi=identifier?)
+	 *     ((identi=[Interface|QualifiedName] | identi=[Class|QualifiedName])?)
 	 */
 	protected void sequence_typeExpression(EObject context, typeExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

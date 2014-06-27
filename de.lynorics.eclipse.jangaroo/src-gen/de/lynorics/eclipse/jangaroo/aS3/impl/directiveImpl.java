@@ -3,8 +3,8 @@
 package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
+import de.lynorics.eclipse.jangaroo.aS3.Annotation;
 import de.lynorics.eclipse.jangaroo.aS3.Uses;
-import de.lynorics.eclipse.jangaroo.aS3.annotationFields;
 import de.lynorics.eclipse.jangaroo.aS3.directive;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -23,8 +23,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.directiveImpl#getName <em>Name</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.directiveImpl#getAnnonFields <em>Annon Fields</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.directiveImpl#getAnnotation <em>Annotation</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.directiveImpl#getUses <em>Uses</em>}</li>
  * </ul>
  * </p>
@@ -34,34 +33,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class directiveImpl extends MinimalEObjectImpl.Container implements directive
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getAnnotation() <em>Annotation</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getAnnotation()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getAnnonFields() <em>Annon Fields</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAnnonFields()
-   * @generated
-   * @ordered
-   */
-  protected annotationFields annonFields;
+  protected Annotation annotation;
 
   /**
    * The cached value of the '{@link #getUses() <em>Uses</em>}' containment reference.
@@ -99,9 +78,9 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public Annotation getAnnotation()
   {
-    return name;
+    return annotation;
   }
 
   /**
@@ -109,36 +88,13 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public NotificationChain basicSetAnnotation(Annotation newAnnotation, NotificationChain msgs)
   {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.DIRECTIVE__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public annotationFields getAnnonFields()
-  {
-    return annonFields;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAnnonFields(annotationFields newAnnonFields, NotificationChain msgs)
-  {
-    annotationFields oldAnnonFields = annonFields;
-    annonFields = newAnnonFields;
+    Annotation oldAnnotation = annotation;
+    annotation = newAnnotation;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.DIRECTIVE__ANNON_FIELDS, oldAnnonFields, newAnnonFields);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.DIRECTIVE__ANNOTATION, oldAnnotation, newAnnotation);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -149,20 +105,20 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setAnnonFields(annotationFields newAnnonFields)
+  public void setAnnotation(Annotation newAnnotation)
   {
-    if (newAnnonFields != annonFields)
+    if (newAnnotation != annotation)
     {
       NotificationChain msgs = null;
-      if (annonFields != null)
-        msgs = ((InternalEObject)annonFields).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.DIRECTIVE__ANNON_FIELDS, null, msgs);
-      if (newAnnonFields != null)
-        msgs = ((InternalEObject)newAnnonFields).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.DIRECTIVE__ANNON_FIELDS, null, msgs);
-      msgs = basicSetAnnonFields(newAnnonFields, msgs);
+      if (annotation != null)
+        msgs = ((InternalEObject)annotation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.DIRECTIVE__ANNOTATION, null, msgs);
+      if (newAnnotation != null)
+        msgs = ((InternalEObject)newAnnotation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.DIRECTIVE__ANNOTATION, null, msgs);
+      msgs = basicSetAnnotation(newAnnotation, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.DIRECTIVE__ANNON_FIELDS, newAnnonFields, newAnnonFields));
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.DIRECTIVE__ANNOTATION, newAnnotation, newAnnotation));
   }
 
   /**
@@ -223,8 +179,8 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
   {
     switch (featureID)
     {
-      case AS3Package.DIRECTIVE__ANNON_FIELDS:
-        return basicSetAnnonFields(null, msgs);
+      case AS3Package.DIRECTIVE__ANNOTATION:
+        return basicSetAnnotation(null, msgs);
       case AS3Package.DIRECTIVE__USES:
         return basicSetUses(null, msgs);
     }
@@ -241,10 +197,8 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
   {
     switch (featureID)
     {
-      case AS3Package.DIRECTIVE__NAME:
-        return getName();
-      case AS3Package.DIRECTIVE__ANNON_FIELDS:
-        return getAnnonFields();
+      case AS3Package.DIRECTIVE__ANNOTATION:
+        return getAnnotation();
       case AS3Package.DIRECTIVE__USES:
         return getUses();
     }
@@ -261,11 +215,8 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
   {
     switch (featureID)
     {
-      case AS3Package.DIRECTIVE__NAME:
-        setName((String)newValue);
-        return;
-      case AS3Package.DIRECTIVE__ANNON_FIELDS:
-        setAnnonFields((annotationFields)newValue);
+      case AS3Package.DIRECTIVE__ANNOTATION:
+        setAnnotation((Annotation)newValue);
         return;
       case AS3Package.DIRECTIVE__USES:
         setUses((Uses)newValue);
@@ -284,11 +235,8 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
   {
     switch (featureID)
     {
-      case AS3Package.DIRECTIVE__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case AS3Package.DIRECTIVE__ANNON_FIELDS:
-        setAnnonFields((annotationFields)null);
+      case AS3Package.DIRECTIVE__ANNOTATION:
+        setAnnotation((Annotation)null);
         return;
       case AS3Package.DIRECTIVE__USES:
         setUses((Uses)null);
@@ -307,31 +255,12 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
   {
     switch (featureID)
     {
-      case AS3Package.DIRECTIVE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case AS3Package.DIRECTIVE__ANNON_FIELDS:
-        return annonFields != null;
+      case AS3Package.DIRECTIVE__ANNOTATION:
+        return annotation != null;
       case AS3Package.DIRECTIVE__USES:
         return uses != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //directiveImpl

@@ -12,9 +12,7 @@ package de.lynorics.eclipse.jangaroo.formatting
 import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter
 import org.eclipse.xtext.formatting.impl.FormattingConfig
 import de.lynorics.eclipse.jangaroo.services.AS3GrammarAccess
-import org.eclipse.xtext.Keyword
 import com.google.inject.Inject
-import java.util.List
 
 // import com.google.inject.Inject;
 // import de.lynorics.eclipse.jangaroo.services.AS3GrammarAccess

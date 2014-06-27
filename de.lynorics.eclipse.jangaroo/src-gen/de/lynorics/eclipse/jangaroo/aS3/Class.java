@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Class#getAnnon <em>Annon</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Class#getModifier <em>Modifier</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Class#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Class#getSuperType <em>Super Type</em>}</li>
@@ -28,6 +29,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Class extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Annon</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Annon</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Annon</em>' containment reference.
+   * @see #setAnnon(Annotation)
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getClass_Annon()
+   * @model containment="true"
+   * @generated
+   */
+  Annotation getAnnon();
+
+  /**
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Class#getAnnon <em>Annon</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Annon</em>' containment reference.
+   * @see #getAnnon()
+   * @generated
+   */
+  void setAnnon(Annotation value);
+
   /**
    * Returns the value of the '<em><b>Modifier</b></em>' containment reference.
    * <!-- begin-user-doc -->

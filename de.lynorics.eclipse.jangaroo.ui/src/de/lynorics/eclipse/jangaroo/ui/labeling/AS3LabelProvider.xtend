@@ -27,8 +27,8 @@ import org.eclipse.xtext.ui.IImageHelper
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 
 import static de.lynorics.eclipse.jangaroo.aS3.AccessLevel.*
-import de.lynorics.eclipse.jangaroo.aS3.VarType
 import org.eclipse.emf.common.util.EList
+import org.eclipse.emf.ecore.EObject
 
 /**
  * Provides labels for a EObjects.
@@ -73,20 +73,30 @@ class AS3LabelProvider extends DefaultEObjectLabelProvider {
       computeTextForMethod(meth.name, meth.type, meth.params);  
     }
     
-  private def computeTextForMethod(String methName, VarType varType, EList<Parameter> parameters) {
+  private def computeTextForMethod(String methName, EObject type, EList<Parameter> parameters) {
       var String parameterNames = null
-        var String name = varType.name;
+    	var String name = null;
+    	if (type instanceof Interface) {
+    		name = (type as Interface).name
+    	}
+    	else if (type instanceof Class) {
+    		name = (type as Class).name
+    	}
         if (name == null) {
-          name = varType.type.getText;
+          name = type.getText;
         }
         if (parameters != null) {
           for (Parameter param: parameters) {
             var String pname = '*';
             if (param.type != null) {
-              pname = param.type.name;
-              if (pname == null &&
-                  param.type.type != null) {
-                pname = param.type.type.getText;
+		    	if (param.type instanceof Interface) {
+		    		pname = (param.type as Interface).name
+		    	}
+		    	else if (param.type instanceof Class) {
+		    		pname = (param.type as Class).name
+		    	}
+              if (pname == null ) {
+                pname = param.type.getText;
               }
             }
             if (pname == null) {
@@ -166,9 +176,15 @@ class AS3LabelProvider extends DefaultEObjectLabelProvider {
     }
 
     def text(VariableDeclaration varDecl) {
-      var String name = varDecl.type.name;
+    	var String name = null;
+    	if (varDecl.type instanceof Interface) {
+    		name = (varDecl.type as Interface).name
+    	}
+    	else if (varDecl.type instanceof Class) {
+    		name = (varDecl.type as Class).name
+    	}
       if (name == null) {
-        name = varDecl.type.type.getText;
+        name = varDecl.type.getText;
       }
       return new StyledString(varDecl.name).
        append(new StyledString(': ' +name,

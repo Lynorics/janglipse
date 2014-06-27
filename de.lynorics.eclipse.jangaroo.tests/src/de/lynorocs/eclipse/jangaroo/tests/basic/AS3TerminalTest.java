@@ -1,10 +1,11 @@
-package de.lynorocs.eclipse.jangaroo.tests.basic;
 /*
- * Copyright 2013
+ * Copyright 2014
  *
  * Licensed under the Eclipse Public License version 1.0, available at
  * http://opensource.org/licenses/eclipse-1.0.txt
  */
+package de.lynorocs.eclipse.jangaroo.tests.basic;
+
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
 import org.eclipselabs.xtext.utils.unittesting.XtextTest;

@@ -50,7 +50,7 @@ annotationFields :
     anoonFields+=annotationField ("," annonFields+=annotationField)*;
 
 annotationField :
-    name=ID ("=" expr=Expression)?;
+    name=(ID|STRING) ("=" expr=Expression)?;
 
 QualifiedNameWithWildcard:
     QualifiedName '.*'?
@@ -67,17 +67,19 @@ Interface:
 ;
 
 InterfaceMethod:
+  annon=Annotation?
   modifier=Modifier? 'function'
   (
     name=ID'('
     | accessor=accessorRole name=ID'('
   )
   (params+=Parameter (',' params+=Parameter)*)? ')' 
-  (':' type=VarType)?
+  (':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))?
   ';'?
 ;
 
 Class:
+   annon=Annotation?
    modifier=Modifier? 'class' name=ID
    ('extends' superType=[Class|QualifiedName])?
    ('implements' types+=[Interface|QualifiedName] (',' types+=[Interface|QualifiedName])*)?
@@ -85,7 +87,7 @@ Class:
    ;
 
 accessorRole
-  : 'get' | 'set'
+  : "get" | "set"
   ;
 
 Member: 
@@ -94,13 +96,14 @@ Member:
 ;
 
 Method:
+  annon=Annotation?
   'override'? modifier=Modifier? 'function' 
   (
     name=ID'('
     | accessor=accessorRole name=ID'('
   )
    (params+=Parameter (',' params+=Parameter)*)? ')' 
-  (':' type=VarType)?
+  (':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))?
   (body=Block|';')
 ;
 
@@ -120,18 +123,11 @@ MethodBody:
 
 
 VariableDeclaration:
-  access=AccessLevel? 'static'? ('var'|'const') name=ID ':' type=VarType ('=' Expression=Expression)? ';'
-;
-
-VarType:
-    name='void'
-  | name='*'
-  | type=[Interface|QualifiedName]
-  | type=[Class|QualifiedName]
+  access=AccessLevel? 'static'? ('var'|'const') name=ID ':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]) ('=' Expression=Expression)? ';'
 ;
 
 Parameter :
-    'const'? '...'? name=ID (':' type=VarType)? ('=' lit=exprOrObjectLiteral)?;
+    'const'? '...'? name=ID (':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))? ('=' lit=exprOrObjectLiteral)?;
 
 objectLiteral: {objectLiteral}
   '{' fields+=fieldList? '}'
@@ -496,7 +492,8 @@ functionSignature
 typeExpression: {typeExpression}
   ':'
     // TODO: identifier allows namespaces, and I suspect a type:spec shouldn't
-    (identi=identifier | 'void' | '*')
+    ('void'|'*'|identi=[Interface|QualifiedName]|identi=[Class|QualifiedName])
+//    (identi=identifier | 'void' | '*')
   ; 
 
 // A list of formal parameters
@@ -741,3 +738,16 @@ terminal OCTAL returns ecore::EBigDecimal:
 terminal FLOAT returns ecore::EBigDecimal:
   ('0'..'9')* '.' ('0'..'9')+;
 
+terminal ID  		: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+terminal INT returns ecore::EInt: ('0'..'9')+;
+terminal STRING	: 
+			'"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\'|'/') | !('\\'|'"') )* '"' |
+			"'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\'|'/') | !('\\'|"'") )* "'"
+		; 
+terminal ML_COMMENT	: '/*' -> '*/';
+
+terminal SL_COMMENT 	: '//' !('\n'|'\r')* ('\r'? '\n')?;
+
+terminal WS			: (' '|'\t'|'\r'|'\n')+;
+
+terminal ANY_OTHER: .;

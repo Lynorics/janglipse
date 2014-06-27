@@ -1,10 +1,11 @@
-package de.lynorocs.eclipse.jangaroo.tests.basic;
 /*
- * Copyright 2013
+ * Copyright 2014
  *
  * Licensed under the Eclipse Public License version 1.0, available at
  * http://opensource.org/licenses/eclipse-1.0.txt
  */
+package de.lynorocs.eclipse.jangaroo.tests.basic;
+
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
 import org.eclipselabs.xtext.utils.unittesting.XtextTest;
@@ -64,7 +65,7 @@ public class AS3InterfaceTest extends XtextTest
     			"function links():void;",
     			"InterfaceMethod");
     	testParserRule(
-    			"function tutorials(gen:String, nota:int):String",
+    			"function tutorials(gen:void, nota:*):void",
     			"InterfaceMethod");
     }
     
@@ -78,7 +79,7 @@ public class AS3InterfaceTest extends XtextTest
     			"package mypackage {"
     			+ "public interface ITest {"
     			+ "function links():void;"
-    			+ "function tutorials(gen:String, nota:int):String"
+    			+ "function tutorials(gen:*, nota:void):*"
     			+ "}}",
     			"Model");
     	testParserRule(

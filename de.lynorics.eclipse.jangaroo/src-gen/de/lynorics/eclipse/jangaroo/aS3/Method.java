@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getAnnon <em>Annon</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getModifier <em>Modifier</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getAccessor <em>Accessor</em>}</li>
@@ -29,6 +30,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Method extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Annon</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Annon</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Annon</em>' containment reference.
+   * @see #setAnnon(Annotation)
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getMethod_Annon()
+   * @model containment="true"
+   * @generated
+   */
+  Annotation getAnnon();
+
+  /**
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getAnnon <em>Annon</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Annon</em>' containment reference.
+   * @see #getAnnon()
+   * @generated
+   */
+  void setAnnon(Annotation value);
+
   /**
    * Returns the value of the '<em><b>Modifier</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -124,30 +151,30 @@ public interface Method extends EObject
   EList<Parameter> getParams();
 
   /**
-   * Returns the value of the '<em><b>Type</b></em>' containment reference.
+   * Returns the value of the '<em><b>Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Type</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' containment reference.
-   * @see #setType(VarType)
+   * @return the value of the '<em>Type</em>' reference.
+   * @see #setType(EObject)
    * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getMethod_Type()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  VarType getType();
+  EObject getType();
 
   /**
-   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getType <em>Type</em>}' containment reference.
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getType <em>Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' containment reference.
+   * @param value the new value of the '<em>Type</em>' reference.
    * @see #getType()
    * @generated
    */
-  void setType(VarType value);
+  void setType(EObject value);
 
   /**
    * Returns the value of the '<em><b>Body</b></em>' containment reference.

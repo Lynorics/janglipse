@@ -12,8 +12,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.directive#getName <em>Name</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.directive#getAnnonFields <em>Annon Fields</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.directive#getAnnotation <em>Annotation</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.directive#getUses <em>Uses</em>}</li>
  * </ul>
  * </p>
@@ -25,56 +24,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface directive extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Annotation</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Annotation</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getdirective_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.directive#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Annon Fields</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Annon Fields</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Annon Fields</em>' containment reference.
-   * @see #setAnnonFields(annotationFields)
-   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getdirective_AnnonFields()
+   * @return the value of the '<em>Annotation</em>' containment reference.
+   * @see #setAnnotation(Annotation)
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getdirective_Annotation()
    * @model containment="true"
    * @generated
    */
-  annotationFields getAnnonFields();
+  Annotation getAnnotation();
 
   /**
-   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.directive#getAnnonFields <em>Annon Fields</em>}' containment reference.
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.directive#getAnnotation <em>Annotation</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Annon Fields</em>' containment reference.
-   * @see #getAnnonFields()
+   * @param value the new value of the '<em>Annotation</em>' containment reference.
+   * @see #getAnnotation()
    * @generated
    */
-  void setAnnonFields(annotationFields value);
+  void setAnnotation(Annotation value);
 
   /**
    * Returns the value of the '<em><b>Uses</b></em>' containment reference.

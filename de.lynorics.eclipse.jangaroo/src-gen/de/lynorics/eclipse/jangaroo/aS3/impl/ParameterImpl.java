@@ -4,13 +4,13 @@ package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
 import de.lynorics.eclipse.jangaroo.aS3.Parameter;
-import de.lynorics.eclipse.jangaroo.aS3.VarType;
 import de.lynorics.eclipse.jangaroo.aS3.exprOrObjectLiteral;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -54,14 +54,14 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getType()
    * @generated
    * @ordered
    */
-  protected VarType type;
+  protected EObject type;
 
   /**
    * The cached value of the '{@link #getLit() <em>Lit</em>}' containment reference.
@@ -122,7 +122,27 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
    * <!-- end-user-doc -->
    * @generated
    */
-  public VarType getType()
+  public EObject getType()
+  {
+    if (type != null && type.eIsProxy())
+    {
+      InternalEObject oldType = (InternalEObject)type;
+      type = eResolveProxy(oldType);
+      if (type != oldType)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AS3Package.PARAMETER__TYPE, oldType, type));
+      }
+    }
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EObject basicGetType()
   {
     return type;
   }
@@ -132,37 +152,12 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(VarType newType, NotificationChain msgs)
+  public void setType(EObject newType)
   {
-    VarType oldType = type;
+    EObject oldType = type;
     type = newType;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.PARAMETER__TYPE, oldType, newType);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setType(VarType newType)
-  {
-    if (newType != type)
-    {
-      NotificationChain msgs = null;
-      if (type != null)
-        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.PARAMETER__TYPE, null, msgs);
-      if (newType != null)
-        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.PARAMETER__TYPE, null, msgs);
-      msgs = basicSetType(newType, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.PARAMETER__TYPE, newType, newType));
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.PARAMETER__TYPE, oldType, type));
   }
 
   /**
@@ -223,8 +218,6 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
   {
     switch (featureID)
     {
-      case AS3Package.PARAMETER__TYPE:
-        return basicSetType(null, msgs);
       case AS3Package.PARAMETER__LIT:
         return basicSetLit(null, msgs);
     }
@@ -244,7 +237,8 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
       case AS3Package.PARAMETER__NAME:
         return getName();
       case AS3Package.PARAMETER__TYPE:
-        return getType();
+        if (resolve) return getType();
+        return basicGetType();
       case AS3Package.PARAMETER__LIT:
         return getLit();
     }
@@ -265,7 +259,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
         setName((String)newValue);
         return;
       case AS3Package.PARAMETER__TYPE:
-        setType((VarType)newValue);
+        setType((EObject)newValue);
         return;
       case AS3Package.PARAMETER__LIT:
         setLit((exprOrObjectLiteral)newValue);
@@ -288,7 +282,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
         setName(NAME_EDEFAULT);
         return;
       case AS3Package.PARAMETER__TYPE:
-        setType((VarType)null);
+        setType((EObject)null);
         return;
       case AS3Package.PARAMETER__LIT:
         setLit((exprOrObjectLiteral)null);

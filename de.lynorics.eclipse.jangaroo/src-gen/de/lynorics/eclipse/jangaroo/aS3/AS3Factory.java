@@ -68,6 +68,15 @@ public interface AS3Factory extends EFactory
   directive createdirective();
 
   /**
+   * Returns a new object of class '<em>Annotation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Annotation</em>'.
+   * @generated
+   */
+  Annotation createAnnotation();
+
+  /**
    * Returns a new object of class '<em>Uses</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -165,15 +174,6 @@ public interface AS3Factory extends EFactory
    * @generated
    */
   VariableDeclaration createVariableDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Var Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Var Type</em>'.
-   * @generated
-   */
-  VarType createVarType();
 
   /**
    * Returns a new object of class '<em>Parameter</em>'.

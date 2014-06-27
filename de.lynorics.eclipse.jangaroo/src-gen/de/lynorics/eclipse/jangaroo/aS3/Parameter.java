@@ -51,30 +51,30 @@ public interface Parameter extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Type</b></em>' containment reference.
+   * Returns the value of the '<em><b>Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Type</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' containment reference.
-   * @see #setType(VarType)
+   * @return the value of the '<em>Type</em>' reference.
+   * @see #setType(EObject)
    * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getParameter_Type()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  VarType getType();
+  EObject getType();
 
   /**
-   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Parameter#getType <em>Type</em>}' containment reference.
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Parameter#getType <em>Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' containment reference.
+   * @param value the new value of the '<em>Type</em>' reference.
    * @see #getType()
    * @generated
    */
-  void setType(VarType value);
+  void setType(EObject value);
 
   /**
    * Returns the value of the '<em><b>Lit</b></em>' containment reference.

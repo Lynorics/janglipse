@@ -5,6 +5,7 @@ package de.lynorics.eclipse.jangaroo.aS3.impl;
 import de.lynorics.eclipse.jangaroo.aS3.AS3Factory;
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
 import de.lynorics.eclipse.jangaroo.aS3.AccessLevel;
+import de.lynorics.eclipse.jangaroo.aS3.Annotation;
 import de.lynorics.eclipse.jangaroo.aS3.Block;
 import de.lynorics.eclipse.jangaroo.aS3.BoolConstant;
 import de.lynorics.eclipse.jangaroo.aS3.CaseStatement;
@@ -40,7 +41,6 @@ import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.ThrowStatement;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Uses;
-import de.lynorics.eclipse.jangaroo.aS3.VarType;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.WhileStatement;
 import de.lynorics.eclipse.jangaroo.aS3.WithStatement;
@@ -183,6 +183,7 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.IMPORTS: return createImports();
       case AS3Package.IMPORT: return createImport();
       case AS3Package.DIRECTIVE: return createdirective();
+      case AS3Package.ANNOTATION: return createAnnotation();
       case AS3Package.USES: return createUses();
       case AS3Package.ANNOTATION_FIELDS: return createannotationFields();
       case AS3Package.ANNOTATION_FIELD: return createannotationField();
@@ -194,7 +195,6 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.MODIFIER: return createModifier();
       case AS3Package.METHOD_BODY: return createMethodBody();
       case AS3Package.VARIABLE_DECLARATION: return createVariableDeclaration();
-      case AS3Package.VAR_TYPE: return createVarType();
       case AS3Package.PARAMETER: return createParameter();
       case AS3Package.OBJECT_LITERAL: return createobjectLiteral();
       case AS3Package.FIELD_LIST: return createfieldList();
@@ -390,6 +390,17 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Annotation createAnnotation()
+  {
+    AnnotationImpl annotation = new AnnotationImpl();
+    return annotation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Uses createUses()
   {
     UsesImpl uses = new UsesImpl();
@@ -504,17 +515,6 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
   {
     VariableDeclarationImpl variableDeclaration = new VariableDeclarationImpl();
     return variableDeclaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public VarType createVarType()
-  {
-    VarTypeImpl varType = new VarTypeImpl();
-    return varType;
   }
 
   /**

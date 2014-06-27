@@ -1,3 +1,9 @@
+/*
+ * Copyright 2013
+ *
+ * Licensed under the Eclipse Public License version 1.0, available at
+ * http://opensource.org/licenses/eclipse-1.0.txt
+ */
 package de.lynorics.eclipse.jangaroo.formatting;
 
 import org.eclipse.xtext.IGrammarAccess;

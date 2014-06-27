@@ -13,7 +13,7 @@
       <pluginExecutionFilter>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
-        <versionRange>[0.8,)</versionRange>
+        <versionRange>[2.0.0,)</versionRange>
         <goals>
           <goal>compile</goal>
           <goal>testCompile</goal>
@@ -27,6 +27,22 @@
            </configurator>
          </action>
     </pluginExecution>
-  </pluginExecutions>
+    <pluginExecution>
+      <pluginExecutionFilter>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>exml-maven-plugin</artifactId>
+        <versionRange>[2.0.0,)</versionRange>
+        <goals>
+          <goal>exml</goal>
+          <goal>exml-xsd</goal>
+        </goals>
+      </pluginExecutionFilter>
+      <action>
+           <configurator>
+             <id>de.lynorics.eclipse.jangaroo.m2e.jangarooConfigurator</id>
+           </configurator>
+         </action>
+    </pluginExecution>
+      </pluginExecutions>
   
 </lifecycleMappingMetadata>

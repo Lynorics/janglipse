@@ -3,6 +3,7 @@
 package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
+import de.lynorics.eclipse.jangaroo.aS3.Annotation;
 import de.lynorics.eclipse.jangaroo.aS3.Interface;
 import de.lynorics.eclipse.jangaroo.aS3.Member;
 import de.lynorics.eclipse.jangaroo.aS3.Modifier;
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ClassImpl#getAnnon <em>Annon</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ClassImpl#getModifier <em>Modifier</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ClassImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ClassImpl#getSuperType <em>Super Type</em>}</li>
@@ -43,6 +45,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynorics.eclipse.jangaroo.aS3.Class
 {
+  /**
+   * The cached value of the '{@link #getAnnon() <em>Annon</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAnnon()
+   * @generated
+   * @ordered
+   */
+  protected Annotation annon;
+
   /**
    * The cached value of the '{@link #getModifier() <em>Modifier</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -122,6 +134,54 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
   protected EClass eStaticClass()
   {
     return AS3Package.Literals.CLASS;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Annotation getAnnon()
+  {
+    return annon;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAnnon(Annotation newAnnon, NotificationChain msgs)
+  {
+    Annotation oldAnnon = annon;
+    annon = newAnnon;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.CLASS__ANNON, oldAnnon, newAnnon);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAnnon(Annotation newAnnon)
+  {
+    if (newAnnon != annon)
+    {
+      NotificationChain msgs = null;
+      if (annon != null)
+        msgs = ((InternalEObject)annon).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.CLASS__ANNON, null, msgs);
+      if (newAnnon != null)
+        msgs = ((InternalEObject)newAnnon).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.CLASS__ANNON, null, msgs);
+      msgs = basicSetAnnon(newAnnon, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.CLASS__ANNON, newAnnon, newAnnon));
   }
 
   /**
@@ -276,6 +336,8 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
   {
     switch (featureID)
     {
+      case AS3Package.CLASS__ANNON:
+        return basicSetAnnon(null, msgs);
       case AS3Package.CLASS__MODIFIER:
         return basicSetModifier(null, msgs);
       case AS3Package.CLASS__MEMBERS:
@@ -294,6 +356,8 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
   {
     switch (featureID)
     {
+      case AS3Package.CLASS__ANNON:
+        return getAnnon();
       case AS3Package.CLASS__MODIFIER:
         return getModifier();
       case AS3Package.CLASS__NAME:
@@ -320,6 +384,9 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
   {
     switch (featureID)
     {
+      case AS3Package.CLASS__ANNON:
+        setAnnon((Annotation)newValue);
+        return;
       case AS3Package.CLASS__MODIFIER:
         setModifier((Modifier)newValue);
         return;
@@ -351,6 +418,9 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
   {
     switch (featureID)
     {
+      case AS3Package.CLASS__ANNON:
+        setAnnon((Annotation)null);
+        return;
       case AS3Package.CLASS__MODIFIER:
         setModifier((Modifier)null);
         return;
@@ -380,6 +450,8 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
   {
     switch (featureID)
     {
+      case AS3Package.CLASS__ANNON:
+        return annon != null;
       case AS3Package.CLASS__MODIFIER:
         return modifier != null;
       case AS3Package.CLASS__NAME:

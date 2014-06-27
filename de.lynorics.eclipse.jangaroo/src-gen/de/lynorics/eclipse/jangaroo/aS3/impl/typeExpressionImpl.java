@@ -3,13 +3,12 @@
 package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
-import de.lynorics.eclipse.jangaroo.aS3.identifier;
 import de.lynorics.eclipse.jangaroo.aS3.typeExpression;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -31,14 +30,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class typeExpressionImpl extends MinimalEObjectImpl.Container implements typeExpression
 {
   /**
-   * The cached value of the '{@link #getIdenti() <em>Identi</em>}' containment reference.
+   * The cached value of the '{@link #getIdenti() <em>Identi</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getIdenti()
    * @generated
    * @ordered
    */
-  protected identifier identi;
+  protected EObject identi;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,7 +65,27 @@ public class typeExpressionImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public identifier getIdenti()
+  public EObject getIdenti()
+  {
+    if (identi != null && identi.eIsProxy())
+    {
+      InternalEObject oldIdenti = (InternalEObject)identi;
+      identi = eResolveProxy(oldIdenti);
+      if (identi != oldIdenti)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AS3Package.TYPE_EXPRESSION__IDENTI, oldIdenti, identi));
+      }
+    }
+    return identi;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EObject basicGetIdenti()
   {
     return identi;
   }
@@ -76,53 +95,12 @@ public class typeExpressionImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetIdenti(identifier newIdenti, NotificationChain msgs)
+  public void setIdenti(EObject newIdenti)
   {
-    identifier oldIdenti = identi;
+    EObject oldIdenti = identi;
     identi = newIdenti;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.TYPE_EXPRESSION__IDENTI, oldIdenti, newIdenti);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setIdenti(identifier newIdenti)
-  {
-    if (newIdenti != identi)
-    {
-      NotificationChain msgs = null;
-      if (identi != null)
-        msgs = ((InternalEObject)identi).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.TYPE_EXPRESSION__IDENTI, null, msgs);
-      if (newIdenti != null)
-        msgs = ((InternalEObject)newIdenti).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.TYPE_EXPRESSION__IDENTI, null, msgs);
-      msgs = basicSetIdenti(newIdenti, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.TYPE_EXPRESSION__IDENTI, newIdenti, newIdenti));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case AS3Package.TYPE_EXPRESSION__IDENTI:
-        return basicSetIdenti(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.TYPE_EXPRESSION__IDENTI, oldIdenti, identi));
   }
 
   /**
@@ -136,7 +114,8 @@ public class typeExpressionImpl extends MinimalEObjectImpl.Container implements 
     switch (featureID)
     {
       case AS3Package.TYPE_EXPRESSION__IDENTI:
-        return getIdenti();
+        if (resolve) return getIdenti();
+        return basicGetIdenti();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -152,7 +131,7 @@ public class typeExpressionImpl extends MinimalEObjectImpl.Container implements 
     switch (featureID)
     {
       case AS3Package.TYPE_EXPRESSION__IDENTI:
-        setIdenti((identifier)newValue);
+        setIdenti((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,7 +148,7 @@ public class typeExpressionImpl extends MinimalEObjectImpl.Container implements 
     switch (featureID)
     {
       case AS3Package.TYPE_EXPRESSION__IDENTI:
-        setIdenti((identifier)null);
+        setIdenti((EObject)null);
         return;
     }
     super.eUnset(featureID);

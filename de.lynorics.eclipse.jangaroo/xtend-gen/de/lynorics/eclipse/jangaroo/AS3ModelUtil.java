@@ -73,7 +73,6 @@ public class AS3ModelUtil {
    *         null if it doesn't exist
    */
   public static <E extends EObject> E findParentOfType(final EObject start, final Class<E> type) {
-    E _containerOfType = EcoreUtil2.<E>getContainerOfType(start, type);
-    return ((E) _containerOfType);
+    return EcoreUtil2.<E>getContainerOfType(start, type);
   }
 }

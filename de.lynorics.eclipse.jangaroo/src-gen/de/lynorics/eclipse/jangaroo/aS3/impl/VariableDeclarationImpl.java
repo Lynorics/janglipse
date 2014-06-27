@@ -5,13 +5,13 @@ package de.lynorics.eclipse.jangaroo.aS3.impl;
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
 import de.lynorics.eclipse.jangaroo.aS3.AccessLevel;
 import de.lynorics.eclipse.jangaroo.aS3.Expression;
-import de.lynorics.eclipse.jangaroo.aS3.VarType;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -76,14 +76,14 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getType()
    * @generated
    * @ordered
    */
-  protected VarType type;
+  protected EObject type;
 
   /**
    * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
@@ -167,7 +167,27 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public VarType getType()
+  public EObject getType()
+  {
+    if (type != null && type.eIsProxy())
+    {
+      InternalEObject oldType = (InternalEObject)type;
+      type = eResolveProxy(oldType);
+      if (type != oldType)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AS3Package.VARIABLE_DECLARATION__TYPE, oldType, type));
+      }
+    }
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EObject basicGetType()
   {
     return type;
   }
@@ -177,37 +197,12 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(VarType newType, NotificationChain msgs)
+  public void setType(EObject newType)
   {
-    VarType oldType = type;
+    EObject oldType = type;
     type = newType;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.VARIABLE_DECLARATION__TYPE, oldType, newType);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setType(VarType newType)
-  {
-    if (newType != type)
-    {
-      NotificationChain msgs = null;
-      if (type != null)
-        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.VARIABLE_DECLARATION__TYPE, null, msgs);
-      if (newType != null)
-        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.VARIABLE_DECLARATION__TYPE, null, msgs);
-      msgs = basicSetType(newType, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.VARIABLE_DECLARATION__TYPE, newType, newType));
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.VARIABLE_DECLARATION__TYPE, oldType, type));
   }
 
   /**
@@ -268,8 +263,6 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case AS3Package.VARIABLE_DECLARATION__TYPE:
-        return basicSetType(null, msgs);
       case AS3Package.VARIABLE_DECLARATION__EXPRESSION:
         return basicSetExpression(null, msgs);
     }
@@ -291,7 +284,8 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
       case AS3Package.VARIABLE_DECLARATION__NAME:
         return getName();
       case AS3Package.VARIABLE_DECLARATION__TYPE:
-        return getType();
+        if (resolve) return getType();
+        return basicGetType();
       case AS3Package.VARIABLE_DECLARATION__EXPRESSION:
         return getExpression();
     }
@@ -315,7 +309,7 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
         setName((String)newValue);
         return;
       case AS3Package.VARIABLE_DECLARATION__TYPE:
-        setType((VarType)newValue);
+        setType((EObject)newValue);
         return;
       case AS3Package.VARIABLE_DECLARATION__EXPRESSION:
         setExpression((Expression)newValue);
@@ -341,7 +335,7 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
         setName(NAME_EDEFAULT);
         return;
       case AS3Package.VARIABLE_DECLARATION__TYPE:
-        setType((VarType)null);
+        setType((EObject)null);
         return;
       case AS3Package.VARIABLE_DECLARATION__EXPRESSION:
         setExpression((Expression)null);

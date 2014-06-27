@@ -3,10 +3,10 @@
 package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
+import de.lynorics.eclipse.jangaroo.aS3.Annotation;
 import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 import de.lynorics.eclipse.jangaroo.aS3.Modifier;
 import de.lynorics.eclipse.jangaroo.aS3.Parameter;
-import de.lynorics.eclipse.jangaroo.aS3.VarType;
 
 import java.util.Collection;
 
@@ -16,6 +16,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceMethodImpl#getAnnon <em>Annon</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceMethodImpl#getModifier <em>Modifier</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceMethodImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceMethodImpl#getAccessor <em>Accessor</em>}</li>
@@ -43,6 +45,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements InterfaceMethod
 {
+  /**
+   * The cached value of the '{@link #getAnnon() <em>Annon</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAnnon()
+   * @generated
+   * @ordered
+   */
+  protected Annotation annon;
+
   /**
    * The cached value of the '{@link #getModifier() <em>Modifier</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -104,14 +116,14 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
   protected EList<Parameter> params;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getType()
    * @generated
    * @ordered
    */
-  protected VarType type;
+  protected EObject type;
 
   /**
    * <!-- begin-user-doc -->
@@ -132,6 +144,54 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
   protected EClass eStaticClass()
   {
     return AS3Package.Literals.INTERFACE_METHOD;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Annotation getAnnon()
+  {
+    return annon;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAnnon(Annotation newAnnon, NotificationChain msgs)
+  {
+    Annotation oldAnnon = annon;
+    annon = newAnnon;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.INTERFACE_METHOD__ANNON, oldAnnon, newAnnon);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAnnon(Annotation newAnnon)
+  {
+    if (newAnnon != annon)
+    {
+      NotificationChain msgs = null;
+      if (annon != null)
+        msgs = ((InternalEObject)annon).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.INTERFACE_METHOD__ANNON, null, msgs);
+      if (newAnnon != null)
+        msgs = ((InternalEObject)newAnnon).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.INTERFACE_METHOD__ANNON, null, msgs);
+      msgs = basicSetAnnon(newAnnon, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.INTERFACE_METHOD__ANNON, newAnnon, newAnnon));
   }
 
   /**
@@ -247,7 +307,27 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public VarType getType()
+  public EObject getType()
+  {
+    if (type != null && type.eIsProxy())
+    {
+      InternalEObject oldType = (InternalEObject)type;
+      type = eResolveProxy(oldType);
+      if (type != oldType)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AS3Package.INTERFACE_METHOD__TYPE, oldType, type));
+      }
+    }
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EObject basicGetType()
   {
     return type;
   }
@@ -257,37 +337,12 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(VarType newType, NotificationChain msgs)
+  public void setType(EObject newType)
   {
-    VarType oldType = type;
+    EObject oldType = type;
     type = newType;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.INTERFACE_METHOD__TYPE, oldType, newType);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setType(VarType newType)
-  {
-    if (newType != type)
-    {
-      NotificationChain msgs = null;
-      if (type != null)
-        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.INTERFACE_METHOD__TYPE, null, msgs);
-      if (newType != null)
-        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.INTERFACE_METHOD__TYPE, null, msgs);
-      msgs = basicSetType(newType, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.INTERFACE_METHOD__TYPE, newType, newType));
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.INTERFACE_METHOD__TYPE, oldType, type));
   }
 
   /**
@@ -300,12 +355,12 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
+      case AS3Package.INTERFACE_METHOD__ANNON:
+        return basicSetAnnon(null, msgs);
       case AS3Package.INTERFACE_METHOD__MODIFIER:
         return basicSetModifier(null, msgs);
       case AS3Package.INTERFACE_METHOD__PARAMS:
         return ((InternalEList<?>)getParams()).basicRemove(otherEnd, msgs);
-      case AS3Package.INTERFACE_METHOD__TYPE:
-        return basicSetType(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -320,6 +375,8 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
+      case AS3Package.INTERFACE_METHOD__ANNON:
+        return getAnnon();
       case AS3Package.INTERFACE_METHOD__MODIFIER:
         return getModifier();
       case AS3Package.INTERFACE_METHOD__NAME:
@@ -329,7 +386,8 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
       case AS3Package.INTERFACE_METHOD__PARAMS:
         return getParams();
       case AS3Package.INTERFACE_METHOD__TYPE:
-        return getType();
+        if (resolve) return getType();
+        return basicGetType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -345,6 +403,9 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
+      case AS3Package.INTERFACE_METHOD__ANNON:
+        setAnnon((Annotation)newValue);
+        return;
       case AS3Package.INTERFACE_METHOD__MODIFIER:
         setModifier((Modifier)newValue);
         return;
@@ -359,7 +420,7 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
         getParams().addAll((Collection<? extends Parameter>)newValue);
         return;
       case AS3Package.INTERFACE_METHOD__TYPE:
-        setType((VarType)newValue);
+        setType((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -375,6 +436,9 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
+      case AS3Package.INTERFACE_METHOD__ANNON:
+        setAnnon((Annotation)null);
+        return;
       case AS3Package.INTERFACE_METHOD__MODIFIER:
         setModifier((Modifier)null);
         return;
@@ -388,7 +452,7 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
         getParams().clear();
         return;
       case AS3Package.INTERFACE_METHOD__TYPE:
-        setType((VarType)null);
+        setType((EObject)null);
         return;
     }
     super.eUnset(featureID);
@@ -404,6 +468,8 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
+      case AS3Package.INTERFACE_METHOD__ANNON:
+        return annon != null;
       case AS3Package.INTERFACE_METHOD__MODIFIER:
         return modifier != null;
       case AS3Package.INTERFACE_METHOD__NAME:

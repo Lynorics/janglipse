@@ -40,14 +40,14 @@ public class AS3FunctionTest  extends XtextTest {
 	    			+"}",
 	    			"functionExpression");
 	    	testParserRule(
-	    			"function two(type:String):String"
+	    			"function two(type:*):*"
 	    			+"{ if(!may) {"
 	    			+"onclick = '';"
 	    			+"style = \"cursor:default;\""
 	    			+"} }",
 	    			"Method");
 	    	testParserRule(
-	    			"function three(type:String):String"
+	    			"function three(type:*):*"
 	    			+"{ if (node&& node.getName()) {"
 	    			+"if (!node.getName()[id]) {"
 	    			+"valid = false;"

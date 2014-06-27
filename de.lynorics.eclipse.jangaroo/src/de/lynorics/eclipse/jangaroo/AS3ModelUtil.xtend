@@ -69,7 +69,7 @@ class AS3ModelUtil {
   *         null if it doesn't exist
   */
   def static <E extends EObject> E findParentOfType(EObject start, java.lang.Class<E> type) {
-    return     start.getContainerOfType(type) as E;
+    return     start.getContainerOfType(type);
 //    var EObject current = start
 //    while (current!=null && !(type.isInstance(current))) {
 //      current = current.eContainer;
