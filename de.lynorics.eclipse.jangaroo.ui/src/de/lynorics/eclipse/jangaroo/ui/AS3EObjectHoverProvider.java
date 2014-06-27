@@ -6,10 +6,7 @@
  */
 package de.lynorics.eclipse.jangaroo.ui;
  
-import java.net.URL;
-
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.xtext.TerminalRule;
 import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.ILeafNode;
@@ -17,8 +14,6 @@ import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.parsetree.reconstr.impl.TokenUtil;
 import org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider;
-import org.eclipse.xtext.ui.internal.Activator;
-import org.eclipse.xtext.ui.label.ILabelProviderImageDescriptorExtension;
 
 import com.google.inject.Inject;
  
@@ -65,8 +60,8 @@ public class AS3EObjectHoverProvider extends DefaultEObjectHoverProvider {
 
 	private String buildDescription(EObject o, String name, String comment, String annotation) {
 		StringBuilder builder = new StringBuilder();
-		URL iconURL = Activator.getDefault().getBundle().getEntry("icons/outline-class.gif"); 
-		builder.append("<img src=\""+iconURL+"\">&nbsp;");
+//		URL iconURL = Activator.getDefault().getBundle().getEntry("icons/outline-class.gif"); 
+//		builder.append("<img src=\""+iconURL+"\">&nbsp;");
 		builder.append("<b>" + name + "</b>");
 		builder.append("<br><br>");
 		if (annotation != null && !"".equals(annotation)) {
@@ -102,24 +97,24 @@ public class AS3EObjectHoverProvider extends DefaultEObjectHoverProvider {
 		return returnValue;
 	}
 
-	public String getImageTag(final EObject object) {
-		if (labelProvider instanceof ILabelProviderImageDescriptorExtension) {
-			ILabelProviderImageDescriptorExtension extension = (ILabelProviderImageDescriptorExtension) labelProvider;
-			ImageDescriptor descriptor = extension.getImageDescriptor(object);
-			if (descriptor != null)
-				return getImageTagLink(descriptor);
-		}
-		return null;
-	}
-
-	protected String getImageTagLink(ImageDescriptor imageDescriptor) {
-		URL url = getURL(imageDescriptor);
-		if (url != null)
-			return "<image src='" + url.toExternalForm() + "'/>";
-		return "";
-	}
-
-	protected URL getURL(ImageDescriptor descriptor) {
-		return JavaPlugin.getDefault().getImagesOnFSRegistry().getImageURL(descriptor);
-	}
+//	public String getImageTag(final EObject object) {
+//		if (labelProvider instanceof ILabelProviderImageDescriptorExtension) {
+//			ILabelProviderImageDescriptorExtension extension = (ILabelProviderImageDescriptorExtension) labelProvider;
+//			ImageDescriptor descriptor = extension.getImageDescriptor(object);
+//			if (descriptor != null)
+//				return getImageTagLink(descriptor);
+//		}
+//		return null;
+//	}
+//
+//	protected String getImageTagLink(ImageDescriptor imageDescriptor) {
+//		URL url = getURL(imageDescriptor);
+//		if (url != null)
+//			return "<image src='" + url.toExternalForm() + "'/>";
+//		return "";
+//	}
+//
+//	protected URL getURL(ImageDescriptor descriptor) {
+//		return JavaPlugin.getDefault().getImagesOnFSRegistry().getImageURL(descriptor);
+//	}
 }
