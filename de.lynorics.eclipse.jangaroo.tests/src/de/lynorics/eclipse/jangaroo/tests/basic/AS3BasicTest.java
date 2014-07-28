@@ -4,7 +4,7 @@
  * Licensed under the Eclipse Public License version 1.0, available at
  * http://opensource.org/licenses/eclipse-1.0.txt
  */
-package de.lynorocs.eclipse.jangaroo.tests.basic;
+package de.lynorics.eclipse.jangaroo.tests.basic;
 
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
@@ -293,29 +293,35 @@ public class AS3BasicTest extends XtextTest
     }
     
     @Test
-    public void varDeclarations()
+    public void variableDeclaration()
     {
-        testParserRule("var i: int;","VariableDeclaration");	
-        testParserRule("public var i: int;","VariableDeclaration");	
-        testParserRule("private static var i: int;","VariableDeclaration");	
-        testParserRule("const i: int;","VariableDeclaration");	
-        testParserRule("private const i: int;","VariableDeclaration");	
-        testParserRule("public static const i: int;","VariableDeclaration");	
-        testParserRule("var i: int = 0;","VariableDeclaration");	
-        testParserRule("var n: number;","VariableDeclaration");	
-        testParserRule("var n: number = 0;","VariableDeclaration");	
-        testParserRule("var a: String;","VariableDeclaration");	
-        testParserRule("var a: String = '';","VariableDeclaration");	
-        testParserRule("var a: String = a;","VariableDeclaration");	
-        testParserRule("var a: D = a();","VariableDeclaration");	
+        testParserRule("var i: int","VariableDeclaration");	
+        testParserRule("const i: int","VariableDeclaration");	
+        testParserRule("var i: int = 0","VariableDeclaration");	
+        testParserRule("var n: number","VariableDeclaration");	
+        testParserRule("var n: number = 0","VariableDeclaration");	
+        testParserRule("var a: String","VariableDeclaration");	
+        testParserRule("var a: String = ''","VariableDeclaration");	
+        testParserRule("var a: String = a","VariableDeclaration");	
+        testParserRule("var a: D = a()","VariableDeclaration");	
+    }
+    
+    @Test
+    public void memberVariableDeclaration()
+    {
+    	testParserRule("public var i: int;","MemberVariableDeclaration");	
+    	testParserRule("private static var i: int;","MemberVariableDeclaration");	
+    	testParserRule("private const i: int;","MemberVariableDeclaration");	
+    	testParserRule("public static const i: int;","MemberVariableDeclaration");	
+    	testParserRule("public static native var Line;","MemberVariableDeclaration");	
     }
     
     @Test
     public void varDeclarationsModifiers()
     {
-        testParserRule("public var i: int;","VariableDeclaration");	
-        testParserRule("private var i: int;","VariableDeclaration");	
-        testParserRule("public static var i: int;","VariableDeclaration");	
+        testParserRule("public var i: int;","MemberVariableDeclaration");	
+        testParserRule("private var i: int;","MemberVariableDeclaration");	
+        testParserRule("public static var i: int;","MemberVariableDeclaration");	
 
     }
     
