@@ -23,6 +23,7 @@ import de.lynorics.eclipse.jangaroo.ui.highlighting.AS3HighlightingCalculator;
 import de.lynorics.eclipse.jangaroo.ui.highlighting.AS3HighlightingConfiguration;
 import de.lynorics.eclipse.jangaroo.ui.outline.FilterImportsOperationsContribution;
 import de.lynorics.eclipse.jangaroo.ui.outline.FilterUsesOperationsContribution;
+import de.lynorics.eclipse.jangaroo.ui.preferences.AS3LanguageRootPreferencePage;
 
 /**
  * Use this class to register components to be used within the IDE.
@@ -59,4 +60,8 @@ public class AS3UiModule extends de.lynorics.eclipse.jangaroo.ui.AbstractAS3UiMo
 		return AS3HighlightingCalculator.class;
 	}
 	
+	public Class<? extends org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage> bindLanguageRootPreferencePage() {
+	    return AS3LanguageRootPreferencePage.class;
+	}
+
 }

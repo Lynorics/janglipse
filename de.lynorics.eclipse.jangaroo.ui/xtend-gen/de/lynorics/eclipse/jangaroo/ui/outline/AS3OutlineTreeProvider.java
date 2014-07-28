@@ -11,9 +11,9 @@ import de.lynorics.eclipse.jangaroo.aS3.Imports;
 import de.lynorics.eclipse.jangaroo.aS3.Interface;
 import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 import de.lynorics.eclipse.jangaroo.aS3.Member;
+import de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
 import de.lynorics.eclipse.jangaroo.aS3.Model;
-import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode;
@@ -72,10 +72,10 @@ public class AS3OutlineTreeProvider extends DefaultOutlineTreeProvider {
   public void _createChildren(final AbstractOutlineNode parentNode, final de.lynorics.eclipse.jangaroo.aS3.Class clazz) {
     EList<Member> _members = clazz.getMembers();
     for (final Member member : _members) {
-      VariableDeclaration _var = member.getVar();
+      MemberVariableDeclaration _var = member.getVar();
       boolean _notEquals = (!Objects.equal(_var, null));
       if (_notEquals) {
-        VariableDeclaration _var_1 = member.getVar();
+        MemberVariableDeclaration _var_1 = member.getVar();
         this.createNode(parentNode, _var_1);
       }
     }
@@ -105,7 +105,7 @@ public class AS3OutlineTreeProvider extends DefaultOutlineTreeProvider {
     return true;
   }
   
-  public boolean _isLeaf(final VariableDeclaration varDecl) {
+  public boolean _isLeaf(final MemberVariableDeclaration varDecl) {
     return true;
   }
   

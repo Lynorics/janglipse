@@ -19,6 +19,7 @@ import de.lynorics.eclipse.jangaroo.aS3.Member
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration
 import de.lynorics.eclipse.jangaroo.aS3.Interface
 import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod
+import de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration
 
 /**
  * Customization of the default outline structure.
@@ -79,7 +80,7 @@ class AS3OutlineTreeProvider extends DefaultOutlineTreeProvider {
     return true;
   }
 
-  def _isLeaf(VariableDeclaration varDecl) {
+  def _isLeaf(MemberVariableDeclaration varDecl) {
     return true;
   }
   

@@ -29,6 +29,7 @@ import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 import static de.lynorics.eclipse.jangaroo.aS3.AccessLevel.*
 import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.ecore.EObject
+import de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration
 
 /**
  * Provides labels for a EObjects.
@@ -192,8 +193,8 @@ class AS3LabelProvider extends DefaultEObjectLabelProvider {
        ));  
     }
     
-    def image(VariableDeclaration varDecl) {
-      switch(varDecl.access) {
+    def image(MemberVariableDeclaration varDecl) {
+      switch(varDecl.modifier.access) {
         case PUBLIC: {
           return "outline-field-public.gif";
         }

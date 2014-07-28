@@ -13,6 +13,7 @@ import de.lynorics.eclipse.jangaroo.aS3.Import;
 import de.lynorics.eclipse.jangaroo.aS3.Imports;
 import de.lynorics.eclipse.jangaroo.aS3.Interface;
 import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
+import de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
 import de.lynorics.eclipse.jangaroo.aS3.Modifier;
 import de.lynorics.eclipse.jangaroo.aS3.Parameter;
@@ -230,8 +231,9 @@ public class AS3LabelProvider extends DefaultEObjectLabelProvider {
     return _styledString.append(_styledString_1);
   }
   
-  public String image(final VariableDeclaration varDecl) {
-    AccessLevel _access = varDecl.getAccess();
+  public String image(final MemberVariableDeclaration varDecl) {
+    Modifier _modifier = varDecl.getModifier();
+    AccessLevel _access = _modifier.getAccess();
     switch (_access) {
       case PUBLIC:
         return "outline-field-public.gif";
