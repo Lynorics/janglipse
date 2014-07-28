@@ -78,6 +78,16 @@ InterfaceMethod:
   ';'?)
 ;
 
+// TODO eliminate redundant/duplicate definitions of function
+functionExpression
+  : 'function' name=ID? func=functionCommon
+  ;
+
+// TODO: block should be optional here,
+functionCommon
+  : sig=functionSignature block=Block
+  ;
+
 Class:
    annotations+=Annotation*
    modifier=Modifier? (=>'class' name=ID
@@ -129,27 +139,6 @@ MemberVariableDeclaration:
 VariableDeclaration:
   ('var'|'const') name=ID (':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))? ('=' Expression=assignmentExpression)?
 ;
-/*
-variableDeclarator
-  : identi type=typeExpression? var=variableInitializer?
-  ;
-Declaration
-  : varOrConst variableDeclarator
-    tail=declarationTail
-  ;
-
-varOrConst
-  : 'var' | 'const'
-  ;
-  
-declarationTail
-  : {declarationTail} (',' var+=variableDeclarator)*
-  ;
-
-variableInitializer
-  : '=' expr=assignmentExpression
-  ;
-*/
 Parameter :
     'const'? '...'? name=ID (':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))? ('=' lit=exprOrObjectLiteral)?;
 
@@ -722,15 +711,6 @@ DoWhileStatement
 
 WithStatement
   : 'with' cond=Condition statement=Statement
-  ;
-
-// TODO: block should be optional here,
-functionCommon
-  : sig=functionSignature block=Block
-  ;
-
-functionExpression
-  : 'function' name=ID? func=functionCommon
   ;
 
 terminal HEX_LITERAL returns ecore::EBigDecimal :

@@ -33,7 +33,7 @@ class AS3Validator extends AbstractAS3Validator {
 
   public static val CLASS_SHOULD_START_WITH_CAPITAL_LETTER = 'classStartsWithCapitalLetter';
   public static val INTERFACE_SHOULD_START_WITH_CAPITAL_LETTER = 'interfaceStartsWithCapitalLetter';
-  public static val FIELD_SHOULD_START_WITH_LOWERCASE = 'fieldStartsWithLowercase';
+  public static val VARIABLE_SHOULD_START_WITH_LOWERCASE = 'variableStartsWithLowercase';
   public static val CYCLE_IN_CLASS_HIERARCHY = "cycleInClassHierarchy";
   public static val PACKAGE_SHOULD_START_WITH_LOWERCASE = 'fieldStartsWithLowercase';
   public static val METHOD_SHOULD_START_WITH_LOWERCASE = 'methodStartsWithLowercase';
@@ -111,14 +111,17 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
 
-//  @Check
-//  def checkFieldStartsWithLowercase(VariableDeclaration variable) {
-//    if (!Character.isUpperCase(variable.name.charAt(0))) {
-//      warning('Field name should start with a lowercase', 
-//          AS3Package.Literals.VARIABLEDECLARATION__NAME,
-//          FIELD_SHOULD_START_WITH_LOWERCASE)
-//    }
-//  }
+  @Check
+  def checkVariableStartsWithLowercase(VariableDeclaration variable) {
+  	if (!checkForSourcePath(variable)) {
+  		return
+  	}
+    if (!Character.isUpperCase(variable.name.charAt(0))) {
+      warning('Variable name should start with a lowercase', 
+          AS3Package.Literals.VARIABLE_DECLARATION__NAME,
+          VARIABLE_SHOULD_START_WITH_LOWERCASE)
+    }
+  }
 
   @Check(value=CheckType.NORMAL)
   def checkNoCycleInClassHierarchie(Class clas) {
@@ -163,7 +166,6 @@ class AS3Validator extends AbstractAS3Validator {
   		return
   	}
   	if (variableDeclaration.name != null) {
-  		// TODO ordentlich ausimplementieren
     		if (variableDeclaration.containingClass != null) {
     			if (variableDeclaration.containingClass.name.equals(variableDeclaration.name)) {
         			warning("Name clash: variable hides class "+variableDeclaration.name,

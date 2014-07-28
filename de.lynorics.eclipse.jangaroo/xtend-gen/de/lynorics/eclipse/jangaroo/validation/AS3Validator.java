@@ -43,7 +43,7 @@ public class AS3Validator extends AbstractAS3Validator {
   
   public final static String INTERFACE_SHOULD_START_WITH_CAPITAL_LETTER = "interfaceStartsWithCapitalLetter";
   
-  public final static String FIELD_SHOULD_START_WITH_LOWERCASE = "fieldStartsWithLowercase";
+  public final static String VARIABLE_SHOULD_START_WITH_LOWERCASE = "variableStartsWithLowercase";
   
   public final static String CYCLE_IN_CLASS_HIERARCHY = "cycleInClassHierarchy";
   
@@ -163,6 +163,24 @@ public class AS3Validator extends AbstractAS3Validator {
           AS3Validator.PACKAGE_SHOULD_START_WITH_LOWERCASE);
         return;
       }
+    }
+  }
+  
+  @Check
+  public void checkVariableStartsWithLowercase(final VariableDeclaration variable) {
+    boolean _checkForSourcePath = this.checkForSourcePath(variable);
+    boolean _not = (!_checkForSourcePath);
+    if (_not) {
+      return;
+    }
+    String _name = variable.getName();
+    char _charAt = _name.charAt(0);
+    boolean _isUpperCase = Character.isUpperCase(_charAt);
+    boolean _not_1 = (!_isUpperCase);
+    if (_not_1) {
+      this.warning("Variable name should start with a lowercase", 
+        AS3Package.Literals.VARIABLE_DECLARATION__NAME, 
+        AS3Validator.VARIABLE_SHOULD_START_WITH_LOWERCASE);
     }
   }
   
