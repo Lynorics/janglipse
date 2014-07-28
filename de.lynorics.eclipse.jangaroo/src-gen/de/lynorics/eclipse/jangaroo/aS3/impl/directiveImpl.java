@@ -3,7 +3,6 @@
 package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
-import de.lynorics.eclipse.jangaroo.aS3.Annotation;
 import de.lynorics.eclipse.jangaroo.aS3.Uses;
 import de.lynorics.eclipse.jangaroo.aS3.directive;
 
@@ -23,7 +22,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.directiveImpl#getAnnotation <em>Annotation</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.directiveImpl#getUses <em>Uses</em>}</li>
  * </ul>
  * </p>
@@ -32,16 +30,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class directiveImpl extends MinimalEObjectImpl.Container implements directive
 {
-  /**
-   * The cached value of the '{@link #getAnnotation() <em>Annotation</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAnnotation()
-   * @generated
-   * @ordered
-   */
-  protected Annotation annotation;
-
   /**
    * The cached value of the '{@link #getUses() <em>Uses</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -71,54 +59,6 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
   protected EClass eStaticClass()
   {
     return AS3Package.Literals.DIRECTIVE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Annotation getAnnotation()
-  {
-    return annotation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAnnotation(Annotation newAnnotation, NotificationChain msgs)
-  {
-    Annotation oldAnnotation = annotation;
-    annotation = newAnnotation;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.DIRECTIVE__ANNOTATION, oldAnnotation, newAnnotation);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAnnotation(Annotation newAnnotation)
-  {
-    if (newAnnotation != annotation)
-    {
-      NotificationChain msgs = null;
-      if (annotation != null)
-        msgs = ((InternalEObject)annotation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.DIRECTIVE__ANNOTATION, null, msgs);
-      if (newAnnotation != null)
-        msgs = ((InternalEObject)newAnnotation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.DIRECTIVE__ANNOTATION, null, msgs);
-      msgs = basicSetAnnotation(newAnnotation, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.DIRECTIVE__ANNOTATION, newAnnotation, newAnnotation));
   }
 
   /**
@@ -179,8 +119,6 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
   {
     switch (featureID)
     {
-      case AS3Package.DIRECTIVE__ANNOTATION:
-        return basicSetAnnotation(null, msgs);
       case AS3Package.DIRECTIVE__USES:
         return basicSetUses(null, msgs);
     }
@@ -197,8 +135,6 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
   {
     switch (featureID)
     {
-      case AS3Package.DIRECTIVE__ANNOTATION:
-        return getAnnotation();
       case AS3Package.DIRECTIVE__USES:
         return getUses();
     }
@@ -215,9 +151,6 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
   {
     switch (featureID)
     {
-      case AS3Package.DIRECTIVE__ANNOTATION:
-        setAnnotation((Annotation)newValue);
-        return;
       case AS3Package.DIRECTIVE__USES:
         setUses((Uses)newValue);
         return;
@@ -235,9 +168,6 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
   {
     switch (featureID)
     {
-      case AS3Package.DIRECTIVE__ANNOTATION:
-        setAnnotation((Annotation)null);
-        return;
       case AS3Package.DIRECTIVE__USES:
         setUses((Uses)null);
         return;
@@ -255,8 +185,6 @@ public class directiveImpl extends MinimalEObjectImpl.Container implements direc
   {
     switch (featureID)
     {
-      case AS3Package.DIRECTIVE__ANNOTATION:
-        return annotation != null;
       case AS3Package.DIRECTIVE__USES:
         return uses != null;
     }

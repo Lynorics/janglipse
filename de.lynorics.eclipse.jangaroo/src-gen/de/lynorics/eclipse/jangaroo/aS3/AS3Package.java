@@ -243,22 +243,13 @@ public interface AS3Package extends EPackage
   int DIRECTIVE = 4;
 
   /**
-   * The feature id for the '<em><b>Annotation</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIRECTIVE__ANNOTATION = 0;
-
-  /**
    * The feature id for the '<em><b>Uses</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DIRECTIVE__USES = 1;
+  int DIRECTIVE__USES = 0;
 
   /**
    * The number of structural features of the '<em>directive</em>' class.
@@ -267,7 +258,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int DIRECTIVE_FEATURE_COUNT = 2;
+  int DIRECTIVE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.AnnotationImpl <em>Annotation</em>}' class.
@@ -345,22 +336,13 @@ public interface AS3Package extends EPackage
   int ANNOTATION_FIELDS = 7;
 
   /**
-   * The feature id for the '<em><b>Anoon Fields</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANNOTATION_FIELDS__ANOON_FIELDS = 0;
-
-  /**
    * The feature id for the '<em><b>Annon Fields</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ANNOTATION_FIELDS__ANNON_FIELDS = 1;
+  int ANNOTATION_FIELDS__ANNON_FIELDS = 0;
 
   /**
    * The number of structural features of the '<em>annotation Fields</em>' class.
@@ -369,7 +351,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int ANNOTATION_FIELDS_FEATURE_COUNT = 2;
+  int ANNOTATION_FIELDS_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.annotationFieldImpl <em>annotation Field</em>}' class.
@@ -419,13 +401,22 @@ public interface AS3Package extends EPackage
   int INTERFACE = 9;
 
   /**
+   * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE__ANNOTATIONS = 0;
+
+  /**
    * The feature id for the '<em><b>Access</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INTERFACE__ACCESS = 0;
+  int INTERFACE__ACCESS = 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -434,7 +425,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int INTERFACE__NAME = 1;
+  int INTERFACE__NAME = 2;
 
   /**
    * The feature id for the '<em><b>Superclass</b></em>' reference.
@@ -443,7 +434,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int INTERFACE__SUPERCLASS = 2;
+  int INTERFACE__SUPERCLASS = 3;
 
   /**
    * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -452,7 +443,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int INTERFACE__MEMBERS = 3;
+  int INTERFACE__MEMBERS = 4;
 
   /**
    * The number of structural features of the '<em>Interface</em>' class.
@@ -461,7 +452,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int INTERFACE_FEATURE_COUNT = 4;
+  int INTERFACE_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceMethodImpl <em>Interface Method</em>}' class.
@@ -474,13 +465,13 @@ public interface AS3Package extends EPackage
   int INTERFACE_METHOD = 10;
 
   /**
-   * The feature id for the '<em><b>Annon</b></em>' containment reference.
+   * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INTERFACE_METHOD__ANNON = 0;
+  int INTERFACE_METHOD__ANNOTATIONS = 0;
 
   /**
    * The feature id for the '<em><b>Modifier</b></em>' containment reference.
@@ -547,13 +538,13 @@ public interface AS3Package extends EPackage
   int CLASS = 11;
 
   /**
-   * The feature id for the '<em><b>Annon</b></em>' containment reference.
+   * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLASS__ANNON = 0;
+  int CLASS__ANNOTATIONS = 0;
 
   /**
    * The feature id for the '<em><b>Modifier</b></em>' containment reference.
@@ -657,13 +648,13 @@ public interface AS3Package extends EPackage
   int METHOD = 13;
 
   /**
-   * The feature id for the '<em><b>Annon</b></em>' containment reference.
+   * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int METHOD__ANNON = 0;
+  int METHOD__ANNOTATIONS = 0;
 
   /**
    * The feature id for the '<em><b>Modifier</b></em>' containment reference.
@@ -821,6 +812,71 @@ public interface AS3Package extends EPackage
   int METHOD_BODY_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.MemberVariableDeclarationImpl <em>Member Variable Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.MemberVariableDeclarationImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getMemberVariableDeclaration()
+   * @generated
+   */
+  int MEMBER_VARIABLE_DECLARATION = 16;
+
+  /**
+   * The feature id for the '<em><b>Modifier</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEMBER_VARIABLE_DECLARATION__MODIFIER = 0;
+
+  /**
+   * The feature id for the '<em><b>Decl</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEMBER_VARIABLE_DECLARATION__DECL = 1;
+
+  /**
+   * The number of structural features of the '<em>Member Variable Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEMBER_VARIABLE_DECLARATION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.StatementImpl <em>Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.StatementImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getStatement()
+   * @generated
+   */
+  int STATEMENT = 74;
+
+  /**
+   * The feature id for the '<em><b>Assert</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__ASSERT = 0;
+
+  /**
+   * The number of structural features of the '<em>Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl <em>Variable Declaration</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -828,16 +884,16 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getVariableDeclaration()
    * @generated
    */
-  int VARIABLE_DECLARATION = 16;
+  int VARIABLE_DECLARATION = 17;
 
   /**
-   * The feature id for the '<em><b>Access</b></em>' attribute.
+   * The feature id for the '<em><b>Assert</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE_DECLARATION__ACCESS = 0;
+  int VARIABLE_DECLARATION__ASSERT = STATEMENT__ASSERT;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -846,7 +902,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_DECLARATION__NAME = 1;
+  int VARIABLE_DECLARATION__NAME = STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -855,7 +911,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_DECLARATION__TYPE = 2;
+  int VARIABLE_DECLARATION__TYPE = STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -864,7 +920,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_DECLARATION__EXPRESSION = 3;
+  int VARIABLE_DECLARATION__EXPRESSION = STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Variable Declaration</em>' class.
@@ -873,7 +929,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_DECLARATION_FEATURE_COUNT = 4;
+  int VARIABLE_DECLARATION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -883,7 +939,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getParameter()
    * @generated
    */
-  int PARAMETER = 17;
+  int PARAMETER = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -929,7 +985,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getexprOrObjectLiteral()
    * @generated
    */
-  int EXPR_OR_OBJECT_LITERAL = 23;
+  int EXPR_OR_OBJECT_LITERAL = 24;
 
   /**
    * The number of structural features of the '<em>expr Or Object Literal</em>' class.
@@ -948,7 +1004,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getobjectLiteral()
    * @generated
    */
-  int OBJECT_LITERAL = 18;
+  int OBJECT_LITERAL = 19;
 
   /**
    * The feature id for the '<em><b>Fields</b></em>' containment reference list.
@@ -976,7 +1032,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getfieldList()
    * @generated
    */
-  int FIELD_LIST = 19;
+  int FIELD_LIST = 20;
 
   /**
    * The feature id for the '<em><b>Lf</b></em>' containment reference.
@@ -1013,7 +1069,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getliteralField()
    * @generated
    */
-  int LITERAL_FIELD = 20;
+  int LITERAL_FIELD = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' containment reference.
@@ -1050,7 +1106,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getfieldName()
    * @generated
    */
-  int FIELD_NAME = 21;
+  int FIELD_NAME = 22;
 
   /**
    * The feature id for the '<em><b>Number</b></em>' attribute.
@@ -1078,7 +1134,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getelement()
    * @generated
    */
-  int ELEMENT = 22;
+  int ELEMENT = 23;
 
   /**
    * The number of structural features of the '<em>element</em>' class.
@@ -1097,7 +1153,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getqualifiedIdent()
    * @generated
    */
-  int QUALIFIED_IDENT = 24;
+  int QUALIFIED_IDENT = 25;
 
   /**
    * The feature id for the '<em><b>Ide</b></em>' containment reference.
@@ -1125,7 +1181,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getidenti()
    * @generated
    */
-  int IDENTI = 25;
+  int IDENTI = 26;
 
   /**
    * The feature id for the '<em><b>Number</b></em>' attribute.
@@ -1146,31 +1202,13 @@ public interface AS3Package extends EPackage
   int IDENTI__LEVEL = FIELD_NAME_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Assert</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDENTI__ASSERT = FIELD_NAME_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Tail</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDENTI__TAIL = FIELD_NAME_FEATURE_COUNT + 2;
-
-  /**
    * The feature id for the '<em><b>I</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IDENTI__I = FIELD_NAME_FEATURE_COUNT + 3;
+  int IDENTI__I = FIELD_NAME_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -1179,16 +1217,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int IDENTI__TYPE = FIELD_NAME_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Var</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDENTI__VAR = FIELD_NAME_FEATURE_COUNT + 5;
+  int IDENTI__TYPE = FIELD_NAME_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
@@ -1197,7 +1226,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int IDENTI__BLOCK = FIELD_NAME_FEATURE_COUNT + 6;
+  int IDENTI__BLOCK = FIELD_NAME_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>identi</em>' class.
@@ -1206,7 +1235,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int IDENTI_FEATURE_COUNT = FIELD_NAME_FEATURE_COUNT + 7;
+  int IDENTI_FEATURE_COUNT = FIELD_NAME_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.identifierImpl <em>identifier</em>}' class.
@@ -1216,7 +1245,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getidentifier()
    * @generated
    */
-  int IDENTIFIER = 26;
+  int IDENTIFIER = 27;
 
   /**
    * The feature id for the '<em><b>Qual</b></em>' containment reference.
@@ -1253,7 +1282,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getqualifier()
    * @generated
    */
-  int QUALIFIER = 28;
+  int QUALIFIER = 29;
 
   /**
    * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -1281,7 +1310,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getpropertyIdentifier()
    * @generated
    */
-  int PROPERTY_IDENTIFIER = 27;
+  int PROPERTY_IDENTIFIER = 28;
 
   /**
    * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -1309,7 +1338,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getqualifiedIdentifier()
    * @generated
    */
-  int QUALIFIED_IDENTIFIER = 32;
+  int QUALIFIED_IDENTIFIER = 33;
 
   /**
    * The number of structural features of the '<em>qualified Identifier</em>' class.
@@ -1328,7 +1357,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getnonAttributeQualifiedIdentifier()
    * @generated
    */
-  int NON_ATTRIBUTE_QUALIFIED_IDENTIFIER = 31;
+  int NON_ATTRIBUTE_QUALIFIED_IDENTIFIER = 32;
 
   /**
    * The number of structural features of the '<em>non Attribute Qualified Identifier</em>' class.
@@ -1347,7 +1376,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getsimpleQualifiedIdentifier()
    * @generated
    */
-  int SIMPLE_QUALIFIED_IDENTIFIER = 29;
+  int SIMPLE_QUALIFIED_IDENTIFIER = 30;
 
   /**
    * The feature id for the '<em><b>Pro Id</b></em>' containment reference.
@@ -1402,7 +1431,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getexpressionQualifiedIdentifier()
    * @generated
    */
-  int EXPRESSION_QUALIFIED_IDENTIFIER = 30;
+  int EXPRESSION_QUALIFIED_IDENTIFIER = 31;
 
   /**
    * The number of structural features of the '<em>expression Qualified Identifier</em>' class.
@@ -1421,7 +1450,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getnamespaceName()
    * @generated
    */
-  int NAMESPACE_NAME = 33;
+  int NAMESPACE_NAME = 34;
 
   /**
    * The feature id for the '<em><b>Ide</b></em>' containment reference.
@@ -1458,7 +1487,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getarrayLiteral()
    * @generated
    */
-  int ARRAY_LITERAL = 34;
+  int ARRAY_LITERAL = 35;
 
   /**
    * The feature id for the '<em><b>List</b></em>' containment reference.
@@ -1486,7 +1515,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getelementList()
    * @generated
    */
-  int ELEMENT_LIST = 35;
+  int ELEMENT_LIST = 36;
 
   /**
    * The number of structural features of the '<em>element List</em>' class.
@@ -1505,7 +1534,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getnonemptyElementList()
    * @generated
    */
-  int NONEMPTY_ELEMENT_LIST = 36;
+  int NONEMPTY_ELEMENT_LIST = 37;
 
   /**
    * The number of structural features of the '<em>nonempty Element List</em>' class.
@@ -1524,7 +1553,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 37;
+  int EXPRESSION = 38;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -1570,7 +1599,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getbrackets()
    * @generated
    */
-  int BRACKETS = 62;
+  int BRACKETS = 63;
 
   /**
    * The number of structural features of the '<em>brackets</em>' class.
@@ -1589,7 +1618,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getexpressionList()
    * @generated
    */
-  int EXPRESSION_LIST = 38;
+  int EXPRESSION_LIST = 39;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -1626,7 +1655,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getassignmentExpression()
    * @generated
    */
-  int ASSIGNMENT_EXPRESSION = 39;
+  int ASSIGNMENT_EXPRESSION = 40;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -1699,7 +1728,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getconditionalExpression()
    * @generated
    */
-  int CONDITIONAL_EXPRESSION = 40;
+  int CONDITIONAL_EXPRESSION = 41;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -1790,7 +1819,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getconditionalSubExpression()
    * @generated
    */
-  int CONDITIONAL_SUB_EXPRESSION = 41;
+  int CONDITIONAL_SUB_EXPRESSION = 42;
 
   /**
    * The feature id for the '<em><b>Expr1</b></em>' containment reference.
@@ -1827,7 +1856,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getlogicalOrExpression()
    * @generated
    */
-  int LOGICAL_OR_EXPRESSION = 42;
+  int LOGICAL_OR_EXPRESSION = 43;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -1936,7 +1965,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getlogicalAndExpression()
    * @generated
    */
-  int LOGICAL_AND_EXPRESSION = 43;
+  int LOGICAL_AND_EXPRESSION = 44;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference list.
@@ -1973,7 +2002,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getbitwiseOrExpression()
    * @generated
    */
-  int BITWISE_OR_EXPRESSION = 44;
+  int BITWISE_OR_EXPRESSION = 45;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference list.
@@ -2010,7 +2039,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getbitwiseXorExpression()
    * @generated
    */
-  int BITWISE_XOR_EXPRESSION = 45;
+  int BITWISE_XOR_EXPRESSION = 46;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference list.
@@ -2047,7 +2076,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getbitwiseAndExpression()
    * @generated
    */
-  int BITWISE_AND_EXPRESSION = 46;
+  int BITWISE_AND_EXPRESSION = 47;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference list.
@@ -2084,7 +2113,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getequalityExpression()
    * @generated
    */
-  int EQUALITY_EXPRESSION = 47;
+  int EQUALITY_EXPRESSION = 48;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference list.
@@ -2121,7 +2150,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getrelationalExpression()
    * @generated
    */
-  int RELATIONAL_EXPRESSION = 48;
+  int RELATIONAL_EXPRESSION = 49;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference list.
@@ -2158,7 +2187,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getshiftExpression()
    * @generated
    */
-  int SHIFT_EXPRESSION = 49;
+  int SHIFT_EXPRESSION = 50;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference list.
@@ -2195,7 +2224,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getadditiveExpression()
    * @generated
    */
-  int ADDITIVE_EXPRESSION = 50;
+  int ADDITIVE_EXPRESSION = 51;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference list.
@@ -2232,7 +2261,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getmultiplicativeExpression()
    * @generated
    */
-  int MULTIPLICATIVE_EXPRESSION = 51;
+  int MULTIPLICATIVE_EXPRESSION = 52;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference list.
@@ -2269,7 +2298,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getunaryExpressionNotPlusMinus()
    * @generated
    */
-  int UNARY_EXPRESSION_NOT_PLUS_MINUS = 53;
+  int UNARY_EXPRESSION_NOT_PLUS_MINUS = 54;
 
   /**
    * The feature id for the '<em><b>In</b></em>' attribute.
@@ -2306,7 +2335,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getunaryExpression()
    * @generated
    */
-  int UNARY_EXPRESSION = 52;
+  int UNARY_EXPRESSION = 53;
 
   /**
    * The feature id for the '<em><b>In</b></em>' attribute.
@@ -2379,7 +2408,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getpostfixExpression()
    * @generated
    */
-  int POSTFIX_EXPRESSION = 54;
+  int POSTFIX_EXPRESSION = 55;
 
   /**
    * The feature id for the '<em><b>In</b></em>' attribute.
@@ -2470,7 +2499,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getarguments()
    * @generated
    */
-  int ARGUMENTS = 55;
+  int ARGUMENTS = 56;
 
   /**
    * The feature id for the '<em><b>Expr List</b></em>' containment reference.
@@ -2498,7 +2527,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#gete4xAttributeIdentifier()
    * @generated
    */
-  int E4X_ATTRIBUTE_IDENTIFIER = 56;
+  int E4X_ATTRIBUTE_IDENTIFIER = 57;
 
   /**
    * The feature id for the '<em><b>Qual</b></em>' containment reference.
@@ -2535,7 +2564,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getprimaryExpression()
    * @generated
    */
-  int PRIMARY_EXPRESSION = 57;
+  int PRIMARY_EXPRESSION = 58;
 
   /**
    * The feature id for the '<em><b>Super Expr</b></em>' containment reference.
@@ -2626,7 +2655,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getpropOrIdent()
    * @generated
    */
-  int PROP_OR_IDENT = 58;
+  int PROP_OR_IDENT = 59;
 
   /**
    * The feature id for the '<em><b>Prop Id</b></em>' containment reference.
@@ -2654,7 +2683,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getregexpLiteral()
    * @generated
    */
-  int REGEXP_LITERAL = 59;
+  int REGEXP_LITERAL = 60;
 
   /**
    * The feature id for the '<em><b>S</b></em>' attribute.
@@ -2682,7 +2711,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getnewExpression()
    * @generated
    */
-  int NEW_EXPRESSION = 60;
+  int NEW_EXPRESSION = 61;
 
   /**
    * The number of structural features of the '<em>new Expression</em>' class.
@@ -2701,7 +2730,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getfullNewSubexpression()
    * @generated
    */
-  int FULL_NEW_SUBEXPRESSION = 61;
+  int FULL_NEW_SUBEXPRESSION = 62;
 
   /**
    * The feature id for the '<em><b>Args</b></em>' containment reference list.
@@ -2765,7 +2794,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getencapsulatedExpression()
    * @generated
    */
-  int ENCAPSULATED_EXPRESSION = 63;
+  int ENCAPSULATED_EXPRESSION = 64;
 
   /**
    * The feature id for the '<em><b>Pden</b></em>' containment reference.
@@ -2802,7 +2831,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getfunctionSignature()
    * @generated
    */
-  int FUNCTION_SIGNATURE = 64;
+  int FUNCTION_SIGNATURE = 65;
 
   /**
    * The feature id for the '<em><b>Param</b></em>' containment reference.
@@ -2839,7 +2868,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#gettypeExpression()
    * @generated
    */
-  int TYPE_EXPRESSION = 65;
+  int TYPE_EXPRESSION = 66;
 
   /**
    * The feature id for the '<em><b>Identi</b></em>' reference.
@@ -2867,7 +2896,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getparameterDeclarationList()
    * @generated
    */
-  int PARAMETER_DECLARATION_LIST = 66;
+  int PARAMETER_DECLARATION_LIST = 67;
 
   /**
    * The feature id for the '<em><b>Params</b></em>' containment reference list.
@@ -2895,7 +2924,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getparameterDeclaration()
    * @generated
    */
-  int PARAMETER_DECLARATION = 67;
+  int PARAMETER_DECLARATION = 68;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' containment reference.
@@ -2923,7 +2952,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getbasicParameterDeclaration()
    * @generated
    */
-  int BASIC_PARAMETER_DECLARATION = 68;
+  int BASIC_PARAMETER_DECLARATION = 69;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' containment reference.
@@ -2969,7 +2998,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getparameterDefault()
    * @generated
    */
-  int PARAMETER_DEFAULT = 69;
+  int PARAMETER_DEFAULT = 70;
 
   /**
    * The number of structural features of the '<em>parameter Default</em>' class.
@@ -2988,7 +3017,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getparameterRestDeclaration()
    * @generated
    */
-  int PARAMETER_REST_DECLARATION = 70;
+  int PARAMETER_REST_DECLARATION = 71;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' containment reference.
@@ -3009,34 +3038,6 @@ public interface AS3Package extends EPackage
   int PARAMETER_REST_DECLARATION_FEATURE_COUNT = PARAMETER_DECLARATION_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.StatementImpl <em>Statement</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.StatementImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getStatement()
-   * @generated
-   */
-  int STATEMENT = 73;
-
-  /**
-   * The feature id for the '<em><b>Assert</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT__ASSERT = 0;
-
-  /**
-   * The number of structural features of the '<em>Statement</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.BlockImpl <em>Block</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3044,7 +3045,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getBlock()
    * @generated
    */
-  int BLOCK = 71;
+  int BLOCK = 72;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -3081,7 +3082,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getSwitchStatement()
    * @generated
    */
-  int SWITCH_STATEMENT = 87;
+  int SWITCH_STATEMENT = 83;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -3109,7 +3110,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getCondition()
    * @generated
    */
-  int CONDITION = 72;
+  int CONDITION = 73;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -3146,7 +3147,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getDefaultXMLNamespaceStatement()
    * @generated
    */
-  int DEFAULT_XML_NAMESPACE_STATEMENT = 74;
+  int DEFAULT_XML_NAMESPACE_STATEMENT = 75;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -3167,155 +3168,6 @@ public interface AS3Package extends EPackage
   int DEFAULT_XML_NAMESPACE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.DeclarationStatementImpl <em>Declaration Statement</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.DeclarationStatementImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getDeclarationStatement()
-   * @generated
-   */
-  int DECLARATION_STATEMENT = 75;
-
-  /**
-   * The feature id for the '<em><b>Assert</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DECLARATION_STATEMENT__ASSERT = STATEMENT__ASSERT;
-
-  /**
-   * The number of structural features of the '<em>Declaration Statement</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DECLARATION_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.DeclarationImpl <em>Declaration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.DeclarationImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getDeclaration()
-   * @generated
-   */
-  int DECLARATION = 77;
-
-  /**
-   * The feature id for the '<em><b>Assert</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DECLARATION__ASSERT = DECLARATION_STATEMENT__ASSERT;
-
-  /**
-   * The number of structural features of the '<em>Declaration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DECLARATION_FEATURE_COUNT = DECLARATION_STATEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.variableDeclaratorImpl <em>variable Declarator</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.variableDeclaratorImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getvariableDeclarator()
-   * @generated
-   */
-  int VARIABLE_DECLARATOR = 76;
-
-  /**
-   * The feature id for the '<em><b>Assert</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_DECLARATOR__ASSERT = DECLARATION__ASSERT;
-
-  /**
-   * The feature id for the '<em><b>Tail</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_DECLARATOR__TAIL = DECLARATION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>variable Declarator</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_DECLARATOR_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.declarationTailImpl <em>declaration Tail</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.declarationTailImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getdeclarationTail()
-   * @generated
-   */
-  int DECLARATION_TAIL = 78;
-
-  /**
-   * The feature id for the '<em><b>Var</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DECLARATION_TAIL__VAR = 0;
-
-  /**
-   * The number of structural features of the '<em>declaration Tail</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DECLARATION_TAIL_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.variableInitializerImpl <em>variable Initializer</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.variableInitializerImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getvariableInitializer()
-   * @generated
-   */
-  int VARIABLE_INITIALIZER = 79;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_INITIALIZER__EXPR = 0;
-
-  /**
-   * The number of structural features of the '<em>variable Initializer</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_INITIALIZER_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ExpressionStatementImpl <em>Expression Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3323,7 +3175,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getExpressionStatement()
    * @generated
    */
-  int EXPRESSION_STATEMENT = 80;
+  int EXPRESSION_STATEMENT = 76;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -3351,7 +3203,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getIfStatement()
    * @generated
    */
-  int IF_STATEMENT = 81;
+  int IF_STATEMENT = 77;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -3406,7 +3258,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getThrowStatement()
    * @generated
    */
-  int THROW_STATEMENT = 82;
+  int THROW_STATEMENT = 78;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -3434,7 +3286,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getTryStatement()
    * @generated
    */
-  int TRY_STATEMENT = 83;
+  int TRY_STATEMENT = 79;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -3489,7 +3341,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getcatchBlock()
    * @generated
    */
-  int CATCH_BLOCK = 84;
+  int CATCH_BLOCK = 80;
 
   /**
    * The number of structural features of the '<em>catch Block</em>' class.
@@ -3508,7 +3360,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getfinallyBlock()
    * @generated
    */
-  int FINALLY_BLOCK = 85;
+  int FINALLY_BLOCK = 81;
 
   /**
    * The number of structural features of the '<em>finally Block</em>' class.
@@ -3527,7 +3379,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getReturnStatement()
    * @generated
    */
-  int RETURN_STATEMENT = 86;
+  int RETURN_STATEMENT = 82;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -3564,7 +3416,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getswitchBlock()
    * @generated
    */
-  int SWITCH_BLOCK = 88;
+  int SWITCH_BLOCK = 84;
 
   /**
    * The feature id for the '<em><b>Case</b></em>' containment reference list.
@@ -3601,7 +3453,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getCaseStatement()
    * @generated
    */
-  int CASE_STATEMENT = 89;
+  int CASE_STATEMENT = 85;
 
   /**
    * The number of structural features of the '<em>Case Statement</em>' class.
@@ -3620,7 +3472,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getDefaultStatement()
    * @generated
    */
-  int DEFAULT_STATEMENT = 90;
+  int DEFAULT_STATEMENT = 86;
 
   /**
    * The feature id for the '<em><b>L</b></em>' containment reference.
@@ -3648,7 +3500,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getswitchStatementList()
    * @generated
    */
-  int SWITCH_STATEMENT_LIST = 91;
+  int SWITCH_STATEMENT_LIST = 87;
 
   /**
    * The feature id for the '<em><b>Statements</b></em>' containment reference list.
@@ -3676,7 +3528,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getForEachStatement()
    * @generated
    */
-  int FOR_EACH_STATEMENT = 92;
+  int FOR_EACH_STATEMENT = 88;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -3722,7 +3574,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getForStatement()
    * @generated
    */
-  int FOR_STATEMENT = 93;
+  int FOR_STATEMENT = 89;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -3777,7 +3629,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#gettraditionalForClause()
    * @generated
    */
-  int TRADITIONAL_FOR_CLAUSE = 94;
+  int TRADITIONAL_FOR_CLAUSE = 90;
 
   /**
    * The feature id for the '<em><b>A</b></em>' containment reference.
@@ -3823,7 +3675,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getforInClause()
    * @generated
    */
-  int FOR_IN_CLAUSE = 95;
+  int FOR_IN_CLAUSE = 91;
 
   /**
    * The feature id for the '<em><b>Ficdecl</b></em>' containment reference.
@@ -3860,7 +3712,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getforInClauseDecl()
    * @generated
    */
-  int FOR_IN_CLAUSE_DECL = 96;
+  int FOR_IN_CLAUSE_DECL = 92;
 
   /**
    * The number of structural features of the '<em>for In Clause Decl</em>' class.
@@ -3879,7 +3731,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getforInClauseTail()
    * @generated
    */
-  int FOR_IN_CLAUSE_TAIL = 97;
+  int FOR_IN_CLAUSE_TAIL = 93;
 
   /**
    * The number of structural features of the '<em>for In Clause Tail</em>' class.
@@ -3898,7 +3750,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getforInit()
    * @generated
    */
-  int FOR_INIT = 98;
+  int FOR_INIT = 94;
 
   /**
    * The feature id for the '<em><b>Decl</b></em>' containment reference.
@@ -3935,7 +3787,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getforCond()
    * @generated
    */
-  int FOR_COND = 99;
+  int FOR_COND = 95;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -3963,7 +3815,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getforIter()
    * @generated
    */
-  int FOR_ITER = 100;
+  int FOR_ITER = 96;
 
   /**
    * The feature id for the '<em><b>Fiexpr</b></em>' containment reference.
@@ -3991,7 +3843,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getWhileStatement()
    * @generated
    */
-  int WHILE_STATEMENT = 101;
+  int WHILE_STATEMENT = 97;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -4037,7 +3889,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getDoWhileStatement()
    * @generated
    */
-  int DO_WHILE_STATEMENT = 102;
+  int DO_WHILE_STATEMENT = 98;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -4083,7 +3935,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getWithStatement()
    * @generated
    */
-  int WITH_STATEMENT = 103;
+  int WITH_STATEMENT = 99;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -4129,7 +3981,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getfunctionCommon()
    * @generated
    */
-  int FUNCTION_COMMON = 104;
+  int FUNCTION_COMMON = 100;
 
   /**
    * The feature id for the '<em><b>Sig</b></em>' containment reference.
@@ -4166,7 +4018,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getfunctionExpression()
    * @generated
    */
-  int FUNCTION_EXPRESSION = 105;
+  int FUNCTION_EXPRESSION = 101;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4203,7 +4055,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getXmlConstant()
    * @generated
    */
-  int XML_CONSTANT = 106;
+  int XML_CONSTANT = 102;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -4258,7 +4110,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getRegexpConstant()
    * @generated
    */
-  int REGEXP_CONSTANT = 107;
+  int REGEXP_CONSTANT = 103;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -4313,7 +4165,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getNumberConstant()
    * @generated
    */
-  int NUMBER_CONSTANT = 108;
+  int NUMBER_CONSTANT = 104;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -4368,7 +4220,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getStringConstant()
    * @generated
    */
-  int STRING_CONSTANT = 109;
+  int STRING_CONSTANT = 105;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -4423,7 +4275,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getBoolConstant()
    * @generated
    */
-  int BOOL_CONSTANT = 110;
+  int BOOL_CONSTANT = 106;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -4478,7 +4330,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getThis()
    * @generated
    */
-  int THIS = 111;
+  int THIS = 107;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -4524,7 +4376,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getNull()
    * @generated
    */
-  int NULL = 112;
+  int NULL = 108;
 
   /**
    * The feature id for the '<em><b>Assert</b></em>' containment reference.
@@ -4570,7 +4422,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getAccessLevel()
    * @generated
    */
-  int ACCESS_LEVEL = 113;
+  int ACCESS_LEVEL = 109;
 
 
   /**
@@ -4745,17 +4597,6 @@ public interface AS3Package extends EPackage
   EClass getdirective();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.directive#getAnnotation <em>Annotation</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Annotation</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.directive#getAnnotation()
-   * @see #getdirective()
-   * @generated
-   */
-  EReference getdirective_Annotation();
-
-  /**
    * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.directive#getUses <em>Uses</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4830,17 +4671,6 @@ public interface AS3Package extends EPackage
   EClass getannotationFields();
 
   /**
-   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.annotationFields#getAnoonFields <em>Anoon Fields</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Anoon Fields</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.annotationFields#getAnoonFields()
-   * @see #getannotationFields()
-   * @generated
-   */
-  EReference getannotationFields_AnoonFields();
-
-  /**
    * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.annotationFields#getAnnonFields <em>Annon Fields</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4892,6 +4722,17 @@ public interface AS3Package extends EPackage
    * @generated
    */
   EClass getInterface();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.Interface#getAnnotations <em>Annotations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Annotations</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Interface#getAnnotations()
+   * @see #getInterface()
+   * @generated
+   */
+  EReference getInterface_Annotations();
 
   /**
    * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.Interface#getAccess <em>Access</em>}'.
@@ -4948,15 +4789,15 @@ public interface AS3Package extends EPackage
   EClass getInterfaceMethod();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod#getAnnon <em>Annon</em>}'.
+   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod#getAnnotations <em>Annotations</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Annon</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod#getAnnon()
+   * @return the meta object for the containment reference list '<em>Annotations</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod#getAnnotations()
    * @see #getInterfaceMethod()
    * @generated
    */
-  EReference getInterfaceMethod_Annon();
+  EReference getInterfaceMethod_Annotations();
 
   /**
    * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod#getModifier <em>Modifier</em>}'.
@@ -5024,15 +4865,15 @@ public interface AS3Package extends EPackage
   EClass getClass_();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.Class#getAnnon <em>Annon</em>}'.
+   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.Class#getAnnotations <em>Annotations</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Annon</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Class#getAnnon()
+   * @return the meta object for the containment reference list '<em>Annotations</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Class#getAnnotations()
    * @see #getClass_()
    * @generated
    */
-  EReference getClass_Annon();
+  EReference getClass_Annotations();
 
   /**
    * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.Class#getModifier <em>Modifier</em>}'.
@@ -5132,15 +4973,15 @@ public interface AS3Package extends EPackage
   EClass getMethod();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getAnnon <em>Annon</em>}'.
+   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getAnnotations <em>Annotations</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Annon</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Method#getAnnon()
+   * @return the meta object for the containment reference list '<em>Annotations</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Method#getAnnotations()
    * @see #getMethod()
    * @generated
    */
-  EReference getMethod_Annon();
+  EReference getMethod_Annotations();
 
   /**
    * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getModifier <em>Modifier</em>}'.
@@ -5295,6 +5136,38 @@ public interface AS3Package extends EPackage
   EReference getMethodBody_Statements();
 
   /**
+   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration <em>Member Variable Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Member Variable Declaration</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration
+   * @generated
+   */
+  EClass getMemberVariableDeclaration();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration#getModifier <em>Modifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Modifier</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration#getModifier()
+   * @see #getMemberVariableDeclaration()
+   * @generated
+   */
+  EReference getMemberVariableDeclaration_Modifier();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration#getDecl <em>Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Decl</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration#getDecl()
+   * @see #getMemberVariableDeclaration()
+   * @generated
+   */
+  EReference getMemberVariableDeclaration_Decl();
+
+  /**
    * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration <em>Variable Declaration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5303,17 +5176,6 @@ public interface AS3Package extends EPackage
    * @generated
    */
   EClass getVariableDeclaration();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration#getAccess <em>Access</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Access</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration#getAccess()
-   * @see #getVariableDeclaration()
-   * @generated
-   */
-  EAttribute getVariableDeclaration_Access();
 
   /**
    * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration#getName <em>Name</em>}'.
@@ -5569,17 +5431,6 @@ public interface AS3Package extends EPackage
    * @generated
    */
   EReference getidenti_Type();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.identi#getVar <em>Var</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Var</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.identi#getVar()
-   * @see #getidenti()
-   * @generated
-   */
-  EReference getidenti_Var();
 
   /**
    * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.identi#getBlock <em>Block</em>}'.
@@ -6941,89 +6792,6 @@ public interface AS3Package extends EPackage
   EClass getDefaultXMLNamespaceStatement();
 
   /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.DeclarationStatement <em>Declaration Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Declaration Statement</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.DeclarationStatement
-   * @generated
-   */
-  EClass getDeclarationStatement();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.variableDeclarator <em>variable Declarator</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>variable Declarator</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.variableDeclarator
-   * @generated
-   */
-  EClass getvariableDeclarator();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.variableDeclarator#getTail <em>Tail</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Tail</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.variableDeclarator#getTail()
-   * @see #getvariableDeclarator()
-   * @generated
-   */
-  EReference getvariableDeclarator_Tail();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.Declaration <em>Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Declaration</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Declaration
-   * @generated
-   */
-  EClass getDeclaration();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.declarationTail <em>declaration Tail</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>declaration Tail</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.declarationTail
-   * @generated
-   */
-  EClass getdeclarationTail();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.declarationTail#getVar <em>Var</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Var</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.declarationTail#getVar()
-   * @see #getdeclarationTail()
-   * @generated
-   */
-  EReference getdeclarationTail_Var();
-
-  /**
-   * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.variableInitializer <em>variable Initializer</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>variable Initializer</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.variableInitializer
-   * @generated
-   */
-  EClass getvariableInitializer();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.variableInitializer#getExpr <em>Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expr</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.variableInitializer#getExpr()
-   * @see #getvariableInitializer()
-   * @generated
-   */
-  EReference getvariableInitializer_Expr();
-
-  /**
    * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.ExpressionStatement <em>Expression Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7965,14 +7733,6 @@ public interface AS3Package extends EPackage
     EClass DIRECTIVE = eINSTANCE.getdirective();
 
     /**
-     * The meta object literal for the '<em><b>Annotation</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DIRECTIVE__ANNOTATION = eINSTANCE.getdirective_Annotation();
-
-    /**
      * The meta object literal for the '<em><b>Uses</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8035,14 +7795,6 @@ public interface AS3Package extends EPackage
     EClass ANNOTATION_FIELDS = eINSTANCE.getannotationFields();
 
     /**
-     * The meta object literal for the '<em><b>Anoon Fields</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ANNOTATION_FIELDS__ANOON_FIELDS = eINSTANCE.getannotationFields_AnoonFields();
-
-    /**
      * The meta object literal for the '<em><b>Annon Fields</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8087,6 +7839,14 @@ public interface AS3Package extends EPackage
     EClass INTERFACE = eINSTANCE.getInterface();
 
     /**
+     * The meta object literal for the '<em><b>Annotations</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INTERFACE__ANNOTATIONS = eINSTANCE.getInterface_Annotations();
+
+    /**
      * The meta object literal for the '<em><b>Access</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8129,12 +7889,12 @@ public interface AS3Package extends EPackage
     EClass INTERFACE_METHOD = eINSTANCE.getInterfaceMethod();
 
     /**
-     * The meta object literal for the '<em><b>Annon</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Annotations</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference INTERFACE_METHOD__ANNON = eINSTANCE.getInterfaceMethod_Annon();
+    EReference INTERFACE_METHOD__ANNOTATIONS = eINSTANCE.getInterfaceMethod_Annotations();
 
     /**
      * The meta object literal for the '<em><b>Modifier</b></em>' containment reference feature.
@@ -8187,12 +7947,12 @@ public interface AS3Package extends EPackage
     EClass CLASS = eINSTANCE.getClass_();
 
     /**
-     * The meta object literal for the '<em><b>Annon</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Annotations</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CLASS__ANNON = eINSTANCE.getClass_Annon();
+    EReference CLASS__ANNOTATIONS = eINSTANCE.getClass_Annotations();
 
     /**
      * The meta object literal for the '<em><b>Modifier</b></em>' containment reference feature.
@@ -8271,12 +8031,12 @@ public interface AS3Package extends EPackage
     EClass METHOD = eINSTANCE.getMethod();
 
     /**
-     * The meta object literal for the '<em><b>Annon</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Annotations</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference METHOD__ANNON = eINSTANCE.getMethod_Annon();
+    EReference METHOD__ANNOTATIONS = eINSTANCE.getMethod_Annotations();
 
     /**
      * The meta object literal for the '<em><b>Modifier</b></em>' containment reference feature.
@@ -8395,6 +8155,32 @@ public interface AS3Package extends EPackage
     EReference METHOD_BODY__STATEMENTS = eINSTANCE.getMethodBody_Statements();
 
     /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.MemberVariableDeclarationImpl <em>Member Variable Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.MemberVariableDeclarationImpl
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getMemberVariableDeclaration()
+     * @generated
+     */
+    EClass MEMBER_VARIABLE_DECLARATION = eINSTANCE.getMemberVariableDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Modifier</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MEMBER_VARIABLE_DECLARATION__MODIFIER = eINSTANCE.getMemberVariableDeclaration_Modifier();
+
+    /**
+     * The meta object literal for the '<em><b>Decl</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MEMBER_VARIABLE_DECLARATION__DECL = eINSTANCE.getMemberVariableDeclaration_Decl();
+
+    /**
      * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl <em>Variable Declaration</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8403,14 +8189,6 @@ public interface AS3Package extends EPackage
      * @generated
      */
     EClass VARIABLE_DECLARATION = eINSTANCE.getVariableDeclaration();
-
-    /**
-     * The meta object literal for the '<em><b>Access</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute VARIABLE_DECLARATION__ACCESS = eINSTANCE.getVariableDeclaration_Access();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -8621,14 +8399,6 @@ public interface AS3Package extends EPackage
      * @generated
      */
     EReference IDENTI__TYPE = eINSTANCE.getidenti_Type();
-
-    /**
-     * The meta object literal for the '<em><b>Var</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference IDENTI__VAR = eINSTANCE.getidenti_Var();
 
     /**
      * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
@@ -9751,80 +9521,6 @@ public interface AS3Package extends EPackage
      * @generated
      */
     EClass DEFAULT_XML_NAMESPACE_STATEMENT = eINSTANCE.getDefaultXMLNamespaceStatement();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.DeclarationStatementImpl <em>Declaration Statement</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.DeclarationStatementImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getDeclarationStatement()
-     * @generated
-     */
-    EClass DECLARATION_STATEMENT = eINSTANCE.getDeclarationStatement();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.variableDeclaratorImpl <em>variable Declarator</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.variableDeclaratorImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getvariableDeclarator()
-     * @generated
-     */
-    EClass VARIABLE_DECLARATOR = eINSTANCE.getvariableDeclarator();
-
-    /**
-     * The meta object literal for the '<em><b>Tail</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VARIABLE_DECLARATOR__TAIL = eINSTANCE.getvariableDeclarator_Tail();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.DeclarationImpl <em>Declaration</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.DeclarationImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getDeclaration()
-     * @generated
-     */
-    EClass DECLARATION = eINSTANCE.getDeclaration();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.declarationTailImpl <em>declaration Tail</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.declarationTailImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getdeclarationTail()
-     * @generated
-     */
-    EClass DECLARATION_TAIL = eINSTANCE.getdeclarationTail();
-
-    /**
-     * The meta object literal for the '<em><b>Var</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DECLARATION_TAIL__VAR = eINSTANCE.getdeclarationTail_Var();
-
-    /**
-     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.variableInitializerImpl <em>variable Initializer</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.variableInitializerImpl
-     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getvariableInitializer()
-     * @generated
-     */
-    EClass VARIABLE_INITIALIZER = eINSTANCE.getvariableInitializer();
-
-    /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VARIABLE_INITIALIZER__EXPR = eINSTANCE.getvariableInitializer_Expr();
 
     /**
      * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ExpressionStatementImpl <em>Expression Statement</em>}' class.

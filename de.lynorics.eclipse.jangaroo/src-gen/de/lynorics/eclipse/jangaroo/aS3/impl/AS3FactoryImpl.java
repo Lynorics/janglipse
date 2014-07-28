@@ -10,8 +10,6 @@ import de.lynorics.eclipse.jangaroo.aS3.Block;
 import de.lynorics.eclipse.jangaroo.aS3.BoolConstant;
 import de.lynorics.eclipse.jangaroo.aS3.CaseStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Condition;
-import de.lynorics.eclipse.jangaroo.aS3.Declaration;
-import de.lynorics.eclipse.jangaroo.aS3.DeclarationStatement;
 import de.lynorics.eclipse.jangaroo.aS3.DefaultStatement;
 import de.lynorics.eclipse.jangaroo.aS3.DefaultXMLNamespaceStatement;
 import de.lynorics.eclipse.jangaroo.aS3.DoWhileStatement;
@@ -25,6 +23,7 @@ import de.lynorics.eclipse.jangaroo.aS3.Imports;
 import de.lynorics.eclipse.jangaroo.aS3.Interface;
 import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 import de.lynorics.eclipse.jangaroo.aS3.Member;
+import de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
 import de.lynorics.eclipse.jangaroo.aS3.MethodBody;
 import de.lynorics.eclipse.jangaroo.aS3.Model;
@@ -59,7 +58,6 @@ import de.lynorics.eclipse.jangaroo.aS3.brackets;
 import de.lynorics.eclipse.jangaroo.aS3.catchBlock;
 import de.lynorics.eclipse.jangaroo.aS3.conditionalExpression;
 import de.lynorics.eclipse.jangaroo.aS3.conditionalSubExpression;
-import de.lynorics.eclipse.jangaroo.aS3.declarationTail;
 import de.lynorics.eclipse.jangaroo.aS3.directive;
 import de.lynorics.eclipse.jangaroo.aS3.e4xAttributeIdentifier;
 import de.lynorics.eclipse.jangaroo.aS3.element;
@@ -114,8 +112,6 @@ import de.lynorics.eclipse.jangaroo.aS3.traditionalForClause;
 import de.lynorics.eclipse.jangaroo.aS3.typeExpression;
 import de.lynorics.eclipse.jangaroo.aS3.unaryExpression;
 import de.lynorics.eclipse.jangaroo.aS3.unaryExpressionNotPlusMinus;
-import de.lynorics.eclipse.jangaroo.aS3.variableDeclarator;
-import de.lynorics.eclipse.jangaroo.aS3.variableInitializer;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -194,6 +190,7 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.METHOD: return createMethod();
       case AS3Package.MODIFIER: return createModifier();
       case AS3Package.METHOD_BODY: return createMethodBody();
+      case AS3Package.MEMBER_VARIABLE_DECLARATION: return createMemberVariableDeclaration();
       case AS3Package.VARIABLE_DECLARATION: return createVariableDeclaration();
       case AS3Package.PARAMETER: return createParameter();
       case AS3Package.OBJECT_LITERAL: return createobjectLiteral();
@@ -253,11 +250,6 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.CONDITION: return createCondition();
       case AS3Package.STATEMENT: return createStatement();
       case AS3Package.DEFAULT_XML_NAMESPACE_STATEMENT: return createDefaultXMLNamespaceStatement();
-      case AS3Package.DECLARATION_STATEMENT: return createDeclarationStatement();
-      case AS3Package.VARIABLE_DECLARATOR: return createvariableDeclarator();
-      case AS3Package.DECLARATION: return createDeclaration();
-      case AS3Package.DECLARATION_TAIL: return createdeclarationTail();
-      case AS3Package.VARIABLE_INITIALIZER: return createvariableInitializer();
       case AS3Package.EXPRESSION_STATEMENT: return createExpressionStatement();
       case AS3Package.IF_STATEMENT: return createIfStatement();
       case AS3Package.THROW_STATEMENT: return createThrowStatement();
@@ -504,6 +496,17 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
   {
     MethodBodyImpl methodBody = new MethodBodyImpl();
     return methodBody;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MemberVariableDeclaration createMemberVariableDeclaration()
+  {
+    MemberVariableDeclarationImpl memberVariableDeclaration = new MemberVariableDeclarationImpl();
+    return memberVariableDeclaration;
   }
 
   /**
@@ -1153,61 +1156,6 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
   {
     DefaultXMLNamespaceStatementImpl defaultXMLNamespaceStatement = new DefaultXMLNamespaceStatementImpl();
     return defaultXMLNamespaceStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DeclarationStatement createDeclarationStatement()
-  {
-    DeclarationStatementImpl declarationStatement = new DeclarationStatementImpl();
-    return declarationStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public variableDeclarator createvariableDeclarator()
-  {
-    variableDeclaratorImpl variableDeclarator = new variableDeclaratorImpl();
-    return variableDeclarator;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Declaration createDeclaration()
-  {
-    DeclarationImpl declaration = new DeclarationImpl();
-    return declaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public declarationTail createdeclarationTail()
-  {
-    declarationTailImpl declarationTail = new declarationTailImpl();
-    return declarationTail;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public variableInitializer createvariableInitializer()
-  {
-    variableInitializerImpl variableInitializer = new variableInitializerImpl();
-    return variableInitializer;
   }
 
   /**

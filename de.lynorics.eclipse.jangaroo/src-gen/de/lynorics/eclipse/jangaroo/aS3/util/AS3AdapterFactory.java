@@ -8,8 +8,6 @@ import de.lynorics.eclipse.jangaroo.aS3.Block;
 import de.lynorics.eclipse.jangaroo.aS3.BoolConstant;
 import de.lynorics.eclipse.jangaroo.aS3.CaseStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Condition;
-import de.lynorics.eclipse.jangaroo.aS3.Declaration;
-import de.lynorics.eclipse.jangaroo.aS3.DeclarationStatement;
 import de.lynorics.eclipse.jangaroo.aS3.DefaultStatement;
 import de.lynorics.eclipse.jangaroo.aS3.DefaultXMLNamespaceStatement;
 import de.lynorics.eclipse.jangaroo.aS3.DoWhileStatement;
@@ -23,6 +21,7 @@ import de.lynorics.eclipse.jangaroo.aS3.Imports;
 import de.lynorics.eclipse.jangaroo.aS3.Interface;
 import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 import de.lynorics.eclipse.jangaroo.aS3.Member;
+import de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
 import de.lynorics.eclipse.jangaroo.aS3.MethodBody;
 import de.lynorics.eclipse.jangaroo.aS3.Model;
@@ -57,7 +56,6 @@ import de.lynorics.eclipse.jangaroo.aS3.brackets;
 import de.lynorics.eclipse.jangaroo.aS3.catchBlock;
 import de.lynorics.eclipse.jangaroo.aS3.conditionalExpression;
 import de.lynorics.eclipse.jangaroo.aS3.conditionalSubExpression;
-import de.lynorics.eclipse.jangaroo.aS3.declarationTail;
 import de.lynorics.eclipse.jangaroo.aS3.directive;
 import de.lynorics.eclipse.jangaroo.aS3.e4xAttributeIdentifier;
 import de.lynorics.eclipse.jangaroo.aS3.element;
@@ -112,8 +110,6 @@ import de.lynorics.eclipse.jangaroo.aS3.traditionalForClause;
 import de.lynorics.eclipse.jangaroo.aS3.typeExpression;
 import de.lynorics.eclipse.jangaroo.aS3.unaryExpression;
 import de.lynorics.eclipse.jangaroo.aS3.unaryExpressionNotPlusMinus;
-import de.lynorics.eclipse.jangaroo.aS3.variableDeclarator;
-import de.lynorics.eclipse.jangaroo.aS3.variableInitializer;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -264,6 +260,11 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
       public Adapter caseMethodBody(MethodBody object)
       {
         return createMethodBodyAdapter();
+      }
+      @Override
+      public Adapter caseMemberVariableDeclaration(MemberVariableDeclaration object)
+      {
+        return createMemberVariableDeclarationAdapter();
       }
       @Override
       public Adapter caseVariableDeclaration(VariableDeclaration object)
@@ -559,31 +560,6 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
       public Adapter caseDefaultXMLNamespaceStatement(DefaultXMLNamespaceStatement object)
       {
         return createDefaultXMLNamespaceStatementAdapter();
-      }
-      @Override
-      public Adapter caseDeclarationStatement(DeclarationStatement object)
-      {
-        return createDeclarationStatementAdapter();
-      }
-      @Override
-      public Adapter casevariableDeclarator(variableDeclarator object)
-      {
-        return createvariableDeclaratorAdapter();
-      }
-      @Override
-      public Adapter caseDeclaration(Declaration object)
-      {
-        return createDeclarationAdapter();
-      }
-      @Override
-      public Adapter casedeclarationTail(declarationTail object)
-      {
-        return createdeclarationTailAdapter();
-      }
-      @Override
-      public Adapter casevariableInitializer(variableInitializer object)
-      {
-        return createvariableInitializerAdapter();
       }
       @Override
       public Adapter caseExpressionStatement(ExpressionStatement object)
@@ -1008,6 +984,21 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMethodBodyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration <em>Member Variable Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration
+   * @generated
+   */
+  public Adapter createMemberVariableDeclarationAdapter()
   {
     return null;
   }
@@ -1893,81 +1884,6 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDefaultXMLNamespaceStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.DeclarationStatement <em>Declaration Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.DeclarationStatement
-   * @generated
-   */
-  public Adapter createDeclarationStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.variableDeclarator <em>variable Declarator</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.variableDeclarator
-   * @generated
-   */
-  public Adapter createvariableDeclaratorAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Declaration <em>Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Declaration
-   * @generated
-   */
-  public Adapter createDeclarationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.declarationTail <em>declaration Tail</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.declarationTail
-   * @generated
-   */
-  public Adapter createdeclarationTailAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.variableInitializer <em>variable Initializer</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.variableInitializer
-   * @generated
-   */
-  public Adapter createvariableInitializerAdapter()
   {
     return null;
   }

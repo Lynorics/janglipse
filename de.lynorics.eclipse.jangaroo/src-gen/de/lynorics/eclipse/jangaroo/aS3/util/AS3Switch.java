@@ -8,8 +8,6 @@ import de.lynorics.eclipse.jangaroo.aS3.Block;
 import de.lynorics.eclipse.jangaroo.aS3.BoolConstant;
 import de.lynorics.eclipse.jangaroo.aS3.CaseStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Condition;
-import de.lynorics.eclipse.jangaroo.aS3.Declaration;
-import de.lynorics.eclipse.jangaroo.aS3.DeclarationStatement;
 import de.lynorics.eclipse.jangaroo.aS3.DefaultStatement;
 import de.lynorics.eclipse.jangaroo.aS3.DefaultXMLNamespaceStatement;
 import de.lynorics.eclipse.jangaroo.aS3.DoWhileStatement;
@@ -23,6 +21,7 @@ import de.lynorics.eclipse.jangaroo.aS3.Imports;
 import de.lynorics.eclipse.jangaroo.aS3.Interface;
 import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 import de.lynorics.eclipse.jangaroo.aS3.Member;
+import de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
 import de.lynorics.eclipse.jangaroo.aS3.MethodBody;
 import de.lynorics.eclipse.jangaroo.aS3.Model;
@@ -57,7 +56,6 @@ import de.lynorics.eclipse.jangaroo.aS3.brackets;
 import de.lynorics.eclipse.jangaroo.aS3.catchBlock;
 import de.lynorics.eclipse.jangaroo.aS3.conditionalExpression;
 import de.lynorics.eclipse.jangaroo.aS3.conditionalSubExpression;
-import de.lynorics.eclipse.jangaroo.aS3.declarationTail;
 import de.lynorics.eclipse.jangaroo.aS3.directive;
 import de.lynorics.eclipse.jangaroo.aS3.e4xAttributeIdentifier;
 import de.lynorics.eclipse.jangaroo.aS3.element;
@@ -112,8 +110,6 @@ import de.lynorics.eclipse.jangaroo.aS3.traditionalForClause;
 import de.lynorics.eclipse.jangaroo.aS3.typeExpression;
 import de.lynorics.eclipse.jangaroo.aS3.unaryExpression;
 import de.lynorics.eclipse.jangaroo.aS3.unaryExpressionNotPlusMinus;
-import de.lynorics.eclipse.jangaroo.aS3.variableDeclarator;
-import de.lynorics.eclipse.jangaroo.aS3.variableInitializer;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -295,10 +291,19 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AS3Package.MEMBER_VARIABLE_DECLARATION:
+      {
+        MemberVariableDeclaration memberVariableDeclaration = (MemberVariableDeclaration)theEObject;
+        T result = caseMemberVariableDeclaration(memberVariableDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AS3Package.VARIABLE_DECLARATION:
       {
         VariableDeclaration variableDeclaration = (VariableDeclaration)theEObject;
         T result = caseVariableDeclaration(variableDeclaration);
+        if (result == null) result = caseStatement(variableDeclaration);
+        if (result == null) result = caseforInClauseDecl(variableDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -365,13 +370,9 @@ public class AS3Switch<T> extends Switch<T>
         T result = caseidenti(identi);
         if (result == null) result = casefieldName(identi);
         if (result == null) result = casepropertyIdentifier(identi);
-        if (result == null) result = casevariableDeclarator(identi);
         if (result == null) result = casecatchBlock(identi);
-        if (result == null) result = casequalifier(identi);
-        if (result == null) result = caseDeclaration(identi);
-        if (result == null) result = caseDeclarationStatement(identi);
         if (result == null) result = caseforInClauseDecl(identi);
-        if (result == null) result = caseStatement(identi);
+        if (result == null) result = casequalifier(identi);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -799,49 +800,6 @@ public class AS3Switch<T> extends Switch<T>
         DefaultXMLNamespaceStatement defaultXMLNamespaceStatement = (DefaultXMLNamespaceStatement)theEObject;
         T result = caseDefaultXMLNamespaceStatement(defaultXMLNamespaceStatement);
         if (result == null) result = caseStatement(defaultXMLNamespaceStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.DECLARATION_STATEMENT:
-      {
-        DeclarationStatement declarationStatement = (DeclarationStatement)theEObject;
-        T result = caseDeclarationStatement(declarationStatement);
-        if (result == null) result = caseStatement(declarationStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.VARIABLE_DECLARATOR:
-      {
-        variableDeclarator variableDeclarator = (variableDeclarator)theEObject;
-        T result = casevariableDeclarator(variableDeclarator);
-        if (result == null) result = caseDeclaration(variableDeclarator);
-        if (result == null) result = caseDeclarationStatement(variableDeclarator);
-        if (result == null) result = caseforInClauseDecl(variableDeclarator);
-        if (result == null) result = caseStatement(variableDeclarator);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.DECLARATION:
-      {
-        Declaration declaration = (Declaration)theEObject;
-        T result = caseDeclaration(declaration);
-        if (result == null) result = caseDeclarationStatement(declaration);
-        if (result == null) result = caseforInClauseDecl(declaration);
-        if (result == null) result = caseStatement(declaration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.DECLARATION_TAIL:
-      {
-        declarationTail declarationTail = (declarationTail)theEObject;
-        T result = casedeclarationTail(declarationTail);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.VARIABLE_INITIALIZER:
-      {
-        variableInitializer variableInitializer = (variableInitializer)theEObject;
-        T result = casevariableInitializer(variableInitializer);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1399,6 +1357,22 @@ public class AS3Switch<T> extends Switch<T>
    * @generated
    */
   public T caseMethodBody(MethodBody object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Member Variable Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Member Variable Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMemberVariableDeclaration(MemberVariableDeclaration object)
   {
     return null;
   }
@@ -2343,86 +2317,6 @@ public class AS3Switch<T> extends Switch<T>
    * @generated
    */
   public T caseDefaultXMLNamespaceStatement(DefaultXMLNamespaceStatement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Declaration Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Declaration Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDeclarationStatement(DeclarationStatement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>variable Declarator</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>variable Declarator</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casevariableDeclarator(variableDeclarator object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Declaration</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDeclaration(Declaration object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>declaration Tail</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>declaration Tail</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casedeclarationTail(declarationTail object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>variable Initializer</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>variable Initializer</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casevariableInitializer(variableInitializer object)
   {
     return null;
   }

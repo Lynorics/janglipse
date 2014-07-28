@@ -3,7 +3,7 @@
 package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
-import de.lynorics.eclipse.jangaroo.aS3.Declaration;
+import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.expressionList;
 import de.lynorics.eclipse.jangaroo.aS3.forInit;
 
@@ -40,7 +40,7 @@ public class forInitImpl extends MinimalEObjectImpl.Container implements forInit
    * @generated
    * @ordered
    */
-  protected Declaration decl;
+  protected VariableDeclaration decl;
 
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -78,7 +78,7 @@ public class forInitImpl extends MinimalEObjectImpl.Container implements forInit
    * <!-- end-user-doc -->
    * @generated
    */
-  public Declaration getDecl()
+  public VariableDeclaration getDecl()
   {
     return decl;
   }
@@ -88,9 +88,9 @@ public class forInitImpl extends MinimalEObjectImpl.Container implements forInit
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetDecl(Declaration newDecl, NotificationChain msgs)
+  public NotificationChain basicSetDecl(VariableDeclaration newDecl, NotificationChain msgs)
   {
-    Declaration oldDecl = decl;
+    VariableDeclaration oldDecl = decl;
     decl = newDecl;
     if (eNotificationRequired())
     {
@@ -105,7 +105,7 @@ public class forInitImpl extends MinimalEObjectImpl.Container implements forInit
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDecl(Declaration newDecl)
+  public void setDecl(VariableDeclaration newDecl)
   {
     if (newDecl != decl)
     {
@@ -216,7 +216,7 @@ public class forInitImpl extends MinimalEObjectImpl.Container implements forInit
     switch (featureID)
     {
       case AS3Package.FOR_INIT__DECL:
-        setDecl((Declaration)newValue);
+        setDecl((VariableDeclaration)newValue);
         return;
       case AS3Package.FOR_INIT__EXPR:
         setExpr((expressionList)newValue);
@@ -236,7 +236,7 @@ public class forInitImpl extends MinimalEObjectImpl.Container implements forInit
     switch (featureID)
     {
       case AS3Package.FOR_INIT__DECL:
-        setDecl((Declaration)null);
+        setDecl((VariableDeclaration)null);
         return;
       case AS3Package.FOR_INIT__EXPR:
         setExpr((expressionList)null);

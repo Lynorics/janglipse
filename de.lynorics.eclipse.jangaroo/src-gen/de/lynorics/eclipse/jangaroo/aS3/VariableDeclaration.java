@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration#getAccess <em>Access</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration#getType <em>Type</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration#getExpression <em>Expression</em>}</li>
@@ -23,37 +22,8 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface VariableDeclaration extends EObject
+public interface VariableDeclaration extends Statement, forInClauseDecl
 {
-  /**
-   * Returns the value of the '<em><b>Access</b></em>' attribute.
-   * The literals are from the enumeration {@link de.lynorics.eclipse.jangaroo.aS3.AccessLevel}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Access</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Access</em>' attribute.
-   * @see de.lynorics.eclipse.jangaroo.aS3.AccessLevel
-   * @see #setAccess(AccessLevel)
-   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getVariableDeclaration_Access()
-   * @model
-   * @generated
-   */
-  AccessLevel getAccess();
-
-  /**
-   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration#getAccess <em>Access</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Access</em>' attribute.
-   * @see de.lynorics.eclipse.jangaroo.aS3.AccessLevel
-   * @see #getAccess()
-   * @generated
-   */
-  void setAccess(AccessLevel value);
-
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -115,12 +85,12 @@ public interface VariableDeclaration extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(Expression)
+   * @see #setExpression(assignmentExpression)
    * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getVariableDeclaration_Expression()
    * @model containment="true"
    * @generated
    */
-  Expression getExpression();
+  assignmentExpression getExpression();
 
   /**
    * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration#getExpression <em>Expression</em>}' containment reference.
@@ -130,6 +100,6 @@ public interface VariableDeclaration extends EObject
    * @see #getExpression()
    * @generated
    */
-  void setExpression(Expression value);
+  void setExpression(assignmentExpression value);
 
 } // VariableDeclaration

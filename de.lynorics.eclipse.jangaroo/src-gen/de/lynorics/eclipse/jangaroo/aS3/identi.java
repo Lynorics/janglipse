@@ -13,7 +13,6 @@ package de.lynorics.eclipse.jangaroo.aS3;
  * <ul>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.identi#getI <em>I</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.identi#getType <em>Type</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.identi#getVar <em>Var</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.identi#getBlock <em>Block</em>}</li>
  * </ul>
  * </p>
@@ -22,7 +21,7 @@ package de.lynorics.eclipse.jangaroo.aS3;
  * @model
  * @generated
  */
-public interface identi extends fieldName, propertyIdentifier, variableDeclarator, catchBlock
+public interface identi extends fieldName, propertyIdentifier, catchBlock, forInClauseDecl
 {
   /**
    * Returns the value of the '<em><b>I</b></em>' attribute.
@@ -75,32 +74,6 @@ public interface identi extends fieldName, propertyIdentifier, variableDeclarato
    * @generated
    */
   void setType(typeExpression value);
-
-  /**
-   * Returns the value of the '<em><b>Var</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Var</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Var</em>' containment reference.
-   * @see #setVar(variableInitializer)
-   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getidenti_Var()
-   * @model containment="true"
-   * @generated
-   */
-  variableInitializer getVar();
-
-  /**
-   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.identi#getVar <em>Var</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Var</em>' containment reference.
-   * @see #getVar()
-   * @generated
-   */
-  void setVar(variableInitializer value);
 
   /**
    * Returns the value of the '<em><b>Block</b></em>' containment reference.

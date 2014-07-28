@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Interface#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Interface#getAccess <em>Access</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Interface#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Interface#getSuperclass <em>Superclass</em>}</li>
@@ -27,6 +28,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Interface extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Annotations</b></em>' containment reference list.
+   * The list contents are of type {@link de.lynorics.eclipse.jangaroo.aS3.Annotation}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Annotations</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Annotations</em>' containment reference list.
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getInterface_Annotations()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Annotation> getAnnotations();
+
   /**
    * Returns the value of the '<em><b>Access</b></em>' attribute.
    * The literals are from the enumeration {@link de.lynorics.eclipse.jangaroo.aS3.AccessLevel}.

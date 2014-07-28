@@ -6,21 +6,28 @@
  */
 package de.lynorics.eclipse.jangaroo.validation
 
-import static extension de.lynorics.eclipse.jangaroo.AS3ModelUtil.*;
-
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package
+import de.lynorics.eclipse.jangaroo.aS3.Annotation
 import de.lynorics.eclipse.jangaroo.aS3.Class
-import de.lynorics.eclipse.jangaroo.aS3.Package
-import org.eclipse.xtext.validation.Check
-import de.lynorics.eclipse.jangaroo.aS3.Method
 import de.lynorics.eclipse.jangaroo.aS3.Interface
 import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod
+import de.lynorics.eclipse.jangaroo.aS3.Method
+import de.lynorics.eclipse.jangaroo.aS3.Package
 import de.lynorics.eclipse.jangaroo.aS3.ReturnStatement
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.validation.Check
+
+import static extension de.lynorics.eclipse.jangaroo.AS3ModelUtil.*
+import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration
+import de.lynorics.eclipse.jangaroo.aS3.Import
+import org.eclipse.xtext.validation.CheckType
 
 /**
- * Custom validation rules. 
+ * Custom validation rules.
  *
- * see http://www.eclipse.org/Xtext/documentation.html#validation
+ * @invariant Every check-method ensures that it is just called for real source (.../src/...) not generated one (.../target/..., .../generated-src/..., and so on).
+ * 
+ * @see http://www.eclipse.org/Xtext/documentation.html#validation
  */
 class AS3Validator extends AbstractAS3Validator {
 
@@ -31,9 +38,18 @@ class AS3Validator extends AbstractAS3Validator {
   public static val PACKAGE_SHOULD_START_WITH_LOWERCASE = 'fieldStartsWithLowercase';
   public static val METHOD_SHOULD_START_WITH_LOWERCASE = 'methodStartsWithLowercase';
   public static val UNREACHABLE_CODE = 'unreachableCode';
+  public static val PUBLIC_API_VIOLATION = "publicApiViolation";
+  public static val NAME_CLASH_VARIABLE_WITH_CLASS = "nameClashVariableWithClass";
+
+  private def checkForSourcePath(EObject eobj) {
+	return eobj.eResource.URI.toString.contains("/src/");
+  }
 
   @Check
   def checkClassStartsWithCapital(Class clas) {
+  	if (!checkForSourcePath(clas)) {
+  		return
+  	}
     if (!Character.isUpperCase(clas.name.charAt(0))) {
       warning('Class name should start with a capital', 
           AS3Package.Literals.CLASS__NAME,
@@ -41,8 +57,11 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
 
-  @Check
+  @Check(value=CheckType.FAST)
   def checkInterfaceStartsWithCapital(Interface intf) {
+  	if (!checkForSourcePath(intf)) {
+  		return
+  	}
     if (!Character.isUpperCase(intf.name.charAt(0))) {
       warning('Interface name should start with a capital', 
           AS3Package.Literals.INTERFACE__NAME,
@@ -50,8 +69,11 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
 
-  @Check
+  @Check(value=CheckType.FAST)
   def checkMethodStartsWithLowercase(Method method) {
+  	if (!checkForSourcePath(method)) {
+  		return
+  	}
     var Class clazz =  method.findParentOfType(Class);
     if (Character.isUpperCase(method.name.charAt(0)) &&
         !clazz.name.equals(method.name)) {
@@ -61,8 +83,11 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
   
-  @Check
+  @Check(value=CheckType.FAST)
   def checkMethodStartsWithLowercase(InterfaceMethod method) {
+  	if (!checkForSourcePath(method)) {
+  		return
+  	}
     if (Character.isUpperCase(method.name.charAt(0))) {
       warning('Method name should start with a lowercase', 
           AS3Package.Literals.INTERFACE_METHOD__NAME,
@@ -70,8 +95,11 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
 
-  @Check
+  @Check(value=CheckType.FAST)
   def checkPackageStartsWithLowercase(Package pack) {
+  	if (!checkForSourcePath(pack)) {
+  		return
+  	}
     var folders = pack.name.split(".");
     for(folder: folders) {
       if (Character.isUpperCase(folder.charAt(0))) {
@@ -92,8 +120,11 @@ class AS3Validator extends AbstractAS3Validator {
 //    }
 //  }
 
-  @Check
+  @Check(value=CheckType.NORMAL)
   def checkNoCycleInClassHierarchie(Class clas) {
+  	if (!checkForSourcePath(clas)) {
+  		return
+  	}
     if (clas.superType == null) {
       return
     }
@@ -112,14 +143,66 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
 
-  @Check
+  @Check(value=CheckType.FAST)
   def checkNoStatementAfterReturn(ReturnStatement ret) {
+  	if (!checkForSourcePath(ret)) {
+  		return
+  	}
     val statements = ret.containingBlock.statements;
     if (statements.last != ret) {
       error("Unreachable code",
         statements.get(statements.indexOf(ret)+1),
         null,
         UNREACHABLE_CODE);
+    }
+  }
+
+  @Check(value=CheckType.NORMAL)
+  def checkNameClashOfVariableWithClass(VariableDeclaration variableDeclaration) {
+  	if (!checkForSourcePath(variableDeclaration)) {
+  		return
+  	}
+  	if (variableDeclaration.name != null) {
+  		// TODO ordentlich ausimplementieren
+    		if (variableDeclaration.containingClass != null) {
+    			if (variableDeclaration.containingClass.name.equals(variableDeclaration.name)) {
+        			warning("Name clash: variable hides class "+variableDeclaration.name,
+          				AS3Package.Literals.VARIABLE_DECLARATION__NAME,
+          				NAME_CLASH_VARIABLE_WITH_CLASS);
+          			return;
+    			}
+    			var packageImpl = variableDeclaration.containingClass.eContainer;
+    			if (packageImpl instanceof Package) {
+    				for (Import imp: packageImpl.imp.imports) {
+    					var name = imp.importedNamespace.substring(imp.importedNamespace.lastIndexOf('.')+1);
+		    			if (name.equals(variableDeclaration.name)) {
+        					warning("Name clash: variable hides class "+variableDeclaration.name,
+          						AS3Package.Literals.VARIABLE_DECLARATION__NAME,
+          						NAME_CLASH_VARIABLE_WITH_CLASS);
+          					return;
+    					}
+    				}
+    			}
+    		}
+    }
+  }
+
+  @Check(value=CheckType.NORMAL)
+  def checkPublicApiViolation(Class clas) {
+  	if (!checkForSourcePath(clas)) {
+  		return
+  	}
+  	// TODO implement me correctly
+  	if (clas.annotations != null) {
+    	for(Annotation annotation: clas.annotations) {
+    		if ("ExcludeClass".equals(annotation.name))
+    		{
+        		warning("Public API violation: the usage of "+clas.name+" is restricted",
+          			AS3Package.Literals.CLASS__NAME,
+          			PUBLIC_API_VIOLATION);
+          		return;
+    		}
+    	}
     }
   }
 

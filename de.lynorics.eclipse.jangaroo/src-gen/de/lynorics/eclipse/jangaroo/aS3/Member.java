@@ -32,12 +32,12 @@ public interface Member extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Var</em>' containment reference.
-   * @see #setVar(VariableDeclaration)
+   * @see #setVar(MemberVariableDeclaration)
    * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getMember_Var()
    * @model containment="true"
    * @generated
    */
-  VariableDeclaration getVar();
+  MemberVariableDeclaration getVar();
 
   /**
    * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Member#getVar <em>Var</em>}' containment reference.
@@ -47,7 +47,7 @@ public interface Member extends EObject
    * @see #getVar()
    * @generated
    */
-  void setVar(VariableDeclaration value);
+  void setVar(MemberVariableDeclaration value);
 
   /**
    * Returns the value of the '<em><b>Meth</b></em>' containment reference.

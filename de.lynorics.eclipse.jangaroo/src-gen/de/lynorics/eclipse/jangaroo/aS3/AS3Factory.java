@@ -167,6 +167,15 @@ public interface AS3Factory extends EFactory
   MethodBody createMethodBody();
 
   /**
+   * Returns a new object of class '<em>Member Variable Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Member Variable Declaration</em>'.
+   * @generated
+   */
+  MemberVariableDeclaration createMemberVariableDeclaration();
+
+  /**
    * Returns a new object of class '<em>Variable Declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -696,51 +705,6 @@ public interface AS3Factory extends EFactory
    * @generated
    */
   DefaultXMLNamespaceStatement createDefaultXMLNamespaceStatement();
-
-  /**
-   * Returns a new object of class '<em>Declaration Statement</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Declaration Statement</em>'.
-   * @generated
-   */
-  DeclarationStatement createDeclarationStatement();
-
-  /**
-   * Returns a new object of class '<em>variable Declarator</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>variable Declarator</em>'.
-   * @generated
-   */
-  variableDeclarator createvariableDeclarator();
-
-  /**
-   * Returns a new object of class '<em>Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Declaration</em>'.
-   * @generated
-   */
-  Declaration createDeclaration();
-
-  /**
-   * Returns a new object of class '<em>declaration Tail</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>declaration Tail</em>'.
-   * @generated
-   */
-  declarationTail createdeclarationTail();
-
-  /**
-   * Returns a new object of class '<em>variable Initializer</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>variable Initializer</em>'.
-   * @generated
-   */
-  variableInitializer createvariableInitializer();
 
   /**
    * Returns a new object of class '<em>Expression Statement</em>'.

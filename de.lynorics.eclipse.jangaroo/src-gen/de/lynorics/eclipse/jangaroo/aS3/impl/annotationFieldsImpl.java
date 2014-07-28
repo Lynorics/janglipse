@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.annotationFieldsImpl#getAnoonFields <em>Anoon Fields</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.annotationFieldsImpl#getAnnonFields <em>Annon Fields</em>}</li>
  * </ul>
  * </p>
@@ -36,16 +35,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class annotationFieldsImpl extends MinimalEObjectImpl.Container implements annotationFields
 {
-  /**
-   * The cached value of the '{@link #getAnoonFields() <em>Anoon Fields</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAnoonFields()
-   * @generated
-   * @ordered
-   */
-  protected EList<annotationField> anoonFields;
-
   /**
    * The cached value of the '{@link #getAnnonFields() <em>Annon Fields</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -82,20 +71,6 @@ public class annotationFieldsImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<annotationField> getAnoonFields()
-  {
-    if (anoonFields == null)
-    {
-      anoonFields = new EObjectContainmentEList<annotationField>(annotationField.class, this, AS3Package.ANNOTATION_FIELDS__ANOON_FIELDS);
-    }
-    return anoonFields;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<annotationField> getAnnonFields()
   {
     if (annonFields == null)
@@ -115,8 +90,6 @@ public class annotationFieldsImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case AS3Package.ANNOTATION_FIELDS__ANOON_FIELDS:
-        return ((InternalEList<?>)getAnoonFields()).basicRemove(otherEnd, msgs);
       case AS3Package.ANNOTATION_FIELDS__ANNON_FIELDS:
         return ((InternalEList<?>)getAnnonFields()).basicRemove(otherEnd, msgs);
     }
@@ -133,8 +106,6 @@ public class annotationFieldsImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case AS3Package.ANNOTATION_FIELDS__ANOON_FIELDS:
-        return getAnoonFields();
       case AS3Package.ANNOTATION_FIELDS__ANNON_FIELDS:
         return getAnnonFields();
     }
@@ -152,10 +123,6 @@ public class annotationFieldsImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case AS3Package.ANNOTATION_FIELDS__ANOON_FIELDS:
-        getAnoonFields().clear();
-        getAnoonFields().addAll((Collection<? extends annotationField>)newValue);
-        return;
       case AS3Package.ANNOTATION_FIELDS__ANNON_FIELDS:
         getAnnonFields().clear();
         getAnnonFields().addAll((Collection<? extends annotationField>)newValue);
@@ -174,9 +141,6 @@ public class annotationFieldsImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case AS3Package.ANNOTATION_FIELDS__ANOON_FIELDS:
-        getAnoonFields().clear();
-        return;
       case AS3Package.ANNOTATION_FIELDS__ANNON_FIELDS:
         getAnnonFields().clear();
         return;
@@ -194,8 +158,6 @@ public class annotationFieldsImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case AS3Package.ANNOTATION_FIELDS__ANOON_FIELDS:
-        return anoonFields != null && !anoonFields.isEmpty();
       case AS3Package.ANNOTATION_FIELDS__ANNON_FIELDS:
         return annonFields != null && !annonFields.isEmpty();
     }

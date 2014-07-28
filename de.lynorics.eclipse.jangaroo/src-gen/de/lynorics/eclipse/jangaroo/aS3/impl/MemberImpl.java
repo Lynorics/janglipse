@@ -4,8 +4,8 @@ package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
 import de.lynorics.eclipse.jangaroo.aS3.Member;
+import de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
-import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -40,7 +40,7 @@ public class MemberImpl extends MinimalEObjectImpl.Container implements Member
    * @generated
    * @ordered
    */
-  protected VariableDeclaration var;
+  protected MemberVariableDeclaration var;
 
   /**
    * The cached value of the '{@link #getMeth() <em>Meth</em>}' containment reference.
@@ -78,7 +78,7 @@ public class MemberImpl extends MinimalEObjectImpl.Container implements Member
    * <!-- end-user-doc -->
    * @generated
    */
-  public VariableDeclaration getVar()
+  public MemberVariableDeclaration getVar()
   {
     return var;
   }
@@ -88,9 +88,9 @@ public class MemberImpl extends MinimalEObjectImpl.Container implements Member
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetVar(VariableDeclaration newVar, NotificationChain msgs)
+  public NotificationChain basicSetVar(MemberVariableDeclaration newVar, NotificationChain msgs)
   {
-    VariableDeclaration oldVar = var;
+    MemberVariableDeclaration oldVar = var;
     var = newVar;
     if (eNotificationRequired())
     {
@@ -105,7 +105,7 @@ public class MemberImpl extends MinimalEObjectImpl.Container implements Member
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setVar(VariableDeclaration newVar)
+  public void setVar(MemberVariableDeclaration newVar)
   {
     if (newVar != var)
     {
@@ -216,7 +216,7 @@ public class MemberImpl extends MinimalEObjectImpl.Container implements Member
     switch (featureID)
     {
       case AS3Package.MEMBER__VAR:
-        setVar((VariableDeclaration)newValue);
+        setVar((MemberVariableDeclaration)newValue);
         return;
       case AS3Package.MEMBER__METH:
         setMeth((Method)newValue);
@@ -236,7 +236,7 @@ public class MemberImpl extends MinimalEObjectImpl.Container implements Member
     switch (featureID)
     {
       case AS3Package.MEMBER__VAR:
-        setVar((VariableDeclaration)null);
+        setVar((MemberVariableDeclaration)null);
         return;
       case AS3Package.MEMBER__METH:
         setMeth((Method)null);

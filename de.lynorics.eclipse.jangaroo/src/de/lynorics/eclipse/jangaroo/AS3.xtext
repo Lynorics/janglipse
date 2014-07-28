@@ -14,27 +14,26 @@ Model hidden(WS, ML_COMMENT, SL_COMMENT):
   package=Package
   |
   imp=Imports
-  members+=(Method|InterfaceMethod|VariableDeclaration)*
+  members+=(Method|InterfaceMethod|MemberVariableDeclaration)*
   classes+=(Class|Interface)*;
 
 Package:
-  'package' (name=QualifiedName)? '{' 
+  (=>'package' (name=QualifiedName)? '{' 
   imp=Imports
   directives+=directive*
-  members+=(Method|InterfaceMethod|VariableDeclaration)*
+  members+=(Method|InterfaceMethod|MemberVariableDeclaration)*
   classes+=(Class|Interface)*
-  '}';
+  '}');
 
 Imports: {Imports}
   imports+=Import*
 ;
 Import:
-    'import' importedNamespace = QualifiedNameWithWildcard ';'
+    (=>'import' importedNamespace=QualifiedNameWithWildcard ';')
 ;
 
 directive: {directive} (
-    annotation=Annotation
-  | uses=Uses
+    uses=Uses
   | ";"
   );
 
@@ -47,7 +46,7 @@ Uses: {Uses}
   ;
   
 annotationFields :
-    anoonFields+=annotationField ("," annonFields+=annotationField)*;
+    annonFields+=annotationField ("," annonFields+=annotationField)*;
 
 annotationField :
     name=(ID|STRING) ("=" expr=Expression)?;
@@ -61,29 +60,30 @@ QualifiedName:
 ;
 
 Interface:
-   access=AccessLevel? 'interface' name=ID
+   annotations+=Annotation*
+   access=AccessLevel? (=>'interface'  name=ID
    ('extends' superclass=[Interface|QualifiedName])?
-   '{' members += InterfaceMethod* '}'
+   '{' members += InterfaceMethod* '}')
 ;
 
 InterfaceMethod:
-  annon=Annotation?
-  modifier=Modifier? 'function'
+  annotations+=Annotation*
+  modifier=Modifier? (=>'function'
   (
     name=ID'('
     | accessor=accessorRole name=ID'('
   )
   (params+=Parameter (',' params+=Parameter)*)? ')' 
   (':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))?
-  ';'?
+  ';'?)
 ;
 
 Class:
-   annon=Annotation?
-   modifier=Modifier? 'class' name=ID
+   annotations+=Annotation*
+   modifier=Modifier? (=>'class' name=ID
    ('extends' superType=[Class|QualifiedName])?
    ('implements' types+=[Interface|QualifiedName] (',' types+=[Interface|QualifiedName])*)?
-   '{' members += Member* '}'
+   '{' members += Member* '}')
    ;
 
 accessorRole
@@ -91,20 +91,20 @@ accessorRole
   ;
 
 Member: 
-    var=VariableDeclaration 
+    var=MemberVariableDeclaration 
   | meth=Method
 ;
 
 Method:
-  annon=Annotation?
-  'override'? modifier=Modifier? 'function' 
+  annotations+=Annotation*
+  'override'? modifier=Modifier? (=>'function' 
   (
     name=ID'('
     | accessor=accessorRole name=ID'('
   )
    (params+=Parameter (',' params+=Parameter)*)? ')' 
   (':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))?
-  (body=Block|';')
+  (body=Block|';'))
 ;
 
 Modifier: {Modifier} (
@@ -122,10 +122,34 @@ MethodBody:
   {MethodBody} '{' statements += Statement* '}';
 
 
-VariableDeclaration:
-  access=AccessLevel? 'static'? ('var'|'const') name=ID ':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]) ('=' Expression=Expression)? ';'
+MemberVariableDeclaration:
+  modifier=Modifier? decl=VariableDeclaration ';'
 ;
 
+VariableDeclaration:
+  ('var'|'const') name=ID (':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))? ('=' Expression=assignmentExpression)?
+;
+/*
+variableDeclarator
+  : identi type=typeExpression? var=variableInitializer?
+  ;
+Declaration
+  : varOrConst variableDeclarator
+    tail=declarationTail
+  ;
+
+varOrConst
+  : 'var' | 'const'
+  ;
+  
+declarationTail
+  : {declarationTail} (',' var+=variableDeclarator)*
+  ;
+
+variableInitializer
+  : '=' expr=assignmentExpression
+  ;
+*/
 Parameter :
     'const'? '...'? name=ID (':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))? ('=' lit=exprOrObjectLiteral)?;
 
@@ -533,7 +557,7 @@ Condition
   
 Statement: 
   Block
-  | DeclarationStatement
+  | VariableDeclaration
   | ExpressionStatement
   | IfStatement
   // For statement
@@ -569,29 +593,9 @@ DefaultXMLNamespaceStatement
   : 'default' 'xml' 'namespace' 'assign' Expression ';'
   ;
   
-DeclarationStatement
+/*DeclarationStatement
   : Declaration
-  ;
-
-variableDeclarator
-  : identi type=typeExpression? var=variableInitializer?
-  ;
-Declaration
-  : varOrConst variableDeclarator
-    tail=declarationTail
-  ;
-
-varOrConst
-  : 'var' | 'const'
-  ;
-  
-declarationTail
-  : {declarationTail} (',' var+=variableDeclarator)*
-  ;
-
-variableInitializer
-  : '=' expr=assignmentExpression
-  ;
+  ;*/
 
 ExpressionStatement
   : expressionList
@@ -687,7 +691,7 @@ forInClause
   ;
 
 forInClauseDecl
-  : Declaration | identi
+  : VariableDeclaration | identi
   ;
 
 
@@ -697,7 +701,7 @@ forInClauseTail
 
 // The initializer for a for loop
 forInit: {forInit}
-  (decl=Declaration | expr=expressionList )?
+  (decl=VariableDeclaration | expr=expressionList )?
   ;
 
 forCond: {forCond}

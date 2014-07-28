@@ -4,6 +4,7 @@ package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
 import de.lynorics.eclipse.jangaroo.aS3.AccessLevel;
+import de.lynorics.eclipse.jangaroo.aS3.Annotation;
 import de.lynorics.eclipse.jangaroo.aS3.Interface;
 import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 
@@ -30,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceImpl#getAccess <em>Access</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceImpl#getSuperclass <em>Superclass</em>}</li>
@@ -41,6 +43,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class InterfaceImpl extends MinimalEObjectImpl.Container implements Interface
 {
+  /**
+   * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAnnotations()
+   * @generated
+   * @ordered
+   */
+  protected EList<Annotation> annotations;
+
   /**
    * The default value of the '{@link #getAccess() <em>Access</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -120,6 +132,20 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
   protected EClass eStaticClass()
   {
     return AS3Package.Literals.INTERFACE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Annotation> getAnnotations()
+  {
+    if (annotations == null)
+    {
+      annotations = new EObjectContainmentEList<Annotation>(Annotation.class, this, AS3Package.INTERFACE__ANNOTATIONS);
+    }
+    return annotations;
   }
 
   /**
@@ -235,6 +261,8 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
   {
     switch (featureID)
     {
+      case AS3Package.INTERFACE__ANNOTATIONS:
+        return ((InternalEList<?>)getAnnotations()).basicRemove(otherEnd, msgs);
       case AS3Package.INTERFACE__MEMBERS:
         return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
     }
@@ -251,6 +279,8 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
   {
     switch (featureID)
     {
+      case AS3Package.INTERFACE__ANNOTATIONS:
+        return getAnnotations();
       case AS3Package.INTERFACE__ACCESS:
         return getAccess();
       case AS3Package.INTERFACE__NAME:
@@ -275,6 +305,10 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
   {
     switch (featureID)
     {
+      case AS3Package.INTERFACE__ANNOTATIONS:
+        getAnnotations().clear();
+        getAnnotations().addAll((Collection<? extends Annotation>)newValue);
+        return;
       case AS3Package.INTERFACE__ACCESS:
         setAccess((AccessLevel)newValue);
         return;
@@ -302,6 +336,9 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
   {
     switch (featureID)
     {
+      case AS3Package.INTERFACE__ANNOTATIONS:
+        getAnnotations().clear();
+        return;
       case AS3Package.INTERFACE__ACCESS:
         setAccess(ACCESS_EDEFAULT);
         return;
@@ -328,6 +365,8 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
   {
     switch (featureID)
     {
+      case AS3Package.INTERFACE__ANNOTATIONS:
+        return annotations != null && !annotations.isEmpty();
       case AS3Package.INTERFACE__ACCESS:
         return access != ACCESS_EDEFAULT;
       case AS3Package.INTERFACE__NAME:

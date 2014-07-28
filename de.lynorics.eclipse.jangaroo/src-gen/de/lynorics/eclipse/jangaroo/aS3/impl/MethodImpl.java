@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.MethodImpl#getAnnon <em>Annon</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.MethodImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.MethodImpl#getModifier <em>Modifier</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.MethodImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.MethodImpl#getAccessor <em>Accessor</em>}</li>
@@ -48,14 +48,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class MethodImpl extends MinimalEObjectImpl.Container implements Method
 {
   /**
-   * The cached value of the '{@link #getAnnon() <em>Annon</em>}' containment reference.
+   * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAnnon()
+   * @see #getAnnotations()
    * @generated
    * @ordered
    */
-  protected Annotation annon;
+  protected EList<Annotation> annotations;
 
   /**
    * The cached value of the '{@link #getModifier() <em>Modifier</em>}' containment reference.
@@ -163,47 +163,13 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public Annotation getAnnon()
+  public EList<Annotation> getAnnotations()
   {
-    return annon;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAnnon(Annotation newAnnon, NotificationChain msgs)
-  {
-    Annotation oldAnnon = annon;
-    annon = newAnnon;
-    if (eNotificationRequired())
+    if (annotations == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.METHOD__ANNON, oldAnnon, newAnnon);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      annotations = new EObjectContainmentEList<Annotation>(Annotation.class, this, AS3Package.METHOD__ANNOTATIONS);
     }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAnnon(Annotation newAnnon)
-  {
-    if (newAnnon != annon)
-    {
-      NotificationChain msgs = null;
-      if (annon != null)
-        msgs = ((InternalEObject)annon).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.METHOD__ANNON, null, msgs);
-      if (newAnnon != null)
-        msgs = ((InternalEObject)newAnnon).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.METHOD__ANNON, null, msgs);
-      msgs = basicSetAnnon(newAnnon, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.METHOD__ANNON, newAnnon, newAnnon));
+    return annotations;
   }
 
   /**
@@ -415,8 +381,8 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   {
     switch (featureID)
     {
-      case AS3Package.METHOD__ANNON:
-        return basicSetAnnon(null, msgs);
+      case AS3Package.METHOD__ANNOTATIONS:
+        return ((InternalEList<?>)getAnnotations()).basicRemove(otherEnd, msgs);
       case AS3Package.METHOD__MODIFIER:
         return basicSetModifier(null, msgs);
       case AS3Package.METHOD__PARAMS:
@@ -437,8 +403,8 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   {
     switch (featureID)
     {
-      case AS3Package.METHOD__ANNON:
-        return getAnnon();
+      case AS3Package.METHOD__ANNOTATIONS:
+        return getAnnotations();
       case AS3Package.METHOD__MODIFIER:
         return getModifier();
       case AS3Package.METHOD__NAME:
@@ -467,8 +433,9 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   {
     switch (featureID)
     {
-      case AS3Package.METHOD__ANNON:
-        setAnnon((Annotation)newValue);
+      case AS3Package.METHOD__ANNOTATIONS:
+        getAnnotations().clear();
+        getAnnotations().addAll((Collection<? extends Annotation>)newValue);
         return;
       case AS3Package.METHOD__MODIFIER:
         setModifier((Modifier)newValue);
@@ -503,8 +470,8 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   {
     switch (featureID)
     {
-      case AS3Package.METHOD__ANNON:
-        setAnnon((Annotation)null);
+      case AS3Package.METHOD__ANNOTATIONS:
+        getAnnotations().clear();
         return;
       case AS3Package.METHOD__MODIFIER:
         setModifier((Modifier)null);
@@ -538,8 +505,8 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   {
     switch (featureID)
     {
-      case AS3Package.METHOD__ANNON:
-        return annon != null;
+      case AS3Package.METHOD__ANNOTATIONS:
+        return annotations != null && !annotations.isEmpty();
       case AS3Package.METHOD__MODIFIER:
         return modifier != null;
       case AS3Package.METHOD__NAME:

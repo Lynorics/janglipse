@@ -32,12 +32,12 @@ public interface forInit extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Decl</em>' containment reference.
-   * @see #setDecl(Declaration)
+   * @see #setDecl(VariableDeclaration)
    * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getforInit_Decl()
    * @model containment="true"
    * @generated
    */
-  Declaration getDecl();
+  VariableDeclaration getDecl();
 
   /**
    * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.forInit#getDecl <em>Decl</em>}' containment reference.
@@ -47,7 +47,7 @@ public interface forInit extends EObject
    * @see #getDecl()
    * @generated
    */
-  void setDecl(Declaration value);
+  void setDecl(VariableDeclaration value);
 
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference.
