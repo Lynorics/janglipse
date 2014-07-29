@@ -65,6 +65,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//InterfaceMethod/params"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//InterfaceMethod/type"/>
     </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//functionExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//functionExpression/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//functionExpression/func"/>
+    </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//functionCommon">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//functionCommon/sig"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//functionCommon/block"/>
+    </genClasses>
     <genClasses ecoreClass="AS3.ecore#//Class">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/annotations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/modifier"/>
@@ -257,9 +265,11 @@
     <genClasses ecoreClass="AS3.ecore#//regexpLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//regexpLiteral/s"/>
     </genClasses>
-    <genClasses ecoreClass="AS3.ecore#//newExpression"/>
+    <genClasses ecoreClass="AS3.ecore#//newExpression">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//newExpression/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//newExpression/args"/>
+    </genClasses>
     <genClasses ecoreClass="AS3.ecore#//fullNewSubexpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//fullNewSubexpression/args"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//fullNewSubexpression/expr"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//fullNewSubexpression/fnsd"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//fullNewSubexpression/quali"/>
@@ -370,14 +380,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//WithStatement/cond"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//WithStatement/statement"/>
     </genClasses>
-    <genClasses ecoreClass="AS3.ecore#//functionCommon">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//functionCommon/sig"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//functionCommon/block"/>
-    </genClasses>
-    <genClasses ecoreClass="AS3.ecore#//functionExpression">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//functionExpression/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//functionExpression/func"/>
-    </genClasses>
     <genClasses ecoreClass="AS3.ecore#//XmlConstant">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//XmlConstant/value"/>
     </genClasses>
@@ -395,5 +397,8 @@
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//This"/>
     <genClasses ecoreClass="AS3.ecore#//Null"/>
+    <genClasses ecoreClass="AS3.ecore#//SymbolRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//SymbolRef/symbol"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

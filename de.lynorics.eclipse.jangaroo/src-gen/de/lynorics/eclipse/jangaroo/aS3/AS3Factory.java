@@ -122,6 +122,24 @@ public interface AS3Factory extends EFactory
   InterfaceMethod createInterfaceMethod();
 
   /**
+   * Returns a new object of class '<em>function Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>function Expression</em>'.
+   * @generated
+   */
+  functionExpression createfunctionExpression();
+
+  /**
+   * Returns a new object of class '<em>function Common</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>function Common</em>'.
+   * @generated
+   */
+  functionCommon createfunctionCommon();
+
+  /**
    * Returns a new object of class '<em>Class</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -923,24 +941,6 @@ public interface AS3Factory extends EFactory
   WithStatement createWithStatement();
 
   /**
-   * Returns a new object of class '<em>function Common</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>function Common</em>'.
-   * @generated
-   */
-  functionCommon createfunctionCommon();
-
-  /**
-   * Returns a new object of class '<em>function Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>function Expression</em>'.
-   * @generated
-   */
-  functionExpression createfunctionExpression();
-
-  /**
    * Returns a new object of class '<em>Xml Constant</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1002,6 +1002,15 @@ public interface AS3Factory extends EFactory
    * @generated
    */
   Null createNull();
+
+  /**
+   * Returns a new object of class '<em>Symbol Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Symbol Ref</em>'.
+   * @generated
+   */
+  SymbolRef createSymbolRef();
 
   /**
    * Returns the package supported by this factory.

@@ -13,6 +13,8 @@ import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter
 import org.eclipse.xtext.formatting.impl.FormattingConfig
 import de.lynorics.eclipse.jangaroo.services.AS3GrammarAccess
 import com.google.inject.Inject
+import org.eclipse.xtext.Keyword
+import org.eclipse.xtext.util.Pair;
 
 // import com.google.inject.Inject;
 // import de.lynorics.eclipse.jangaroo.services.AS3GrammarAccess
@@ -29,8 +31,69 @@ class AS3Formatter extends AbstractDeclarativeFormatter {
   @Inject AS3GrammarAccess g
 
   override protected void configureFormatting(FormattingConfig c) {
+  	// format global
+    //GenericFormatter.genericFormatting(c, g);
+    c.setLinewrap(0, 1, 2).before(g.getSL_COMMENTRule());
+    c.setLinewrap(0, 1, 2).before(g.getML_COMMENTRule());
+    c.setLinewrap(0, 1, 1).after(g.getML_COMMENTRule());
     c.setAutoLinewrap(120);
+    for (Pair<Keyword, Keyword> pair: g.findKeywordPairs("(",")")) {
+    	c.setNoSpace().after(pair.getFirst());
+    	c.setNoSpace().before(pair.getSecond());
+    }
+	for (Keyword comma: g.findKeywords(",")) {
+		c.setNoSpace().before(comma);
+	}
+	for (Keyword colon: g.findKeywords(":")) {
+		c.setNoSpace().before(colon);
+	}
+	for (Keyword bracket: g.findKeywords("(")) {
+		c.setNoSpace().before(bracket);
+	}
+	for (Keyword semicolon: g.findKeywords(";")) {
+		c.setNoSpace().before(semicolon);
+		c.setLinewrap().after(semicolon);
+	}
+    for (Pair<Keyword, Keyword> pair: g.findKeywordPairs("{","}")) {
+    	c.setIndentation(pair.getFirst(), pair.getSecond());
+  		c.setLinewrap().before(pair.getFirst());
+  		c.setLinewrap().after(pair.getFirst());
+  		c.setLinewrap().after(pair.getSecond());
+    }
+    for (Pair<Keyword, Keyword> pair: g.findKeywordPairs("[","]")) {
+    	c.setIndentation(pair.getFirst(), pair.getSecond());
+  		c.setLinewrap().before(pair.getFirst());
+  		c.setLinewrap().after(pair.getSecond());
+		c.setNoSpace().after(pair.getFirst());
+		c.setNoSpace().before(pair.getSecond());
+    }
+  	// format package level
+  	val pac = g.getPackageAccess();
+  	c.setLinewrap().after(pac.rightCurlyBracketKeyword_7);
+  	
+  	// format class level
+  	val cla = g.getClassAccess();
+//  	c.setIndentation(cla.leftCurlyBracketKeyword_2_4, cla.rightCurlyBracketKeyword_2_6);
+  		c.setLinewrap().before(cla.annotationsAnnotationParserRuleCall_0_0);
+  	
+  	// format interface level
+  	val intf = g.getInterfaceAccess();
+//  	c.setIndentation(intf.leftCurlyBracketKeyword_2_3, intf.rightCurlyBracketKeyword_2_5);
+//  	c.setLinewrap().after(intf.leftCurlyBracketKeyword_2_3);
 
+  	// format interface method level
+  	val intfmethod = g.interfaceMethodAccess;
+  	c.setLinewrap(2).after(intfmethod.colonKeyword_2_4_0);
+  	
+  	// format interface method level
+  	val method = g.methodAccess;
+  	c.setLinewrap(2).before(method.annotationsAnnotationParserRuleCall_0_0);
+  	
+  	// format variable level
+  	val membervari = g.memberVariableDeclarationAccess;
+  	c.setLinewrap(1).after(membervari.semicolonKeyword_2);
+  	c.setNoSpace().before(membervari.semicolonKeyword_2);
+  	
     //    // indentation between { }
     //    c.setIndentation(g.LEFT_CURLYAccess.leftCurlyBracketKeyword,
     //      g.RIGHT_CURLYAccess.rightCurlyBracketKeyword);
@@ -45,7 +108,6 @@ class AS3Formatter extends AbstractDeclarativeFormatter {
     //    // remove spaces before ;
     //    c.setNoSpace.before(g.SEMICOLONRule);
     //     
-    GenericFormatter.genericFormatting(c, g);
 
     //    val f = g; 
     //    val List<Pair<Keyword,Keyword>> pairs = f.findKeywordPairs("{", "}") as List<Pair<Keyword,Keyword>>;
@@ -78,9 +140,5 @@ class AS3Formatter extends AbstractDeclarativeFormatter {
     //      c.setNoLinewrap().around(f.getParamAccess().getColonKeyword_1());
     //      c.setNoSpace().around(f.getParamAccess().getColonKeyword_1());
     //      
-    //      // formatting for Comments 
-    c.setLinewrap(0, 1, 2).before(g.getSL_COMMENTRule());
-    c.setLinewrap(0, 1, 2).before(g.getML_COMMENTRule());
-    c.setLinewrap(0, 1, 1).after(g.getML_COMMENTRule());
   }
 }

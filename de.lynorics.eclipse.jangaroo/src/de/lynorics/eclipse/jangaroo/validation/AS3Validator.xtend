@@ -21,6 +21,7 @@ import static extension de.lynorics.eclipse.jangaroo.AS3ModelUtil.*
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration
 import de.lynorics.eclipse.jangaroo.aS3.Import
 import org.eclipse.xtext.validation.CheckType
+import de.lynorics.eclipse.jangaroo.aS3.SymbolRef
 
 /**
  * Custom validation rules.
@@ -40,6 +41,7 @@ class AS3Validator extends AbstractAS3Validator {
   public static val UNREACHABLE_CODE = 'unreachableCode';
   public static val PUBLIC_API_VIOLATION = "publicApiViolation";
   public static val NAME_CLASH_VARIABLE_WITH_CLASS = "nameClashVariableWithClass";
+  public static val FORWARD_REFERENCE = "forwardReference";
 
   private def checkForSourcePath(EObject eobj) {
 	return eobj.eResource.URI.toString.contains("/src/");
@@ -116,7 +118,7 @@ class AS3Validator extends AbstractAS3Validator {
   	if (!checkForSourcePath(variable)) {
   		return
   	}
-    if (!Character.isUpperCase(variable.name.charAt(0))) {
+    if (Character.isUpperCase(variable.name.charAt(0))) {
       warning('Variable name should start with a lowercase', 
           AS3Package.Literals.VARIABLE_DECLARATION__NAME,
           VARIABLE_SHOULD_START_WITH_LOWERCASE)
@@ -208,4 +210,19 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
 
+  @Check(value=CheckType.EXPENSIVE)
+  def checkForwardReference(SymbolRef ref) {
+  	if (!checkForSourcePath(ref)) {
+  		return
+  	}
+  	val variable = ref.symbol;
+  	if (variable != null &&
+  		!ref.variablesDefinedBefore.contains(variable)) {
+			error("Variable forward not allowed",
+				AS3Package.Literals.SYMBOL_REF__SYMBOL,
+				FORWARD_REFERENCE);
+			return;
+  		}
+  }
+  
 }

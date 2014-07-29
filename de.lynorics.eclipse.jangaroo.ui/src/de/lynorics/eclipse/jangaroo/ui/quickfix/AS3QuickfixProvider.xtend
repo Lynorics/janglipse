@@ -51,6 +51,16 @@ class AS3QuickfixProvider extends org.eclipse.xtext.ui.editor.quickfix.DefaultQu
     ]
   }
 
+  @Fix(AS3Validator::VARIABLE_SHOULD_START_WITH_LOWERCASE)
+  def lowercaseVariable(Issue issue, IssueResolutionAcceptor acceptor) {
+    acceptor.accept(issue, 'Lowercase name', 'Lowercase the name.', 'upcase.png') [
+      context |
+      val xtextDocument = context.xtextDocument
+      val firstLetter = xtextDocument.get(issue.offset, 1)
+      xtextDocument.replace(issue.offset, 1, firstLetter.toLowerCase)
+    ]
+  }
+
 // TODO handle every part of the package name
   @Fix(AS3Validator::PACKAGE_SHOULD_START_WITH_LOWERCASE)
   def lowercasePackage(Issue issue, IssueResolutionAcceptor acceptor) {

@@ -139,6 +139,7 @@ MemberVariableDeclaration:
 VariableDeclaration:
   ('var'|'const') name=ID (':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))? ('=' Expression=assignmentExpression)?
 ;
+
 Parameter :
     'const'? '...'? name=ID (':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))? ('=' lit=exprOrObjectLiteral)?;
 
@@ -457,6 +458,7 @@ TerminalExpression returns Expression:
   | {BoolConstant} value=('true'| 'false')
   | {This} 'this'
   | {Null} 'null'
+  | {SymbolRef} (symbol=[VariableDeclaration]|symbol=[Parameter])
   ;
 
 number :
@@ -479,7 +481,8 @@ regexpLiteral
   ;
 
 newExpression
-  : 'new' fullNewSubexpression args+=arguments?
+//  : 'new' fullNewSubexpression args+=arguments?
+  : 'new' (type=[Interface|QualifiedName]|type=[Class|QualifiedName]) args+=arguments?
   ;
 
 fullNewSubexpression

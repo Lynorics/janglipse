@@ -3,7 +3,6 @@
 package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
-import de.lynorics.eclipse.jangaroo.aS3.arguments;
 import de.lynorics.eclipse.jangaroo.aS3.brackets;
 import de.lynorics.eclipse.jangaroo.aS3.fullNewSubexpression;
 import de.lynorics.eclipse.jangaroo.aS3.primaryExpression;
@@ -18,6 +17,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -29,7 +30,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.fullNewSubexpressionImpl#getArgs <em>Args</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.fullNewSubexpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.fullNewSubexpressionImpl#getFnsd <em>Fnsd</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.fullNewSubexpressionImpl#getQuali <em>Quali</em>}</li>
@@ -39,18 +39,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class fullNewSubexpressionImpl extends newExpressionImpl implements fullNewSubexpression
+public class fullNewSubexpressionImpl extends MinimalEObjectImpl.Container implements fullNewSubexpression
 {
-  /**
-   * The cached value of the '{@link #getArgs() <em>Args</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getArgs()
-   * @generated
-   * @ordered
-   */
-  protected EList<arguments> args;
-
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -110,20 +100,6 @@ public class fullNewSubexpressionImpl extends newExpressionImpl implements fullN
   protected EClass eStaticClass()
   {
     return AS3Package.Literals.FULL_NEW_SUBEXPRESSION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<arguments> getArgs()
-  {
-    if (args == null)
-    {
-      args = new EObjectContainmentEList<arguments>(arguments.class, this, AS3Package.FULL_NEW_SUBEXPRESSION__ARGS);
-    }
-    return args;
   }
 
   /**
@@ -192,8 +168,6 @@ public class fullNewSubexpressionImpl extends newExpressionImpl implements fullN
   {
     switch (featureID)
     {
-      case AS3Package.FULL_NEW_SUBEXPRESSION__ARGS:
-        return ((InternalEList<?>)getArgs()).basicRemove(otherEnd, msgs);
       case AS3Package.FULL_NEW_SUBEXPRESSION__EXPR:
         return ((InternalEList<?>)getExpr()).basicRemove(otherEnd, msgs);
       case AS3Package.FULL_NEW_SUBEXPRESSION__QUALI:
@@ -214,8 +188,6 @@ public class fullNewSubexpressionImpl extends newExpressionImpl implements fullN
   {
     switch (featureID)
     {
-      case AS3Package.FULL_NEW_SUBEXPRESSION__ARGS:
-        return getArgs();
       case AS3Package.FULL_NEW_SUBEXPRESSION__EXPR:
         return getExpr();
       case AS3Package.FULL_NEW_SUBEXPRESSION__FNSD:
@@ -239,10 +211,6 @@ public class fullNewSubexpressionImpl extends newExpressionImpl implements fullN
   {
     switch (featureID)
     {
-      case AS3Package.FULL_NEW_SUBEXPRESSION__ARGS:
-        getArgs().clear();
-        getArgs().addAll((Collection<? extends arguments>)newValue);
-        return;
       case AS3Package.FULL_NEW_SUBEXPRESSION__EXPR:
         getExpr().clear();
         getExpr().addAll((Collection<? extends primaryExpression>)newValue);
@@ -273,9 +241,6 @@ public class fullNewSubexpressionImpl extends newExpressionImpl implements fullN
   {
     switch (featureID)
     {
-      case AS3Package.FULL_NEW_SUBEXPRESSION__ARGS:
-        getArgs().clear();
-        return;
       case AS3Package.FULL_NEW_SUBEXPRESSION__EXPR:
         getExpr().clear();
         return;
@@ -302,8 +267,6 @@ public class fullNewSubexpressionImpl extends newExpressionImpl implements fullN
   {
     switch (featureID)
     {
-      case AS3Package.FULL_NEW_SUBEXPRESSION__ARGS:
-        return args != null && !args.isEmpty();
       case AS3Package.FULL_NEW_SUBEXPRESSION__EXPR:
         return expr != null && !expr.isEmpty();
       case AS3Package.FULL_NEW_SUBEXPRESSION__FNSD:

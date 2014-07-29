@@ -28,6 +28,7 @@ import de.lynorics.eclipse.jangaroo.aS3.RegexpConstant;
 import de.lynorics.eclipse.jangaroo.aS3.ReturnStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Statement;
 import de.lynorics.eclipse.jangaroo.aS3.StringConstant;
+import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Uses;
@@ -67,6 +68,7 @@ import de.lynorics.eclipse.jangaroo.aS3.logicalAndExpression;
 import de.lynorics.eclipse.jangaroo.aS3.logicalOrExpression;
 import de.lynorics.eclipse.jangaroo.aS3.multiplicativeExpression;
 import de.lynorics.eclipse.jangaroo.aS3.namespaceName;
+import de.lynorics.eclipse.jangaroo.aS3.newExpression;
 import de.lynorics.eclipse.jangaroo.aS3.objectLiteral;
 import de.lynorics.eclipse.jangaroo.aS3.parameterDeclarationList;
 import de.lynorics.eclipse.jangaroo.aS3.parameterRestDeclaration;
@@ -275,6 +277,12 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
+			case AS3Package.SYMBOL_REF:
+				if(context == grammarAccess.getTerminalExpressionRule()) {
+					sequence_TerminalExpression(context, (SymbolRef) semanticObject); 
+					return; 
+				}
+				else break;
 			case AS3Package.THIS:
 				if(context == grammarAccess.getTerminalExpressionRule()) {
 					sequence_TerminalExpression(context, (This) semanticObject); 
@@ -459,10 +467,6 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					sequence_fullNewSubexpression(context, (fullNewSubexpression) semanticObject); 
 					return; 
 				}
-				else if(context == grammarAccess.getNewExpressionRule()) {
-					sequence_fullNewSubexpression_newExpression(context, (fullNewSubexpression) semanticObject); 
-					return; 
-				}
 				else break;
 			case AS3Package.FUNCTION_COMMON:
 				if(context == grammarAccess.getFunctionCommonRule()) {
@@ -569,6 +573,12 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				}
 				else if(context == grammarAccess.getQualifiedIdentRule()) {
 					sequence_qualifiedIdent(context, (namespaceName) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.NEW_EXPRESSION:
+				if(context == grammarAccess.getNewExpressionRule()) {
+					sequence_newExpression(context, (newExpression) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1009,6 +1019,15 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (symbol=[VariableDeclaration|ID] | symbol=[Parameter|ID])
+	 */
+	protected void sequence_TerminalExpression(EObject context, SymbolRef semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     {This}
 	 */
 	protected void sequence_TerminalExpression(EObject context, This semanticObject) {
@@ -1359,15 +1378,6 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (expr+=primaryExpression ((fnsd+='.' quali+=qualifiedIdent) | brack+=brackets)* args+=arguments?)
-	 */
-	protected void sequence_fullNewSubexpression_newExpression(EObject context, fullNewSubexpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (sig=functionSignature block=Block)
 	 */
 	protected void sequence_functionCommon(EObject context, functionCommon semanticObject) {
@@ -1472,6 +1482,15 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     {namespaceName}
 	 */
 	protected void sequence_namespaceName(EObject context, namespaceName semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ((type=[Interface|QualifiedName] | type=[Class|QualifiedName]) args+=arguments?)
+	 */
+	protected void sequence_newExpression(EObject context, newExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

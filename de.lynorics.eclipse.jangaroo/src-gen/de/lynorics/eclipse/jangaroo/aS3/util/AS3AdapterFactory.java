@@ -34,6 +34,7 @@ import de.lynorics.eclipse.jangaroo.aS3.ReturnStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Statement;
 import de.lynorics.eclipse.jangaroo.aS3.StringConstant;
 import de.lynorics.eclipse.jangaroo.aS3.SwitchStatement;
+import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.ThrowStatement;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
@@ -235,6 +236,16 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
       public Adapter caseInterfaceMethod(InterfaceMethod object)
       {
         return createInterfaceMethodAdapter();
+      }
+      @Override
+      public Adapter casefunctionExpression(functionExpression object)
+      {
+        return createfunctionExpressionAdapter();
+      }
+      @Override
+      public Adapter casefunctionCommon(functionCommon object)
+      {
+        return createfunctionCommonAdapter();
       }
       @Override
       public Adapter caseClass(de.lynorics.eclipse.jangaroo.aS3.Class object)
@@ -682,16 +693,6 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
         return createWithStatementAdapter();
       }
       @Override
-      public Adapter casefunctionCommon(functionCommon object)
-      {
-        return createfunctionCommonAdapter();
-      }
-      @Override
-      public Adapter casefunctionExpression(functionExpression object)
-      {
-        return createfunctionExpressionAdapter();
-      }
-      @Override
       public Adapter caseXmlConstant(XmlConstant object)
       {
         return createXmlConstantAdapter();
@@ -725,6 +726,11 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
       public Adapter caseNull(Null object)
       {
         return createNullAdapter();
+      }
+      @Override
+      public Adapter caseSymbolRef(SymbolRef object)
+      {
+        return createSymbolRefAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -909,6 +915,36 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createInterfaceMethodAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.functionExpression <em>function Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.functionExpression
+   * @generated
+   */
+  public Adapter createfunctionExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.functionCommon <em>function Common</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.functionCommon
+   * @generated
+   */
+  public Adapter createfunctionCommonAdapter()
   {
     return null;
   }
@@ -2249,36 +2285,6 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.functionCommon <em>function Common</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.functionCommon
-   * @generated
-   */
-  public Adapter createfunctionCommonAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.functionExpression <em>function Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.lynorics.eclipse.jangaroo.aS3.functionExpression
-   * @generated
-   */
-  public Adapter createfunctionExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.XmlConstant <em>Xml Constant</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -2379,6 +2385,21 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNullAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.SymbolRef <em>Symbol Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.SymbolRef
+   * @generated
+   */
+  public Adapter createSymbolRefAdapter()
   {
     return null;
   }

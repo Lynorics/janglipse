@@ -35,6 +35,7 @@ class AS3OutlineTreeProvider extends DefaultOutlineTreeProvider {
         if (model.package.imp != null) {
           createNode(parentNode, model.package.imp)
         }
+//       TODO add uses
         if (model.package.classes != null) {
           for (EObject clazz: model.package.classes)
           createNode(parentNode, clazz)
@@ -44,6 +45,7 @@ class AS3OutlineTreeProvider extends DefaultOutlineTreeProvider {
         if (model.imp != null) {
           createNode(parentNode, model.imp)
         }
+//       TODO add uses
         if (model.classes != null) {
           for (EObject clazz: model.classes)
             createNode(parentNode, clazz)

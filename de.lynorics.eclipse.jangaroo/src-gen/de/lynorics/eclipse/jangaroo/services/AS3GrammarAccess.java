@@ -725,6 +725,68 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getSemicolonKeyword_2_5() { return cSemicolonKeyword_2_5; }
 	}
 
+	public class FunctionExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "functionExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cFunctionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cFuncAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cFuncFunctionCommonParserRuleCall_2_0 = (RuleCall)cFuncAssignment_2.eContents().get(0);
+		
+		//// TODO eliminate redundant/duplicate definitions of function
+		// functionExpression:
+		//	"function" name=ID? func=functionCommon;
+		public ParserRule getRule() { return rule; }
+
+		//"function" name=ID? func=functionCommon
+		public Group getGroup() { return cGroup; }
+
+		//"function"
+		public Keyword getFunctionKeyword_0() { return cFunctionKeyword_0; }
+
+		//name=ID?
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//func=functionCommon
+		public Assignment getFuncAssignment_2() { return cFuncAssignment_2; }
+
+		//functionCommon
+		public RuleCall getFuncFunctionCommonParserRuleCall_2_0() { return cFuncFunctionCommonParserRuleCall_2_0; }
+	}
+
+	public class FunctionCommonElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "functionCommon");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cSigAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cSigFunctionSignatureParserRuleCall_0_0 = (RuleCall)cSigAssignment_0.eContents().get(0);
+		private final Assignment cBlockAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cBlockBlockParserRuleCall_1_0 = (RuleCall)cBlockAssignment_1.eContents().get(0);
+		
+		//// TODO: block should be optional here,
+		// functionCommon:
+		//	sig=functionSignature block=Block;
+		public ParserRule getRule() { return rule; }
+
+		//sig=functionSignature block=Block
+		public Group getGroup() { return cGroup; }
+
+		//sig=functionSignature
+		public Assignment getSigAssignment_0() { return cSigAssignment_0; }
+
+		//functionSignature
+		public RuleCall getSigFunctionSignatureParserRuleCall_0_0() { return cSigFunctionSignatureParserRuleCall_0_0; }
+
+		//block=Block
+		public Assignment getBlockAssignment_1() { return cBlockAssignment_1; }
+
+		//Block
+		public RuleCall getBlockBlockParserRuleCall_1_0() { return cBlockBlockParserRuleCall_1_0; }
+	}
+
 	public class ClassElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Class");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -1318,27 +1380,6 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cLitAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final RuleCall cLitExprOrObjectLiteralParserRuleCall_4_1_0 = (RuleCall)cLitAssignment_4_1.eContents().get(0);
 		
-		/// *
-		//variableDeclarator
-		//  : identi type=typeExpression? var=variableInitializer?
-		//  ;
-		//Declaration
-		//  : varOrConst variableDeclarator
-		//    tail=declarationTail
-		//  ;
-		//
-		//varOrConst
-		//  : 'var' | 'const'
-		//  ;
-		//  
-		//declarationTail
-		//  : {declarationTail} (',' var+=variableDeclarator)*
-		//  ;
-		//
-		//variableInitializer
-		//  : '=' expr=assignmentExpression
-		//  ;
-		// * /
 		//Parameter:
 		//	"const"? "..."? name=ID (":" ("void" | "*" | type=[Interface|QualifiedName] | type=[Class|QualifiedName]))? ("="
 		//	lit=exprOrObjectLiteral)?;
@@ -3454,14 +3495,25 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
 		private final Action cNullAction_6_0 = (Action)cGroup_6.eContents().get(0);
 		private final Keyword cNullKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
+		private final Action cSymbolRefAction_7_0 = (Action)cGroup_7.eContents().get(0);
+		private final Alternatives cAlternatives_7_1 = (Alternatives)cGroup_7.eContents().get(1);
+		private final Assignment cSymbolAssignment_7_1_0 = (Assignment)cAlternatives_7_1.eContents().get(0);
+		private final CrossReference cSymbolVariableDeclarationCrossReference_7_1_0_0 = (CrossReference)cSymbolAssignment_7_1_0.eContents().get(0);
+		private final RuleCall cSymbolVariableDeclarationIDTerminalRuleCall_7_1_0_0_1 = (RuleCall)cSymbolVariableDeclarationCrossReference_7_1_0_0.eContents().get(1);
+		private final Assignment cSymbolAssignment_7_1_1 = (Assignment)cAlternatives_7_1.eContents().get(1);
+		private final CrossReference cSymbolParameterCrossReference_7_1_1_0 = (CrossReference)cSymbolAssignment_7_1_1.eContents().get(0);
+		private final RuleCall cSymbolParameterIDTerminalRuleCall_7_1_1_0_1 = (RuleCall)cSymbolParameterCrossReference_7_1_1_0.eContents().get(1);
 		
 		//TerminalExpression returns Expression:
 		//	{XmlConstant} value=xmlLiteral | {RegexpConstant} value=regexpLiteral | {NumberConstant} value=number |
-		//	{StringConstant} value=STRING | {BoolConstant} value=("true" | "false") | {This} "this" | {Null} "null";
+		//	{StringConstant} value=STRING | {BoolConstant} value=("true" | "false") | {This} "this" | {Null} "null" | {SymbolRef}
+		//	(symbol=[VariableDeclaration] | symbol=[Parameter]);
 		public ParserRule getRule() { return rule; }
 
 		//{XmlConstant} value=xmlLiteral | {RegexpConstant} value=regexpLiteral | {NumberConstant} value=number | {StringConstant}
-		//value=STRING | {BoolConstant} value=("true" | "false") | {This} "this" | {Null} "null"
+		//value=STRING | {BoolConstant} value=("true" | "false") | {This} "this" | {Null} "null" | {SymbolRef}
+		//(symbol=[VariableDeclaration] | symbol=[Parameter])
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//{XmlConstant} value=xmlLiteral
@@ -3547,6 +3599,33 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 
 		//"null"
 		public Keyword getNullKeyword_6_1() { return cNullKeyword_6_1; }
+
+		//{SymbolRef} (symbol=[VariableDeclaration] | symbol=[Parameter])
+		public Group getGroup_7() { return cGroup_7; }
+
+		//{SymbolRef}
+		public Action getSymbolRefAction_7_0() { return cSymbolRefAction_7_0; }
+
+		//symbol=[VariableDeclaration] | symbol=[Parameter]
+		public Alternatives getAlternatives_7_1() { return cAlternatives_7_1; }
+
+		//symbol=[VariableDeclaration]
+		public Assignment getSymbolAssignment_7_1_0() { return cSymbolAssignment_7_1_0; }
+
+		//[VariableDeclaration]
+		public CrossReference getSymbolVariableDeclarationCrossReference_7_1_0_0() { return cSymbolVariableDeclarationCrossReference_7_1_0_0; }
+
+		//ID
+		public RuleCall getSymbolVariableDeclarationIDTerminalRuleCall_7_1_0_0_1() { return cSymbolVariableDeclarationIDTerminalRuleCall_7_1_0_0_1; }
+
+		//symbol=[Parameter]
+		public Assignment getSymbolAssignment_7_1_1() { return cSymbolAssignment_7_1_1; }
+
+		//[Parameter]
+		public CrossReference getSymbolParameterCrossReference_7_1_1_0() { return cSymbolParameterCrossReference_7_1_1_0; }
+
+		//ID
+		public RuleCall getSymbolParameterIDTerminalRuleCall_7_1_1_0_1() { return cSymbolParameterIDTerminalRuleCall_7_1_1_0_1; }
 	}
 
 	public class NumberElements extends AbstractParserRuleElementFinder {
@@ -3614,22 +3693,47 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "newExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cNewKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cFullNewSubexpressionParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cTypeAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final CrossReference cTypeInterfaceCrossReference_1_0_0 = (CrossReference)cTypeAssignment_1_0.eContents().get(0);
+		private final RuleCall cTypeInterfaceQualifiedNameParserRuleCall_1_0_0_1 = (RuleCall)cTypeInterfaceCrossReference_1_0_0.eContents().get(1);
+		private final Assignment cTypeAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final CrossReference cTypeClassCrossReference_1_1_0 = (CrossReference)cTypeAssignment_1_1.eContents().get(0);
+		private final RuleCall cTypeClassQualifiedNameParserRuleCall_1_1_0_1 = (RuleCall)cTypeClassCrossReference_1_1_0.eContents().get(1);
 		private final Assignment cArgsAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cArgsArgumentsParserRuleCall_2_0 = (RuleCall)cArgsAssignment_2.eContents().get(0);
 		
-		//newExpression:
-		//	"new" fullNewSubexpression args+=arguments?;
+		////  : 'new' fullNewSubexpression args+=arguments?
+		// newExpression:
+		//	"new" (type=[Interface|QualifiedName] | type=[Class|QualifiedName]) args+=arguments?;
 		public ParserRule getRule() { return rule; }
 
-		//"new" fullNewSubexpression args+=arguments?
+		//"new" (type=[Interface|QualifiedName] | type=[Class|QualifiedName]) args+=arguments?
 		public Group getGroup() { return cGroup; }
 
 		//"new"
 		public Keyword getNewKeyword_0() { return cNewKeyword_0; }
 
-		//fullNewSubexpression
-		public RuleCall getFullNewSubexpressionParserRuleCall_1() { return cFullNewSubexpressionParserRuleCall_1; }
+		//type=[Interface|QualifiedName] | type=[Class|QualifiedName]
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+
+		//type=[Interface|QualifiedName]
+		public Assignment getTypeAssignment_1_0() { return cTypeAssignment_1_0; }
+
+		//[Interface|QualifiedName]
+		public CrossReference getTypeInterfaceCrossReference_1_0_0() { return cTypeInterfaceCrossReference_1_0_0; }
+
+		//QualifiedName
+		public RuleCall getTypeInterfaceQualifiedNameParserRuleCall_1_0_0_1() { return cTypeInterfaceQualifiedNameParserRuleCall_1_0_0_1; }
+
+		//type=[Class|QualifiedName]
+		public Assignment getTypeAssignment_1_1() { return cTypeAssignment_1_1; }
+
+		//[Class|QualifiedName]
+		public CrossReference getTypeClassCrossReference_1_1_0() { return cTypeClassCrossReference_1_1_0; }
+
+		//QualifiedName
+		public RuleCall getTypeClassQualifiedNameParserRuleCall_1_1_0_1() { return cTypeClassQualifiedNameParserRuleCall_1_1_0_1; }
 
 		//args+=arguments?
 		public Assignment getArgsAssignment_2() { return cArgsAssignment_2; }
@@ -5045,67 +5149,6 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		//Statement
 		public RuleCall getStatementStatementParserRuleCall_2_0() { return cStatementStatementParserRuleCall_2_0; }
 	}
-
-	public class FunctionCommonElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "functionCommon");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cSigAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cSigFunctionSignatureParserRuleCall_0_0 = (RuleCall)cSigAssignment_0.eContents().get(0);
-		private final Assignment cBlockAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cBlockBlockParserRuleCall_1_0 = (RuleCall)cBlockAssignment_1.eContents().get(0);
-		
-		//// TODO: block should be optional here,
-		// functionCommon:
-		//	sig=functionSignature block=Block;
-		public ParserRule getRule() { return rule; }
-
-		//sig=functionSignature block=Block
-		public Group getGroup() { return cGroup; }
-
-		//sig=functionSignature
-		public Assignment getSigAssignment_0() { return cSigAssignment_0; }
-
-		//functionSignature
-		public RuleCall getSigFunctionSignatureParserRuleCall_0_0() { return cSigFunctionSignatureParserRuleCall_0_0; }
-
-		//block=Block
-		public Assignment getBlockAssignment_1() { return cBlockAssignment_1; }
-
-		//Block
-		public RuleCall getBlockBlockParserRuleCall_1_0() { return cBlockBlockParserRuleCall_1_0; }
-	}
-
-	public class FunctionExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "functionExpression");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cFunctionKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cFuncAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cFuncFunctionCommonParserRuleCall_2_0 = (RuleCall)cFuncAssignment_2.eContents().get(0);
-		
-		//functionExpression:
-		//	"function" name=ID? func=functionCommon;
-		public ParserRule getRule() { return rule; }
-
-		//"function" name=ID? func=functionCommon
-		public Group getGroup() { return cGroup; }
-
-		//"function"
-		public Keyword getFunctionKeyword_0() { return cFunctionKeyword_0; }
-
-		//name=ID?
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-
-		//func=functionCommon
-		public Assignment getFuncAssignment_2() { return cFuncAssignment_2; }
-
-		//functionCommon
-		public RuleCall getFuncFunctionCommonParserRuleCall_2_0() { return cFuncFunctionCommonParserRuleCall_2_0; }
-	}
 	
 	
 	public class AccessLevelElements extends AbstractEnumRuleElementFinder {
@@ -5165,6 +5208,8 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	private QualifiedNameElements pQualifiedName;
 	private InterfaceElements pInterface;
 	private InterfaceMethodElements pInterfaceMethod;
+	private FunctionExpressionElements pFunctionExpression;
+	private FunctionCommonElements pFunctionCommon;
 	private ClassElements pClass;
 	private AccessorRoleElements pAccessorRole;
 	private MemberElements pMember;
@@ -5269,8 +5314,6 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	private WhileStatementElements pWhileStatement;
 	private DoWhileStatementElements pDoWhileStatement;
 	private WithStatementElements pWithStatement;
-	private FunctionCommonElements pFunctionCommon;
-	private FunctionExpressionElements pFunctionExpression;
 	private TerminalRule tHEX_LITERAL;
 	private TerminalRule tOCTAL;
 	private TerminalRule tFLOAT;
@@ -5455,6 +5498,28 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		return getInterfaceMethodAccess().getRule();
 	}
 
+	//// TODO eliminate redundant/duplicate definitions of function
+	// functionExpression:
+	//	"function" name=ID? func=functionCommon;
+	public FunctionExpressionElements getFunctionExpressionAccess() {
+		return (pFunctionExpression != null) ? pFunctionExpression : (pFunctionExpression = new FunctionExpressionElements());
+	}
+	
+	public ParserRule getFunctionExpressionRule() {
+		return getFunctionExpressionAccess().getRule();
+	}
+
+	//// TODO: block should be optional here,
+	// functionCommon:
+	//	sig=functionSignature block=Block;
+	public FunctionCommonElements getFunctionCommonAccess() {
+		return (pFunctionCommon != null) ? pFunctionCommon : (pFunctionCommon = new FunctionCommonElements());
+	}
+	
+	public ParserRule getFunctionCommonRule() {
+		return getFunctionCommonAccess().getRule();
+	}
+
 	//Class:
 	//	annotations+=Annotation* modifier=Modifier? ("class" name=ID ("extends" superType=[Class|QualifiedName])?
 	//	("implements" types+=[Interface|QualifiedName] ("," types+=[Interface|QualifiedName])*)? "{" members+=Member* "}");
@@ -5549,27 +5614,6 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		return getVariableDeclarationAccess().getRule();
 	}
 
-	/// *
-	//variableDeclarator
-	//  : identi type=typeExpression? var=variableInitializer?
-	//  ;
-	//Declaration
-	//  : varOrConst variableDeclarator
-	//    tail=declarationTail
-	//  ;
-	//
-	//varOrConst
-	//  : 'var' | 'const'
-	//  ;
-	//  
-	//declarationTail
-	//  : {declarationTail} (',' var+=variableDeclarator)*
-	//  ;
-	//
-	//variableInitializer
-	//  : '=' expr=assignmentExpression
-	//  ;
-	// * /
 	//Parameter:
 	//	"const"? "..."? name=ID (":" ("void" | "*" | type=[Interface|QualifiedName] | type=[Class|QualifiedName]))? ("="
 	//	lit=exprOrObjectLiteral)?;
@@ -6096,7 +6140,8 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 
 	//TerminalExpression returns Expression:
 	//	{XmlConstant} value=xmlLiteral | {RegexpConstant} value=regexpLiteral | {NumberConstant} value=number |
-	//	{StringConstant} value=STRING | {BoolConstant} value=("true" | "false") | {This} "this" | {Null} "null";
+	//	{StringConstant} value=STRING | {BoolConstant} value=("true" | "false") | {This} "this" | {Null} "null" | {SymbolRef}
+	//	(symbol=[VariableDeclaration] | symbol=[Parameter]);
 	public TerminalExpressionElements getTerminalExpressionAccess() {
 		return (pTerminalExpression != null) ? pTerminalExpression : (pTerminalExpression = new TerminalExpressionElements());
 	}
@@ -6138,8 +6183,9 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		return getRegexpLiteralAccess().getRule();
 	}
 
-	//newExpression:
-	//	"new" fullNewSubexpression args+=arguments?;
+	////  : 'new' fullNewSubexpression args+=arguments?
+	// newExpression:
+	//	"new" (type=[Interface|QualifiedName] | type=[Class|QualifiedName]) args+=arguments?;
 	public NewExpressionElements getNewExpressionAccess() {
 		return (pNewExpression != null) ? pNewExpression : (pNewExpression = new NewExpressionElements());
 	}
@@ -6577,27 +6623,6 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getWithStatementRule() {
 		return getWithStatementAccess().getRule();
-	}
-
-	//// TODO: block should be optional here,
-	// functionCommon:
-	//	sig=functionSignature block=Block;
-	public FunctionCommonElements getFunctionCommonAccess() {
-		return (pFunctionCommon != null) ? pFunctionCommon : (pFunctionCommon = new FunctionCommonElements());
-	}
-	
-	public ParserRule getFunctionCommonRule() {
-		return getFunctionCommonAccess().getRule();
-	}
-
-	//functionExpression:
-	//	"function" name=ID? func=functionCommon;
-	public FunctionExpressionElements getFunctionExpressionAccess() {
-		return (pFunctionExpression != null) ? pFunctionExpression : (pFunctionExpression = new FunctionExpressionElements());
-	}
-	
-	public ParserRule getFunctionExpressionRule() {
-		return getFunctionExpressionAccess().getRule();
 	}
 
 	//terminal HEX_LITERAL returns ecore::EBigDecimal:

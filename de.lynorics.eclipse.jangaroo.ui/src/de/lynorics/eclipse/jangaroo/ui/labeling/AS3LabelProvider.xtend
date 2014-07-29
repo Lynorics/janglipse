@@ -210,4 +210,8 @@ class AS3LabelProvider extends DefaultEObjectLabelProvider {
       }
     }
 
+    def image(VariableDeclaration varDecl) {
+          return "outline-field-internal.gif";
+    }
+
 }

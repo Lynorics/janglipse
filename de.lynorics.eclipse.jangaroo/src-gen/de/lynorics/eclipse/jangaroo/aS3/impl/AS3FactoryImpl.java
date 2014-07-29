@@ -36,6 +36,7 @@ import de.lynorics.eclipse.jangaroo.aS3.ReturnStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Statement;
 import de.lynorics.eclipse.jangaroo.aS3.StringConstant;
 import de.lynorics.eclipse.jangaroo.aS3.SwitchStatement;
+import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.ThrowStatement;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
@@ -185,6 +186,8 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.ANNOTATION_FIELD: return createannotationField();
       case AS3Package.INTERFACE: return createInterface();
       case AS3Package.INTERFACE_METHOD: return createInterfaceMethod();
+      case AS3Package.FUNCTION_EXPRESSION: return createfunctionExpression();
+      case AS3Package.FUNCTION_COMMON: return createfunctionCommon();
       case AS3Package.CLASS: return createClass();
       case AS3Package.MEMBER: return createMember();
       case AS3Package.METHOD: return createMethod();
@@ -274,8 +277,6 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.WHILE_STATEMENT: return createWhileStatement();
       case AS3Package.DO_WHILE_STATEMENT: return createDoWhileStatement();
       case AS3Package.WITH_STATEMENT: return createWithStatement();
-      case AS3Package.FUNCTION_COMMON: return createfunctionCommon();
-      case AS3Package.FUNCTION_EXPRESSION: return createfunctionExpression();
       case AS3Package.XML_CONSTANT: return createXmlConstant();
       case AS3Package.REGEXP_CONSTANT: return createRegexpConstant();
       case AS3Package.NUMBER_CONSTANT: return createNumberConstant();
@@ -283,6 +284,7 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.BOOL_CONSTANT: return createBoolConstant();
       case AS3Package.THIS: return createThis();
       case AS3Package.NULL: return createNull();
+      case AS3Package.SYMBOL_REF: return createSymbolRef();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -441,6 +443,28 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
   {
     InterfaceMethodImpl interfaceMethod = new InterfaceMethodImpl();
     return interfaceMethod;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public functionExpression createfunctionExpression()
+  {
+    functionExpressionImpl functionExpression = new functionExpressionImpl();
+    return functionExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public functionCommon createfunctionCommon()
+  {
+    functionCommonImpl functionCommon = new functionCommonImpl();
+    return functionCommon;
   }
 
   /**
@@ -1427,28 +1451,6 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public functionCommon createfunctionCommon()
-  {
-    functionCommonImpl functionCommon = new functionCommonImpl();
-    return functionCommon;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public functionExpression createfunctionExpression()
-  {
-    functionExpressionImpl functionExpression = new functionExpressionImpl();
-    return functionExpression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public XmlConstant createXmlConstant()
   {
     XmlConstantImpl xmlConstant = new XmlConstantImpl();
@@ -1519,6 +1521,17 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
   {
     NullImpl null_ = new NullImpl();
     return null_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SymbolRef createSymbolRef()
+  {
+    SymbolRefImpl symbolRef = new SymbolRefImpl();
+    return symbolRef;
   }
 
   /**

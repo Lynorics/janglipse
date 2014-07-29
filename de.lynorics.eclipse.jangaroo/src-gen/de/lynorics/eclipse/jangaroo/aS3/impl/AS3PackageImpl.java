@@ -36,6 +36,7 @@ import de.lynorics.eclipse.jangaroo.aS3.ReturnStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Statement;
 import de.lynorics.eclipse.jangaroo.aS3.StringConstant;
 import de.lynorics.eclipse.jangaroo.aS3.SwitchStatement;
+import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.ThrowStatement;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
@@ -205,6 +206,20 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * @generated
    */
   private EClass interfaceMethodEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass functionExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass functionCommonEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -834,20 +849,6 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass functionCommonEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass functionExpressionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass xmlConstantEClass = null;
 
   /**
@@ -891,6 +892,13 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * @generated
    */
   private EClass nullEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass symbolRefEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1360,6 +1368,66 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
   public EReference getInterfaceMethod_Type()
   {
     return (EReference)interfaceMethodEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getfunctionExpression()
+  {
+    return functionExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getfunctionExpression_Name()
+  {
+    return (EAttribute)functionExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getfunctionExpression_Func()
+  {
+    return (EReference)functionExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getfunctionCommon()
+  {
+    return functionCommonEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getfunctionCommon_Sig()
+  {
+    return (EReference)functionCommonEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getfunctionCommon_Block()
+  {
+    return (EReference)functionCommonEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2877,6 +2945,26 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getnewExpression_Type()
+  {
+    return (EReference)newExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getnewExpression_Args()
+  {
+    return (EReference)newExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getfullNewSubexpression()
   {
     return fullNewSubexpressionEClass;
@@ -2887,7 +2975,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getfullNewSubexpression_Args()
+  public EReference getfullNewSubexpression_Expr()
   {
     return (EReference)fullNewSubexpressionEClass.getEStructuralFeatures().get(0);
   }
@@ -2897,19 +2985,9 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getfullNewSubexpression_Expr()
-  {
-    return (EReference)fullNewSubexpressionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getfullNewSubexpression_Fnsd()
   {
-    return (EAttribute)fullNewSubexpressionEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)fullNewSubexpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2919,7 +2997,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    */
   public EReference getfullNewSubexpression_Quali()
   {
-    return (EReference)fullNewSubexpressionEClass.getEStructuralFeatures().get(3);
+    return (EReference)fullNewSubexpressionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2929,7 +3007,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    */
   public EReference getfullNewSubexpression_Brack()
   {
-    return (EReference)fullNewSubexpressionEClass.getEStructuralFeatures().get(4);
+    return (EReference)fullNewSubexpressionEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -3737,66 +3815,6 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getfunctionCommon()
-  {
-    return functionCommonEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getfunctionCommon_Sig()
-  {
-    return (EReference)functionCommonEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getfunctionCommon_Block()
-  {
-    return (EReference)functionCommonEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getfunctionExpression()
-  {
-    return functionExpressionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getfunctionExpression_Name()
-  {
-    return (EAttribute)functionExpressionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getfunctionExpression_Func()
-  {
-    return (EReference)functionExpressionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getXmlConstant()
   {
     return xmlConstantEClass;
@@ -3917,6 +3935,26 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getSymbolRef()
+  {
+    return symbolRefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSymbolRef_Symbol()
+  {
+    return (EReference)symbolRefEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getAccessLevel()
   {
     return accessLevelEEnum;
@@ -4002,6 +4040,14 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     createEAttribute(interfaceMethodEClass, INTERFACE_METHOD__ACCESSOR);
     createEReference(interfaceMethodEClass, INTERFACE_METHOD__PARAMS);
     createEReference(interfaceMethodEClass, INTERFACE_METHOD__TYPE);
+
+    functionExpressionEClass = createEClass(FUNCTION_EXPRESSION);
+    createEAttribute(functionExpressionEClass, FUNCTION_EXPRESSION__NAME);
+    createEReference(functionExpressionEClass, FUNCTION_EXPRESSION__FUNC);
+
+    functionCommonEClass = createEClass(FUNCTION_COMMON);
+    createEReference(functionCommonEClass, FUNCTION_COMMON__SIG);
+    createEReference(functionCommonEClass, FUNCTION_COMMON__BLOCK);
 
     classEClass = createEClass(CLASS);
     createEReference(classEClass, CLASS__ANNOTATIONS);
@@ -4204,9 +4250,10 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     createEAttribute(regexpLiteralEClass, REGEXP_LITERAL__S);
 
     newExpressionEClass = createEClass(NEW_EXPRESSION);
+    createEReference(newExpressionEClass, NEW_EXPRESSION__TYPE);
+    createEReference(newExpressionEClass, NEW_EXPRESSION__ARGS);
 
     fullNewSubexpressionEClass = createEClass(FULL_NEW_SUBEXPRESSION);
-    createEReference(fullNewSubexpressionEClass, FULL_NEW_SUBEXPRESSION__ARGS);
     createEReference(fullNewSubexpressionEClass, FULL_NEW_SUBEXPRESSION__EXPR);
     createEAttribute(fullNewSubexpressionEClass, FULL_NEW_SUBEXPRESSION__FNSD);
     createEReference(fullNewSubexpressionEClass, FULL_NEW_SUBEXPRESSION__QUALI);
@@ -4329,14 +4376,6 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     createEReference(withStatementEClass, WITH_STATEMENT__COND);
     createEReference(withStatementEClass, WITH_STATEMENT__STATEMENT);
 
-    functionCommonEClass = createEClass(FUNCTION_COMMON);
-    createEReference(functionCommonEClass, FUNCTION_COMMON__SIG);
-    createEReference(functionCommonEClass, FUNCTION_COMMON__BLOCK);
-
-    functionExpressionEClass = createEClass(FUNCTION_EXPRESSION);
-    createEAttribute(functionExpressionEClass, FUNCTION_EXPRESSION__NAME);
-    createEReference(functionExpressionEClass, FUNCTION_EXPRESSION__FUNC);
-
     xmlConstantEClass = createEClass(XML_CONSTANT);
     createEAttribute(xmlConstantEClass, XML_CONSTANT__VALUE);
 
@@ -4355,6 +4394,9 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     thisEClass = createEClass(THIS);
 
     nullEClass = createEClass(NULL);
+
+    symbolRefEClass = createEClass(SYMBOL_REF);
+    createEReference(symbolRefEClass, SYMBOL_REF__SYMBOL);
 
     // Create enums
     accessLevelEEnum = createEEnum(ACCESS_LEVEL);
@@ -4420,7 +4462,6 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     unaryExpressionEClass.getESuperTypes().add(this.getunaryExpressionNotPlusMinus());
     postfixExpressionEClass.getESuperTypes().add(this.getunaryExpressionNotPlusMinus());
     e4xAttributeIdentifierEClass.getESuperTypes().add(this.getqualifiedIdentifier());
-    fullNewSubexpressionEClass.getESuperTypes().add(this.getnewExpression());
     encapsulatedExpressionEClass.getESuperTypes().add(this.getexpressionQualifiedIdentifier());
     basicParameterDeclarationEClass.getESuperTypes().add(this.getparameterDeclaration());
     parameterRestDeclarationEClass.getESuperTypes().add(this.getparameterDeclaration());
@@ -4446,6 +4487,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     boolConstantEClass.getESuperTypes().add(this.getExpression());
     thisEClass.getESuperTypes().add(this.getExpression());
     nullEClass.getESuperTypes().add(this.getExpression());
+    symbolRefEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4498,6 +4540,14 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     initEAttribute(getInterfaceMethod_Accessor(), ecorePackage.getEString(), "accessor", null, 0, 1, InterfaceMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInterfaceMethod_Params(), this.getParameter(), null, "params", null, 0, -1, InterfaceMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInterfaceMethod_Type(), ecorePackage.getEObject(), null, "type", null, 0, 1, InterfaceMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionExpressionEClass, functionExpression.class, "functionExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getfunctionExpression_Name(), ecorePackage.getEString(), "name", null, 0, 1, functionExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getfunctionExpression_Func(), this.getfunctionCommon(), null, "func", null, 0, 1, functionExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionCommonEClass, functionCommon.class, "functionCommon", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getfunctionCommon_Sig(), this.getfunctionSignature(), null, "sig", null, 0, 1, functionCommon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getfunctionCommon_Block(), this.getBlock(), null, "block", null, 0, 1, functionCommon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(classEClass, de.lynorics.eclipse.jangaroo.aS3.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getClass_Annotations(), this.getAnnotation(), null, "annotations", null, 0, -1, de.lynorics.eclipse.jangaroo.aS3.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4700,9 +4750,10 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     initEAttribute(getregexpLiteral_S(), ecorePackage.getEString(), "s", null, 0, 1, regexpLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(newExpressionEClass, newExpression.class, "newExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getnewExpression_Type(), ecorePackage.getEObject(), null, "type", null, 0, 1, newExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getnewExpression_Args(), this.getarguments(), null, "args", null, 0, -1, newExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fullNewSubexpressionEClass, fullNewSubexpression.class, "fullNewSubexpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getfullNewSubexpression_Args(), this.getarguments(), null, "args", null, 0, -1, fullNewSubexpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getfullNewSubexpression_Expr(), this.getprimaryExpression(), null, "expr", null, 0, -1, fullNewSubexpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getfullNewSubexpression_Fnsd(), ecorePackage.getEString(), "fnsd", null, 0, -1, fullNewSubexpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getfullNewSubexpression_Quali(), this.getqualifiedIdent(), null, "quali", null, 0, -1, fullNewSubexpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4825,14 +4876,6 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     initEReference(getWithStatement_Cond(), this.getCondition(), null, "cond", null, 0, 1, WithStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWithStatement_Statement(), this.getStatement(), null, "statement", null, 0, 1, WithStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(functionCommonEClass, functionCommon.class, "functionCommon", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getfunctionCommon_Sig(), this.getfunctionSignature(), null, "sig", null, 0, 1, functionCommon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getfunctionCommon_Block(), this.getBlock(), null, "block", null, 0, 1, functionCommon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(functionExpressionEClass, functionExpression.class, "functionExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getfunctionExpression_Name(), ecorePackage.getEString(), "name", null, 0, 1, functionExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getfunctionExpression_Func(), this.getfunctionCommon(), null, "func", null, 0, 1, functionExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(xmlConstantEClass, XmlConstant.class, "XmlConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getXmlConstant_Value(), ecorePackage.getEString(), "value", null, 0, 1, XmlConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -4851,6 +4894,9 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     initEClass(thisEClass, This.class, "This", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(nullEClass, Null.class, "Null", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(symbolRefEClass, SymbolRef.class, "SymbolRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSymbolRef_Symbol(), ecorePackage.getEObject(), null, "symbol", null, 0, 1, SymbolRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(accessLevelEEnum, AccessLevel.class, "AccessLevel");

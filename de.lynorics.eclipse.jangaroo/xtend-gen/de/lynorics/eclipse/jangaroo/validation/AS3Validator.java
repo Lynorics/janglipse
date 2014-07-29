@@ -18,9 +18,11 @@ import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
 import de.lynorics.eclipse.jangaroo.aS3.ReturnStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Statement;
+import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import de.lynorics.eclipse.jangaroo.validation.AbstractAS3Validator;
 import java.util.HashSet;
+import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -56,6 +58,8 @@ public class AS3Validator extends AbstractAS3Validator {
   public final static String PUBLIC_API_VIOLATION = "publicApiViolation";
   
   public final static String NAME_CLASH_VARIABLE_WITH_CLASS = "nameClashVariableWithClass";
+  
+  public final static String FORWARD_REFERENCE = "forwardReference";
   
   private boolean checkForSourcePath(final EObject eobj) {
     Resource _eResource = eobj.eResource();
@@ -176,8 +180,7 @@ public class AS3Validator extends AbstractAS3Validator {
     String _name = variable.getName();
     char _charAt = _name.charAt(0);
     boolean _isUpperCase = Character.isUpperCase(_charAt);
-    boolean _not_1 = (!_isUpperCase);
-    if (_not_1) {
+    if (_isUpperCase) {
       this.warning("Variable name should start with a lowercase", 
         AS3Package.Literals.VARIABLE_DECLARATION__NAME, 
         AS3Validator.VARIABLE_SHOULD_START_WITH_LOWERCASE);
@@ -321,6 +324,32 @@ public class AS3Validator extends AbstractAS3Validator {
           return;
         }
       }
+    }
+  }
+  
+  @Check(value = CheckType.EXPENSIVE)
+  public void checkForwardReference(final SymbolRef ref) {
+    boolean _checkForSourcePath = this.checkForSourcePath(ref);
+    boolean _not = (!_checkForSourcePath);
+    if (_not) {
+      return;
+    }
+    final EObject variable = ref.getSymbol();
+    boolean _and = false;
+    boolean _notEquals = (!Objects.equal(variable, null));
+    if (!_notEquals) {
+      _and = false;
+    } else {
+      List<EObject> _variablesDefinedBefore = AS3ModelUtil.variablesDefinedBefore(ref);
+      boolean _contains = _variablesDefinedBefore.contains(variable);
+      boolean _not_1 = (!_contains);
+      _and = _not_1;
+    }
+    if (_and) {
+      this.error("Variable forward not allowed", 
+        AS3Package.Literals.SYMBOL_REF__SYMBOL, 
+        AS3Validator.FORWARD_REFERENCE);
+      return;
     }
   }
 }

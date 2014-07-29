@@ -146,17 +146,19 @@ public class AS3LabelProvider extends DefaultEObjectLabelProvider {
   public String image(final InterfaceMethod meth) {
     Modifier _modifier = meth.getModifier();
     AccessLevel _access = _modifier.getAccess();
-    switch (_access) {
-      case PUBLIC:
-        return "outline-function-public.gif";
-      case PROTECTED:
-        return "outline-function-protected.gif";
-      case PRIVATE:
-        return "outline-function-private.gif";
-      case INTERNAL:
-        return "outline-function-internal.gif";
-      default:
-        break;
+    if (_access != null) {
+      switch (_access) {
+        case PUBLIC:
+          return "outline-function-public.gif";
+        case PROTECTED:
+          return "outline-function-protected.gif";
+        case PRIVATE:
+          return "outline-function-private.gif";
+        case INTERNAL:
+          return "outline-function-internal.gif";
+        default:
+          break;
+      }
     }
     return null;
   }
@@ -172,25 +174,27 @@ public class AS3LabelProvider extends DefaultEObjectLabelProvider {
     Image image = null;
     Modifier _modifier = meth.getModifier();
     AccessLevel _access = _modifier.getAccess();
-    switch (_access) {
-      case PUBLIC:
-        Image _image = this.imageHelper.getImage("outline-function-public.gif");
-        image = _image;
-        break;
-      case PROTECTED:
-        Image _image_1 = this.imageHelper.getImage("outline-function-protected.gif");
-        image = _image_1;
-        break;
-      case PRIVATE:
-        Image _image_2 = this.imageHelper.getImage("outline-function-private.gif");
-        image = _image_2;
-        break;
-      case INTERNAL:
-        Image _image_3 = this.imageHelper.getImage("outline-function-internal.gif");
-        image = _image_3;
-        break;
-      default:
-        break;
+    if (_access != null) {
+      switch (_access) {
+        case PUBLIC:
+          Image _image = this.imageHelper.getImage("outline-function-public.gif");
+          image = _image;
+          break;
+        case PROTECTED:
+          Image _image_1 = this.imageHelper.getImage("outline-function-protected.gif");
+          image = _image_1;
+          break;
+        case PRIVATE:
+          Image _image_2 = this.imageHelper.getImage("outline-function-private.gif");
+          image = _image_2;
+          break;
+        case INTERNAL:
+          Image _image_3 = this.imageHelper.getImage("outline-function-internal.gif");
+          image = _image_3;
+          break;
+        default:
+          break;
+      }
     }
     return image;
   }
@@ -234,18 +238,24 @@ public class AS3LabelProvider extends DefaultEObjectLabelProvider {
   public String image(final MemberVariableDeclaration varDecl) {
     Modifier _modifier = varDecl.getModifier();
     AccessLevel _access = _modifier.getAccess();
-    switch (_access) {
-      case PUBLIC:
-        return "outline-field-public.gif";
-      case PROTECTED:
-        return "outline-field-protected.gif";
-      case PRIVATE:
-        return "outline-field-private.gif";
-      case INTERNAL:
-        return "outline-field-internal.gif";
-      default:
-        break;
+    if (_access != null) {
+      switch (_access) {
+        case PUBLIC:
+          return "outline-field-public.gif";
+        case PROTECTED:
+          return "outline-field-protected.gif";
+        case PRIVATE:
+          return "outline-field-private.gif";
+        case INTERNAL:
+          return "outline-field-internal.gif";
+        default:
+          break;
+      }
     }
     return null;
+  }
+  
+  public String image(final VariableDeclaration varDecl) {
+    return "outline-field-internal.gif";
   }
 }

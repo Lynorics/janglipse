@@ -67,6 +67,21 @@ public class AS3QuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Lowercase name", "Lowercase the name.", "upcase.png", _function);
   }
   
+  @Fix(AS3Validator.VARIABLE_SHOULD_START_WITH_LOWERCASE)
+  public void lowercaseVariable(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IModification _function = new IModification() {
+      public void apply(final IModificationContext context) throws Exception {
+        final IXtextDocument xtextDocument = context.getXtextDocument();
+        Integer _offset = issue.getOffset();
+        final String firstLetter = xtextDocument.get((_offset).intValue(), 1);
+        Integer _offset_1 = issue.getOffset();
+        String _lowerCase = firstLetter.toLowerCase();
+        xtextDocument.replace((_offset_1).intValue(), 1, _lowerCase);
+      }
+    };
+    acceptor.accept(issue, "Lowercase name", "Lowercase the name.", "upcase.png", _function);
+  }
+  
   @Fix(AS3Validator.PACKAGE_SHOULD_START_WITH_LOWERCASE)
   public void lowercasePackage(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = new IModification() {

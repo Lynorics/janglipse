@@ -4,6 +4,8 @@ package de.lynorics.eclipse.jangaroo.aS3;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>full New Subexpression</b></em>'.
@@ -12,7 +14,6 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.fullNewSubexpression#getArgs <em>Args</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.fullNewSubexpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.fullNewSubexpression#getFnsd <em>Fnsd</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.fullNewSubexpression#getQuali <em>Quali</em>}</li>
@@ -24,24 +25,8 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface fullNewSubexpression extends newExpression
+public interface fullNewSubexpression extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Args</b></em>' containment reference list.
-   * The list contents are of type {@link de.lynorics.eclipse.jangaroo.aS3.arguments}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Args</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Args</em>' containment reference list.
-   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getfullNewSubexpression_Args()
-   * @model containment="true"
-   * @generated
-   */
-  EList<arguments> getArgs();
-
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference list.
    * The list contents are of type {@link de.lynorics.eclipse.jangaroo.aS3.primaryExpression}.

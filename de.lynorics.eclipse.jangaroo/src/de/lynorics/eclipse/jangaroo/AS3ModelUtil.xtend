@@ -6,12 +6,18 @@
  */
 package de.lynorics.eclipse.jangaroo;
 
+import static extension org.eclipse.emf.ecore.util.EcoreUtil.*;
 import static extension org.eclipse.xtext.EcoreUtil2.*;
 import org.eclipse.emf.ecore.EObject
 import de.lynorics.eclipse.jangaroo.aS3.Block
 import de.lynorics.eclipse.jangaroo.aS3.Class
 import de.lynorics.eclipse.jangaroo.aS3.Method
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration
+import de.lynorics.eclipse.jangaroo.aS3.Model
+import java.util.Vector
+import java.util.List
+import de.lynorics.eclipse.jangaroo.aS3.Member
+import de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration
 
 /**
  * Functions for usage within AS3Validator, etc.
@@ -64,6 +70,15 @@ class AS3ModelUtil {
     e.getContainerOfType(typeof(Method));
   } 
 
+  /**
+   * @return the containing model of the EObject
+   * 
+   * @see Model
+   */
+  def static containingModel(EObject e) {
+    e.getContainerOfType(typeof(Model));
+  } 
+
  /**
   * @return the parent of the given EObject with the desired type,
   *         null if it doesn't exist
@@ -77,4 +92,49 @@ class AS3ModelUtil {
 //    return current as E;
   }
 
+  def static variablesDefinedBefore(EObject e) {
+  	val List<EObject> list = new Vector<EObject>();
+  	// collect all variables of package
+	var allElements = e.getContainerOfType(typeof(Model)).package.members
+	var containingElement = allElements.findFirst[isAncestor(it, e)]
+	var index = allElements.indexOf(containingElement);
+	if (e.containingClass == null) {
+		if (index >= 0) {
+			list.addAll(allElements.subList(0, index+1).typeSelect(typeof(MemberVariableDeclaration)));
+		}
+	}
+	else {
+			list.addAll(allElements.typeSelect(typeof(MemberVariableDeclaration)));
+	}
+	// collect all variables of containing class
+	if (e.containingClass != null) {
+		(e.containingClass as Class).members.forEach[
+			member |
+			var mvd = (member as Member).^var;
+			if  (mvd != null) {
+				list.add((mvd as MemberVariableDeclaration).decl as VariableDeclaration);
+			}
+		]
+	}
+	// collect all variables of containing function respecting block hierarchy
+	if (e.containingMethod != null) {
+		list.addAll(collectVariablesWithinBlock(e, e.containingBlock));
+	}
+	// collect all parameters of containing function
+	if (e.containingMethod != null) {
+		list.addAll((e.containingMethod as Method).params);
+	}
+	return list;
+  }
+  
+  private def static List<EObject> collectVariablesWithinBlock(EObject e, Block block) {
+  	val List<EObject> list = new Vector<EObject>();
+  	if (block != null) {
+  		if (block.eContainer instanceof Block) {
+			list.addAll(collectVariablesWithinBlock(e, block.eContainer as Block));
+		}
+	  	list.addAll(block.statements.typeSelect(typeof(VariableDeclaration)));
+  	}
+  	return list
+  }
 }

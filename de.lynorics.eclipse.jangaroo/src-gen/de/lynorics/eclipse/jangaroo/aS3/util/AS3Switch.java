@@ -34,6 +34,7 @@ import de.lynorics.eclipse.jangaroo.aS3.ReturnStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Statement;
 import de.lynorics.eclipse.jangaroo.aS3.StringConstant;
 import de.lynorics.eclipse.jangaroo.aS3.SwitchStatement;
+import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.ThrowStatement;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
@@ -253,6 +254,20 @@ public class AS3Switch<T> extends Switch<T>
       {
         InterfaceMethod interfaceMethod = (InterfaceMethod)theEObject;
         T result = caseInterfaceMethod(interfaceMethod);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.FUNCTION_EXPRESSION:
+      {
+        functionExpression functionExpression = (functionExpression)theEObject;
+        T result = casefunctionExpression(functionExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.FUNCTION_COMMON:
+      {
+        functionCommon functionCommon = (functionCommon)theEObject;
+        T result = casefunctionCommon(functionCommon);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -698,7 +713,6 @@ public class AS3Switch<T> extends Switch<T>
       {
         fullNewSubexpression fullNewSubexpression = (fullNewSubexpression)theEObject;
         T result = casefullNewSubexpression(fullNewSubexpression);
-        if (result == null) result = casenewExpression(fullNewSubexpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -982,20 +996,6 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AS3Package.FUNCTION_COMMON:
-      {
-        functionCommon functionCommon = (functionCommon)theEObject;
-        T result = casefunctionCommon(functionCommon);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AS3Package.FUNCTION_EXPRESSION:
-      {
-        functionExpression functionExpression = (functionExpression)theEObject;
-        T result = casefunctionExpression(functionExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case AS3Package.XML_CONSTANT:
       {
         XmlConstant xmlConstant = (XmlConstant)theEObject;
@@ -1098,6 +1098,21 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = caseCaseStatement(null_);
         if (result == null) result = caseSwitchStatement(null_);
         if (result == null) result = caseStatement(null_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.SYMBOL_REF:
+      {
+        SymbolRef symbolRef = (SymbolRef)theEObject;
+        T result = caseSymbolRef(symbolRef);
+        if (result == null) result = caseExpression(symbolRef);
+        if (result == null) result = caseexprOrObjectLiteral(symbolRef);
+        if (result == null) result = caseCondition(symbolRef);
+        if (result == null) result = caseDefaultXMLNamespaceStatement(symbolRef);
+        if (result == null) result = caseThrowStatement(symbolRef);
+        if (result == null) result = caseCaseStatement(symbolRef);
+        if (result == null) result = caseSwitchStatement(symbolRef);
+        if (result == null) result = caseStatement(symbolRef);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1277,6 +1292,38 @@ public class AS3Switch<T> extends Switch<T>
    * @generated
    */
   public T caseInterfaceMethod(InterfaceMethod object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>function Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>function Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casefunctionExpression(functionExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>function Common</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>function Common</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casefunctionCommon(functionCommon object)
   {
     return null;
   }
@@ -2706,38 +2753,6 @@ public class AS3Switch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>function Common</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>function Common</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casefunctionCommon(functionCommon object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>function Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>function Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casefunctionExpression(functionExpression object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Xml Constant</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2845,6 +2860,22 @@ public class AS3Switch<T> extends Switch<T>
    * @generated
    */
   public T caseNull(Null object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Symbol Ref</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Symbol Ref</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSymbolRef(SymbolRef object)
   {
     return null;
   }

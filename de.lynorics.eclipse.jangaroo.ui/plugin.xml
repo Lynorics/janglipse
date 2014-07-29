@@ -270,7 +270,7 @@
             category="de.lynorics.eclipse.jangaroo.AS3"
             class="de.lynorics.eclipse.jangaroo.ui.AS3ExecutableExtensionFactory:de.lynorics.eclipse.jangaroo.ui.preferences.AS3ValidatorPreferencePage"
             id="de.lynorics.eclipse.jangaroo.AS3.validation.preferencePage"
-            name="Validation">
+            name="Errors/Warnings">
             <keywordReference id="de.lynorics.eclipse.jangaroo.ui.keyword_AS3"/>
         </page>
     </extension>

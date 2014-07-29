@@ -9,10 +9,54 @@
  */
 package de.lynorics.eclipse.jangaroo.ui.contentassist
 
-import de.lynorics.eclipse.jangaroo.ui.contentassist.AbstractAS3ProposalProvider
+import com.google.inject.Inject
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.jface.viewers.ILabelProvider
+import org.eclipse.xtext.Assignment
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
+import org.eclipse.xtext.ui.label.ILabelProviderImageDescriptorExtension
+
+import static extension de.lynorics.eclipse.jangaroo.AS3ModelUtil.*
+import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration
+import de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration
+import de.lynorics.eclipse.jangaroo.aS3.Parameter
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
  */
 class AS3ProposalProvider extends AbstractAS3ProposalProvider {
+	
+	@Inject
+ 	private ILabelProvider labelProvider;
+	
+	/**
+	 * Code completion for a SymbolRef.
+	 */
+	override completeTerminalExpression_Symbol(EObject elem, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		elem.variablesDefinedBefore.forEach[
+			variable |
+			if (variable instanceof VariableDeclaration) {
+				acceptor.accept(createCompletionProposal(variable.name, variable.name + " - Variable", getImageTag(variable), context));
+			}
+			else if (variable instanceof MemberVariableDeclaration) {
+				acceptor.accept(createCompletionProposal(variable.decl.name, variable.decl.name + " - Package variable", getImageTag(variable), context));
+			}
+			else if (variable instanceof Parameter) {
+				acceptor.accept(createCompletionProposal(variable.name, variable.name + " - Parameter", getImageTag(variable), context));
+			}
+		]
+	}
+	
+		private def getImageTag(EObject object) {
+		if (labelProvider instanceof ILabelProviderImageDescriptorExtension) {
+			var ext = (labelProvider as ILabelProviderImageDescriptorExtension);
+			var descriptor = ext.getImageDescriptor(object);
+			if (descriptor != null) {
+				return descriptor.createImage();
+			}
+		}
+		return null;
+	}
+
 }
