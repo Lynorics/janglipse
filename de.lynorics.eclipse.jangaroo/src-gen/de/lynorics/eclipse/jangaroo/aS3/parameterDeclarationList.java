@@ -26,7 +26,7 @@ public interface parameterDeclarationList extends EObject
 {
   /**
    * Returns the value of the '<em><b>Params</b></em>' containment reference list.
-   * The list contents are of type {@link de.lynorics.eclipse.jangaroo.aS3.parameterDeclaration}.
+   * The list contents are of type {@link de.lynorics.eclipse.jangaroo.aS3.Parameter}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Params</em>' containment reference list isn't clear,
@@ -38,6 +38,6 @@ public interface parameterDeclarationList extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<parameterDeclaration> getParams();
+  EList<Parameter> getParams();
 
 } // parameterDeclarationList

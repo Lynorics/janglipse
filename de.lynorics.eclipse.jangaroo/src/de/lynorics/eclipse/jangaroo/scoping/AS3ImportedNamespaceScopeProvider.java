@@ -53,6 +53,8 @@ public class AS3ImportedNamespaceScopeProvider extends
 		  if (!(context instanceof Model)) return Collections.emptyList();
 		  Model file = (Model) context;
 		  List importedNamespaceResolvers = Lists.newArrayList();
+		  // import empty namespace
+	      importedNamespaceResolvers.add(createImportedNamespaceResolver("default.*", ignoreCase));
 		  // add the import statements
 		  EList<Import> imports = file.getPackage() != null ?
 				  file.getPackage().getImp().getImports() :

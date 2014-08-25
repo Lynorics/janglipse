@@ -96,33 +96,40 @@ public class AS3ModelUtil {
     return EcoreUtil2.<E>getContainerOfType(start, type);
   }
   
-  public static List<EObject> variablesDefinedBefore(final EObject e) {
+  public static List<EObject> attributes(final EObject e) {
     final List<EObject> list = new Vector<EObject>();
     Model _containerOfType = EcoreUtil2.<Model>getContainerOfType(e, Model.class);
-    de.lynorics.eclipse.jangaroo.aS3.Package _package = _containerOfType.getPackage();
-    EList<EObject> allElements = _package.getMembers();
-    final Function1<EObject, Boolean> _function = new Function1<EObject, Boolean>() {
-      public Boolean apply(final EObject it) {
-        return Boolean.valueOf(EcoreUtil.isAncestor(it, e));
+    boolean _notEquals = (!Objects.equal(_containerOfType, null));
+    if (_notEquals) {
+      Model _containerOfType_1 = EcoreUtil2.<Model>getContainerOfType(e, Model.class);
+      de.lynorics.eclipse.jangaroo.aS3.Package packages = _containerOfType_1.getPackage();
+      boolean _notEquals_1 = (!Objects.equal(packages, null));
+      if (_notEquals_1) {
+        EList<EObject> allElements = packages.getMembers();
+        final Function1<EObject,Boolean> _function = new Function1<EObject,Boolean>() {
+          public Boolean apply(final EObject it) {
+            return Boolean.valueOf(EcoreUtil.isAncestor(it, e));
+          }
+        };
+        EObject containingElement = IterableExtensions.<EObject>findFirst(allElements, _function);
+        int index = allElements.indexOf(containingElement);
+        de.lynorics.eclipse.jangaroo.aS3.Class _containingClass = AS3ModelUtil.containingClass(e);
+        boolean _equals = Objects.equal(_containingClass, null);
+        if (_equals) {
+          if ((index >= 0)) {
+            List<EObject> _subList = allElements.subList(0, (index + 1));
+            List<MemberVariableDeclaration> _typeSelect = EcoreUtil2.<MemberVariableDeclaration>typeSelect(_subList, MemberVariableDeclaration.class);
+            list.addAll(_typeSelect);
+          }
+        } else {
+          List<MemberVariableDeclaration> _typeSelect_1 = EcoreUtil2.<MemberVariableDeclaration>typeSelect(allElements, MemberVariableDeclaration.class);
+          list.addAll(_typeSelect_1);
+        }
       }
-    };
-    EObject containingElement = IterableExtensions.<EObject>findFirst(allElements, _function);
-    int index = allElements.indexOf(containingElement);
-    de.lynorics.eclipse.jangaroo.aS3.Class _containingClass = AS3ModelUtil.containingClass(e);
-    boolean _equals = Objects.equal(_containingClass, null);
-    if (_equals) {
-      if ((index >= 0)) {
-        List<EObject> _subList = allElements.subList(0, (index + 1));
-        List<MemberVariableDeclaration> _typeSelect = EcoreUtil2.<MemberVariableDeclaration>typeSelect(_subList, MemberVariableDeclaration.class);
-        list.addAll(_typeSelect);
-      }
-    } else {
-      List<MemberVariableDeclaration> _typeSelect_1 = EcoreUtil2.<MemberVariableDeclaration>typeSelect(allElements, MemberVariableDeclaration.class);
-      list.addAll(_typeSelect_1);
     }
     de.lynorics.eclipse.jangaroo.aS3.Class _containingClass_1 = AS3ModelUtil.containingClass(e);
-    boolean _notEquals = (!Objects.equal(_containingClass_1, null));
-    if (_notEquals) {
+    boolean _notEquals_2 = (!Objects.equal(_containingClass_1, null));
+    if (_notEquals_2) {
       de.lynorics.eclipse.jangaroo.aS3.Class _containingClass_2 = AS3ModelUtil.containingClass(e);
       EList<Member> _members = ((de.lynorics.eclipse.jangaroo.aS3.Class) _containingClass_2).getMembers();
       final Procedure1<Member> _function_1 = new Procedure1<Member>() {
@@ -130,23 +137,27 @@ public class AS3ModelUtil {
           MemberVariableDeclaration mvd = ((Member) member).getVar();
           boolean _notEquals = (!Objects.equal(mvd, null));
           if (_notEquals) {
-            VariableDeclaration _decl = ((MemberVariableDeclaration) mvd).getDecl();
-            list.add(((VariableDeclaration) _decl));
+            list.add(mvd);
           }
         }
       };
       IterableExtensions.<Member>forEach(_members, _function_1);
     }
+    return list;
+  }
+  
+  public static List<EObject> variablesDefinedBefore(final EObject e) {
+    final List<EObject> list = new Vector<EObject>();
     Method _containingMethod = AS3ModelUtil.containingMethod(e);
-    boolean _notEquals_1 = (!Objects.equal(_containingMethod, null));
-    if (_notEquals_1) {
+    boolean _notEquals = (!Objects.equal(_containingMethod, null));
+    if (_notEquals) {
       Block _containingBlock = AS3ModelUtil.containingBlock(e);
       List<EObject> _collectVariablesWithinBlock = AS3ModelUtil.collectVariablesWithinBlock(e, _containingBlock);
       list.addAll(_collectVariablesWithinBlock);
     }
     Method _containingMethod_1 = AS3ModelUtil.containingMethod(e);
-    boolean _notEquals_2 = (!Objects.equal(_containingMethod_1, null));
-    if (_notEquals_2) {
+    boolean _notEquals_1 = (!Objects.equal(_containingMethod_1, null));
+    if (_notEquals_1) {
       Method _containingMethod_2 = AS3ModelUtil.containingMethod(e);
       EList<Parameter> _params = ((Method) _containingMethod_2).getParams();
       list.addAll(_params);
@@ -167,6 +178,27 @@ public class AS3ModelUtil {
       EList<Statement> _statements = block.getStatements();
       List<VariableDeclaration> _typeSelect = EcoreUtil2.<VariableDeclaration>typeSelect(_statements, VariableDeclaration.class);
       list.addAll(_typeSelect);
+    }
+    return list;
+  }
+  
+  public static List<EObject> accessibleFunctions(final EObject e) {
+    final List<EObject> list = new Vector<EObject>();
+    de.lynorics.eclipse.jangaroo.aS3.Class _containingClass = AS3ModelUtil.containingClass(e);
+    boolean _notEquals = (!Objects.equal(_containingClass, null));
+    if (_notEquals) {
+      de.lynorics.eclipse.jangaroo.aS3.Class _containingClass_1 = AS3ModelUtil.containingClass(e);
+      EList<Member> _members = ((de.lynorics.eclipse.jangaroo.aS3.Class) _containingClass_1).getMembers();
+      final Procedure1<Member> _function = new Procedure1<Member>() {
+        public void apply(final Member member) {
+          Method meth = ((Member) member).getMeth();
+          boolean _notEquals = (!Objects.equal(meth, null));
+          if (_notEquals) {
+            list.add(meth);
+          }
+        }
+      };
+      IterableExtensions.<Member>forEach(_members, _function);
     }
     return list;
   }

@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ClassImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ClassImpl#getModifier <em>Modifier</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ClassImpl#getName <em>Name</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ClassImpl#getSuperType <em>Super Type</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ClassImpl#getSuperclass <em>Superclass</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ClassImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.ClassImpl#getMembers <em>Members</em>}</li>
  * </ul>
@@ -86,14 +86,14 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getSuperType() <em>Super Type</em>}' reference.
+   * The cached value of the '{@link #getSuperclass() <em>Superclass</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSuperType()
+   * @see #getSuperclass()
    * @generated
    * @ordered
    */
-  protected de.lynorics.eclipse.jangaroo.aS3.Class superType;
+  protected de.lynorics.eclipse.jangaroo.aS3.Class superclass;
 
   /**
    * The cached value of the '{@link #getTypes() <em>Types</em>}' reference list.
@@ -226,19 +226,19 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
    * <!-- end-user-doc -->
    * @generated
    */
-  public de.lynorics.eclipse.jangaroo.aS3.Class getSuperType()
+  public de.lynorics.eclipse.jangaroo.aS3.Class getSuperclass()
   {
-    if (superType != null && superType.eIsProxy())
+    if (superclass != null && superclass.eIsProxy())
     {
-      InternalEObject oldSuperType = (InternalEObject)superType;
-      superType = (de.lynorics.eclipse.jangaroo.aS3.Class)eResolveProxy(oldSuperType);
-      if (superType != oldSuperType)
+      InternalEObject oldSuperclass = (InternalEObject)superclass;
+      superclass = (de.lynorics.eclipse.jangaroo.aS3.Class)eResolveProxy(oldSuperclass);
+      if (superclass != oldSuperclass)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AS3Package.CLASS__SUPER_TYPE, oldSuperType, superType));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AS3Package.CLASS__SUPERCLASS, oldSuperclass, superclass));
       }
     }
-    return superType;
+    return superclass;
   }
 
   /**
@@ -246,9 +246,9 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
    * <!-- end-user-doc -->
    * @generated
    */
-  public de.lynorics.eclipse.jangaroo.aS3.Class basicGetSuperType()
+  public de.lynorics.eclipse.jangaroo.aS3.Class basicGetSuperclass()
   {
-    return superType;
+    return superclass;
   }
 
   /**
@@ -256,12 +256,12 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSuperType(de.lynorics.eclipse.jangaroo.aS3.Class newSuperType)
+  public void setSuperclass(de.lynorics.eclipse.jangaroo.aS3.Class newSuperclass)
   {
-    de.lynorics.eclipse.jangaroo.aS3.Class oldSuperType = superType;
-    superType = newSuperType;
+    de.lynorics.eclipse.jangaroo.aS3.Class oldSuperclass = superclass;
+    superclass = newSuperclass;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.CLASS__SUPER_TYPE, oldSuperType, superType));
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.CLASS__SUPERCLASS, oldSuperclass, superclass));
   }
 
   /**
@@ -328,9 +328,9 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
         return getModifier();
       case AS3Package.CLASS__NAME:
         return getName();
-      case AS3Package.CLASS__SUPER_TYPE:
-        if (resolve) return getSuperType();
-        return basicGetSuperType();
+      case AS3Package.CLASS__SUPERCLASS:
+        if (resolve) return getSuperclass();
+        return basicGetSuperclass();
       case AS3Package.CLASS__TYPES:
         return getTypes();
       case AS3Package.CLASS__MEMBERS:
@@ -360,8 +360,8 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
       case AS3Package.CLASS__NAME:
         setName((String)newValue);
         return;
-      case AS3Package.CLASS__SUPER_TYPE:
-        setSuperType((de.lynorics.eclipse.jangaroo.aS3.Class)newValue);
+      case AS3Package.CLASS__SUPERCLASS:
+        setSuperclass((de.lynorics.eclipse.jangaroo.aS3.Class)newValue);
         return;
       case AS3Package.CLASS__TYPES:
         getTypes().clear();
@@ -394,8 +394,8 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
       case AS3Package.CLASS__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case AS3Package.CLASS__SUPER_TYPE:
-        setSuperType((de.lynorics.eclipse.jangaroo.aS3.Class)null);
+      case AS3Package.CLASS__SUPERCLASS:
+        setSuperclass((de.lynorics.eclipse.jangaroo.aS3.Class)null);
         return;
       case AS3Package.CLASS__TYPES:
         getTypes().clear();
@@ -423,8 +423,8 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements de.lynori
         return modifier != null;
       case AS3Package.CLASS__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case AS3Package.CLASS__SUPER_TYPE:
-        return superType != null;
+      case AS3Package.CLASS__SUPERCLASS:
+        return superclass != null;
       case AS3Package.CLASS__TYPES:
         return types != null && !types.isEmpty();
       case AS3Package.CLASS__MEMBERS:

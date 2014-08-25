@@ -483,22 +483,22 @@ public interface AS3Package extends EPackage
   int INTERFACE_METHOD__MODIFIER = 1;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INTERFACE_METHOD__NAME = 2;
-
-  /**
    * The feature id for the '<em><b>Accessor</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INTERFACE_METHOD__ACCESSOR = 3;
+  int INTERFACE_METHOD__ACCESSOR = 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE_METHOD__NAME = 3;
 
   /**
    * The feature id for the '<em><b>Params</b></em>' containment reference list.
@@ -639,13 +639,13 @@ public interface AS3Package extends EPackage
   int CLASS__NAME = 2;
 
   /**
-   * The feature id for the '<em><b>Super Type</b></em>' reference.
+   * The feature id for the '<em><b>Superclass</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLASS__SUPER_TYPE = 3;
+  int CLASS__SUPERCLASS = 3;
 
   /**
    * The feature id for the '<em><b>Types</b></em>' reference list.
@@ -740,22 +740,22 @@ public interface AS3Package extends EPackage
   int METHOD__MODIFIER = 1;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD__NAME = 2;
-
-  /**
    * The feature id for the '<em><b>Accessor</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int METHOD__ACCESSOR = 3;
+  int METHOD__ACCESSOR = 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD__NAME = 3;
 
   /**
    * The feature id for the '<em><b>Params</b></em>' containment reference list.
@@ -896,22 +896,49 @@ public interface AS3Package extends EPackage
   int MEMBER_VARIABLE_DECLARATION = 18;
 
   /**
+   * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEMBER_VARIABLE_DECLARATION__ANNOTATIONS = 0;
+
+  /**
    * The feature id for the '<em><b>Modifier</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MEMBER_VARIABLE_DECLARATION__MODIFIER = 0;
+  int MEMBER_VARIABLE_DECLARATION__MODIFIER = 1;
 
   /**
-   * The feature id for the '<em><b>Decl</b></em>' containment reference.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MEMBER_VARIABLE_DECLARATION__DECL = 1;
+  int MEMBER_VARIABLE_DECLARATION__NAME = 2;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEMBER_VARIABLE_DECLARATION__TYPE = 3;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEMBER_VARIABLE_DECLARATION__EXPRESSION = 4;
 
   /**
    * The number of structural features of the '<em>Member Variable Declaration</em>' class.
@@ -920,7 +947,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int MEMBER_VARIABLE_DECLARATION_FEATURE_COUNT = 2;
+  int MEMBER_VARIABLE_DECLARATION_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.StatementImpl <em>Statement</em>}' class.
@@ -4479,6 +4506,16 @@ public interface AS3Package extends EPackage
   int SYMBOL_REF_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.AccessorRole <em>Accessor Role</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.AccessorRole
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getAccessorRole()
+   * @generated
+   */
+  int ACCESSOR_ROLE = 110;
+
+  /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.AccessLevel <em>Access Level</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4486,7 +4523,7 @@ public interface AS3Package extends EPackage
    * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getAccessLevel()
    * @generated
    */
-  int ACCESS_LEVEL = 110;
+  int ACCESS_LEVEL = 111;
 
 
   /**
@@ -4875,17 +4912,6 @@ public interface AS3Package extends EPackage
   EReference getInterfaceMethod_Modifier();
 
   /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod#getName()
-   * @see #getInterfaceMethod()
-   * @generated
-   */
-  EAttribute getInterfaceMethod_Name();
-
-  /**
    * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod#getAccessor <em>Accessor</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4895,6 +4921,17 @@ public interface AS3Package extends EPackage
    * @generated
    */
   EAttribute getInterfaceMethod_Accessor();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod#getName()
+   * @see #getInterfaceMethod()
+   * @generated
+   */
+  EAttribute getInterfaceMethod_Name();
 
   /**
    * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod#getParams <em>Params</em>}'.
@@ -5026,15 +5063,15 @@ public interface AS3Package extends EPackage
   EAttribute getClass_Name();
 
   /**
-   * Returns the meta object for the reference '{@link de.lynorics.eclipse.jangaroo.aS3.Class#getSuperType <em>Super Type</em>}'.
+   * Returns the meta object for the reference '{@link de.lynorics.eclipse.jangaroo.aS3.Class#getSuperclass <em>Superclass</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Super Type</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Class#getSuperType()
+   * @return the meta object for the reference '<em>Superclass</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Class#getSuperclass()
    * @see #getClass_()
    * @generated
    */
-  EReference getClass_SuperType();
+  EReference getClass_Superclass();
 
   /**
    * Returns the meta object for the reference list '{@link de.lynorics.eclipse.jangaroo.aS3.Class#getTypes <em>Types</em>}'.
@@ -5123,17 +5160,6 @@ public interface AS3Package extends EPackage
   EReference getMethod_Modifier();
 
   /**
-   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.Method#getName()
-   * @see #getMethod()
-   * @generated
-   */
-  EAttribute getMethod_Name();
-
-  /**
    * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getAccessor <em>Accessor</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5143,6 +5169,17 @@ public interface AS3Package extends EPackage
    * @generated
    */
   EAttribute getMethod_Accessor();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Method#getName()
+   * @see #getMethod()
+   * @generated
+   */
+  EAttribute getMethod_Name();
 
   /**
    * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getParams <em>Params</em>}'.
@@ -5274,6 +5311,17 @@ public interface AS3Package extends EPackage
   EClass getMemberVariableDeclaration();
 
   /**
+   * Returns the meta object for the containment reference list '{@link de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration#getAnnotations <em>Annotations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Annotations</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration#getAnnotations()
+   * @see #getMemberVariableDeclaration()
+   * @generated
+   */
+  EReference getMemberVariableDeclaration_Annotations();
+
+  /**
    * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration#getModifier <em>Modifier</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5285,15 +5333,37 @@ public interface AS3Package extends EPackage
   EReference getMemberVariableDeclaration_Modifier();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration#getDecl <em>Decl</em>}'.
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Decl</em>'.
-   * @see de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration#getDecl()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration#getName()
    * @see #getMemberVariableDeclaration()
    * @generated
    */
-  EReference getMemberVariableDeclaration_Decl();
+  EAttribute getMemberVariableDeclaration_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration#getType()
+   * @see #getMemberVariableDeclaration()
+   * @generated
+   */
+  EReference getMemberVariableDeclaration_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration#getExpression()
+   * @see #getMemberVariableDeclaration()
+   * @generated
+   */
+  EReference getMemberVariableDeclaration_Expression();
 
   /**
    * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration <em>Variable Declaration</em>}'.
@@ -7658,6 +7728,16 @@ public interface AS3Package extends EPackage
   EReference getSymbolRef_Symbol();
 
   /**
+   * Returns the meta object for enum '{@link de.lynorics.eclipse.jangaroo.aS3.AccessorRole <em>Accessor Role</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Accessor Role</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.AccessorRole
+   * @generated
+   */
+  EEnum getAccessorRole();
+
+  /**
    * Returns the meta object for enum '{@link de.lynorics.eclipse.jangaroo.aS3.AccessLevel <em>Access Level</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8001,20 +8081,20 @@ public interface AS3Package extends EPackage
     EReference INTERFACE_METHOD__MODIFIER = eINSTANCE.getInterfaceMethod_Modifier();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute INTERFACE_METHOD__NAME = eINSTANCE.getInterfaceMethod_Name();
-
-    /**
      * The meta object literal for the '<em><b>Accessor</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute INTERFACE_METHOD__ACCESSOR = eINSTANCE.getInterfaceMethod_Accessor();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INTERFACE_METHOD__NAME = eINSTANCE.getInterfaceMethod_Name();
 
     /**
      * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
@@ -8119,12 +8199,12 @@ public interface AS3Package extends EPackage
     EAttribute CLASS__NAME = eINSTANCE.getClass_Name();
 
     /**
-     * The meta object literal for the '<em><b>Super Type</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Superclass</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CLASS__SUPER_TYPE = eINSTANCE.getClass_SuperType();
+    EReference CLASS__SUPERCLASS = eINSTANCE.getClass_Superclass();
 
     /**
      * The meta object literal for the '<em><b>Types</b></em>' reference list feature.
@@ -8195,20 +8275,20 @@ public interface AS3Package extends EPackage
     EReference METHOD__MODIFIER = eINSTANCE.getMethod_Modifier();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute METHOD__NAME = eINSTANCE.getMethod_Name();
-
-    /**
      * The meta object literal for the '<em><b>Accessor</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute METHOD__ACCESSOR = eINSTANCE.getMethod_Accessor();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute METHOD__NAME = eINSTANCE.getMethod_Name();
 
     /**
      * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
@@ -8313,6 +8393,14 @@ public interface AS3Package extends EPackage
     EClass MEMBER_VARIABLE_DECLARATION = eINSTANCE.getMemberVariableDeclaration();
 
     /**
+     * The meta object literal for the '<em><b>Annotations</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MEMBER_VARIABLE_DECLARATION__ANNOTATIONS = eINSTANCE.getMemberVariableDeclaration_Annotations();
+
+    /**
      * The meta object literal for the '<em><b>Modifier</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8321,12 +8409,28 @@ public interface AS3Package extends EPackage
     EReference MEMBER_VARIABLE_DECLARATION__MODIFIER = eINSTANCE.getMemberVariableDeclaration_Modifier();
 
     /**
-     * The meta object literal for the '<em><b>Decl</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MEMBER_VARIABLE_DECLARATION__DECL = eINSTANCE.getMemberVariableDeclaration_Decl();
+    EAttribute MEMBER_VARIABLE_DECLARATION__NAME = eINSTANCE.getMemberVariableDeclaration_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MEMBER_VARIABLE_DECLARATION__TYPE = eINSTANCE.getMemberVariableDeclaration_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MEMBER_VARIABLE_DECLARATION__EXPRESSION = eINSTANCE.getMemberVariableDeclaration_Expression();
 
     /**
      * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl <em>Variable Declaration</em>}' class.
@@ -10293,6 +10397,16 @@ public interface AS3Package extends EPackage
      * @generated
      */
     EReference SYMBOL_REF__SYMBOL = eINSTANCE.getSymbolRef_Symbol();
+
+    /**
+     * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.AccessorRole <em>Accessor Role</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.lynorics.eclipse.jangaroo.aS3.AccessorRole
+     * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getAccessorRole()
+     * @generated
+     */
+    EEnum ACCESSOR_ROLE = eINSTANCE.getAccessorRole();
 
     /**
      * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.AccessLevel <em>Access Level</em>}' enum.

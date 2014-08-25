@@ -90,9 +90,9 @@ class AS3Formatter extends AbstractDeclarativeFormatter {
   	c.setLinewrap(2).before(method.annotationsAnnotationParserRuleCall_0_0);
   	
   	// format variable level
-  	val membervari = g.memberVariableDeclarationAccess;
-  	c.setLinewrap(1).after(membervari.semicolonKeyword_2);
-  	c.setNoSpace().before(membervari.semicolonKeyword_2);
+//  	val membervari = g.memberVariableDeclarationAccess;
+//  	c.setLinewrap(1).after(membervari.semicolonKeyword_3);
+//  	c.setNoSpace().before(membervari.semicolonKeyword_3);
   	
     //    // indentation between { }
     //    c.setIndentation(g.LEFT_CURLYAccess.leftCurlyBracketKeyword,

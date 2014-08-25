@@ -17,6 +17,11 @@ import org.eclipse.xtext.ui.label.ILabelProviderImageDescriptorExtension;
 
 import com.google.inject.Inject;
 
+import de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration;
+import de.lynorics.eclipse.jangaroo.aS3.Parameter;
+import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
+import de.lynorics.eclipse.jangaroo.ui.labeling.AS3LabelProvider;
+
 public class AS3EObjectHoverProvider extends DefaultEObjectHoverProvider {
 
 	@Inject
@@ -61,13 +66,28 @@ public class AS3EObjectHoverProvider extends DefaultEObjectHoverProvider {
 			}
 			return buildDescription(o, name);
 		}
+		else if (o instanceof VariableDeclaration) {
+			VariableDeclaration decl = (VariableDeclaration)o;
+			return buildDescription(o, decl.getName()) + ": " + AS3LabelProvider.getNameOfType(decl.getType());
+		}
+		else if (o instanceof MemberVariableDeclaration) {
+			MemberVariableDeclaration decl = (MemberVariableDeclaration)o;
+			return buildDescription(o, decl.getName()) + ": " + AS3LabelProvider.getNameOfType(decl.getType());
+		}
+		else if (o instanceof Parameter) {
+			Parameter param = (Parameter)o;
+			return buildDescription(o, param.getName()) + ": " + AS3LabelProvider.getNameOfType(param.getType());
+		}
 		return super.getFirstLine(o);
 	}
 
 	private String buildDescription(EObject o, String name) {
 		StringBuilder builder = new StringBuilder();
-		builder.append(getImageTag(o));
-		builder.append("&nbsp;");
+		String imageTag = getImageTag(o);
+		if (imageTag != null) {
+			builder.append(imageTag);
+			builder.append("&nbsp;");
+		}
 		builder.append("<b>" + name + "</b>");
 		return builder.toString();
 	}

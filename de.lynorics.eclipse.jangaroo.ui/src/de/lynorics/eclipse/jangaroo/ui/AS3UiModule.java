@@ -22,6 +22,7 @@ import com.google.inject.name.Names;
 import de.lynorics.eclipse.jangaroo.ui.highlighting.AS3HighlightingCalculator;
 import de.lynorics.eclipse.jangaroo.ui.highlighting.AS3HighlightingConfiguration;
 import de.lynorics.eclipse.jangaroo.ui.outline.FilterImportsOperationsContribution;
+import de.lynorics.eclipse.jangaroo.ui.outline.FilterNonPublicMembersContribution;
 import de.lynorics.eclipse.jangaroo.ui.outline.FilterUsesOperationsContribution;
 import de.lynorics.eclipse.jangaroo.ui.preferences.AS3LanguageRootPreferencePage;
 
@@ -42,6 +43,10 @@ public class AS3UiModule extends de.lynorics.eclipse.jangaroo.ui.AbstractAS3UiMo
 		.bind(IOutlineContribution.class).annotatedWith(
 				Names.named("FilterUsesOperationsContribution"))
 				.to(FilterUsesOperationsContribution.class);
+		binder
+		.bind(IOutlineContribution.class).annotatedWith(
+				Names.named("FilterNonPublicMembersContribution"))
+				.to(FilterNonPublicMembersContribution.class);
 	}
 
 	public Class<? extends IEObjectHoverProvider> bindIEObjectHoverProvider() {

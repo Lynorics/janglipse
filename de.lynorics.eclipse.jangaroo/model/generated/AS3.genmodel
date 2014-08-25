@@ -8,6 +8,10 @@
     editorPluginID="de.lynorics.eclipse.jangaroo.editor" runtimeVersion="2.10">
   <genPackages prefix="AS3" basePackage="de.lynorics.eclipse.jangaroo" disposableProviderFactory="true"
       fileExtensions="as" ecorePackage="AS3.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AS3.ecore#//AccessorRole">
+      <genEnumLiterals ecoreEnumLiteral="AS3.ecore#//AccessorRole/GET"/>
+      <genEnumLiterals ecoreEnumLiteral="AS3.ecore#//AccessorRole/SET"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="AS3.ecore#//AccessLevel">
       <genEnumLiterals ecoreEnumLiteral="AS3.ecore#//AccessLevel/INTERNAL"/>
       <genEnumLiterals ecoreEnumLiteral="AS3.ecore#//AccessLevel/PRIVATE"/>
@@ -60,8 +64,8 @@
     <genClasses ecoreClass="AS3.ecore#//InterfaceMethod">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//InterfaceMethod/annotations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//InterfaceMethod/modifier"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//InterfaceMethod/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//InterfaceMethod/accessor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//InterfaceMethod/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//InterfaceMethod/params"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//InterfaceMethod/type"/>
     </genClasses>
@@ -77,7 +81,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/annotations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/modifier"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Class/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/superType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/superclass"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/types"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/members"/>
     </genClasses>
@@ -88,8 +92,8 @@
     <genClasses ecoreClass="AS3.ecore#//Method">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Method/annotations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Method/modifier"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Method/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Method/accessor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Method/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Method/params"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//Method/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Method/body"/>
@@ -105,8 +109,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//MethodBody/statements"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//MemberVariableDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//MemberVariableDeclaration/annotations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//MemberVariableDeclaration/modifier"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//MemberVariableDeclaration/decl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//MemberVariableDeclaration/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//MemberVariableDeclaration/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//MemberVariableDeclaration/Expression"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//VariableDeclaration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//VariableDeclaration/name"/>

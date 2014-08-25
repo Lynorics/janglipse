@@ -3,7 +3,7 @@
 package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
-import de.lynorics.eclipse.jangaroo.aS3.parameterDeclaration;
+import de.lynorics.eclipse.jangaroo.aS3.Parameter;
 import de.lynorics.eclipse.jangaroo.aS3.parameterDeclarationList;
 
 import java.util.Collection;
@@ -43,7 +43,7 @@ public class parameterDeclarationListImpl extends MinimalEObjectImpl.Container i
    * @generated
    * @ordered
    */
-  protected EList<parameterDeclaration> params;
+  protected EList<Parameter> params;
 
   /**
    * <!-- begin-user-doc -->
@@ -71,11 +71,11 @@ public class parameterDeclarationListImpl extends MinimalEObjectImpl.Container i
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<parameterDeclaration> getParams()
+  public EList<Parameter> getParams()
   {
     if (params == null)
     {
-      params = new EObjectContainmentEList<parameterDeclaration>(parameterDeclaration.class, this, AS3Package.PARAMETER_DECLARATION_LIST__PARAMS);
+      params = new EObjectContainmentEList<Parameter>(Parameter.class, this, AS3Package.PARAMETER_DECLARATION_LIST__PARAMS);
     }
     return params;
   }
@@ -125,7 +125,7 @@ public class parameterDeclarationListImpl extends MinimalEObjectImpl.Container i
     {
       case AS3Package.PARAMETER_DECLARATION_LIST__PARAMS:
         getParams().clear();
-        getParams().addAll((Collection<? extends parameterDeclaration>)newValue);
+        getParams().addAll((Collection<? extends Parameter>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

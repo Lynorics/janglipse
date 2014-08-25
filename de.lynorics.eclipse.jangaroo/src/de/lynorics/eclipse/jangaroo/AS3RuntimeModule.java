@@ -9,18 +9,21 @@
  */
 package de.lynorics.eclipse.jangaroo;
 
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy;
 
 import com.google.inject.Binder;
 import com.google.inject.name.Names;
 
 import de.lynorics.eclipse.jangaroo.scoping.AS3ImportedNamespaceScopeProvider;
+import de.lynorics.eclipse.jangaroo.scoping.AS3QualifiedNameProvider;
 import de.lynorics.eclipse.jangaroo.scoping.AS3ResourceDescriptionStrategy;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 public class AS3RuntimeModule extends de.lynorics.eclipse.jangaroo.AbstractAS3RuntimeModule {
+
 	@Override
 	public void configureIScopeProviderDelegate(Binder binder) {
 		binder.bind(org.eclipse.xtext.scoping.IScopeProvider.class).annotatedWith(Names.named(org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(AS3ImportedNamespaceScopeProvider.class);
@@ -29,4 +32,10 @@ public class AS3RuntimeModule extends de.lynorics.eclipse.jangaroo.AbstractAS3Ru
 	public Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
 		return AS3ResourceDescriptionStrategy.class;
 	}
+	
+//    @Override
+//    public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
+//        return AS3QualifiedNameProvider.class;
+//    }
+
 }

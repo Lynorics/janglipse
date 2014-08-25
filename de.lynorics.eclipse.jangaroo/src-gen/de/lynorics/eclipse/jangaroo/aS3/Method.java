@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getModifier <em>Modifier</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getAccessor <em>Accessor</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getParams <em>Params</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getType <em>Type</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getBody <em>Body</em>}</li>
@@ -73,6 +73,35 @@ public interface Method extends EObject
   void setModifier(Modifier value);
 
   /**
+   * Returns the value of the '<em><b>Accessor</b></em>' attribute.
+   * The literals are from the enumeration {@link de.lynorics.eclipse.jangaroo.aS3.AccessorRole}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Accessor</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Accessor</em>' attribute.
+   * @see de.lynorics.eclipse.jangaroo.aS3.AccessorRole
+   * @see #setAccessor(AccessorRole)
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getMethod_Accessor()
+   * @model
+   * @generated
+   */
+  AccessorRole getAccessor();
+
+  /**
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getAccessor <em>Accessor</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Accessor</em>' attribute.
+   * @see de.lynorics.eclipse.jangaroo.aS3.AccessorRole
+   * @see #getAccessor()
+   * @generated
+   */
+  void setAccessor(AccessorRole value);
+
+  /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
@@ -97,32 +126,6 @@ public interface Method extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Accessor</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Accessor</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Accessor</em>' attribute.
-   * @see #setAccessor(String)
-   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getMethod_Accessor()
-   * @model
-   * @generated
-   */
-  String getAccessor();
-
-  /**
-   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getAccessor <em>Accessor</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Accessor</em>' attribute.
-   * @see #getAccessor()
-   * @generated
-   */
-  void setAccessor(String value);
 
   /**
    * Returns the value of the '<em><b>Params</b></em>' containment reference list.

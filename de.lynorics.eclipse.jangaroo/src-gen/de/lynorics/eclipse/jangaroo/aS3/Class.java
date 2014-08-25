@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Class#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Class#getModifier <em>Modifier</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Class#getName <em>Name</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Class#getSuperType <em>Super Type</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Class#getSuperclass <em>Superclass</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Class#getTypes <em>Types</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Class#getMembers <em>Members</em>}</li>
  * </ul>
@@ -98,30 +98,30 @@ public interface Class extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Super Type</b></em>' reference.
+   * Returns the value of the '<em><b>Superclass</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Super Type</em>' reference isn't clear,
+   * If the meaning of the '<em>Superclass</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Super Type</em>' reference.
-   * @see #setSuperType(Class)
-   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getClass_SuperType()
+   * @return the value of the '<em>Superclass</em>' reference.
+   * @see #setSuperclass(Class)
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getClass_Superclass()
    * @model
    * @generated
    */
-  Class getSuperType();
+  Class getSuperclass();
 
   /**
-   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Class#getSuperType <em>Super Type</em>}' reference.
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Class#getSuperclass <em>Superclass</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Super Type</em>' reference.
-   * @see #getSuperType()
+   * @param value the new value of the '<em>Superclass</em>' reference.
+   * @see #getSuperclass()
    * @generated
    */
-  void setSuperType(Class value);
+  void setSuperclass(Class value);
 
   /**
    * Returns the value of the '<em><b>Types</b></em>' reference list.

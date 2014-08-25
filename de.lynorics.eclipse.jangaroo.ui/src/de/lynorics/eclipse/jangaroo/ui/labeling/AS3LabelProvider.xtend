@@ -211,7 +211,28 @@ class AS3LabelProvider extends DefaultEObjectLabelProvider {
     }
 
     def image(VariableDeclaration varDecl) {
-          return "outline-field-internal.gif";
+          return "proposal-field-local.gif";
     }
+
+    def image(Parameter param) {
+          return "proposal-field-local.gif";
+    }
+
+	def static String getNameOfType(EObject type) {
+		if (type instanceof de.lynorics.eclipse.jangaroo.aS3.Class) {
+			return (type as de.lynorics.eclipse.jangaroo.aS3.Class).getName();
+		}
+		else  if (type instanceof de.lynorics.eclipse.jangaroo.aS3.Interface) {
+			return (type as de.lynorics.eclipse.jangaroo.aS3.Interface).getName();
+		}
+		else if (type instanceof de.lynorics.eclipse.jangaroo.aS3.Method) {
+			return (type as de.lynorics.eclipse.jangaroo.aS3.Method).getName();
+		}
+		if (type != null) {
+			return type.getClass().getSimpleName();
+		}
+		return null;
+	}
+
 
 }

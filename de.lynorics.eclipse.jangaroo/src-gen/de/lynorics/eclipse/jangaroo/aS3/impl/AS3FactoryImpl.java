@@ -5,6 +5,7 @@ package de.lynorics.eclipse.jangaroo.aS3.impl;
 import de.lynorics.eclipse.jangaroo.aS3.AS3Factory;
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
 import de.lynorics.eclipse.jangaroo.aS3.AccessLevel;
+import de.lynorics.eclipse.jangaroo.aS3.AccessorRole;
 import de.lynorics.eclipse.jangaroo.aS3.Annotation;
 import de.lynorics.eclipse.jangaroo.aS3.Block;
 import de.lynorics.eclipse.jangaroo.aS3.BoolConstant;
@@ -300,6 +301,8 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
   {
     switch (eDataType.getClassifierID())
     {
+      case AS3Package.ACCESSOR_ROLE:
+        return createAccessorRoleFromString(eDataType, initialValue);
       case AS3Package.ACCESS_LEVEL:
         return createAccessLevelFromString(eDataType, initialValue);
       default:
@@ -317,6 +320,8 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
   {
     switch (eDataType.getClassifierID())
     {
+      case AS3Package.ACCESSOR_ROLE:
+        return convertAccessorRoleToString(eDataType, instanceValue);
       case AS3Package.ACCESS_LEVEL:
         return convertAccessLevelToString(eDataType, instanceValue);
       default:
@@ -1532,6 +1537,28 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
   {
     SymbolRefImpl symbolRef = new SymbolRefImpl();
     return symbolRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AccessorRole createAccessorRoleFromString(EDataType eDataType, String initialValue)
+  {
+    AccessorRole result = AccessorRole.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertAccessorRoleToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

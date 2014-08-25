@@ -18,11 +18,9 @@ import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
 import de.lynorics.eclipse.jangaroo.aS3.ReturnStatement;
 import de.lynorics.eclipse.jangaroo.aS3.Statement;
-import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import de.lynorics.eclipse.jangaroo.validation.AbstractAS3Validator;
 import java.util.HashSet;
-import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -194,14 +192,14 @@ public class AS3Validator extends AbstractAS3Validator {
     if (_not) {
       return;
     }
-    de.lynorics.eclipse.jangaroo.aS3.Class _superType = clas.getSuperType();
-    boolean _equals = Objects.equal(_superType, null);
+    de.lynorics.eclipse.jangaroo.aS3.Class _superclass = clas.getSuperclass();
+    boolean _equals = Objects.equal(_superclass, null);
     if (_equals) {
       return;
     }
     final HashSet<de.lynorics.eclipse.jangaroo.aS3.Class> visitedClasses = CollectionLiterals.<de.lynorics.eclipse.jangaroo.aS3.Class>newHashSet();
     visitedClasses.add(clas);
-    de.lynorics.eclipse.jangaroo.aS3.Class current = clas.getSuperType();
+    de.lynorics.eclipse.jangaroo.aS3.Class current = clas.getSuperclass();
     boolean _notEquals = (!Objects.equal(current, null));
     boolean _while = _notEquals;
     while (_while) {
@@ -217,8 +215,8 @@ public class AS3Validator extends AbstractAS3Validator {
           return;
         }
         visitedClasses.add(current);
-        de.lynorics.eclipse.jangaroo.aS3.Class _superType_1 = current.getSuperType();
-        current = _superType_1;
+        de.lynorics.eclipse.jangaroo.aS3.Class _superclass_1 = current.getSuperclass();
+        current = _superclass_1;
       }
       boolean _notEquals_1 = (!Objects.equal(current, null));
       _while = _notEquals_1;
@@ -324,32 +322,6 @@ public class AS3Validator extends AbstractAS3Validator {
           return;
         }
       }
-    }
-  }
-  
-  @Check(value = CheckType.EXPENSIVE)
-  public void checkForwardReference(final SymbolRef ref) {
-    boolean _checkForSourcePath = this.checkForSourcePath(ref);
-    boolean _not = (!_checkForSourcePath);
-    if (_not) {
-      return;
-    }
-    final EObject variable = ref.getSymbol();
-    boolean _and = false;
-    boolean _notEquals = (!Objects.equal(variable, null));
-    if (!_notEquals) {
-      _and = false;
-    } else {
-      List<EObject> _variablesDefinedBefore = AS3ModelUtil.variablesDefinedBefore(ref);
-      boolean _contains = _variablesDefinedBefore.contains(variable);
-      boolean _not_1 = (!_contains);
-      _and = _not_1;
-    }
-    if (_and) {
-      this.error("Variable forward not allowed", 
-        AS3Package.Literals.SYMBOL_REF__SYMBOL, 
-        AS3Validator.FORWARD_REFERENCE);
-      return;
     }
   }
 }

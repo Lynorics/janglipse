@@ -9,85 +9,194 @@
 */
 package de.lynorics.eclipse.jangaroo.ui.outline
 
-import de.lynorics.eclipse.jangaroo.aS3.Method
-import org.eclipse.emf.ecore.EObject
-import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
-import org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode
-import de.lynorics.eclipse.jangaroo.aS3.Model
-import org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode
-import de.lynorics.eclipse.jangaroo.aS3.Member
-import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration
+import com.google.inject.Inject
+import de.lynorics.eclipse.jangaroo.aS3.AccessLevel
+import de.lynorics.eclipse.jangaroo.aS3.Class
 import de.lynorics.eclipse.jangaroo.aS3.Interface
 import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod
+import de.lynorics.eclipse.jangaroo.aS3.Member
 import de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration
+import de.lynorics.eclipse.jangaroo.aS3.Method
+import de.lynorics.eclipse.jangaroo.aS3.Model
+import de.lynorics.eclipse.jangaroo.aS3.Package
+import java.util.List
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.jface.resource.ImageDescriptor
+import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.IStyledLabelProvider
+import org.eclipse.jface.viewers.ILabelProvider
+import org.eclipse.jface.viewers.StyledString
+import org.eclipse.xtext.ui.editor.outline.IOutlineNode
+import org.eclipse.xtext.ui.editor.outline.IOutlineTreeProvider
+import org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode
+import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
+import org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode
+import org.eclipse.xtext.ui.editor.outline.impl.OutlineMode
+import org.eclipse.xtext.ui.editor.outline.impl.OutlineNodeFactory
+import org.eclipse.xtext.ui.label.ILabelProviderImageDescriptorExtension
+
+import static extension de.lynorics.eclipse.jangaroo.AS3ModelUtil.*
+import de.lynorics.eclipse.jangaroo.aS3.directive
 
 /**
  * Customization of the default outline structure.
  *
  * see http://www.eclipse.org/Xtext/documentation.html#outline
  */
-class AS3OutlineTreeProvider extends DefaultOutlineTreeProvider {
+class AS3OutlineTreeProvider extends DefaultOutlineTreeProvider implements IOutlineTreeProvider.ModeAware {
 
-  def _createChildren(DocumentRootNode parentNode,
-      Model model) {
-      if (model.package != null) {
-        createNode(parentNode, model.package);
-        if (model.package.imp != null) {
-          createNode(parentNode, model.package.imp)
-        }
-//       TODO add uses
-        if (model.package.classes != null) {
-          for (EObject clazz: model.package.classes)
-          createNode(parentNode, clazz)
-        }
-      }
-      else {
-        if (model.imp != null) {
-          createNode(parentNode, model.imp)
-        }
-//       TODO add uses
-        if (model.classes != null) {
-          for (EObject clazz: model.classes)
-            createNode(parentNode, clazz)
-        }
-      }
-  }
-  
-  def _createChildren(AbstractOutlineNode parentNode,
-      de.lynorics.eclipse.jangaroo.aS3.Class clazz) {
-    for (Member member : clazz.members) {
-      if (member.^var != null) {
-        createNode(parentNode, member.^var);
-      }
-    }
-    for (Member member : clazz.members) {
-      if (member.meth != null) {
-        createNode(parentNode, member.meth);
-      }
-    }
-  }
-  
-  def _createChildren(AbstractOutlineNode parentNode,
-      Interface intf) {
-    for (InterfaceMethod member : intf.members) {
-      createNode(parentNode, member);
-    }
-  }
-  
-  def _isLeaf(Method method) {
-    return true;
-  }
+	private static final OutlineMode HIDE_INHERITED_MODE = new OutlineMode("hide", "hide inherited members");
+	private static final OutlineMode SHOW_INHERITED_MODE = new OutlineMode("show", "show inherited members");
+	private static final List<OutlineMode> MODES = newArrayList(HIDE_INHERITED_MODE, SHOW_INHERITED_MODE);
 
-  def _isLeaf(InterfaceMethod method) {
-    return true;
-  }
+	private int currentModeIndex = 0;
 
-  def _isLeaf(MemberVariableDeclaration varDecl) {
-    return true;
-  }
-  
-  def _isLeaf(de.lynorics.eclipse.jangaroo.aS3.Package pack) {
-    return true;
-  }
-  
+	@Inject
+	private ILabelProvider labelProvider;
+
+	@Inject
+	private OutlineNodeFactory factory;
+
+	def _createChildren(DocumentRootNode parentNode, Model model) {
+
+		if (model.package != null) {
+			createNode(parentNode, model.package);
+			if (model.package.imp != null) {
+				createNode(parentNode, model.package.imp)
+			}
+
+			//       TODO add uses
+			if (model.package.directives != null) {
+				for (directive dir : model.package.directives)
+					createNode(parentNode, dir.uses)
+			}
+			if (model.package.classes != null) {
+				for (EObject clazz : model.package.classes)
+					createNode(parentNode, clazz)
+			}
+		} else {
+			if (model.imp != null) {
+				createNode(parentNode, model.imp)
+			}
+
+			//       TODO add uses
+			if (model.classes != null) {
+				for (EObject clazz : model.classes)
+					createNode(parentNode, clazz)
+			}
+		}
+	}
+
+	def _createChildren(AbstractOutlineNode parentNode, Class clazz) {
+
+		//System.out.println("new call for children on "+clazz.name+"++++++++++++++++++++++++++++++++");
+		for (Member member : clazz.members) {
+			if (member.^var != null) {
+				createNode(parentNode, member.^var);
+			}
+			if (member.meth != null) {
+				createNode(parentNode, member.meth);
+			}
+		}
+		if (SHOW_INHERITED_MODE == currentMode && clazz.containingClass != null) {
+
+			// collect methods of class
+			var myclass = clazz.containingClass.superclass;
+			var collectPrivate = true;
+			while (myclass != null) {
+				collectMethodsOfClass(parentNode, myclass, collectPrivate);
+
+				// collect even functions of super types
+				myclass = myclass.superclass
+
+				// non-public just for containing class, not super types
+				collectPrivate = false;
+			}
+		}
+	}
+
+	private def collectMethodsOfClass(AbstractOutlineNode parentNode, Class clazz,
+		boolean collectPrivate) {
+
+		//System.out.println("new call for methods on "+clazz.name+"####################################");
+		clazz.accessibleFunctions.forEach [ meth |
+			if (meth instanceof Method) {
+				if (collectPrivate || !AccessLevel.PRIVATE.getName().equalsIgnoreCase((meth.modifier.access as AccessLevel).getName())) {
+					var eno = createAS3Node(parentNode, meth);
+					var label = getText(meth);
+					if (!(label instanceof StyledString)) {
+						label = new StyledString(label.toString());
+					}
+					(label as StyledString).append(
+						new StyledString(" - " + meth.containingClass.name, StyledString.COUNTER_STYLER));
+					eno.setText(label as StyledString);
+					//System.out.println("added method " + label.toString);
+
+				//factory.createXtendFeatureNode(parentNode, jvmFeature, image, label, true, synthetic, inheritanceDepth);
+				}
+			}
+		]
+	}
+
+	def _createChildren(AbstractOutlineNode parentNode, Interface intf) {
+		for (InterfaceMethod member : intf.members) {
+			createNode(parentNode, member);
+		}
+	}
+
+	def _isLeaf(Method method) {
+		return true;
+	}
+
+	def _isLeaf(InterfaceMethod method) {
+		return true;
+	}
+
+	def _isLeaf(MemberVariableDeclaration varDecl) {
+		return true;
+	}
+
+	def _isLeaf(Package pack) {
+		return true;
+	}
+
+	override getCurrentMode() {
+		return getOutlineModes().get(currentModeIndex);
+	}
+
+	override getNextMode() {
+		return getOutlineModes().get((currentModeIndex + 1) % getOutlineModes().size());
+	}
+
+	override getOutlineModes() {
+		return MODES;
+	}
+
+	override setCurrentMode(OutlineMode outlineMode) {
+		var newIndex = getOutlineModes().indexOf(outlineMode);
+		if (newIndex != -1) {
+			currentModeIndex = newIndex;
+		}
+	}
+
+	private def createAS3Node(IOutlineNode parentNode, EObject modelElement) {
+		var text = getText(modelElement);
+		var image = getImageDescriptor(modelElement);
+		return factory.createEObjectNode(parentNode, modelElement, image as ImageDescriptor, text, true);
+	}
+
+	private def getImageDescriptor(Object modelElement) {
+		if (labelProvider instanceof ILabelProviderImageDescriptorExtension) {
+			return labelProvider.getImageDescriptor(modelElement);
+		} else {
+			return null;
+		}
+	}
+
+	private def getText(Object modelElement) {
+		if (labelProvider instanceof IStyledLabelProvider) {
+			return labelProvider.getStyledText(modelElement);
+		} else {
+			return labelProvider.getText(modelElement);
+		}
+	}
 }

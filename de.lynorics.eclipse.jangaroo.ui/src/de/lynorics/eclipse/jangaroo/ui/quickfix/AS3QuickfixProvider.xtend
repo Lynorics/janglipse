@@ -9,17 +9,18 @@
 */
 package de.lynorics.eclipse.jangaroo.ui.quickfix
 
+import de.lynorics.eclipse.jangaroo.validation.AS3Validator
+import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider
 import org.eclipse.xtext.ui.editor.quickfix.Fix
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor
 import org.eclipse.xtext.validation.Issue
-import de.lynorics.eclipse.jangaroo.validation.AS3Validator
 
 /**
  * Custom quickfixes.
  *
  * see http://www.eclipse.org/Xtext/documentation.html#quickfixes
  */
-class AS3QuickfixProvider extends org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider {
+class AS3QuickfixProvider extends DefaultQuickfixProvider {
 
   @Fix(AS3Validator::CLASS_SHOULD_START_WITH_CAPITAL_LETTER)
   def capitalizeClass(Issue issue, IssueResolutionAcceptor acceptor) {

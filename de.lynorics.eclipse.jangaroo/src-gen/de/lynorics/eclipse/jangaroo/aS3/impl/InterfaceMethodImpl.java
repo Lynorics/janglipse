@@ -3,6 +3,7 @@
 package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
+import de.lynorics.eclipse.jangaroo.aS3.AccessorRole;
 import de.lynorics.eclipse.jangaroo.aS3.Annotation;
 import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 import de.lynorics.eclipse.jangaroo.aS3.Modifier;
@@ -34,8 +35,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceMethodImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceMethodImpl#getModifier <em>Modifier</em>}</li>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceMethodImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceMethodImpl#getAccessor <em>Accessor</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceMethodImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceMethodImpl#getParams <em>Params</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceMethodImpl#getType <em>Type</em>}</li>
  * </ul>
@@ -66,6 +67,26 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
   protected Modifier modifier;
 
   /**
+   * The default value of the '{@link #getAccessor() <em>Accessor</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAccessor()
+   * @generated
+   * @ordered
+   */
+  protected static final AccessorRole ACCESSOR_EDEFAULT = AccessorRole.GET;
+
+  /**
+   * The cached value of the '{@link #getAccessor() <em>Accessor</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAccessor()
+   * @generated
+   * @ordered
+   */
+  protected AccessorRole accessor = ACCESSOR_EDEFAULT;
+
+  /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -84,26 +105,6 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getAccessor() <em>Accessor</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAccessor()
-   * @generated
-   * @ordered
-   */
-  protected static final String ACCESSOR_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getAccessor() <em>Accessor</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAccessor()
-   * @generated
-   * @ordered
-   */
-  protected String accessor = ACCESSOR_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference list.
@@ -213,6 +214,29 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
+  public AccessorRole getAccessor()
+  {
+    return accessor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAccessor(AccessorRole newAccessor)
+  {
+    AccessorRole oldAccessor = accessor;
+    accessor = newAccessor == null ? ACCESSOR_EDEFAULT : newAccessor;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.INTERFACE_METHOD__ACCESSOR, oldAccessor, accessor));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getName()
   {
     return name;
@@ -229,29 +253,6 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.INTERFACE_METHOD__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getAccessor()
-  {
-    return accessor;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAccessor(String newAccessor)
-  {
-    String oldAccessor = accessor;
-    accessor = newAccessor;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.INTERFACE_METHOD__ACCESSOR, oldAccessor, accessor));
   }
 
   /**
@@ -345,10 +346,10 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
         return getAnnotations();
       case AS3Package.INTERFACE_METHOD__MODIFIER:
         return getModifier();
-      case AS3Package.INTERFACE_METHOD__NAME:
-        return getName();
       case AS3Package.INTERFACE_METHOD__ACCESSOR:
         return getAccessor();
+      case AS3Package.INTERFACE_METHOD__NAME:
+        return getName();
       case AS3Package.INTERFACE_METHOD__PARAMS:
         return getParams();
       case AS3Package.INTERFACE_METHOD__TYPE:
@@ -376,11 +377,11 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
       case AS3Package.INTERFACE_METHOD__MODIFIER:
         setModifier((Modifier)newValue);
         return;
+      case AS3Package.INTERFACE_METHOD__ACCESSOR:
+        setAccessor((AccessorRole)newValue);
+        return;
       case AS3Package.INTERFACE_METHOD__NAME:
         setName((String)newValue);
-        return;
-      case AS3Package.INTERFACE_METHOD__ACCESSOR:
-        setAccessor((String)newValue);
         return;
       case AS3Package.INTERFACE_METHOD__PARAMS:
         getParams().clear();
@@ -409,11 +410,11 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
       case AS3Package.INTERFACE_METHOD__MODIFIER:
         setModifier((Modifier)null);
         return;
-      case AS3Package.INTERFACE_METHOD__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case AS3Package.INTERFACE_METHOD__ACCESSOR:
         setAccessor(ACCESSOR_EDEFAULT);
+        return;
+      case AS3Package.INTERFACE_METHOD__NAME:
+        setName(NAME_EDEFAULT);
         return;
       case AS3Package.INTERFACE_METHOD__PARAMS:
         getParams().clear();
@@ -439,10 +440,10 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
         return annotations != null && !annotations.isEmpty();
       case AS3Package.INTERFACE_METHOD__MODIFIER:
         return modifier != null;
+      case AS3Package.INTERFACE_METHOD__ACCESSOR:
+        return accessor != ACCESSOR_EDEFAULT;
       case AS3Package.INTERFACE_METHOD__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case AS3Package.INTERFACE_METHOD__ACCESSOR:
-        return ACCESSOR_EDEFAULT == null ? accessor != null : !ACCESSOR_EDEFAULT.equals(accessor);
       case AS3Package.INTERFACE_METHOD__PARAMS:
         return params != null && !params.isEmpty();
       case AS3Package.INTERFACE_METHOD__TYPE:
@@ -462,10 +463,10 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", accessor: ");
+    result.append(" (accessor: ");
     result.append(accessor);
+    result.append(", name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

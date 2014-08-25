@@ -70,8 +70,7 @@ InterfaceMethod:
   annotations+=Annotation*
   modifier=Modifier? (=>'function'
   (
-    name=ID'('
-    | accessor=accessorRole name=ID'('
+    accessor=AccessorRole? name=ID'('
   )
   (params+=Parameter (',' params+=Parameter)*)? ')' 
   (':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))?
@@ -91,14 +90,13 @@ functionCommon
 Class:
    annotations+=Annotation*
    modifier=Modifier? (=>'class' name=ID
-   ('extends' superType=[Class|QualifiedName])?
+   ('extends' superclass=[Class|QualifiedName])?
    ('implements' types+=[Interface|QualifiedName] (',' types+=[Interface|QualifiedName])*)?
    '{' members += Member* '}')
    ;
 
-accessorRole
-  : "get" | "set"
-  ;
+enum AccessorRole
+  : GET='get' | SET='set';
 
 Member: 
     var=MemberVariableDeclaration 
@@ -109,8 +107,7 @@ Method:
   annotations+=Annotation*
   'override'? modifier=Modifier? (=>'function' 
   (
-    name=ID'('
-    | accessor=accessorRole name=ID'('
+    accessor=AccessorRole? name=ID'('
   )
    (params+=Parameter (',' params+=Parameter)*)? ')' 
   (':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))?
@@ -133,7 +130,10 @@ MethodBody:
 
 
 MemberVariableDeclaration:
-  modifier=Modifier? decl=VariableDeclaration ';'
+  annotations+=Annotation*
+  modifier=Modifier?
+  ('var'|'const') name=ID (':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))? ('=' Expression=assignmentExpression)? ';'
+  //decl=VariableDeclaration ';'
 ;
 
 VariableDeclaration:
@@ -173,16 +173,17 @@ qualifiedIdent
   : (namespaceName '::')? ide=identi 
   ;
 
+// TODO lynorics what is this for?
 identi: {identi}
   QualifiedName
-  | i='use' 
+//  | i='use' 
   | i='xml'
-  | i='dynamic'
-  | i='namespace'
+//  | i='dynamic'
+//  | i='namespace'
   | i='is'
   | i='as'
-  | i='get'
-  | i='set'
+//  | i='get'
+//  | i='set'
   ;
 
 identifier 
@@ -458,7 +459,7 @@ TerminalExpression returns Expression:
   | {BoolConstant} value=('true'| 'false')
   | {This} 'this'
   | {Null} 'null'
-  | {SymbolRef} (symbol=[VariableDeclaration]|symbol=[Parameter])
+  | {SymbolRef} (symbol=[MemberVariableDeclaration]|symbol=[VariableDeclaration]|symbol=[Parameter]|symbol=[Class]|symbol=[Interface]|symbol=[Method]|symbol=[InterfaceMethod]|symbol=[basicParameterDeclaration])
   ;
 
 number :
@@ -482,7 +483,7 @@ regexpLiteral
 
 newExpression
 //  : 'new' fullNewSubexpression args+=arguments?
-  : 'new' (type=[Interface|QualifiedName]|type=[Class|QualifiedName]) args+=arguments?
+  : (=> 'new' (type=[Interface|QualifiedName]|type=[Class|QualifiedName]) args+=arguments?)
   ;
 
 fullNewSubexpression
@@ -516,9 +517,10 @@ typeExpression: {typeExpression}
 // TODO: shouldn't the 'rest' parameter only be allowed in the last position?
 parameterDeclarationList: {parameterDeclarationList}
   '('
-    ( params+=parameterDeclaration
-      (',' params+=parameterDeclaration)*
-    )?
+  (params+=Parameter (',' params+=Parameter)*)?
+//    ( params+=parameterDeclaration
+//      (',' params+=parameterDeclaration)*
+//    )?
     ')'
   ;
 

@@ -28,6 +28,12 @@ class AS3ResourceDescriptionStrategy extends DefaultResourceDescriptionStrategy
 					acceptor.accept(EObjectDescription::create(fullQualifiedName, as3Class))
 				}
 			]
+			(eObject as Model).members.forEach[as3Member |
+				val fullQualifiedName = as3Member.fullyQualifiedName
+				if ( fullQualifiedName != null) {
+					acceptor.accept(EObjectDescription::create(fullQualifiedName, as3Member))
+				}
+			]
 			return true
 		}
 		else if (eObject instanceof de.lynorics.eclipse.jangaroo.aS3.Package) {
@@ -35,6 +41,12 @@ class AS3ResourceDescriptionStrategy extends DefaultResourceDescriptionStrategy
 				val fullQualifiedName = as3Class.fullyQualifiedName
 				if ( fullQualifiedName != null) {
 					acceptor.accept(EObjectDescription::create(fullQualifiedName, as3Class))
+				}
+			]
+			(eObject as de.lynorics.eclipse.jangaroo.aS3.Package).members.forEach[as3Member |
+				val fullQualifiedName = as3Member.fullyQualifiedName
+				if ( fullQualifiedName != null) {
+					acceptor.accept(EObjectDescription::create(fullQualifiedName, as3Member))
 				}
 			]
 			return true

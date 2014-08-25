@@ -130,12 +130,12 @@ class AS3Validator extends AbstractAS3Validator {
   	if (!checkForSourcePath(clas)) {
   		return
   	}
-    if (clas.superType == null) {
+    if (clas.superclass == null) {
       return
     }
     val visitedClasses = <Class>newHashSet();
     visitedClasses.add(clas);
-    var current = clas.superType;
+    var current = clas.superclass;
     while (current != null) {
       if (visitedClasses.contains(current)) {
         error("Cycle in hierarchie of class "+clas.name+"",
@@ -144,7 +144,7 @@ class AS3Validator extends AbstractAS3Validator {
           return;
       }
       visitedClasses.add(current);
-      current = current.superType;
+      current = current.superclass;
     }
   }
 
@@ -210,19 +210,19 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
 
-  @Check(value=CheckType.EXPENSIVE)
-  def checkForwardReference(SymbolRef ref) {
-  	if (!checkForSourcePath(ref)) {
-  		return
-  	}
-  	val variable = ref.symbol;
-  	if (variable != null &&
-  		!ref.variablesDefinedBefore.contains(variable)) {
-			error("Variable forward not allowed",
-				AS3Package.Literals.SYMBOL_REF__SYMBOL,
-				FORWARD_REFERENCE);
-			return;
-  		}
-  }
+//  @Check(value=CheckType.EXPENSIVE)
+//  def checkForwardReference(SymbolRef ref) {
+//  	if (!checkForSourcePath(ref)) {
+//  		return
+//  	}
+//  	val variable = ref.symbol;
+//  	if (variable != null &&
+//  		!ref.variablesDefinedBefore.contains(variable)) {
+//			error("Variable forward not allowed",
+//				AS3Package.Literals.SYMBOL_REF__SYMBOL,
+//				FORWARD_REFERENCE);
+//			return;
+//  		}
+//  }
   
 }

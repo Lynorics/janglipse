@@ -10,26 +10,55 @@
 package de.lynorics.eclipse.jangaroo.ui.contentassist
 
 import com.google.inject.Inject
+import de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration
+import de.lynorics.eclipse.jangaroo.aS3.Parameter
+import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration
+import de.lynorics.eclipse.jangaroo.ui.labeling.AS3LabelProvider
+import java.util.ArrayList
+import java.util.List
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.jface.viewers.ILabelProvider
 import org.eclipse.xtext.Assignment
+import org.eclipse.xtext.Keyword
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
 import org.eclipse.xtext.ui.label.ILabelProviderImageDescriptorExtension
 
 import static extension de.lynorics.eclipse.jangaroo.AS3ModelUtil.*
-import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration
-import de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration
-import de.lynorics.eclipse.jangaroo.aS3.Parameter
+import java.util.regex.Pattern
+import org.eclipse.xtext.RuleCall
+import de.lynorics.eclipse.jangaroo.aS3.Method
+import de.lynorics.eclipse.jangaroo.aS3.AccessLevel
+import de.lynorics.eclipse.jangaroo.aS3.Interface
+import org.eclipse.xtext.CrossReference
+import org.eclipse.xtext.AbstractElement
+import org.eclipse.xtext.TypeRef
+import org.eclipse.emf.ecore.EStructuralFeature
+import org.eclipse.emf.ecore.EOperation
+import org.eclipse.emf.common.util.EList
+import java.lang.reflect.InvocationTargetException
+import org.eclipse.emf.common.notify.Notification
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
  */
 class AS3ProposalProvider extends AbstractAS3ProposalProvider {
-	
+
+	Pattern alphanumerPattern = Pattern.compile("[^a-zA-Z0-9]");
+
 	@Inject
  	private ILabelProvider labelProvider;
-	
+
+	private final List<String> FILTERED_KEYWORDS = new ArrayList();
+
+	/**
+	 * Konstruktor.
+	 */
+	new() {
+		super();
+		FILTERED_KEYWORDS.addAll("get", "null", "set", "void");
+	}
+
 	/**
 	 * Code completion for a SymbolRef.
 	 */
@@ -37,18 +66,46 @@ class AS3ProposalProvider extends AbstractAS3ProposalProvider {
 		elem.variablesDefinedBefore.forEach[
 			variable |
 			if (variable instanceof VariableDeclaration) {
-				acceptor.accept(createCompletionProposal(variable.name, variable.name + " - Variable", getImageTag(variable), context));
+				acceptor.accept(createCompletionProposal(variable.name, variable.name + ": " + AS3LabelProvider.getNameOfType(variable.getType()), getImageTag(variable), context));
 			}
 			else if (variable instanceof MemberVariableDeclaration) {
-				acceptor.accept(createCompletionProposal(variable.decl.name, variable.decl.name + " - Package variable", getImageTag(variable), context));
+				acceptor.accept(createCompletionProposal(variable.name, variable.name + ": " + AS3LabelProvider.getNameOfType(variable.getType()), getImageTag(variable), context));
 			}
 			else if (variable instanceof Parameter) {
-				acceptor.accept(createCompletionProposal(variable.name, variable.name + " - Parameter", getImageTag(variable), context));
+				acceptor.accept(createCompletionProposal(variable.name, variable.name + ": " + AS3LabelProvider.getNameOfType(variable.getType()), getImageTag(variable), context));
 			}
+			else if (variable instanceof Interface) {
+				acceptor.accept(createCompletionProposal(variable.name, variable.name, getImageTag(variable), context));
+			}
+			else if (variable instanceof de.lynorics.eclipse.jangaroo.aS3.Class) {
+				acceptor.accept(createCompletionProposal(variable.name, variable.name, getImageTag(variable), context));
+			}
+		]
+		var myclass = elem.containingClass;
+		var collectPrivate = true;
+		while (myclass != null) {
+			collectVariablesOfClass(myclass, context, acceptor, collectPrivate);
+			// collect even functions of super types
+			myclass = myclass.superclass
+			// non-public just for containing class, not super types
+			collectPrivate = false;
+		}
+		
+	}
+
+	private def collectVariablesOfClass(de.lynorics.eclipse.jangaroo.aS3.Class clazz, ContentAssistContext context, ICompletionProposalAcceptor acceptor, boolean collectPrivate) {
+		clazz.attributes.forEach[
+			variable |
+				if (variable instanceof VariableDeclaration) {
+					acceptor.accept(createCompletionProposal(variable.name, variable.name + ": " + AS3LabelProvider.getNameOfType(variable.getType()), getImageTag(variable), context));
+				}
+				else if (variable instanceof MemberVariableDeclaration) {
+					acceptor.accept(createCompletionProposal(variable.name, variable.name + ": " + AS3LabelProvider.getNameOfType(variable.getType()), getImageTag(variable), context));
+				}
 		]
 	}
 	
-		private def getImageTag(EObject object) {
+	private def getImageTag(EObject object) {
 		if (labelProvider instanceof ILabelProviderImageDescriptorExtension) {
 			var ext = (labelProvider as ILabelProviderImageDescriptorExtension);
 			var descriptor = ext.getImageDescriptor(object);
@@ -59,4 +116,58 @@ class AS3ProposalProvider extends AbstractAS3ProposalProvider {
 		return null;
 	}
 
+	/**
+	 * Code completion for keywords.
+	 */
+	override completeKeyword(Keyword keyword, ContentAssistContext contentAssistContext, ICompletionProposalAcceptor acceptor) {
+		if (isFiltered(keyword)) {
+			return
+		}
+		super.completeKeyword(keyword, contentAssistContext, acceptor)
+	}
+
+	private def isFiltered(Keyword keyword) {
+		return alphanumerPattern.matcher(keyword.value).find() ||
+			FILTERED_KEYWORDS.contains(keyword.getValue());
+	}
+
+	/**
+	 * Code completion for primaryExpressions (beginning of expressions).
+	 */
+	override complete_primaryExpression(EObject elem, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		// collect methods of class
+		var myclass = elem.containingClass;
+		var collectPrivate = true;
+		while (myclass != null) {
+			collectMethodsOfClass(myclass, context, acceptor, collectPrivate);
+			// collect even functions of super types
+			myclass = myclass.superclass
+			// non-public just for containing class, not super types
+			collectPrivate = false;
+		}
+		// collect imported classes
+		if (elem.containingModel.package != null &&
+			elem.containingModel.package.imp != null)
+		{
+			elem.containingModel.package.imp.imports.forEach[
+				variable|
+				var name = variable.importedNamespace.substring(variable.importedNamespace.lastIndexOf(".")+1);
+				var path = variable.importedNamespace.substring(0, variable.importedNamespace.lastIndexOf("."));
+				acceptor.accept(createCompletionProposal(name, name + " (" + path + ")", getImageTag(variable), context));
+			]
+		}
+	}
+
+	private def collectMethodsOfClass(de.lynorics.eclipse.jangaroo.aS3.Class clazz, ContentAssistContext context, ICompletionProposalAcceptor acceptor, boolean collectPrivate) {
+		clazz.accessibleFunctions.forEach[
+			variable |
+				if (variable instanceof Method) {
+					if (collectPrivate ||
+						!"private".equalsIgnoreCase((variable.modifier.access as AccessLevel).getName())) {
+						acceptor.accept(createCompletionProposal(variable.name, variable.name + "(...): " + AS3LabelProvider.getNameOfType(variable.type), getImageTag(variable), context));
+					}
+				}
+		]
+	}
+	
 }

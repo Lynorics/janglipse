@@ -15,8 +15,35 @@
 				<goals>
 					<goal>compile</goal>
 					<goal>testCompile</goal>
+				</goals>
+			</pluginExecutionFilter>
+			<action>
+				<configurator>
+					<id>de.lynorics.eclipse.jangaroo.m2e.jangarooConfigurator</id>
+				</configurator>
+			</action>
+		</pluginExecution>
+		<pluginExecution>
+			<pluginExecutionFilter>
+				<groupId>net.jangaroo</groupId>
+				<artifactId>jangaroo-maven-plugin</artifactId>
+				<versionRange>[2.0.0,)</versionRange>
+				<goals>
 					<goal>unpack-jangaroo-test-dependencies</goal>
 					<goal>properties</goal>
+				</goals>
+			</pluginExecutionFilter>
+			<action>
+				<ignore />
+			</action>
+		</pluginExecution>
+		<pluginExecution>
+			<pluginExecutionFilter>
+				<groupId>net.jangaroo</groupId>
+				<artifactId>exml-maven-plugin</artifactId>
+				<versionRange>[2.0.0,)</versionRange>
+				<goals>
+					<goal>exml</goal>
 				</goals>
 			</pluginExecutionFilter>
 			<action>
@@ -31,16 +58,13 @@
 				<artifactId>exml-maven-plugin</artifactId>
 				<versionRange>[2.0.0,)</versionRange>
 				<goals>
-					<goal>exml</goal>
 					<goal>exml-xsd</goal>
 					<goal>test-exml</goal>
 				</goals>
 			</pluginExecutionFilter>
 			<action>
-				<configurator>
-					<id>de.lynorics.eclipse.jangaroo.m2e.jangarooConfigurator</id>
-				</configurator>
+				<ignore />
 			</action>
 		</pluginExecution>
-	</pluginExecutions>
+			</pluginExecutions>
 </lifecycleMappingMetadata>

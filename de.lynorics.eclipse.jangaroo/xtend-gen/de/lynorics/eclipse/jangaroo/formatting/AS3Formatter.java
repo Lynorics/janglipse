@@ -40,8 +40,8 @@ public class AS3Formatter extends AbstractDeclarativeFormatter {
     TerminalRule _mL_COMMENTRule_1 = this.g.getML_COMMENTRule();
     _setLinewrap_2.after(_mL_COMMENTRule_1);
     c.setAutoLinewrap(120);
-    List<Pair<Keyword, Keyword>> _findKeywordPairs = this.g.findKeywordPairs("(", ")");
-    for (final Pair<Keyword, Keyword> pair : _findKeywordPairs) {
+    List<Pair<Keyword,Keyword>> _findKeywordPairs = this.g.findKeywordPairs("(", ")");
+    for (final Pair<Keyword,Keyword> pair : _findKeywordPairs) {
       {
         FormattingConfig.NoSpaceLocator _setNoSpace = c.setNoSpace();
         Keyword _first = pair.getFirst();
@@ -75,8 +75,8 @@ public class AS3Formatter extends AbstractDeclarativeFormatter {
         _setLinewrap_3.after(semicolon);
       }
     }
-    List<Pair<Keyword, Keyword>> _findKeywordPairs_1 = this.g.findKeywordPairs("{", "}");
-    for (final Pair<Keyword, Keyword> pair_1 : _findKeywordPairs_1) {
+    List<Pair<Keyword,Keyword>> _findKeywordPairs_1 = this.g.findKeywordPairs("{", "}");
+    for (final Pair<Keyword,Keyword> pair_1 : _findKeywordPairs_1) {
       {
         Keyword _first = pair_1.getFirst();
         Keyword _second = pair_1.getSecond();
@@ -92,8 +92,8 @@ public class AS3Formatter extends AbstractDeclarativeFormatter {
         _setLinewrap_5.after(_second_1);
       }
     }
-    List<Pair<Keyword, Keyword>> _findKeywordPairs_2 = this.g.findKeywordPairs("[", "]");
-    for (final Pair<Keyword, Keyword> pair_2 : _findKeywordPairs_2) {
+    List<Pair<Keyword,Keyword>> _findKeywordPairs_2 = this.g.findKeywordPairs("[", "]");
+    for (final Pair<Keyword,Keyword> pair_2 : _findKeywordPairs_2) {
       {
         Keyword _first = pair_2.getFirst();
         Keyword _second = pair_2.getSecond();
@@ -129,12 +129,5 @@ public class AS3Formatter extends AbstractDeclarativeFormatter {
     FormattingConfig.LinewrapLocator _setLinewrap_6 = c.setLinewrap(2);
     RuleCall _annotationsAnnotationParserRuleCall_0_0_1 = method.getAnnotationsAnnotationParserRuleCall_0_0();
     _setLinewrap_6.before(_annotationsAnnotationParserRuleCall_0_0_1);
-    final AS3GrammarAccess.MemberVariableDeclarationElements membervari = this.g.getMemberVariableDeclarationAccess();
-    FormattingConfig.LinewrapLocator _setLinewrap_7 = c.setLinewrap(1);
-    Keyword _semicolonKeyword_2 = membervari.getSemicolonKeyword_2();
-    _setLinewrap_7.after(_semicolonKeyword_2);
-    FormattingConfig.NoSpaceLocator _setNoSpace_3 = c.setNoSpace();
-    Keyword _semicolonKeyword_2_1 = membervari.getSemicolonKeyword_2();
-    _setNoSpace_3.before(_semicolonKeyword_2_1);
   }
 }

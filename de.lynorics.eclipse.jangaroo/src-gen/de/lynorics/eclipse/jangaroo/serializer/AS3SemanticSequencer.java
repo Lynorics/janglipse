@@ -740,7 +740,7 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         annotations+=Annotation* 
 	 *         modifier=Modifier? 
 	 *         name=ID 
-	 *         superType=[Class|QualifiedName]? 
+	 *         superclass=[Class|QualifiedName]? 
 	 *         (types+=[Interface|QualifiedName] types+=[Interface|QualifiedName]*)? 
 	 *         members+=Member*
 	 *     )
@@ -832,7 +832,8 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         annotations+=Annotation* 
 	 *         modifier=Modifier? 
-	 *         (name=ID | (accessor=accessorRole name=ID)) 
+	 *         accessor=AccessorRole? 
+	 *         name=ID 
 	 *         (params+=Parameter params+=Parameter*)? 
 	 *         (type=[Interface|QualifiedName] | type=[Class|QualifiedName])?
 	 *     )
@@ -853,7 +854,13 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (modifier=Modifier? decl=VariableDeclaration)
+	 *     (
+	 *         annotations+=Annotation* 
+	 *         modifier=Modifier? 
+	 *         name=ID 
+	 *         (type=[Interface|QualifiedName] | type=[Class|QualifiedName])? 
+	 *         Expression=assignmentExpression?
+	 *     )
 	 */
 	protected void sequence_MemberVariableDeclaration(EObject context, MemberVariableDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -883,7 +890,8 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         annotations+=Annotation* 
 	 *         modifier=Modifier? 
-	 *         (name=ID | (accessor=accessorRole name=ID)) 
+	 *         accessor=AccessorRole? 
+	 *         name=ID 
 	 *         (params+=Parameter params+=Parameter*)? 
 	 *         (type=[Interface|QualifiedName] | type=[Class|QualifiedName])? 
 	 *         body=Block?
@@ -1019,7 +1027,16 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (symbol=[VariableDeclaration|ID] | symbol=[Parameter|ID])
+	 *     (
+	 *         symbol=[MemberVariableDeclaration|ID] | 
+	 *         symbol=[VariableDeclaration|ID] | 
+	 *         symbol=[Parameter|ID] | 
+	 *         symbol=[Class|ID] | 
+	 *         symbol=[Interface|ID] | 
+	 *         symbol=[Method|ID] | 
+	 *         symbol=[InterfaceMethod|ID] | 
+	 *         symbol=[basicParameterDeclaration|ID]
+	 *     )
 	 */
 	protected void sequence_TerminalExpression(EObject context, SymbolRef semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1506,7 +1523,7 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((params+=parameterDeclaration params+=parameterDeclaration*)?)
+	 *     ((params+=Parameter params+=Parameter*)?)
 	 */
 	protected void sequence_parameterDeclarationList(EObject context, parameterDeclarationList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

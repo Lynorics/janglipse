@@ -92,19 +92,27 @@ class AS3ModelUtil {
 //    return current as E;
   }
 
-  def static variablesDefinedBefore(EObject e) {
+  /**
+   *
+   */
+  def static attributes(EObject e) {
   	val List<EObject> list = new Vector<EObject>();
-  	// collect all variables of package
-	var allElements = e.getContainerOfType(typeof(Model)).package.members
-	var containingElement = allElements.findFirst[isAncestor(it, e)]
-	var index = allElements.indexOf(containingElement);
-	if (e.containingClass == null) {
-		if (index >= 0) {
-			list.addAll(allElements.subList(0, index+1).typeSelect(typeof(MemberVariableDeclaration)));
+  	if (e.getContainerOfType(typeof(Model)) != null) {
+	  	// collect all variables of package
+	  	var packages = e.getContainerOfType(typeof(Model)).package;
+	  	if (packages != null) {
+			var allElements = packages.members
+			var containingElement = allElements.findFirst[isAncestor(it, e)]
+			var index = allElements.indexOf(containingElement);
+			if (e.containingClass == null) {
+				if (index >= 0) {
+					list.addAll(allElements.subList(0, index+1).typeSelect(typeof(MemberVariableDeclaration)));
+				}
+			}
+			else {
+					list.addAll(allElements.typeSelect(typeof(MemberVariableDeclaration)));
+			}
 		}
-	}
-	else {
-			list.addAll(allElements.typeSelect(typeof(MemberVariableDeclaration)));
 	}
 	// collect all variables of containing class
 	if (e.containingClass != null) {
@@ -112,10 +120,18 @@ class AS3ModelUtil {
 			member |
 			var mvd = (member as Member).^var;
 			if  (mvd != null) {
-				list.add((mvd as MemberVariableDeclaration).decl as VariableDeclaration);
+				list.add(mvd);
 			}
 		]
 	}
+	return list;
+  }
+  
+  /**
+   *
+   */
+  def static variablesDefinedBefore(EObject e) {
+  	val List<EObject> list = new Vector<EObject>();
 	// collect all variables of containing function respecting block hierarchy
 	if (e.containingMethod != null) {
 		list.addAll(collectVariablesWithinBlock(e, e.containingBlock));
@@ -137,4 +153,20 @@ class AS3ModelUtil {
   	}
   	return list
   }
+  
+  def static accessibleFunctions(EObject e) {
+  	val List<EObject> list = new Vector<EObject>();
+	// collect all functions of containing class
+	if (e.containingClass != null) {
+		(e.containingClass as Class).members.forEach[
+			member |
+			var meth = (member as Member).^meth;
+			if  (meth != null) {
+				list.add(meth);
+			}
+		]
+	}
+	return list;
+  }
+  
 }
