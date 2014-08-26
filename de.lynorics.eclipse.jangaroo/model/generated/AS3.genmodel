@@ -8,10 +8,6 @@
     editorPluginID="de.lynorics.eclipse.jangaroo.editor" runtimeVersion="2.10">
   <genPackages prefix="AS3" basePackage="de.lynorics.eclipse.jangaroo" disposableProviderFactory="true"
       fileExtensions="as" ecorePackage="AS3.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AS3.ecore#//AccessorRole">
-      <genEnumLiterals ecoreEnumLiteral="AS3.ecore#//AccessorRole/GET"/>
-      <genEnumLiterals ecoreEnumLiteral="AS3.ecore#//AccessorRole/SET"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="AS3.ecore#//AccessLevel">
       <genEnumLiterals ecoreEnumLiteral="AS3.ecore#//AccessLevel/INTERNAL"/>
       <genEnumLiterals ecoreEnumLiteral="AS3.ecore#//AccessLevel/PRIVATE"/>
@@ -64,7 +60,7 @@
     <genClasses ecoreClass="AS3.ecore#//InterfaceMethod">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//InterfaceMethod/annotations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//InterfaceMethod/modifier"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//InterfaceMethod/accessor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//InterfaceMethod/accessor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//InterfaceMethod/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//InterfaceMethod/params"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//InterfaceMethod/type"/>
@@ -85,6 +81,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/types"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Class/members"/>
     </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//AccessorRole">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//AccessorRole/accessor"/>
+    </genClasses>
     <genClasses ecoreClass="AS3.ecore#//Member">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Member/var"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Member/meth"/>
@@ -92,7 +91,7 @@
     <genClasses ecoreClass="AS3.ecore#//Method">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Method/annotations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Method/modifier"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Method/accessor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Method/accessor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Method/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Method/params"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//Method/type"/>
@@ -402,6 +401,7 @@
     <genClasses ecoreClass="AS3.ecore#//BoolConstant">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//BoolConstant/value"/>
     </genClasses>
+    <genClasses ecoreClass="AS3.ecore#//Undefined"/>
     <genClasses ecoreClass="AS3.ecore#//This"/>
     <genClasses ecoreClass="AS3.ecore#//Null"/>
     <genClasses ecoreClass="AS3.ecore#//SymbolRef">

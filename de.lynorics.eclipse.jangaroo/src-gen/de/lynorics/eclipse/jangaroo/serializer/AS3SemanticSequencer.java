@@ -3,6 +3,7 @@ package de.lynorics.eclipse.jangaroo.serializer;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
+import de.lynorics.eclipse.jangaroo.aS3.AccessorRole;
 import de.lynorics.eclipse.jangaroo.aS3.Annotation;
 import de.lynorics.eclipse.jangaroo.aS3.Block;
 import de.lynorics.eclipse.jangaroo.aS3.BoolConstant;
@@ -31,6 +32,7 @@ import de.lynorics.eclipse.jangaroo.aS3.StringConstant;
 import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
+import de.lynorics.eclipse.jangaroo.aS3.Undefined;
 import de.lynorics.eclipse.jangaroo.aS3.Uses;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.WhileStatement;
@@ -108,6 +110,12 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == AS3Package.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case AS3Package.ACCESSOR_ROLE:
+				if(context == grammarAccess.getAccessorRoleRule()) {
+					sequence_AccessorRole(context, (AccessorRole) semanticObject); 
+					return; 
+				}
+				else break;
 			case AS3Package.ANNOTATION:
 				if(context == grammarAccess.getAnnotationRule()) {
 					sequence_Annotation(context, (Annotation) semanticObject); 
@@ -293,6 +301,12 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				if(context == grammarAccess.getStatementRule() ||
 				   context == grammarAccess.getTryStatementRule()) {
 					sequence_TryStatement(context, (TryStatement) semanticObject); 
+					return; 
+				}
+				else break;
+			case AS3Package.UNDEFINED:
+				if(context == grammarAccess.getTerminalExpressionRule()) {
+					sequence_TerminalExpression(context, (Undefined) semanticObject); 
 					return; 
 				}
 				else break;
@@ -703,6 +717,22 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     accessor=ID
+	 */
+	protected void sequence_AccessorRole(EObject context, AccessorRole semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.ACCESSOR_ROLE__ACCESSOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.ACCESSOR_ROLE__ACCESSOR));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getAccessorRoleAccess().getAccessorIDTerminalRuleCall_0(), semanticObject.getAccessor());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID annonFields=annotationFields?)
 	 */
 	protected void sequence_Annotation(EObject context, Annotation semanticObject) {
@@ -1048,6 +1078,15 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     {This}
 	 */
 	protected void sequence_TerminalExpression(EObject context, This semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     {Undefined}
+	 */
+	protected void sequence_TerminalExpression(EObject context, Undefined semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -3,6 +3,7 @@
 package de.lynorics.eclipse.jangaroo.aS3.util;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
+import de.lynorics.eclipse.jangaroo.aS3.AccessorRole;
 import de.lynorics.eclipse.jangaroo.aS3.Annotation;
 import de.lynorics.eclipse.jangaroo.aS3.Block;
 import de.lynorics.eclipse.jangaroo.aS3.BoolConstant;
@@ -38,6 +39,7 @@ import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.ThrowStatement;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
+import de.lynorics.eclipse.jangaroo.aS3.Undefined;
 import de.lynorics.eclipse.jangaroo.aS3.Uses;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.WhileStatement;
@@ -275,6 +277,13 @@ public class AS3Switch<T> extends Switch<T>
       {
         de.lynorics.eclipse.jangaroo.aS3.Class class_ = (de.lynorics.eclipse.jangaroo.aS3.Class)theEObject;
         T result = caseClass(class_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AS3Package.ACCESSOR_ROLE:
+      {
+        AccessorRole accessorRole = (AccessorRole)theEObject;
+        T result = caseAccessorRole(accessorRole);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1071,6 +1080,21 @@ public class AS3Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AS3Package.UNDEFINED:
+      {
+        Undefined undefined = (Undefined)theEObject;
+        T result = caseUndefined(undefined);
+        if (result == null) result = caseExpression(undefined);
+        if (result == null) result = caseexprOrObjectLiteral(undefined);
+        if (result == null) result = caseCondition(undefined);
+        if (result == null) result = caseDefaultXMLNamespaceStatement(undefined);
+        if (result == null) result = caseThrowStatement(undefined);
+        if (result == null) result = caseCaseStatement(undefined);
+        if (result == null) result = caseSwitchStatement(undefined);
+        if (result == null) result = caseStatement(undefined);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case AS3Package.THIS:
       {
         This this_ = (This)theEObject;
@@ -1340,6 +1364,22 @@ public class AS3Switch<T> extends Switch<T>
    * @generated
    */
   public T caseClass(de.lynorics.eclipse.jangaroo.aS3.Class object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Accessor Role</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Accessor Role</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAccessorRole(AccessorRole object)
   {
     return null;
   }
@@ -2828,6 +2868,22 @@ public class AS3Switch<T> extends Switch<T>
    * @generated
    */
   public T caseBoolConstant(BoolConstant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Undefined</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Undefined</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUndefined(Undefined object)
   {
     return null;
   }

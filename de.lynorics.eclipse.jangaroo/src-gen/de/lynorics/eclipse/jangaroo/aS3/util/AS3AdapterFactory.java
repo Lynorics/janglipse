@@ -3,6 +3,7 @@
 package de.lynorics.eclipse.jangaroo.aS3.util;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
+import de.lynorics.eclipse.jangaroo.aS3.AccessorRole;
 import de.lynorics.eclipse.jangaroo.aS3.Annotation;
 import de.lynorics.eclipse.jangaroo.aS3.Block;
 import de.lynorics.eclipse.jangaroo.aS3.BoolConstant;
@@ -38,6 +39,7 @@ import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.ThrowStatement;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
+import de.lynorics.eclipse.jangaroo.aS3.Undefined;
 import de.lynorics.eclipse.jangaroo.aS3.Uses;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.WhileStatement;
@@ -251,6 +253,11 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
       public Adapter caseClass(de.lynorics.eclipse.jangaroo.aS3.Class object)
       {
         return createClassAdapter();
+      }
+      @Override
+      public Adapter caseAccessorRole(AccessorRole object)
+      {
+        return createAccessorRoleAdapter();
       }
       @Override
       public Adapter caseMember(Member object)
@@ -718,6 +725,11 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
         return createBoolConstantAdapter();
       }
       @Override
+      public Adapter caseUndefined(Undefined object)
+      {
+        return createUndefinedAdapter();
+      }
+      @Override
       public Adapter caseThis(This object)
       {
         return createThisAdapter();
@@ -960,6 +972,21 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createClassAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.AccessorRole <em>Accessor Role</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.AccessorRole
+   * @generated
+   */
+  public Adapter createAccessorRoleAdapter()
   {
     return null;
   }
@@ -2355,6 +2382,21 @@ public class AS3AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBoolConstantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.lynorics.eclipse.jangaroo.aS3.Undefined <em>Undefined</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Undefined
+   * @generated
+   */
+  public Adapter createUndefinedAdapter()
   {
     return null;
   }

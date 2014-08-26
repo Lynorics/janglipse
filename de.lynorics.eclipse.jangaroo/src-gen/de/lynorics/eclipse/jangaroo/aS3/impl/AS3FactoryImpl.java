@@ -41,6 +41,7 @@ import de.lynorics.eclipse.jangaroo.aS3.SymbolRef;
 import de.lynorics.eclipse.jangaroo.aS3.This;
 import de.lynorics.eclipse.jangaroo.aS3.ThrowStatement;
 import de.lynorics.eclipse.jangaroo.aS3.TryStatement;
+import de.lynorics.eclipse.jangaroo.aS3.Undefined;
 import de.lynorics.eclipse.jangaroo.aS3.Uses;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.WhileStatement;
@@ -190,6 +191,7 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.FUNCTION_EXPRESSION: return createfunctionExpression();
       case AS3Package.FUNCTION_COMMON: return createfunctionCommon();
       case AS3Package.CLASS: return createClass();
+      case AS3Package.ACCESSOR_ROLE: return createAccessorRole();
       case AS3Package.MEMBER: return createMember();
       case AS3Package.METHOD: return createMethod();
       case AS3Package.MODIFIER: return createModifier();
@@ -283,6 +285,7 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
       case AS3Package.NUMBER_CONSTANT: return createNumberConstant();
       case AS3Package.STRING_CONSTANT: return createStringConstant();
       case AS3Package.BOOL_CONSTANT: return createBoolConstant();
+      case AS3Package.UNDEFINED: return createUndefined();
       case AS3Package.THIS: return createThis();
       case AS3Package.NULL: return createNull();
       case AS3Package.SYMBOL_REF: return createSymbolRef();
@@ -301,8 +304,6 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
   {
     switch (eDataType.getClassifierID())
     {
-      case AS3Package.ACCESSOR_ROLE:
-        return createAccessorRoleFromString(eDataType, initialValue);
       case AS3Package.ACCESS_LEVEL:
         return createAccessLevelFromString(eDataType, initialValue);
       default:
@@ -320,8 +321,6 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
   {
     switch (eDataType.getClassifierID())
     {
-      case AS3Package.ACCESSOR_ROLE:
-        return convertAccessorRoleToString(eDataType, instanceValue);
       case AS3Package.ACCESS_LEVEL:
         return convertAccessLevelToString(eDataType, instanceValue);
       default:
@@ -481,6 +480,17 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
   {
     ClassImpl class_ = new ClassImpl();
     return class_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AccessorRole createAccessorRole()
+  {
+    AccessorRoleImpl accessorRole = new AccessorRoleImpl();
+    return accessorRole;
   }
 
   /**
@@ -1511,6 +1521,17 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Undefined createUndefined()
+  {
+    UndefinedImpl undefined = new UndefinedImpl();
+    return undefined;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public This createThis()
   {
     ThisImpl this_ = new ThisImpl();
@@ -1537,28 +1558,6 @@ public class AS3FactoryImpl extends EFactoryImpl implements AS3Factory
   {
     SymbolRefImpl symbolRef = new SymbolRefImpl();
     return symbolRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AccessorRole createAccessorRoleFromString(EDataType eDataType, String initialValue)
-  {
-    AccessorRole result = AccessorRole.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertAccessorRoleToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

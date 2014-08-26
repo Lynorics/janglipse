@@ -95,8 +95,8 @@ Class:
    '{' members += Member* '}')
    ;
 
-enum AccessorRole
-  : GET='get' | SET='set';
+AccessorRole
+  : accessor=ID;
 
 Member: 
     var=MemberVariableDeclaration 
@@ -457,6 +457,7 @@ TerminalExpression returns Expression:
   | {NumberConstant} value=number
   | {StringConstant} value=STRING
   | {BoolConstant} value=('true'| 'false')
+  | {Undefined} 'undefined'
   | {This} 'this'
   | {Null} 'null'
   | {SymbolRef} (symbol=[MemberVariableDeclaration]|symbol=[VariableDeclaration]|symbol=[Parameter]|symbol=[Class]|symbol=[Interface]|symbol=[Method]|symbol=[InterfaceMethod]|symbol=[basicParameterDeclaration])

@@ -54,7 +54,6 @@ public class InternalAS3Lexer extends Lexer {
     public static final int T__89=89;
     public static final int T__88=88;
     public static final int RULE_ML_COMMENT=10;
-    public static final int T__125=125;
     public static final int RULE_STRING=5;
     public static final int T__71=71;
     public static final int T__72=72;
@@ -1893,10 +1892,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__98;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:95:7: ( 'this' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:95:9: 'this'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:95:7: ( 'undefined' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:95:9: 'undefined'
             {
-            match("this"); 
+            match("undefined"); 
 
 
             }
@@ -1914,10 +1913,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__99;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:96:7: ( 'null' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:96:9: 'null'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:96:7: ( 'this' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:96:9: 'this'
             {
-            match("null"); 
+            match("this"); 
 
 
             }
@@ -1935,10 +1934,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__100;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:97:8: ( 'new' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:97:10: 'new'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:97:8: ( 'null' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:97:10: 'null'
             {
-            match("new"); 
+            match("null"); 
 
 
             }
@@ -1956,10 +1955,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__101;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:98:8: ( 'assert' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:98:10: 'assert'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:98:8: ( 'new' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:98:10: 'new'
             {
-            match("assert"); 
+            match("new"); 
 
 
             }
@@ -1977,10 +1976,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__102;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:99:8: ( 'default' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:99:10: 'default'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:99:8: ( 'assert' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:99:10: 'assert'
             {
-            match("default"); 
+            match("assert"); 
 
 
             }
@@ -1998,10 +1997,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__103;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:100:8: ( 'assign' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:100:10: 'assign'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:100:8: ( 'default' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:100:10: 'default'
             {
-            match("assign"); 
+            match("default"); 
 
 
             }
@@ -2019,10 +2018,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__104;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:101:8: ( 'if' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:101:10: 'if'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:101:8: ( 'assign' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:101:10: 'assign'
             {
-            match("if"); 
+            match("assign"); 
 
 
             }
@@ -2040,10 +2039,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__105;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:102:8: ( 'else' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:102:10: 'else'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:102:8: ( 'if' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:102:10: 'if'
             {
-            match("else"); 
+            match("if"); 
 
 
             }
@@ -2061,10 +2060,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__106;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:103:8: ( 'throw' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:103:10: 'throw'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:103:8: ( 'else' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:103:10: 'else'
             {
-            match("throw"); 
+            match("else"); 
 
 
             }
@@ -2082,10 +2081,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__107;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:104:8: ( 'try' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:104:10: 'try'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:104:8: ( 'throw' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:104:10: 'throw'
             {
-            match("try"); 
+            match("throw"); 
 
 
             }
@@ -2103,10 +2102,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__108;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:105:8: ( 'catch' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:105:10: 'catch'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:105:8: ( 'try' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:105:10: 'try'
             {
-            match("catch"); 
+            match("try"); 
 
 
             }
@@ -2124,10 +2123,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__109;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:106:8: ( 'finally' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:106:10: 'finally'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:106:8: ( 'catch' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:106:10: 'catch'
             {
-            match("finally"); 
+            match("catch"); 
 
 
             }
@@ -2145,10 +2144,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__110;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:107:8: ( 'return' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:107:10: 'return'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:107:8: ( 'finally' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:107:10: 'finally'
             {
-            match("return"); 
+            match("finally"); 
 
 
             }
@@ -2166,10 +2165,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__111;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:108:8: ( 'continue' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:108:10: 'continue'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:108:8: ( 'return' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:108:10: 'return'
             {
-            match("continue"); 
+            match("return"); 
 
 
             }
@@ -2187,10 +2186,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__112;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:109:8: ( 'break' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:109:10: 'break'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:109:8: ( 'continue' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:109:10: 'continue'
             {
-            match("break"); 
+            match("continue"); 
 
 
             }
@@ -2208,10 +2207,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__113;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:110:8: ( 'switch' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:110:10: 'switch'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:110:8: ( 'break' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:110:10: 'break'
             {
-            match("switch"); 
+            match("break"); 
 
 
             }
@@ -2229,10 +2228,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__114;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:111:8: ( 'case' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:111:10: 'case'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:111:8: ( 'switch' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:111:10: 'switch'
             {
-            match("case"); 
+            match("switch"); 
 
 
             }
@@ -2250,10 +2249,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__115;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:112:8: ( 'for' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:112:10: 'for'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:112:8: ( 'case' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:112:10: 'case'
             {
-            match("for"); 
+            match("case"); 
 
 
             }
@@ -2271,10 +2270,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__116;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:113:8: ( 'each' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:113:10: 'each'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:113:8: ( 'for' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:113:10: 'for'
             {
-            match("each"); 
+            match("for"); 
 
 
             }
@@ -2292,10 +2291,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__117;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:114:8: ( 'while' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:114:10: 'while'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:114:8: ( 'each' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:114:10: 'each'
             {
-            match("while"); 
+            match("each"); 
 
 
             }
@@ -2313,10 +2312,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__118;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:115:8: ( 'do' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:115:10: 'do'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:115:8: ( 'while' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:115:10: 'while'
             {
-            match("do"); 
+            match("while"); 
 
 
             }
@@ -2334,10 +2333,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__119;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:116:8: ( 'with' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:116:10: 'with'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:116:8: ( 'do' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:116:10: 'do'
             {
-            match("with"); 
+            match("do"); 
 
 
             }
@@ -2355,10 +2354,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__120;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:117:8: ( 'get' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:117:10: 'get'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:117:8: ( 'with' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:117:10: 'with'
             {
-            match("get"); 
+            match("with"); 
 
 
             }
@@ -2376,10 +2375,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__121;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:118:8: ( 'set' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:118:10: 'set'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:118:8: ( 'internal' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:118:10: 'internal'
             {
-            match("set"); 
+            match("internal"); 
 
 
             }
@@ -2397,10 +2396,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__122;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:119:8: ( 'internal' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:119:10: 'internal'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:119:8: ( 'private' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:119:10: 'private'
             {
-            match("internal"); 
+            match("private"); 
 
 
             }
@@ -2418,10 +2417,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__123;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:120:8: ( 'private' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:120:10: 'private'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:120:8: ( 'public' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:120:10: 'public'
             {
-            match("private"); 
+            match("public"); 
 
 
             }
@@ -2439,29 +2438,8 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = T__124;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:121:8: ( 'public' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:121:10: 'public'
-            {
-            match("public"); 
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__124"
-
-    // $ANTLR start "T__125"
-    public final void mT__125() throws RecognitionException {
-        try {
-            int _type = T__125;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:122:8: ( 'protected' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:122:10: 'protected'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:121:8: ( 'protected' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:121:10: 'protected'
             {
             match("protected"); 
 
@@ -2474,19 +2452,19 @@ public class InternalAS3Lexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "T__125"
+    // $ANTLR end "T__124"
 
     // $ANTLR start "RULE_HEX_LITERAL"
     public final void mRULE_HEX_LITERAL() throws RecognitionException {
         try {
             int _type = RULE_HEX_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8793:18: ( '0x' ( '0' .. '9' | 'A' .. 'F' )+ )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8793:20: '0x' ( '0' .. '9' | 'A' .. 'F' )+
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8827:18: ( '0x' ( '0' .. '9' | 'A' .. 'F' )+ )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8827:20: '0x' ( '0' .. '9' | 'A' .. 'F' )+
             {
             match("0x"); 
 
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8793:25: ( '0' .. '9' | 'A' .. 'F' )+
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8827:25: ( '0' .. '9' | 'A' .. 'F' )+
             int cnt1=0;
             loop1:
             do {
@@ -2540,11 +2518,11 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = RULE_OCTAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8795:12: ( '0' ( '0' .. '7' )+ )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8795:14: '0' ( '0' .. '7' )+
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8829:12: ( '0' ( '0' .. '7' )+ )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8829:14: '0' ( '0' .. '7' )+
             {
             match('0'); 
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8795:18: ( '0' .. '7' )+
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8829:18: ( '0' .. '7' )+
             int cnt2=0;
             loop2:
             do {
@@ -2558,7 +2536,7 @@ public class InternalAS3Lexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8795:19: '0' .. '7'
+            	    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8829:19: '0' .. '7'
             	    {
             	    matchRange('0','7'); 
 
@@ -2590,10 +2568,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = RULE_FLOAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8797:12: ( ( '0' .. '9' )* '.' ( '0' .. '9' )+ )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8797:14: ( '0' .. '9' )* '.' ( '0' .. '9' )+
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8831:12: ( ( '0' .. '9' )* '.' ( '0' .. '9' )+ )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8831:14: ( '0' .. '9' )* '.' ( '0' .. '9' )+
             {
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8797:14: ( '0' .. '9' )*
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8831:14: ( '0' .. '9' )*
             loop3:
             do {
                 int alt3=2;
@@ -2606,7 +2584,7 @@ public class InternalAS3Lexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8797:15: '0' .. '9'
+            	    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8831:15: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2619,7 +2597,7 @@ public class InternalAS3Lexer extends Lexer {
             } while (true);
 
             match('.'); 
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8797:30: ( '0' .. '9' )+
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8831:30: ( '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -2633,7 +2611,7 @@ public class InternalAS3Lexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8797:31: '0' .. '9'
+            	    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8831:31: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2665,10 +2643,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8799:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8799:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8833:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8833:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8799:11: ( '^' )?
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8833:11: ( '^' )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -2677,7 +2655,7 @@ public class InternalAS3Lexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8799:11: '^'
+                    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8833:11: '^'
                     {
                     match('^'); 
 
@@ -2695,7 +2673,7 @@ public class InternalAS3Lexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8799:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8833:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop6:
             do {
                 int alt6=2;
@@ -2744,10 +2722,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8801:10: ( ( '0' .. '9' )+ )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8801:12: ( '0' .. '9' )+
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8835:10: ( ( '0' .. '9' )+ )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8835:12: ( '0' .. '9' )+
             {
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8801:12: ( '0' .. '9' )+
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8835:12: ( '0' .. '9' )+
             int cnt7=0;
             loop7:
             do {
@@ -2761,7 +2739,7 @@ public class InternalAS3Lexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8801:13: '0' .. '9'
+            	    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8835:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2793,10 +2771,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8803:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8803:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8837:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8837:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8803:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8837:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -2814,10 +2792,10 @@ public class InternalAS3Lexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8803:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8837:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8803:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8837:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop8:
                     do {
                         int alt8=3;
@@ -2833,7 +2811,7 @@ public class InternalAS3Lexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8803:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' )
+                    	    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8837:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='/'||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -2849,7 +2827,7 @@ public class InternalAS3Lexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8803:70: ~ ( ( '\\\\' | '\"' ) )
+                    	    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8837:70: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2874,10 +2852,10 @@ public class InternalAS3Lexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8803:90: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8837:90: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8803:95: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8837:95: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop9:
                     do {
                         int alt9=3;
@@ -2893,7 +2871,7 @@ public class InternalAS3Lexer extends Lexer {
 
                         switch (alt9) {
                     	case 1 :
-                    	    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8803:96: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' )
+                    	    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8837:96: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' | '/' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='/'||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -2909,7 +2887,7 @@ public class InternalAS3Lexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8803:145: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8837:145: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2952,12 +2930,12 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8805:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8805:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8839:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8839:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8805:24: ( options {greedy=false; } : . )*
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8839:24: ( options {greedy=false; } : . )*
             loop11:
             do {
                 int alt11=2;
@@ -2982,7 +2960,7 @@ public class InternalAS3Lexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8805:52: .
+            	    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8839:52: .
             	    {
             	    matchAny(); 
 
@@ -3012,12 +2990,12 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8807:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8807:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8841:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8841:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8807:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8841:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop12:
             do {
                 int alt12=2;
@@ -3030,7 +3008,7 @@ public class InternalAS3Lexer extends Lexer {
 
                 switch (alt12) {
             	case 1 :
-            	    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8807:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8841:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -3050,7 +3028,7 @@ public class InternalAS3Lexer extends Lexer {
                 }
             } while (true);
 
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8807:40: ( ( '\\r' )? '\\n' )?
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8841:40: ( ( '\\r' )? '\\n' )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -3059,9 +3037,9 @@ public class InternalAS3Lexer extends Lexer {
             }
             switch (alt14) {
                 case 1 :
-                    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8807:41: ( '\\r' )? '\\n'
+                    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8841:41: ( '\\r' )? '\\n'
                     {
-                    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8807:41: ( '\\r' )?
+                    // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8841:41: ( '\\r' )?
                     int alt13=2;
                     int LA13_0 = input.LA(1);
 
@@ -3070,7 +3048,7 @@ public class InternalAS3Lexer extends Lexer {
                     }
                     switch (alt13) {
                         case 1 :
-                            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8807:41: '\\r'
+                            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8841:41: '\\r'
                             {
                             match('\r'); 
 
@@ -3102,10 +3080,10 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8809:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8809:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8843:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8843:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8809:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8843:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt15=0;
             loop15:
             do {
@@ -3159,8 +3137,8 @@ public class InternalAS3Lexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8811:16: ( . )
-            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8811:18: .
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8845:16: ( . )
+            // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:8845:18: .
             {
             matchAny(); 
 
@@ -3175,8 +3153,8 @@ public class InternalAS3Lexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:8: ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | T__115 | T__116 | T__117 | T__118 | T__119 | T__120 | T__121 | T__122 | T__123 | T__124 | T__125 | RULE_HEX_LITERAL | RULE_OCTAL | RULE_FLOAT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt16=122;
+        // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:8: ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | T__115 | T__116 | T__117 | T__118 | T__119 | T__120 | T__121 | T__122 | T__123 | T__124 | RULE_HEX_LITERAL | RULE_OCTAL | RULE_FLOAT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt16=121;
         alt16 = dfa16.predict(input);
         switch (alt16) {
             case 1 :
@@ -3957,77 +3935,70 @@ public class InternalAS3Lexer extends Lexer {
                 }
                 break;
             case 112 :
-                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:701: T__125
-                {
-                mT__125(); 
-
-                }
-                break;
-            case 113 :
-                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:708: RULE_HEX_LITERAL
+                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:701: RULE_HEX_LITERAL
                 {
                 mRULE_HEX_LITERAL(); 
 
                 }
                 break;
-            case 114 :
-                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:725: RULE_OCTAL
+            case 113 :
+                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:718: RULE_OCTAL
                 {
                 mRULE_OCTAL(); 
 
                 }
                 break;
-            case 115 :
-                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:736: RULE_FLOAT
+            case 114 :
+                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:729: RULE_FLOAT
                 {
                 mRULE_FLOAT(); 
 
                 }
                 break;
-            case 116 :
-                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:747: RULE_ID
+            case 115 :
+                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:740: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 117 :
-                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:755: RULE_INT
+            case 116 :
+                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:748: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 118 :
-                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:764: RULE_STRING
+            case 117 :
+                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:757: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 119 :
-                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:776: RULE_ML_COMMENT
+            case 118 :
+                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:769: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 120 :
-                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:792: RULE_SL_COMMENT
+            case 119 :
+                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:785: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 121 :
-                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:808: RULE_WS
+            case 120 :
+                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:801: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 122 :
-                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:816: RULE_ANY_OTHER
+            case 121 :
+                // /C:\\Users\\pompl\\git\\janglipse\\de.lynorics.eclipse.jangaroo/src-gen/de/lynorics/eclipse/jangaroo/parser/antlr/internal/InternalAS3.g:1:809: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -4041,228 +4012,225 @@ public class InternalAS3Lexer extends Lexer {
 
     protected DFA16 dfa16 = new DFA16(this);
     static final String DFA16_eotS =
-        "\1\uffff\1\66\2\uffff\1\66\5\uffff\2\66\1\107\1\66\1\uffff\1\114"+
-        "\1\120\2\66\1\131\6\66\1\154\1\156\1\161\1\164\1\167\1\172\1\175"+
-        "\1\177\1\u0082\1\uffff\1\u0085\1\66\2\uffff\4\66\2\u0091\1\uffff"+
-        "\2\62\2\uffff\3\66\3\uffff\1\66\1\u009d\1\u009e\1\u009f\5\uffff"+
-        "\4\66\2\uffff\2\66\1\uffff\1\u00a8\2\uffff\1\u00aa\2\uffff\7\66"+
-        "\2\uffff\4\66\1\u00b7\6\66\1\u00bf\1\66\1\u00c2\1\66\14\uffff\1"+
-        "\u00c5\2\uffff\1\u00c8\3\uffff\1\u00ca\4\uffff\1\u00cc\2\uffff\1"+
-        "\u00ce\1\uffff\3\66\2\uffff\5\66\2\uffff\1\u00d9\1\u0091\2\uffff"+
-        "\7\66\3\uffff\1\u00e2\3\66\1\u00e6\1\66\1\u00e8\4\uffff\6\66\1\u00ef"+
-        "\5\66\1\uffff\3\66\1\u00f9\3\66\1\uffff\1\u00fd\1\66\1\uffff\1\u0100"+
-        "\3\uffff\1\u0102\7\uffff\2\66\1\u0105\6\66\1\u010c\1\uffff\10\66"+
-        "\1\uffff\2\66\1\u0117\1\uffff\1\u0118\1\uffff\1\66\1\u011a\1\u011b"+
-        "\3\66\1\uffff\4\66\1\u0123\4\66\1\uffff\3\66\1\uffff\2\66\3\uffff"+
-        "\1\66\1\u012e\1\uffff\1\u012f\4\66\1\u0134\1\uffff\12\66\2\uffff"+
-        "\1\66\2\uffff\1\66\1\u0143\1\u0144\1\u0145\1\u0146\1\66\1\u0148"+
-        "\1\uffff\2\66\1\u014b\7\66\2\uffff\1\u0153\1\66\1\u0155\1\u0156"+
-        "\1\uffff\3\66\1\u015a\1\u015b\5\66\1\u0161\3\66\4\uffff\1\66\1\uffff"+
-        "\1\66\1\u0167\1\uffff\1\u0168\1\66\1\u016a\1\66\1\u016c\1\u016d"+
-        "\1\u016e\1\uffff\1\u016f\2\uffff\1\u0170\1\u0171\1\66\2\uffff\5"+
-        "\66\1\uffff\1\u0178\1\66\1\u017a\2\66\2\uffff\1\u017d\1\uffff\1"+
-        "\u017e\6\uffff\3\66\1\u0182\2\66\1\uffff\1\u0185\1\uffff\1\u0186"+
-        "\1\u0187\2\uffff\1\u0188\1\66\1\u018a\1\uffff\1\66\1\u018c\4\uffff"+
-        "\1\u018d\1\uffff\1\u018e\3\uffff";
+        "\1\uffff\1\65\2\uffff\1\65\5\uffff\2\65\1\107\1\65\1\uffff\1\114"+
+        "\1\117\2\65\1\131\6\65\1\153\1\155\1\160\1\163\1\166\1\171\1\174"+
+        "\1\176\1\u0081\1\uffff\1\u0084\1\65\2\uffff\3\65\2\u008f\1\uffff"+
+        "\2\61\2\uffff\3\65\3\uffff\1\65\1\u009b\1\u009c\1\u009d\5\uffff"+
+        "\5\65\2\uffff\2\65\1\uffff\1\u00a7\2\uffff\1\u00a9\2\uffff\7\65"+
+        "\2\uffff\4\65\1\u00b6\5\65\1\u00bd\1\65\1\u00c0\1\65\14\uffff\1"+
+        "\u00c3\2\uffff\1\u00c6\3\uffff\1\u00c8\4\uffff\1\u00ca\2\uffff\1"+
+        "\u00cc\1\uffff\3\65\2\uffff\4\65\2\uffff\1\u00d6\1\u008f\2\uffff"+
+        "\7\65\3\uffff\1\u00df\4\65\1\u00e4\1\65\1\u00e6\4\uffff\6\65\1\u00ed"+
+        "\5\65\1\uffff\6\65\1\uffff\1\u00fa\1\65\1\uffff\1\u00fd\3\uffff"+
+        "\1\u00ff\7\uffff\2\65\1\u0102\6\65\1\uffff\10\65\1\uffff\3\65\1"+
+        "\u0114\1\uffff\1\u0115\1\uffff\1\65\1\u0117\1\u0118\3\65\1\uffff"+
+        "\4\65\1\u0120\7\65\1\uffff\2\65\3\uffff\1\65\1\u012b\1\uffff\1\u012c"+
+        "\4\65\1\u0131\13\65\2\uffff\1\65\2\uffff\1\65\1\u0141\1\u0142\1"+
+        "\u0143\1\u0144\1\65\1\u0146\1\uffff\2\65\1\u0149\7\65\2\uffff\1"+
+        "\u0151\1\65\1\u0153\1\u0154\1\uffff\3\65\1\u0158\1\u0159\6\65\1"+
+        "\u0160\3\65\4\uffff\1\65\1\uffff\1\65\1\u0166\1\uffff\1\u0167\1"+
+        "\65\1\u0169\1\65\1\u016b\1\u016c\1\u016d\1\uffff\1\u016e\2\uffff"+
+        "\1\u016f\1\u0170\1\65\2\uffff\6\65\1\uffff\1\u0178\1\65\1\u017a"+
+        "\2\65\2\uffff\1\u017d\1\uffff\1\u017e\6\uffff\3\65\1\u0182\3\65"+
+        "\1\uffff\1\u0186\1\uffff\1\u0187\1\u0188\2\uffff\1\u0189\1\65\1"+
+        "\u018b\1\uffff\1\65\1\u018d\1\u018e\4\uffff\1\u018f\1\uffff\1\u0190"+
+        "\4\uffff";
     static final String DFA16_eofS =
-        "\u018f\uffff";
+        "\u0191\uffff";
     static final String DFA16_minS =
-        "\1\0\1\141\2\uffff\1\146\5\uffff\1\163\1\141\1\75\1\141\1\uffff"+
-        "\1\75\1\52\2\141\1\72\1\141\1\162\2\145\1\155\1\156\1\52\1\75\1"+
-        "\53\1\55\1\74\1\75\1\46\2\75\1\uffff\1\75\1\150\2\uffff\1\145\1"+
-        "\162\1\150\1\145\2\56\1\uffff\2\0\2\uffff\1\143\1\151\1\142\3\uffff"+
-        "\1\160\3\60\5\uffff\1\145\1\155\1\154\1\167\2\uffff\1\151\1\162"+
-        "\1\uffff\1\75\2\uffff\1\56\2\uffff\1\164\1\163\1\143\2\156\1\154"+
-        "\1\162\2\uffff\1\141\1\156\1\163\1\145\1\60\1\141\1\160\1\151\1"+
-        "\164\1\156\1\146\1\60\1\154\1\60\1\144\14\uffff\1\75\2\uffff\1\75"+
+        "\1\0\1\141\2\uffff\1\146\5\uffff\1\156\1\141\1\75\1\141\1\uffff"+
+        "\1\75\1\52\2\141\1\72\1\141\1\162\1\164\1\145\1\155\1\156\1\52\1"+
+        "\75\1\53\1\55\1\74\1\75\1\46\2\75\1\uffff\1\75\1\150\2\uffff\1\145"+
+        "\1\162\1\150\2\56\1\uffff\2\0\2\uffff\1\143\1\151\1\142\3\uffff"+
+        "\1\160\3\60\5\uffff\1\145\1\144\1\155\1\154\1\167\2\uffff\1\151"+
+        "\1\162\1\uffff\1\75\2\uffff\1\56\2\uffff\1\164\1\163\1\143\2\156"+
+        "\1\154\1\162\2\uffff\1\141\1\156\1\163\1\145\1\60\1\141\1\160\1"+
+        "\151\1\156\1\146\1\60\1\154\1\60\1\144\14\uffff\1\75\2\uffff\1\75"+
         "\3\uffff\1\75\4\uffff\1\75\2\uffff\1\75\1\uffff\1\160\1\165\1\151"+
-        "\2\uffff\1\164\1\145\1\151\2\164\2\uffff\2\56\2\uffff\1\153\1\166"+
-        "\1\164\2\154\1\145\1\164\3\uffff\1\60\1\145\1\151\1\154\1\60\1\144"+
+        "\2\uffff\1\164\1\145\1\151\1\164\2\uffff\2\56\2\uffff\1\153\1\166"+
+        "\1\164\2\154\1\145\1\164\3\uffff\1\60\2\145\1\151\1\154\1\60\1\144"+
         "\1\60\4\uffff\2\145\1\150\1\143\1\141\1\163\1\60\2\163\1\143\1\145"+
-        "\1\162\1\uffff\1\164\1\145\1\164\1\60\1\141\1\145\1\141\1\uffff"+
-        "\1\60\1\145\1\uffff\1\60\3\uffff\1\75\7\uffff\2\145\1\60\1\163\1"+
-        "\157\1\165\1\141\1\154\1\150\1\60\1\uffff\2\141\1\145\1\151\1\162"+
-        "\1\145\1\162\1\141\1\uffff\1\163\1\166\1\60\1\uffff\1\60\1\uffff"+
-        "\1\156\2\60\1\164\1\154\1\145\1\uffff\1\163\1\164\1\151\1\150\1"+
-        "\60\1\162\1\151\1\162\1\143\1\uffff\1\155\1\164\1\165\1\uffff\1"+
-        "\162\1\147\3\uffff\1\157\1\60\1\uffff\1\60\1\167\1\162\1\153\1\145"+
-        "\1\60\1\uffff\1\147\1\164\2\143\1\164\1\155\1\146\1\156\1\160\1"+
-        "\145\2\uffff\1\144\2\uffff\1\151\4\60\1\156\1\60\1\uffff\1\151\1"+
-        "\143\1\60\1\150\1\151\1\145\1\154\1\164\1\156\1\146\2\uffff\1\60"+
-        "\1\156\2\60\1\uffff\2\145\1\164\2\60\1\145\2\141\1\143\1\141\1\60"+
-        "\1\163\1\157\1\171\4\uffff\1\165\1\uffff\1\144\1\60\1\uffff\1\60"+
-        "\1\143\1\60\1\164\3\60\1\uffff\1\60\2\uffff\2\60\1\145\2\uffff\1"+
-        "\156\1\143\1\154\1\145\1\143\1\uffff\1\60\1\156\1\60\2\145\2\uffff"+
-        "\1\60\1\uffff\1\60\6\uffff\1\144\1\164\1\145\1\60\1\157\1\145\1"+
-        "\uffff\1\60\1\uffff\2\60\2\uffff\1\60\1\163\1\60\1\uffff\1\146\1"+
-        "\60\4\uffff\1\60\1\uffff\1\60\3\uffff";
+        "\1\162\1\uffff\1\164\1\145\1\164\1\141\1\145\1\141\1\uffff\1\60"+
+        "\1\145\1\uffff\1\60\3\uffff\1\75\7\uffff\2\145\1\60\1\163\1\157"+
+        "\1\165\1\141\1\154\1\150\1\uffff\2\141\1\145\1\151\1\162\1\145\1"+
+        "\162\1\141\1\uffff\1\146\1\163\1\166\1\60\1\uffff\1\60\1\uffff\1"+
+        "\156\2\60\1\164\1\154\1\145\1\uffff\1\163\1\164\1\151\1\150\1\60"+
+        "\1\162\1\151\1\162\1\143\1\155\1\164\1\165\1\uffff\1\162\1\147\3"+
+        "\uffff\1\157\1\60\1\uffff\1\60\1\167\1\162\1\153\1\145\1\60\1\147"+
+        "\1\164\2\143\1\164\1\155\1\146\1\156\1\151\1\160\1\145\2\uffff\1"+
+        "\144\2\uffff\1\151\4\60\1\156\1\60\1\uffff\1\151\1\143\1\60\1\150"+
+        "\1\151\1\145\1\154\1\164\1\156\1\146\2\uffff\1\60\1\156\2\60\1\uffff"+
+        "\2\145\1\164\2\60\1\145\2\141\1\143\1\156\1\141\1\60\1\163\1\157"+
+        "\1\171\4\uffff\1\165\1\uffff\1\144\1\60\1\uffff\1\60\1\143\1\60"+
+        "\1\164\3\60\1\uffff\1\60\2\uffff\2\60\1\145\2\uffff\1\156\1\143"+
+        "\1\154\2\145\1\143\1\uffff\1\60\1\156\1\60\2\145\2\uffff\1\60\1"+
+        "\uffff\1\60\6\uffff\1\144\1\164\1\145\1\60\1\157\1\144\1\145\1\uffff"+
+        "\1\60\1\uffff\2\60\2\uffff\1\60\1\163\1\60\1\uffff\1\146\2\60\4"+
+        "\uffff\1\60\1\uffff\1\60\4\uffff";
     static final String DFA16_maxS =
         "\1\uffff\1\165\2\uffff\1\163\5\uffff\1\163\1\165\1\75\1\157\1\uffff"+
         "\1\75\1\71\1\170\1\165\1\72\1\157\1\166\1\167\1\171\1\155\1\163"+
         "\5\75\1\76\1\75\1\172\1\174\1\uffff\1\75\1\171\2\uffff\1\145\1\162"+
-        "\1\151\1\145\1\170\1\71\1\uffff\2\uffff\2\uffff\1\143\1\157\1\142"+
-        "\3\uffff\1\160\3\172\5\uffff\1\145\1\164\1\154\1\167\2\uffff\1\151"+
+        "\1\151\1\170\1\71\1\uffff\2\uffff\2\uffff\1\143\1\157\1\142\3\uffff"+
+        "\1\160\3\172\5\uffff\1\145\1\144\1\164\1\154\1\167\2\uffff\1\151"+
         "\1\162\1\uffff\1\75\2\uffff\1\56\2\uffff\1\164\1\163\1\143\2\156"+
         "\1\154\1\162\2\uffff\1\141\1\156\1\164\1\145\1\172\1\141\1\160\1"+
-        "\151\1\164\1\156\1\154\1\172\1\154\1\172\1\144\14\uffff\1\75\2\uffff"+
-        "\1\76\3\uffff\1\75\4\uffff\1\75\2\uffff\1\75\1\uffff\1\160\1\171"+
-        "\1\162\2\uffff\1\164\1\145\1\151\2\164\2\uffff\2\71\2\uffff\1\153"+
-        "\1\166\1\164\1\154\1\157\1\145\1\164\3\uffff\1\172\1\145\1\151\1"+
+        "\151\1\156\1\154\1\172\1\154\1\172\1\144\14\uffff\1\75\2\uffff\1"+
+        "\76\3\uffff\1\75\4\uffff\1\75\2\uffff\1\75\1\uffff\1\160\1\171\1"+
+        "\162\2\uffff\1\164\1\145\1\151\1\164\2\uffff\2\71\2\uffff\1\153"+
+        "\1\166\1\164\1\154\1\157\1\145\1\164\3\uffff\1\172\2\145\1\151\1"+
         "\154\1\172\1\144\1\172\4\uffff\2\145\1\150\1\143\1\141\1\163\1\172"+
-        "\1\163\1\164\1\143\1\145\1\162\1\uffff\1\164\1\145\1\164\1\172\1"+
-        "\141\1\145\1\141\1\uffff\1\172\1\151\1\uffff\1\172\3\uffff\1\75"+
-        "\7\uffff\2\145\1\172\1\163\1\157\1\165\1\141\1\154\1\150\1\172\1"+
-        "\uffff\2\141\1\145\1\151\1\162\1\145\1\162\1\141\1\uffff\1\163\1"+
-        "\166\1\172\1\uffff\1\172\1\uffff\1\156\2\172\1\164\1\154\1\145\1"+
-        "\uffff\1\163\1\164\1\151\1\150\1\172\1\162\1\151\1\162\1\143\1\uffff"+
-        "\1\155\1\164\1\165\1\uffff\1\162\1\147\3\uffff\1\157\1\172\1\uffff"+
-        "\1\172\1\167\1\162\1\153\1\145\1\172\1\uffff\1\147\1\164\2\143\1"+
-        "\164\1\155\2\156\1\160\1\145\2\uffff\1\144\2\uffff\1\151\4\172\1"+
-        "\156\1\172\1\uffff\1\151\1\143\1\172\1\150\1\151\1\145\1\154\1\164"+
-        "\1\156\1\146\2\uffff\1\172\1\156\2\172\1\uffff\2\145\1\164\2\172"+
-        "\1\145\2\141\1\143\1\141\1\172\1\163\1\157\1\171\4\uffff\1\165\1"+
-        "\uffff\1\144\1\172\1\uffff\1\172\1\143\1\172\1\164\3\172\1\uffff"+
-        "\1\172\2\uffff\2\172\1\145\2\uffff\1\156\1\143\1\154\1\145\1\143"+
-        "\1\uffff\1\172\1\156\1\172\2\145\2\uffff\1\172\1\uffff\1\172\6\uffff"+
-        "\1\144\1\164\1\145\1\172\1\157\1\145\1\uffff\1\172\1\uffff\2\172"+
-        "\2\uffff\1\172\1\163\1\172\1\uffff\1\146\1\172\4\uffff\1\172\1\uffff"+
-        "\1\172\3\uffff";
+        "\1\163\1\164\1\143\1\145\1\162\1\uffff\1\164\1\145\1\164\1\141\1"+
+        "\145\1\141\1\uffff\1\172\1\151\1\uffff\1\172\3\uffff\1\75\7\uffff"+
+        "\2\145\1\172\1\163\1\157\1\165\1\141\1\154\1\150\1\uffff\2\141\1"+
+        "\145\1\151\1\162\1\145\1\162\1\141\1\uffff\1\146\1\163\1\166\1\172"+
+        "\1\uffff\1\172\1\uffff\1\156\2\172\1\164\1\154\1\145\1\uffff\1\163"+
+        "\1\164\1\151\1\150\1\172\1\162\1\151\1\162\1\143\1\155\1\164\1\165"+
+        "\1\uffff\1\162\1\147\3\uffff\1\157\1\172\1\uffff\1\172\1\167\1\162"+
+        "\1\153\1\145\1\172\1\147\1\164\2\143\1\164\1\155\2\156\1\151\1\160"+
+        "\1\145\2\uffff\1\144\2\uffff\1\151\4\172\1\156\1\172\1\uffff\1\151"+
+        "\1\143\1\172\1\150\1\151\1\145\1\154\1\164\1\156\1\146\2\uffff\1"+
+        "\172\1\156\2\172\1\uffff\2\145\1\164\2\172\1\145\2\141\1\143\1\156"+
+        "\1\141\1\172\1\163\1\157\1\171\4\uffff\1\165\1\uffff\1\144\1\172"+
+        "\1\uffff\1\172\1\143\1\172\1\164\3\172\1\uffff\1\172\2\uffff\2\172"+
+        "\1\145\2\uffff\1\156\1\143\1\154\2\145\1\143\1\uffff\1\172\1\156"+
+        "\1\172\2\145\2\uffff\1\172\1\uffff\1\172\6\uffff\1\144\1\164\1\145"+
+        "\1\172\1\157\1\144\1\145\1\uffff\1\172\1\uffff\2\172\2\uffff\1\172"+
+        "\1\163\1\172\1\uffff\1\146\2\172\4\uffff\1\172\1\uffff\1\172\4\uffff";
     static final String DFA16_acceptS =
         "\2\uffff\1\2\1\3\1\uffff\1\5\1\6\1\7\1\10\1\11\4\uffff\1\16\24"+
-        "\uffff\1\61\2\uffff\1\117\1\121\6\uffff\1\164\2\uffff\1\171\1\172"+
-        "\3\uffff\1\164\1\2\1\3\4\uffff\1\5\1\6\1\7\1\10\1\11\4\uffff\1\44"+
-        "\1\14\2\uffff\1\16\1\uffff\1\17\1\20\1\uffff\1\163\1\21\7\uffff"+
-        "\1\40\1\25\17\uffff\1\45\1\167\1\170\1\110\1\46\1\111\1\47\1\112"+
+        "\uffff\1\61\2\uffff\1\117\1\121\5\uffff\1\163\2\uffff\1\170\1\171"+
+        "\3\uffff\1\163\1\2\1\3\4\uffff\1\5\1\6\1\7\1\10\1\11\5\uffff\1\44"+
+        "\1\14\2\uffff\1\16\1\uffff\1\17\1\20\1\uffff\1\21\1\162\7\uffff"+
+        "\1\40\1\25\16\uffff\1\45\1\166\1\167\1\110\1\46\1\111\1\47\1\112"+
         "\1\106\1\50\1\113\1\107\1\uffff\1\100\1\76\1\uffff\1\101\1\77\1"+
         "\54\1\uffff\1\70\1\55\1\67\1\56\1\uffff\1\66\1\61\1\uffff\1\116"+
-        "\3\uffff\1\117\1\121\5\uffff\1\161\1\165\2\uffff\1\166\1\171\7\uffff"+
-        "\1\75\1\42\1\133\7\uffff\1\71\1\74\1\37\1\120\14\uffff\1\63\7\uffff"+
-        "\1\151\2\uffff\1\43\1\uffff\1\51\1\103\1\52\1\uffff\1\104\1\57\1"+
-        "\64\1\60\1\62\1\72\1\73\12\uffff\1\162\10\uffff\1\12\3\uffff\1\127"+
-        "\1\uffff\1\35\6\uffff\1\146\11\uffff\1\154\3\uffff\1\41\2\uffff"+
-        "\1\65\1\53\1\105\2\uffff\1\136\6\uffff\1\153\12\uffff\1\126\1\15"+
-        "\1\uffff\1\134\1\147\7\uffff\1\145\12\uffff\1\123\1\125\4\uffff"+
-        "\1\152\16\uffff\1\32\1\124\1\26\1\36\1\uffff\1\137\2\uffff\1\122"+
-        "\7\uffff\1\135\1\uffff\1\143\1\150\3\uffff\1\157\1\4\5\uffff\1\33"+
-        "\5\uffff\1\31\1\144\1\uffff\1\114\1\uffff\1\130\1\132\1\115\1\141"+
-        "\1\1\1\156\6\uffff\1\23\1\uffff\1\140\2\uffff\1\34\1\131\3\uffff"+
-        "\1\155\2\uffff\1\24\1\142\1\30\1\160\1\uffff\1\22\1\uffff\1\13\1"+
-        "\27\1\102";
+        "\3\uffff\1\117\1\121\4\uffff\1\160\1\164\2\uffff\1\165\1\170\7\uffff"+
+        "\1\75\1\42\1\134\10\uffff\1\71\1\74\1\37\1\120\14\uffff\1\63\6\uffff"+
+        "\1\152\2\uffff\1\43\1\uffff\1\51\1\103\1\52\1\uffff\1\104\1\57\1"+
+        "\64\1\60\1\62\1\72\1\73\11\uffff\1\161\10\uffff\1\12\4\uffff\1\130"+
+        "\1\uffff\1\35\6\uffff\1\147\14\uffff\1\41\2\uffff\1\65\1\53\1\105"+
+        "\2\uffff\1\137\21\uffff\1\127\1\15\1\uffff\1\135\1\150\7\uffff\1"+
+        "\146\12\uffff\1\123\1\126\4\uffff\1\153\17\uffff\1\32\1\124\1\26"+
+        "\1\36\1\uffff\1\140\2\uffff\1\122\7\uffff\1\136\1\uffff\1\144\1"+
+        "\151\3\uffff\1\156\1\4\6\uffff\1\33\5\uffff\1\31\1\145\1\uffff\1"+
+        "\114\1\uffff\1\131\1\133\1\115\1\142\1\1\1\155\7\uffff\1\23\1\uffff"+
+        "\1\141\2\uffff\1\34\1\132\3\uffff\1\154\3\uffff\1\24\1\143\1\30"+
+        "\1\157\1\uffff\1\22\1\uffff\1\125\1\13\1\27\1\102";
     static final String DFA16_specialS =
-        "\1\0\56\uffff\1\2\1\1\u015e\uffff}>";
+        "\1\2\55\uffff\1\1\1\0\u0161\uffff}>";
     static final String[] DFA16_transitionS = {
-            "\11\62\2\61\2\62\1\61\22\62\1\61\1\44\1\57\2\62\1\33\1\40\1"+
-            "\60\1\7\1\10\1\14\1\34\1\16\1\35\1\20\1\32\1\54\11\55\1\23\1"+
-            "\5\1\36\1\17\1\37\1\43\1\47\32\56\1\6\1\62\1\11\1\41\1\56\1"+
-            "\62\1\31\1\51\1\24\1\27\1\21\1\22\1\53\1\56\1\4\4\56\1\13\1"+
-            "\25\1\1\1\56\1\50\1\26\1\45\1\12\1\15\1\52\1\30\2\56\1\2\1\42"+
-            "\1\3\1\46\uff81\62",
-            "\1\63\20\uffff\1\64\2\uffff\1\65",
+            "\11\61\2\60\2\61\1\60\22\61\1\60\1\44\1\56\2\61\1\33\1\40\1"+
+            "\57\1\7\1\10\1\14\1\34\1\16\1\35\1\20\1\32\1\53\11\54\1\23\1"+
+            "\5\1\36\1\17\1\37\1\43\1\47\32\55\1\6\1\61\1\11\1\41\1\55\1"+
+            "\61\1\31\1\51\1\24\1\27\1\21\1\22\2\55\1\4\4\55\1\13\1\25\1"+
+            "\1\1\55\1\50\1\26\1\45\1\12\1\15\1\52\1\30\2\55\1\2\1\42\1\3"+
+            "\1\46\uff81\61",
+            "\1\62\20\uffff\1\63\2\uffff\1\64",
             "",
             "",
-            "\1\74\6\uffff\1\71\1\72\4\uffff\1\73",
+            "\1\73\6\uffff\1\70\1\71\4\uffff\1\72",
             "",
             "",
             "",
             "",
             "",
-            "\1\102",
+            "\1\102\4\uffff\1\101",
             "\1\103\3\uffff\1\105\17\uffff\1\104",
             "\1\106",
             "\1\111\15\uffff\1\110",
             "",
             "\1\113",
-            "\1\115\3\uffff\1\116\1\uffff\12\117",
+            "\1\115\3\uffff\1\116\1\uffff\12\120",
             "\1\123\12\uffff\1\122\13\uffff\1\121",
             "\1\126\7\uffff\1\125\5\uffff\1\127\5\uffff\1\124",
             "\1\130",
             "\1\134\12\uffff\1\132\2\uffff\1\133",
             "\1\136\3\uffff\1\135",
-            "\1\142\16\uffff\1\137\1\140\1\uffff\1\141",
-            "\1\144\11\uffff\1\145\11\uffff\1\143",
-            "\1\146",
-            "\1\150\4\uffff\1\147",
-            "\1\152\4\uffff\1\153\15\uffff\1\151",
-            "\1\155",
-            "\1\160\21\uffff\1\157",
-            "\1\163\17\uffff\1\162",
-            "\1\165\1\166",
-            "\1\171\1\170",
-            "\1\174\26\uffff\1\173",
-            "\1\176\3\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\1\u0080\76\uffff\1\u0081",
+            "\1\137\1\140\1\uffff\1\141",
+            "\1\143\11\uffff\1\144\11\uffff\1\142",
+            "\1\145",
+            "\1\147\4\uffff\1\146",
+            "\1\151\4\uffff\1\152\15\uffff\1\150",
+            "\1\154",
+            "\1\157\21\uffff\1\156",
+            "\1\162\17\uffff\1\161",
+            "\1\164\1\165",
+            "\1\170\1\167",
+            "\1\173\26\uffff\1\172",
+            "\1\175\3\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\177\76\uffff\1\u0080",
             "",
-            "\1\u0084",
-            "\1\u0088\11\uffff\1\u0087\6\uffff\1\u0086",
+            "\1\u0083",
+            "\1\u0087\11\uffff\1\u0086\6\uffff\1\u0085",
             "",
             "",
+            "\1\u008a",
             "\1\u008b",
-            "\1\u008c",
-            "\1\u008d\1\u008e",
-            "\1\u008f",
-            "\1\117\1\uffff\10\u0092\2\u0093\76\uffff\1\u0090",
-            "\1\117\1\uffff\12\u0093",
+            "\1\u008c\1\u008d",
+            "\1\120\1\uffff\10\u0090\2\u0091\76\uffff\1\u008e",
+            "\1\120\1\uffff\12\u0091",
             "",
-            "\0\u0094",
-            "\0\u0094",
+            "\0\u0092",
+            "\0\u0092",
             "",
             "",
-            "\1\u0096",
-            "\1\u0097\5\uffff\1\u0098",
-            "\1\u0099",
+            "\1\u0094",
+            "\1\u0095\5\uffff\1\u0096",
+            "\1\u0097",
             "",
             "",
             "",
-            "\1\u009a",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\22\66\1\u009c\1"+
-            "\u009b\6\66",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\1\u0098",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\22\65\1\u009a\1"+
+            "\u0099\6\65",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "",
             "",
             "",
             "",
             "",
-            "\1\u00a0",
-            "\1\u00a1\6\uffff\1\u00a2",
+            "\1\u009e",
+            "\1\u009f",
+            "\1\u00a0\6\uffff\1\u00a1",
+            "\1\u00a2",
             "\1\u00a3",
+            "",
+            "",
             "\1\u00a4",
-            "",
-            "",
             "\1\u00a5",
+            "",
             "\1\u00a6",
             "",
-            "\1\u00a7",
+            "",
+            "\1\u00a8",
             "",
             "",
-            "\1\u00a9",
-            "",
-            "",
+            "\1\u00aa",
             "\1\u00ab",
             "\1\u00ac",
             "\1\u00ad",
             "\1\u00ae",
             "\1\u00af",
             "\1\u00b0",
+            "",
+            "",
             "\1\u00b1",
-            "",
-            "",
             "\1\u00b2",
-            "\1\u00b3",
-            "\1\u00b5\1\u00b4",
-            "\1\u00b6",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\1\u00b4\1\u00b3",
+            "\1\u00b5",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u00b7",
             "\1\u00b8",
             "\1\u00b9",
             "\1\u00ba",
-            "\1\u00bb",
-            "\1\u00bc",
-            "\1\u00be\5\uffff\1\u00bd",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\1\u00c0",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\22\66\1\u00c1\7"+
-            "\66",
-            "\1\u00c3",
+            "\1\u00bc\5\uffff\1\u00bb",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u00be",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\22\65\1\u00bf\7"+
+            "\65",
+            "\1\u00c1",
             "",
             "",
             "",
@@ -4275,134 +4243,136 @@ public class InternalAS3Lexer extends Lexer {
             "",
             "",
             "",
-            "\1\u00c4",
+            "\1\u00c2",
             "",
             "",
-            "\1\u00c6\1\u00c7",
+            "\1\u00c4\1\u00c5",
+            "",
+            "",
+            "",
+            "\1\u00c7",
+            "",
             "",
             "",
             "",
             "\1\u00c9",
             "",
             "",
-            "",
-            "",
             "\1\u00cb",
             "",
-            "",
             "\1\u00cd",
-            "",
-            "\1\u00cf",
-            "\1\u00d0\3\uffff\1\u00d1",
-            "\1\u00d2\10\uffff\1\u00d3",
+            "\1\u00ce\3\uffff\1\u00cf",
+            "\1\u00d0\10\uffff\1\u00d1",
             "",
             "",
+            "\1\u00d2",
+            "\1\u00d3",
             "\1\u00d4",
             "\1\u00d5",
-            "\1\u00d6",
+            "",
+            "",
+            "\1\120\1\uffff\10\u0090\2\u0091",
+            "\1\120\1\uffff\12\u0091",
+            "",
+            "",
             "\1\u00d7",
             "\1\u00d8",
-            "",
-            "",
-            "\1\117\1\uffff\10\u0092\2\u0093",
-            "\1\117\1\uffff\12\u0093",
-            "",
-            "",
+            "\1\u00d9",
             "\1\u00da",
-            "\1\u00db",
-            "\1\u00dc",
+            "\1\u00dc\2\uffff\1\u00db",
             "\1\u00dd",
-            "\1\u00df\2\uffff\1\u00de",
+            "\1\u00de",
+            "",
+            "",
+            "",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u00e0",
             "\1\u00e1",
-            "",
-            "",
-            "",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\1\u00e2",
             "\1\u00e3",
-            "\1\u00e4",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u00e5",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "",
+            "",
+            "",
+            "",
             "\1\u00e7",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "",
-            "",
-            "",
-            "",
+            "\1\u00e8",
             "\1\u00e9",
             "\1\u00ea",
             "\1\u00eb",
             "\1\u00ec",
-            "\1\u00ed",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u00ee",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\1\u00f0",
-            "\1\u00f1\1\u00f2",
+            "\1\u00ef\1\u00f0",
+            "\1\u00f1",
+            "\1\u00f2",
             "\1\u00f3",
+            "",
             "\1\u00f4",
             "\1\u00f5",
-            "",
             "\1\u00f6",
             "\1\u00f7",
             "\1\u00f8",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\1\u00fa",
-            "\1\u00fb",
-            "\1\u00fc",
+            "\1\u00f9",
             "",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\1\u00fe\3\uffff\1\u00ff",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u00fb\3\uffff\1\u00fc",
             "",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "",
             "",
             "",
+            "\1\u00fe",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\u0100",
             "\1\u0101",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u0103",
             "\1\u0104",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\1\u0105",
             "\1\u0106",
             "\1\u0107",
             "\1\u0108",
+            "",
             "\1\u0109",
             "\1\u010a",
             "\1\u010b",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "",
+            "\1\u010c",
             "\1\u010d",
             "\1\u010e",
             "\1\u010f",
             "\1\u0110",
+            "",
             "\1\u0111",
             "\1\u0112",
             "\1\u0113",
-            "\1\u0114",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "",
-            "\1\u0115",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "",
             "\1\u0116",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u0119",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\1\u011a",
+            "\1\u011b",
+            "",
             "\1\u011c",
             "\1\u011d",
             "\1\u011e",
-            "",
             "\1\u011f",
-            "\1\u0120",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u0121",
             "\1\u0122",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\1\u0123",
             "\1\u0124",
             "\1\u0125",
             "\1\u0126",
@@ -4410,119 +4380,117 @@ public class InternalAS3Lexer extends Lexer {
             "",
             "\1\u0128",
             "\1\u0129",
+            "",
+            "",
+            "",
             "\1\u012a",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "",
-            "\1\u012b",
-            "\1\u012c",
-            "",
-            "",
-            "",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u012d",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\1\u012e",
+            "\1\u012f",
             "\1\u0130",
-            "\1\u0131",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u0132",
             "\1\u0133",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "",
+            "\1\u0134",
             "\1\u0135",
             "\1\u0136",
             "\1\u0137",
-            "\1\u0138",
-            "\1\u0139",
+            "\1\u0138\7\uffff\1\u0139",
             "\1\u013a",
-            "\1\u013b\7\uffff\1\u013c",
+            "\1\u013b",
+            "\1\u013c",
             "\1\u013d",
+            "",
+            "",
             "\1\u013e",
+            "",
+            "",
             "\1\u013f",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\13\65\1\u0140\16"+
+            "\65",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u0145",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "",
-            "",
-            "\1\u0140",
-            "",
-            "",
-            "\1\u0141",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\13\66\1\u0142\16"+
-            "\66",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\1\u0147",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "",
-            "\1\u0149",
+            "\1\u0148",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u014a",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\1\u014b",
             "\1\u014c",
             "\1\u014d",
             "\1\u014e",
             "\1\u014f",
             "\1\u0150",
-            "\1\u0151",
+            "",
+            "",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u0152",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "",
-            "",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\1\u0154",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "",
+            "\1\u0155",
+            "\1\u0156",
             "\1\u0157",
-            "\1\u0158",
-            "\1\u0159",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u015a",
+            "\1\u015b",
             "\1\u015c",
             "\1\u015d",
             "\1\u015e",
             "\1\u015f",
-            "\1\u0160",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u0161",
             "\1\u0162",
             "\1\u0163",
+            "",
+            "",
+            "",
+            "",
             "\1\u0164",
             "",
-            "",
-            "",
-            "",
             "\1\u0165",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "",
-            "\1\u0166",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u0168",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u016a",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\1\u0169",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\1\u016b",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "",
             "",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u0171",
+            "",
+            "",
             "\1\u0172",
-            "",
-            "",
             "\1\u0173",
             "\1\u0174",
             "\1\u0175",
             "\1\u0176",
             "\1\u0177",
             "",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u0179",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u017b",
             "\1\u017c",
             "",
             "",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "",
             "",
             "",
@@ -4532,29 +4500,32 @@ public class InternalAS3Lexer extends Lexer {
             "\1\u017f",
             "\1\u0180",
             "\1\u0181",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u0183",
             "\1\u0184",
+            "\1\u0185",
             "",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "",
-            "",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "\1\u0189",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
-            "",
-            "\1\u018b",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "",
             "",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u018a",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "",
+            "\1\u018c",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "",
             "",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "",
-            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "",
             "",
             "",
             ""
@@ -4590,13 +4561,33 @@ public class InternalAS3Lexer extends Lexer {
             this.transition = DFA16_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | T__115 | T__116 | T__117 | T__118 | T__119 | T__120 | T__121 | T__122 | T__123 | T__124 | T__125 | RULE_HEX_LITERAL | RULE_OCTAL | RULE_FLOAT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | T__115 | T__116 | T__117 | T__118 | T__119 | T__120 | T__121 | T__122 | T__123 | T__124 | RULE_HEX_LITERAL | RULE_OCTAL | RULE_FLOAT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA16_47 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA16_47>='\u0000' && LA16_47<='\uFFFF')) ) {s = 146;}
+
+                        else s = 49;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA16_46 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA16_46>='\u0000' && LA16_46<='\uFFFF')) ) {s = 146;}
+
+                        else s = 49;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
                         int LA16_0 = input.LA(1);
 
                         s = -1;
@@ -4684,41 +4675,19 @@ public class InternalAS3Lexer extends Lexer {
 
                         else if ( (LA16_0=='w') ) {s = 42;}
 
-                        else if ( (LA16_0=='g') ) {s = 43;}
+                        else if ( (LA16_0=='0') ) {s = 43;}
 
-                        else if ( (LA16_0=='0') ) {s = 44;}
+                        else if ( ((LA16_0>='1' && LA16_0<='9')) ) {s = 44;}
 
-                        else if ( ((LA16_0>='1' && LA16_0<='9')) ) {s = 45;}
+                        else if ( ((LA16_0>='A' && LA16_0<='Z')||LA16_0=='_'||(LA16_0>='g' && LA16_0<='h')||(LA16_0>='j' && LA16_0<='m')||LA16_0=='q'||(LA16_0>='y' && LA16_0<='z')) ) {s = 45;}
 
-                        else if ( ((LA16_0>='A' && LA16_0<='Z')||LA16_0=='_'||LA16_0=='h'||(LA16_0>='j' && LA16_0<='m')||LA16_0=='q'||(LA16_0>='y' && LA16_0<='z')) ) {s = 46;}
+                        else if ( (LA16_0=='\"') ) {s = 46;}
 
-                        else if ( (LA16_0=='\"') ) {s = 47;}
+                        else if ( (LA16_0=='\'') ) {s = 47;}
 
-                        else if ( (LA16_0=='\'') ) {s = 48;}
+                        else if ( ((LA16_0>='\t' && LA16_0<='\n')||LA16_0=='\r'||LA16_0==' ') ) {s = 48;}
 
-                        else if ( ((LA16_0>='\t' && LA16_0<='\n')||LA16_0=='\r'||LA16_0==' ') ) {s = 49;}
-
-                        else if ( ((LA16_0>='\u0000' && LA16_0<='\b')||(LA16_0>='\u000B' && LA16_0<='\f')||(LA16_0>='\u000E' && LA16_0<='\u001F')||(LA16_0>='#' && LA16_0<='$')||LA16_0=='\\'||LA16_0=='`'||(LA16_0>='\u007F' && LA16_0<='\uFFFF')) ) {s = 50;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA16_48 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA16_48>='\u0000' && LA16_48<='\uFFFF')) ) {s = 148;}
-
-                        else s = 50;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA16_47 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA16_47>='\u0000' && LA16_47<='\uFFFF')) ) {s = 148;}
-
-                        else s = 50;
+                        else if ( ((LA16_0>='\u0000' && LA16_0<='\b')||(LA16_0>='\u000B' && LA16_0<='\f')||(LA16_0>='\u000E' && LA16_0<='\u001F')||(LA16_0>='#' && LA16_0<='$')||LA16_0=='\\'||LA16_0=='`'||(LA16_0>='\u007F' && LA16_0<='\uFFFF')) ) {s = 49;}
 
                         if ( s>=0 ) return s;
                         break;

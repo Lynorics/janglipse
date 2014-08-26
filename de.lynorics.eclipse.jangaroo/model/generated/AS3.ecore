@@ -63,7 +63,8 @@
         eType="#//Annotation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modifier" eType="#//Modifier"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="accessor" eType="#//AccessorRole"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accessor" eType="#//AccessorRole"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
         eType="#//Parameter" containment="true"/>
@@ -92,9 +93,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
         eType="#//Member" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="AccessorRole">
-    <eLiterals name="GET" literal="get"/>
-    <eLiterals name="SET" value="1" literal="set"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AccessorRole">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="accessor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Member">
     <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="#//MemberVariableDeclaration"
@@ -107,7 +107,8 @@
         eType="#//Annotation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modifier" eType="#//Modifier"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="accessor" eType="#//AccessorRole"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accessor" eType="#//AccessorRole"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
         eType="#//Parameter" containment="true"/>
@@ -540,6 +541,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="BoolConstant" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Undefined" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="This" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="Null" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="SymbolRef" eSuperTypes="#//Expression">

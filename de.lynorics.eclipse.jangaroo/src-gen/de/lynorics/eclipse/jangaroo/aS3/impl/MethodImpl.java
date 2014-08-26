@@ -69,24 +69,14 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   protected Modifier modifier;
 
   /**
-   * The default value of the '{@link #getAccessor() <em>Accessor</em>}' attribute.
+   * The cached value of the '{@link #getAccessor() <em>Accessor</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getAccessor()
    * @generated
    * @ordered
    */
-  protected static final AccessorRole ACCESSOR_EDEFAULT = AccessorRole.GET;
-
-  /**
-   * The cached value of the '{@link #getAccessor() <em>Accessor</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAccessor()
-   * @generated
-   * @ordered
-   */
-  protected AccessorRole accessor = ACCESSOR_EDEFAULT;
+  protected AccessorRole accessor;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -236,12 +226,37 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setAccessor(AccessorRole newAccessor)
+  public NotificationChain basicSetAccessor(AccessorRole newAccessor, NotificationChain msgs)
   {
     AccessorRole oldAccessor = accessor;
-    accessor = newAccessor == null ? ACCESSOR_EDEFAULT : newAccessor;
+    accessor = newAccessor;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.METHOD__ACCESSOR, oldAccessor, accessor));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AS3Package.METHOD__ACCESSOR, oldAccessor, newAccessor);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAccessor(AccessorRole newAccessor)
+  {
+    if (newAccessor != accessor)
+    {
+      NotificationChain msgs = null;
+      if (accessor != null)
+        msgs = ((InternalEObject)accessor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AS3Package.METHOD__ACCESSOR, null, msgs);
+      if (newAccessor != null)
+        msgs = ((InternalEObject)newAccessor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AS3Package.METHOD__ACCESSOR, null, msgs);
+      msgs = basicSetAccessor(newAccessor, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.METHOD__ACCESSOR, newAccessor, newAccessor));
   }
 
   /**
@@ -386,6 +401,8 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
         return ((InternalEList<?>)getAnnotations()).basicRemove(otherEnd, msgs);
       case AS3Package.METHOD__MODIFIER:
         return basicSetModifier(null, msgs);
+      case AS3Package.METHOD__ACCESSOR:
+        return basicSetAccessor(null, msgs);
       case AS3Package.METHOD__PARAMS:
         return ((InternalEList<?>)getParams()).basicRemove(otherEnd, msgs);
       case AS3Package.METHOD__BODY:
@@ -478,7 +495,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
         setModifier((Modifier)null);
         return;
       case AS3Package.METHOD__ACCESSOR:
-        setAccessor(ACCESSOR_EDEFAULT);
+        setAccessor((AccessorRole)null);
         return;
       case AS3Package.METHOD__NAME:
         setName(NAME_EDEFAULT);
@@ -511,7 +528,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
       case AS3Package.METHOD__MODIFIER:
         return modifier != null;
       case AS3Package.METHOD__ACCESSOR:
-        return accessor != ACCESSOR_EDEFAULT;
+        return accessor != null;
       case AS3Package.METHOD__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AS3Package.METHOD__PARAMS:
@@ -535,9 +552,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (accessor: ");
-    result.append(accessor);
-    result.append(", name: ");
+    result.append(" (name: ");
     result.append(name);
     result.append(')');
     return result.toString();

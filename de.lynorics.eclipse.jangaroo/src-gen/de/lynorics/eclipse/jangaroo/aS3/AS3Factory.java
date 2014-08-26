@@ -149,6 +149,15 @@ public interface AS3Factory extends EFactory
   Class createClass();
 
   /**
+   * Returns a new object of class '<em>Accessor Role</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Accessor Role</em>'.
+   * @generated
+   */
+  AccessorRole createAccessorRole();
+
+  /**
    * Returns a new object of class '<em>Member</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -984,6 +993,15 @@ public interface AS3Factory extends EFactory
    * @generated
    */
   BoolConstant createBoolConstant();
+
+  /**
+   * Returns a new object of class '<em>Undefined</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Undefined</em>'.
+   * @generated
+   */
+  Undefined createUndefined();
 
   /**
    * Returns a new object of class '<em>This</em>'.

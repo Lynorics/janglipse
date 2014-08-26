@@ -72,29 +72,26 @@ public interface InterfaceMethod extends EObject
   void setModifier(Modifier value);
 
   /**
-   * Returns the value of the '<em><b>Accessor</b></em>' attribute.
-   * The literals are from the enumeration {@link de.lynorics.eclipse.jangaroo.aS3.AccessorRole}.
+   * Returns the value of the '<em><b>Accessor</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Accessor</em>' attribute isn't clear,
+   * If the meaning of the '<em>Accessor</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Accessor</em>' attribute.
-   * @see de.lynorics.eclipse.jangaroo.aS3.AccessorRole
+   * @return the value of the '<em>Accessor</em>' containment reference.
    * @see #setAccessor(AccessorRole)
    * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getInterfaceMethod_Accessor()
-   * @model
+   * @model containment="true"
    * @generated
    */
   AccessorRole getAccessor();
 
   /**
-   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod#getAccessor <em>Accessor</em>}' attribute.
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod#getAccessor <em>Accessor</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Accessor</em>' attribute.
-   * @see de.lynorics.eclipse.jangaroo.aS3.AccessorRole
+   * @param value the new value of the '<em>Accessor</em>' containment reference.
    * @see #getAccessor()
    * @generated
    */

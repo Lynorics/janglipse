@@ -571,7 +571,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFunctionKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
 		private final Assignment cAccessorAssignment_2_1_0 = (Assignment)cGroup_2_1.eContents().get(0);
-		private final RuleCall cAccessorAccessorRoleEnumRuleCall_2_1_0_0 = (RuleCall)cAccessorAssignment_2_1_0.eContents().get(0);
+		private final RuleCall cAccessorAccessorRoleParserRuleCall_2_1_0_0 = (RuleCall)cAccessorAssignment_2_1_0.eContents().get(0);
 		private final Assignment cNameAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_2_1_1_0 = (RuleCall)cNameAssignment_2_1_1.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_2_1_2 = (Keyword)cGroup_2_1.eContents().get(2);
@@ -631,7 +631,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getAccessorAssignment_2_1_0() { return cAccessorAssignment_2_1_0; }
 
 		//AccessorRole
-		public RuleCall getAccessorAccessorRoleEnumRuleCall_2_1_0_0() { return cAccessorAccessorRoleEnumRuleCall_2_1_0_0; }
+		public RuleCall getAccessorAccessorRoleParserRuleCall_2_1_0_0() { return cAccessorAccessorRoleParserRuleCall_2_1_0_0; }
 
 		//name=ID
 		public Assignment getNameAssignment_2_1_1() { return cNameAssignment_2_1_1; }
@@ -888,6 +888,22 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightCurlyBracketKeyword_2_6() { return cRightCurlyBracketKeyword_2_6; }
 	}
 
+	public class AccessorRoleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AccessorRole");
+		private final Assignment cAccessorAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cAccessorIDTerminalRuleCall_0 = (RuleCall)cAccessorAssignment.eContents().get(0);
+		
+		//AccessorRole:
+		//	accessor=ID;
+		public ParserRule getRule() { return rule; }
+
+		//accessor=ID
+		public Assignment getAccessorAssignment() { return cAccessorAssignment; }
+
+		//ID
+		public RuleCall getAccessorIDTerminalRuleCall_0() { return cAccessorIDTerminalRuleCall_0; }
+	}
+
 	public class MemberElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Member");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -928,7 +944,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFunctionKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
 		private final Assignment cAccessorAssignment_3_1_0 = (Assignment)cGroup_3_1.eContents().get(0);
-		private final RuleCall cAccessorAccessorRoleEnumRuleCall_3_1_0_0 = (RuleCall)cAccessorAssignment_3_1_0.eContents().get(0);
+		private final RuleCall cAccessorAccessorRoleParserRuleCall_3_1_0_0 = (RuleCall)cAccessorAssignment_3_1_0.eContents().get(0);
 		private final Assignment cNameAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_3_1_1_0 = (RuleCall)cNameAssignment_3_1_1.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_3_1_2 = (Keyword)cGroup_3_1.eContents().get(2);
@@ -996,7 +1012,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getAccessorAssignment_3_1_0() { return cAccessorAssignment_3_1_0; }
 
 		//AccessorRole
-		public RuleCall getAccessorAccessorRoleEnumRuleCall_3_1_0_0() { return cAccessorAccessorRoleEnumRuleCall_3_1_0_0; }
+		public RuleCall getAccessorAccessorRoleParserRuleCall_3_1_0_0() { return cAccessorAccessorRoleParserRuleCall_3_1_0_0; }
 
 		//name=ID
 		public Assignment getNameAssignment_3_1_1() { return cNameAssignment_3_1_1; }
@@ -3480,49 +3496,53 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cValueTrueKeyword_4_1_0_0 = (Keyword)cValueAlternatives_4_1_0.eContents().get(0);
 		private final Keyword cValueFalseKeyword_4_1_0_1 = (Keyword)cValueAlternatives_4_1_0.eContents().get(1);
 		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
-		private final Action cThisAction_5_0 = (Action)cGroup_5.eContents().get(0);
-		private final Keyword cThisKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Action cUndefinedAction_5_0 = (Action)cGroup_5.eContents().get(0);
+		private final Keyword cUndefinedKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
 		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
-		private final Action cNullAction_6_0 = (Action)cGroup_6.eContents().get(0);
-		private final Keyword cNullKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Action cThisAction_6_0 = (Action)cGroup_6.eContents().get(0);
+		private final Keyword cThisKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
 		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
-		private final Action cSymbolRefAction_7_0 = (Action)cGroup_7.eContents().get(0);
-		private final Alternatives cAlternatives_7_1 = (Alternatives)cGroup_7.eContents().get(1);
-		private final Assignment cSymbolAssignment_7_1_0 = (Assignment)cAlternatives_7_1.eContents().get(0);
-		private final CrossReference cSymbolMemberVariableDeclarationCrossReference_7_1_0_0 = (CrossReference)cSymbolAssignment_7_1_0.eContents().get(0);
-		private final RuleCall cSymbolMemberVariableDeclarationIDTerminalRuleCall_7_1_0_0_1 = (RuleCall)cSymbolMemberVariableDeclarationCrossReference_7_1_0_0.eContents().get(1);
-		private final Assignment cSymbolAssignment_7_1_1 = (Assignment)cAlternatives_7_1.eContents().get(1);
-		private final CrossReference cSymbolVariableDeclarationCrossReference_7_1_1_0 = (CrossReference)cSymbolAssignment_7_1_1.eContents().get(0);
-		private final RuleCall cSymbolVariableDeclarationIDTerminalRuleCall_7_1_1_0_1 = (RuleCall)cSymbolVariableDeclarationCrossReference_7_1_1_0.eContents().get(1);
-		private final Assignment cSymbolAssignment_7_1_2 = (Assignment)cAlternatives_7_1.eContents().get(2);
-		private final CrossReference cSymbolParameterCrossReference_7_1_2_0 = (CrossReference)cSymbolAssignment_7_1_2.eContents().get(0);
-		private final RuleCall cSymbolParameterIDTerminalRuleCall_7_1_2_0_1 = (RuleCall)cSymbolParameterCrossReference_7_1_2_0.eContents().get(1);
-		private final Assignment cSymbolAssignment_7_1_3 = (Assignment)cAlternatives_7_1.eContents().get(3);
-		private final CrossReference cSymbolClassCrossReference_7_1_3_0 = (CrossReference)cSymbolAssignment_7_1_3.eContents().get(0);
-		private final RuleCall cSymbolClassIDTerminalRuleCall_7_1_3_0_1 = (RuleCall)cSymbolClassCrossReference_7_1_3_0.eContents().get(1);
-		private final Assignment cSymbolAssignment_7_1_4 = (Assignment)cAlternatives_7_1.eContents().get(4);
-		private final CrossReference cSymbolInterfaceCrossReference_7_1_4_0 = (CrossReference)cSymbolAssignment_7_1_4.eContents().get(0);
-		private final RuleCall cSymbolInterfaceIDTerminalRuleCall_7_1_4_0_1 = (RuleCall)cSymbolInterfaceCrossReference_7_1_4_0.eContents().get(1);
-		private final Assignment cSymbolAssignment_7_1_5 = (Assignment)cAlternatives_7_1.eContents().get(5);
-		private final CrossReference cSymbolMethodCrossReference_7_1_5_0 = (CrossReference)cSymbolAssignment_7_1_5.eContents().get(0);
-		private final RuleCall cSymbolMethodIDTerminalRuleCall_7_1_5_0_1 = (RuleCall)cSymbolMethodCrossReference_7_1_5_0.eContents().get(1);
-		private final Assignment cSymbolAssignment_7_1_6 = (Assignment)cAlternatives_7_1.eContents().get(6);
-		private final CrossReference cSymbolInterfaceMethodCrossReference_7_1_6_0 = (CrossReference)cSymbolAssignment_7_1_6.eContents().get(0);
-		private final RuleCall cSymbolInterfaceMethodIDTerminalRuleCall_7_1_6_0_1 = (RuleCall)cSymbolInterfaceMethodCrossReference_7_1_6_0.eContents().get(1);
-		private final Assignment cSymbolAssignment_7_1_7 = (Assignment)cAlternatives_7_1.eContents().get(7);
-		private final CrossReference cSymbolBasicParameterDeclarationCrossReference_7_1_7_0 = (CrossReference)cSymbolAssignment_7_1_7.eContents().get(0);
-		private final RuleCall cSymbolBasicParameterDeclarationIDTerminalRuleCall_7_1_7_0_1 = (RuleCall)cSymbolBasicParameterDeclarationCrossReference_7_1_7_0.eContents().get(1);
+		private final Action cNullAction_7_0 = (Action)cGroup_7.eContents().get(0);
+		private final Keyword cNullKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Group cGroup_8 = (Group)cAlternatives.eContents().get(8);
+		private final Action cSymbolRefAction_8_0 = (Action)cGroup_8.eContents().get(0);
+		private final Alternatives cAlternatives_8_1 = (Alternatives)cGroup_8.eContents().get(1);
+		private final Assignment cSymbolAssignment_8_1_0 = (Assignment)cAlternatives_8_1.eContents().get(0);
+		private final CrossReference cSymbolMemberVariableDeclarationCrossReference_8_1_0_0 = (CrossReference)cSymbolAssignment_8_1_0.eContents().get(0);
+		private final RuleCall cSymbolMemberVariableDeclarationIDTerminalRuleCall_8_1_0_0_1 = (RuleCall)cSymbolMemberVariableDeclarationCrossReference_8_1_0_0.eContents().get(1);
+		private final Assignment cSymbolAssignment_8_1_1 = (Assignment)cAlternatives_8_1.eContents().get(1);
+		private final CrossReference cSymbolVariableDeclarationCrossReference_8_1_1_0 = (CrossReference)cSymbolAssignment_8_1_1.eContents().get(0);
+		private final RuleCall cSymbolVariableDeclarationIDTerminalRuleCall_8_1_1_0_1 = (RuleCall)cSymbolVariableDeclarationCrossReference_8_1_1_0.eContents().get(1);
+		private final Assignment cSymbolAssignment_8_1_2 = (Assignment)cAlternatives_8_1.eContents().get(2);
+		private final CrossReference cSymbolParameterCrossReference_8_1_2_0 = (CrossReference)cSymbolAssignment_8_1_2.eContents().get(0);
+		private final RuleCall cSymbolParameterIDTerminalRuleCall_8_1_2_0_1 = (RuleCall)cSymbolParameterCrossReference_8_1_2_0.eContents().get(1);
+		private final Assignment cSymbolAssignment_8_1_3 = (Assignment)cAlternatives_8_1.eContents().get(3);
+		private final CrossReference cSymbolClassCrossReference_8_1_3_0 = (CrossReference)cSymbolAssignment_8_1_3.eContents().get(0);
+		private final RuleCall cSymbolClassIDTerminalRuleCall_8_1_3_0_1 = (RuleCall)cSymbolClassCrossReference_8_1_3_0.eContents().get(1);
+		private final Assignment cSymbolAssignment_8_1_4 = (Assignment)cAlternatives_8_1.eContents().get(4);
+		private final CrossReference cSymbolInterfaceCrossReference_8_1_4_0 = (CrossReference)cSymbolAssignment_8_1_4.eContents().get(0);
+		private final RuleCall cSymbolInterfaceIDTerminalRuleCall_8_1_4_0_1 = (RuleCall)cSymbolInterfaceCrossReference_8_1_4_0.eContents().get(1);
+		private final Assignment cSymbolAssignment_8_1_5 = (Assignment)cAlternatives_8_1.eContents().get(5);
+		private final CrossReference cSymbolMethodCrossReference_8_1_5_0 = (CrossReference)cSymbolAssignment_8_1_5.eContents().get(0);
+		private final RuleCall cSymbolMethodIDTerminalRuleCall_8_1_5_0_1 = (RuleCall)cSymbolMethodCrossReference_8_1_5_0.eContents().get(1);
+		private final Assignment cSymbolAssignment_8_1_6 = (Assignment)cAlternatives_8_1.eContents().get(6);
+		private final CrossReference cSymbolInterfaceMethodCrossReference_8_1_6_0 = (CrossReference)cSymbolAssignment_8_1_6.eContents().get(0);
+		private final RuleCall cSymbolInterfaceMethodIDTerminalRuleCall_8_1_6_0_1 = (RuleCall)cSymbolInterfaceMethodCrossReference_8_1_6_0.eContents().get(1);
+		private final Assignment cSymbolAssignment_8_1_7 = (Assignment)cAlternatives_8_1.eContents().get(7);
+		private final CrossReference cSymbolBasicParameterDeclarationCrossReference_8_1_7_0 = (CrossReference)cSymbolAssignment_8_1_7.eContents().get(0);
+		private final RuleCall cSymbolBasicParameterDeclarationIDTerminalRuleCall_8_1_7_0_1 = (RuleCall)cSymbolBasicParameterDeclarationCrossReference_8_1_7_0.eContents().get(1);
 		
 		//TerminalExpression returns Expression:
 		//	{XmlConstant} value=xmlLiteral | {RegexpConstant} value=regexpLiteral | {NumberConstant} value=number |
-		//	{StringConstant} value=STRING | {BoolConstant} value=("true" | "false") | {This} "this" | {Null} "null" | {SymbolRef}
-		//	(symbol=[MemberVariableDeclaration] | symbol=[VariableDeclaration] | symbol=[Parameter] | symbol=[Class] |
-		//	symbol=[Interface] | symbol=[Method] | symbol=[InterfaceMethod] | symbol=[basicParameterDeclaration]);
+		//	{StringConstant} value=STRING | {BoolConstant} value=("true" | "false") | {Undefined} "undefined" | {This} "this" |
+		//	{Null} "null" | {SymbolRef} (symbol=[MemberVariableDeclaration] | symbol=[VariableDeclaration] | symbol=[Parameter] |
+		//	symbol=[Class] | symbol=[Interface] | symbol=[Method] | symbol=[InterfaceMethod] |
+		//	symbol=[basicParameterDeclaration]);
 		public ParserRule getRule() { return rule; }
 
 		//{XmlConstant} value=xmlLiteral | {RegexpConstant} value=regexpLiteral | {NumberConstant} value=number | {StringConstant}
-		//value=STRING | {BoolConstant} value=("true" | "false") | {This} "this" | {Null} "null" | {SymbolRef}
-		//(symbol=[MemberVariableDeclaration] | symbol=[VariableDeclaration] | symbol=[Parameter] | symbol=[Class] |
+		//value=STRING | {BoolConstant} value=("true" | "false") | {Undefined} "undefined" | {This} "this" | {Null} "null" |
+		//{SymbolRef} (symbol=[MemberVariableDeclaration] | symbol=[VariableDeclaration] | symbol=[Parameter] | symbol=[Class] |
 		//symbol=[Interface] | symbol=[Method] | symbol=[InterfaceMethod] | symbol=[basicParameterDeclaration])
 		public Alternatives getAlternatives() { return cAlternatives; }
 
@@ -3592,106 +3612,115 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		//"false"
 		public Keyword getValueFalseKeyword_4_1_0_1() { return cValueFalseKeyword_4_1_0_1; }
 
-		//{This} "this"
+		//{Undefined} "undefined"
 		public Group getGroup_5() { return cGroup_5; }
 
-		//{This}
-		public Action getThisAction_5_0() { return cThisAction_5_0; }
+		//{Undefined}
+		public Action getUndefinedAction_5_0() { return cUndefinedAction_5_0; }
 
-		//"this"
-		public Keyword getThisKeyword_5_1() { return cThisKeyword_5_1; }
+		//"undefined"
+		public Keyword getUndefinedKeyword_5_1() { return cUndefinedKeyword_5_1; }
 
-		//{Null} "null"
+		//{This} "this"
 		public Group getGroup_6() { return cGroup_6; }
 
+		//{This}
+		public Action getThisAction_6_0() { return cThisAction_6_0; }
+
+		//"this"
+		public Keyword getThisKeyword_6_1() { return cThisKeyword_6_1; }
+
+		//{Null} "null"
+		public Group getGroup_7() { return cGroup_7; }
+
 		//{Null}
-		public Action getNullAction_6_0() { return cNullAction_6_0; }
+		public Action getNullAction_7_0() { return cNullAction_7_0; }
 
 		//"null"
-		public Keyword getNullKeyword_6_1() { return cNullKeyword_6_1; }
+		public Keyword getNullKeyword_7_1() { return cNullKeyword_7_1; }
 
 		//{SymbolRef} (symbol=[MemberVariableDeclaration] | symbol=[VariableDeclaration] | symbol=[Parameter] | symbol=[Class] |
 		//symbol=[Interface] | symbol=[Method] | symbol=[InterfaceMethod] | symbol=[basicParameterDeclaration])
-		public Group getGroup_7() { return cGroup_7; }
+		public Group getGroup_8() { return cGroup_8; }
 
 		//{SymbolRef}
-		public Action getSymbolRefAction_7_0() { return cSymbolRefAction_7_0; }
+		public Action getSymbolRefAction_8_0() { return cSymbolRefAction_8_0; }
 
 		//symbol=[MemberVariableDeclaration] | symbol=[VariableDeclaration] | symbol=[Parameter] | symbol=[Class] |
 		//symbol=[Interface] | symbol=[Method] | symbol=[InterfaceMethod] | symbol=[basicParameterDeclaration]
-		public Alternatives getAlternatives_7_1() { return cAlternatives_7_1; }
+		public Alternatives getAlternatives_8_1() { return cAlternatives_8_1; }
 
 		//symbol=[MemberVariableDeclaration]
-		public Assignment getSymbolAssignment_7_1_0() { return cSymbolAssignment_7_1_0; }
+		public Assignment getSymbolAssignment_8_1_0() { return cSymbolAssignment_8_1_0; }
 
 		//[MemberVariableDeclaration]
-		public CrossReference getSymbolMemberVariableDeclarationCrossReference_7_1_0_0() { return cSymbolMemberVariableDeclarationCrossReference_7_1_0_0; }
+		public CrossReference getSymbolMemberVariableDeclarationCrossReference_8_1_0_0() { return cSymbolMemberVariableDeclarationCrossReference_8_1_0_0; }
 
 		//ID
-		public RuleCall getSymbolMemberVariableDeclarationIDTerminalRuleCall_7_1_0_0_1() { return cSymbolMemberVariableDeclarationIDTerminalRuleCall_7_1_0_0_1; }
+		public RuleCall getSymbolMemberVariableDeclarationIDTerminalRuleCall_8_1_0_0_1() { return cSymbolMemberVariableDeclarationIDTerminalRuleCall_8_1_0_0_1; }
 
 		//symbol=[VariableDeclaration]
-		public Assignment getSymbolAssignment_7_1_1() { return cSymbolAssignment_7_1_1; }
+		public Assignment getSymbolAssignment_8_1_1() { return cSymbolAssignment_8_1_1; }
 
 		//[VariableDeclaration]
-		public CrossReference getSymbolVariableDeclarationCrossReference_7_1_1_0() { return cSymbolVariableDeclarationCrossReference_7_1_1_0; }
+		public CrossReference getSymbolVariableDeclarationCrossReference_8_1_1_0() { return cSymbolVariableDeclarationCrossReference_8_1_1_0; }
 
 		//ID
-		public RuleCall getSymbolVariableDeclarationIDTerminalRuleCall_7_1_1_0_1() { return cSymbolVariableDeclarationIDTerminalRuleCall_7_1_1_0_1; }
+		public RuleCall getSymbolVariableDeclarationIDTerminalRuleCall_8_1_1_0_1() { return cSymbolVariableDeclarationIDTerminalRuleCall_8_1_1_0_1; }
 
 		//symbol=[Parameter]
-		public Assignment getSymbolAssignment_7_1_2() { return cSymbolAssignment_7_1_2; }
+		public Assignment getSymbolAssignment_8_1_2() { return cSymbolAssignment_8_1_2; }
 
 		//[Parameter]
-		public CrossReference getSymbolParameterCrossReference_7_1_2_0() { return cSymbolParameterCrossReference_7_1_2_0; }
+		public CrossReference getSymbolParameterCrossReference_8_1_2_0() { return cSymbolParameterCrossReference_8_1_2_0; }
 
 		//ID
-		public RuleCall getSymbolParameterIDTerminalRuleCall_7_1_2_0_1() { return cSymbolParameterIDTerminalRuleCall_7_1_2_0_1; }
+		public RuleCall getSymbolParameterIDTerminalRuleCall_8_1_2_0_1() { return cSymbolParameterIDTerminalRuleCall_8_1_2_0_1; }
 
 		//symbol=[Class]
-		public Assignment getSymbolAssignment_7_1_3() { return cSymbolAssignment_7_1_3; }
+		public Assignment getSymbolAssignment_8_1_3() { return cSymbolAssignment_8_1_3; }
 
 		//[Class]
-		public CrossReference getSymbolClassCrossReference_7_1_3_0() { return cSymbolClassCrossReference_7_1_3_0; }
+		public CrossReference getSymbolClassCrossReference_8_1_3_0() { return cSymbolClassCrossReference_8_1_3_0; }
 
 		//ID
-		public RuleCall getSymbolClassIDTerminalRuleCall_7_1_3_0_1() { return cSymbolClassIDTerminalRuleCall_7_1_3_0_1; }
+		public RuleCall getSymbolClassIDTerminalRuleCall_8_1_3_0_1() { return cSymbolClassIDTerminalRuleCall_8_1_3_0_1; }
 
 		//symbol=[Interface]
-		public Assignment getSymbolAssignment_7_1_4() { return cSymbolAssignment_7_1_4; }
+		public Assignment getSymbolAssignment_8_1_4() { return cSymbolAssignment_8_1_4; }
 
 		//[Interface]
-		public CrossReference getSymbolInterfaceCrossReference_7_1_4_0() { return cSymbolInterfaceCrossReference_7_1_4_0; }
+		public CrossReference getSymbolInterfaceCrossReference_8_1_4_0() { return cSymbolInterfaceCrossReference_8_1_4_0; }
 
 		//ID
-		public RuleCall getSymbolInterfaceIDTerminalRuleCall_7_1_4_0_1() { return cSymbolInterfaceIDTerminalRuleCall_7_1_4_0_1; }
+		public RuleCall getSymbolInterfaceIDTerminalRuleCall_8_1_4_0_1() { return cSymbolInterfaceIDTerminalRuleCall_8_1_4_0_1; }
 
 		//symbol=[Method]
-		public Assignment getSymbolAssignment_7_1_5() { return cSymbolAssignment_7_1_5; }
+		public Assignment getSymbolAssignment_8_1_5() { return cSymbolAssignment_8_1_5; }
 
 		//[Method]
-		public CrossReference getSymbolMethodCrossReference_7_1_5_0() { return cSymbolMethodCrossReference_7_1_5_0; }
+		public CrossReference getSymbolMethodCrossReference_8_1_5_0() { return cSymbolMethodCrossReference_8_1_5_0; }
 
 		//ID
-		public RuleCall getSymbolMethodIDTerminalRuleCall_7_1_5_0_1() { return cSymbolMethodIDTerminalRuleCall_7_1_5_0_1; }
+		public RuleCall getSymbolMethodIDTerminalRuleCall_8_1_5_0_1() { return cSymbolMethodIDTerminalRuleCall_8_1_5_0_1; }
 
 		//symbol=[InterfaceMethod]
-		public Assignment getSymbolAssignment_7_1_6() { return cSymbolAssignment_7_1_6; }
+		public Assignment getSymbolAssignment_8_1_6() { return cSymbolAssignment_8_1_6; }
 
 		//[InterfaceMethod]
-		public CrossReference getSymbolInterfaceMethodCrossReference_7_1_6_0() { return cSymbolInterfaceMethodCrossReference_7_1_6_0; }
+		public CrossReference getSymbolInterfaceMethodCrossReference_8_1_6_0() { return cSymbolInterfaceMethodCrossReference_8_1_6_0; }
 
 		//ID
-		public RuleCall getSymbolInterfaceMethodIDTerminalRuleCall_7_1_6_0_1() { return cSymbolInterfaceMethodIDTerminalRuleCall_7_1_6_0_1; }
+		public RuleCall getSymbolInterfaceMethodIDTerminalRuleCall_8_1_6_0_1() { return cSymbolInterfaceMethodIDTerminalRuleCall_8_1_6_0_1; }
 
 		//symbol=[basicParameterDeclaration]
-		public Assignment getSymbolAssignment_7_1_7() { return cSymbolAssignment_7_1_7; }
+		public Assignment getSymbolAssignment_8_1_7() { return cSymbolAssignment_8_1_7; }
 
 		//[basicParameterDeclaration]
-		public CrossReference getSymbolBasicParameterDeclarationCrossReference_7_1_7_0() { return cSymbolBasicParameterDeclarationCrossReference_7_1_7_0; }
+		public CrossReference getSymbolBasicParameterDeclarationCrossReference_8_1_7_0() { return cSymbolBasicParameterDeclarationCrossReference_8_1_7_0; }
 
 		//ID
-		public RuleCall getSymbolBasicParameterDeclarationIDTerminalRuleCall_7_1_7_0_1() { return cSymbolBasicParameterDeclarationIDTerminalRuleCall_7_1_7_0_1; }
+		public RuleCall getSymbolBasicParameterDeclarationIDTerminalRuleCall_8_1_7_0_1() { return cSymbolBasicParameterDeclarationIDTerminalRuleCall_8_1_7_0_1; }
 	}
 
 	public class NumberElements extends AbstractParserRuleElementFinder {
@@ -5228,34 +5257,6 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	public class AccessorRoleElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "AccessorRole");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cGETEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cGETGetKeyword_0_0 = (Keyword)cGETEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cSETEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cSETSetKeyword_1_0 = (Keyword)cSETEnumLiteralDeclaration_1.eContents().get(0);
-		
-		//enum AccessorRole:
-		//	GET="get" | SET="set";
-		public EnumRule getRule() { return rule; }
-
-		//GET="get" | SET="set"
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//GET="get"
-		public EnumLiteralDeclaration getGETEnumLiteralDeclaration_0() { return cGETEnumLiteralDeclaration_0; }
-
-		//"get"
-		public Keyword getGETGetKeyword_0_0() { return cGETGetKeyword_0_0; }
-
-		//SET="set"
-		public EnumLiteralDeclaration getSETEnumLiteralDeclaration_1() { return cSETEnumLiteralDeclaration_1; }
-
-		//"set"
-		public Keyword getSETSetKeyword_1_0() { return cSETSetKeyword_1_0; }
-	}
-
 	public class AccessLevelElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "AccessLevel");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -5316,7 +5317,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	private FunctionExpressionElements pFunctionExpression;
 	private FunctionCommonElements pFunctionCommon;
 	private ClassElements pClass;
-	private AccessorRoleElements unknownRuleAccessorRole;
+	private AccessorRoleElements pAccessorRole;
 	private MemberElements pMember;
 	private MethodElements pMethod;
 	private ModifierElements pModifier;
@@ -5635,13 +5636,13 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		return getClassAccess().getRule();
 	}
 
-	//enum AccessorRole:
-	//	GET="get" | SET="set";
+	//AccessorRole:
+	//	accessor=ID;
 	public AccessorRoleElements getAccessorRoleAccess() {
-		return (unknownRuleAccessorRole != null) ? unknownRuleAccessorRole : (unknownRuleAccessorRole = new AccessorRoleElements());
+		return (pAccessorRole != null) ? pAccessorRole : (pAccessorRole = new AccessorRoleElements());
 	}
 	
-	public EnumRule getAccessorRoleRule() {
+	public ParserRule getAccessorRoleRule() {
 		return getAccessorRoleAccess().getRule();
 	}
 
@@ -6252,9 +6253,10 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 
 	//TerminalExpression returns Expression:
 	//	{XmlConstant} value=xmlLiteral | {RegexpConstant} value=regexpLiteral | {NumberConstant} value=number |
-	//	{StringConstant} value=STRING | {BoolConstant} value=("true" | "false") | {This} "this" | {Null} "null" | {SymbolRef}
-	//	(symbol=[MemberVariableDeclaration] | symbol=[VariableDeclaration] | symbol=[Parameter] | symbol=[Class] |
-	//	symbol=[Interface] | symbol=[Method] | symbol=[InterfaceMethod] | symbol=[basicParameterDeclaration]);
+	//	{StringConstant} value=STRING | {BoolConstant} value=("true" | "false") | {Undefined} "undefined" | {This} "this" |
+	//	{Null} "null" | {SymbolRef} (symbol=[MemberVariableDeclaration] | symbol=[VariableDeclaration] | symbol=[Parameter] |
+	//	symbol=[Class] | symbol=[Interface] | symbol=[Method] | symbol=[InterfaceMethod] |
+	//	symbol=[basicParameterDeclaration]);
 	public TerminalExpressionElements getTerminalExpressionAccess() {
 		return (pTerminalExpression != null) ? pTerminalExpression : (pTerminalExpression = new TerminalExpressionElements());
 	}

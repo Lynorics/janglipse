@@ -1096,7 +1096,7 @@ ruleInterfaceMethod returns [EObject current=null]
 )((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getInterfaceMethodAccess().getAccessorAccessorRoleEnumRuleCall_2_1_0_0()); 
+	        newCompositeNode(grammarAccess.getInterfaceMethodAccess().getAccessorAccessorRoleParserRuleCall_2_1_0_0()); 
 	    }
 		lv_accessor_3_0=ruleAccessorRole		{
 	        if ($current==null) {
@@ -1529,6 +1529,45 @@ ruleClass returns [EObject current=null]
 
 
 
+// Entry rule entryRuleAccessorRole
+entryRuleAccessorRole returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getAccessorRoleRule()); }
+	 iv_ruleAccessorRole=ruleAccessorRole 
+	 { $current=$iv_ruleAccessorRole.current; } 
+	 EOF 
+;
+
+// Rule AccessorRole
+ruleAccessorRole returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+(
+		lv_accessor_0_0=RULE_ID
+		{
+			newLeafNode(lv_accessor_0_0, grammarAccess.getAccessorRoleAccess().getAccessorIDTerminalRuleCall_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAccessorRoleRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"accessor",
+        		lv_accessor_0_0, 
+        		"ID");
+	    }
+
+)
+)
+;
+
+
+
+
+
 // Entry rule entryRuleMember
 entryRuleMember returns [EObject current=null] 
 	:
@@ -1649,7 +1688,7 @@ ruleMethod returns [EObject current=null]
 )((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMethodAccess().getAccessorAccessorRoleEnumRuleCall_3_1_0_0()); 
+	        newCompositeNode(grammarAccess.getMethodAccess().getAccessorAccessorRoleParserRuleCall_3_1_0_0()); 
 	    }
 		lv_accessor_4_0=ruleAccessorRole		{
 	        if ($current==null) {
@@ -5978,12 +6017,12 @@ ruleTerminalExpression returns [EObject current=null]
 	}
     {
         $current = forceCreateModelElement(
-            grammarAccess.getTerminalExpressionAccess().getThisAction_5_0(),
+            grammarAccess.getTerminalExpressionAccess().getUndefinedAction_5_0(),
             $current);
     }
-)	otherlv_11='this' 
+)	otherlv_11='undefined' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getTerminalExpressionAccess().getThisKeyword_5_1());
+    	newLeafNode(otherlv_11, grammarAccess.getTerminalExpressionAccess().getUndefinedKeyword_5_1());
     }
 )
     |((
@@ -5992,12 +6031,12 @@ ruleTerminalExpression returns [EObject current=null]
 	}
     {
         $current = forceCreateModelElement(
-            grammarAccess.getTerminalExpressionAccess().getNullAction_6_0(),
+            grammarAccess.getTerminalExpressionAccess().getThisAction_6_0(),
             $current);
     }
-)	otherlv_13='null' 
+)	otherlv_13='this' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getTerminalExpressionAccess().getNullKeyword_6_1());
+    	newLeafNode(otherlv_13, grammarAccess.getTerminalExpressionAccess().getThisKeyword_6_1());
     }
 )
     |((
@@ -6006,7 +6045,21 @@ ruleTerminalExpression returns [EObject current=null]
 	}
     {
         $current = forceCreateModelElement(
-            grammarAccess.getTerminalExpressionAccess().getSymbolRefAction_7_0(),
+            grammarAccess.getTerminalExpressionAccess().getNullAction_7_0(),
+            $current);
+    }
+)	otherlv_15='null' 
+    {
+    	newLeafNode(otherlv_15, grammarAccess.getTerminalExpressionAccess().getNullKeyword_7_1());
+    }
+)
+    |((
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getTerminalExpressionAccess().getSymbolRefAction_8_0(),
             $current);
     }
 )((
@@ -6019,43 +6072,9 @@ ruleTerminalExpression returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getTerminalExpressionRule());
 	        }
         }
-	otherlv_15=RULE_ID
-	{
-		newLeafNode(otherlv_15, grammarAccess.getTerminalExpressionAccess().getSymbolMemberVariableDeclarationCrossReference_7_1_0_0()); 
-	}
-
-)
-)
-    |(
-(
-		{ 
-		  /* */ 
-		}
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getTerminalExpressionRule());
-	        }
-        }
-	otherlv_16=RULE_ID
-	{
-		newLeafNode(otherlv_16, grammarAccess.getTerminalExpressionAccess().getSymbolVariableDeclarationCrossReference_7_1_1_0()); 
-	}
-
-)
-)
-    |(
-(
-		{ 
-		  /* */ 
-		}
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getTerminalExpressionRule());
-	        }
-        }
 	otherlv_17=RULE_ID
 	{
-		newLeafNode(otherlv_17, grammarAccess.getTerminalExpressionAccess().getSymbolParameterCrossReference_7_1_2_0()); 
+		newLeafNode(otherlv_17, grammarAccess.getTerminalExpressionAccess().getSymbolMemberVariableDeclarationCrossReference_8_1_0_0()); 
 	}
 
 )
@@ -6072,7 +6091,7 @@ ruleTerminalExpression returns [EObject current=null]
         }
 	otherlv_18=RULE_ID
 	{
-		newLeafNode(otherlv_18, grammarAccess.getTerminalExpressionAccess().getSymbolClassCrossReference_7_1_3_0()); 
+		newLeafNode(otherlv_18, grammarAccess.getTerminalExpressionAccess().getSymbolVariableDeclarationCrossReference_8_1_1_0()); 
 	}
 
 )
@@ -6089,7 +6108,7 @@ ruleTerminalExpression returns [EObject current=null]
         }
 	otherlv_19=RULE_ID
 	{
-		newLeafNode(otherlv_19, grammarAccess.getTerminalExpressionAccess().getSymbolInterfaceCrossReference_7_1_4_0()); 
+		newLeafNode(otherlv_19, grammarAccess.getTerminalExpressionAccess().getSymbolParameterCrossReference_8_1_2_0()); 
 	}
 
 )
@@ -6106,7 +6125,7 @@ ruleTerminalExpression returns [EObject current=null]
         }
 	otherlv_20=RULE_ID
 	{
-		newLeafNode(otherlv_20, grammarAccess.getTerminalExpressionAccess().getSymbolMethodCrossReference_7_1_5_0()); 
+		newLeafNode(otherlv_20, grammarAccess.getTerminalExpressionAccess().getSymbolClassCrossReference_8_1_3_0()); 
 	}
 
 )
@@ -6123,7 +6142,7 @@ ruleTerminalExpression returns [EObject current=null]
         }
 	otherlv_21=RULE_ID
 	{
-		newLeafNode(otherlv_21, grammarAccess.getTerminalExpressionAccess().getSymbolInterfaceMethodCrossReference_7_1_6_0()); 
+		newLeafNode(otherlv_21, grammarAccess.getTerminalExpressionAccess().getSymbolInterfaceCrossReference_8_1_4_0()); 
 	}
 
 )
@@ -6140,7 +6159,41 @@ ruleTerminalExpression returns [EObject current=null]
         }
 	otherlv_22=RULE_ID
 	{
-		newLeafNode(otherlv_22, grammarAccess.getTerminalExpressionAccess().getSymbolBasicParameterDeclarationCrossReference_7_1_7_0()); 
+		newLeafNode(otherlv_22, grammarAccess.getTerminalExpressionAccess().getSymbolMethodCrossReference_8_1_5_0()); 
+	}
+
+)
+)
+    |(
+(
+		{ 
+		  /* */ 
+		}
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTerminalExpressionRule());
+	        }
+        }
+	otherlv_23=RULE_ID
+	{
+		newLeafNode(otherlv_23, grammarAccess.getTerminalExpressionAccess().getSymbolInterfaceMethodCrossReference_8_1_6_0()); 
+	}
+
+)
+)
+    |(
+(
+		{ 
+		  /* */ 
+		}
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTerminalExpressionRule());
+	        }
+        }
+	otherlv_24=RULE_ID
+	{
+		newLeafNode(otherlv_24, grammarAccess.getTerminalExpressionAccess().getSymbolBasicParameterDeclarationCrossReference_8_1_7_0()); 
 	}
 
 )
@@ -8737,25 +8790,6 @@ ruleWithStatement returns [EObject current=null]
 ;
 
 
-
-
-
-// Rule AccessorRole
-ruleAccessorRole returns [Enumerator current=null] 
-    @init { enterRule(); }
-    @after { leaveRule(); }:
-((	enumLiteral_0='get' 
-	{
-        $current = grammarAccess.getAccessorRoleAccess().getGETEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_0, grammarAccess.getAccessorRoleAccess().getGETEnumLiteralDeclaration_0()); 
-    }
-)
-    |(	enumLiteral_1='set' 
-	{
-        $current = grammarAccess.getAccessorRoleAccess().getSETEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_1, grammarAccess.getAccessorRoleAccess().getSETEnumLiteralDeclaration_1()); 
-    }
-));
 
 
 
