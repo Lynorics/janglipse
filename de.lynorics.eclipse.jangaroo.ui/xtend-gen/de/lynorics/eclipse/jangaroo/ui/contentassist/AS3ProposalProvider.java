@@ -46,6 +46,8 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
  */
 @SuppressWarnings("all")
 public class AS3ProposalProvider extends AbstractAS3ProposalProvider {
+  private String PARAMETER_SEPARATOR = ",";
+  
   private Pattern alphanumerPattern = Pattern.compile("[^a-zA-Z0-9]");
   
   @Inject
@@ -281,14 +283,45 @@ public class AS3ProposalProvider extends AbstractAS3ProposalProvider {
             _or = _not;
           }
           if (_or) {
+            final StringBuilder parameters = new StringBuilder();
+            EList<Parameter> _params = ((Method)variable).getParams();
+            final Procedure1<Parameter> _function = new Procedure1<Parameter>() {
+              public void apply(final Parameter param) {
+                String _typeName = AS3ModelUtil.getTypeName(param);
+                parameters.append(_typeName);
+                parameters.append(AS3ProposalProvider.this.PARAMETER_SEPARATOR);
+              }
+            };
+            IterableExtensions.<Parameter>forEach(_params, _function);
+            boolean _and = false;
+            int _length = parameters.length();
+            boolean _greaterThan = (_length > 0);
+            if (!_greaterThan) {
+              _and = false;
+            } else {
+              int _length_1 = parameters.length();
+              int _minus = (_length_1 - 1);
+              char _charAt = parameters.charAt(_minus);
+              String _plus = ("" + Character.valueOf(_charAt));
+              boolean _equals = AS3ProposalProvider.this.PARAMETER_SEPARATOR.equals(_plus);
+              _and = _equals;
+            }
+            if (_and) {
+              int _length_2 = parameters.length();
+              int _minus_1 = (_length_2 - 1);
+              parameters.deleteCharAt(_minus_1);
+            }
             String _name_1 = ((Method)variable).getName();
             String _name_2 = ((Method)variable).getName();
-            String _plus = (_name_2 + "(...): ");
+            String _plus_1 = (_name_2 + "(");
+            String _string = parameters.toString();
+            String _plus_2 = (_plus_1 + _string);
+            String _plus_3 = (_plus_2 + "): ");
             EObject _type = ((Method)variable).getType();
             String _nameOfType = AS3LabelProvider.getNameOfType(_type);
-            String _plus_1 = (_plus + _nameOfType);
+            String _plus_4 = (_plus_3 + _nameOfType);
             Image _imageTag = AS3ProposalProvider.this.getImageTag(variable);
-            ICompletionProposal _createCompletionProposal = AS3ProposalProvider.this.createCompletionProposal(_name_1, _plus_1, _imageTag, context);
+            ICompletionProposal _createCompletionProposal = AS3ProposalProvider.this.createCompletionProposal(_name_1, _plus_4, _imageTag, context);
             acceptor.accept(_createCompletionProposal);
           }
         }

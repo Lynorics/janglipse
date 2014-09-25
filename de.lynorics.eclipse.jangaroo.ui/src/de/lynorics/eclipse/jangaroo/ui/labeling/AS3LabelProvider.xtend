@@ -31,6 +31,8 @@ import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.ecore.EObject
 import de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration
 
+import static extension de.lynorics.eclipse.jangaroo.AS3ModelUtil.*
+
 /**
  * Provides labels for a EObjects.
  * 
@@ -71,38 +73,14 @@ class AS3LabelProvider extends DefaultEObjectLabelProvider {
     }
 
     def text(InterfaceMethod meth) {
-      computeTextForMethod(meth.name, meth.type, meth.params);  
+      computeTextForMethod(meth.name, meth.typeName, meth.params);  
     }
     
-  private def computeTextForMethod(String methName, EObject type, EList<Parameter> parameters) {
+  private def computeTextForMethod(String methName, String typeName, EList<Parameter> parameters) {
       var String parameterNames = null
-    	var String name = null;
-    	if (type instanceof Interface) {
-    		name = (type as Interface).name
-    	}
-    	else if (type instanceof Class) {
-    		name = (type as Class).name
-    	}
-        if (name == null) {
-          name = type.getText;
-        }
         if (parameters != null) {
           for (Parameter param: parameters) {
-            var String pname = '*';
-            if (param.type != null) {
-		    	if (param.type instanceof Interface) {
-		    		pname = (param.type as Interface).name
-		    	}
-		    	else if (param.type instanceof Class) {
-		    		pname = (param.type as Class).name
-		    	}
-              if (pname == null ) {
-                pname = param.type.getText;
-              }
-            }
-            if (pname == null) {
-              pname = '*';
-            }
+            var String pname = param.typeName;
             if (parameterNames == null) {
               parameterNames = pname;
             }
@@ -117,10 +95,13 @@ class AS3LabelProvider extends DefaultEObjectLabelProvider {
         else {
           parameterNames = '()'
         }
-        return new StyledString(methName + parameterNames).
-         append(new StyledString(': ' +name,
-           StyledString::DECORATIONS_STYLER
-         ))
+        var StyledString styledString = new StyledString(methName + parameterNames);
+        if (typeName != null) {
+        	styledString.append(new StyledString(': ' +typeName,
+    	       StyledString::DECORATIONS_STYLER
+	         ))
+         }
+         return styledString;
     }
     
     def image(InterfaceMethod meth) {
@@ -141,7 +122,7 @@ class AS3LabelProvider extends DefaultEObjectLabelProvider {
     }
 
     def text(Method meth) {
-      computeTextForMethod(meth.name, meth.type, meth.params);  
+      computeTextForMethod(meth.name, meth.typeName, meth.params);  
     }
   
     def Image image(Method meth) {

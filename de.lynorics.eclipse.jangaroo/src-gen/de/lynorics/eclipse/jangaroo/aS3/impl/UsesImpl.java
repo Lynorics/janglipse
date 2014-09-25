@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.UsesImpl#getType <em>Type</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.UsesImpl#getAnytype <em>Anytype</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,6 +47,26 @@ public class UsesImpl extends MinimalEObjectImpl.Container implements Uses
    * @ordered
    */
   protected String type = TYPE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getAnytype() <em>Anytype</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAnytype()
+   * @generated
+   * @ordered
+   */
+  protected static final String ANYTYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAnytype() <em>Anytype</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAnytype()
+   * @generated
+   * @ordered
+   */
+  protected String anytype = ANYTYPE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -96,6 +117,29 @@ public class UsesImpl extends MinimalEObjectImpl.Container implements Uses
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getAnytype()
+  {
+    return anytype;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAnytype(String newAnytype)
+  {
+    String oldAnytype = anytype;
+    anytype = newAnytype;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.USES__ANYTYPE, oldAnytype, anytype));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -103,6 +147,8 @@ public class UsesImpl extends MinimalEObjectImpl.Container implements Uses
     {
       case AS3Package.USES__TYPE:
         return getType();
+      case AS3Package.USES__ANYTYPE:
+        return getAnytype();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,6 +165,9 @@ public class UsesImpl extends MinimalEObjectImpl.Container implements Uses
     {
       case AS3Package.USES__TYPE:
         setType((String)newValue);
+        return;
+      case AS3Package.USES__ANYTYPE:
+        setAnytype((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,6 +186,9 @@ public class UsesImpl extends MinimalEObjectImpl.Container implements Uses
       case AS3Package.USES__TYPE:
         setType(TYPE_EDEFAULT);
         return;
+      case AS3Package.USES__ANYTYPE:
+        setAnytype(ANYTYPE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -153,6 +205,8 @@ public class UsesImpl extends MinimalEObjectImpl.Container implements Uses
     {
       case AS3Package.USES__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+      case AS3Package.USES__ANYTYPE:
+        return ANYTYPE_EDEFAULT == null ? anytype != null : !ANYTYPE_EDEFAULT.equals(anytype);
     }
     return super.eIsSet(featureID);
   }
@@ -170,6 +224,8 @@ public class UsesImpl extends MinimalEObjectImpl.Container implements Uses
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (type: ");
     result.append(type);
+    result.append(", anytype: ");
+    result.append(anytype);
     result.append(')');
     return result.toString();
   }

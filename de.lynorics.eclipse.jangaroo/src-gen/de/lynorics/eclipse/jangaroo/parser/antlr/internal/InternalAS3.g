@@ -675,16 +675,38 @@ ruleUses returns [EObject current=null]
 
 )
 )
-    |	otherlv_4='*' 
+    |(
+(
+		lv_anytype_4_0=	'*' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getUsesAccess().getAsteriskKeyword_3_1());
+        newLeafNode(lv_anytype_4_0, grammarAccess.getUsesAccess().getAnytypeAsteriskKeyword_3_1_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUsesRule());
+	        }
+       		setWithLastConsumed($current, "anytype", lv_anytype_4_0, "*");
+	    }
 
-    |	otherlv_5='void' 
+)
+)
+    |(
+(
+		lv_anytype_5_0=	'void' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getUsesAccess().getVoidKeyword_3_2());
+        newLeafNode(lv_anytype_5_0, grammarAccess.getUsesAccess().getAnytypeVoidKeyword_3_2_0());
     }
-))
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUsesRule());
+	        }
+       		setWithLastConsumed($current, "anytype", lv_anytype_5_0, "void");
+	    }
+
+)
+)))
 ;
 
 
@@ -1181,16 +1203,38 @@ ruleInterfaceMethod returns [EObject current=null]
     {
     	newLeafNode(otherlv_10, grammarAccess.getInterfaceMethodAccess().getColonKeyword_2_4_0());
     }
-(	otherlv_11='void' 
+((
+(
+		lv_anytype_11_0=	'void' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getInterfaceMethodAccess().getVoidKeyword_2_4_1_0());
+        newLeafNode(lv_anytype_11_0, grammarAccess.getInterfaceMethodAccess().getAnytypeVoidKeyword_2_4_1_0_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getInterfaceMethodRule());
+	        }
+       		setWithLastConsumed($current, "anytype", lv_anytype_11_0, "void");
+	    }
 
-    |	otherlv_12='*' 
+)
+)
+    |(
+(
+		lv_anytype_12_0=	'*' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getInterfaceMethodAccess().getAsteriskKeyword_2_4_1_1());
+        newLeafNode(lv_anytype_12_0, grammarAccess.getInterfaceMethodAccess().getAnytypeAsteriskKeyword_2_4_1_1_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getInterfaceMethodRule());
+	        }
+       		setWithLastConsumed($current, "anytype", lv_anytype_12_0, "*");
+	    }
 
+)
+)
     |(
 (
 		{ 
@@ -1773,16 +1817,38 @@ ruleMethod returns [EObject current=null]
     {
     	newLeafNode(otherlv_11, grammarAccess.getMethodAccess().getColonKeyword_3_4_0());
     }
-(	otherlv_12='void' 
+((
+(
+		lv_anytype_12_0=	'void' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getMethodAccess().getVoidKeyword_3_4_1_0());
+        newLeafNode(lv_anytype_12_0, grammarAccess.getMethodAccess().getAnytypeVoidKeyword_3_4_1_0_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMethodRule());
+	        }
+       		setWithLastConsumed($current, "anytype", lv_anytype_12_0, "void");
+	    }
 
-    |	otherlv_13='*' 
+)
+)
+    |(
+(
+		lv_anytype_13_0=	'*' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getMethodAccess().getAsteriskKeyword_3_4_1_1());
+        newLeafNode(lv_anytype_13_0, grammarAccess.getMethodAccess().getAnytypeAsteriskKeyword_3_4_1_1_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMethodRule());
+	        }
+       		setWithLastConsumed($current, "anytype", lv_anytype_13_0, "*");
+	    }
 
+)
+)
     |(
 (
 		{ 
@@ -2131,16 +2197,38 @@ ruleMemberVariableDeclaration returns [EObject current=null]
     {
     	newLeafNode(otherlv_5, grammarAccess.getMemberVariableDeclarationAccess().getColonKeyword_4_0());
     }
-(	otherlv_6='void' 
+((
+(
+		lv_anytype_6_0=	'void' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getMemberVariableDeclarationAccess().getVoidKeyword_4_1_0());
+        newLeafNode(lv_anytype_6_0, grammarAccess.getMemberVariableDeclarationAccess().getAnytypeVoidKeyword_4_1_0_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMemberVariableDeclarationRule());
+	        }
+       		setWithLastConsumed($current, "anytype", lv_anytype_6_0, "void");
+	    }
 
-    |	otherlv_7='*' 
+)
+)
+    |(
+(
+		lv_anytype_7_0=	'*' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getMemberVariableDeclarationAccess().getAsteriskKeyword_4_1_1());
+        newLeafNode(lv_anytype_7_0, grammarAccess.getMemberVariableDeclarationAccess().getAnytypeAsteriskKeyword_4_1_1_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMemberVariableDeclarationRule());
+	        }
+       		setWithLastConsumed($current, "anytype", lv_anytype_7_0, "*");
+	    }
 
+)
+)
     |(
 (
 		{ 
@@ -2256,16 +2344,38 @@ ruleVariableDeclaration returns [EObject current=null]
     {
     	newLeafNode(otherlv_3, grammarAccess.getVariableDeclarationAccess().getColonKeyword_2_0());
     }
-(	otherlv_4='void' 
+((
+(
+		lv_anytype_4_0=	'void' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getVariableDeclarationAccess().getVoidKeyword_2_1_0());
+        newLeafNode(lv_anytype_4_0, grammarAccess.getVariableDeclarationAccess().getAnytypeVoidKeyword_2_1_0_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getVariableDeclarationRule());
+	        }
+       		setWithLastConsumed($current, "anytype", lv_anytype_4_0, "void");
+	    }
 
-    |	otherlv_5='*' 
+)
+)
+    |(
+(
+		lv_anytype_5_0=	'*' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getVariableDeclarationAccess().getAsteriskKeyword_2_1_1());
+        newLeafNode(lv_anytype_5_0, grammarAccess.getVariableDeclarationAccess().getAnytypeAsteriskKeyword_2_1_1_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getVariableDeclarationRule());
+	        }
+       		setWithLastConsumed($current, "anytype", lv_anytype_5_0, "*");
+	    }
 
+)
+)
     |(
 (
 		{ 
@@ -2376,16 +2486,38 @@ ruleParameter returns [EObject current=null]
     {
     	newLeafNode(otherlv_3, grammarAccess.getParameterAccess().getColonKeyword_3_0());
     }
-(	otherlv_4='void' 
+((
+(
+		lv_anytype_4_0=	'void' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getParameterAccess().getVoidKeyword_3_1_0());
+        newLeafNode(lv_anytype_4_0, grammarAccess.getParameterAccess().getAnytypeVoidKeyword_3_1_0_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getParameterRule());
+	        }
+       		setWithLastConsumed($current, "anytype", lv_anytype_4_0, "void");
+	    }
 
-    |	otherlv_5='*' 
+)
+)
+    |(
+(
+		lv_anytype_5_0=	'*' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getParameterAccess().getAsteriskKeyword_3_1_1());
+        newLeafNode(lv_anytype_5_0, grammarAccess.getParameterAccess().getAnytypeAsteriskKeyword_3_1_1_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getParameterRule());
+	        }
+       		setWithLastConsumed($current, "anytype", lv_anytype_5_0, "*");
+	    }
 
+)
+)
     |(
 (
 		{ 

@@ -6,18 +6,23 @@
  */
 package de.lynorics.eclipse.jangaroo;
 
-import static extension org.eclipse.emf.ecore.util.EcoreUtil.*;
-import static extension org.eclipse.xtext.EcoreUtil2.*;
-import org.eclipse.emf.ecore.EObject
 import de.lynorics.eclipse.jangaroo.aS3.Block
 import de.lynorics.eclipse.jangaroo.aS3.Class
-import de.lynorics.eclipse.jangaroo.aS3.Method
-import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration
-import de.lynorics.eclipse.jangaroo.aS3.Model
-import java.util.Vector
-import java.util.List
+import de.lynorics.eclipse.jangaroo.aS3.Interface
 import de.lynorics.eclipse.jangaroo.aS3.Member
 import de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration
+import de.lynorics.eclipse.jangaroo.aS3.Method
+import de.lynorics.eclipse.jangaroo.aS3.Model
+import de.lynorics.eclipse.jangaroo.aS3.Parameter
+import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration
+import java.util.List
+import java.util.Vector
+import org.eclipse.emf.ecore.EObject
+
+import static org.eclipse.emf.ecore.util.EcoreUtil.*
+
+import static extension org.eclipse.xtext.EcoreUtil2.*
+import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod
 
 /**
  * Functions for usage within AS3Validator, etc.
@@ -168,5 +173,60 @@ class AS3ModelUtil {
 	}
 	return list;
   }
+  
+  	def static String getTypeName(Method meth) {
+		var EObject type = meth.type;
+		if (type != null) {
+			var String result = getTypeName(type);
+			if (result != null) {
+				return result;
+			}
+		}
+		else
+		{
+			return meth.getAnytype();
+		}
+		return null;	
+	}
+  
+  	def static String getTypeName(InterfaceMethod meth) {
+		var EObject type = meth.type;
+		if (type != null) {
+			var String result = getTypeName(type);
+			if (result != null) {
+				return result;
+			}
+		}
+		else
+		{
+			return meth.getAnytype();
+		}
+		return null;	
+	}
+  
+  	def static String getTypeName(Parameter param) {
+		var EObject type = param.type;
+		if (type != null) {
+			var String result = getTypeName(type);
+			if (result != null) {
+				return result;
+			}
+		}
+		else
+		{
+			return param.getAnytype();
+		}
+		return null;	
+	}
+  
+  	def static String getTypeName(EObject type) {
+		if (type instanceof Class) {
+			return (type as Class).name;
+		}
+		else if (type instanceof Interface) {
+			return (type as Interface).name;
+		}
+		return null;	
+	}
   
 }

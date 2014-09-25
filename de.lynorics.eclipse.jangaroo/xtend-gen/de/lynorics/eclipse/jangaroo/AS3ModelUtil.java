@@ -9,6 +9,8 @@ package de.lynorics.eclipse.jangaroo;
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import de.lynorics.eclipse.jangaroo.aS3.Block;
+import de.lynorics.eclipse.jangaroo.aS3.Interface;
+import de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod;
 import de.lynorics.eclipse.jangaroo.aS3.Member;
 import de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration;
 import de.lynorics.eclipse.jangaroo.aS3.Method;
@@ -201,5 +203,61 @@ public class AS3ModelUtil {
       IterableExtensions.<Member>forEach(_members, _function);
     }
     return list;
+  }
+  
+  public static String getTypeName(final Method meth) {
+    EObject type = meth.getType();
+    boolean _notEquals = (!Objects.equal(type, null));
+    if (_notEquals) {
+      String result = AS3ModelUtil.getTypeName(type);
+      boolean _notEquals_1 = (!Objects.equal(result, null));
+      if (_notEquals_1) {
+        return result;
+      }
+    } else {
+      return meth.getAnytype();
+    }
+    return null;
+  }
+  
+  public static String getTypeName(final InterfaceMethod meth) {
+    EObject type = meth.getType();
+    boolean _notEquals = (!Objects.equal(type, null));
+    if (_notEquals) {
+      String result = AS3ModelUtil.getTypeName(type);
+      boolean _notEquals_1 = (!Objects.equal(result, null));
+      if (_notEquals_1) {
+        return result;
+      }
+    } else {
+      return meth.getAnytype();
+    }
+    return null;
+  }
+  
+  public static String getTypeName(final Parameter param) {
+    EObject type = param.getType();
+    boolean _notEquals = (!Objects.equal(type, null));
+    if (_notEquals) {
+      String result = AS3ModelUtil.getTypeName(type);
+      boolean _notEquals_1 = (!Objects.equal(result, null));
+      if (_notEquals_1) {
+        return result;
+      }
+    } else {
+      return param.getAnytype();
+    }
+    return null;
+  }
+  
+  public static String getTypeName(final EObject type) {
+    if ((type instanceof de.lynorics.eclipse.jangaroo.aS3.Class)) {
+      return ((de.lynorics.eclipse.jangaroo.aS3.Class) type).getName();
+    } else {
+      if ((type instanceof Interface)) {
+        return ((Interface) type).getName();
+      }
+    }
+    return null;
   }
 }

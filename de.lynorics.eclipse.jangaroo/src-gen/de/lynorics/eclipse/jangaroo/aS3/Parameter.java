@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Parameter#getName <em>Name</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Parameter#getAnytype <em>Anytype</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Parameter#getType <em>Type</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Parameter#getLit <em>Lit</em>}</li>
  * </ul>
@@ -49,6 +50,32 @@ public interface Parameter extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Anytype</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Anytype</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Anytype</em>' attribute.
+   * @see #setAnytype(String)
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getParameter_Anytype()
+   * @model
+   * @generated
+   */
+  String getAnytype();
+
+  /**
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Parameter#getAnytype <em>Anytype</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Anytype</em>' attribute.
+   * @see #getAnytype()
+   * @generated
+   */
+  void setAnytype(String value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' reference.

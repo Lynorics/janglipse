@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getAccessor <em>Accessor</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getParams <em>Params</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getAnytype <em>Anytype</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getType <em>Type</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Method#getBody <em>Body</em>}</li>
  * </ul>
@@ -139,6 +140,32 @@ public interface Method extends EObject
    * @generated
    */
   EList<Parameter> getParams();
+
+  /**
+   * Returns the value of the '<em><b>Anytype</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Anytype</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Anytype</em>' attribute.
+   * @see #setAnytype(String)
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getMethod_Anytype()
+   * @model
+   * @generated
+   */
+  String getAnytype();
+
+  /**
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getAnytype <em>Anytype</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Anytype</em>' attribute.
+   * @see #getAnytype()
+   * @generated
+   */
+  void setAnytype(String value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' reference.

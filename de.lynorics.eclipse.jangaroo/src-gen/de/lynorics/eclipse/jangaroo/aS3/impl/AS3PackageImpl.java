@@ -1211,6 +1211,16 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getUses_Anytype()
+  {
+    return (EAttribute)usesEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getannotationFields()
   {
     return annotationFieldsEClass;
@@ -1381,9 +1391,19 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getInterfaceMethod_Anytype()
+  {
+    return (EAttribute)interfaceMethodEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getInterfaceMethod_Type()
   {
-    return (EReference)interfaceMethodEClass.getEStructuralFeatures().get(5);
+    return (EReference)interfaceMethodEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -1631,9 +1651,19 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getMethod_Anytype()
+  {
+    return (EAttribute)methodEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getMethod_Type()
   {
-    return (EReference)methodEClass.getEStructuralFeatures().get(5);
+    return (EReference)methodEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -1643,7 +1673,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    */
   public EReference getMethod_Body()
   {
-    return (EReference)methodEClass.getEStructuralFeatures().get(6);
+    return (EReference)methodEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -1771,9 +1801,19 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getMemberVariableDeclaration_Anytype()
+  {
+    return (EAttribute)memberVariableDeclarationEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getMemberVariableDeclaration_Type()
   {
-    return (EReference)memberVariableDeclarationEClass.getEStructuralFeatures().get(3);
+    return (EReference)memberVariableDeclarationEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1783,7 +1823,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    */
   public EReference getMemberVariableDeclaration_Expression()
   {
-    return (EReference)memberVariableDeclarationEClass.getEStructuralFeatures().get(4);
+    return (EReference)memberVariableDeclarationEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1811,9 +1851,19 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getVariableDeclaration_Anytype()
+  {
+    return (EAttribute)variableDeclarationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getVariableDeclaration_Type()
   {
-    return (EReference)variableDeclarationEClass.getEStructuralFeatures().get(1);
+    return (EReference)variableDeclarationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1823,7 +1873,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    */
   public EReference getVariableDeclaration_Expression()
   {
-    return (EReference)variableDeclarationEClass.getEStructuralFeatures().get(2);
+    return (EReference)variableDeclarationEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1851,9 +1901,19 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getParameter_Anytype()
+  {
+    return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getParameter_Type()
   {
-    return (EReference)parameterEClass.getEStructuralFeatures().get(1);
+    return (EReference)parameterEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1863,7 +1923,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    */
   public EReference getParameter_Lit()
   {
-    return (EReference)parameterEClass.getEStructuralFeatures().get(2);
+    return (EReference)parameterEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -4094,6 +4154,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
 
     usesEClass = createEClass(USES);
     createEAttribute(usesEClass, USES__TYPE);
+    createEAttribute(usesEClass, USES__ANYTYPE);
 
     annotationFieldsEClass = createEClass(ANNOTATION_FIELDS);
     createEReference(annotationFieldsEClass, ANNOTATION_FIELDS__ANNON_FIELDS);
@@ -4115,6 +4176,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     createEReference(interfaceMethodEClass, INTERFACE_METHOD__ACCESSOR);
     createEAttribute(interfaceMethodEClass, INTERFACE_METHOD__NAME);
     createEReference(interfaceMethodEClass, INTERFACE_METHOD__PARAMS);
+    createEAttribute(interfaceMethodEClass, INTERFACE_METHOD__ANYTYPE);
     createEReference(interfaceMethodEClass, INTERFACE_METHOD__TYPE);
 
     functionExpressionEClass = createEClass(FUNCTION_EXPRESSION);
@@ -4146,6 +4208,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     createEReference(methodEClass, METHOD__ACCESSOR);
     createEAttribute(methodEClass, METHOD__NAME);
     createEReference(methodEClass, METHOD__PARAMS);
+    createEAttribute(methodEClass, METHOD__ANYTYPE);
     createEReference(methodEClass, METHOD__TYPE);
     createEReference(methodEClass, METHOD__BODY);
 
@@ -4163,16 +4226,19 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     createEReference(memberVariableDeclarationEClass, MEMBER_VARIABLE_DECLARATION__ANNOTATIONS);
     createEReference(memberVariableDeclarationEClass, MEMBER_VARIABLE_DECLARATION__MODIFIER);
     createEAttribute(memberVariableDeclarationEClass, MEMBER_VARIABLE_DECLARATION__NAME);
+    createEAttribute(memberVariableDeclarationEClass, MEMBER_VARIABLE_DECLARATION__ANYTYPE);
     createEReference(memberVariableDeclarationEClass, MEMBER_VARIABLE_DECLARATION__TYPE);
     createEReference(memberVariableDeclarationEClass, MEMBER_VARIABLE_DECLARATION__EXPRESSION);
 
     variableDeclarationEClass = createEClass(VARIABLE_DECLARATION);
     createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__NAME);
+    createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__ANYTYPE);
     createEReference(variableDeclarationEClass, VARIABLE_DECLARATION__TYPE);
     createEReference(variableDeclarationEClass, VARIABLE_DECLARATION__EXPRESSION);
 
     parameterEClass = createEClass(PARAMETER);
     createEAttribute(parameterEClass, PARAMETER__NAME);
+    createEAttribute(parameterEClass, PARAMETER__ANYTYPE);
     createEReference(parameterEClass, PARAMETER__TYPE);
     createEReference(parameterEClass, PARAMETER__LIT);
 
@@ -4603,6 +4669,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
 
     initEClass(usesEClass, Uses.class, "Uses", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUses_Type(), ecorePackage.getEString(), "type", null, 0, 1, Uses.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUses_Anytype(), ecorePackage.getEString(), "anytype", null, 0, 1, Uses.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(annotationFieldsEClass, annotationFields.class, "annotationFields", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getannotationFields_AnnonFields(), this.getannotationField(), null, "annonFields", null, 0, -1, annotationFields.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4624,6 +4691,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     initEReference(getInterfaceMethod_Accessor(), this.getAccessorRole(), null, "accessor", null, 0, 1, InterfaceMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getInterfaceMethod_Name(), ecorePackage.getEString(), "name", null, 0, 1, InterfaceMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInterfaceMethod_Params(), this.getParameter(), null, "params", null, 0, -1, InterfaceMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInterfaceMethod_Anytype(), ecorePackage.getEString(), "anytype", null, 0, 1, InterfaceMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInterfaceMethod_Type(), ecorePackage.getEObject(), null, "type", null, 0, 1, InterfaceMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(functionExpressionEClass, functionExpression.class, "functionExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4655,6 +4723,7 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     initEReference(getMethod_Accessor(), this.getAccessorRole(), null, "accessor", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMethod_Name(), ecorePackage.getEString(), "name", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMethod_Params(), this.getParameter(), null, "params", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMethod_Anytype(), ecorePackage.getEString(), "anytype", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMethod_Type(), ecorePackage.getEObject(), null, "type", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMethod_Body(), this.getBlock(), null, "body", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -4672,16 +4741,19 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     initEReference(getMemberVariableDeclaration_Annotations(), this.getAnnotation(), null, "annotations", null, 0, -1, MemberVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMemberVariableDeclaration_Modifier(), this.getModifier(), null, "modifier", null, 0, 1, MemberVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMemberVariableDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, MemberVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMemberVariableDeclaration_Anytype(), ecorePackage.getEString(), "anytype", null, 0, 1, MemberVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMemberVariableDeclaration_Type(), ecorePackage.getEObject(), null, "type", null, 0, 1, MemberVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMemberVariableDeclaration_Expression(), this.getassignmentExpression(), null, "Expression", null, 0, 1, MemberVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(variableDeclarationEClass, VariableDeclaration.class, "VariableDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVariableDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVariableDeclaration_Anytype(), ecorePackage.getEString(), "anytype", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getVariableDeclaration_Type(), ecorePackage.getEObject(), null, "type", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getVariableDeclaration_Expression(), this.getassignmentExpression(), null, "Expression", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getParameter_Anytype(), ecorePackage.getEString(), "anytype", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getParameter_Type(), ecorePackage.getEObject(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getParameter_Lit(), this.getexprOrObjectLiteral(), null, "lit", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

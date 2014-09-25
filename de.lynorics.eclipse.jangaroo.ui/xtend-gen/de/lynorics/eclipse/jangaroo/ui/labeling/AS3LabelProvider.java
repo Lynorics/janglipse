@@ -8,6 +8,7 @@ package de.lynorics.eclipse.jangaroo.ui.labeling;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
+import de.lynorics.eclipse.jangaroo.AS3ModelUtil;
 import de.lynorics.eclipse.jangaroo.aS3.AccessLevel;
 import de.lynorics.eclipse.jangaroo.aS3.Import;
 import de.lynorics.eclipse.jangaroo.aS3.Imports;
@@ -68,62 +69,20 @@ public class AS3LabelProvider extends DefaultEObjectLabelProvider {
   
   public StyledString text(final InterfaceMethod meth) {
     String _name = meth.getName();
-    EObject _type = meth.getType();
+    String _typeName = AS3ModelUtil.getTypeName(meth);
     EList<Parameter> _params = meth.getParams();
-    return this.computeTextForMethod(_name, _type, _params);
+    return this.computeTextForMethod(_name, _typeName, _params);
   }
   
-  private StyledString computeTextForMethod(final String methName, final EObject type, final EList<Parameter> parameters) {
+  private StyledString computeTextForMethod(final String methName, final String typeName, final EList<Parameter> parameters) {
     String parameterNames = null;
-    String name = null;
-    if ((type instanceof Interface)) {
-      String _name = ((Interface) type).getName();
-      name = _name;
-    } else {
-      if ((type instanceof de.lynorics.eclipse.jangaroo.aS3.Class)) {
-        String _name_1 = ((de.lynorics.eclipse.jangaroo.aS3.Class) type).getName();
-        name = _name_1;
-      }
-    }
-    boolean _equals = Objects.equal(name, null);
-    if (_equals) {
-      String _text = this.getText(type);
-      name = _text;
-    }
     boolean _notEquals = (!Objects.equal(parameters, null));
     if (_notEquals) {
       for (final Parameter param : parameters) {
         {
-          String pname = "*";
-          EObject _type = param.getType();
-          boolean _notEquals_1 = (!Objects.equal(_type, null));
-          if (_notEquals_1) {
-            EObject _type_1 = param.getType();
-            if ((_type_1 instanceof Interface)) {
-              EObject _type_2 = param.getType();
-              String _name_2 = ((Interface) _type_2).getName();
-              pname = _name_2;
-            } else {
-              EObject _type_3 = param.getType();
-              if ((_type_3 instanceof de.lynorics.eclipse.jangaroo.aS3.Class)) {
-                EObject _type_4 = param.getType();
-                String _name_3 = ((de.lynorics.eclipse.jangaroo.aS3.Class) _type_4).getName();
-                pname = _name_3;
-              }
-            }
-            boolean _equals_1 = Objects.equal(pname, null);
-            if (_equals_1) {
-              EObject _type_5 = param.getType();
-              String _text_1 = this.getText(_type_5);
-              pname = _text_1;
-            }
-          }
-          boolean _equals_2 = Objects.equal(pname, null);
-          if (_equals_2) {
-            pname = "*";
-          }
-          boolean _equals_3 = Objects.equal(parameterNames, null);
-          if (_equals_3) {
+          String pname = AS3ModelUtil.getTypeName(param);
+          boolean _equals = Objects.equal(parameterNames, null);
+          if (_equals) {
             parameterNames = pname;
           } else {
             parameterNames = ((parameterNames + ",") + pname);
@@ -137,60 +96,68 @@ public class AS3LabelProvider extends DefaultEObjectLabelProvider {
     } else {
       parameterNames = "()";
     }
-    StyledString _styledString = new StyledString((methName + parameterNames));
-    StyledString _styledString_1 = new StyledString((": " + name), 
-      StyledString.DECORATIONS_STYLER);
-    return _styledString.append(_styledString_1);
+    StyledString styledString = new StyledString((methName + parameterNames));
+    boolean _notEquals_2 = (!Objects.equal(typeName, null));
+    if (_notEquals_2) {
+      StyledString _styledString = new StyledString((": " + typeName), 
+        StyledString.DECORATIONS_STYLER);
+      styledString.append(_styledString);
+    }
+    return styledString;
   }
   
   public String image(final InterfaceMethod meth) {
     Modifier _modifier = meth.getModifier();
     AccessLevel _access = _modifier.getAccess();
-    switch (_access) {
-      case PUBLIC:
-        return "outline-function-public.gif";
-      case PROTECTED:
-        return "outline-function-protected.gif";
-      case PRIVATE:
-        return "outline-function-private.gif";
-      case INTERNAL:
-        return "outline-function-internal.gif";
-      default:
-        break;
+    if (_access != null) {
+      switch (_access) {
+        case PUBLIC:
+          return "outline-function-public.gif";
+        case PROTECTED:
+          return "outline-function-protected.gif";
+        case PRIVATE:
+          return "outline-function-private.gif";
+        case INTERNAL:
+          return "outline-function-internal.gif";
+        default:
+          break;
+      }
     }
     return null;
   }
   
   public StyledString text(final Method meth) {
     String _name = meth.getName();
-    EObject _type = meth.getType();
+    String _typeName = AS3ModelUtil.getTypeName(meth);
     EList<Parameter> _params = meth.getParams();
-    return this.computeTextForMethod(_name, _type, _params);
+    return this.computeTextForMethod(_name, _typeName, _params);
   }
   
   public Image image(final Method meth) {
     Image image = null;
     Modifier _modifier = meth.getModifier();
     AccessLevel _access = _modifier.getAccess();
-    switch (_access) {
-      case PUBLIC:
-        Image _image = this.imageHelper.getImage("outline-function-public.gif");
-        image = _image;
-        break;
-      case PROTECTED:
-        Image _image_1 = this.imageHelper.getImage("outline-function-protected.gif");
-        image = _image_1;
-        break;
-      case PRIVATE:
-        Image _image_2 = this.imageHelper.getImage("outline-function-private.gif");
-        image = _image_2;
-        break;
-      case INTERNAL:
-        Image _image_3 = this.imageHelper.getImage("outline-function-internal.gif");
-        image = _image_3;
-        break;
-      default:
-        break;
+    if (_access != null) {
+      switch (_access) {
+        case PUBLIC:
+          Image _image = this.imageHelper.getImage("outline-function-public.gif");
+          image = _image;
+          break;
+        case PROTECTED:
+          Image _image_1 = this.imageHelper.getImage("outline-function-protected.gif");
+          image = _image_1;
+          break;
+        case PRIVATE:
+          Image _image_2 = this.imageHelper.getImage("outline-function-private.gif");
+          image = _image_2;
+          break;
+        case INTERNAL:
+          Image _image_3 = this.imageHelper.getImage("outline-function-internal.gif");
+          image = _image_3;
+          break;
+        default:
+          break;
+      }
     }
     return image;
   }
@@ -234,17 +201,19 @@ public class AS3LabelProvider extends DefaultEObjectLabelProvider {
   public String image(final MemberVariableDeclaration varDecl) {
     Modifier _modifier = varDecl.getModifier();
     AccessLevel _access = _modifier.getAccess();
-    switch (_access) {
-      case PUBLIC:
-        return "outline-field-public.gif";
-      case PROTECTED:
-        return "outline-field-protected.gif";
-      case PRIVATE:
-        return "outline-field-private.gif";
-      case INTERNAL:
-        return "outline-field-internal.gif";
-      default:
-        break;
+    if (_access != null) {
+      switch (_access) {
+        case PUBLIC:
+          return "outline-field-public.gif";
+        case PROTECTED:
+          return "outline-field-protected.gif";
+        case PRIVATE:
+          return "outline-field-private.gif";
+        case INTERNAL:
+          return "outline-field-internal.gif";
+        default:
+          break;
+      }
     }
     return null;
   }

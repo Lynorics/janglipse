@@ -317,13 +317,22 @@ public interface AS3Package extends EPackage
   int USES__TYPE = 0;
 
   /**
+   * The feature id for the '<em><b>Anytype</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USES__ANYTYPE = 1;
+
+  /**
    * The number of structural features of the '<em>Uses</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USES_FEATURE_COUNT = 1;
+  int USES_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.annotationFieldsImpl <em>annotation Fields</em>}' class.
@@ -510,13 +519,22 @@ public interface AS3Package extends EPackage
   int INTERFACE_METHOD__PARAMS = 4;
 
   /**
+   * The feature id for the '<em><b>Anytype</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE_METHOD__ANYTYPE = 5;
+
+  /**
    * The feature id for the '<em><b>Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INTERFACE_METHOD__TYPE = 5;
+  int INTERFACE_METHOD__TYPE = 6;
 
   /**
    * The number of structural features of the '<em>Interface Method</em>' class.
@@ -525,7 +543,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int INTERFACE_METHOD_FEATURE_COUNT = 6;
+  int INTERFACE_METHOD_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.functionExpressionImpl <em>function Expression</em>}' class.
@@ -795,13 +813,22 @@ public interface AS3Package extends EPackage
   int METHOD__PARAMS = 4;
 
   /**
+   * The feature id for the '<em><b>Anytype</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD__ANYTYPE = 5;
+
+  /**
    * The feature id for the '<em><b>Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int METHOD__TYPE = 5;
+  int METHOD__TYPE = 6;
 
   /**
    * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -810,7 +837,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int METHOD__BODY = 6;
+  int METHOD__BODY = 7;
 
   /**
    * The number of structural features of the '<em>Method</em>' class.
@@ -819,7 +846,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int METHOD_FEATURE_COUNT = 7;
+  int METHOD_FEATURE_COUNT = 8;
 
   /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ModifierImpl <em>Modifier</em>}' class.
@@ -951,13 +978,22 @@ public interface AS3Package extends EPackage
   int MEMBER_VARIABLE_DECLARATION__NAME = 2;
 
   /**
+   * The feature id for the '<em><b>Anytype</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEMBER_VARIABLE_DECLARATION__ANYTYPE = 3;
+
+  /**
    * The feature id for the '<em><b>Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MEMBER_VARIABLE_DECLARATION__TYPE = 3;
+  int MEMBER_VARIABLE_DECLARATION__TYPE = 4;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -966,7 +1002,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int MEMBER_VARIABLE_DECLARATION__EXPRESSION = 4;
+  int MEMBER_VARIABLE_DECLARATION__EXPRESSION = 5;
 
   /**
    * The number of structural features of the '<em>Member Variable Declaration</em>' class.
@@ -975,7 +1011,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int MEMBER_VARIABLE_DECLARATION_FEATURE_COUNT = 5;
+  int MEMBER_VARIABLE_DECLARATION_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.StatementImpl <em>Statement</em>}' class.
@@ -1034,13 +1070,22 @@ public interface AS3Package extends EPackage
   int VARIABLE_DECLARATION__NAME = STATEMENT_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Anytype</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_DECLARATION__ANYTYPE = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE_DECLARATION__TYPE = STATEMENT_FEATURE_COUNT + 1;
+  int VARIABLE_DECLARATION__TYPE = STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1049,7 +1094,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_DECLARATION__EXPRESSION = STATEMENT_FEATURE_COUNT + 2;
+  int VARIABLE_DECLARATION__EXPRESSION = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Variable Declaration</em>' class.
@@ -1058,7 +1103,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_DECLARATION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
+  int VARIABLE_DECLARATION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -1080,13 +1125,22 @@ public interface AS3Package extends EPackage
   int PARAMETER__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Anytype</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__ANYTYPE = 1;
+
+  /**
    * The feature id for the '<em><b>Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETER__TYPE = 1;
+  int PARAMETER__TYPE = 2;
 
   /**
    * The feature id for the '<em><b>Lit</b></em>' containment reference.
@@ -1095,7 +1149,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETER__LIT = 2;
+  int PARAMETER__LIT = 3;
 
   /**
    * The number of structural features of the '<em>Parameter</em>' class.
@@ -1104,7 +1158,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETER_FEATURE_COUNT = 3;
+  int PARAMETER_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.exprOrObjectLiteralImpl <em>expr Or Object Literal</em>}' class.
@@ -4826,6 +4880,17 @@ public interface AS3Package extends EPackage
   EAttribute getUses_Type();
 
   /**
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.Uses#getAnytype <em>Anytype</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Anytype</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Uses#getAnytype()
+   * @see #getUses()
+   * @generated
+   */
+  EAttribute getUses_Anytype();
+
+  /**
    * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.annotationFields <em>annotation Fields</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5007,6 +5072,17 @@ public interface AS3Package extends EPackage
    * @generated
    */
   EReference getInterfaceMethod_Params();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod#getAnytype <em>Anytype</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Anytype</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod#getAnytype()
+   * @see #getInterfaceMethod()
+   * @generated
+   */
+  EAttribute getInterfaceMethod_Anytype();
 
   /**
    * Returns the meta object for the reference '{@link de.lynorics.eclipse.jangaroo.aS3.InterfaceMethod#getType <em>Type</em>}'.
@@ -5278,6 +5354,17 @@ public interface AS3Package extends EPackage
   EReference getMethod_Params();
 
   /**
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getAnytype <em>Anytype</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Anytype</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Method#getAnytype()
+   * @see #getMethod()
+   * @generated
+   */
+  EAttribute getMethod_Anytype();
+
+  /**
    * Returns the meta object for the reference '{@link de.lynorics.eclipse.jangaroo.aS3.Method#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5429,6 +5516,17 @@ public interface AS3Package extends EPackage
   EAttribute getMemberVariableDeclaration_Name();
 
   /**
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration#getAnytype <em>Anytype</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Anytype</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration#getAnytype()
+   * @see #getMemberVariableDeclaration()
+   * @generated
+   */
+  EAttribute getMemberVariableDeclaration_Anytype();
+
+  /**
    * Returns the meta object for the reference '{@link de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5472,6 +5570,17 @@ public interface AS3Package extends EPackage
   EAttribute getVariableDeclaration_Name();
 
   /**
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration#getAnytype <em>Anytype</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Anytype</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration#getAnytype()
+   * @see #getVariableDeclaration()
+   * @generated
+   */
+  EAttribute getVariableDeclaration_Anytype();
+
+  /**
    * Returns the meta object for the reference '{@link de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5513,6 +5622,17 @@ public interface AS3Package extends EPackage
    * @generated
    */
   EAttribute getParameter_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.Parameter#getAnytype <em>Anytype</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Anytype</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.Parameter#getAnytype()
+   * @see #getParameter()
+   * @generated
+   */
+  EAttribute getParameter_Anytype();
 
   /**
    * Returns the meta object for the reference '{@link de.lynorics.eclipse.jangaroo.aS3.Parameter#getType <em>Type</em>}'.
@@ -8046,6 +8166,14 @@ public interface AS3Package extends EPackage
     EAttribute USES__TYPE = eINSTANCE.getUses_Type();
 
     /**
+     * The meta object literal for the '<em><b>Anytype</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute USES__ANYTYPE = eINSTANCE.getUses_Anytype();
+
+    /**
      * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.annotationFieldsImpl <em>annotation Fields</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8188,6 +8316,14 @@ public interface AS3Package extends EPackage
      * @generated
      */
     EReference INTERFACE_METHOD__PARAMS = eINSTANCE.getInterfaceMethod_Params();
+
+    /**
+     * The meta object literal for the '<em><b>Anytype</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INTERFACE_METHOD__ANYTYPE = eINSTANCE.getInterfaceMethod_Anytype();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' reference feature.
@@ -8402,6 +8538,14 @@ public interface AS3Package extends EPackage
     EReference METHOD__PARAMS = eINSTANCE.getMethod_Params();
 
     /**
+     * The meta object literal for the '<em><b>Anytype</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute METHOD__ANYTYPE = eINSTANCE.getMethod_Anytype();
+
+    /**
      * The meta object literal for the '<em><b>Type</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8520,6 +8664,14 @@ public interface AS3Package extends EPackage
     EAttribute MEMBER_VARIABLE_DECLARATION__NAME = eINSTANCE.getMemberVariableDeclaration_Name();
 
     /**
+     * The meta object literal for the '<em><b>Anytype</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MEMBER_VARIABLE_DECLARATION__ANYTYPE = eINSTANCE.getMemberVariableDeclaration_Anytype();
+
+    /**
      * The meta object literal for the '<em><b>Type</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8554,6 +8706,14 @@ public interface AS3Package extends EPackage
     EAttribute VARIABLE_DECLARATION__NAME = eINSTANCE.getVariableDeclaration_Name();
 
     /**
+     * The meta object literal for the '<em><b>Anytype</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VARIABLE_DECLARATION__ANYTYPE = eINSTANCE.getVariableDeclaration_Anytype();
+
+    /**
      * The meta object literal for the '<em><b>Type</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8586,6 +8746,14 @@ public interface AS3Package extends EPackage
      * @generated
      */
     EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Anytype</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PARAMETER__ANYTYPE = eINSTANCE.getParameter_Anytype();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' reference feature.

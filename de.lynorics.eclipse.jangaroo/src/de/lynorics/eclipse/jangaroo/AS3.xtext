@@ -42,7 +42,7 @@ Annotation:
 ;
 
 Uses: {Uses}
-  "use" 'namespace' (type=QualifiedName|'*'|'void')
+  "use" 'namespace' (type=QualifiedName|anytype='*'|anytype='void')
   ;
   
 annotationFields :
@@ -73,7 +73,7 @@ InterfaceMethod:
     accessor=AccessorRole? name=ID'('
   )
   (params+=Parameter (',' params+=Parameter)*)? ')' 
-  (':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))?
+  (':' (anytype='void'|anytype='*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))?
   ';'?)
 ;
 
@@ -110,7 +110,7 @@ Method:
     accessor=AccessorRole? name=ID'('
   )
    (params+=Parameter (',' params+=Parameter)*)? ')' 
-  (':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))?
+  (':' (anytype='void'|anytype='*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))?
   (body=Block|';'))
 ;
 
@@ -132,16 +132,16 @@ MethodBody:
 MemberVariableDeclaration:
   annotations+=Annotation*
   modifier=Modifier?
-  ('var'|'const') name=ID (':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))? ('=' Expression=assignmentExpression)? ';'
+  ('var'|'const') name=ID (':' (anytype='void'|anytype='*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))? ('=' Expression=assignmentExpression)? ';'
   //decl=VariableDeclaration ';'
 ;
 
 VariableDeclaration:
-  ('var'|'const') name=ID (':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))? ('=' Expression=assignmentExpression)?
+  ('var'|'const') name=ID (':' (anytype='void'|anytype='*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))? ('=' Expression=assignmentExpression)?
 ;
 
 Parameter :
-    'const'? '...'? name=ID (':' ('void'|'*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))? ('=' lit=exprOrObjectLiteral)?;
+    'const'? '...'? name=ID (':' (anytype='void'|anytype='*'|type=[Interface|QualifiedName]|type=[Class|QualifiedName]))? ('=' lit=exprOrObjectLiteral)?;
 
 objectLiteral: {objectLiteral}
   '{' fields+=fieldList? '}'

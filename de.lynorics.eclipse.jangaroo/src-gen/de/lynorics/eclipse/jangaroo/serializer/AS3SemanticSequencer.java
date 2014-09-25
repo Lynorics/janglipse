@@ -865,7 +865,7 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         accessor=AccessorRole? 
 	 *         name=ID 
 	 *         (params+=Parameter params+=Parameter*)? 
-	 *         (type=[Interface|QualifiedName] | type=[Class|QualifiedName])?
+	 *         (anytype='void' | anytype='*' | type=[Interface|QualifiedName] | type=[Class|QualifiedName])?
 	 *     )
 	 */
 	protected void sequence_InterfaceMethod(EObject context, InterfaceMethod semanticObject) {
@@ -888,7 +888,7 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         annotations+=Annotation* 
 	 *         modifier=Modifier? 
 	 *         name=ID 
-	 *         (type=[Interface|QualifiedName] | type=[Class|QualifiedName])? 
+	 *         (anytype='void' | anytype='*' | type=[Interface|QualifiedName] | type=[Class|QualifiedName])? 
 	 *         Expression=assignmentExpression?
 	 *     )
 	 */
@@ -923,7 +923,7 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         accessor=AccessorRole? 
 	 *         name=ID 
 	 *         (params+=Parameter params+=Parameter*)? 
-	 *         (type=[Interface|QualifiedName] | type=[Class|QualifiedName])? 
+	 *         (anytype='void' | anytype='*' | type=[Interface|QualifiedName] | type=[Class|QualifiedName])? 
 	 *         body=Block?
 	 *     )
 	 */
@@ -970,7 +970,7 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID (type=[Interface|QualifiedName] | type=[Class|QualifiedName])? lit=exprOrObjectLiteral?)
+	 *     (name=ID (anytype='void' | anytype='*' | type=[Interface|QualifiedName] | type=[Class|QualifiedName])? lit=exprOrObjectLiteral?)
 	 */
 	protected void sequence_Parameter(EObject context, Parameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1111,7 +1111,7 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (type=QualifiedName?)
+	 *     (type=QualifiedName | anytype='*' | anytype='void')
 	 */
 	protected void sequence_Uses(EObject context, Uses semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1120,7 +1120,7 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID (type=[Interface|QualifiedName] | type=[Class|QualifiedName])? Expression=assignmentExpression?)
+	 *     (name=ID (anytype='void' | anytype='*' | type=[Interface|QualifiedName] | type=[Class|QualifiedName])? Expression=assignmentExpression?)
 	 */
 	protected void sequence_VariableDeclaration(EObject context, VariableDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

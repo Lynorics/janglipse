@@ -42,6 +42,7 @@
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//Uses">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Uses/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Uses/anytype"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//annotationFields">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//annotationFields/annonFields"/>
@@ -63,6 +64,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//InterfaceMethod/accessor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//InterfaceMethod/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//InterfaceMethod/params"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//InterfaceMethod/anytype"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//InterfaceMethod/type"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//functionExpression">
@@ -94,6 +96,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Method/accessor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Method/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Method/params"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Method/anytype"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//Method/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Method/body"/>
     </genClasses>
@@ -111,16 +114,19 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//MemberVariableDeclaration/annotations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//MemberVariableDeclaration/modifier"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//MemberVariableDeclaration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//MemberVariableDeclaration/anytype"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//MemberVariableDeclaration/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//MemberVariableDeclaration/Expression"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//VariableDeclaration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//VariableDeclaration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//VariableDeclaration/anytype"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//VariableDeclaration/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//VariableDeclaration/Expression"/>
     </genClasses>
     <genClasses ecoreClass="AS3.ecore#//Parameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Parameter/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AS3.ecore#//Parameter/anytype"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AS3.ecore#//Parameter/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AS3.ecore#//Parameter/lit"/>
     </genClasses>

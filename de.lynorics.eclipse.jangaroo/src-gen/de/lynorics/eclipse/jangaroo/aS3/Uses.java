@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Uses#getType <em>Type</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.Uses#getAnytype <em>Anytype</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,5 +48,31 @@ public interface Uses extends EObject
    * @generated
    */
   void setType(String value);
+
+  /**
+   * Returns the value of the '<em><b>Anytype</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Anytype</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Anytype</em>' attribute.
+   * @see #setAnytype(String)
+   * @see de.lynorics.eclipse.jangaroo.aS3.AS3Package#getUses_Anytype()
+   * @model
+   * @generated
+   */
+  String getAnytype();
+
+  /**
+   * Sets the value of the '{@link de.lynorics.eclipse.jangaroo.aS3.Uses#getAnytype <em>Anytype</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Anytype</em>' attribute.
+   * @see #getAnytype()
+   * @generated
+   */
+  void setAnytype(String value);
 
 } // Uses

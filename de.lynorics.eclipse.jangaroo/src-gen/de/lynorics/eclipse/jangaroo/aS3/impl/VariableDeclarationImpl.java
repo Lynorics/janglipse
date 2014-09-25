@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl#getAnytype <em>Anytype</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl#getType <em>Type</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.VariableDeclarationImpl#getExpression <em>Expression</em>}</li>
  * </ul>
@@ -51,6 +52,26 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getAnytype() <em>Anytype</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAnytype()
+   * @generated
+   * @ordered
+   */
+  protected static final String ANYTYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAnytype() <em>Anytype</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAnytype()
+   * @generated
+   * @ordered
+   */
+  protected String anytype = ANYTYPE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' reference.
@@ -114,6 +135,29 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.VARIABLE_DECLARATION__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getAnytype()
+  {
+    return anytype;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAnytype(String newAnytype)
+  {
+    String oldAnytype = anytype;
+    anytype = newAnytype;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.VARIABLE_DECLARATION__ANYTYPE, oldAnytype, anytype));
   }
 
   /**
@@ -235,6 +279,8 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
     {
       case AS3Package.VARIABLE_DECLARATION__NAME:
         return getName();
+      case AS3Package.VARIABLE_DECLARATION__ANYTYPE:
+        return getAnytype();
       case AS3Package.VARIABLE_DECLARATION__TYPE:
         if (resolve) return getType();
         return basicGetType();
@@ -256,6 +302,9 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
     {
       case AS3Package.VARIABLE_DECLARATION__NAME:
         setName((String)newValue);
+        return;
+      case AS3Package.VARIABLE_DECLARATION__ANYTYPE:
+        setAnytype((String)newValue);
         return;
       case AS3Package.VARIABLE_DECLARATION__TYPE:
         setType((EObject)newValue);
@@ -280,6 +329,9 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
       case AS3Package.VARIABLE_DECLARATION__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case AS3Package.VARIABLE_DECLARATION__ANYTYPE:
+        setAnytype(ANYTYPE_EDEFAULT);
+        return;
       case AS3Package.VARIABLE_DECLARATION__TYPE:
         setType((EObject)null);
         return;
@@ -302,6 +354,8 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
     {
       case AS3Package.VARIABLE_DECLARATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case AS3Package.VARIABLE_DECLARATION__ANYTYPE:
+        return ANYTYPE_EDEFAULT == null ? anytype != null : !ANYTYPE_EDEFAULT.equals(anytype);
       case AS3Package.VARIABLE_DECLARATION__TYPE:
         return type != null;
       case AS3Package.VARIABLE_DECLARATION__EXPRESSION:
@@ -323,6 +377,8 @@ public class VariableDeclarationImpl extends StatementImpl implements VariableDe
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", anytype: ");
+    result.append(anytype);
     result.append(')');
     return result.toString();
   }

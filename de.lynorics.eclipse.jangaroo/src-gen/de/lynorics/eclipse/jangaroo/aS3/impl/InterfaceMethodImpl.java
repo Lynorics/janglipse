@@ -38,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceMethodImpl#getAccessor <em>Accessor</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceMethodImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceMethodImpl#getParams <em>Params</em>}</li>
+ *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceMethodImpl#getAnytype <em>Anytype</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.InterfaceMethodImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
@@ -105,6 +106,26 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
    * @ordered
    */
   protected EList<Parameter> params;
+
+  /**
+   * The default value of the '{@link #getAnytype() <em>Anytype</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAnytype()
+   * @generated
+   * @ordered
+   */
+  protected static final String ANYTYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAnytype() <em>Anytype</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAnytype()
+   * @generated
+   * @ordered
+   */
+  protected String anytype = ANYTYPE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' reference.
@@ -289,6 +310,29 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getAnytype()
+  {
+    return anytype;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAnytype(String newAnytype)
+  {
+    String oldAnytype = anytype;
+    anytype = newAnytype;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.INTERFACE_METHOD__ANYTYPE, oldAnytype, anytype));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EObject getType()
   {
     if (type != null && type.eIsProxy())
@@ -369,6 +413,8 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
         return getName();
       case AS3Package.INTERFACE_METHOD__PARAMS:
         return getParams();
+      case AS3Package.INTERFACE_METHOD__ANYTYPE:
+        return getAnytype();
       case AS3Package.INTERFACE_METHOD__TYPE:
         if (resolve) return getType();
         return basicGetType();
@@ -404,6 +450,9 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
         getParams().clear();
         getParams().addAll((Collection<? extends Parameter>)newValue);
         return;
+      case AS3Package.INTERFACE_METHOD__ANYTYPE:
+        setAnytype((String)newValue);
+        return;
       case AS3Package.INTERFACE_METHOD__TYPE:
         setType((EObject)newValue);
         return;
@@ -436,6 +485,9 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
       case AS3Package.INTERFACE_METHOD__PARAMS:
         getParams().clear();
         return;
+      case AS3Package.INTERFACE_METHOD__ANYTYPE:
+        setAnytype(ANYTYPE_EDEFAULT);
+        return;
       case AS3Package.INTERFACE_METHOD__TYPE:
         setType((EObject)null);
         return;
@@ -463,6 +515,8 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case AS3Package.INTERFACE_METHOD__PARAMS:
         return params != null && !params.isEmpty();
+      case AS3Package.INTERFACE_METHOD__ANYTYPE:
+        return ANYTYPE_EDEFAULT == null ? anytype != null : !ANYTYPE_EDEFAULT.equals(anytype);
       case AS3Package.INTERFACE_METHOD__TYPE:
         return type != null;
     }
@@ -482,6 +536,8 @@ public class InterfaceMethodImpl extends MinimalEObjectImpl.Container implements
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", anytype: ");
+    result.append(anytype);
     result.append(')');
     return result.toString();
   }

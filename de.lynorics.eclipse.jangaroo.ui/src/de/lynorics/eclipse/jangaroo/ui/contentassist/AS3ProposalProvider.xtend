@@ -10,40 +10,35 @@
 package de.lynorics.eclipse.jangaroo.ui.contentassist
 
 import com.google.inject.Inject
+import de.lynorics.eclipse.jangaroo.aS3.AccessLevel
+import de.lynorics.eclipse.jangaroo.aS3.Class
+import de.lynorics.eclipse.jangaroo.aS3.Interface
 import de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration
+import de.lynorics.eclipse.jangaroo.aS3.Method
 import de.lynorics.eclipse.jangaroo.aS3.Parameter
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration
 import de.lynorics.eclipse.jangaroo.ui.labeling.AS3LabelProvider
 import java.util.ArrayList
 import java.util.List
+import java.util.regex.Pattern
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.jface.viewers.ILabelProvider
 import org.eclipse.xtext.Assignment
 import org.eclipse.xtext.Keyword
+import org.eclipse.xtext.RuleCall
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
 import org.eclipse.xtext.ui.label.ILabelProviderImageDescriptorExtension
 
 import static extension de.lynorics.eclipse.jangaroo.AS3ModelUtil.*
-import java.util.regex.Pattern
-import org.eclipse.xtext.RuleCall
-import de.lynorics.eclipse.jangaroo.aS3.Method
-import de.lynorics.eclipse.jangaroo.aS3.AccessLevel
-import de.lynorics.eclipse.jangaroo.aS3.Interface
-import org.eclipse.xtext.CrossReference
-import org.eclipse.xtext.AbstractElement
-import org.eclipse.xtext.TypeRef
-import org.eclipse.emf.ecore.EStructuralFeature
-import org.eclipse.emf.ecore.EOperation
-import org.eclipse.emf.common.util.EList
-import java.lang.reflect.InvocationTargetException
-import org.eclipse.emf.common.notify.Notification
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
  */
 class AS3ProposalProvider extends AbstractAS3ProposalProvider {
 
+    String PARAMETER_SEPARATOR = ",";
+    
 	Pattern alphanumerPattern = Pattern.compile("[^a-zA-Z0-9]");
 
 	@Inject
@@ -77,7 +72,7 @@ class AS3ProposalProvider extends AbstractAS3ProposalProvider {
 			else if (variable instanceof Interface) {
 				acceptor.accept(createCompletionProposal(variable.name, variable.name, getImageTag(variable), context));
 			}
-			else if (variable instanceof de.lynorics.eclipse.jangaroo.aS3.Class) {
+			else if (variable instanceof Class) {
 				acceptor.accept(createCompletionProposal(variable.name, variable.name, getImageTag(variable), context));
 			}
 		]
@@ -93,7 +88,7 @@ class AS3ProposalProvider extends AbstractAS3ProposalProvider {
 		
 	}
 
-	private def collectVariablesOfClass(de.lynorics.eclipse.jangaroo.aS3.Class clazz, ContentAssistContext context, ICompletionProposalAcceptor acceptor, boolean collectPrivate) {
+	private def collectVariablesOfClass(Class clazz, ContentAssistContext context, ICompletionProposalAcceptor acceptor, boolean collectPrivate) {
 		clazz.attributes.forEach[
 			variable |
 				if (variable instanceof VariableDeclaration) {
@@ -158,13 +153,22 @@ class AS3ProposalProvider extends AbstractAS3ProposalProvider {
 		}
 	}
 
-	private def collectMethodsOfClass(de.lynorics.eclipse.jangaroo.aS3.Class clazz, ContentAssistContext context, ICompletionProposalAcceptor acceptor, boolean collectPrivate) {
+	private def collectMethodsOfClass(Class clazz, ContentAssistContext context, ICompletionProposalAcceptor acceptor, boolean collectPrivate) {
 		clazz.accessibleFunctions.forEach[
 			variable |
 				if (variable instanceof Method) {
 					if (collectPrivate ||
 						!"private".equalsIgnoreCase((variable.modifier.access as AccessLevel).getName())) {
-						acceptor.accept(createCompletionProposal(variable.name, variable.name + "(...): " + AS3LabelProvider.getNameOfType(variable.type), getImageTag(variable), context));
+							val StringBuilder parameters = new StringBuilder();
+							variable.params.forEach[
+								param |
+									parameters.append(param.typeName);
+									parameters.append(PARAMETER_SEPARATOR);
+							]
+							if (parameters.length > 0 && PARAMETER_SEPARATOR.equals(""+parameters.charAt(parameters.length-1))) {
+								parameters.deleteCharAt(parameters.length-1);
+							}
+						acceptor.accept(createCompletionProposal(variable.name, variable.name + "("+parameters.toString()+"): " + AS3LabelProvider.getNameOfType(variable.type), getImageTag(variable), context));
 					}
 				}
 		]
