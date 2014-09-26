@@ -30,12 +30,14 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.jface.viewers.ILabelProvider;
+import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
+import org.eclipse.xtext.ui.editor.contentassist.IContentProposalPriorities;
 import org.eclipse.xtext.ui.label.ILabelProviderImageDescriptorExtension;
 import org.eclipse.xtext.xbase.lib.CollectionExtensions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -316,17 +318,29 @@ public class AS3ProposalProvider extends AbstractAS3ProposalProvider {
             String _plus_1 = (_name_2 + "(");
             String _string = parameters.toString();
             String _plus_2 = (_plus_1 + _string);
-            String _plus_3 = (_plus_2 + "): ");
-            EObject _type = ((Method)variable).getType();
-            String _nameOfType = AS3LabelProvider.getNameOfType(_type);
-            String _plus_4 = (_plus_3 + _nameOfType);
+            String _plus_3 = (_plus_2 + ")");
+            String _typeName = AS3ModelUtil.getTypeName(((Method)variable));
             Image _imageTag = AS3ProposalProvider.this.getImageTag(variable);
-            ICompletionProposal _createCompletionProposal = AS3ProposalProvider.this.createCompletionProposal(_name_1, _plus_4, _imageTag, context);
-            acceptor.accept(_createCompletionProposal);
+            ICompletionProposal _createProposal = AS3ProposalProvider.this.createProposal(_name_1, _plus_3, _typeName, _imageTag, context);
+            acceptor.accept(_createProposal);
           }
         }
       }
     };
     IterableExtensions.<EObject>forEach(_accessibleFunctions, _function);
+  }
+  
+  public ICompletionProposal createProposal(final String proposal, final String displayString, final String appendix, final Image image, final ContentAssistContext contentAssistContext) {
+    StyledString styledString = new StyledString(displayString);
+    boolean _notEquals = (!Objects.equal(appendix, null));
+    if (_notEquals) {
+      StyledString _styledString = new StyledString((": " + appendix), 
+        StyledString.DECORATIONS_STYLER);
+      styledString.append(_styledString);
+    }
+    IContentProposalPriorities _priorityHelper = this.getPriorityHelper();
+    int _defaultPriority = _priorityHelper.getDefaultPriority();
+    String _prefix = contentAssistContext.getPrefix();
+    return this.createCompletionProposal(proposal, styledString, image, _defaultPriority, _prefix, contentAssistContext);
   }
 }

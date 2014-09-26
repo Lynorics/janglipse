@@ -108,7 +108,7 @@ public class AS3ModelUtil {
       boolean _notEquals_1 = (!Objects.equal(packages, null));
       if (_notEquals_1) {
         EList<EObject> allElements = packages.getMembers();
-        final Function1<EObject,Boolean> _function = new Function1<EObject,Boolean>() {
+        final Function1<EObject, Boolean> _function = new Function1<EObject, Boolean>() {
           public Boolean apply(final EObject it) {
             return Boolean.valueOf(EcoreUtil.isAncestor(it, e));
           }

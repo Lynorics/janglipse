@@ -40,8 +40,8 @@ public class AS3Formatter extends AbstractDeclarativeFormatter {
     TerminalRule _mL_COMMENTRule_1 = this.g.getML_COMMENTRule();
     _setLinewrap_2.after(_mL_COMMENTRule_1);
     c.setAutoLinewrap(120);
-    List<Pair<Keyword,Keyword>> _findKeywordPairs = this.g.findKeywordPairs("(", ")");
-    for (final Pair<Keyword,Keyword> pair : _findKeywordPairs) {
+    List<Pair<Keyword, Keyword>> _findKeywordPairs = this.g.findKeywordPairs("(", ")");
+    for (final Pair<Keyword, Keyword> pair : _findKeywordPairs) {
       {
         FormattingConfig.NoSpaceLocator _setNoSpace = c.setNoSpace();
         Keyword _first = pair.getFirst();
@@ -75,8 +75,8 @@ public class AS3Formatter extends AbstractDeclarativeFormatter {
         _setLinewrap_3.after(semicolon);
       }
     }
-    List<Pair<Keyword,Keyword>> _findKeywordPairs_1 = this.g.findKeywordPairs("{", "}");
-    for (final Pair<Keyword,Keyword> pair_1 : _findKeywordPairs_1) {
+    List<Pair<Keyword, Keyword>> _findKeywordPairs_1 = this.g.findKeywordPairs("{", "}");
+    for (final Pair<Keyword, Keyword> pair_1 : _findKeywordPairs_1) {
       {
         Keyword _first = pair_1.getFirst();
         Keyword _second = pair_1.getSecond();
@@ -92,8 +92,8 @@ public class AS3Formatter extends AbstractDeclarativeFormatter {
         _setLinewrap_5.after(_second_1);
       }
     }
-    List<Pair<Keyword,Keyword>> _findKeywordPairs_2 = this.g.findKeywordPairs("[", "]");
-    for (final Pair<Keyword,Keyword> pair_2 : _findKeywordPairs_2) {
+    List<Pair<Keyword, Keyword>> _findKeywordPairs_2 = this.g.findKeywordPairs("[", "]");
+    for (final Pair<Keyword, Keyword> pair_2 : _findKeywordPairs_2) {
       {
         Keyword _first = pair_2.getFirst();
         Keyword _second = pair_2.getSecond();

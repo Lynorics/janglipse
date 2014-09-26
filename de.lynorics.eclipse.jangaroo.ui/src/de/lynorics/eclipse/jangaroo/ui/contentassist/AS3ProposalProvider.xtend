@@ -31,6 +31,9 @@ import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
 import org.eclipse.xtext.ui.label.ILabelProviderImageDescriptorExtension
 
 import static extension de.lynorics.eclipse.jangaroo.AS3ModelUtil.*
+import org.eclipse.jface.text.contentassist.ICompletionProposal
+import org.eclipse.swt.graphics.Image
+import org.eclipse.jface.viewers.StyledString
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
@@ -168,10 +171,22 @@ class AS3ProposalProvider extends AbstractAS3ProposalProvider {
 							if (parameters.length > 0 && PARAMETER_SEPARATOR.equals(""+parameters.charAt(parameters.length-1))) {
 								parameters.deleteCharAt(parameters.length-1);
 							}
-						acceptor.accept(createCompletionProposal(variable.name, variable.name + "("+parameters.toString()+"): " + AS3LabelProvider.getNameOfType(variable.type), getImageTag(variable), context));
+						acceptor.accept(createProposal(variable.name, variable.name + "("+parameters.toString()+")", variable.typeName, getImageTag(variable), context));
 					}
 				}
 		]
+	}
+	
+	def ICompletionProposal createProposal(String proposal, String displayString, String appendix, Image image,
+			ContentAssistContext contentAssistContext) {
+		var StyledString styledString = new StyledString(displayString)
+		if (appendix != null) {
+			   styledString.append(new StyledString(': ' +appendix,
+    	       StyledString::DECORATIONS_STYLER
+	         ))
+		}
+		return createCompletionProposal(proposal, styledString, image, getPriorityHelper()
+				.getDefaultPriority(), contentAssistContext.getPrefix(), contentAssistContext);
 	}
 	
 }
