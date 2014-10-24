@@ -146,17 +146,13 @@ public class AS3OutlineTreeProvider extends DefaultOutlineTreeProvider implement
       de.lynorics.eclipse.jangaroo.aS3.Class _containingClass_1 = AS3ModelUtil.containingClass(clazz);
       de.lynorics.eclipse.jangaroo.aS3.Class myclass = _containingClass_1.getSuperclass();
       boolean collectPrivate = true;
-      boolean _notEquals_1 = (!Objects.equal(myclass, null));
-      boolean _while = _notEquals_1;
-      while (_while) {
+      while ((!Objects.equal(myclass, null))) {
         {
           this.collectMethodsOfClass(parentNode, myclass, collectPrivate);
           de.lynorics.eclipse.jangaroo.aS3.Class _superclass = myclass.getSuperclass();
           myclass = _superclass;
           collectPrivate = false;
         }
-        boolean _notEquals_2 = (!Objects.equal(myclass, null));
-        _while = _notEquals_2;
       }
     }
   }

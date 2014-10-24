@@ -128,17 +128,13 @@ public class AS3ProposalProvider extends AbstractAS3ProposalProvider {
     IterableExtensions.<EObject>forEach(_variablesDefinedBefore, _function);
     de.lynorics.eclipse.jangaroo.aS3.Class myclass = AS3ModelUtil.containingClass(elem);
     boolean collectPrivate = true;
-    boolean _notEquals = (!Objects.equal(myclass, null));
-    boolean _while = _notEquals;
-    while (_while) {
+    while ((!Objects.equal(myclass, null))) {
       {
         this.collectVariablesOfClass(myclass, context, acceptor, collectPrivate);
         de.lynorics.eclipse.jangaroo.aS3.Class _superclass = myclass.getSuperclass();
         myclass = _superclass;
         collectPrivate = false;
       }
-      boolean _notEquals_1 = (!Objects.equal(myclass, null));
-      _while = _notEquals_1;
     }
   }
   
@@ -218,30 +214,26 @@ public class AS3ProposalProvider extends AbstractAS3ProposalProvider {
   public void complete_primaryExpression(final EObject elem, final RuleCall ruleCall, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     de.lynorics.eclipse.jangaroo.aS3.Class myclass = AS3ModelUtil.containingClass(elem);
     boolean collectPrivate = true;
-    boolean _notEquals = (!Objects.equal(myclass, null));
-    boolean _while = _notEquals;
-    while (_while) {
+    while ((!Objects.equal(myclass, null))) {
       {
         this.collectMethodsOfClass(myclass, context, acceptor, collectPrivate);
         de.lynorics.eclipse.jangaroo.aS3.Class _superclass = myclass.getSuperclass();
         myclass = _superclass;
         collectPrivate = false;
       }
-      boolean _notEquals_1 = (!Objects.equal(myclass, null));
-      _while = _notEquals_1;
     }
     boolean _and = false;
     Model _containingModel = AS3ModelUtil.containingModel(elem);
     de.lynorics.eclipse.jangaroo.aS3.Package _package = _containingModel.getPackage();
-    boolean _notEquals_1 = (!Objects.equal(_package, null));
-    if (!_notEquals_1) {
+    boolean _notEquals = (!Objects.equal(_package, null));
+    if (!_notEquals) {
       _and = false;
     } else {
       Model _containingModel_1 = AS3ModelUtil.containingModel(elem);
       de.lynorics.eclipse.jangaroo.aS3.Package _package_1 = _containingModel_1.getPackage();
       Imports _imp = _package_1.getImp();
-      boolean _notEquals_2 = (!Objects.equal(_imp, null));
-      _and = _notEquals_2;
+      boolean _notEquals_1 = (!Objects.equal(_imp, null));
+      _and = _notEquals_1;
     }
     if (_and) {
       Model _containingModel_2 = AS3ModelUtil.containingModel(elem);

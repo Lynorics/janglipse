@@ -505,8 +505,7 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					sequence_catchBlock(context, (identi) semanticObject); 
 					return; 
 				}
-				else if(context == grammarAccess.getFieldNameRule() ||
-				   context == grammarAccess.getForInClauseDeclRule() ||
+				else if(context == grammarAccess.getForInClauseDeclRule() ||
 				   context == grammarAccess.getIdentiRule() ||
 				   context == grammarAccess.getPropertyIdentifierRule() ||
 				   context == grammarAccess.getQualifierRule()) {
@@ -1363,17 +1362,10 @@ public class AS3SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     number=number
+	 *     (identi=identi | number=number | name=STRING)
 	 */
 	protected void sequence_fieldName(EObject context, fieldName semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AS3Package.Literals.FIELD_NAME__NUMBER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AS3Package.Literals.FIELD_NAME__NUMBER));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getFieldNameAccess().getNumberNumberParserRuleCall_1_0(), semanticObject.getNumber());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

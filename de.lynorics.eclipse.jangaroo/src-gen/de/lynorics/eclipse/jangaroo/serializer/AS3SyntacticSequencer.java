@@ -145,7 +145,7 @@ public class AS3SyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Syntax:
-	 *     ('throw' | ('switch' '(')) | ('default' 'xml' 'namespace' 'assign')
+	 *     ('default' 'xml' 'namespace' 'assign') | ('throw' | ('switch' '('))
 	 */
 	protected void emit_Condition_DefaultXMLNamespaceStatement_SwitchStatement_ThrowStatement___DefaultKeyword_0_XmlKeyword_1_NamespaceKeyword_2_AssignKeyword_3___or___ThrowKeyword_0_or___SwitchKeyword_0_LeftParenthesisKeyword_0____(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -193,7 +193,7 @@ public class AS3SyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     ';' | ContinueStatement | BreakStatement
+	 *     BreakStatement | ContinueStatement | ';'
 	 */
 	protected void emit_Statement_BreakStatementParserRuleCall_10_or_ContinueStatementParserRuleCall_11_or_SemicolonKeyword_16(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -265,7 +265,7 @@ public class AS3SyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     '!' | 'void' | '~' | 'typeof'
+	 *     'void' | 'typeof' | '!' | '~'
 	 */
 	protected void emit_unaryExpressionNotPlusMinus_ExclamationMarkKeyword_3_0_or_TildeKeyword_4_0_or_TypeofKeyword_2_0_or_VoidKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

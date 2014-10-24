@@ -200,9 +200,7 @@ public class AS3Validator extends AbstractAS3Validator {
     final HashSet<de.lynorics.eclipse.jangaroo.aS3.Class> visitedClasses = CollectionLiterals.<de.lynorics.eclipse.jangaroo.aS3.Class>newHashSet();
     visitedClasses.add(clas);
     de.lynorics.eclipse.jangaroo.aS3.Class current = clas.getSuperclass();
-    boolean _notEquals = (!Objects.equal(current, null));
-    boolean _while = _notEquals;
-    while (_while) {
+    while ((!Objects.equal(current, null))) {
       {
         boolean _contains = visitedClasses.contains(current);
         if (_contains) {
@@ -218,8 +216,6 @@ public class AS3Validator extends AbstractAS3Validator {
         de.lynorics.eclipse.jangaroo.aS3.Class _superclass_1 = current.getSuperclass();
         current = _superclass_1;
       }
-      boolean _notEquals_1 = (!Objects.equal(current, null));
-      _while = _notEquals_1;
     }
   }
   

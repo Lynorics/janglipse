@@ -2021,9 +2021,29 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getfieldName_Identi()
+  {
+    return (EReference)fieldNameEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getfieldName_Number()
   {
-    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getfieldName_Name()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4254,7 +4274,9 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     createEReference(literalFieldEClass, LITERAL_FIELD__EL);
 
     fieldNameEClass = createEClass(FIELD_NAME);
+    createEReference(fieldNameEClass, FIELD_NAME__IDENTI);
     createEAttribute(fieldNameEClass, FIELD_NAME__NUMBER);
+    createEAttribute(fieldNameEClass, FIELD_NAME__NAME);
 
     elementEClass = createEClass(ELEMENT);
 
@@ -4584,7 +4606,6 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     variableDeclarationEClass.getESuperTypes().add(this.getStatement());
     variableDeclarationEClass.getESuperTypes().add(this.getforInClauseDecl());
     objectLiteralEClass.getESuperTypes().add(this.getexprOrObjectLiteral());
-    identiEClass.getESuperTypes().add(this.getfieldName());
     identiEClass.getESuperTypes().add(this.getpropertyIdentifier());
     identiEClass.getESuperTypes().add(this.getcatchBlock());
     identiEClass.getESuperTypes().add(this.getforInClauseDecl());
@@ -4769,7 +4790,9 @@ public class AS3PackageImpl extends EPackageImpl implements AS3Package
     initEReference(getliteralField_El(), this.getelement(), null, "el", null, 0, 1, literalField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fieldNameEClass, fieldName.class, "fieldName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getfieldName_Identi(), this.getidenti(), null, "identi", null, 0, 1, fieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getfieldName_Number(), ecorePackage.getEString(), "number", null, 0, 1, fieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getfieldName_Name(), ecorePackage.getEString(), "name", null, 0, 1, fieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementEClass, element.class, "element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

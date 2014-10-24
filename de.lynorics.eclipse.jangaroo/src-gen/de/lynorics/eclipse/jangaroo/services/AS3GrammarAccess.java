@@ -1637,25 +1637,37 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	public class FieldNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fieldName");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cIdentiParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final Assignment cIdentiAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cIdentiIdentiParserRuleCall_0_0 = (RuleCall)cIdentiAssignment_0.eContents().get(0);
 		private final Assignment cNumberAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
 		private final RuleCall cNumberNumberParserRuleCall_1_0 = (RuleCall)cNumberAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final RuleCall cNameSTRINGTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
 		//fieldName:
-		//	identi | number=number;
+		//	identi=identi | number=number | name=STRING;
 		public ParserRule getRule() { return rule; }
 
-		//identi | number=number
+		//identi=identi | number=number | name=STRING
 		public Alternatives getAlternatives() { return cAlternatives; }
 
+		//identi=identi
+		public Assignment getIdentiAssignment_0() { return cIdentiAssignment_0; }
+
 		//identi
-		public RuleCall getIdentiParserRuleCall_0() { return cIdentiParserRuleCall_0; }
+		public RuleCall getIdentiIdentiParserRuleCall_0_0() { return cIdentiIdentiParserRuleCall_0_0; }
 
 		//number=number
 		public Assignment getNumberAssignment_1() { return cNumberAssignment_1; }
 
 		//number
 		public RuleCall getNumberNumberParserRuleCall_1_0() { return cNumberNumberParserRuleCall_1_0; }
+
+		//name=STRING
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_2_0() { return cNameSTRINGTerminalRuleCall_2_0; }
 	}
 
 	public class ElementElements extends AbstractParserRuleElementFinder {
@@ -5351,145 +5363,274 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getPROTECTEDProtectedKeyword_3_0() { return cPROTECTEDProtectedKeyword_3_0; }
 	}
 	
-	private ModelElements pModel;
-	private PackageElements pPackage;
-	private ImportsElements pImports;
-	private ImportElements pImport;
-	private DirectiveElements pDirective;
-	private AnnotationElements pAnnotation;
-	private UsesElements pUses;
-	private AnnotationFieldsElements pAnnotationFields;
-	private AnnotationFieldElements pAnnotationField;
-	private QualifiedNameWithWildcardElements pQualifiedNameWithWildcard;
-	private QualifiedNameElements pQualifiedName;
-	private InterfaceElements pInterface;
-	private InterfaceMethodElements pInterfaceMethod;
-	private FunctionExpressionElements pFunctionExpression;
-	private FunctionCommonElements pFunctionCommon;
-	private ClassElements pClass;
-	private AccessorRoleElements pAccessorRole;
-	private MemberElements pMember;
-	private MethodElements pMethod;
-	private ModifierElements pModifier;
-	private AccessLevelElements unknownRuleAccessLevel;
-	private MethodBodyElements pMethodBody;
-	private MemberVariableDeclarationElements pMemberVariableDeclaration;
-	private VariableDeclarationElements pVariableDeclaration;
-	private ParameterElements pParameter;
-	private ObjectLiteralElements pObjectLiteral;
-	private FieldListElements pFieldList;
-	private LiteralFieldElements pLiteralField;
-	private FieldNameElements pFieldName;
-	private ElementElements pElement;
-	private ExprOrObjectLiteralElements pExprOrObjectLiteral;
-	private QualifiedIdentElements pQualifiedIdent;
-	private IdentiElements pIdenti;
-	private IdentifierElements pIdentifier;
-	private PropertyIdentifierElements pPropertyIdentifier;
-	private QualifierElements pQualifier;
-	private SimpleQualifiedIdentifierElements pSimpleQualifiedIdentifier;
-	private ExpressionQualifiedIdentifierElements pExpressionQualifiedIdentifier;
-	private NonAttributeQualifiedIdentifierElements pNonAttributeQualifiedIdentifier;
-	private QualifiedIdentifierElements pQualifiedIdentifier;
-	private NamespaceNameElements pNamespaceName;
-	private ArrayLiteralElements pArrayLiteral;
-	private ElementListElements pElementList;
-	private NonemptyElementListElements pNonemptyElementList;
-	private ExpressionElements pExpression;
-	private ExpressionListElements pExpressionList;
-	private AssignmentExpressionElements pAssignmentExpression;
-	private AssignmentOperatorElements pAssignmentOperator;
-	private ConditionalExpressionElements pConditionalExpression;
-	private ConditionalSubExpressionElements pConditionalSubExpression;
-	private LogicalOrExpressionElements pLogicalOrExpression;
-	private LogicalOrOperatorElements pLogicalOrOperator;
-	private LogicalAndExpressionElements pLogicalAndExpression;
-	private LogicalAndOperatorElements pLogicalAndOperator;
-	private BitwiseOrExpressionElements pBitwiseOrExpression;
-	private BitwiseXorExpressionElements pBitwiseXorExpression;
-	private BitwiseAndExpressionElements pBitwiseAndExpression;
-	private EqualityExpressionElements pEqualityExpression;
-	private EqualityOperatorElements pEqualityOperator;
-	private RelationalExpressionElements pRelationalExpression;
-	private RelationalOperatorElements pRelationalOperator;
-	private ShiftExpressionElements pShiftExpression;
-	private ShiftOperatorElements pShiftOperator;
-	private AdditiveExpressionElements pAdditiveExpression;
-	private AdditiveOperatorElements pAdditiveOperator;
-	private MultiplicativeExpressionElements pMultiplicativeExpression;
-	private MultiplicativeOperatorElements pMultiplicativeOperator;
-	private UnaryExpressionElements pUnaryExpression;
-	private UnaryExpressionNotPlusMinusElements pUnaryExpressionNotPlusMinus;
-	private PostfixExpressionElements pPostfixExpression;
-	private ArgumentsElements pArguments;
-	private E4xAttributeIdentifierElements pE4xAttributeIdentifier;
-	private PrimaryExpressionElements pPrimaryExpression;
-	private PropOrIdentElements pPropOrIdent;
-	private TerminalExpressionElements pTerminalExpression;
-	private NumberElements pNumber;
-	private XmlLiteralElements pXmlLiteral;
-	private RegexpLiteralElements pRegexpLiteral;
-	private NewExpressionElements pNewExpression;
-	private FullNewSubexpressionElements pFullNewSubexpression;
-	private BracketsElements pBrackets;
-	private EncapsulatedExpressionElements pEncapsulatedExpression;
-	private FunctionSignatureElements pFunctionSignature;
-	private TypeExpressionElements pTypeExpression;
-	private ParameterDeclarationListElements pParameterDeclarationList;
-	private ParameterDeclarationElements pParameterDeclaration;
-	private BasicParameterDeclarationElements pBasicParameterDeclaration;
-	private ParameterDefaultElements pParameterDefault;
-	private ParameterRestDeclarationElements pParameterRestDeclaration;
-	private BlockElements pBlock;
-	private ConditionElements pCondition;
-	private StatementElements pStatement;
-	private DefaultXMLNamespaceStatementElements pDefaultXMLNamespaceStatement;
-	private ExpressionStatementElements pExpressionStatement;
-	private IfStatementElements pIfStatement;
-	private ThrowStatementElements pThrowStatement;
-	private TryStatementElements pTryStatement;
-	private CatchBlockElements pCatchBlock;
-	private FinallyBlockElements pFinallyBlock;
-	private ReturnStatementElements pReturnStatement;
-	private ContinueStatementElements pContinueStatement;
-	private BreakStatementElements pBreakStatement;
-	private SwitchStatementElements pSwitchStatement;
-	private SwitchBlockElements pSwitchBlock;
-	private CaseStatementElements pCaseStatement;
-	private DefaultStatementElements pDefaultStatement;
-	private SwitchStatementListElements pSwitchStatementList;
-	private ForEachStatementElements pForEachStatement;
-	private ForStatementElements pForStatement;
-	private TraditionalForClauseElements pTraditionalForClause;
-	private ForInClauseElements pForInClause;
-	private ForInClauseDeclElements pForInClauseDecl;
-	private ForInClauseTailElements pForInClauseTail;
-	private ForInitElements pForInit;
-	private ForCondElements pForCond;
-	private ForIterElements pForIter;
-	private WhileStatementElements pWhileStatement;
-	private DoWhileStatementElements pDoWhileStatement;
-	private WithStatementElements pWithStatement;
-	private TerminalRule tHEX_LITERAL;
-	private TerminalRule tOCTAL;
-	private TerminalRule tFLOAT;
-	private TerminalRule tID;
-	private TerminalRule tINT;
-	private TerminalRule tSTRING;
-	private TerminalRule tML_COMMENT;
-	private TerminalRule tSL_COMMENT;
-	private TerminalRule tWS;
-	private TerminalRule tANY_OTHER;
+	private final ModelElements pModel;
+	private final PackageElements pPackage;
+	private final ImportsElements pImports;
+	private final ImportElements pImport;
+	private final DirectiveElements pDirective;
+	private final AnnotationElements pAnnotation;
+	private final UsesElements pUses;
+	private final AnnotationFieldsElements pAnnotationFields;
+	private final AnnotationFieldElements pAnnotationField;
+	private final QualifiedNameWithWildcardElements pQualifiedNameWithWildcard;
+	private final QualifiedNameElements pQualifiedName;
+	private final InterfaceElements pInterface;
+	private final InterfaceMethodElements pInterfaceMethod;
+	private final FunctionExpressionElements pFunctionExpression;
+	private final FunctionCommonElements pFunctionCommon;
+	private final ClassElements pClass;
+	private final AccessorRoleElements pAccessorRole;
+	private final MemberElements pMember;
+	private final MethodElements pMethod;
+	private final ModifierElements pModifier;
+	private final AccessLevelElements unknownRuleAccessLevel;
+	private final MethodBodyElements pMethodBody;
+	private final MemberVariableDeclarationElements pMemberVariableDeclaration;
+	private final VariableDeclarationElements pVariableDeclaration;
+	private final ParameterElements pParameter;
+	private final ObjectLiteralElements pObjectLiteral;
+	private final FieldListElements pFieldList;
+	private final LiteralFieldElements pLiteralField;
+	private final FieldNameElements pFieldName;
+	private final ElementElements pElement;
+	private final ExprOrObjectLiteralElements pExprOrObjectLiteral;
+	private final QualifiedIdentElements pQualifiedIdent;
+	private final IdentiElements pIdenti;
+	private final IdentifierElements pIdentifier;
+	private final PropertyIdentifierElements pPropertyIdentifier;
+	private final QualifierElements pQualifier;
+	private final SimpleQualifiedIdentifierElements pSimpleQualifiedIdentifier;
+	private final ExpressionQualifiedIdentifierElements pExpressionQualifiedIdentifier;
+	private final NonAttributeQualifiedIdentifierElements pNonAttributeQualifiedIdentifier;
+	private final QualifiedIdentifierElements pQualifiedIdentifier;
+	private final NamespaceNameElements pNamespaceName;
+	private final ArrayLiteralElements pArrayLiteral;
+	private final ElementListElements pElementList;
+	private final NonemptyElementListElements pNonemptyElementList;
+	private final ExpressionElements pExpression;
+	private final ExpressionListElements pExpressionList;
+	private final AssignmentExpressionElements pAssignmentExpression;
+	private final AssignmentOperatorElements pAssignmentOperator;
+	private final ConditionalExpressionElements pConditionalExpression;
+	private final ConditionalSubExpressionElements pConditionalSubExpression;
+	private final LogicalOrExpressionElements pLogicalOrExpression;
+	private final LogicalOrOperatorElements pLogicalOrOperator;
+	private final LogicalAndExpressionElements pLogicalAndExpression;
+	private final LogicalAndOperatorElements pLogicalAndOperator;
+	private final BitwiseOrExpressionElements pBitwiseOrExpression;
+	private final BitwiseXorExpressionElements pBitwiseXorExpression;
+	private final BitwiseAndExpressionElements pBitwiseAndExpression;
+	private final EqualityExpressionElements pEqualityExpression;
+	private final EqualityOperatorElements pEqualityOperator;
+	private final RelationalExpressionElements pRelationalExpression;
+	private final RelationalOperatorElements pRelationalOperator;
+	private final ShiftExpressionElements pShiftExpression;
+	private final ShiftOperatorElements pShiftOperator;
+	private final AdditiveExpressionElements pAdditiveExpression;
+	private final AdditiveOperatorElements pAdditiveOperator;
+	private final MultiplicativeExpressionElements pMultiplicativeExpression;
+	private final MultiplicativeOperatorElements pMultiplicativeOperator;
+	private final UnaryExpressionElements pUnaryExpression;
+	private final UnaryExpressionNotPlusMinusElements pUnaryExpressionNotPlusMinus;
+	private final PostfixExpressionElements pPostfixExpression;
+	private final ArgumentsElements pArguments;
+	private final E4xAttributeIdentifierElements pE4xAttributeIdentifier;
+	private final PrimaryExpressionElements pPrimaryExpression;
+	private final PropOrIdentElements pPropOrIdent;
+	private final TerminalExpressionElements pTerminalExpression;
+	private final NumberElements pNumber;
+	private final XmlLiteralElements pXmlLiteral;
+	private final RegexpLiteralElements pRegexpLiteral;
+	private final NewExpressionElements pNewExpression;
+	private final FullNewSubexpressionElements pFullNewSubexpression;
+	private final BracketsElements pBrackets;
+	private final EncapsulatedExpressionElements pEncapsulatedExpression;
+	private final FunctionSignatureElements pFunctionSignature;
+	private final TypeExpressionElements pTypeExpression;
+	private final ParameterDeclarationListElements pParameterDeclarationList;
+	private final ParameterDeclarationElements pParameterDeclaration;
+	private final BasicParameterDeclarationElements pBasicParameterDeclaration;
+	private final ParameterDefaultElements pParameterDefault;
+	private final ParameterRestDeclarationElements pParameterRestDeclaration;
+	private final BlockElements pBlock;
+	private final ConditionElements pCondition;
+	private final StatementElements pStatement;
+	private final DefaultXMLNamespaceStatementElements pDefaultXMLNamespaceStatement;
+	private final ExpressionStatementElements pExpressionStatement;
+	private final IfStatementElements pIfStatement;
+	private final ThrowStatementElements pThrowStatement;
+	private final TryStatementElements pTryStatement;
+	private final CatchBlockElements pCatchBlock;
+	private final FinallyBlockElements pFinallyBlock;
+	private final ReturnStatementElements pReturnStatement;
+	private final ContinueStatementElements pContinueStatement;
+	private final BreakStatementElements pBreakStatement;
+	private final SwitchStatementElements pSwitchStatement;
+	private final SwitchBlockElements pSwitchBlock;
+	private final CaseStatementElements pCaseStatement;
+	private final DefaultStatementElements pDefaultStatement;
+	private final SwitchStatementListElements pSwitchStatementList;
+	private final ForEachStatementElements pForEachStatement;
+	private final ForStatementElements pForStatement;
+	private final TraditionalForClauseElements pTraditionalForClause;
+	private final ForInClauseElements pForInClause;
+	private final ForInClauseDeclElements pForInClauseDecl;
+	private final ForInClauseTailElements pForInClauseTail;
+	private final ForInitElements pForInit;
+	private final ForCondElements pForCond;
+	private final ForIterElements pForIter;
+	private final WhileStatementElements pWhileStatement;
+	private final DoWhileStatementElements pDoWhileStatement;
+	private final WithStatementElements pWithStatement;
+	private final TerminalRule tHEX_LITERAL;
+	private final TerminalRule tOCTAL;
+	private final TerminalRule tFLOAT;
+	private final TerminalRule tID;
+	private final TerminalRule tINT;
+	private final TerminalRule tSTRING;
+	private final TerminalRule tML_COMMENT;
+	private final TerminalRule tSL_COMMENT;
+	private final TerminalRule tWS;
+	private final TerminalRule tANY_OTHER;
 	
 	private final Grammar grammar;
 
-	private TerminalsGrammarAccess gaTerminals;
+	private final TerminalsGrammarAccess gaTerminals;
 
 	@Inject
 	public AS3GrammarAccess(GrammarProvider grammarProvider,
 		TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
+		this.pModel = new ModelElements();
+		this.pPackage = new PackageElements();
+		this.pImports = new ImportsElements();
+		this.pImport = new ImportElements();
+		this.pDirective = new DirectiveElements();
+		this.pAnnotation = new AnnotationElements();
+		this.pUses = new UsesElements();
+		this.pAnnotationFields = new AnnotationFieldsElements();
+		this.pAnnotationField = new AnnotationFieldElements();
+		this.pQualifiedNameWithWildcard = new QualifiedNameWithWildcardElements();
+		this.pQualifiedName = new QualifiedNameElements();
+		this.pInterface = new InterfaceElements();
+		this.pInterfaceMethod = new InterfaceMethodElements();
+		this.pFunctionExpression = new FunctionExpressionElements();
+		this.pFunctionCommon = new FunctionCommonElements();
+		this.pClass = new ClassElements();
+		this.pAccessorRole = new AccessorRoleElements();
+		this.pMember = new MemberElements();
+		this.pMethod = new MethodElements();
+		this.pModifier = new ModifierElements();
+		this.unknownRuleAccessLevel = new AccessLevelElements();
+		this.pMethodBody = new MethodBodyElements();
+		this.pMemberVariableDeclaration = new MemberVariableDeclarationElements();
+		this.pVariableDeclaration = new VariableDeclarationElements();
+		this.pParameter = new ParameterElements();
+		this.pObjectLiteral = new ObjectLiteralElements();
+		this.pFieldList = new FieldListElements();
+		this.pLiteralField = new LiteralFieldElements();
+		this.pFieldName = new FieldNameElements();
+		this.pElement = new ElementElements();
+		this.pExprOrObjectLiteral = new ExprOrObjectLiteralElements();
+		this.pQualifiedIdent = new QualifiedIdentElements();
+		this.pIdenti = new IdentiElements();
+		this.pIdentifier = new IdentifierElements();
+		this.pPropertyIdentifier = new PropertyIdentifierElements();
+		this.pQualifier = new QualifierElements();
+		this.pSimpleQualifiedIdentifier = new SimpleQualifiedIdentifierElements();
+		this.pExpressionQualifiedIdentifier = new ExpressionQualifiedIdentifierElements();
+		this.pNonAttributeQualifiedIdentifier = new NonAttributeQualifiedIdentifierElements();
+		this.pQualifiedIdentifier = new QualifiedIdentifierElements();
+		this.pNamespaceName = new NamespaceNameElements();
+		this.pArrayLiteral = new ArrayLiteralElements();
+		this.pElementList = new ElementListElements();
+		this.pNonemptyElementList = new NonemptyElementListElements();
+		this.pExpression = new ExpressionElements();
+		this.pExpressionList = new ExpressionListElements();
+		this.pAssignmentExpression = new AssignmentExpressionElements();
+		this.pAssignmentOperator = new AssignmentOperatorElements();
+		this.pConditionalExpression = new ConditionalExpressionElements();
+		this.pConditionalSubExpression = new ConditionalSubExpressionElements();
+		this.pLogicalOrExpression = new LogicalOrExpressionElements();
+		this.pLogicalOrOperator = new LogicalOrOperatorElements();
+		this.pLogicalAndExpression = new LogicalAndExpressionElements();
+		this.pLogicalAndOperator = new LogicalAndOperatorElements();
+		this.pBitwiseOrExpression = new BitwiseOrExpressionElements();
+		this.pBitwiseXorExpression = new BitwiseXorExpressionElements();
+		this.pBitwiseAndExpression = new BitwiseAndExpressionElements();
+		this.pEqualityExpression = new EqualityExpressionElements();
+		this.pEqualityOperator = new EqualityOperatorElements();
+		this.pRelationalExpression = new RelationalExpressionElements();
+		this.pRelationalOperator = new RelationalOperatorElements();
+		this.pShiftExpression = new ShiftExpressionElements();
+		this.pShiftOperator = new ShiftOperatorElements();
+		this.pAdditiveExpression = new AdditiveExpressionElements();
+		this.pAdditiveOperator = new AdditiveOperatorElements();
+		this.pMultiplicativeExpression = new MultiplicativeExpressionElements();
+		this.pMultiplicativeOperator = new MultiplicativeOperatorElements();
+		this.pUnaryExpression = new UnaryExpressionElements();
+		this.pUnaryExpressionNotPlusMinus = new UnaryExpressionNotPlusMinusElements();
+		this.pPostfixExpression = new PostfixExpressionElements();
+		this.pArguments = new ArgumentsElements();
+		this.pE4xAttributeIdentifier = new E4xAttributeIdentifierElements();
+		this.pPrimaryExpression = new PrimaryExpressionElements();
+		this.pPropOrIdent = new PropOrIdentElements();
+		this.pTerminalExpression = new TerminalExpressionElements();
+		this.pNumber = new NumberElements();
+		this.pXmlLiteral = new XmlLiteralElements();
+		this.pRegexpLiteral = new RegexpLiteralElements();
+		this.pNewExpression = new NewExpressionElements();
+		this.pFullNewSubexpression = new FullNewSubexpressionElements();
+		this.pBrackets = new BracketsElements();
+		this.pEncapsulatedExpression = new EncapsulatedExpressionElements();
+		this.pFunctionSignature = new FunctionSignatureElements();
+		this.pTypeExpression = new TypeExpressionElements();
+		this.pParameterDeclarationList = new ParameterDeclarationListElements();
+		this.pParameterDeclaration = new ParameterDeclarationElements();
+		this.pBasicParameterDeclaration = new BasicParameterDeclarationElements();
+		this.pParameterDefault = new ParameterDefaultElements();
+		this.pParameterRestDeclaration = new ParameterRestDeclarationElements();
+		this.pBlock = new BlockElements();
+		this.pCondition = new ConditionElements();
+		this.pStatement = new StatementElements();
+		this.pDefaultXMLNamespaceStatement = new DefaultXMLNamespaceStatementElements();
+		this.pExpressionStatement = new ExpressionStatementElements();
+		this.pIfStatement = new IfStatementElements();
+		this.pThrowStatement = new ThrowStatementElements();
+		this.pTryStatement = new TryStatementElements();
+		this.pCatchBlock = new CatchBlockElements();
+		this.pFinallyBlock = new FinallyBlockElements();
+		this.pReturnStatement = new ReturnStatementElements();
+		this.pContinueStatement = new ContinueStatementElements();
+		this.pBreakStatement = new BreakStatementElements();
+		this.pSwitchStatement = new SwitchStatementElements();
+		this.pSwitchBlock = new SwitchBlockElements();
+		this.pCaseStatement = new CaseStatementElements();
+		this.pDefaultStatement = new DefaultStatementElements();
+		this.pSwitchStatementList = new SwitchStatementListElements();
+		this.pForEachStatement = new ForEachStatementElements();
+		this.pForStatement = new ForStatementElements();
+		this.pTraditionalForClause = new TraditionalForClauseElements();
+		this.pForInClause = new ForInClauseElements();
+		this.pForInClauseDecl = new ForInClauseDeclElements();
+		this.pForInClauseTail = new ForInClauseTailElements();
+		this.pForInit = new ForInitElements();
+		this.pForCond = new ForCondElements();
+		this.pForIter = new ForIterElements();
+		this.pWhileStatement = new WhileStatementElements();
+		this.pDoWhileStatement = new DoWhileStatementElements();
+		this.pWithStatement = new WithStatementElements();
+		this.tHEX_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "HEX_LITERAL");
+		this.tOCTAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "OCTAL");
+		this.tFLOAT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "FLOAT");
+		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ID");
+		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT");
+		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STRING");
+		this.tML_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ML_COMMENT");
+		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "SL_COMMENT");
+		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS");
+		this.tANY_OTHER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ANY_OTHER");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -5523,7 +5664,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//	package=Package | imp=Imports members+=(Method | InterfaceMethod | MemberVariableDeclaration)* classes+=(Class |
 	//	Interface)*;
 	public ModelElements getModelAccess() {
-		return (pModel != null) ? pModel : (pModel = new ModelElements());
+		return pModel;
 	}
 	
 	public ParserRule getModelRule() {
@@ -5534,7 +5675,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//	"package" name=QualifiedName? "{" imp=Imports directives+=directive* members+=(Method | InterfaceMethod |
 	//	MemberVariableDeclaration)* classes+=(Class | Interface)* "}";
 	public PackageElements getPackageAccess() {
-		return (pPackage != null) ? pPackage : (pPackage = new PackageElements());
+		return pPackage;
 	}
 	
 	public ParserRule getPackageRule() {
@@ -5544,7 +5685,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//Imports:
 	//	{Imports} imports+=Import*;
 	public ImportsElements getImportsAccess() {
-		return (pImports != null) ? pImports : (pImports = new ImportsElements());
+		return pImports;
 	}
 	
 	public ParserRule getImportsRule() {
@@ -5554,7 +5695,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//Import:
 	//	"import" importedNamespace=QualifiedNameWithWildcard ";";
 	public ImportElements getImportAccess() {
-		return (pImport != null) ? pImport : (pImport = new ImportElements());
+		return pImport;
 	}
 	
 	public ParserRule getImportRule() {
@@ -5564,7 +5705,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//directive:
 	//	{directive} (uses=Uses | ";");
 	public DirectiveElements getDirectiveAccess() {
-		return (pDirective != null) ? pDirective : (pDirective = new DirectiveElements());
+		return pDirective;
 	}
 	
 	public ParserRule getDirectiveRule() {
@@ -5574,7 +5715,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//Annotation:
 	//	"[" name=ID ("(" annonFields=annotationFields ")")? "]";
 	public AnnotationElements getAnnotationAccess() {
-		return (pAnnotation != null) ? pAnnotation : (pAnnotation = new AnnotationElements());
+		return pAnnotation;
 	}
 	
 	public ParserRule getAnnotationRule() {
@@ -5584,7 +5725,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//Uses:
 	//	{Uses} "use" "namespace" (type=QualifiedName | anytype="*" | anytype="void");
 	public UsesElements getUsesAccess() {
-		return (pUses != null) ? pUses : (pUses = new UsesElements());
+		return pUses;
 	}
 	
 	public ParserRule getUsesRule() {
@@ -5594,7 +5735,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//annotationFields:
 	//	annonFields+=annotationField ("," annonFields+=annotationField)*;
 	public AnnotationFieldsElements getAnnotationFieldsAccess() {
-		return (pAnnotationFields != null) ? pAnnotationFields : (pAnnotationFields = new AnnotationFieldsElements());
+		return pAnnotationFields;
 	}
 	
 	public ParserRule getAnnotationFieldsRule() {
@@ -5604,7 +5745,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//annotationField:
 	//	name=(ID | STRING) ("=" expr=Expression)?;
 	public AnnotationFieldElements getAnnotationFieldAccess() {
-		return (pAnnotationField != null) ? pAnnotationField : (pAnnotationField = new AnnotationFieldElements());
+		return pAnnotationField;
 	}
 	
 	public ParserRule getAnnotationFieldRule() {
@@ -5614,7 +5755,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//QualifiedNameWithWildcard:
 	//	QualifiedName ".*"?;
 	public QualifiedNameWithWildcardElements getQualifiedNameWithWildcardAccess() {
-		return (pQualifiedNameWithWildcard != null) ? pQualifiedNameWithWildcard : (pQualifiedNameWithWildcard = new QualifiedNameWithWildcardElements());
+		return pQualifiedNameWithWildcard;
 	}
 	
 	public ParserRule getQualifiedNameWithWildcardRule() {
@@ -5624,7 +5765,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//QualifiedName:
 	//	ID ("." ID)*;
 	public QualifiedNameElements getQualifiedNameAccess() {
-		return (pQualifiedName != null) ? pQualifiedName : (pQualifiedName = new QualifiedNameElements());
+		return pQualifiedName;
 	}
 	
 	public ParserRule getQualifiedNameRule() {
@@ -5635,7 +5776,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//	annotations+=Annotation* access=AccessLevel? ("interface" name=ID ("extends" superclass=[Interface|QualifiedName])?
 	//	"{" members+=InterfaceMethod* "}");
 	public InterfaceElements getInterfaceAccess() {
-		return (pInterface != null) ? pInterface : (pInterface = new InterfaceElements());
+		return pInterface;
 	}
 	
 	public ParserRule getInterfaceRule() {
@@ -5647,7 +5788,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//	params+=Parameter)*)? ")" (":" (anytype="void" | anytype="*" | type=[Interface|QualifiedName] |
 	//	type=[Class|QualifiedName]))? ";"?);
 	public InterfaceMethodElements getInterfaceMethodAccess() {
-		return (pInterfaceMethod != null) ? pInterfaceMethod : (pInterfaceMethod = new InterfaceMethodElements());
+		return pInterfaceMethod;
 	}
 	
 	public ParserRule getInterfaceMethodRule() {
@@ -5658,7 +5799,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// functionExpression:
 	//	"function" name=ID? func=functionCommon;
 	public FunctionExpressionElements getFunctionExpressionAccess() {
-		return (pFunctionExpression != null) ? pFunctionExpression : (pFunctionExpression = new FunctionExpressionElements());
+		return pFunctionExpression;
 	}
 	
 	public ParserRule getFunctionExpressionRule() {
@@ -5669,7 +5810,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// functionCommon:
 	//	sig=functionSignature block=Block;
 	public FunctionCommonElements getFunctionCommonAccess() {
-		return (pFunctionCommon != null) ? pFunctionCommon : (pFunctionCommon = new FunctionCommonElements());
+		return pFunctionCommon;
 	}
 	
 	public ParserRule getFunctionCommonRule() {
@@ -5680,7 +5821,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//	annotations+=Annotation* modifier=Modifier? ("class" name=ID ("extends" superclass=[Class|QualifiedName])?
 	//	("implements" types+=[Interface|QualifiedName] ("," types+=[Interface|QualifiedName])*)? "{" members+=Member* "}");
 	public ClassElements getClassAccess() {
-		return (pClass != null) ? pClass : (pClass = new ClassElements());
+		return pClass;
 	}
 	
 	public ParserRule getClassRule() {
@@ -5690,7 +5831,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//AccessorRole:
 	//	accessor=ID;
 	public AccessorRoleElements getAccessorRoleAccess() {
-		return (pAccessorRole != null) ? pAccessorRole : (pAccessorRole = new AccessorRoleElements());
+		return pAccessorRole;
 	}
 	
 	public ParserRule getAccessorRoleRule() {
@@ -5700,7 +5841,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//Member:
 	//	var=MemberVariableDeclaration | meth=Method;
 	public MemberElements getMemberAccess() {
-		return (pMember != null) ? pMember : (pMember = new MemberElements());
+		return pMember;
 	}
 	
 	public ParserRule getMemberRule() {
@@ -5712,7 +5853,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//	(params+=Parameter ("," params+=Parameter)*)? ")" (":" (anytype="void" | anytype="*" | type=[Interface|QualifiedName]
 	//	| type=[Class|QualifiedName]))? (body=Block | ";"));
 	public MethodElements getMethodAccess() {
-		return (pMethod != null) ? pMethod : (pMethod = new MethodElements());
+		return pMethod;
 	}
 	
 	public ParserRule getMethodRule() {
@@ -5722,7 +5863,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//Modifier:
 	//	{Modifier} (static?="static"? & final?="final"? & native?="native"? & dynamic?="dynamic"? & access=AccessLevel?);
 	public ModifierElements getModifierAccess() {
-		return (pModifier != null) ? pModifier : (pModifier = new ModifierElements());
+		return pModifier;
 	}
 	
 	public ParserRule getModifierRule() {
@@ -5732,7 +5873,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//enum AccessLevel:
 	//	INTERNAL="internal" | PRIVATE="private" | PUBLIC="public" | PROTECTED="protected";
 	public AccessLevelElements getAccessLevelAccess() {
-		return (unknownRuleAccessLevel != null) ? unknownRuleAccessLevel : (unknownRuleAccessLevel = new AccessLevelElements());
+		return unknownRuleAccessLevel;
 	}
 	
 	public EnumRule getAccessLevelRule() {
@@ -5742,7 +5883,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//MethodBody:
 	//	{MethodBody} "{" statements+=Statement* "}";
 	public MethodBodyElements getMethodBodyAccess() {
-		return (pMethodBody != null) ? pMethodBody : (pMethodBody = new MethodBodyElements());
+		return pMethodBody;
 	}
 	
 	public ParserRule getMethodBodyRule() {
@@ -5754,7 +5895,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//	annotations+=Annotation* modifier=Modifier? ("var" | "const") name=ID (":" (anytype="void" | anytype="*" |
 	//	type=[Interface|QualifiedName] | type=[Class|QualifiedName]))? ("=" Expression=assignmentExpression)? ";";
 	public MemberVariableDeclarationElements getMemberVariableDeclarationAccess() {
-		return (pMemberVariableDeclaration != null) ? pMemberVariableDeclaration : (pMemberVariableDeclaration = new MemberVariableDeclarationElements());
+		return pMemberVariableDeclaration;
 	}
 	
 	public ParserRule getMemberVariableDeclarationRule() {
@@ -5765,7 +5906,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//	("var" | "const") name=ID (":" (anytype="void" | anytype="*" | type=[Interface|QualifiedName] |
 	//	type=[Class|QualifiedName]))? ("=" Expression=assignmentExpression)?;
 	public VariableDeclarationElements getVariableDeclarationAccess() {
-		return (pVariableDeclaration != null) ? pVariableDeclaration : (pVariableDeclaration = new VariableDeclarationElements());
+		return pVariableDeclaration;
 	}
 	
 	public ParserRule getVariableDeclarationRule() {
@@ -5776,7 +5917,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//	"const"? "..."? name=ID (":" (anytype="void" | anytype="*" | type=[Interface|QualifiedName] |
 	//	type=[Class|QualifiedName]))? ("=" lit=exprOrObjectLiteral)?;
 	public ParameterElements getParameterAccess() {
-		return (pParameter != null) ? pParameter : (pParameter = new ParameterElements());
+		return pParameter;
 	}
 	
 	public ParserRule getParameterRule() {
@@ -5786,7 +5927,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//objectLiteral:
 	//	{objectLiteral} "{" fields+=fieldList? "}";
 	public ObjectLiteralElements getObjectLiteralAccess() {
-		return (pObjectLiteral != null) ? pObjectLiteral : (pObjectLiteral = new ObjectLiteralElements());
+		return pObjectLiteral;
 	}
 	
 	public ParserRule getObjectLiteralRule() {
@@ -5796,7 +5937,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//fieldList:
 	//	lf=literalField ("," fields+=literalField?)*;
 	public FieldListElements getFieldListAccess() {
-		return (pFieldList != null) ? pFieldList : (pFieldList = new FieldListElements());
+		return pFieldList;
 	}
 	
 	public ParserRule getFieldListRule() {
@@ -5806,7 +5947,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//literalField:
 	//	name=fieldName ":" el=element;
 	public LiteralFieldElements getLiteralFieldAccess() {
-		return (pLiteralField != null) ? pLiteralField : (pLiteralField = new LiteralFieldElements());
+		return pLiteralField;
 	}
 	
 	public ParserRule getLiteralFieldRule() {
@@ -5814,9 +5955,9 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//fieldName:
-	//	identi | number=number;
+	//	identi=identi | number=number | name=STRING;
 	public FieldNameElements getFieldNameAccess() {
-		return (pFieldName != null) ? pFieldName : (pFieldName = new FieldNameElements());
+		return pFieldName;
 	}
 	
 	public ParserRule getFieldNameRule() {
@@ -5826,7 +5967,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//element:
 	//	assignmentExpression;
 	public ElementElements getElementAccess() {
-		return (pElement != null) ? pElement : (pElement = new ElementElements());
+		return pElement;
 	}
 	
 	public ParserRule getElementRule() {
@@ -5836,7 +5977,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//exprOrObjectLiteral:
 	//	Expression | objectLiteral;
 	public ExprOrObjectLiteralElements getExprOrObjectLiteralAccess() {
-		return (pExprOrObjectLiteral != null) ? pExprOrObjectLiteral : (pExprOrObjectLiteral = new ExprOrObjectLiteralElements());
+		return pExprOrObjectLiteral;
 	}
 	
 	public ParserRule getExprOrObjectLiteralRule() {
@@ -5846,7 +5987,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//qualifiedIdent:
 	//	(namespaceName "::")? ide=identi;
 	public QualifiedIdentElements getQualifiedIdentAccess() {
-		return (pQualifiedIdent != null) ? pQualifiedIdent : (pQualifiedIdent = new QualifiedIdentElements());
+		return pQualifiedIdent;
 	}
 	
 	public ParserRule getQualifiedIdentRule() {
@@ -5862,7 +6003,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// //  | i='namespace'
 	// | i="xml" | i="is" | i="as";
 	public IdentiElements getIdentiAccess() {
-		return (pIdenti != null) ? pIdenti : (pIdenti = new IdentiElements());
+		return pIdenti;
 	}
 	
 	public ParserRule getIdentiRule() {
@@ -5872,7 +6013,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//identifier:
 	//	qual=qualifiedIdent poi+=propOrIdent*;
 	public IdentifierElements getIdentifierAccess() {
-		return (pIdentifier != null) ? pIdentifier : (pIdentifier = new IdentifierElements());
+		return pIdentifier;
 	}
 	
 	public ParserRule getIdentifierRule() {
@@ -5882,7 +6023,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//propertyIdentifier:
 	//	{propertyIdentifier} "*" | identi;
 	public PropertyIdentifierElements getPropertyIdentifierAccess() {
-		return (pPropertyIdentifier != null) ? pPropertyIdentifier : (pPropertyIdentifier = new PropertyIdentifierElements());
+		return pPropertyIdentifier;
 	}
 	
 	public ParserRule getPropertyIdentifierRule() {
@@ -5892,7 +6033,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//qualifier:
 	//	propertyIdentifier | level=AccessLevel;
 	public QualifierElements getQualifierAccess() {
-		return (pQualifier != null) ? pQualifier : (pQualifier = new QualifierElements());
+		return pQualifier;
 	}
 	
 	public ParserRule getQualifierRule() {
@@ -5902,7 +6043,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//simpleQualifiedIdentifier:
 	//	proId=propertyIdentifier | qual=qualifier "::" (piden=propertyIdentifier | bra=brackets);
 	public SimpleQualifiedIdentifierElements getSimpleQualifiedIdentifierAccess() {
-		return (pSimpleQualifiedIdentifier != null) ? pSimpleQualifiedIdentifier : (pSimpleQualifiedIdentifier = new SimpleQualifiedIdentifierElements());
+		return pSimpleQualifiedIdentifier;
 	}
 	
 	public ParserRule getSimpleQualifiedIdentifierRule() {
@@ -5912,7 +6053,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//expressionQualifiedIdentifier:
 	//	encapsulatedExpression "::" (pden=propertyIdentifier | bra=brackets);
 	public ExpressionQualifiedIdentifierElements getExpressionQualifiedIdentifierAccess() {
-		return (pExpressionQualifiedIdentifier != null) ? pExpressionQualifiedIdentifier : (pExpressionQualifiedIdentifier = new ExpressionQualifiedIdentifierElements());
+		return pExpressionQualifiedIdentifier;
 	}
 	
 	public ParserRule getExpressionQualifiedIdentifierRule() {
@@ -5922,7 +6063,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//nonAttributeQualifiedIdentifier:
 	//	simpleQualifiedIdentifier | expressionQualifiedIdentifier;
 	public NonAttributeQualifiedIdentifierElements getNonAttributeQualifiedIdentifierAccess() {
-		return (pNonAttributeQualifiedIdentifier != null) ? pNonAttributeQualifiedIdentifier : (pNonAttributeQualifiedIdentifier = new NonAttributeQualifiedIdentifierElements());
+		return pNonAttributeQualifiedIdentifier;
 	}
 	
 	public ParserRule getNonAttributeQualifiedIdentifierRule() {
@@ -5932,7 +6073,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//qualifiedIdentifier:
 	//	e4xAttributeIdentifier | nonAttributeQualifiedIdentifier;
 	public QualifiedIdentifierElements getQualifiedIdentifierAccess() {
-		return (pQualifiedIdentifier != null) ? pQualifiedIdentifier : (pQualifiedIdentifier = new QualifiedIdentifierElements());
+		return pQualifiedIdentifier;
 	}
 	
 	public ParserRule getQualifiedIdentifierRule() {
@@ -5942,7 +6083,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//namespaceName:
 	//	{namespaceName} QualifiedName | level=AccessLevel;
 	public NamespaceNameElements getNamespaceNameAccess() {
-		return (pNamespaceName != null) ? pNamespaceName : (pNamespaceName = new NamespaceNameElements());
+		return pNamespaceName;
 	}
 	
 	public ParserRule getNamespaceNameRule() {
@@ -5952,7 +6093,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//arrayLiteral:
 	//	{arrayLiteral} "[" list=elementList? "]";
 	public ArrayLiteralElements getArrayLiteralAccess() {
-		return (pArrayLiteral != null) ? pArrayLiteral : (pArrayLiteral = new ArrayLiteralElements());
+		return pArrayLiteral;
 	}
 	
 	public ParserRule getArrayLiteralRule() {
@@ -5962,7 +6103,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//elementList:
 	//	{elementList} "," | nonemptyElementList;
 	public ElementListElements getElementListAccess() {
-		return (pElementList != null) ? pElementList : (pElementList = new ElementListElements());
+		return pElementList;
 	}
 	
 	public ParserRule getElementListRule() {
@@ -5972,7 +6113,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//nonemptyElementList:
 	//	assignmentExpression ("," expr+=assignmentExpression)*;
 	public NonemptyElementListElements getNonemptyElementListAccess() {
-		return (pNonemptyElementList != null) ? pNonemptyElementList : (pNonemptyElementList = new NonemptyElementListElements());
+		return pNonemptyElementList;
 	}
 	
 	public ParserRule getNonemptyElementListRule() {
@@ -5983,7 +6124,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// Expression:
 	//	assignmentExpression;
 	public ExpressionElements getExpressionAccess() {
-		return (pExpression != null) ? pExpression : (pExpression = new ExpressionElements());
+		return pExpression;
 	}
 	
 	public ParserRule getExpressionRule() {
@@ -5994,7 +6135,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// expressionList:
 	//	expr+=assignmentExpression ("," expr+=assignmentExpression)*;
 	public ExpressionListElements getExpressionListAccess() {
-		return (pExpressionList != null) ? pExpressionList : (pExpressionList = new ExpressionListElements());
+		return pExpressionList;
 	}
 	
 	public ParserRule getExpressionListRule() {
@@ -6005,7 +6146,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// assignmentExpression:
 	//	conditionalExpression (op+=assignmentOperator aexpr+=Expression?)*;
 	public AssignmentExpressionElements getAssignmentExpressionAccess() {
-		return (pAssignmentExpression != null) ? pAssignmentExpression : (pAssignmentExpression = new AssignmentExpressionElements());
+		return pAssignmentExpression;
 	}
 	
 	public ParserRule getAssignmentExpressionRule() {
@@ -6015,7 +6156,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//assignmentOperator:
 	//	"=" | "*=" | "/=" | "%=" | "+=" | "-=" | "<<=" | ">>=" | ">>>=" | "&=" | "^=" | "|=" | "&&=" | "||=";
 	public AssignmentOperatorElements getAssignmentOperatorAccess() {
-		return (pAssignmentOperator != null) ? pAssignmentOperator : (pAssignmentOperator = new AssignmentOperatorElements());
+		return pAssignmentOperator;
 	}
 	
 	public ParserRule getAssignmentOperatorRule() {
@@ -6026,7 +6167,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// conditionalExpression:
 	//	logicalOrExpression ("?" cond=conditionalSubExpression)?;
 	public ConditionalExpressionElements getConditionalExpressionAccess() {
-		return (pConditionalExpression != null) ? pConditionalExpression : (pConditionalExpression = new ConditionalExpressionElements());
+		return pConditionalExpression;
 	}
 	
 	public ParserRule getConditionalExpressionRule() {
@@ -6036,7 +6177,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//conditionalSubExpression:
 	//	expr1=assignmentExpression ":" expr2=assignmentExpression;
 	public ConditionalSubExpressionElements getConditionalSubExpressionAccess() {
-		return (pConditionalSubExpression != null) ? pConditionalSubExpression : (pConditionalSubExpression = new ConditionalSubExpressionElements());
+		return pConditionalSubExpression;
 	}
 	
 	public ParserRule getConditionalSubExpressionRule() {
@@ -6048,7 +6189,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// logicalOrExpression:
 	//	expr+=logicalAndExpression (o+=logicalOrOperator expr+=logicalAndExpression)*;
 	public LogicalOrExpressionElements getLogicalOrExpressionAccess() {
-		return (pLogicalOrExpression != null) ? pLogicalOrExpression : (pLogicalOrExpression = new LogicalOrExpressionElements());
+		return pLogicalOrExpression;
 	}
 	
 	public ParserRule getLogicalOrExpressionRule() {
@@ -6058,7 +6199,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//logicalOrOperator:
 	//	"||" | "or";
 	public LogicalOrOperatorElements getLogicalOrOperatorAccess() {
-		return (pLogicalOrOperator != null) ? pLogicalOrOperator : (pLogicalOrOperator = new LogicalOrOperatorElements());
+		return pLogicalOrOperator;
 	}
 	
 	public ParserRule getLogicalOrOperatorRule() {
@@ -6069,7 +6210,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// logicalAndExpression:
 	//	expr+=bitwiseOrExpression (o+=logicalAndOperator expr+=bitwiseOrExpression)*;
 	public LogicalAndExpressionElements getLogicalAndExpressionAccess() {
-		return (pLogicalAndExpression != null) ? pLogicalAndExpression : (pLogicalAndExpression = new LogicalAndExpressionElements());
+		return pLogicalAndExpression;
 	}
 	
 	public ParserRule getLogicalAndExpressionRule() {
@@ -6079,7 +6220,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//logicalAndOperator:
 	//	"&&" | "and";
 	public LogicalAndOperatorElements getLogicalAndOperatorAccess() {
-		return (pLogicalAndOperator != null) ? pLogicalAndOperator : (pLogicalAndOperator = new LogicalAndOperatorElements());
+		return pLogicalAndOperator;
 	}
 	
 	public ParserRule getLogicalAndOperatorRule() {
@@ -6090,7 +6231,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// bitwiseOrExpression:
 	//	expr+=bitwiseXorExpression (o+="|" expr+=bitwiseXorExpression)*;
 	public BitwiseOrExpressionElements getBitwiseOrExpressionAccess() {
-		return (pBitwiseOrExpression != null) ? pBitwiseOrExpression : (pBitwiseOrExpression = new BitwiseOrExpressionElements());
+		return pBitwiseOrExpression;
 	}
 	
 	public ParserRule getBitwiseOrExpressionRule() {
@@ -6101,7 +6242,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// bitwiseXorExpression:
 	//	expr+=bitwiseAndExpression (o+="^" expr+=bitwiseAndExpression)*;
 	public BitwiseXorExpressionElements getBitwiseXorExpressionAccess() {
-		return (pBitwiseXorExpression != null) ? pBitwiseXorExpression : (pBitwiseXorExpression = new BitwiseXorExpressionElements());
+		return pBitwiseXorExpression;
 	}
 	
 	public ParserRule getBitwiseXorExpressionRule() {
@@ -6112,7 +6253,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// bitwiseAndExpression:
 	//	expr+=equalityExpression (o+="&" expr+=equalityExpression)*;
 	public BitwiseAndExpressionElements getBitwiseAndExpressionAccess() {
-		return (pBitwiseAndExpression != null) ? pBitwiseAndExpression : (pBitwiseAndExpression = new BitwiseAndExpressionElements());
+		return pBitwiseAndExpression;
 	}
 	
 	public ParserRule getBitwiseAndExpressionRule() {
@@ -6123,7 +6264,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// equalityExpression:
 	//	expr+=relationalExpression (o+=equalityOperator expr+=relationalExpression)*;
 	public EqualityExpressionElements getEqualityExpressionAccess() {
-		return (pEqualityExpression != null) ? pEqualityExpression : (pEqualityExpression = new EqualityExpressionElements());
+		return pEqualityExpression;
 	}
 	
 	public ParserRule getEqualityExpressionRule() {
@@ -6133,7 +6274,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//equalityOperator:
 	//	"===" | "!==" | "!=" | "==";
 	public EqualityOperatorElements getEqualityOperatorAccess() {
-		return (pEqualityOperator != null) ? pEqualityOperator : (pEqualityOperator = new EqualityOperatorElements());
+		return pEqualityOperator;
 	}
 	
 	public ParserRule getEqualityOperatorRule() {
@@ -6144,7 +6285,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// relationalExpression:
 	//	expr+=shiftExpression (o+=relationalOperator expr+=shiftExpression)*;
 	public RelationalExpressionElements getRelationalExpressionAccess() {
-		return (pRelationalExpression != null) ? pRelationalExpression : (pRelationalExpression = new RelationalExpressionElements());
+		return pRelationalExpression;
 	}
 	
 	public ParserRule getRelationalExpressionRule() {
@@ -6154,7 +6295,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//relationalOperator:
 	//	"in" | "<" | ">" | "<=" | ">=" | "is" | "as" | "instanceof";
 	public RelationalOperatorElements getRelationalOperatorAccess() {
-		return (pRelationalOperator != null) ? pRelationalOperator : (pRelationalOperator = new RelationalOperatorElements());
+		return pRelationalOperator;
 	}
 	
 	public ParserRule getRelationalOperatorRule() {
@@ -6165,7 +6306,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// shiftExpression:
 	//	expr+=additiveExpression (o+=shiftOperator expr+=additiveExpression)*;
 	public ShiftExpressionElements getShiftExpressionAccess() {
-		return (pShiftExpression != null) ? pShiftExpression : (pShiftExpression = new ShiftExpressionElements());
+		return pShiftExpression;
 	}
 	
 	public ParserRule getShiftExpressionRule() {
@@ -6175,7 +6316,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//shiftOperator:
 	//	"<<" | ">>" | ">>>";
 	public ShiftOperatorElements getShiftOperatorAccess() {
-		return (pShiftOperator != null) ? pShiftOperator : (pShiftOperator = new ShiftOperatorElements());
+		return pShiftOperator;
 	}
 	
 	public ParserRule getShiftOperatorRule() {
@@ -6186,7 +6327,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// additiveExpression:
 	//	expr+=multiplicativeExpression (o+=additiveOperator expr+=multiplicativeExpression)*;
 	public AdditiveExpressionElements getAdditiveExpressionAccess() {
-		return (pAdditiveExpression != null) ? pAdditiveExpression : (pAdditiveExpression = new AdditiveExpressionElements());
+		return pAdditiveExpression;
 	}
 	
 	public ParserRule getAdditiveExpressionRule() {
@@ -6196,7 +6337,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//additiveOperator:
 	//	"+" | "-";
 	public AdditiveOperatorElements getAdditiveOperatorAccess() {
-		return (pAdditiveOperator != null) ? pAdditiveOperator : (pAdditiveOperator = new AdditiveOperatorElements());
+		return pAdditiveOperator;
 	}
 	
 	public ParserRule getAdditiveOperatorRule() {
@@ -6207,7 +6348,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// multiplicativeExpression:
 	//	expr+=unaryExpression (o+=multiplicativeOperator expr+=unaryExpression)*;
 	public MultiplicativeExpressionElements getMultiplicativeExpressionAccess() {
-		return (pMultiplicativeExpression != null) ? pMultiplicativeExpression : (pMultiplicativeExpression = new MultiplicativeExpressionElements());
+		return pMultiplicativeExpression;
 	}
 	
 	public ParserRule getMultiplicativeExpressionRule() {
@@ -6217,7 +6358,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//multiplicativeOperator:
 	//	"*" | "/" | "%";
 	public MultiplicativeOperatorElements getMultiplicativeOperatorAccess() {
-		return (pMultiplicativeOperator != null) ? pMultiplicativeOperator : (pMultiplicativeOperator = new MultiplicativeOperatorElements());
+		return pMultiplicativeOperator;
 	}
 	
 	public ParserRule getMultiplicativeOperatorRule() {
@@ -6229,7 +6370,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//	in="++" expr=unaryExpression | de="--" expr=unaryExpression | "-" uaem=unaryExpression | "+" uaep=unaryExpression |
 	//	uaenpm=unaryExpressionNotPlusMinus;
 	public UnaryExpressionElements getUnaryExpressionAccess() {
-		return (pUnaryExpression != null) ? pUnaryExpression : (pUnaryExpression = new UnaryExpressionElements());
+		return pUnaryExpression;
 	}
 	
 	public ParserRule getUnaryExpressionRule() {
@@ -6240,7 +6381,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//	"delete" postfixExpression | "void" unaryExpression | "typeof" unaryExpression | "!" unaryExpression | "~"
 	//	unaryExpression | postfixExpression;
 	public UnaryExpressionNotPlusMinusElements getUnaryExpressionNotPlusMinusAccess() {
-		return (pUnaryExpressionNotPlusMinus != null) ? pUnaryExpressionNotPlusMinus : (pUnaryExpressionNotPlusMinus = new UnaryExpressionNotPlusMinusElements());
+		return pUnaryExpressionNotPlusMinus;
 	}
 	
 	public ParserRule getUnaryExpressionNotPlusMinusRule() {
@@ -6253,7 +6394,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//	pewi+=qualifiedIdentifier | "." "(" expr+=Expression ")" | "." e4x+=e4xAttributeIdentifier | "." "*" |
 	//	args+=arguments)* (in="++" | de="--")?);
 	public PostfixExpressionElements getPostfixExpressionAccess() {
-		return (pPostfixExpression != null) ? pPostfixExpression : (pPostfixExpression = new PostfixExpressionElements());
+		return pPostfixExpression;
 	}
 	
 	public ParserRule getPostfixExpressionRule() {
@@ -6263,7 +6404,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//arguments:
 	//	{arguments} ("(" exprList=expressionList ")" | "(" ")");
 	public ArgumentsElements getArgumentsAccess() {
-		return (pArguments != null) ? pArguments : (pArguments = new ArgumentsElements());
+		return pArguments;
 	}
 	
 	public ParserRule getArgumentsRule() {
@@ -6273,7 +6414,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//e4xAttributeIdentifier:
 	//	{e4xAttributeIdentifier} "@" (qual=qualifiedIdent | "*" | "[" expr=Expression "]");
 	public E4xAttributeIdentifierElements getE4xAttributeIdentifierAccess() {
-		return (pE4xAttributeIdentifier != null) ? pE4xAttributeIdentifier : (pE4xAttributeIdentifier = new E4xAttributeIdentifierElements());
+		return pE4xAttributeIdentifier;
 	}
 	
 	public ParserRule getE4xAttributeIdentifierRule() {
@@ -6285,7 +6426,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//	lit=objectLiteral | fexpr=functionExpression | nexpr=newExpression | encexpr=encapsulatedExpression |
 	//	e4x=e4xAttributeIdentifier | qual=qualifiedIdent);
 	public PrimaryExpressionElements getPrimaryExpressionAccess() {
-		return (pPrimaryExpression != null) ? pPrimaryExpression : (pPrimaryExpression = new PrimaryExpressionElements());
+		return pPrimaryExpression;
 	}
 	
 	public ParserRule getPrimaryExpressionRule() {
@@ -6295,7 +6436,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//propOrIdent:
 	//	"." propId=qualifiedIdent;
 	public PropOrIdentElements getPropOrIdentAccess() {
-		return (pPropOrIdent != null) ? pPropOrIdent : (pPropOrIdent = new PropOrIdentElements());
+		return pPropOrIdent;
 	}
 	
 	public ParserRule getPropOrIdentRule() {
@@ -6309,7 +6450,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//	symbol=[Class] | symbol=[Interface] | symbol=[Method] | symbol=[InterfaceMethod] |
 	//	symbol=[basicParameterDeclaration]);
 	public TerminalExpressionElements getTerminalExpressionAccess() {
-		return (pTerminalExpression != null) ? pTerminalExpression : (pTerminalExpression = new TerminalExpressionElements());
+		return pTerminalExpression;
 	}
 	
 	public ParserRule getTerminalExpressionRule() {
@@ -6319,7 +6460,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//number:
 	//	HEX_LITERAL | INT | OCTAL | FLOAT;
 	public NumberElements getNumberAccess() {
-		return (pNumber != null) ? pNumber : (pNumber = new NumberElements());
+		return pNumber;
 	}
 	
 	public ParserRule getNumberRule() {
@@ -6332,7 +6473,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// // should be used.
 	// "<";
 	public XmlLiteralElements getXmlLiteralAccess() {
-		return (pXmlLiteral != null) ? pXmlLiteral : (pXmlLiteral = new XmlLiteralElements());
+		return pXmlLiteral;
 	}
 	
 	public ParserRule getXmlLiteralRule() {
@@ -6342,7 +6483,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//regexpLiteral:
 	//	s="/";
 	public RegexpLiteralElements getRegexpLiteralAccess() {
-		return (pRegexpLiteral != null) ? pRegexpLiteral : (pRegexpLiteral = new RegexpLiteralElements());
+		return pRegexpLiteral;
 	}
 	
 	public ParserRule getRegexpLiteralRule() {
@@ -6353,7 +6494,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// newExpression:
 	//	"new" (type=[Interface|QualifiedName] | type=[Class|QualifiedName]) args+=arguments?;
 	public NewExpressionElements getNewExpressionAccess() {
-		return (pNewExpression != null) ? pNewExpression : (pNewExpression = new NewExpressionElements());
+		return pNewExpression;
 	}
 	
 	public ParserRule getNewExpressionRule() {
@@ -6363,7 +6504,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//fullNewSubexpression:
 	//	expr+=primaryExpression (fnsd+="." quali+=qualifiedIdent | brack+=brackets)*;
 	public FullNewSubexpressionElements getFullNewSubexpressionAccess() {
-		return (pFullNewSubexpression != null) ? pFullNewSubexpression : (pFullNewSubexpression = new FullNewSubexpressionElements());
+		return pFullNewSubexpression;
 	}
 	
 	public ParserRule getFullNewSubexpressionRule() {
@@ -6373,7 +6514,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//brackets:
 	//	"[" expressionList "]";
 	public BracketsElements getBracketsAccess() {
-		return (pBrackets != null) ? pBrackets : (pBrackets = new BracketsElements());
+		return pBrackets;
 	}
 	
 	public ParserRule getBracketsRule() {
@@ -6383,7 +6524,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//encapsulatedExpression:
 	//	"(" assignmentExpression ")";
 	public EncapsulatedExpressionElements getEncapsulatedExpressionAccess() {
-		return (pEncapsulatedExpression != null) ? pEncapsulatedExpression : (pEncapsulatedExpression = new EncapsulatedExpressionElements());
+		return pEncapsulatedExpression;
 	}
 	
 	public ParserRule getEncapsulatedExpressionRule() {
@@ -6393,7 +6534,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//functionSignature:
 	//	param=parameterDeclarationList type=typeExpression?;
 	public FunctionSignatureElements getFunctionSignatureAccess() {
-		return (pFunctionSignature != null) ? pFunctionSignature : (pFunctionSignature = new FunctionSignatureElements());
+		return pFunctionSignature;
 	}
 	
 	public ParserRule getFunctionSignatureRule() {
@@ -6406,7 +6547,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// | "*" |
 	//	identi=[Interface|QualifiedName] | identi=[Class|QualifiedName]);
 	public TypeExpressionElements getTypeExpressionAccess() {
-		return (pTypeExpression != null) ? pTypeExpression : (pTypeExpression = new TypeExpressionElements());
+		return pTypeExpression;
 	}
 	
 	public ParserRule getTypeExpressionRule() {
@@ -6423,7 +6564,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// //    )?
 	// ")";
 	public ParameterDeclarationListElements getParameterDeclarationListAccess() {
-		return (pParameterDeclarationList != null) ? pParameterDeclarationList : (pParameterDeclarationList = new ParameterDeclarationListElements());
+		return pParameterDeclarationList;
 	}
 	
 	public ParserRule getParameterDeclarationListRule() {
@@ -6433,7 +6574,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//parameterDeclaration:
 	//	basicParameterDeclaration | parameterRestDeclaration;
 	public ParameterDeclarationElements getParameterDeclarationAccess() {
-		return (pParameterDeclaration != null) ? pParameterDeclaration : (pParameterDeclaration = new ParameterDeclarationElements());
+		return pParameterDeclaration;
 	}
 	
 	public ParserRule getParameterDeclarationRule() {
@@ -6443,7 +6584,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//basicParameterDeclaration:
 	//	"const"? name=identi type=typeExpression? param=parameterDefault?;
 	public BasicParameterDeclarationElements getBasicParameterDeclarationAccess() {
-		return (pBasicParameterDeclaration != null) ? pBasicParameterDeclaration : (pBasicParameterDeclaration = new BasicParameterDeclarationElements());
+		return pBasicParameterDeclaration;
 	}
 	
 	public ParserRule getBasicParameterDeclarationRule() {
@@ -6453,7 +6594,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//parameterDefault:
 	//	"=" assignmentExpression;
 	public ParameterDefaultElements getParameterDefaultAccess() {
-		return (pParameterDefault != null) ? pParameterDefault : (pParameterDefault = new ParameterDefaultElements());
+		return pParameterDefault;
 	}
 	
 	public ParserRule getParameterDefaultRule() {
@@ -6463,7 +6604,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//parameterRestDeclaration:
 	//	{parameterRestDeclaration} "..." name=identi?;
 	public ParameterRestDeclarationElements getParameterRestDeclarationAccess() {
-		return (pParameterRestDeclaration != null) ? pParameterRestDeclaration : (pParameterRestDeclaration = new ParameterRestDeclarationElements());
+		return pParameterRestDeclaration;
 	}
 	
 	public ParserRule getParameterRestDeclarationRule() {
@@ -6473,7 +6614,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//Block:
 	//	{Block} "{" statements+=Statement* "}";
 	public BlockElements getBlockAccess() {
-		return (pBlock != null) ? pBlock : (pBlock = new BlockElements());
+		return pBlock;
 	}
 	
 	public ParserRule getBlockRule() {
@@ -6483,7 +6624,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//Condition:
 	//	"(" Expression ")";
 	public ConditionElements getConditionAccess() {
-		return (pCondition != null) ? pCondition : (pCondition = new ConditionElements());
+		return pCondition;
 	}
 	
 	public ParserRule getConditionRule() {
@@ -6511,7 +6652,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//	DoWhileStatement | WithStatement | SwitchStatement | BreakStatement | ContinueStatement | ReturnStatement |
 	//	ThrowStatement | TryStatement | DefaultXMLNamespaceStatement | ";" | "assert" assert=Condition;
 	public StatementElements getStatementAccess() {
-		return (pStatement != null) ? pStatement : (pStatement = new StatementElements());
+		return pStatement;
 	}
 	
 	public ParserRule getStatementRule() {
@@ -6521,7 +6662,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//DefaultXMLNamespaceStatement:
 	//	"default" "xml" "namespace" "assign" Expression ";";
 	public DefaultXMLNamespaceStatementElements getDefaultXMLNamespaceStatementAccess() {
-		return (pDefaultXMLNamespaceStatement != null) ? pDefaultXMLNamespaceStatement : (pDefaultXMLNamespaceStatement = new DefaultXMLNamespaceStatementElements());
+		return pDefaultXMLNamespaceStatement;
 	}
 	
 	public ParserRule getDefaultXMLNamespaceStatementRule() {
@@ -6533,7 +6674,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//  ;* / ExpressionStatement:
 	//	expressionList;
 	public ExpressionStatementElements getExpressionStatementAccess() {
-		return (pExpressionStatement != null) ? pExpressionStatement : (pExpressionStatement = new ExpressionStatementElements());
+		return pExpressionStatement;
 	}
 	
 	public ParserRule getExpressionStatementRule() {
@@ -6543,7 +6684,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//IfStatement:
 	//	"if" cond=Condition statement=Statement ("else" else=Statement)?;
 	public IfStatementElements getIfStatementAccess() {
-		return (pIfStatement != null) ? pIfStatement : (pIfStatement = new IfStatementElements());
+		return pIfStatement;
 	}
 	
 	public ParserRule getIfStatementRule() {
@@ -6553,7 +6694,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//ThrowStatement:
 	//	"throw" Expression;
 	public ThrowStatementElements getThrowStatementAccess() {
-		return (pThrowStatement != null) ? pThrowStatement : (pThrowStatement = new ThrowStatementElements());
+		return pThrowStatement;
 	}
 	
 	public ParserRule getThrowStatementRule() {
@@ -6563,7 +6704,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//TryStatement:
 	//	"try" block=Block (finally=finallyBlock | catch+=catchBlock+ finally=finallyBlock?);
 	public TryStatementElements getTryStatementAccess() {
-		return (pTryStatement != null) ? pTryStatement : (pTryStatement = new TryStatementElements());
+		return pTryStatement;
 	}
 	
 	public ParserRule getTryStatementRule() {
@@ -6573,7 +6714,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//catchBlock:
 	//	"catch" "(" identi type=typeExpression? ")" block=Block;
 	public CatchBlockElements getCatchBlockAccess() {
-		return (pCatchBlock != null) ? pCatchBlock : (pCatchBlock = new CatchBlockElements());
+		return pCatchBlock;
 	}
 	
 	public ParserRule getCatchBlockRule() {
@@ -6583,7 +6724,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//finallyBlock:
 	//	"finally" Block;
 	public FinallyBlockElements getFinallyBlockAccess() {
-		return (pFinallyBlock != null) ? pFinallyBlock : (pFinallyBlock = new FinallyBlockElements());
+		return pFinallyBlock;
 	}
 	
 	public ParserRule getFinallyBlockRule() {
@@ -6593,7 +6734,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//ReturnStatement:
 	//	{ReturnStatement} "return" expr=Expression?;
 	public ReturnStatementElements getReturnStatementAccess() {
-		return (pReturnStatement != null) ? pReturnStatement : (pReturnStatement = new ReturnStatementElements());
+		return pReturnStatement;
 	}
 	
 	public ParserRule getReturnStatementRule() {
@@ -6603,7 +6744,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//ContinueStatement:
 	//	"continue";
 	public ContinueStatementElements getContinueStatementAccess() {
-		return (pContinueStatement != null) ? pContinueStatement : (pContinueStatement = new ContinueStatementElements());
+		return pContinueStatement;
 	}
 	
 	public ParserRule getContinueStatementRule() {
@@ -6613,7 +6754,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//BreakStatement:
 	//	"break";
 	public BreakStatementElements getBreakStatementAccess() {
-		return (pBreakStatement != null) ? pBreakStatement : (pBreakStatement = new BreakStatementElements());
+		return pBreakStatement;
 	}
 	
 	public ParserRule getBreakStatementRule() {
@@ -6623,7 +6764,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//SwitchStatement:
 	//	"switch" Condition switch=switchBlock;
 	public SwitchStatementElements getSwitchStatementAccess() {
-		return (pSwitchStatement != null) ? pSwitchStatement : (pSwitchStatement = new SwitchStatementElements());
+		return pSwitchStatement;
 	}
 	
 	public ParserRule getSwitchStatementRule() {
@@ -6633,7 +6774,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//switchBlock:
 	//	{switchBlock} "{" case+=CaseStatement* def=DefaultStatement? "}";
 	public SwitchBlockElements getSwitchBlockAccess() {
-		return (pSwitchBlock != null) ? pSwitchBlock : (pSwitchBlock = new SwitchBlockElements());
+		return pSwitchBlock;
 	}
 	
 	public ParserRule getSwitchBlockRule() {
@@ -6643,7 +6784,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//CaseStatement:
 	//	"case" Expression ":" l=switchStatementList;
 	public CaseStatementElements getCaseStatementAccess() {
-		return (pCaseStatement != null) ? pCaseStatement : (pCaseStatement = new CaseStatementElements());
+		return pCaseStatement;
 	}
 	
 	public ParserRule getCaseStatementRule() {
@@ -6653,7 +6794,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//DefaultStatement:
 	//	"default" ":" l=switchStatementList;
 	public DefaultStatementElements getDefaultStatementAccess() {
-		return (pDefaultStatement != null) ? pDefaultStatement : (pDefaultStatement = new DefaultStatementElements());
+		return pDefaultStatement;
 	}
 	
 	public ParserRule getDefaultStatementRule() {
@@ -6663,7 +6804,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//switchStatementList:
 	//	{switchStatementList} statements+=Statement*;
 	public SwitchStatementListElements getSwitchStatementListAccess() {
-		return (pSwitchStatementList != null) ? pSwitchStatementList : (pSwitchStatementList = new SwitchStatementListElements());
+		return pSwitchStatementList;
 	}
 	
 	public ParserRule getSwitchStatementListRule() {
@@ -6673,7 +6814,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//ForEachStatement:
 	//	"for" "each" "(" fesfor=forInClause ")" fes=Statement;
 	public ForEachStatementElements getForEachStatementAccess() {
-		return (pForEachStatement != null) ? pForEachStatement : (pForEachStatement = new ForEachStatementElements());
+		return pForEachStatement;
 	}
 	
 	public ParserRule getForEachStatementRule() {
@@ -6684,7 +6825,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//	"for" "(" (forIn=forInClause ")" fsstate=Statement | traditionalForClause=traditionalForClause ")"
 	//	fsstate=Statement);
 	public ForStatementElements getForStatementAccess() {
-		return (pForStatement != null) ? pForStatement : (pForStatement = new ForStatementElements());
+		return pForStatement;
 	}
 	
 	public ParserRule getForStatementRule() {
@@ -6697,7 +6838,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// ";" c= // updater
 	// forIter;
 	public TraditionalForClauseElements getTraditionalForClauseAccess() {
-		return (pTraditionalForClause != null) ? pTraditionalForClause : (pTraditionalForClause = new TraditionalForClauseElements());
+		return pTraditionalForClause;
 	}
 	
 	public ParserRule getTraditionalForClauseRule() {
@@ -6707,7 +6848,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//forInClause:
 	//	ficdecl=forInClauseDecl "in" fictail=forInClauseTail;
 	public ForInClauseElements getForInClauseAccess() {
-		return (pForInClause != null) ? pForInClause : (pForInClause = new ForInClauseElements());
+		return pForInClause;
 	}
 	
 	public ParserRule getForInClauseRule() {
@@ -6717,7 +6858,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//forInClauseDecl:
 	//	VariableDeclaration | identi;
 	public ForInClauseDeclElements getForInClauseDeclAccess() {
-		return (pForInClauseDecl != null) ? pForInClauseDecl : (pForInClauseDecl = new ForInClauseDeclElements());
+		return pForInClauseDecl;
 	}
 	
 	public ParserRule getForInClauseDeclRule() {
@@ -6727,7 +6868,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//forInClauseTail:
 	//	expressionList;
 	public ForInClauseTailElements getForInClauseTailAccess() {
-		return (pForInClauseTail != null) ? pForInClauseTail : (pForInClauseTail = new ForInClauseTailElements());
+		return pForInClauseTail;
 	}
 	
 	public ParserRule getForInClauseTailRule() {
@@ -6738,7 +6879,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	// forInit:
 	//	{forInit} (decl=VariableDeclaration | expr=expressionList)?;
 	public ForInitElements getForInitAccess() {
-		return (pForInit != null) ? pForInit : (pForInit = new ForInitElements());
+		return pForInit;
 	}
 	
 	public ParserRule getForInitRule() {
@@ -6748,7 +6889,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//forCond:
 	//	{forCond} expr=expressionList?;
 	public ForCondElements getForCondAccess() {
-		return (pForCond != null) ? pForCond : (pForCond = new ForCondElements());
+		return pForCond;
 	}
 	
 	public ParserRule getForCondRule() {
@@ -6758,7 +6899,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//forIter:
 	//	{forIter} fiexpr=expressionList?;
 	public ForIterElements getForIterAccess() {
-		return (pForIter != null) ? pForIter : (pForIter = new ForIterElements());
+		return pForIter;
 	}
 	
 	public ParserRule getForIterRule() {
@@ -6768,7 +6909,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//WhileStatement:
 	//	"while" cond=Condition statement=Statement;
 	public WhileStatementElements getWhileStatementAccess() {
-		return (pWhileStatement != null) ? pWhileStatement : (pWhileStatement = new WhileStatementElements());
+		return pWhileStatement;
 	}
 	
 	public ParserRule getWhileStatementRule() {
@@ -6778,7 +6919,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//DoWhileStatement:
 	//	"do" state=Statement "while" cond=Condition ";";
 	public DoWhileStatementElements getDoWhileStatementAccess() {
-		return (pDoWhileStatement != null) ? pDoWhileStatement : (pDoWhileStatement = new DoWhileStatementElements());
+		return pDoWhileStatement;
 	}
 	
 	public ParserRule getDoWhileStatementRule() {
@@ -6788,7 +6929,7 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//WithStatement:
 	//	"with" cond=Condition statement=Statement;
 	public WithStatementElements getWithStatementAccess() {
-		return (pWithStatement != null) ? pWithStatement : (pWithStatement = new WithStatementElements());
+		return pWithStatement;
 	}
 	
 	public ParserRule getWithStatementRule() {
@@ -6798,61 +6939,61 @@ public class AS3GrammarAccess extends AbstractGrammarElementFinder {
 	//terminal HEX_LITERAL returns ecore::EBigDecimal:
 	//	"0x" ("0".."9" | "A".."F")+;
 	public TerminalRule getHEX_LITERALRule() {
-		return (tHEX_LITERAL != null) ? tHEX_LITERAL : (tHEX_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "HEX_LITERAL"));
+		return tHEX_LITERAL;
 	} 
 
 	//terminal OCTAL returns ecore::EBigDecimal:
 	//	"0" "0".."7"+;
 	public TerminalRule getOCTALRule() {
-		return (tOCTAL != null) ? tOCTAL : (tOCTAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "OCTAL"));
+		return tOCTAL;
 	} 
 
 	//terminal FLOAT returns ecore::EBigDecimal:
 	//	"0".."9"* "." "0".."9"+;
 	public TerminalRule getFLOATRule() {
-		return (tFLOAT != null) ? tFLOAT : (tFLOAT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "FLOAT"));
+		return tFLOAT;
 	} 
 
 	//terminal ID:
 	//	"^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;
 	public TerminalRule getIDRule() {
-		return (tID != null) ? tID : (tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ID"));
+		return tID;
 	} 
 
 	//terminal INT returns ecore::EInt:
 	//	"0".."9"+;
 	public TerminalRule getINTRule() {
-		return (tINT != null) ? tINT : (tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT"));
+		return tINT;
 	} 
 
 	//terminal STRING:
 	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\" | "/") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" |
 	//	"t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\" | "/") | !("\\" | "\'"))* "\'";
 	public TerminalRule getSTRINGRule() {
-		return (tSTRING != null) ? tSTRING : (tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STRING"));
+		return tSTRING;
 	} 
 
 	//terminal ML_COMMENT:
 	//	"/ *"->"* /";
 	public TerminalRule getML_COMMENTRule() {
-		return (tML_COMMENT != null) ? tML_COMMENT : (tML_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ML_COMMENT"));
+		return tML_COMMENT;
 	} 
 
 	//terminal SL_COMMENT:
 	//	"//" !("\n" | "\r")* ("\r"? "\n")?;
 	public TerminalRule getSL_COMMENTRule() {
-		return (tSL_COMMENT != null) ? tSL_COMMENT : (tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "SL_COMMENT"));
+		return tSL_COMMENT;
 	} 
 
 	//terminal WS:
 	//	(" " | "\t" | "\r" | "\n")+;
 	public TerminalRule getWSRule() {
-		return (tWS != null) ? tWS : (tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS"));
+		return tWS;
 	} 
 
 	//terminal ANY_OTHER:
 	//	.;
 	public TerminalRule getANY_OTHERRule() {
-		return (tANY_OTHER != null) ? tANY_OTHER : (tANY_OTHER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ANY_OTHER"));
+		return tANY_OTHER;
 	} 
 }

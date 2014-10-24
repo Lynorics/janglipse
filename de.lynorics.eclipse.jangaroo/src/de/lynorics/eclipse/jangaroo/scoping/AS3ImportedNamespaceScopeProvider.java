@@ -79,6 +79,10 @@ public class AS3ImportedNamespaceScopeProvider extends
                 ), true, ignoreCase
               )
 		    );
+		    // add <package>.config
+		    ImportNormalizer resolver = createImportedNamespaceResolver(file.getPackage().getName()+".config", ignoreCase);
+		      if (resolver != null)
+			        importedNamespaceResolvers.add(resolver);
 		  }
 		return importedNamespaceResolvers;
 	}

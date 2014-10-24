@@ -1292,13 +1292,31 @@ public interface AS3Package extends EPackage
   int FIELD_NAME = 25;
 
   /**
+   * The feature id for the '<em><b>Identi</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_NAME__IDENTI = 0;
+
+  /**
    * The feature id for the '<em><b>Number</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD_NAME__NUMBER = 0;
+  int FIELD_NAME__NUMBER = 1;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_NAME__NAME = 2;
 
   /**
    * The number of structural features of the '<em>field Name</em>' class.
@@ -1307,7 +1325,7 @@ public interface AS3Package extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME_FEATURE_COUNT = 1;
+  int FIELD_NAME_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.elementImpl <em>element</em>}' class.
@@ -1355,107 +1373,6 @@ public interface AS3Package extends EPackage
    * @ordered
    */
   int QUALIFIED_IDENT_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.identiImpl <em>identi</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.identiImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getidenti()
-   * @generated
-   */
-  int IDENTI = 29;
-
-  /**
-   * The feature id for the '<em><b>Number</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDENTI__NUMBER = FIELD_NAME__NUMBER;
-
-  /**
-   * The feature id for the '<em><b>Level</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDENTI__LEVEL = FIELD_NAME_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>I</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDENTI__I = FIELD_NAME_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDENTI__TYPE = FIELD_NAME_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDENTI__BLOCK = FIELD_NAME_FEATURE_COUNT + 3;
-
-  /**
-   * The number of structural features of the '<em>identi</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDENTI_FEATURE_COUNT = FIELD_NAME_FEATURE_COUNT + 4;
-
-  /**
-   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.identifierImpl <em>identifier</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.identifierImpl
-   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getidentifier()
-   * @generated
-   */
-  int IDENTIFIER = 30;
-
-  /**
-   * The feature id for the '<em><b>Qual</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDENTIFIER__QUAL = 0;
-
-  /**
-   * The feature id for the '<em><b>Poi</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDENTIFIER__POI = 1;
-
-  /**
-   * The number of structural features of the '<em>identifier</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDENTIFIER_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.qualifierImpl <em>qualifier</em>}' class.
@@ -1512,6 +1429,98 @@ public interface AS3Package extends EPackage
    * @ordered
    */
   int PROPERTY_IDENTIFIER_FEATURE_COUNT = QUALIFIER_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.identiImpl <em>identi</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.identiImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getidenti()
+   * @generated
+   */
+  int IDENTI = 29;
+
+  /**
+   * The feature id for the '<em><b>Level</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTI__LEVEL = PROPERTY_IDENTIFIER__LEVEL;
+
+  /**
+   * The feature id for the '<em><b>I</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTI__I = PROPERTY_IDENTIFIER_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTI__TYPE = PROPERTY_IDENTIFIER_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTI__BLOCK = PROPERTY_IDENTIFIER_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>identi</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTI_FEATURE_COUNT = PROPERTY_IDENTIFIER_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.identifierImpl <em>identifier</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.identifierImpl
+   * @see de.lynorics.eclipse.jangaroo.aS3.impl.AS3PackageImpl#getidentifier()
+   * @generated
+   */
+  int IDENTIFIER = 30;
+
+  /**
+   * The feature id for the '<em><b>Qual</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTIFIER__QUAL = 0;
+
+  /**
+   * The feature id for the '<em><b>Poi</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTIFIER__POI = 1;
+
+  /**
+   * The number of structural features of the '<em>identifier</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTIFIER_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.qualifiedIdentifierImpl <em>qualified Identifier</em>}' class.
@@ -5752,6 +5761,17 @@ public interface AS3Package extends EPackage
   EClass getfieldName();
 
   /**
+   * Returns the meta object for the containment reference '{@link de.lynorics.eclipse.jangaroo.aS3.fieldName#getIdenti <em>Identi</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Identi</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.fieldName#getIdenti()
+   * @see #getfieldName()
+   * @generated
+   */
+  EReference getfieldName_Identi();
+
+  /**
    * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.fieldName#getNumber <em>Number</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5761,6 +5781,17 @@ public interface AS3Package extends EPackage
    * @generated
    */
   EAttribute getfieldName_Number();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.lynorics.eclipse.jangaroo.aS3.fieldName#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see de.lynorics.eclipse.jangaroo.aS3.fieldName#getName()
+   * @see #getfieldName()
+   * @generated
+   */
+  EAttribute getfieldName_Name();
 
   /**
    * Returns the meta object for class '{@link de.lynorics.eclipse.jangaroo.aS3.element <em>element</em>}'.
@@ -8852,12 +8883,28 @@ public interface AS3Package extends EPackage
     EClass FIELD_NAME = eINSTANCE.getfieldName();
 
     /**
+     * The meta object literal for the '<em><b>Identi</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FIELD_NAME__IDENTI = eINSTANCE.getfieldName_Identi();
+
+    /**
      * The meta object literal for the '<em><b>Number</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute FIELD_NAME__NUMBER = eINSTANCE.getfieldName_Number();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FIELD_NAME__NAME = eINSTANCE.getfieldName_Name();
 
     /**
      * The meta object literal for the '{@link de.lynorics.eclipse.jangaroo.aS3.impl.elementImpl <em>element</em>}' class.

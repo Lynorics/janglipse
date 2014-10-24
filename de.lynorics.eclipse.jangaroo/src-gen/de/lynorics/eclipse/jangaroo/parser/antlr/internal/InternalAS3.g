@@ -2776,19 +2776,25 @@ rulefieldName returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
+((
 (
-	{ 
-	  /* */ 
-	}
-    { 
-        newCompositeNode(grammarAccess.getFieldNameAccess().getIdentiParserRuleCall_0()); 
-    }
-    this_identi_0=ruleidenti
-    { 
-        $current = $this_identi_0.current; 
-        afterParserOrEnumRuleCall();
-    }
+		{ 
+	        newCompositeNode(grammarAccess.getFieldNameAccess().getIdentiIdentiParserRuleCall_0_0()); 
+	    }
+		lv_identi_0_0=ruleidenti		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getFieldNameRule());
+	        }
+       		set(
+       			$current, 
+       			"identi",
+        		lv_identi_0_0, 
+        		"identi");
+	        afterParserOrEnumRuleCall();
+	    }
 
+)
+)
     |(
 (
 		{ 
@@ -2804,6 +2810,25 @@ rulefieldName returns [EObject current=null]
         		lv_number_1_0, 
         		"number");
 	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+    |(
+(
+		lv_name_2_0=RULE_STRING
+		{
+			newLeafNode(lv_name_2_0, grammarAccess.getFieldNameAccess().getNameSTRINGTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_2_0, 
+        		"STRING");
 	    }
 
 )

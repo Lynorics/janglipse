@@ -3,13 +3,8 @@
 package de.lynorics.eclipse.jangaroo.aS3.impl;
 
 import de.lynorics.eclipse.jangaroo.aS3.AS3Package;
-import de.lynorics.eclipse.jangaroo.aS3.AccessLevel;
 import de.lynorics.eclipse.jangaroo.aS3.Block;
-import de.lynorics.eclipse.jangaroo.aS3.catchBlock;
-import de.lynorics.eclipse.jangaroo.aS3.forInClauseDecl;
 import de.lynorics.eclipse.jangaroo.aS3.identi;
-import de.lynorics.eclipse.jangaroo.aS3.propertyIdentifier;
-import de.lynorics.eclipse.jangaroo.aS3.qualifier;
 import de.lynorics.eclipse.jangaroo.aS3.typeExpression;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -27,7 +22,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.identiImpl#getLevel <em>Level</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.identiImpl#getI <em>I</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.identiImpl#getType <em>Type</em>}</li>
  *   <li>{@link de.lynorics.eclipse.jangaroo.aS3.impl.identiImpl#getBlock <em>Block</em>}</li>
@@ -36,28 +30,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class identiImpl extends fieldNameImpl implements identi
+public class identiImpl extends propertyIdentifierImpl implements identi
 {
-  /**
-   * The default value of the '{@link #getLevel() <em>Level</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLevel()
-   * @generated
-   * @ordered
-   */
-  protected static final AccessLevel LEVEL_EDEFAULT = AccessLevel.INTERNAL;
-
-  /**
-   * The cached value of the '{@link #getLevel() <em>Level</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLevel()
-   * @generated
-   * @ordered
-   */
-  protected AccessLevel level = LEVEL_EDEFAULT;
-
   /**
    * The default value of the '{@link #getI() <em>I</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -117,29 +91,6 @@ public class identiImpl extends fieldNameImpl implements identi
   protected EClass eStaticClass()
   {
     return AS3Package.Literals.IDENTI;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AccessLevel getLevel()
-  {
-    return level;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setLevel(AccessLevel newLevel)
-  {
-    AccessLevel oldLevel = level;
-    level = newLevel == null ? LEVEL_EDEFAULT : newLevel;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AS3Package.IDENTI__LEVEL, oldLevel, level));
   }
 
   /**
@@ -289,8 +240,6 @@ public class identiImpl extends fieldNameImpl implements identi
   {
     switch (featureID)
     {
-      case AS3Package.IDENTI__LEVEL:
-        return getLevel();
       case AS3Package.IDENTI__I:
         return getI();
       case AS3Package.IDENTI__TYPE:
@@ -311,9 +260,6 @@ public class identiImpl extends fieldNameImpl implements identi
   {
     switch (featureID)
     {
-      case AS3Package.IDENTI__LEVEL:
-        setLevel((AccessLevel)newValue);
-        return;
       case AS3Package.IDENTI__I:
         setI((String)newValue);
         return;
@@ -337,9 +283,6 @@ public class identiImpl extends fieldNameImpl implements identi
   {
     switch (featureID)
     {
-      case AS3Package.IDENTI__LEVEL:
-        setLevel(LEVEL_EDEFAULT);
-        return;
       case AS3Package.IDENTI__I:
         setI(I_EDEFAULT);
         return;
@@ -363,8 +306,6 @@ public class identiImpl extends fieldNameImpl implements identi
   {
     switch (featureID)
     {
-      case AS3Package.IDENTI__LEVEL:
-        return level != LEVEL_EDEFAULT;
       case AS3Package.IDENTI__I:
         return I_EDEFAULT == null ? i != null : !I_EDEFAULT.equals(i);
       case AS3Package.IDENTI__TYPE:
@@ -381,94 +322,12 @@ public class identiImpl extends fieldNameImpl implements identi
    * @generated
    */
   @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == qualifier.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case AS3Package.IDENTI__LEVEL: return AS3Package.QUALIFIER__LEVEL;
-        default: return -1;
-      }
-    }
-    if (baseClass == propertyIdentifier.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == catchBlock.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == forInClauseDecl.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == qualifier.class)
-    {
-      switch (baseFeatureID)
-      {
-        case AS3Package.QUALIFIER__LEVEL: return AS3Package.IDENTI__LEVEL;
-        default: return -1;
-      }
-    }
-    if (baseClass == propertyIdentifier.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == catchBlock.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == forInClauseDecl.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public String toString()
   {
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (level: ");
-    result.append(level);
-    result.append(", i: ");
+    result.append(" (i: ");
     result.append(i);
     result.append(')');
     return result.toString();

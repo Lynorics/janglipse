@@ -178,7 +178,10 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="fieldName">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="identi" eType="#//identi"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="element"/>
   <eClassifiers xsi:type="ecore:EClass" name="exprOrObjectLiteral"/>
@@ -186,7 +189,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ide" eType="#//identi"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="identi" eSuperTypes="#//fieldName #//propertyIdentifier #//catchBlock #//forInClauseDecl">
+  <eClassifiers xsi:type="ecore:EClass" name="identi" eSuperTypes="#//propertyIdentifier #//catchBlock #//forInClauseDecl">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="i" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//typeExpression"
         containment="true"/>

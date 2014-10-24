@@ -392,7 +392,6 @@ public class AS3Switch<T> extends Switch<T>
       {
         identi identi = (identi)theEObject;
         T result = caseidenti(identi);
-        if (result == null) result = casefieldName(identi);
         if (result == null) result = casepropertyIdentifier(identi);
         if (result == null) result = casecatchBlock(identi);
         if (result == null) result = caseforInClauseDecl(identi);

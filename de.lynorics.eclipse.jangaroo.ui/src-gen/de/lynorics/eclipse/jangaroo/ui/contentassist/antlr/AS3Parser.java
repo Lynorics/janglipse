@@ -354,7 +354,9 @@ public class AS3Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getFieldListAccess().getFieldsAssignment_1_1(), "rule__FieldList__FieldsAssignment_1_1");
 					put(grammarAccess.getLiteralFieldAccess().getNameAssignment_0(), "rule__LiteralField__NameAssignment_0");
 					put(grammarAccess.getLiteralFieldAccess().getElAssignment_2(), "rule__LiteralField__ElAssignment_2");
+					put(grammarAccess.getFieldNameAccess().getIdentiAssignment_0(), "rule__FieldName__IdentiAssignment_0");
 					put(grammarAccess.getFieldNameAccess().getNumberAssignment_1(), "rule__FieldName__NumberAssignment_1");
+					put(grammarAccess.getFieldNameAccess().getNameAssignment_2(), "rule__FieldName__NameAssignment_2");
 					put(grammarAccess.getQualifiedIdentAccess().getIdeAssignment_1(), "rule__QualifiedIdent__IdeAssignment_1");
 					put(grammarAccess.getIdentiAccess().getIAssignment_1(), "rule__Identi__IAssignment_1");
 					put(grammarAccess.getIdentiAccess().getIAssignment_2(), "rule__Identi__IAssignment_2");

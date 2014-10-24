@@ -250,7 +250,9 @@
    <extension
          point="org.eclipse.xtext.builder.participant">
       <participant
-            class="de.lynorics.eclipse.jangaroo.ui.AS3ExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
+            class="de.lynorics.eclipse.jangaroo.ui.AS3ExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
+            fileExtensions="as"
+            >
       </participant>
    </extension>
    <extension

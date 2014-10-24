@@ -3761,15 +3761,21 @@ rule__FieldName__Alternatives
     }
 :
 (
-{ before(grammarAccess.getFieldNameAccess().getIdentiParserRuleCall_0()); }
-	ruleidenti
-{ after(grammarAccess.getFieldNameAccess().getIdentiParserRuleCall_0()); }
+{ before(grammarAccess.getFieldNameAccess().getIdentiAssignment_0()); }
+(rule__FieldName__IdentiAssignment_0)
+{ after(grammarAccess.getFieldNameAccess().getIdentiAssignment_0()); }
 )
 
     |(
 { before(grammarAccess.getFieldNameAccess().getNumberAssignment_1()); }
 (rule__FieldName__NumberAssignment_1)
 { after(grammarAccess.getFieldNameAccess().getNumberAssignment_1()); }
+)
+
+    |(
+{ before(grammarAccess.getFieldNameAccess().getNameAssignment_2()); }
+(rule__FieldName__NameAssignment_2)
+{ after(grammarAccess.getFieldNameAccess().getNameAssignment_2()); }
 )
 
 ;
@@ -20723,6 +20729,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__FieldName__IdentiAssignment_0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getFieldNameAccess().getIdentiIdentiParserRuleCall_0_0()); }
+	ruleidenti{ after(grammarAccess.getFieldNameAccess().getIdentiIdentiParserRuleCall_0_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__FieldName__NumberAssignment_1
     @init {
 		int stackSize = keepStackSize();
@@ -20731,6 +20752,21 @@ rule__FieldName__NumberAssignment_1
 (
 { before(grammarAccess.getFieldNameAccess().getNumberNumberParserRuleCall_1_0()); }
 	rulenumber{ after(grammarAccess.getFieldNameAccess().getNumberNumberParserRuleCall_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__FieldName__NameAssignment_2
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getFieldNameAccess().getNameSTRINGTerminalRuleCall_2_0()); }
+	RULE_STRING{ after(grammarAccess.getFieldNameAccess().getNameSTRINGTerminalRuleCall_2_0()); }
 )
 
 ;

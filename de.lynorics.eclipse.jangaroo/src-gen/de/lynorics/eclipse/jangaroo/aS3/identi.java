@@ -21,7 +21,7 @@ package de.lynorics.eclipse.jangaroo.aS3;
  * @model
  * @generated
  */
-public interface identi extends fieldName, propertyIdentifier, catchBlock, forInClauseDecl
+public interface identi extends propertyIdentifier, catchBlock, forInClauseDecl
 {
   /**
    * Returns the value of the '<em><b>I</b></em>' attribute.

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -19,31 +20,29 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
-				<version>2.5</version>
-				<configuration>
-					<filesets>
-						<fileset>
-							<directory>${basedir}/src-gen</directory>
-						</fileset>
-						<fileset>
-							<directory>${basedir}/xtend-gen</directory>
-						</fileset>
-						<!-- clean ui plugin as well -->
-						<fileset>
-							<directory>${basedir}/../${project.artifactId}.ui/src-gen</directory>
-						</fileset>
-						<fileset>
-							<directory>${basedir}/../${project.artifactId}.ui/xtend-gen</directory>
-						</fileset>
-						<!-- clean test fragment as well -->
-						<fileset>
-							<directory>${basedir}/../${project.artifactId}.tests/src-gen</directory>
-						</fileset>
-						<fileset>
-							<directory>${basedir}/../${project.artifactId}.tests/xtend-gen</directory>
-						</fileset>
-					</filesets>
-				</configuration>
+				<executions>
+					<execution>
+						<id>gen-clean</id>
+						<phase>clean</phase>
+						<!-- Clean up generated files in all projects -->
+						<configuration>
+							<filesets combine.children="append">
+								<fileset>
+									<directory>${basedir}/src-gen/</directory>
+								</fileset>
+								<fileset>
+									<directory>${basedir}/model/generated/</directory>
+								</fileset>
+								<fileset>
+									<directory>${basedir}/../${project.artifactId}.ui/src-gen/</directory>
+								</fileset>
+								<fileset>
+									<directory>${basedir}/../${project.artifactId}.tests/src-gen/</directory>
+								</fileset>
+							</filesets>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 
 			<plugin>
@@ -92,7 +91,8 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
