@@ -17,7 +17,7 @@ import de.lynorics.eclipse.jangaroo.AS3InjectorProvider;
 /**
  * 
  * @author Marc Pompl
- * @created 25.03.2014
+ * @created 24.10.2014
  */
 @RunWith(XtextRunner.class)
 @InjectWith(AS3InjectorProvider.class)
