@@ -18,12 +18,14 @@ import de.lynorics.eclipse.jangaroo.aS3.Model;
 import de.lynorics.eclipse.jangaroo.aS3.Parameter;
 import de.lynorics.eclipse.jangaroo.aS3.Statement;
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
@@ -70,6 +72,23 @@ public class AS3ModelUtil {
    */
   public static de.lynorics.eclipse.jangaroo.aS3.Class containingClass(final EObject e) {
     return EcoreUtil2.<de.lynorics.eclipse.jangaroo.aS3.Class>getContainerOfType(e, de.lynorics.eclipse.jangaroo.aS3.Class.class);
+  }
+  
+  public static ArrayList<de.lynorics.eclipse.jangaroo.aS3.Class> classHierarchy(final de.lynorics.eclipse.jangaroo.aS3.Class c) {
+    ArrayList<de.lynorics.eclipse.jangaroo.aS3.Class> _xblockexpression = null;
+    {
+      final ArrayList<de.lynorics.eclipse.jangaroo.aS3.Class> visited = CollectionLiterals.<de.lynorics.eclipse.jangaroo.aS3.Class>newArrayList();
+      de.lynorics.eclipse.jangaroo.aS3.Class current = c.getSuperclass();
+      while (((!Objects.equal(current, null)) && (!visited.contains(current)))) {
+        {
+          visited.add(current);
+          de.lynorics.eclipse.jangaroo.aS3.Class _superclass = current.getSuperclass();
+          current = _superclass;
+        }
+      }
+      _xblockexpression = visited;
+    }
+    return _xblockexpression;
   }
   
   /**
