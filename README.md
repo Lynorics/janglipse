@@ -3,7 +3,7 @@ janglipse
 =========
 [![Build Status](https://secure.travis-ci.org/Lynorics/janglipse.png)](http://travis-ci.org/Lynorics/janglipse)
 
-[Jangaroo](http://jangaroo.net) integration for [Eclipse](http://www.eclipse.org/) based upon [Xtext](http://www.xtext.org/)
+[Jangaroo](http://www.jangaroo.net) integration for [Eclipse](http://www.eclipse.org/) based upon [Xtext](http://www.xtext.org/)
 
 # License
 
