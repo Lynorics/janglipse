@@ -69,7 +69,6 @@ public class ClassScopingTest {
 		validationTestHelper.assertNoErrors(second);
 		validationTestHelper.assertNoErrors(third);
 		validationTestHelper.assertNoErrors(fourth);
-		
 	}
 
 	@Test
@@ -80,4 +79,14 @@ public class ClassScopingTest {
 		validationTestHelper.assertNoErrors(first);
 		validationTestHelper.assertError(second, AS3Package.eINSTANCE.getClass_(), Diagnostic.LINKING_DIAGNOSTIC, "Couldn't resolve reference to Class 'C2'.");
 	}
+
+	@Test
+	public void testConfigImport() throws Exception {
+		ResourceSet resourceSet = resourceSetProvider.get();
+		Model first = (Model) parseHelper.parse("package my.pack { class C extends D {}}", resourceSet);
+		Model second = (Model) parseHelper.parse("package my.pack.config { class D {} }", resourceSet);
+		validationTestHelper.assertNoErrors(first);
+		validationTestHelper.assertNoErrors(second);
+	}
+
 }

@@ -43,7 +43,8 @@ public class AS3ImportedNamespaceScopeProvider extends
 	/**
 	 * Converts QualifiedNames to strings and back
 	 */
-	@Inject private IQualifiedNameConverter qualifiedNameConverter;
+	@Inject
+	private IQualifiedNameConverter qualifiedNameConverter;
 	
 	// automatically import all types from the package we are in
 	@SuppressWarnings("unchecked")
@@ -80,7 +81,7 @@ public class AS3ImportedNamespaceScopeProvider extends
               )
 		    );
 		    // add <package>.config
-		    ImportNormalizer resolver = createImportedNamespaceResolver(file.getPackage().getName()+".config", ignoreCase);
+		    ImportNormalizer resolver = createImportedNamespaceResolver(file.getPackage().getName()+".config.*", ignoreCase);
 		      if (resolver != null)
 			        importedNamespaceResolvers.add(resolver);
 		  }
