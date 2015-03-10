@@ -247,7 +247,7 @@ public class JangarooProjectConversionParticipant extends AbstractProjectConvers
   private Resource createResource(String resourceDirectory) {
     Resource r = new Resource();
     r.setDirectory(resourceDirectory);
-    r.addExclude("**/*.java"); //$NON-NLS-1$
+    r.addExclude("**/*.as"); //$NON-NLS-1$
     return r;
   }
 
@@ -262,7 +262,7 @@ public class JangarooProjectConversionParticipant extends AbstractProjectConvers
       }
     }
     return false;
-    //TODO Maybe check if the folder has java files with a Test or TestSuite suffix? 
+    //TODO Maybe check if the folder has actionscript files with a Test or TestSuite suffix? 
   }
 
   private Build getOrCreateBuild(Model model) {
@@ -294,7 +294,7 @@ public class JangarooProjectConversionParticipant extends AbstractProjectConvers
       }
       if(resource instanceof IFile) {
         IFile file = (IFile) resource;
-        if(!"java".equals(file.getFileExtension())) {
+        if(!"as".equals(file.getFileExtension())) {
           throw new NonJangarooResourceFoundException();
         }
       }
