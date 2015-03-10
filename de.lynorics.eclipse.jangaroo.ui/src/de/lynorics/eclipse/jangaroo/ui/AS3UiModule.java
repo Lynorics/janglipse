@@ -11,6 +11,8 @@ package de.lynorics.eclipse.jangaroo.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.documentation.IEObjectDocumentationProvider;
+import org.eclipse.xtext.ui.editor.contentassist.XtextContentAssistProcessor;
+import org.eclipse.xtext.ui.editor.contentassist.antlr.IContentAssistParser;
 import org.eclipse.xtext.ui.editor.hover.IEObjectHoverProvider;
 import org.eclipse.xtext.ui.editor.outline.actions.IOutlineContribution;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
@@ -19,6 +21,7 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculato
 import com.google.inject.Binder;
 import com.google.inject.name.Names;
 
+import de.lynorics.eclipse.jangaroo.parser.MyAS3Parser;
 import de.lynorics.eclipse.jangaroo.ui.highlighting.AS3HighlightingCalculator;
 import de.lynorics.eclipse.jangaroo.ui.highlighting.AS3HighlightingConfiguration;
 import de.lynorics.eclipse.jangaroo.ui.outline.FilterImportsOperationsContribution;
@@ -30,10 +33,20 @@ import de.lynorics.eclipse.jangaroo.ui.preferences.AS3LanguageRootPreferencePage
  * Use this class to register components to be used within the IDE.
  */
 public class AS3UiModule extends de.lynorics.eclipse.jangaroo.ui.AbstractAS3UiModule {
+
 	public AS3UiModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
 
+//	@Override
+//	public void configure(Binder binder) {
+//		super.configure(binder);
+//		binder.bind(String.class)
+//		.annotatedWith(com.google.inject.name.Names.named(
+//				(XtextContentAssistProcessor.COMPLETION_AUTO_ACTIVATION_CHARS)))
+//				.toInstance(".");
+//	}
+	
 	public void configureFilterOperationsContribution(Binder binder) {
 		binder
 		.bind(IOutlineContribution.class).annotatedWith(
@@ -64,9 +77,13 @@ public class AS3UiModule extends de.lynorics.eclipse.jangaroo.ui.AbstractAS3UiMo
 	public Class<? extends ISemanticHighlightingCalculator> bindISemanticHighlightingCalculator() {
 		return AS3HighlightingCalculator.class;
 	}
-	
+
 	public Class<? extends org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage> bindLanguageRootPreferencePage() {
-	    return AS3LanguageRootPreferencePage.class;
+		return AS3LanguageRootPreferencePage.class;
 	}
 
+	@Override
+	public Class<? extends IContentAssistParser> bindIContentAssistParser() {
+		return MyAS3Parser.class;
+	}
 }
