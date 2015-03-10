@@ -17,7 +17,10 @@ package ${PackageName} {
  */
 public class ${EntityName} {
 
-	public function ${EntityName} {
+	/**
+	 * Default constructor for ${EntityName}.
+	 */
+	public function ${EntityName}() {
 		${cursor}
 	}
 
@@ -133,6 +136,18 @@ public class ${ComponentConfigName} extends ${Super_config_class_name} {
 
   public native function set attribute(value:String):void;
 }
+}
+</template>
+<template
+	id="JANGLIPSE_FUNCTION"
+	name="function"
+	autoinsert="false"
+	context="de.lynorics.eclipse.jangaroo.AS3.Method"
+	deleted="false"
+	description="Function expression"
+	enabled="true">
+function ${name}(${}):${void:CrossReference(avm.AvmDeclaredTypeReference.type)} {
+	${cursor}
 }
 </template>
 </templates>

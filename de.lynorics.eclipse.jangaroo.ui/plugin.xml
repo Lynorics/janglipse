@@ -404,4 +404,23 @@
     </provider>
   </extension>
 
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <!--wizard
+            category="org.axdt.category"
+            class="org.axdt.as3.ui.As3ExecutableExtensionFactory:org.axdt.as3.ui.wizards.NewAs3ProjectWizard"
+            icon="icons/editor.gif"
+            id="org.axdt.as3.ui.wizards.newAs3ProjectWizard"
+            name="%as3Project"
+            project="true">
+      </wizard-->
+      <wizard
+            name="ActionScript"
+            icon="icons/file-as-16x16.png"
+            category="de.lynorics.eclipse.jangaroo.AS3"
+            class="de.lynorics.eclipse.jangaroo.ui.wizard.NewAS3FileWizard"
+            id="de.lynorics.eclipse.jangaroo.ui.wizard.NewAS3FileWizard">
+      </wizard>
+   </extension>
+ 
 </plugin>
