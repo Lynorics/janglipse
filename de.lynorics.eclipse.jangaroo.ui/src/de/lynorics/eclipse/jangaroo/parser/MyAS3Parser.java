@@ -20,12 +20,10 @@ public class MyAS3Parser extends AS3Parser {
 	}
 	
 	public Collection<FollowElement> getFollowElements(FollowElement element) {
-//		if (true) {
-//			return super.getFollowElements(element);
 //		}
 		Collection<FollowElement> result = null;
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        Future<Collection<FollowElement>> future = executor.submit(new TaskFE(this, element));
+        Future<Collection<FollowElement>> future = executor.submit(new TaskFollowElements(this, element));
         try {
             result = future.get(TIMEOUT, TimeUnit.MILLISECONDS);
         } catch (Exception e) {
@@ -42,12 +40,9 @@ public class MyAS3Parser extends AS3Parser {
 
 	public Collection<FollowElement> getFollowElements(String input,
 			boolean strict) {
-//		if (true) {
-//			return super.getFollowElements(input, strict);
-//		}
 		Collection<FollowElement> result = null;
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        Future<Collection<FollowElement>> future = executor.submit(new TaskFE(this, input, strict));
+        Future<Collection<FollowElement>> future = executor.submit(new TaskFollowElements(this, input, strict));
         try {
             result = future.get(TIMEOUT, TimeUnit.MILLISECONDS);
         } catch (Exception e) {
@@ -57,16 +52,16 @@ public class MyAS3Parser extends AS3Parser {
 		return result;
 	}
 
-	private static class TaskFE implements Callable<Collection<FollowElement>> {
+	private static class TaskFollowElements implements Callable<Collection<FollowElement>> {
 		private MyAS3Parser p;
 		private FollowElement fe;
 		private String input;
 		private boolean strict;
-		private TaskFE(MyAS3Parser p, FollowElement fe) {
+		private TaskFollowElements(MyAS3Parser p, FollowElement fe) {
 			this.p = p;
 			this.fe = fe;
 		}
-		public TaskFE(MyAS3Parser p, String input, boolean strict) {
+		public TaskFollowElements(MyAS3Parser p, String input, boolean strict) {
 			this.p = p;
 			this.input = input;
 			this.strict = strict;
@@ -77,7 +72,7 @@ public class MyAS3Parser extends AS3Parser {
 				return p.getSuperFollowElements(fe);
 			}
 			else {
-				return p.getSuperFollowElements(input, false);
+				return p.getSuperFollowElements(input, strict);
 			}
 	    }
 	}
