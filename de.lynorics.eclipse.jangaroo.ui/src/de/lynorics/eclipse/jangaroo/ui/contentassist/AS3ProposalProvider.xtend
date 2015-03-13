@@ -34,6 +34,11 @@ import static extension de.lynorics.eclipse.jangaroo.AS3ModelUtil.*
 import org.eclipse.jface.text.contentassist.ICompletionProposal
 import org.eclipse.swt.graphics.Image
 import org.eclipse.jface.viewers.StyledString
+import org.eclipse.xtext.IGrammarAccess
+import de.lynorics.eclipse.jangaroo.services.AS3GrammarAccess
+import de.lynorics.eclipse.jangaroo.scoping.AS3ImportedNamespaceScopeProvider
+import org.eclipse.xtext.CrossReference
+import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
@@ -47,6 +52,12 @@ class AS3ProposalProvider extends AbstractAS3ProposalProvider {
 	@Inject
  	private ILabelProvider labelProvider;
 
+	@Inject
+	private IGrammarAccess grammarAccess;
+	
+	@Inject
+	private AS3ImportedNamespaceScopeProvider importScopeProvider;
+	
 	private final List<String> FILTERED_KEYWORDS = new ArrayList();
 
 	/**
@@ -114,16 +125,6 @@ class AS3ProposalProvider extends AbstractAS3ProposalProvider {
 		return null;
 	}
 
-	/**
-	 * Code completion for keywords.
-	 */
-	override completeKeyword(Keyword keyword, ContentAssistContext contentAssistContext, ICompletionProposalAcceptor acceptor) {
-		if (isFiltered(keyword)) {
-			return
-		}
-		super.completeKeyword(keyword, contentAssistContext, acceptor)
-	}
-
 	private def isFiltered(Keyword keyword) {
 		return alphanumerPattern.matcher(keyword.value).find() ||
 			FILTERED_KEYWORDS.contains(keyword.getValue());
@@ -188,5 +189,37 @@ class AS3ProposalProvider extends AbstractAS3ProposalProvider {
 		return createCompletionProposal(proposal, styledString, image, getPriorityHelper()
 				.getDefaultPriority(), contentAssistContext.getPrefix(), contentAssistContext);
 	}
-	
+
+
+	override void completeKeyword(Keyword keyword, ContentAssistContext contentAssistContext, ICompletionProposalAcceptor acceptor) {
+		if (isFiltered(keyword)) {
+			return
+		}
+		var String value = keyword.getValue();
+		//skip keywords
+		if (value.equals("}")) {
+			var AS3GrammarAccess grammar = grammarAccess as AS3GrammarAccess;
+//			var CrossReference ref = grammar.getAs3PropertyIdentifierAccess().getReferenceAvmReferableCrossReference_1_0();
+//			lookupCrossReference(ref, contentAssistContext, acceptor);
+		} else if (Character.isLetter(value.charAt(0)))
+			super.completeKeyword(keyword, contentAssistContext, acceptor);
+	}
+
+	protected override ConfigurableCompletionProposal doCreateProposal(String proposal, StyledString displayString, Image image,
+			int priority, ContentAssistContext context) {
+		var int replacementOffset = context.getReplaceRegion().getOffset();
+		var int replacementLength = context.getReplaceRegion().getLength();
+		var ConfigurableCompletionProposal result = null;
+		if (proposal.contains(".")) {
+			result = new AS3QualifiedCompletionProposal(proposal, importScopeProvider, context.getCurrentModel(), replacementOffset, replacementLength, proposal.length(), image, displayString);
+			result.setPriority(priority-400);
+		}
+		if (result == null){
+			result = doCreateProposal(proposal, displayString, image, replacementOffset, replacementLength);
+			result.setPriority(priority);
+		}
+		result.setMatcher(context.getMatcher());
+		result.setReplaceContextLength(context.getReplaceContextLength());
+		return result;
+	}	
 }
