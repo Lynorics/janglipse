@@ -21,7 +21,7 @@ import org.eclipse.xtext.ui.resource.IResourceSetProvider;
 import com.google.inject.Binder;
 import com.google.inject.name.Names;
 
-import de.lynorics.eclipse.jangaroo.parser.MyAS3Parser;
+import de.lynorics.eclipse.jangaroo.parser.TimeoutAS3Parser;
 import de.lynorics.eclipse.jangaroo.ui.contentassist.FastXtextResourceSetProvider;
 import de.lynorics.eclipse.jangaroo.ui.contentassist.PlatformURIMapCache;
 import de.lynorics.eclipse.jangaroo.ui.highlighting.AS3HighlightingCalculator;
@@ -84,9 +84,10 @@ public class AS3UiModule extends de.lynorics.eclipse.jangaroo.ui.AbstractAS3UiMo
 		return AS3LanguageRootPreferencePage.class;
 	}
 
+    // With this binding, code completion will be guaranteed to respond within one second
 	@Override
 	public Class<? extends IContentAssistParser> bindIContentAssistParser() {
-		return MyAS3Parser.class;
+		return TimeoutAS3Parser.class;
 	}
 	
     // With this binding, Xtext editors open much faster 
@@ -94,7 +95,7 @@ public class AS3UiModule extends de.lynorics.eclipse.jangaroo.ui.AbstractAS3UiMo
     public Class<? extends IResourceSetProvider> bindIResourceSetProvider() {
         return FastXtextResourceSetProvider.class;
     }
-    
+
     @org.eclipse.xtext.service.SingletonBinding(eager=false)
     public Class<? extends PlatformURIMapCache> bindPlatformURIMapCache() {
         return PlatformURIMapCache.class;
