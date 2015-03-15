@@ -23,6 +23,7 @@ Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.lynorics.eclipse.jangaroo.ui,
+ de.lynorics.eclipse.jangaroo.ui.asdoc,
  de.lynorics.eclipse.jangaroo.ui.contentassist,
  de.lynorics.eclipse.jangaroo.ui.contentassist.antlr,
  de.lynorics.eclipse.jangaroo.ui.internal,

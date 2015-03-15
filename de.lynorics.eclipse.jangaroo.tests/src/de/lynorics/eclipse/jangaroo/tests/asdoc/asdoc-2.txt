@@ -1,0 +1,5 @@
+ /**
+   *  Testcase for asdoc with
+       irregular 
+   *        lines.
+   */

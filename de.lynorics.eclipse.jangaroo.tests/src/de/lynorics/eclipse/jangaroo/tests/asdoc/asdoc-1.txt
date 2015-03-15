@@ -1,0 +1,10 @@
+ /**
+
+   *  Testcase for asdoc
+
+   *  with empty lines.
+   *
+   *
+   *
+   * This results in separated paragraphs.
+   */

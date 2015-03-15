@@ -1,0 +1,6 @@
+ /**
+  *  Testcase for asdoc with tags.
+  * @author Lynorics
+  * @param param3 Describe param3 here.
+  * @see http://www.lynorics.de
+  */

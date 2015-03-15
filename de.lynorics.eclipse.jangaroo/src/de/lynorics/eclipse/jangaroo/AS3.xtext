@@ -4,13 +4,13 @@
  * Licensed under the Eclipse Public License version 1.0, available at
  * http://opensource.org/licenses/eclipse-1.0.txt
  */
-grammar de.lynorics.eclipse.jangaroo.AS3 with org.eclipse.xtext.common.Terminals 
+grammar de.lynorics.eclipse.jangaroo.AS3 hidden(WS,SL_COMMENT,ML_COMMENT,ASDOC) //with org.eclipse.xtext.common.Terminals 
 
 generate aS3 "http://www.lynorics.de/eclipse/jangaroo/AS3"
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
-Model hidden(WS, ML_COMMENT, SL_COMMENT):
+Model: //hidden(WS, ML_COMMENT, SL_COMMENT):
   package=Package
   |
   imp=Imports
@@ -29,7 +29,7 @@ Imports: {Imports}
   imports+=Import*
 ;
 Import:
-    (=>'import' importedNamespace=QualifiedNameWithWildcard ';')
+    (=>'import') importedNamespace=QualifiedNameWithWildcard ';'
 ;
 
 directive: {directive} (
@@ -61,9 +61,9 @@ QualifiedName:
 
 Interface:
    annotations+=Annotation*
-   access=AccessLevel? (=>'interface'  name=ID
+   access=AccessLevel? (=>'interface')  name=ID
    ('extends' superclass=[Interface|QualifiedName])?
-   '{' members += InterfaceMethod* '}')
+   '{' members += InterfaceMethod* '}'
 ;
 
 InterfaceMethod:
@@ -89,10 +89,10 @@ functionCommon
 
 Class:
    annotations+=Annotation*
-   modifier=Modifier? (=>'class' name=ID
+   modifier=Modifier? (=>'class') name=ID
    ('extends' superclass=[Class|QualifiedName])?
    ('implements' types+=[Interface|QualifiedName] (',' types+=[Interface|QualifiedName])*)?
-   '{' members += Member* '}')
+   '{' members += Member* '}'
    ;
 
 AccessorRole
@@ -735,10 +735,17 @@ terminal STRING	:
 			'"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\'|'/') | !('\\'|'"') )* '"' |
 			"'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\'|'/') | !('\\'|"'") )* "'"
 		; 
-terminal ML_COMMENT	: '/*' -> '*/';
+
+terminal ASDOC: '/**' -> '*/';
+terminal ML_COMMENT	: '/*' !'*' -> '*/';
+//terminal SL_COMMENT : '//' !newline* ('\r'? '\n')?;
+
+//terminal WS	: space+;
+//terminal ML_COMMENT	: '/*' -> '*/';
 
 terminal SL_COMMENT 	: '//' !('\n'|'\r')* ('\r'? '\n')?;
 
 terminal WS			: (' '|'\t'|'\r'|'\n')+;
+
 
 terminal ANY_OTHER: .;

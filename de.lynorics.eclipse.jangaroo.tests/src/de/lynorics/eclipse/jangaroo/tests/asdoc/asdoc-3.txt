@@ -1,0 +1,6 @@
+ /**
+  *  Testcase for asdoc with parameters.
+  * @param param1 Describe param1 here.
+  * @param param2 Describe param2 here
+  *               using a multiline comment.
+  */
