@@ -105,9 +105,36 @@ public class AsdocHTMLConverter {
 		sb.append(translate(tag.getName()));
 		sb.append("</dt>\n");
 		sb.append("<dd>");
-		sb.append(tag.getText());
+		if ("see".equals(tag.getName())) {
+			sb.append(parseUrl(tag.getText()));
+		}
+		else {
+			sb.append(tag.getText());
+		}
 		sb.append("</dd>\n");
 		sb.append("</dl>\n");
+	}
+
+	private String parseUrl(String text) {
+		StringBuilder result = new StringBuilder();
+		if (text.startsWith("http://") ||
+				text.startsWith("https://")) {
+			String[] split = text.split(" ", 2);
+			result.append("<a href=\"");
+			result.append(split[0]);
+			result.append("\">");
+			if (split.length > 1) {
+				result.append(split[1]);
+			}
+			else {
+				result.append(split[0]);
+			}
+			result.append("</a>");
+		}
+		else {
+			result.append(text);
+		}
+		return result.toString();
 	}
 
 	private String translate(String name) {
