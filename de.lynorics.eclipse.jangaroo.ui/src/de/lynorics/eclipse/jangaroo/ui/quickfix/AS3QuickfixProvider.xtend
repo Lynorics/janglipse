@@ -90,8 +90,8 @@ class AS3QuickfixProvider extends DefaultQuickfixProvider {
     def handleMissingLink(Issue issue, IssueResolutionAcceptor acceptor) {
         if (issue.getMessage().startsWith("Couldn't resolve reference to EObject '")) {
         	var String objectName = issue.getMessage().split("'").get(2);
-			importMissingEObject(issue, acceptor,objectName,"Class");
 			importMissingEObject(issue, acceptor,objectName,"Interface");
+			importMissingEObject(issue, acceptor,objectName,"Class");
 			createMissingClass(issue, acceptor, objectName);
 			createMissingInterface(issue, acceptor, objectName);
         }
