@@ -9,10 +9,19 @@
 */
 package de.lynorics.eclipse.jangaroo.ui.quickfix
 
+import com.google.inject.Inject
+import de.lynorics.eclipse.jangaroo.ui.contentassist.InsertImportCommand
 import de.lynorics.eclipse.jangaroo.validation.AS3Validator
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.jface.text.IDocument
+import org.eclipse.xtext.builder.builderState.EObjectDescription
+import org.eclipse.xtext.diagnostics.Diagnostic
+import org.eclipse.xtext.ui.editor.model.edit.IModificationContext
+import org.eclipse.xtext.ui.editor.model.edit.ISemanticModification
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider
 import org.eclipse.xtext.ui.editor.quickfix.Fix
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor
+import org.eclipse.xtext.ui.search.IXtextEObjectSearch
 import org.eclipse.xtext.validation.Issue
 
 /**
@@ -21,6 +30,10 @@ import org.eclipse.xtext.validation.Issue
  * see http://www.eclipse.org/Xtext/documentation.html#quickfixes
  */
 class AS3QuickfixProvider extends DefaultQuickfixProvider {
+
+
+  @Inject
+  IXtextEObjectSearch  iXtextEObjectSearch ;
 
   @Fix(AS3Validator::CLASS_SHOULD_START_WITH_CAPITAL_LETTER)
   def capitalizeClass(Issue issue, IssueResolutionAcceptor acceptor) {
@@ -73,4 +86,56 @@ class AS3QuickfixProvider extends DefaultQuickfixProvider {
     ]
   }
 
+    @Fix(Diagnostic.LINKING_DIAGNOSTIC)
+    def handleMissingLink(Issue issue, IssueResolutionAcceptor acceptor) {
+        if (issue.getMessage().startsWith("Couldn't resolve reference to EObject '")) {
+        	var String objectName = issue.getMessage().split("'").get(2);
+			importMissingInterface(issue, acceptor,objectName);
+			importMissingClass(issue, acceptor,objectName);
+        }
+        createLinkingIssueResolutions(issue, acceptor);
+    }
+	
+	private def importMissingInterface(Issue issue, IssueResolutionAcceptor acceptor, String objectName) {
+		iXtextEObjectSearch.findMatches(objectName, "Interface").forEach[
+			descriptor |
+			val String qName = (descriptor as EObjectDescription).qualifiedName.toString;    
+			if (qName.endsWith(objectName)) {
+				acceptor.accept(issue,
+					"Import "+qName, // label
+					"Import "+qName, // description
+					"outline-import.gif", // icon
+					new ISemanticModification() {
+						override apply(EObject element, IModificationContext context) throws Exception {
+								var InsertImportCommand command = new InsertImportCommand();
+								var int importOffset = command.getImportOffset(element, qName);
+								command.apply(context.xtextDocument as IDocument, importOffset, qName);
+						}
+					}
+				);
+			}
+		]
+	}
+	
+	private def importMissingClass(Issue issue, IssueResolutionAcceptor acceptor, String objectName) {
+		iXtextEObjectSearch.findMatches(objectName, "Class").forEach[
+			descriptor |
+			val String qName = (descriptor as EObjectDescription).qualifiedName.toString;    
+			if (qName.endsWith(objectName)) {
+				acceptor.accept(issue,
+					"Import "+qName, // label
+					"Import "+qName, // description
+					"outline-import.gif", // icon
+					new ISemanticModification() {
+						override apply(EObject element, IModificationContext context) throws Exception {
+							var InsertImportCommand command = new InsertImportCommand();
+							var int importOffset = command.getImportOffset(element, qName);
+							command.apply(context.xtextDocument as IDocument, importOffset, qName);
+						}
+					}
+				);
+			}
+		]
+	}
+	
 }

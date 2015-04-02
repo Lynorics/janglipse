@@ -18,7 +18,6 @@ import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal;
 
 import de.lynorics.eclipse.jangaroo.AS3ModelUtil;
 import de.lynorics.eclipse.jangaroo.aS3.Import;
-import de.lynorics.eclipse.jangaroo.aS3.Imports;
 import de.lynorics.eclipse.jangaroo.aS3.Package;
 import de.lynorics.eclipse.jangaroo.aS3.directive;
 import de.lynorics.eclipse.jangaroo.scoping.AS3ImportedNamespaceScopeProvider;
@@ -77,20 +76,11 @@ public class AS3QualifiedCompletionProposal extends
 		checkImports();
 		if (quali != null) {
 			try {
-				int importOffset = getImportOffset(currentModel);
+				InsertImportCommand command = new InsertImportCommand();
+				int importOffset = command.getImportOffset(currentModel, quali);
 				if (importOffset != -1) {
-					IRegion line = document
-							.getLineInformationOfOffset(importOffset);
-					String indentation = document.get(line.getOffset(),
-							importOffset - line.getOffset());
-					if (indentation.trim().length() != 0)
-						indentation = "";
-					String importString = "import " + quali + "."
-							+ getReplacementString() + ";\n" + indentation;
-					int otherOffset = getReplacementOffset();
-					if (importOffset < otherOffset)
-						setReplacementOffset(otherOffset + importString.length());
-					document.replace(importOffset, 0, importString);
+					command.apply(document, importOffset, quali + "." + getReplacementString());
+					return;
 				}
 			} catch (BadLocationException x) {
 				// ignore
@@ -98,36 +88,4 @@ public class AS3QualifiedCompletionProposal extends
 		}
 		super.apply(document);
 	}
-
-	private int getImportOffset(EObject currentModel) {
-		Package pack = AS3ModelUtil.findParentOfType(currentModel, Package.class);
-		if (pack != null) {
-			if (pack.getImp() != null) {
-				for (EObject child : pack.getImp().eContents()) {
-					if (child instanceof Import) {
-						// ordering is lexically
-						if (((Import) child).getImportedNamespace().compareTo(quali+"."+getReplacementString()) > 0) {
-							return NodeModelUtils.getNode(child).getOffset();
-						}
-					}
-				}
-			}
-			return getDefaultOffset(pack);
-		}
-		return -1;
-	}
-
-	private int getDefaultOffset(Package container) {
-		EList<directive> directives = null;
-		if (container instanceof de.lynorics.eclipse.jangaroo.aS3.Package)
-			directives = ((de.lynorics.eclipse.jangaroo.aS3.Package) container).getDirectives();
-		if (directives != null) {
-			if (!directives.isEmpty()) {
-				return NodeModelUtils.getNode(directives.get(0)).getOffset();
-			}
-			return NodeModelUtils.getNode(container.eContents().get(0)).getOffset()+1;
-		}
-		return -1;
-	}
-
 }
