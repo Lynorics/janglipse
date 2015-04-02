@@ -90,35 +90,42 @@ class AS3QuickfixProvider extends DefaultQuickfixProvider {
     def handleMissingLink(Issue issue, IssueResolutionAcceptor acceptor) {
         if (issue.getMessage().startsWith("Couldn't resolve reference to EObject '")) {
         	var String objectName = issue.getMessage().split("'").get(2);
-			importMissingInterface(issue, acceptor,objectName);
-			importMissingClass(issue, acceptor,objectName);
+			importMissingEObject(issue, acceptor,objectName,"Class");
+			importMissingEObject(issue, acceptor,objectName,"Interface");
+			createMissingClass(issue, acceptor, objectName);
+			createMissingInterface(issue, acceptor, objectName);
         }
         createLinkingIssueResolutions(issue, acceptor);
     }
 	
-	private def importMissingInterface(Issue issue, IssueResolutionAcceptor acceptor, String objectName) {
-		iXtextEObjectSearch.findMatches(objectName, "Interface").forEach[
-			descriptor |
-			val String qName = (descriptor as EObjectDescription).qualifiedName.toString;    
-			if (qName.endsWith(objectName)) {
-				acceptor.accept(issue,
-					"Import "+qName, // label
-					"Import "+qName, // description
-					"outline-import.gif", // icon
-					new ISemanticModification() {
-						override apply(EObject element, IModificationContext context) throws Exception {
-								var InsertImportCommand command = new InsertImportCommand();
-								var int importOffset = command.getImportOffset(element, qName);
-								command.apply(context.xtextDocument as IDocument, importOffset, qName);
-						}
-					}
-				);
+	private def createMissingClass(Issue issue, IssueResolutionAcceptor acceptor, String objectName) {
+		acceptor.accept(issue,
+			"Create class "+objectName, // label
+			"Create class "+objectName, // description
+			"outline-class.gif", // icon
+			new ISemanticModification() {
+				override apply(EObject element, IModificationContext context) throws Exception {
+					System.out.println("Class should be created in same package...");
+				}
 			}
-		]
+		);
 	}
 	
-	private def importMissingClass(Issue issue, IssueResolutionAcceptor acceptor, String objectName) {
-		iXtextEObjectSearch.findMatches(objectName, "Class").forEach[
+	private def createMissingInterface(Issue issue, IssueResolutionAcceptor acceptor, String objectName) {
+		acceptor.accept(issue,
+			"Create interface "+objectName, // label
+			"Create interface "+objectName, // description
+			"outline-inetrface.gif", // icon
+			new ISemanticModification() {
+				override apply(EObject element, IModificationContext context) throws Exception {
+					System.out.println("Interface should be created in same package...");
+				}
+			}
+		);
+	}
+	
+	private def importMissingEObject(Issue issue, IssueResolutionAcceptor acceptor, String objectName, String typeName) {
+		iXtextEObjectSearch.findMatches(objectName, typeName).forEach[
 			descriptor |
 			val String qName = (descriptor as EObjectDescription).qualifiedName.toString;    
 			if (qName.endsWith(objectName)) {
