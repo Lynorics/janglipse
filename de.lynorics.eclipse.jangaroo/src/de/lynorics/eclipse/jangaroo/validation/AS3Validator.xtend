@@ -22,6 +22,9 @@ import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration
 import de.lynorics.eclipse.jangaroo.aS3.Import
 import org.eclipse.xtext.validation.CheckType
 import de.lynorics.eclipse.jangaroo.aS3.SymbolRef
+import com.google.inject.Inject
+import org.eclipse.xtext.naming.IQualifiedNameProvider
+import de.lynorics.eclipse.jangaroo.AS3Index
 
 /**
  * Custom validation rules.
@@ -32,6 +35,12 @@ import de.lynorics.eclipse.jangaroo.aS3.SymbolRef
  */
 class AS3Validator extends AbstractAS3Validator {
 
+	@Inject
+	extension AS3Index
+	
+	@Inject
+	extension IQualifiedNameProvider
+	
   public static val CLASS_SHOULD_START_WITH_CAPITAL_LETTER = 'classStartsWithCapitalLetter';
   public static val INTERFACE_SHOULD_START_WITH_CAPITAL_LETTER = 'interfaceStartsWithCapitalLetter';
   public static val VARIABLE_SHOULD_START_WITH_LOWERCASE = 'variableStartsWithLowercase';
@@ -42,12 +51,14 @@ class AS3Validator extends AbstractAS3Validator {
   public static val PUBLIC_API_VIOLATION = "publicApiViolation";
   public static val NAME_CLASH_VARIABLE_WITH_CLASS = "nameClashVariableWithClass";
   public static val FORWARD_REFERENCE = "forwardReference";
+  public static val WRONG_TYPE = "wrongType";
+  public static val DUPLICATE_CLASS = "duplicateClass";
 
   private def checkForSourcePath(EObject eobj) {
 	return eobj.eResource.URI.toString.contains("/src/");
   }
 
-  @Check
+  @Check(CheckType.FAST)
   def checkClassStartsWithCapital(Class clas) {
   	if (!checkForSourcePath(clas)) {
   		return
@@ -59,7 +70,7 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
 
-  @Check(value=CheckType.FAST)
+  @Check(CheckType.FAST)
   def checkInterfaceStartsWithCapital(Interface intf) {
   	if (!checkForSourcePath(intf)) {
   		return
@@ -71,7 +82,7 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
 
-  @Check(value=CheckType.FAST)
+  @Check(CheckType.FAST)
   def checkMethodStartsWithLowercase(Method method) {
   	if (!checkForSourcePath(method)) {
   		return
@@ -85,7 +96,7 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
   
-  @Check(value=CheckType.FAST)
+  @Check(CheckType.FAST)
   def checkMethodStartsWithLowercase(InterfaceMethod method) {
   	if (!checkForSourcePath(method)) {
   		return
@@ -97,7 +108,7 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
 
-  @Check(value=CheckType.FAST)
+  @Check(CheckType.FAST)
   def checkPackageStartsWithLowercase(Package pack) {
   	if (!checkForSourcePath(pack)) {
   		return
@@ -113,7 +124,7 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
 
-  @Check
+  @Check(CheckType.FAST)
   def checkVariableStartsWithLowercase(VariableDeclaration variable) {
   	if (!checkForSourcePath(variable)) {
   		return
@@ -125,7 +136,7 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
 
-  @Check(value=CheckType.NORMAL)
+  @Check(CheckType.NORMAL)
   def checkNoCycleInClassHierarchie(Class clas) {
   	if (!checkForSourcePath(clas)) {
   		return
@@ -148,7 +159,7 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
 
-  @Check(value=CheckType.FAST)
+  @Check(CheckType.FAST)
   def checkNoStatementAfterReturn(ReturnStatement ret) {
   	if (!checkForSourcePath(ret)) {
   		return
@@ -162,7 +173,7 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
 
-  @Check(value=CheckType.NORMAL)
+  @Check(CheckType.NORMAL)
   def checkNameClashOfVariableWithClass(VariableDeclaration variableDeclaration) {
   	if (!checkForSourcePath(variableDeclaration)) {
   		return
@@ -191,7 +202,7 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
 
-  @Check(value=CheckType.NORMAL)
+  @Check(CheckType.NORMAL)
   def checkPublicApiViolation(Class clas) {
   	if (!checkForSourcePath(clas)) {
   		return
@@ -210,19 +221,35 @@ class AS3Validator extends AbstractAS3Validator {
     }
   }
 
-//  @Check(value=CheckType.EXPENSIVE)
-//  def checkForwardReference(SymbolRef ref) {
-//  	if (!checkForSourcePath(ref)) {
-//  		return
-//  	}
-//  	val variable = ref.symbol;
-//  	if (variable != null &&
-//  		!ref.variablesDefinedBefore.contains(variable)) {
-//			error("Variable forward not allowed",
-//				AS3Package.Literals.SYMBOL_REF__SYMBOL,
-//				FORWARD_REFERENCE);
-//			return;
-//  		}
-//  }
-  
+  @Check(CheckType.EXPENSIVE)
+  def checkForwardReference(SymbolRef ref) {
+  	if (!checkForSourcePath(ref)) {
+  		return
+  	}
+  	val variable = ref.symbol;
+  	if (variable != null &&
+  		!ref.variablesDefinedBefore.contains(variable)) {
+			error("Variable forward reference not allowed for "+variable,
+				AS3Package.Literals.SYMBOL_REF__SYMBOL,
+				FORWARD_REFERENCE, variable+"");
+			return;
+  		}
+  }
+
+  @Check(CheckType::NORMAL)
+  def checkDuplicateClassesInFiles(Class c) {
+  	val className = c.fullyQualifiedName;
+  	c.visibleClassesDesscriptions.forEach[
+  		desc |
+  		if (desc.qualifiedName == className &&
+  			desc.EObjectOrProxy != c &&
+  			desc.EObjectURI.trimFragment != c.eResource.URI) {
+  				error(
+  					"The type " + c.name + " is already defined",
+  					AS3Package::eINSTANCE.class_Name,
+  					DUPLICATE_CLASS);
+  					return
+  			}
+  	]
+  }
 }

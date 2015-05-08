@@ -16,10 +16,17 @@ import org.eclipse.xtext.resource.IEObjectDescription
 import org.eclipse.xtext.resource.impl.DefaultResourceDescriptionStrategy
 import org.eclipse.xtext.util.IAcceptor
 
+/**
+ * The ResourceDescriptionStrategy decides which elements are availbale in the global index.
+ * 
+ * @author Lynorics
+ */
 @Singleton
 class AS3ResourceDescriptionStrategy extends DefaultResourceDescriptionStrategy
 {
-	@Inject extension IQualifiedNameProvider
+	@Inject
+	extension IQualifiedNameProvider
+
 	override createEObjectDescriptions(EObject eObject, IAcceptor<IEObjectDescription> acceptor) {
 		if (eObject instanceof Model) {
 			(eObject as Model).classes.forEach[as3Class |
@@ -34,7 +41,7 @@ class AS3ResourceDescriptionStrategy extends DefaultResourceDescriptionStrategy
 					acceptor.accept(EObjectDescription::create(fullQualifiedName, as3Member))
 				}
 			]
-			return true
+			return true;
 		}
 		else if (eObject instanceof de.lynorics.eclipse.jangaroo.aS3.Package) {
 			(eObject as de.lynorics.eclipse.jangaroo.aS3.Package).classes.forEach[as3Class |
@@ -49,10 +56,10 @@ class AS3ResourceDescriptionStrategy extends DefaultResourceDescriptionStrategy
 					acceptor.accept(EObjectDescription::create(fullQualifiedName, as3Member))
 				}
 			]
-			return true
+			return true;
 		}
 		else {
-			return false
+			return false;//super.createEObjectDescriptions(eObject, acceptor);
 		}
 	}
 }

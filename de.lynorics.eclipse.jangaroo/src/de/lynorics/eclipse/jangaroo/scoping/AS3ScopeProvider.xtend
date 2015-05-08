@@ -26,15 +26,15 @@ import static extension de.lynorics.eclipse.jangaroo.AS3ModelUtil.*
  */
 class AS3ScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider {
 
-	override getScope(EObject context, EReference reference) {
-//		 for debugging purposes
-//		System.out.println("scope_"+reference.EContainingClass.name +
-//			"_"+reference.name +
-//			"(" + context.eClass.name + ", ..)"
-//		);
-		super.getScope(context, reference)
-	}
-	
+//	override getScope(EObject context, EReference reference) {
+////		 for debugging purposes
+////		System.out.println("scope_"+reference.EContainingClass.name +
+////			"_"+reference.name +
+////			"(" + context.eClass.name + ", ..)"
+////		);
+//		super.getScope(context, reference)
+//	}
+//	
 //	def scope_SymbolRef_symbol(SymbolRef sr, EReference r) {
 //		var parentScope = IScope::NULLSCOPE
 //		val de.lynorics.eclipse.jangaroo.aS3.Class type = sr.containingClass

@@ -10,14 +10,16 @@
 package de.lynorics.eclipse.jangaroo;
 
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
-import org.eclipse.xtext.scoping.IScopeProvider;
-import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
+import org.eclipse.xtext.parser.antlr.ISyntaxErrorMessageProvider;
+import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy;
 
 import com.google.inject.Binder;
 import com.google.inject.name.Names;
 
 import de.lynorics.eclipse.jangaroo.scoping.AS3ImportedNamespaceScopeProvider;
 import de.lynorics.eclipse.jangaroo.scoping.AS3QualifiedNameProvider;
+import de.lynorics.eclipse.jangaroo.scoping.AS3ResourceDescriptionStrategy;
+import de.lynorics.eclipse.jangaroo.scoping.AS3SyntaxErrorMessageProvider;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -36,13 +38,19 @@ public class AS3RuntimeModule extends de.lynorics.eclipse.jangaroo.AbstractAS3Ru
 //		return MyAS3Parser.class;
 //	}
 	
-//	public Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
-//		return AS3ResourceDescriptionStrategy.class;
-//	}
+	public Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
+		return AS3ResourceDescriptionStrategy.class;
+	}
 	
     @Override
     public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
         return AS3QualifiedNameProvider.class;
     }
 
+    /**
+     * custom error messages for syntax errors
+     */
+    public Class<? extends ISyntaxErrorMessageProvider> bindISyntaxErrorMessageProvider() {
+        return AS3SyntaxErrorMessageProvider.class;
+    }
 }
