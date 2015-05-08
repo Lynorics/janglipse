@@ -11,7 +11,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-
+/**
+ * Converts from {@link Asdoc} to an HTML representation.
+ *  
+ * @author Lynorics
+ */
 public class AsdocHTMLConverter {
 
 	@SuppressWarnings("serial")
@@ -40,6 +44,13 @@ public class AsdocHTMLConverter {
 		add("deprecated");
 	}};
 
+	/**
+	 * Converts from {@link Asdoc} to an HTML string representation.
+	 *  
+	 * @param asdoc
+	 * 
+	 * @return the HTML (may be <code>null</code>)
+	 */
 	public String convert(Asdoc asdoc) {
 		if (asdoc == null) {
 			return null;

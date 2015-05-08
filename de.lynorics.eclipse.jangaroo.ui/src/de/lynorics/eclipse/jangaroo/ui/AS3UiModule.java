@@ -11,7 +11,9 @@ package de.lynorics.eclipse.jangaroo.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.documentation.IEObjectDocumentationProvider;
+import org.eclipse.xtext.ui.editor.contentassist.IContentProposalProvider;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.IContentAssistParser;
+import org.eclipse.xtext.ui.editor.hover.IEObjectHover;
 import org.eclipse.xtext.ui.editor.hover.IEObjectHoverProvider;
 import org.eclipse.xtext.ui.editor.outline.actions.IOutlineContribution;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.AbstractAntlrTokenToAttributeIdMapper;
@@ -25,6 +27,7 @@ import com.google.inject.name.Names;
 import de.lynorics.eclipse.jangaroo.parser.TimeoutAS3Parser;
 import de.lynorics.eclipse.jangaroo.ui.contentassist.FastXtextResourceSetProvider;
 import de.lynorics.eclipse.jangaroo.ui.contentassist.PlatformURIMapCache;
+import de.lynorics.eclipse.jangaroo.ui.contentassist.TimeoutAS3ProposalProvider;
 import de.lynorics.eclipse.jangaroo.ui.highlighting.AS3HighlightingCalculator;
 import de.lynorics.eclipse.jangaroo.ui.highlighting.AS3HighlightingConfiguration;
 import de.lynorics.eclipse.jangaroo.ui.highlighting.AS3TokenToAttributeIdMapper;
@@ -96,6 +99,12 @@ public class AS3UiModule extends de.lynorics.eclipse.jangaroo.ui.AbstractAS3UiMo
 		return TimeoutAS3Parser.class;
 	}
 	
+    // With this binding, code completion will be guaranteed to respond within one second
+    @Override
+    public Class<? extends IContentProposalProvider> bindIContentProposalProvider() {
+    	return TimeoutAS3ProposalProvider.class;
+    }
+
     // With this binding, Xtext editors open much faster 
     @Override
     public Class<? extends IResourceSetProvider> bindIResourceSetProvider() {
@@ -105,5 +114,11 @@ public class AS3UiModule extends de.lynorics.eclipse.jangaroo.ui.AbstractAS3UiMo
     @org.eclipse.xtext.service.SingletonBinding(eager=false)
     public Class<? extends PlatformURIMapCache> bindPlatformURIMapCache() {
         return PlatformURIMapCache.class;
+    }
+    
+    // With this binding, hovers for keywords are customized 
+    @Override
+    public Class<? extends IEObjectHover> bindIEObjectHover() {
+    	return AS3EObjectHover.class;
     }
 }

@@ -10,8 +10,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Parser to create an {@link Asdoc} from an input.
+ * 
+ * @author Lynorics
+ */
 public class AsdocParser {
 
+	/**
+	 * Parser to create an {@link Asdoc} from a string input.
+	 */
 	public Asdoc parse(String lines) {
 		if (lines == null) {
 			return null;
@@ -19,6 +27,9 @@ public class AsdocParser {
 		return parse(Arrays.asList(lines.split("\n")));
 	}
 	
+	/**
+	 * Parser to create an {@link Asdoc} from a string array input.
+	 */
 	public Asdoc parse(List<String> input) {
 		if (input == null ||
 				input.size() == 0) {

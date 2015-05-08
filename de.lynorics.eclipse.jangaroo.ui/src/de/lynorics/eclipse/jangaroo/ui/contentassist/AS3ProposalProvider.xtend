@@ -17,28 +17,27 @@ import de.lynorics.eclipse.jangaroo.aS3.MemberVariableDeclaration
 import de.lynorics.eclipse.jangaroo.aS3.Method
 import de.lynorics.eclipse.jangaroo.aS3.Parameter
 import de.lynorics.eclipse.jangaroo.aS3.VariableDeclaration
+import de.lynorics.eclipse.jangaroo.scoping.AS3ImportedNamespaceScopeProvider
+import de.lynorics.eclipse.jangaroo.services.AS3GrammarAccess
 import de.lynorics.eclipse.jangaroo.ui.labeling.AS3LabelProvider
 import java.util.ArrayList
 import java.util.List
 import java.util.regex.Pattern
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.jface.text.contentassist.ICompletionProposal
 import org.eclipse.jface.viewers.ILabelProvider
+import org.eclipse.jface.viewers.StyledString
+import org.eclipse.swt.graphics.Image
 import org.eclipse.xtext.Assignment
+import org.eclipse.xtext.IGrammarAccess
 import org.eclipse.xtext.Keyword
 import org.eclipse.xtext.RuleCall
+import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
 import org.eclipse.xtext.ui.label.ILabelProviderImageDescriptorExtension
 
 import static extension de.lynorics.eclipse.jangaroo.AS3ModelUtil.*
-import org.eclipse.jface.text.contentassist.ICompletionProposal
-import org.eclipse.swt.graphics.Image
-import org.eclipse.jface.viewers.StyledString
-import org.eclipse.xtext.IGrammarAccess
-import de.lynorics.eclipse.jangaroo.services.AS3GrammarAccess
-import de.lynorics.eclipse.jangaroo.scoping.AS3ImportedNamespaceScopeProvider
-import org.eclipse.xtext.CrossReference
-import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
@@ -67,6 +66,7 @@ class AS3ProposalProvider extends AbstractAS3ProposalProvider {
 		super();
 		FILTERED_KEYWORDS.addAll("get", "null", "set", "void");
 	}
+
 
 	/**
 	 * Code completion for a SymbolRef.
@@ -177,7 +177,6 @@ class AS3ProposalProvider extends AbstractAS3ProposalProvider {
 				}
 		]
 	}
-	
 	def ICompletionProposal createProposal(String proposal, String displayString, String appendix, Image image,
 			ContentAssistContext contentAssistContext) {
 		var StyledString styledString = new StyledString(displayString)
@@ -222,4 +221,5 @@ class AS3ProposalProvider extends AbstractAS3ProposalProvider {
 		result.setReplaceContextLength(context.getReplaceContextLength());
 		return result;
 	}	
+	
 }

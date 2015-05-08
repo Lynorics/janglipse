@@ -36,6 +36,7 @@ public class AS3EObjectDocumentationProvider implements IEObjectDocumentationPro
 	public String getDocumentation(EObject o) {
 		return new AsdocHTMLConverter().convert(new AsdocParser().parse(findComment(o)));
 	}
+
 	protected String findComment(EObject o) {
 		String returnValue = null;
 		List<INode> documentationNodes = getDocumentationNodes(o);
