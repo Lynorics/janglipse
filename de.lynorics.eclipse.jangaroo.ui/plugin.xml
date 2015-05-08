@@ -17,6 +17,10 @@
     </extension>
     <extension
         point="org.eclipse.ui.handlers">
+		<handler
+			class="de.lynorics.eclipse.jangaroo.ui.dialogs.type.OpenXtextElementHandler"
+			commandId="de.lynorics.eclipse.jangaroo.ui.dialogs.OpenXtextElementCommand">
+		</handler>
         <handler
             class="de.lynorics.eclipse.jangaroo.ui.AS3ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
             commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
@@ -289,6 +293,17 @@
         </page>
     </extension>
 
+	<!-- Search Type Dialog -->
+	<extension
+			point="org.eclipse.ui.bindings">
+    	<key
+        	contextId="org.eclipse.xtext.ui.XtextEditorScope"
+        	schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+        	sequence="M1+SHIFT+T"
+        	commandId="de.lynorics.eclipse.jangaroo.ui.dialogs.OpenXtextElementCommand">
+    	</key>
+   </extension>
+   
 	<!-- Quick Outline -->
 	<extension
 		point="org.eclipse.ui.handlers">
@@ -309,8 +324,18 @@
 			id="org.eclipse.xtext.ui.editor.outline.QuickOutline"
 			name="Quick Outline">
 		</command>
+		<command
+			categoryId="org.eclipse.ui.category.window"
+			description="Searches for AS3 types"
+			id="de.lynorics.eclipse.jangaroo.ui.dialogs.OpenXtextElementCommand"
+			name="Open AS3 Type">
+      </command>
 	</extension>
 	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="menu:navigate?after=open.ext4">
+			<command commandId="de.lynorics.eclipse.jangaroo.ui.dialogs.OpenXtextElementCommand"/>
+		</menuContribution>
 		<menuContribution
 			locationURI="popup:#TextEditorContext?after=group.open">
 			<command commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline"
@@ -416,7 +441,7 @@
       </wizard-->
       <wizard
             name="ActionScript"
-            icon="icons/file-as-16x16.png"
+            icon="icons/file-joo-16x16.png"
             category="de.lynorics.eclipse.jangaroo.AS3"
             class="de.lynorics.eclipse.jangaroo.ui.wizard.NewAS3FileWizard"
             id="de.lynorics.eclipse.jangaroo.ui.wizard.NewAS3FileWizard">

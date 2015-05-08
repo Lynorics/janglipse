@@ -18,7 +18,8 @@ Require-Bundle: de.lynorics.eclipse.jangaroo;visibility:=reexport,
  org.eclipse.compare,
  org.eclipse.jdt.core,
  org.eclipse.jdt.ui,
- org.eclipse.xtext.xbase.lib
+ org.eclipse.xtext.xbase.lib,
+ org.jsoup;bundle-version="1.7.2"
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
