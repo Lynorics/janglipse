@@ -10,10 +10,13 @@
 package de.lynorics.eclipse.jangaroo.ui.quickfix
 
 import com.google.inject.Inject
+import de.lynorics.eclipse.jangaroo.scoping.AS3SyntaxErrorMessageProvider
 import de.lynorics.eclipse.jangaroo.ui.contentassist.InsertImportCommand
 import de.lynorics.eclipse.jangaroo.validation.AS3Validator
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.jface.text.IDocument
+import org.eclipse.xtext.GrammarUtil
+import org.eclipse.xtext.IGrammarAccess
 import org.eclipse.xtext.builder.builderState.EObjectDescription
 import org.eclipse.xtext.diagnostics.Diagnostic
 import org.eclipse.xtext.ui.editor.model.edit.IModificationContext
@@ -34,6 +37,9 @@ class AS3QuickfixProvider extends DefaultQuickfixProvider {
 
   @Inject
   IXtextEObjectSearch  iXtextEObjectSearch ;
+	
+  @Inject
+  IGrammarAccess grammarAccess
 
   @Fix(AS3Validator::CLASS_SHOULD_START_WITH_CAPITAL_LETTER)
   def capitalizeClass(Issue issue, IssueResolutionAcceptor acceptor) {
@@ -90,9 +96,29 @@ class AS3QuickfixProvider extends DefaultQuickfixProvider {
     def handleMissingLink(Issue issue, IssueResolutionAcceptor acceptor) {
         if (issue.getMessage().startsWith("Couldn't resolve reference to EObject '")) {
         	var String objectName = issue.getMessage().split("'").get(2);
-			importMissingEObject(issue, acceptor,objectName,"Interface");
+        	if (issue.uriToProblem.toString.contains("@params")) {
+				importMissingEObject(issue, acceptor,objectName,"Interface");
+				importMissingEObject(issue, acceptor,objectName,"Class");
+				createMissingInterface(issue, acceptor, objectName);
+				createMissingClass(issue, acceptor, objectName);
+        	}
+        	else {
+				importMissingEObject(issue, acceptor,objectName,"Interface");
+				importMissingEObject(issue, acceptor,objectName,"Class");
+				createMissingField(issue, acceptor, objectName);
+				createMissingLocalVariable(issue, acceptor, objectName);
+				createMissingConstant(issue, acceptor, objectName);
+				createMissingMethod(issue, acceptor, objectName);
+			}
+        }
+        else if (issue.getMessage().startsWith("Couldn't resolve reference to Class '")) {
+        	var String objectName = issue.getMessage().split("'").get(2);
 			importMissingEObject(issue, acceptor,objectName,"Class");
 			createMissingClass(issue, acceptor, objectName);
+        }
+        else if (issue.getMessage().startsWith("Couldn't resolve reference to Interface '")) {
+        	var String objectName = issue.getMessage().split("'").get(2);
+			importMissingEObject(issue, acceptor,objectName,"Interface");
 			createMissingInterface(issue, acceptor, objectName);
         }
         createLinkingIssueResolutions(issue, acceptor);
@@ -100,12 +126,12 @@ class AS3QuickfixProvider extends DefaultQuickfixProvider {
 	
 	private def createMissingClass(Issue issue, IssueResolutionAcceptor acceptor, String objectName) {
 		acceptor.accept(issue,
-			"Create class "+objectName, // label
-			"Create class "+objectName, // description
-			"outline-class.gif", // icon
+			"Create class "+objectName,
+			"Create a new class '"+objectName+"' within the same package",
+			"outline-class.gif",
 			new ISemanticModification() {
 				override apply(EObject element, IModificationContext context) throws Exception {
-					System.out.println("Class should be created in same package...");
+					// TODO Class should be created in same package...
 				}
 			}
 		);
@@ -113,36 +139,131 @@ class AS3QuickfixProvider extends DefaultQuickfixProvider {
 	
 	private def createMissingInterface(Issue issue, IssueResolutionAcceptor acceptor, String objectName) {
 		acceptor.accept(issue,
-			"Create interface "+objectName, // label
-			"Create interface "+objectName, // description
-			"outline-inetrface.gif", // icon
+			"Create interface "+objectName,
+			"Create a new interface '"+objectName+"' within the same package",
+			"outline-interface.gif",
 			new ISemanticModification() {
 				override apply(EObject element, IModificationContext context) throws Exception {
-					System.out.println("Interface should be created in same package...");
+					// TODO Interface should be created in same package...
 				}
 			}
 		);
 	}
 	
+	private def createMissingMethod(Issue issue, IssueResolutionAcceptor acceptor, String objectName) {
+		acceptor.accept(issue,
+			"Create function "+objectName,
+			"Create a new function '"+objectName+"'\n\nprivate function "+objectName+"(...) {\n}",
+			"outline-function-private.gif",
+			new ISemanticModification() {
+				override apply(EObject element, IModificationContext context) throws Exception {
+					// TODO Function should be created after current function in same class...
+				}
+			}
+		);
+	}
+
+	private def createMissingField(Issue issue, IssueResolutionAcceptor acceptor, String objectName) {
+		acceptor.accept(issue,
+			"Create field "+objectName,
+			"Create a new field '"+objectName+"'\n\nprivate var "+objectName+";",
+			"outline-field-private.gif",
+			new ISemanticModification() {
+				override apply(EObject element, IModificationContext context) throws Exception {
+					// TODO Function should be created after current function in same class...
+				}
+			}
+		);
+	}
+
+	private def createMissingLocalVariable(Issue issue, IssueResolutionAcceptor acceptor, String objectName) {
+		acceptor.accept(issue,
+			"Create local variable "+objectName,
+			"Create a new local variable '"+objectName+"'\n\nprivate var "+objectName+";",
+			"outline-field-private.gif",
+			new ISemanticModification() {
+				override apply(EObject element, IModificationContext context) throws Exception {
+					// TODO Function should be created after current function in same class...
+				}
+			}
+		);
+	}
+
+	private def createMissingConstant(Issue issue, IssueResolutionAcceptor acceptor, String objectName) {
+		acceptor.accept(issue,
+			"Create constant "+objectName,
+			"Create a new constant '"+objectName+"'\n\nprivate const "+objectName+";",
+			"outline-field-private.gif",
+			new ISemanticModification() {
+				override apply(EObject element, IModificationContext context) throws Exception {
+					// TODO Function should be created after current function in same class...
+				}
+			}
+		);
+	}
+
 	private def importMissingEObject(Issue issue, IssueResolutionAcceptor acceptor, String objectName, String typeName) {
 		iXtextEObjectSearch.findMatches(objectName, typeName).forEach[
 			descriptor |
-			val String qName = (descriptor as EObjectDescription).qualifiedName.toString;    
-			if (qName.endsWith(objectName)) {
-				acceptor.accept(issue,
-					"Import "+qName, // label
-					"Import "+qName, // description
-					"outline-import.gif", // icon
-					new ISemanticModification() {
-						override apply(EObject element, IModificationContext context) throws Exception {
-							var InsertImportCommand command = new InsertImportCommand();
-							var int importOffset = command.getImportOffset(element, qName);
-							command.apply(context.xtextDocument as IDocument, importOffset, qName);
-						}
-					}
-				);
+			var String qName = "";
+			if (descriptor instanceof EObjectDescription) {
+				qName = (descriptor as EObjectDescription).qualifiedName.toString;    
 			}
+			else if (descriptor instanceof org.eclipse.xtext.resource.EObjectDescription) {
+				qName = (descriptor as org.eclipse.xtext.resource.EObjectDescription).qualifiedName.toString;
+			}
+			acceptAddImport(qName, objectName, acceptor, issue)
 		]
 	}
 	
+	private def acceptAddImport(String qName, String objectName, IssueResolutionAcceptor acceptor, Issue issue) {
+		if (qName.endsWith(objectName)) {
+			acceptor.accept(issue,
+				"Import "+qName,
+				"Add a new import statement.\n\nimport "+qName+";",
+				"outline-import.gif",
+				new ISemanticModification() {
+					override apply(EObject element, IModificationContext context) throws Exception {
+						var InsertImportCommand command = new InsertImportCommand();
+						var int importOffset = command.getImportOffset(element, qName);
+						command.apply(context.xtextDocument as IDocument, importOffset, qName);
+					}
+				}
+			);
+		}
+	}
+
+    /**
+     * Provide a fix when reserved keywords are used as identifiers 
+     */
+     @Fix(AS3SyntaxErrorMessageProvider::USED_RESERVED_KEYWORD)
+     def public void reservedKeywordUsed(Issue issue, IssueResolutionAcceptor acceptor) {
+        var tempText = issue.data?.get(0);
+        if (tempText == null) {
+        	tempText = issue.message.split("\"").get(1);
+        }
+        val unexpectedText = tempText;
+        acceptor.accept(issue, 
+        		'''Change '«unexpectedText»' to '«unexpectedText.generateUniqueIdentifier».' ''',
+        		'''Change '«unexpectedText»' to '«unexpectedText.generateUniqueIdentifier»', which is not a reserved keyword.''',  
+                "correction_linked_rename.gif",
+                [ IModificationContext context |
+                    val xtextDocument = context.getXtextDocument
+                    xtextDocument.replace(issue.offset, issue.length, unexpectedText.generateUniqueIdentifier)
+                ])
+     }
+
+     def String generateUniqueIdentifier(String text) {
+        val candidate = 'my' + text?.toFirstUpper?:'Name'
+        var count = 1
+        val reserved = GrammarUtil::getAllKeywords(grammarAccess.getGrammar())
+        if (reserved.contains(candidate)) {
+            while (reserved.contains(candidate + count)) {
+                count = count + 1
+            }
+            return candidate + count
+        }
+        return candidate        
+     }
+
 }
