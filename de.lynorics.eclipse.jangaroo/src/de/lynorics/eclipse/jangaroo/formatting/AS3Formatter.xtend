@@ -32,7 +32,7 @@ class AS3Formatter extends AbstractDeclarativeFormatter {
 
   override protected void configureFormatting(FormattingConfig c) {
   	// format global
-    //GenericFormatter.genericFormatting(c, g);
+//    GenericFormatter.genericFormatting(c, g);
     c.setLinewrap(0, 1, 2).before(g.getSL_COMMENTRule());
     c.setLinewrap(0, 1, 2).before(g.getML_COMMENTRule());
     c.setLinewrap(0, 1, 1).after(g.getML_COMMENTRule());
@@ -118,9 +118,9 @@ class AS3Formatter extends AbstractDeclarativeFormatter {
     //        c.setLinewrap.before(pair.value);
     //        c.setLinewrap.after(pair.value);
     //      }
-    //      for (Keyword comma : f.findKeywords(",")) {
-    //        c.setNoSpace().before(comma);
-    //      }
+          for (Keyword comma : g.findKeywords(",")) {
+            c.setNoSpace().before(comma);
+          }
     //  
     //      // formatting for grammar rule Line
     //      c.setLinewrap(2).after(f.getLineAccess().getSemicolonKeyword_1());
