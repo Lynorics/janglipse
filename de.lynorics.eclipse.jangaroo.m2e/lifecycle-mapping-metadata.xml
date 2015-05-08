@@ -34,7 +34,9 @@
 				</goals>
 			</pluginExecutionFilter>
 			<action>
-				<ignore />
+				<ignore>
+					<message>jangaroo-maven-plugin (goal "properties") is ignored by m2e.</message>
+				</ignore>
 			</action>
 		</pluginExecution>
 		<pluginExecution>
@@ -63,8 +65,10 @@
 				</goals>
 			</pluginExecutionFilter>
 			<action>
-				<ignore />
+				<ignore>
+					<message>exml-maven-plugin (goal "exml-xsd") is ignored by m2e.</message>
+				</ignore>
 			</action>
 		</pluginExecution>
-			</pluginExecutions>
+	</pluginExecutions>
 </lifecycleMappingMetadata>
