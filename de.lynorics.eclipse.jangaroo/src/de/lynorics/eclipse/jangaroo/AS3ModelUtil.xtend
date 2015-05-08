@@ -66,6 +66,16 @@ class AS3ModelUtil {
     e.getContainerOfType(typeof(Class));
   } 
 
+	def static classHierarchy(Class c) {
+		val visited = <Class>newArrayList()
+		var current = c.superclass
+		while (current != null && !visited.contains(current)) {
+			visited.add(current)
+			current = current.superclass
+		}
+		visited
+	}
+	
   /**
    * @return the containing method of the EObject
    * 
@@ -89,12 +99,12 @@ class AS3ModelUtil {
   *         null if it doesn't exist
   */
   def static <E extends EObject> E findParentOfType(EObject start, java.lang.Class<E> type) {
-    return     start.getContainerOfType(type);
-//    var EObject current = start
-//    while (current!=null && !(type.isInstance(current))) {
-//      current = current.eContainer;
-//    }
-//    return current as E;
+//    return     start.getContainerOfType(type);
+    var EObject current = start;
+    while (current!=null && !(type.isInstance(current))) {
+      current = current.eContainer;
+    }
+    return current as E;
   }
 
   /**
