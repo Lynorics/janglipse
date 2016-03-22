@@ -2,6 +2,7 @@
 janglipse
 =========
 [![Build Status](https://secure.travis-ci.org/Lynorics/janglipse.png)](http://travis-ci.org/Lynorics/janglipse)
+[![Code Climate](https://codeclimate.com/github/Lynorics/janglipse/badges/gpa.svg)](https://codeclimate.com/github/Lynorics/janglipse)
 
 [Jangaroo](http://www.jangaroo.net) integration for [Eclipse](http://www.eclipse.org/) based upon [Xtext](http://www.xtext.org/)
 
