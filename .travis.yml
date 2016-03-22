@@ -2,6 +2,3 @@ language: java
 
 before_script: cd de.lynorics.eclipse.jangaroo.releng && mvn install -DskipTests=true
 
-addons:
-    code_climate:
-        repo_token: 26c316ded9a16c1b5c2486c619f8c7453065e5fff3630adcfbc89225b01cbb2c
